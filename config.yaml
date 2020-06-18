@@ -4,8 +4,10 @@ title: "Embrace Docs"
 theme: "book"
 publishDir: "public/docs"
 
+
 params:
   sdkVersion:
     ios: "1.0.0"
     android: "1.0.1"
     rn: "2.0.0"
+  BookSection: '*'
