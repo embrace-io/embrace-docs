@@ -1,4 +1,4 @@
-baseURL: "http://example.org/"
+baseURL: "http://example.org/docs/"
 languageCode: "en-us"
 title: "Embrace Docs"
 theme: "book"
