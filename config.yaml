@@ -1,0 +1,10 @@
+baseURL: "http://example.org/"
+languageCode: "en-us"
+title: "Embrace Docs"
+theme: "book"
+
+params:
+  sdkVersion:
+    ios: "1.0.0"
+    android: "1.0.1"
+    rn: "2.0.0"
