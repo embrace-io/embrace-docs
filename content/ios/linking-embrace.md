@@ -65,8 +65,99 @@ following steps:
 
 ## Carthage
 
-stuff here
+Carthage is a dependency manager for iOS applications, you can learn more about
+it [here](https://github.com/Carthage/Carthage). Carthage handles less of the
+integration for you so there will be more manual steps. However, you get to
+retain more control over how your project is built and linked. Note that
+Embrace is distributed as a binary artifact, so Carthage is only downloading the
+artifact in this case.
+
+
+First edit or create a `Cartfile` at the root of your project, add a line to file
+as follows:
+```sh
+binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+```
+
+
+Now run `carthage update` from the root and carthage will download and prepare
+the Embrace framework for integration:
+
+```sh
+elanz in ~/dev/playground/carthagetester  > Carthage update
+*** Downloading binary-only framework embrace-ios at
+"https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+*** xcodebuild output can be found in
+/var/folders/qp/gt8h3p297jb778655s3c4z4h0000gn/T/carthage-xcodebuild.e1oenh.log
+*** Downloading binary-only framework embrace-ios at
+"https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+*** Downloading embrace-ios.framework binary at "4.1.18"
+```
+
+{{< figure src="/docs/images/carthage-download-example.png" alt="Carthage download example" title="Carthage Folder" caption="Carthage downloads binary dependencies into a folder called 'Carthage' under the project root." >}}
+
+
+At this point Carthage has downloaded the Embrace binary artifact and placed it
+in a folder at the root of your project.  
+
+To continue with your integration, find that framework and have it's location
+open in a finder window. Also, open your project or workspace in xcode. From
+here you should follow the Carthage integration documentation for adding
+frameworks to a project, which you can find [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+
+After you've completed that, you should be able to import and use the Embrace
+module in your project. If you encounter any issues it might help to read
+through the manual integration steps below as they go over a lot of the same
+concepts as used by Carthage.
+ 
 
 ## Manual
 
-stuff here
+Adding a new framework to your project manually really isn't that difficult.
+Just follow along with the screenshots and reach out on Slack if you want any
+help during the process.
+
+Manually linking Embrace is slightly more complex than the other methods. Here
+is the general process we will be following:
+
+1. Download the Embrace SDK distribution
+1. Add the Embrace framework to our project
+1. Setup embedding so the framework is included with builds
+1. Import Embrace and perform a test build
+
+First we must download the latest Embrace release. Embrace is distributed as a
+zip file, the latest version is currently hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{< sdk platform="ios">}}.zip).
+After downloading the zip, extract it into a location within your project. If you
+don’t already have a spot for third party frameworks, we recommend following the
+file structure shown here:
+
+{{< figure src="/docs/images/ios-download-embrace-sdk.png" alt="Embrace SDK extracted into third_party folder."
+title="Download Embrace SDK" caption="The Embrace SDK was extracted into a folder called third_party. Setting up a good folder structure now will help as your project grows in complexity.">}}
+
+Next open your project file and a finder window showing the Embrace framework,
+it should look something like this:
+
+{{< figure src="/docs/images/ios-prepare-manual-linking.png" alt="Preparation for the manual linking step" title="Manual linking" caption="Preparation for the manual linking step" >}}
+
+Now move to the ‘Build Phases’ tab in Xcode and expand the “Link Binary with
+Libraries” phase.
+
+{{< figure src="/docs/images/ios-build-phase-tab.png" alt="Build Phases tab" title="Build Phases tab" caption="On the Build Phases tab with the the Linking phase expanded" >}}
+
+We’re going to drag the Embrace.framework into the Linking phase in Xcode. Make
+sure to drag the .framework and not the outer folder containing the readme file.
+
+{{< figure src="/docs/images/ios-xcode-group.png" alt="Drag in framework" title="Drag into Xcode" caption="After dragging in the framework, Xcode automatically created a group for it in the project." >}}
+
+We’re almost done. Our framework is now being linked when we build. However, it
+will not be automatically included in our App Store release unless we also embed
+the framework. There are a number of ways to accomplish this; if you are already
+using a technique, please continue. We recommend using the General tab's linking
+and embedding settings. Make sure to choose "Embed without signing" as the
+Embrace binary is distributed in an already signed format.
+
+{{< figure src="/docs/images/ios-embed-framework.png" alt="Using the General tab" title="General tab" caption="Using the General tab to configure embedding the Embrace framework" >}}
+
+At this point you've completed the manual integration of Embrace. You can now
+import the Embrace module into your application and perform a test build to make
+sure this all worked.
