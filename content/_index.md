@@ -25,7 +25,7 @@ process of integrating Embrace into your application and organization.
 
 TODO: Fill in some copy here.
 
-[Get Started With iOS]({{< relref "/android" >}})
+[Get Started With Android]({{< relref "/android" >}})
 
 
 <--->
@@ -34,7 +34,7 @@ TODO: Fill in some copy here.
 
 TODO: Fill in some copy here.
 
-[Get Started With Android]({{< relref "/ios" >}})
+[Get Started With iOS]({{< relref "/ios" >}})
 
 
 <--->
