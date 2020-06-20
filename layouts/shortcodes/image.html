@@ -1,0 +1,17 @@
+<figure>
+  <amp-img
+  {{ with .Params.src }}src="{{ . }}"{{ end }}
+  {{ with .Params.width }}width="{{ . }}"{{ end }}
+  {{ with .Params.height }}height="{{ . }}"{{ end }}
+  {{ with .Params.alt }}alt="{{ . }}"{{ end }}
+  layout="responsive"
+  ></amp-img>
+  <figcaption>
+    {{ with .Params.title }}
+    <h4>{{ . }}</h4>
+    {{ end }}
+
+    {{ with .Params.caption }}
+    <p>{{ . }}</p>
+    {{ end }}
+  </figcaption>

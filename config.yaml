@@ -3,7 +3,16 @@ languageCode: "en-us"
 title: "Embrace Docs"
 theme: "book"
 publishDir: "public/docs"
-
+outputs:
+  page:
+    - AMP
+    - HTML
+  home:
+    - HTML
+    - AMP
+  section:
+    - HTML
+    - AMP
 
 params:
   sdkVersion:
@@ -11,3 +20,4 @@ params:
     android: "1.0.1"
     rn: "2.0.0"
   BookSection: '*'
+  BookMenuReset: false
