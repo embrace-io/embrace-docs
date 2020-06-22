@@ -1,8 +1,9 @@
 ---
-title: "Linking Embrace"
+title: Linking Embrace
 weight: 2
----
+description: Linking Embrace with your application is quick and easy.
 
+---
 # Linking Embrace with your Application
 
 Embrace is distributed as a framework.
