@@ -8,3 +8,9 @@ fields:
 - type: number
   name: weight
   label: weight
+- name: description
+  type: text
+  config:
+    required: false
+  label: Description
+  description: Fills in the description meta tag
