@@ -1,13 +1,16 @@
 ---
-label: Test
+label: Page
 hide_body: false
 fields:
 - type: text
   name: title
-  label: title
+  label: Title
+  description: Determines the title meta tag.
 - type: number
   name: weight
-  label: weight
+  label: Weight
+  description: This field determines the position of the page in the menu. The links
+    in the menu are sorted in ascending order.
 - name: description
   type: text
   config:
