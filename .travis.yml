@@ -25,7 +25,7 @@ jobs:
   include:
     - <<: *hugo-build-deploy
       name: deploy to staging
-      if: (branch = setup-travis) AND (NOT type IN (pull_request))
+      if: (branch = master) AND (NOT type IN (pull_request))
       env:
         - ENV=stg
         - STAGING=true
