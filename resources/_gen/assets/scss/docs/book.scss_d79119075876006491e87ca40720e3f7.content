@@ -893,3 +893,6 @@ body {
 
 code {
   font-family: 'Roboto Mono', monospace; }
+
+.book-brand img {
+  margin-inline-end: 0; }
