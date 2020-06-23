@@ -33,7 +33,7 @@ jobs:
         - CLOUDFRONT_ID="E20WGO1Z361L37"
     - <<: *hugo-build-deploy
       name: deploy to production
-      if: tag =~ ^([0-9]+\.[0-9]+\.[0-9]+)$ AND (branch = master)
+      if: tag =~ ^([0-9]+\.[0-9]+\.[0-9]+)$
       env:
         - ENV=prod
         - BUCKET=prod.embrace.io-docs
