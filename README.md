@@ -75,3 +75,10 @@ specify the width and height to be AMP-compatible, and to also improve SEO.
 ```
 
 [Additional shortcodes](https://themes.gohugo.io/hugo-book/#shortcodes) are available from the [theme](https://github.com/alex-shpak/hugo-book) we're using.
+
+### Deployment
+
+Travis-CI will deploy any new commit to the master branch to `dev.embrace.io/docs`
+
+
+To deploy to production, create a new release with a Semantic Version (e.g. 1.2.4)
