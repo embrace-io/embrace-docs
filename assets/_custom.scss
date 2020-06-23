@@ -52,3 +52,17 @@ code {
   margin-inline-end: 0;
 }
 
+.markdown figure figcaption {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.markdown figure figcaption h4 {
+  margin: 10px 10px 0 0;
+  white-space: nowrap;
+}
+
+.markdown figure figcaption p {
+  font-style: italic;
+}
