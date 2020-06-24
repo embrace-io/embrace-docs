@@ -11,7 +11,7 @@ weight: 1
 1. **Create your first session.** You'll launch your app after you've
    initialized Embrace, and be able to see your first session in the Embrace
    Dashboard.
-1. **Collect your first crash report.** Generate a crash and see the report that
+1. [**Collect your first crash report.**]({{< relref "/android/crash-reporting" >}}) Generate a crash and see the report that
    gets uploaded.
 1. [**Add a Breadcrumb.**]({{< relref "/android/breadcrumbs" >}}) Log messages using the Embrace SDK.
 1. **Know your users.** Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
