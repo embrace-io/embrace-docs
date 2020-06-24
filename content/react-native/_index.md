@@ -1,4 +1,5 @@
 ---
+bookCollapseSection: true
 title: "React Native"
 weight: 1
 ---
