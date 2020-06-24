@@ -19,20 +19,11 @@ Embrace.sharedInstance()?.logBreadcrumb(withMessage: msg)
 This is an example of a log we added to our sample application so we'd know when the user enters and exits editing mode on our table view.
 This event is not otherwise shown in the session and can be important depending on what the user does next.
 
-## Best Practices
+{{< hint info >}}
 
-This is a powerful feature. However, also easy to misuse.
-Think carefully about the logging that you add. Remember that you will be looking at these logs days after a problem session occurred, and without access to the user who created the session.
-Your logs must be detailed enough to help you generate a reproducible use-case, but light enough that they don’t distract you or cause you to read redundant information. 
+For how to best use Breadcrumbs, check out the [Best Practices]({{< relref "/best-practices/breadcrumbs" >}}) page. 
 
-For example, Embrace already collects all networking and WKWebView navigation events by default.
-Before you add logging around these events, take a look at one of your sessions in the Embrace Dashboard.
-It is likely all the information you'd want to log is already present. When adding logs, ensure they are not duplicating information already in the session.
-Your goal is to solve problems quickly. Having to read superfluous info logs is not going to be helpful.
-
-Log unique events, or decisions that the user makes that won't be obvious from other events in the session.
-Your logging should provide you a map of the route the user took through your application.
-You should be able to read this map and recreate the user's journey on your own device.
+{{< /hint >}}
  
 ---
 
