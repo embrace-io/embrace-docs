@@ -24,7 +24,7 @@ There are even instructions to [automatically monitor for new releases](https://
 
 ## Updating Manually 
 
-When a new version of the Embrace SDK is published we announce it in our slack channels. 
+When a new version of the Embrace SDK is published we announce it in our Slack channels. 
 
 If you’d like to upgrade, simply grab the latest version, which is hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{< sdk platform="ios">}}.zip).
 

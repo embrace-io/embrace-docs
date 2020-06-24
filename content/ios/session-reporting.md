@@ -7,7 +7,7 @@ weight: 3
 
 ## Create your first session
 
-Now that you've got Embrace linked know how to login to the Embrace Dashboard,
+Now that you've got Embrace linked and know how to login to the Embrace Dashboard,
 it's time to collect your first session.  
 
 Embrace always uploads sessions on subsequent launches. This means the general
@@ -113,7 +113,7 @@ it's version number.
 
 {{< hint info >}}
 
-If you encounter any errors, please get in touch on slack and we can help you out.
+If you encounter any errors, please get in touch on Slack and we can help you out.
 
 {{< /hint >}}
 

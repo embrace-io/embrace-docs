@@ -8,7 +8,7 @@ weight: 1
 1. [**Login to the Embrace Dashboard.**]({{< relref "/android/login-embrace-dashboard" >}}) Your data is available in the dashboard. It is important that you have this open while working on the integration to monitor progress.
 1. [**Adding the Embrace SDK.**]({{< relref "/android/add-embrace-sdk" >}}) We'll be adding the Embrace SDK to your project
    with Gradle.
-1. **Create your first session.** You'll launch your app after you've
+1. [**Create your first session.**]({{< relref "/android/session-reporting" >}}) You'll launch your app after you've
    initialized Embrace, and be able to see your first session in the Embrace
    Dashboard.
 1. [**Collect your first crash report.**]({{< relref "/android/crash-reporting" >}}) Generate a crash and see the report that
