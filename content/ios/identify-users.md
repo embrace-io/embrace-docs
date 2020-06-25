@@ -21,7 +21,7 @@ These mechanisms annotate the session so that you can subsequently filter and so
 
 We offer a set of methods to set the username, the email address, or a user identifier.
 
-{{< hint info >}}
+{{< hint warning >}}
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend including an anonymized user ID that only your agents can search for.
