@@ -24,3 +24,8 @@ params:
   BookLogo: 'images/embrace-logo.png'
   BookLogoWidth: 200
   BookLogoHeight: 60
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
