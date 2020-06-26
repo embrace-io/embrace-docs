@@ -21,7 +21,7 @@ Embrace requires the following:
 * Android Build Tools Plugin 3.+
 * Java 8
 
-if you use a version older than any of those listed above, please contact us via
-email at [support@embrace.io](support@embrace.io) or reach out to us on Slack.
+If you use a version older than any of those listed above, please contact us via
+email at <support@embrace.io> or reach out to us on Slack.
 
 {{< button relref="/android/integration-steps" >}}To Integration Steps{{< /button >}}

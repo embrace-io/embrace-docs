@@ -49,3 +49,9 @@ You can end the Moment from multiple locations in your app, or from multiple thr
 
 In addition to measuring performance, Moments can also measure abandonment.
 For more on tracking abandonment, see the [Best Practices]({{< relref "/best-practices/app-performance" >}}) section.
+
+---
+
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/android/next-steps" >}}) page to wrap up your integration.
+
+{{< button relref="/android/next-steps" >}}Next Steps{{< /button >}}
