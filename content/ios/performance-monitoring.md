@@ -1,6 +1,6 @@
 ---
 title: "Performance Monitoring"
-weight: 11
+weight: 10
 ---
 
 # Measure Performance
@@ -51,3 +51,10 @@ You can end the Moment from multiple locations in your app, or from multiple thr
 
 In addition to performance, Moments also measure abandonment by default. 
 For more on tracking abandonment, see the [Best Practices]({{< relref "/best-practices/app-performance" >}}) section.
+
+---
+
+Finally, learn how to annotate sessions with user identifiers so you can search
+for them later.
+
+{{< button relref="/ios/identify-users" >}}Know Your Users{{< /button >}}

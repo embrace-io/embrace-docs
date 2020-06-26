@@ -1,6 +1,6 @@
 ---
 title: "Log Message API"
-weight: 10
+weight: 9
 ---
 
 # Adding Alerts
@@ -43,7 +43,12 @@ This can have a negative effect on your application's performance or battery lif
 It can also be an invaluable tool for getting information about your application quickly.
 
 {{< hint info >}}
-For more tips on making the most of the Log Message API, checkout the [Best Practices]().
+For more tips on making the most of the Log Message API, checkout the [Best Practices]({{ relref "/best-practices/log-message-api" }}).
 {{< /hint >}}
 
+---
 
+Embrace offers an API to measure the performance of key actions within your app. 
+Let's learn about **Moments** next.
+
+{{< button relref="/ios/performance-monitoring" >}}Learn About Moments{{< /button >}}

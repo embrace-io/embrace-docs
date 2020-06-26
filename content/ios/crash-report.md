@@ -52,3 +52,10 @@ This means that after seeing the application crash, you must now launch the appl
 
 Once uploaded you should notice that your session is marked with the "crashed" icon.
 Additionally your crash is visible in the crashes section of the dashboard.
+
+---
+
+In the next section, you'll be learning how to add Breadcrumb logs to add
+context to sessions. 
+
+{{< button relref="/ios/breadcrumbs" >}}Learn About Breadcrumb Logging{{< /button >}}

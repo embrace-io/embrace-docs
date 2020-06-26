@@ -16,3 +16,10 @@ Once logged in, select your application and you will be taken to our integration
 {{< image src="/docs/images/android-integration.png" alt="Integration page" title="Integration Page" caption="Note the message box with your app ID and API token at the bottom" width="3068" height="1520" >}}
 
 Keep your dashboard tab open throughout the integration process.  This will help you become familiar with the user interface and features, and also assist in verifying that the integration is working as expected.
+
+---
+
+Next, we're going to send data to Embrace so we can finally see some interesting
+things in the dashboard.
+
+{{< button relref="/ios/session-reporting" >}}Create Your First Session{{< /button >}}

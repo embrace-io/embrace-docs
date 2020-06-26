@@ -29,7 +29,10 @@ This phase is going to be calling Embrace's `run.sh` upload script. You can conf
 The run.sh script is distributed alongside the `Embrace.framework` file. Depending on how you linked Embrace, this file will be in a different location.
 See the section relevant for your integration for how to call the run script.
 
-{{< expand "CocoaPods" >}}
+{{< tabs "runscript" >}}
+
+{{< tab "CocoaPods" >}}
+
 Use this command format for CocoaPods integrations.
 
 ```sh
@@ -38,9 +41,9 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run
 
 Notice how the script's location is a reference to the CocoaPods installation folder.
 
-{{< /expand >}}
+{{< /tab >}}
 
-{{< expand "Carthage" >}}
+{{< tab "Carthage" >}}
 
 Carthage linking requires a download of a Carthage Support zip file from [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_carthage_support.zip). 
 
@@ -52,9 +55,9 @@ The zip file contains the `run.sh` script, so modify the path below to match you
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$(SRCROOT)/my/path/EmbraceIO/run.sh"
 ```
 
-{{< /expand >}}
+{{< /tab >}}
 
-{{< expand "Manual" >}}
+{{< tab "Manual" >}}
 
 For Manual linking, the command looks similar to the CocoaPods version but the location has changed.
 
@@ -64,7 +67,9 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$(SRCROOT)/third_party/Emb
 
 In this version we're referencing the Embrace folder inside our `third_party` folder at the root of our project.  
 
-{{< /expand >}}
+{{< /tab >}}
+ 
+{{< /tabs >}}
 
 {{< hint info >}}
 In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script.
@@ -95,4 +100,7 @@ This process can be scripted into your CI backend as well. Simply include the up
 
 dSYM's are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
 
+In the next section, we'll learn how to keep Embrace updated.
+
+{{< button relref="/ios/update-embrace" >}}Keeping Embrace Up To Date{{< /button >}}
 

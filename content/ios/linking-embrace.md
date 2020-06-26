@@ -160,3 +160,10 @@ Embrace binary is distributed in an already signed format.
 At this point you've completed the manual integration of Embrace. You can now
 import the Embrace module into your application and perform a test build to make
 sure this all worked.
+
+---
+
+Next, let's make sure we upload dSYMs correctly so stack traces get
+symbolicated.
+
+{{< button relref="/ios/dsym-upload" >}}Learn About dSYM Uploads{{< /button >}}

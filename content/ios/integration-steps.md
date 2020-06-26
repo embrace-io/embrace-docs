@@ -23,8 +23,8 @@ steps to complete your integration:
 1. [**Create your first session.**]({{< relref "/ios/session-reporting" >}}) This involves launching your application with Embrace linked, and verifying the data shown in the dashboard.
 1. [**Collect your first crash report.**]({{< relref "/ios/crash-report" >}}) Here you will use Embrace to generate an on-purpose crash in your application so you can learn how those reports are collected and displayed.
 1. [**Add a breadcrumb.**]({{< relref "/ios/breadcrumbs" >}}) Learn how logging works in Embrace and how to port any existing logs you may have to the Embrace SDK.
-1. [**Know your users.**]({{< relref "/ios/identify-users" >}}) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 1. [**Add Alerts.**]({{< relref "/ios/log-message-api" >}}) Use Embrace’s Log Events to power a real-time alerting system so you can rest easy knowing we will tell you if your application breaks.
 1. [**Measure Performance.**]({{< relref "/ios/performance-monitoring" >}}) In this final section you will learn how you can use Embrace to go beyond logging and crashes and start to examine critical user flows within your application. Measure performance, completion and abandonment easily and consistently.
+1. [**Know your users.**]({{< relref "/ios/identify-users" >}}) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 
 {{< button relref="/ios/linking-embrace" >}}Get started{{< /button >}}
