@@ -1,6 +1,6 @@
 ---
-title: Next Steps
-weight: 10
+title: "Next Steps"
+weight: 12
 ---
 
 # Next Steps
@@ -15,7 +15,7 @@ please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 ## API Docs
 
 To see the full list of methods that the Android Embrace SDK exposes, please see
-the [Android API docs]({{< api android >}}).
+the [iOS API docs]({{< api ios >}}).
 
 ## Best Practices
 

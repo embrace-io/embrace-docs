@@ -62,3 +62,9 @@ This is to indicate normal launches by the user.
 When the app is launched via a push notification tap, you can set the value `"push"`.
 This can help to understand issues that are hurting push notification adoption rates.
 For example, you could prioritize fixing the issues that affect customers that use push notifications, since they generally provide higher lifetime value.
+
+---
+
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/ios/next-steps" >}}) page to wrap up your integration.
+
+{{< button relref="/ios/next-steps" >}}Next Steps{{< /button >}}

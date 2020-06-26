@@ -32,4 +32,4 @@ steps you would otherwise have to do yourself.
 If you have an established application then follow the path that most closely
 matches the processes you are already using to build your application.
 
-{{< button relref="/ios/integration-steps" >}}To Ingration Steps{{< /button >}}
+{{< button relref="/ios/integration-steps" >}}To Integration Steps{{< /button >}}
