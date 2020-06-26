@@ -29,12 +29,9 @@ Embrace.getInstance().startEvent("addItem");
 
 In a fictional scenario, this is a Moment we're using to measure how quickly an item is added to a `ListView` after a user selects the plus button.
 
-{{< hint info >}}
-
 You can also start a Moment with **properties**, an **identifier**, and **screenshots**.
-For more on this, check out the [API docs]() (TODO: Link).
+For more on this, check out the [API docs]({{< api android >}}).
 
-{{< /hint >}}
 
 ## Ending a Moment
 
