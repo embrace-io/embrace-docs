@@ -4,7 +4,15 @@ title: "iOS"
 weight: 2
 ---
 
-# Decisions You Need To Make
+# iOS Integration
+
+## Getting Starged
+
+We'll be guiding you through integrating Embrace into your Android application
+with a series of articles. We recommend going through them in order, although
+you are free to skip around. 
+
+## Decisions You Need To Make
 
 Before you dive into integrating Embrace there are a few decisions you should
 make to help guide your process:
