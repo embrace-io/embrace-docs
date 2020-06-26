@@ -1,7 +1,7 @@
 ---
 bookCollapseSection: true
 title: "Best Practices"
-weight: 1
+weight: 4
 ---
 
 # Best Practices

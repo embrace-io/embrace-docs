@@ -1,7 +1,7 @@
 ---
 bookCollapseSection: true
 title: "React Native"
-weight: 1
+weight: 3
 ---
 
 # Introduction
