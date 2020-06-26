@@ -10,7 +10,7 @@ weight: 9
 Embrace also contains a powerful stopwatch and abandonment tracking feature, which we call **Moments**.
 This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/android/session-reporting" >}}) section.
 
-Similar to [Logs]() (TODO: add link), Moments will immediately make a network request.
+Similar to [Logs]({{< relref "/android/log-message-api" >}}), Moments will immediately make a network request.
 
 {{< hint info >}}
 The performance of the networking calls that Moments make are unrelated to the performance of the Moment itself.
