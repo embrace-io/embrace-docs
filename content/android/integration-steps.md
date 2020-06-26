@@ -13,8 +13,8 @@ weight: 1
    Dashboard.
 1. [**Collect your first crash report.**]({{< relref "/android/crash-reporting" >}}) Generate a crash and see the report that
    gets uploaded.
-1. [**Add a Breadcrumb.**]({{< relref "/android/breadcrumbs" >}}) Log messages using the Embrace SDK.
 1. [**Know your users.**]({{< relref "/android/identify-users" >}}) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
+1. [**Add a Breadcrumb.**]({{< relref "/android/breadcrumbs" >}}) Log messages using the Embrace SDK.
 1. [**Add Alerts.**]({{< relref "/android/log-message-api" >}}) Use Embrace’s Log Events to power a real-time alerting system so you can rest easy knowing we will tell you if your application breaks.
 1. [**Measure Performance.**]({{< relref "/android/performance-monitoring" >}}) In this section you'll learn how you can leverage Embrace to go beyond logs and crashes to examine critical user flows within your app. Measure performance, completion, and abandonment easily and consistently.
 

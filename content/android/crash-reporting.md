@@ -1,6 +1,6 @@
 ---
 title: "Crash Reporting"
-weight: 4
+weight: 5
 ---
 
 # Collect Your First Crash Report
@@ -45,6 +45,6 @@ on Slack and we'll work with you directly.
 
 ---
 
-In the next section, you'll learn about adding context to session with logs.
+In the next section, you'll learn how to annotate sessions with user identifiers so you can search for them later.
 
-{{< button relref="/android/breadcrumbs" >}}Learn About Breadcrumb Logs{{< /button >}}
+{{< button relref="/android/identify-users" >}}Identify Your Users{{< /button >}}

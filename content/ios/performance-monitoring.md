@@ -32,12 +32,8 @@ We start the Moment when we add the item, and we'll end it when the animation fi
 Our UX designers have been experimenting with different animation styles, and we've read in our reviews that some users get annoyed by the animation and quit the app over it.
 We wanted to verify that for ourselves.
 
-{{< hint info >}}
-
 You can also start a Moment with **properties**, an **identifier**, and **screenshots**.
-For more on this, check out the {{< api platform="ios" >}}API docs{{< /api >}}.
-
-{{< /hint >}}
+For more on this, check out the [API docs]({{< api ios >}}).
 
 ## Ending a Moment
 

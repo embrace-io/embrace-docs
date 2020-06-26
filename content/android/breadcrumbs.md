@@ -1,6 +1,6 @@
 ---
 title: "Breadcrumbs"
-weight: 6
+weight: 7
 ---
 
 # Add a Breadcrumb

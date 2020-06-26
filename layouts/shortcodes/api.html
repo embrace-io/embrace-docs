@@ -1,4 +1,4 @@
-{{ $platform := (.Get "platform") -}}
-{{ if (eq $platform "android") -}}[{{ .Inner }}](){{ end -}} <!-- TODO: Add Android URL -->
-{{ if (eq $platform "ios") -}}[{{ .Inner }}](){{ end -}} <!-- todo: add iOS url -->
-{{ if (eq $platform "rn") -}}[{{ .Inner }}](){{ end -}} <!-- todo: add RN url -->
+{{- $platform := (.Get 0) -}}
+{{ with (eq $platform "android") -}}android docs{{ end -}}
+{{ with (eq $platform "ios") -}}ios docs{{ end -}}
+{{ with (eq $platform "rn") -}}rn docs{{ end -}}

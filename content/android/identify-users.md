@@ -1,6 +1,6 @@
 ---
 title: "Identify Your Users"
-weight: 7
+weight: 6
 ---
 
 # Know Your Users
@@ -27,7 +27,7 @@ We recommend including an anonymized user ID that only your agents can search fo
 {{< /hint >}}
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, see the [API docs]() (// TODO: Add link). 
+For more methods on setting user values, see the [API docs]({{< api android >}}). 
 
 You can also set customized values for specific use cases or segments of users.
 
@@ -56,3 +56,9 @@ This is to indicate normal launches by the user.
 When the app is launched via a push notification tap, you can set the value `"push"`.
 This can help to understand issues that are hurting push notification adoption rates.
 For example, you could prioritize fixing the issues that affect customers that use push notifications, since they generally provide higher lifetime value.
+
+---
+
+In the next section, you'll learn how to add context to sessions using Breadcrumb logs.
+
+{{< button relref="/android/breadcrumbs" >}}Add Breadcrumb Logs{{< /button >}}
