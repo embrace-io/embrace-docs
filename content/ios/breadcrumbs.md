@@ -29,8 +29,8 @@ For how to best use Breadcrumbs, check out the [Best Practices]({{< relref "/bes
 
 We use the breadcrumb method for our logging and not the LogEvent method.
 Breadcrumbs are a lightweight way to add logging to your session. They add no CPU or memory overhead, and trigger no networking calls.
-`LogEvent` is a much heavier mechanism. We will learn about it in the [alerting]({{< relref "/ios/logging" >}}) section of the documentation.
+`LogEvent` is a much heavier mechanism. We will learn about it in the [alerting]({{< relref "/ios/log-message-api" >}}) section of the documentation.
 For now, just know that using breadcrumbs is the right thing to do most of the time.
 
-{{< button relref="/ios/logging" >}}Learn about alerting{{< /button >}}
+{{< button relref="/ios/log-message-api" >}}Learn about alerting{{< /button >}}
 

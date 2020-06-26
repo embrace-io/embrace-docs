@@ -72,4 +72,4 @@ Your app ID and API token are available on the Embrace dashboard.
 
 Next, you'll be creating your first session.
 
-{{< button >}}Create First Session{{< /button >}}
+{{< button relref="/android/session-reporting" >}}Create First Session{{< /button >}}
