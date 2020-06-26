@@ -33,4 +33,4 @@ Embrace SDK with your app.
 
 Now we are ready to add the SDK to your app.
 
-{{< button relref="/android/add-embrace-sdk" >}}Continue with integration{{< /button >}}
+{{< button relref="/android/add-embrace-sdk" >}}Add Embrace SDK{{< /button >}}

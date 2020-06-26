@@ -35,7 +35,7 @@ We wanted to verify that for ourselves.
 {{< hint info >}}
 
 You can also start a Moment with **properties**, an **identifier**, and **screenshots**.
-For more on this, check out the [API docs]() (TODO: Link).
+For more on this, check out the {{< api platform="ios" >}}API docs{{< /api >}}.
 
 {{< /hint >}}
 
