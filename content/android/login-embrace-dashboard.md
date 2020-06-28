@@ -11,7 +11,7 @@ Before being able to integrate, you'll need to create an account on the Embrace
 dashboard so you can access your app ID and API token. Open a browser and
 navigate to [dash.embrace.io](https://dash.embrace.io).
 
-Either login if you have created an account already, or follow the promps to
+Either login if you have created an account already, or follow the prompts to
 register for a new one.
 
 {{< image src="/docs/images/login-page.png" alt="Login page" title="Login Page" caption="The Embrace Dashboard login page" width="3068" height="1520" >}}
