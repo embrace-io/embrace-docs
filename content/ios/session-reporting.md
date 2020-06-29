@@ -15,6 +15,7 @@ process we're going to follow to collect our first session is:
 
 1. [**Import the Embrace module**]({{< relref "/ios/session-reporting#import-embrace" >}})
 1. [**Add a start call to the Embrace SDK**]({{< relref "/ios/session-reporting#add-a-start-call" >}})
+1. [**End the Startup Moment**]({{< relref "/ios/session-reporting#end-the-startup-moment" >}})
 1. [**Build and run our application**]({{< relref "/ios/session-reporting#build-and-run-your-application" >}})
     1. Verify Embrace started via the logs
 1. [**Trigger a session upload**]({{< relref "/ios/session-reporting#trigger-a-session-upload" >}})
@@ -76,8 +77,10 @@ Embrace.sharedInstance()?.setCleanLogsEnabled(true);
 This will tell Embrace to use swift-style logging that should look better as you work.
 {{< /hint >}}
 
-Finally, make sure to end the special "startup" moment that Embrace uses to track
-app launch performance. You can end this moment anywhere you choose. We
+## End the Startup Moment
+
+Finally, make sure to end the special "startup" Moment that Embrace uses to track
+app launch performance. You can end this Moment anywhere you choose. We
 recommend placing the call as close to the point that your UI is ready for use
 as possible, as doing so will give you the most accurate picture of the
 performance your users are experiencing with app launch.
@@ -86,7 +89,7 @@ performance your users are experiencing with app launch.
 Embrace.sharedInstance()?.endAppStartup();
 ```
 
-You can learn more about moments and measuring performance yourself in the
+You can learn more about Moments and measuring performance yourself in the
 [Measure Performance]({{< relref "/ios/performance-monitoring" >}}) section.
 
 {{< hint info >}}
