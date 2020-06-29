@@ -19,7 +19,7 @@ throw new RuntimeException("This is a crash");
 
 {{< hint warning >}}
 
-**Note** This function will crash your app so only use it for testing purposes.
+**Note** This will crash your app so only use it for testing purposes.
 
 {{< /hint >}}
 
