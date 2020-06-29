@@ -21,3 +21,4 @@ you are free to skip around.
 * Android Build Tools Plugin 3.+
 * Java 8
 
+{{< button relref="/react-native/integration-steps" >}}To Integration Steps{{< /button >}}
