@@ -24,7 +24,7 @@ props.put("propertyB", "valueB");
 Embrace.getInstance().logError("Loading not finished in time.", props, false);
 ```
 
-Here's a breakdown of the arguments being passed to the `logError` message.
+Here's a breakdown of the arguments being passed to the `logError` method.
 
 1. **The message.** The string is the message itself. Try to make this short yet informative.
 1. **Properties.** This is a map of key-value pairs you can use to categorize and filter log messages with.

@@ -14,5 +14,6 @@ weight: 1
 1. [**Add a Breadcrumb.**]({{< relref "/react-native/breadcrumbs" >}})
 1. [**Add Alerts.**]({{< relref "/react-native/log-message-api" >}})
 1. [**Measure Performance.**]({{< relref "/react-native/performance-monitoring" >}})
+1. [**Tracking Components**]({{< relref "/react-native/tracking-components" >}})
 
 {{< button relref="/react-native/login-embrace-dashboard" >}}Get Started{{< /button >}}
