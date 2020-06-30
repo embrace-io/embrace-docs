@@ -32,6 +32,38 @@ described in the [Adding the Embrace SDK]({{< relref "/react-native/add-embrace-
 If you're using Crashlytics, set this value to false.
 {{< /hint >}}
 
+{{< hint warning >}}
+
+**OTA Updates**
+
+If you distribute updated JavaScript bundles outside of the App Store/Google
+Play Store, you will
+need to point the Embrace SDK to where the most up to date bundle is installed
+on the device. Otherwise, the stack traces will not be translated properly.
+If you use CodePush, this is done automatically and there is no need to point
+the Embrace SDK to where CodePush downloads the latest JavaScript bundle. 
+
+In JavaScript:
+```javascript
+import {setJavaScriptBundlePath} from 'react-native-embrace';
+
+setJavaScriptBundlePath('/path/to/bundle');
+```
+
+In Objective-C:
+```objective-c
+[[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];
+```
+
+In Java:
+
+```java
+Embrace.getInstance().setJavaScriptBundleURL(pathToBundle);
+```
+
+
+{{< /hint >}}
+
 ## Triggering a Crash
 
 Now we're ready to trigger a crash.
