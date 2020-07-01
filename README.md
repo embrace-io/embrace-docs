@@ -55,6 +55,17 @@ To add a page, add a markdown file to the `content` folder.
 The following custom shortcodes are available. Learn more about Hugo shortcodes
 [here](https://gohugo.io/content-management/shortcodes/).
 
+**api**
+Gets URL to API docs.
+
+```
+{{< api ios >}}
+```
+
+Available options are `ios`, `android`, and `rn`.
+
+Note: Only `rn` has been added currently. 
+
 
 **sdk**
 Gets latest version of SDK, as defined in `config.yaml`.
@@ -74,7 +85,9 @@ specify the width and height to be AMP-compatible, and to also improve SEO.
 {{< image src="my-image.png" width="100" height="100" alt="My Image" title="My Image" caption="This is my image" >}}
 ```
 
+
 [Additional shortcodes](https://themes.gohugo.io/hugo-book/#shortcodes) are available from the [theme](https://github.com/alex-shpak/hugo-book) we're using.
+
 
 ### Deployment
 
