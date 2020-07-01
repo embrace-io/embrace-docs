@@ -43,6 +43,13 @@ android {
 
 ```
 
+The Swazzler works as a support process during build time for the Embrace SDK to work properly during run time.
+The Swazzler performs a few key functions:
+* Adds the Embrace SDK dependencies to the app's dependency list.
+* Injects a build info JSON file for the SDK to parse during run time. This specifies an internal Embrace build UUID, build app ID, and its variant (build type and flavor) along with some optional network configuration rules for the SDK.
+* Runs a code transformation / injection over specified bytecode class files to communicate via hooks with the SDK
+* Injects ProGuard rules for the SDK to work properly when a build type is set to be minified.
+
 {{< hint info >}}
 You'll need to set the following permissions so the Embrace SDK can send events
 and monitor connectivity. 

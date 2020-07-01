@@ -85,6 +85,10 @@ Add the following to the `embrace-config.json` file that you added in the [Addin
 Now you're ready to build and run the application. Assuming the app launches correctly,
 pay attention to the system logging and look for Embrace to print its version number.
 
+```sh
+Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
+```
+
 {{< hint info >}}
 
 If you encounter any errors, please get in touch on Slack and we can assist you.

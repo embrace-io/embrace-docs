@@ -34,7 +34,7 @@ Additionally, your crash is visible in the crashes section of the dashboard.
 By default, a stack trace will only show memory addresses, so it must be symbolicated to display useful information.
 Symbolication will replace the memory addresses with function names, file paths, and line numbers.
 
-Proguard files will be uploaded automatically. If you don't see symbolicated crashes while using Proguard, reach out to us
+ProGuard files will be uploaded automatically. If you don't see symbolicated crashes while using ProGuard, reach out to us
 on Slack and we'll work with you directly.
 
 {{< hint warning >}}
