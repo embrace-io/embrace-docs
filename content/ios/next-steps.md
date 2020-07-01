@@ -17,6 +17,10 @@ please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 To see the full list of methods that the Android Embrace SDK exposes, please see
 the [iOS API docs]({{< api ios >}}).
 
+## Check Out the FAQ
+
+See a list of frequently asked questions on the [FAQ]({{< relref "/ios/faq" >}}) page. 
+
 ## Best Practices
 
 We offer further guides in the [Best Practices]({{< relref "/best-practices" >}}) section of the docs.
