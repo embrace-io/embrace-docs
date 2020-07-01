@@ -21,9 +21,6 @@ params:
     rn: "2.0.0"
   BookSection: '*'
   BookMenuReset: false
-  BookLogo: 'images/embrace-logo.png'
-  BookLogoWidth: 200
-  BookLogoHeight: 60
   BookRepo: 'https://github.com/embrace-io/embrace-docs'
   BookEditPath: 'edit/master/content/'
 
