@@ -25,6 +25,7 @@ pages:
 - content/android/crash-reporting.md
 - content/android/identify-users.md
 - content/android/integration-steps.md
+- content/android/log-message-api.md
 - content/android/login-embrace-dashboard.md
 - content/android/session-reporting.md
 - content/ios/linking-embrace.md

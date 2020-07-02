@@ -1,8 +1,10 @@
 ---
-title: "Log Message API"
+title: Log Message API
 weight: 8
----
+description: Trigger alerts for your Android application using logs with the Embrace
+  SDK
 
+---
 # Adding Alerts
 
 As we've discussed in the [Session Reporting section]({{< relref "/android/session-reporting">}}), Embrace uploads its sessions on the next app launch.
@@ -63,4 +65,3 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 We'll be introducing you to **Moments** in the next section, which you'll be able to use to measure the performance of various actions within your app.
 
 {{< button relref="/android/performance-monitoring" >}}Learn about Moments{{< /button >}}
-
