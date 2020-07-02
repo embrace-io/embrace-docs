@@ -1,4 +1,5 @@
 ---
+bookHidden: true
 title: Terms of Service
 weight: 1
 ---

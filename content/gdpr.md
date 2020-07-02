@@ -1,4 +1,5 @@
 ---
+bookHidden: true
 title: GDPR - Data Processing Addendum
 weight: 3
 ---
@@ -7,7 +8,7 @@ weight: 3
 
 *Last Updated: September 18, 2019*
 
-This GDPR Data Processing Addendum (“DPA”) forms part of the Terms of Service available at [https://embrace.io/docs/legal/terms-of-service/]({{< relref "/legal/terms-of-service" >}}) or such other location as the Terms of Service may be posted from time to time (as applicable, the “Agreement”), entered into by and between the Customer and Embrace Mobile, Inc. (“Embrace”), pursuant to which Customer has accessed Embrace’s Application Services as defined in the applicable Agreement. The purpose of this DPA is to reflect the parties’ agreement with regard to the processing of personal data in accordance with the requirements of Data Protection Legislation as defined below.
+This GDPR Data Processing Addendum (“DPA”) forms part of the Terms of Service available at [https://embrace.io/docs/terms-of-service/]({{< relref "/terms-of-service" >}}) or such other location as the Terms of Service may be posted from time to time (as applicable, the “Agreement”), entered into by and between the Customer and Embrace Mobile, Inc. (“Embrace”), pursuant to which Customer has accessed Embrace’s Application Services as defined in the applicable Agreement. The purpose of this DPA is to reflect the parties’ agreement with regard to the processing of personal data in accordance with the requirements of Data Protection Legislation as defined below.
 
 If the Customer entity entering into this DPA has executed an order form or statement of work with Embrace pursuant to the Agreement (an “Ordering Document”), but is not itself a party to the Agreement, this DPA is an addendum to that Ordering Document and applicable renewal Ordering Documents. If the Customer entity entering into this DPA is neither a party to an Ordering Document nor the Agreement, this DPA is not valid and is not legally binding. Such entity should request that the Customer entity that is a party to the Agreement executes this DPA.
 

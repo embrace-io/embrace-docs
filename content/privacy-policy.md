@@ -1,4 +1,5 @@
 ---
+bookHidden: true
 title: Privacy Policy
 weight: 2
 ---
