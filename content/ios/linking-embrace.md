@@ -8,7 +8,7 @@ description: Linking Embrace with your application is quick and easy.
 
 Embrace is distributed as a framework.
 You will be dynamically linking that framework with your application.
-We support 3 methods for accomplishing that:
+We support three methods for accomplishing that:
 
 1. [**CocoaPods.**]({{< relref "/ios/linking-embrace#cocoapods" >}}) You can easily add Embrace to your PodFile and have most of this work done for you.
 1. [**Carthage.**]({{< relref "/ios/linking-embrace#carthage" >}}) Carthage will help you keep track of Embrace versions and upgrades, you will still perform much of the linking process manually.
@@ -112,12 +112,11 @@ concepts as used by Carthage.
 
 ## Manual
 
-Adding a new framework to your project manually really isn't that difficult.
-Just follow along with the screenshots and reach out on Slack if you want any
-help during the process.
+Adding a new framework to your project manually may seem difficult, the process
+is actually pretty straightforward in recent Xcode releases. Just follow along 
+with the screenshots and reach out on Slack if you want any help during the process.
 
-Manually linking Embrace is slightly more complex than the other methods. Here
-is the general process we will be following:
+Here is the general process we will be following:
 
 1. Download the Embrace SDK distribution
 1. Add the Embrace framework to our project

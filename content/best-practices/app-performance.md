@@ -11,7 +11,7 @@ Moments are best used for tracking critical user flows that are generally short 
 
 1. Rendering a border onto an image
 1. Uploading a file to your server
-1. Loading a new set of TableView cells from Core Data
+1. Loading a new set of TableView cells from a local database
 1. Processing the checkout from your shopping cart
 
 Longer events, such as filling out an entire form or taking a photo with the camera, are worse candidates for Moments as these tasks can have a high variance from user to user.

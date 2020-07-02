@@ -33,7 +33,7 @@ Let's examine the method call from above to understand the arguments involved:
 
 Once you start using our alerting feature you can also configure how these are handled on the backend.
 Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with logEvents.
-For example, if you have a steady rate of 1% for a give logEvent, then you can set a threshold so that if it rises in a sustained way you get an email sent directly to you.
+For example, if you have a steady rate of 1% for a given logEvent, then you can set a threshold so that if it rises in a sustained way you get an email sent directly to you.
 
 ## Best Practices
 
@@ -43,7 +43,7 @@ This can have a negative effect on your application's performance or battery lif
 It can also be an invaluable tool for getting information about your application quickly.
 
 {{< hint info >}}
-For more tips on making the most of the Log Message API, checkout the [Best Practices]({{ relref "/best-practices/log-message-api" }}).
+For more tips on making the most of the Log Message API, checkout the [Best Practices]({{< relref "/best-practices/log-message-api" >}}).
 {{< /hint >}}
 
 ---
