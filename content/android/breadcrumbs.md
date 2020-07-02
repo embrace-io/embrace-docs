@@ -1,8 +1,10 @@
 ---
-title: "Breadcrumbs"
+title: Breadcrumbs
 weight: 7
----
+description: Add logging to your Android application using Breadcrumbs with the Embrace
+  SDK
 
+---
 # Add a Breadcrumb
 
 ## Adding Context to Sessions
