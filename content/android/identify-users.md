@@ -1,8 +1,9 @@
 ---
-title: "Identify Your Users"
+title: Identify Your Users
 weight: 6
----
+description: Get to know the users of your Android application with the Embrace SDK
 
+---
 # Know Your Users
 
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 

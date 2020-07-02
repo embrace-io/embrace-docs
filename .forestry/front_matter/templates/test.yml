@@ -22,6 +22,7 @@ pages:
 - content/android/_index.md
 - content/android/add-embrace-sdk.md
 - content/android/crash-reporting.md
+- content/android/identify-users.md
 - content/android/integration-steps.md
 - content/android/login-embrace-dashboard.md
 - content/android/session-reporting.md
