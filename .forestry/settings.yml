@@ -16,12 +16,12 @@ sections:
   match: "*"
 - type: directory
   path: content/react-native
-  label: React native
+  label: React Native
   create: all
   match: "**/*"
 - type: directory
   path: content/ios
-  label: Ios
+  label: iOS
   create: all
   match: "**/*"
 - type: directory
