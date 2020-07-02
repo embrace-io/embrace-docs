@@ -29,3 +29,4 @@ pages:
 - content/android/login-embrace-dashboard.md
 - content/android/session-reporting.md
 - content/ios/linking-embrace.md
+- content/react-native/_index.md
