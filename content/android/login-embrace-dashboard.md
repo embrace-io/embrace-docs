@@ -1,8 +1,9 @@
 ---
-title: "Login to the Embrace Dashboard"
+title: Login to the Embrace Dashboard
 weight: 2
----
+description: Login to the Embrace dashboard to get started with your Android integration
 
+---
 # Getting Started with the Embrace Dashboard
 
 ## Logging in
