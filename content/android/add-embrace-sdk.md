@@ -1,8 +1,9 @@
 ---
-title: "Add the Android Embrace SDK"
+title: Add the Android Embrace SDK
 weight: 3
----
+description: Add the Embrace SDK as a dependency to your Android application
 
+---
 # Adding the Android Embrace SDK
 
 ## Add Embrace as a dependency
