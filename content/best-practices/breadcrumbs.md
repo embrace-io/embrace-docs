@@ -32,5 +32,5 @@ We generally use the Breadcrumb method for our logging and not the LogMessage me
 Breadcrumbs are a lightweight way to add logging to your session.
 They add no CPU or memory overhead, and trigger no networking calls.
 
-For logs that need to trigger an alert, use Logs. To add context to sessions, use Breadcrumbs.
+For events that need to trigger an alert, use Logs. To add context to sessions, use Breadcrumbs.
 In most cases, Breadcrumbs are what you want.

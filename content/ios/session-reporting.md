@@ -19,8 +19,8 @@ process we're going to follow to collect our first session is:
 1. [**Build and run our application**]({{< relref "/ios/session-reporting#build-and-run-your-application" >}})
     1. Verify Embrace started via the logs
 1. [**Trigger a session upload**]({{< relref "/ios/session-reporting#trigger-a-session-upload" >}})
-    1. Close the application
-    1. Run the application again
+    1. Close, or send the application to the background
+    1. Launch the application to the foreground
     1. Verify that our first session was uploaded to Embrace by checking the Dashboard
 
 
@@ -65,6 +65,17 @@ or other actions until this call is made.
 ```swift
 Embrace.sharedInstance()?.start(launchOptions: launchOptions);
 ```
+{{< hint info >}}
+
+**A Note On Placing the Start Call**
+
+It is important that this call be made as early as possible in the lifecycle of
+your application to ensure we can collect the most data. Additionally,
+Embrace has taken great care to ensure we can operate alongside any other third
+party SDKs. If Embrace is initialized first, then our code can set things up to
+ensure that everyone can interoperate successfully in your application.
+
+{{< /hint >}}
 
 {{< hint info >}}
 **Tip:**
@@ -74,7 +85,7 @@ If you are a swift user you may want to also make this call after starting Embra
 Embrace.sharedInstance()?.setCleanLogsEnabled(true);
 ```
 
-This will tell Embrace to use swift-style logging that should look better as you work.
+This will tell Embrace to use swift-style logging that will better match your existing logging.
 {{< /hint >}}
 
 ## End the Startup Moment
@@ -89,20 +100,20 @@ performance your users are experiencing with app launch.
 Embrace.sharedInstance()?.endAppStartup();
 ```
 
-You can learn more about Moments and measuring performance yourself in the
-[Measure Performance]({{< relref "/ios/performance-monitoring" >}}) section.
-
 {{< hint info >}}
 
-**A Note On Placement**
+**A Note On Ensuring the Start Moment Ends**
 
-It is important that this call be made as early as possible in the lifecycle of
-your application to ensure we can collect the most data. Additionally,
-Embrace has taken great care to ensure we can operate alongside any other third
-party SDKs. If Embrace is initialized first, then our code can set things up to
-ensure that everyone can interoperate successfully in your application.
+This moment is used to track launch performance, but also launch abandonment.  This is the 
+number of users who close the app before the launch finishes.  To correctly track this
+it is critical that all code paths end the startup moment eventually.  For example if your
+app can launch via a push notification, ensure that path also ends the startup moment or you
+may see false abandonment data.
 
 {{< /hint >}}
+
+You can learn more about Moments and measuring performance yourself in the
+[Measure Performance]({{< relref "/ios/performance-monitoring" >}}) section.
 
 ## Build and Run Your Application
 
@@ -127,10 +138,10 @@ Dashboard.
 
 ## Trigger a session upload
 
-To trigger a session upload, simply stop the application by either force killing
-it or using the Xcode stop button. Now run the application again. This second
-launch will upload the previous session immediately. Refresh the dashboard in
-your browser and you should now see that you've moved on to the next step.
+To trigger a session upload, simply send the application to the background by pressing
+the simulators 'home' button. This second launch will upload the previous session 
+immediately. Refresh the dashboard in your browser and you should now see that you've 
+moved on to the next step.
 
 ---
 

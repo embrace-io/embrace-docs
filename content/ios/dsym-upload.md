@@ -6,7 +6,7 @@ weight: 3
 # Uploading dSYMs
 
 When applications are uploaded to the AppStore they are often stripped of symbols for security or space reasons.
-The impact of this is that much of the data our SDK collects relies on addresses, including our crash reports.
+Much of the data our SDK collects relies on addresses, including our crash reports.
 If you choose not to upload your dSYM files, you will be required to manually symbolicate these addresses.
 
 ## Automatic Uploads
@@ -72,7 +72,7 @@ In this version we're referencing the Embrace folder inside our `third_party` fo
 {{< /tabs >}}
 
 {{< hint info >}}
-In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script.
+In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script.  This is important, if the environment variables are not available when run.sh executes, the command will fail.
 {{< /hint >}}
 
 
