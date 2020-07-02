@@ -20,4 +20,5 @@ fields:
 pages:
 - content/_index.md
 - content/android/_index.md
+- content/android/integration-steps.md
 - content/ios/linking-embrace.md
