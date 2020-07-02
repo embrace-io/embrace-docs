@@ -1,9 +1,10 @@
 ---
 bookCollapseSection: true
-title: "Android"
+title: Android
 weight: 1
----
+description: Get started with integrating Embrace into your Android application
 
+---
 # Android Integration
 
 ## Getting Started

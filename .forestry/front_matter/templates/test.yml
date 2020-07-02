@@ -19,4 +19,5 @@ fields:
   description: Fills in the description meta tag
 pages:
 - content/_index.md
+- content/android/_index.md
 - content/ios/linking-embrace.md
