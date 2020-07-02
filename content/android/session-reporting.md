@@ -1,8 +1,10 @@
 ---
-title: "Session Reporting"
+title: Session Reporting
 weight: 4
----
+description: Upload session reports from your Android application using the Embrace
+  SDK
 
+---
 # Session Reporting
 
 Now that you've added the Embrace SDK to your project and can login to the Embrace dashboard, you're ready to create your first session.
