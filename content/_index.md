@@ -1,8 +1,11 @@
 ---
 title: Overview
 type: docs
----
+description: Add crash reporting, logging, performance measurement, and more with
+  Embrace.
+weight: 
 
+---
 # Embrace Documentation
 
 ## Overview
@@ -56,4 +59,3 @@ Add Embrace to your React Native project.
 
 
 {{< /columns >}}
-
