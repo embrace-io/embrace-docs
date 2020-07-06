@@ -20,27 +20,22 @@ throw new RuntimeException("This is a crash");
 
 {{< hint warning >}}
 
-**Note** This will crash your app so only use it for testing purposes.
+**Note** This will crash your app, so only use it for testing purposes.
 
 {{< /hint >}}
 
-Remember that Embrace sessions only upload on subsequent launches.
-This means that after seeing the application crash, you must now launch the application again for that crashed session to upload to the Embrace servers.
+In most scenarios, the Embrace SDK iss able to upload a crash report and session message after a crash occurs, but for certain scenarios they can only be uploaded on the next launch. If you do not see your crash in the dashboard, relaunch your application.
 
-Once uploaded, you should notice that your session is marked with the "crashed" icon.
-Additionally, your crash is visible in the crashes section of the dashboard.
+Once the crash and session messages areuploaded, you should notice that your session is marked with the "crashed" icon and your crash is visible in the crashes section of the dashboard.
 
 ## Symbolicating Stack Traces
 
-By default, a stack trace will only show memory addresses, so it must be symbolicated to display useful information.
-Symbolication will replace the memory addresses with function names, file paths, and line numbers.
-
-ProGuard files will be uploaded automatically. If you don't see symbolicated crashes while using ProGuard, reach out to us
+If you you have obfuscated your application with ProGuard, R8, or another obfuscation tool, the captured crashes will contain obfuscated method names. ProGuard and R8 files will be uploaded automatically at build time. If you don't see symbolicated crashes while using ProGuard or R8, reach out to us
 on Slack and we'll work with you directly.
 
 {{< hint warning >}}
 
-**Note** We do not officially support Dexguard.
+**Note** Please contact us if you need Dexguard support.
 
 {{< /hint >}}
 
