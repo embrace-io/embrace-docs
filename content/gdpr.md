@@ -1,6 +1,7 @@
 ---
 bookHidden: true
 title: GDPR - Data Processing Addendum
+description: GDPR - Data Processing Addendum
 weight: 3
 ---
 

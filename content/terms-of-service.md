@@ -1,6 +1,7 @@
 ---
 bookHidden: true
 title: Terms of Service
+description: Terms of Service for using Embrace
 weight: 1
 ---
 

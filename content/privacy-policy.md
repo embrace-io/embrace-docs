@@ -1,6 +1,7 @@
 ---
 bookHidden: true
 title: Privacy Policy
+description: Information on how Embrace collects, processes, and stores data
 weight: 2
 ---
 
