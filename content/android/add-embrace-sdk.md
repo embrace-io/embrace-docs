@@ -71,7 +71,7 @@ Add a config file to configure the Embrace SDK. This file must be named `embrace
 ```
 
 {{< hint info >}}
-Your and API ID and token are available on the Embrace dashboard.
+Your app ID and API token are available on the Embrace dashboard.
 {{< /hint >}}
 
 ---
