@@ -1,5 +1,6 @@
 ---
 title: "Update Embrace"
+description: Learn how to update the Embrace SDK
 weight: 4
 ---
 

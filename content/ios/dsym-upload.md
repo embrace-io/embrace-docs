@@ -1,5 +1,6 @@
 ---
 title: "Uploading dSYMs"
+description: Upload dSYM files to see translated stack traces
 weight: 3
 ---
 

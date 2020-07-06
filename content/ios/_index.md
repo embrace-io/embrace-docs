@@ -1,6 +1,7 @@
 ---
 bookCollapseSection: true
 title: "iOS"
+description: Get started with integrating Embrace into your iOS application
 weight: 2
 ---
 

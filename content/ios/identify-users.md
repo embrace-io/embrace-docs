@@ -1,5 +1,6 @@
 ---
 title: "Identify your users"
+description: Get to know the users of your iOS application with the Embrace SDK
 weight: 11
 ---
 

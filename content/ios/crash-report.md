@@ -1,6 +1,8 @@
 ---
 title: "Crash Reporting"
+description: Upload crash reports from your iOS application using the Embrace SDK
 weight: 7
+
 ---
 
 # Collect your first crash report 

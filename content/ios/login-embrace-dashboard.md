@@ -1,5 +1,6 @@
 ---
 title: "Login to the Embrace Dashboard"
+description: Login to the Embrace dashboard to get started with your iOS integration
 weight: 5
 ---
 
