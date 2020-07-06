@@ -1,5 +1,6 @@
 ---
 title: "Android SDK Changelog"
+description: Changelog for the Android Embrace SDK
 weight: 13
 ---
 

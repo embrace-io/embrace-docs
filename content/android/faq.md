@@ -1,5 +1,6 @@
 ---
 title: Android FAQ
+description: Frequently asked questions about the Android Embrace SDK
 weight: 12
 ---
 

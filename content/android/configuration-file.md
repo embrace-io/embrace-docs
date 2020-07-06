@@ -1,5 +1,6 @@
 ---
 title: Configuration File
+description: Configuration file for the Android Embrace SDK
 weight: 11
 ---
 
