@@ -12,7 +12,7 @@ Here are the steps you'll be taking to create your first session.
 
 1. [**Import Embrace**]({{< relref "/android/session-reporting#import-embrace" >}})
 1. [**Add a start call to the Embrace SDK**]({{< relref "/android/session-reporting#add-the-start-call" >}})
-1. [**End the Startup Moment**]({{< relref "/android/session-reporting#end-the-startup-moment" >}})
+1. [**End the startup moment**]({{< relref "/android/session-reporting#end-the-startup-moment" >}})
 1. [**Build and run the application**]({{< relref "/android/session-reporting#build-and-run-the-application" >}})
 1. [**Trigger a session upload**]({{< relref "/android/session-reporting#trigger-a-session-upload" >}})
 
@@ -44,12 +44,12 @@ public final class MyApplication extends Application {
 Make sure any networking libraries such as OkHttp or Retrofit are **initialized before** Embrace.
 {{< /hint >}}
 
-## End the Startup Moment
+## End the startup moment
 
-The Embrace SDK automatically records the special "startup" Moment that's used to track app launch performance.
-The end of the startup Moment is recorded when the `Activity.onResume()` method returns.
+The Embrace SDK automatically records the special "startup" moment that's used to track app launch performance.
+The end of the startup moment is recorded when the `Activity.onResume()` method returns.
 However, if `onResume()` is not a good indication of when the app launch has ended (apps that have a splash screen, for example),
-you can use the `@StartupActivity` annotation to indicate that you don't want the startup Moment to end when the `onResume` method returns.
+you can use the `@StartupActivity` annotation to indicate that you don't want the startup moment to end when the `onResume` method returns.
 Add the `@StartupActivity` annotation to any Activity class where this applies.
 
 ```java
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Then, end the startup Moment manually by making the following method call.
+Then, end the startup moment manually by making the following method call.
 
 ```java
 Embrace.getInstance().endAppStartup();
