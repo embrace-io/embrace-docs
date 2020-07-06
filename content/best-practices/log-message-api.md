@@ -1,5 +1,6 @@
 ---
 title: "Log Message API"
+description: Best practices for implementing logs with the Embrace SDK
 weight: 2
 ---
 
@@ -29,4 +30,7 @@ Take care not to send your users' private information to Embrace.
 When in doubt skip the screenshot.
 
 ## Using Breadcrumbs Instead
+
+If you're looking to add context around sessions and don't need the immediacy that Log Events provide, we recommend using [Breadcrumbs]({{< relref "/best-practices/breadcrumbs">}}) instead as they have a lower overhead cost.
+
 

@@ -1,6 +1,7 @@
 ---
 bookCollapseSection: true
 title: "Monitoring GraphQL Requests"
+description: Best practices for monitoring GraphQL network requests with the Embrace SDK
 ---
 
 # Monitoring GraphQL Requets

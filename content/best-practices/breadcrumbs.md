@@ -1,5 +1,6 @@
 ---
 title: "Breadcrumbs"
+description: Best practices when adding logging to your application using the Embrace SDK
 weight: 1
 ---
 

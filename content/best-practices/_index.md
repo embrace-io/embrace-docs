@@ -1,6 +1,7 @@
 ---
 bookCollapseSection: true
 title: "Best Practices"
+description: Best practices to make sure you're getting the most from Embrace
 weight: 4
 ---
 
