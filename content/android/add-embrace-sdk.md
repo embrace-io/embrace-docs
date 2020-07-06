@@ -23,11 +23,12 @@ buildscript {
 }
 ```
 
-Then, apply the Embrace swazzler plugin in your app's `build.gradle` file.
+Then, apply the Embrace swazzler plugin in your app's `build.gradle` file. Also, specify that the Embrace SDK uses Java 8 features with the `compileOptions` settings.
 
 ```groovy
 apply plugin: 'com.android.application'
 apply plugin 'embrace-swazzler'
+
 repositories {
   jcenter()
   google()
@@ -44,16 +45,14 @@ android {
 
 ```
 
-The Swazzler works as a support process during build time for the Embrace SDK to work properly during run time.
-The Swazzler performs a few key functions:
+The Swazzler works as a support process during build time for the Embrace SDK to work properly during run time. It performs a few key functions:
 * Adds the Embrace SDK dependencies to the app's dependency list.
-* Injects a build info JSON file for the SDK to parse during run time. This specifies an internal Embrace build UUID, build app ID, and its variant (build type and flavor) along with some optional network configuration rules for the SDK.
-* Runs a code transformation / injection over specified bytecode class files to communicate via hooks with the SDK
+* Injects a build info JSON file for the SDK to parse during run time. This specifies an internal Embrace build UUID, build app ID, and the build variant.
+* Runs a code transformation / injection over specified bytecode class files to add hooks that the SDK uses to capture certain data.
 * Injects ProGuard rules for the SDK to work properly when a build type is set to be minified.
 
 {{< hint info >}}
-You'll need to set the following permissions so the Embrace SDK can send events
-and monitor connectivity. 
+You'll need to set the following permissions so the Embrace SDK can send events and monitor connectivity. 
 
 * `android.permission.INTERNET`
 * `android.permission.ACCESS_NETWORK_STATE`
@@ -62,8 +61,7 @@ and monitor connectivity.
 
 ## Add the config file
 
-You'll need to add a config file to configure the Embrace SDK. Add a file named
-`embrace-config.json` at `app/src/main`.
+Add a config file to configure the Embrace SDK. This file must be named `embrace-config.json` at should be placed in `app/src/main`. The config file supports many more options than those shown in the example below, but for the initial integration, only the two settings listed below are needed.
 
 ```json
 {
