@@ -1,5 +1,6 @@
 ---
 title: "Integration Steps"
+description: Integration steps to add Embrace to your React Native application
 weight: 1
 ---
 

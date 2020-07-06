@@ -1,5 +1,6 @@
 ---
 title: "Next Steps"
+description: Resources to help you take your Embrace integration for your React Native application to the next level
 weight: 12
 ---
 

@@ -3,8 +3,8 @@ bookCollapseSection: true
 title: React Native
 weight: 3
 description: Get started with integrating Embrace into your React Native application
-
 ---
+
 # React Native Integration
 
 ## Getting Started

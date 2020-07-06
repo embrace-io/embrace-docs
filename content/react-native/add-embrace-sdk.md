@@ -1,5 +1,6 @@
 ---
 title: "Adding the Embrace SDK"
+description: Add the Embrace SDK as a dependency to your React Native application
 weight: 3
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "React Native SDK Changelog"
+description: Changelog for the React Native Embrace SDK
 weight: 13
 ---
 
