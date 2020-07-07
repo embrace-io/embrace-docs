@@ -21,8 +21,6 @@ params:
     rn: "3.4.0"
   BookSection: '*'
   BookMenuReset: false
-  BookRepo: 'https://github.com/embrace-io/embrace-docs'
-  BookEditPath: 'edit/master/content/'
 
 markup:
   goldmark:
