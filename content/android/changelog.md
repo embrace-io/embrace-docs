@@ -6,6 +6,17 @@ weight: 13
 
 # Android SDK Changelog
 
+## 4.4.0
+*July 2, 2020*
+
+* Added NDK crash reporting
+
+## 4.2.10
+*June 18, 2020*
+
+* Fixed a concurrency bug that could trigger when making network calls shortly after startup
+* Added nullability annotations to improve Kotlin integration experience
+
 ## 4.2.9
 *May 26, 2020*
 
