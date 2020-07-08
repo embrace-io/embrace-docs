@@ -15,7 +15,7 @@ or email us at <support@embrace.io>.
 ### **Can I turn off screenshots for specific areas of my app?**
 
 Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-Screenshots are taken by default for Moments (e.g. Startup), Error Logs, and Warning Logs.
+Screenshots are taken by default for moments (e.g. Startup), Error Logs, and Warning Logs.
 To turn off screenshots via the SDK,
 please refer to the sections for [Logs]({{< relref "/android/log-message-api" >}}) and [Moments]({{< relref "/android/performance-monitoring" >}}), or see the [API docs]({{< api android >}}).
 If you'd like to turn off screenshots for the entire app, please contact us and we will change the app configuration for you.
@@ -140,8 +140,8 @@ Please refer to the  [Performance Monitoring guide]({{< relref "/android/perform
 ### **How do I measure activities running in parallel?**
 
 You can use an ID for a moment to prevent naming collisions.
-The Moment IDs differentiate between separate parallel instances of Moments with the same name.
-For aggregation purposes, the moment identifier will be ignored and only the Moment name will be considered.
+The moment IDs differentiate between separate parallel instances of moments with the same name.
+For aggregation purposes, the moment identifier will be ignored and only the moment name will be considered.
 
 ```java
 Embrace.getInstance().startEvent("load_photos", "<MOMENT_IDENTIFIER>");

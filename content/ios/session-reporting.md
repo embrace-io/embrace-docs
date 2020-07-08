@@ -92,8 +92,8 @@ This will tell Embrace to use swift-style logging that will better match your ex
 
 ## End the Startup Moment
 
-Finally, make sure to end the special "startup" Moment that Embrace uses to track
-app launch performance. You can end this Moment anywhere you choose. We
+Finally, make sure to end the special "startup" moment that Embrace uses to track
+app launch performance. You can end this moment anywhere you choose. We
 recommend placing the call as close to the point that your UI is ready for use
 as possible, as doing so will give you the most accurate picture of the
 performance your users are experiencing with app launch.
@@ -114,7 +114,7 @@ may see false abandonment data.
 
 {{< /hint >}}
 
-You can learn more about Moments and measuring performance yourself in the
+You can learn more about moments and measuring performance yourself in the
 [Measure Performance]({{< relref "/ios/performance-monitoring" >}}) section.
 
 ## Build and Run Your Application

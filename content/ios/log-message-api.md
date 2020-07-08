@@ -51,6 +51,6 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 ---
 
 Embrace offers an API to measure the performance of key actions within your app. 
-Let's learn about **Moments** next.
+Let's learn about **moments** next.
 
 {{< button relref="/ios/performance-monitoring" >}}Learn About Moments{{< /button >}}
