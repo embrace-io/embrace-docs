@@ -20,7 +20,7 @@ the [Android API docs]({{< api android >}}).
 
 ## Configuration Options
 
-The SDK has many configuration options that we have no explored as we get you onboarded. Explore the options avialable 
+The SDK has many configuration options that we have not explored as we get you onboarded. Explore the options avialable 
 on the [SDK Configuration Page]({{< relref "/android/configuration-file" >}}) to see if any are of use to you in your application.
 
 ## Check Out the FAQ
