@@ -49,7 +49,7 @@ Embrace.sharedInstance()?.crash()
 **Note** This function will crash your app so only use it for testing purposes.
 {{< /hint >}}
 
-Remember that Embrace sessions only upload on subsequent launches.
+Remember that Embrace sessions only upload on subsequent launches after crashes have occurred.
 This means that after seeing the application crash, you must now launch the application again for that crashed session to upload to the Embrace servers.
 
 Once uploaded you should notice that your session is marked with the "crashed" icon.
