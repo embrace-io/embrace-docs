@@ -56,7 +56,7 @@ Your 5 character app ID.
 
 #### app_token *string, required*
 
-Your API token.
+Your API 32-hexdigit token.
 
 ### app
 
