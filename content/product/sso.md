@@ -23,7 +23,7 @@ In order to properly configure SSO for OneLogin, we'll need two pieces of inform
 
 2. **Domain**: In most cases, it will be the domain of your email (i.e. apple.com if your email is bob.smith@apple.com).
 
-Once you have obtained those two pieces of information, navigate to [dash.embrace.io](dash.embrace.io) and select your app: 
+Once you have obtained those two pieces of information, navigate to [dash.embrace.io](https://dash.embrace.io) and select your app: 
 1. Navigate to the **Settings Page** (gear icon on the top right hand corner of the dashboard).
 2. Select the **SSO Tab**.
 *Note: SSO is an enterprise-level feature and you'll need to contact support@embrace.io if it has not yet been enabled for your organization.*

@@ -65,17 +65,17 @@ Then, end the startup moment manually by making the following method call.
 Embrace.getInstance().endAppStartup();
 ```
 
-You should end the startup Moment before the user has a chance to interact with the application.
-Add this method call to every location where the startup Moment can end. You can call this method as many times as you like.
+You should end the startup moment before the user has a chance to interact with the application.
+Add this method call to every location where the startup moment can end. You can call this method as many times as you like.
 
-A screenshot will be captured if the startup Moment does not complete within five seconds while the app is still in the foreground.
-Add the following to the `embrace-config.json` file that you added in the [Adding the Android SDK]({{< relref "/android/add-embrace-sdk#add-the-config-file" >}}) section to disable this default behavior.
+A screenshot will be captured if the startup moment does not complete within five seconds while the app is still in the foreground.
+Add the `take_screenshot` setting to the `embrace-config.json` file that you added in the [Adding the Android SDK]({{< relref "/android/add-embrace-sdk#add-the-config-file" >}}) section to disable this default behavior.
 
 ```json
 {
   "app_id": "xxxxx",
   "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "startup_Moment": {
+  "startup_moment": {
     "take_screenshot": false
   }
 }

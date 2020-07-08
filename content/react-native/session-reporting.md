@@ -89,17 +89,17 @@ public class MainApplication extends Application implements ReactApplication {
 
 ## End the Startup Moment
 
-Embrace automatically starts the **startup** Moment when your application launches.
-You'll learn more about Moments in [Performance Monitoring]({{< relref "/react-native/performance-monitoring" >}}) guide.
-For now, you can think of the startup Moment as a timer that measures how long it took your application to launch. 
-Although in both Android and iOS the Moment is started automatically, ending it is platform specific.
+Embrace automatically starts the **startup** moment when your application launches.
+You'll learn more about moments in [Performance Monitoring]({{< relref "/react-native/performance-monitoring" >}}) guide.
+For now, you can think of the startup moment as a timer that measures how long it took your application to launch.
+Although in both Android and iOS the moment is started automatically, ending it is platform specific.
 
-For Android, the SDK will end the Moment automatically.
-To end the startup Moment when you React component mounts, see the [Android guide]({{< relref "/android/session-reporting#end-the-startup-moment" >}}) to prevent the Moment from ending automatically.
+For Android, the SDK will end the moment automatically.
+To end the startup moment when you React component mounts, see the [Android guide]({{< relref "/android/session-reporting#end-the-startup-moment" >}}) to prevent the moment from ending automatically.
 
-The iOS SDK does not end the Moment automatically.
+The iOS SDK does not end the moment automatically.
 
-In either platform, you can end the startup Moment when your application mounts.
+In either platform, you can end the startup moment when your application mounts.
 
 ```javascript
 import {endAppStartup} from 'react-native-embrace';
@@ -111,7 +111,7 @@ export default class App extends Component {
 }
 ```
 
-End the startup Moment as soon as your users are able to interact with the application. 
+End the startup moment as soon as your users are able to interact with the application. 
 
 ## Build and Run the Application
 

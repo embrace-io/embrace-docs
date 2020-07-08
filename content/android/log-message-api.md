@@ -61,6 +61,6 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 
 ---
 
-We'll be introducing you to **Moments** in the next section, which you'll be able to use to measure the performance of various actions within your app.
+We'll be introducing you to **moments** in the next section, which you'll be able to use to measure the performance of various actions within your app.
 
 {{< button relref="/android/performance-monitoring" >}}Learn about Moments{{< /button >}}

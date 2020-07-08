@@ -24,9 +24,9 @@ throw new RuntimeException("This is a crash");
 
 {{< /hint >}}
 
-In most scenarios, the Embrace SDK iss able to upload a crash report and session message after a crash occurs, but for certain scenarios they can only be uploaded on the next launch. If you do not see your crash in the dashboard, relaunch your application.
+In most scenarios, the Embrace SDK is able to upload a crash report and session message after a crash occurs, but for certain scenarios they can only be uploaded on the next launch. If you do not see your crash in the dashboard, relaunch your application.
 
-Once the crash and session messages areuploaded, you should notice that your session is marked with the "crashed" icon and your crash is visible in the crashes section of the dashboard.
+Once the crash and session messages are uploaded, you should notice that your session is marked with the "crashed" icon and your crash is visible in the crashes section of the dashboard.
 
 ## Symbolicating Stack Traces
 

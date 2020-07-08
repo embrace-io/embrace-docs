@@ -4,7 +4,7 @@ title: "Monitoring GraphQL Requests"
 description: Best practices for monitoring GraphQL network requests with the Embrace SDK
 ---
 
-# Monitoring GraphQL Requets
+# Monitoring GraphQL Requests
 
 Generally, network requests made to a REST API each hit its own unique endpoint.
 From a monitoring perspective, this is helpful because developers can clearly

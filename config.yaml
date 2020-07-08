@@ -17,7 +17,7 @@ outputs:
 params:
   sdkVersion:
     ios: "4.1.18"
-    android: "4.2.9"
+    android: "4.4.0"
     rn: "3.4.0"
   BookSection: '*'
   BookMenuReset: false

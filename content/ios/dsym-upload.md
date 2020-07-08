@@ -83,7 +83,7 @@ If your app is using bitcode or a CI system that makes accessing or modifying th
 
 When applications are built with bitcode, it means the final binary and symbols only exist on Apple servers post-submission. As such you must download those symbols manually from Apple. You can do this from the Organizer window in Xcode.
 
-{{< image src="/docs/images/ios-xcode-organizer.png" alt="Orgnizer window in Xcode" title="Organizer window in Xcode" caption="The organizer window will allow you to download the dSYM files from Apple" width="1600" height="1236" >}}
+{{< image src="/docs/images/ios-xcode-organizer.png" alt="Organizer window in Xcode" title="Organizer window in Xcode" caption="The organizer window will allow you to download the dSYM files from Apple" width="1600" height="1236" >}}
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
  

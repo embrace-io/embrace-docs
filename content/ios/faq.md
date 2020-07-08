@@ -120,8 +120,8 @@ You should add multiple `endAppStartup` calls and ensures that you don't see err
 ### **How do you measure activities running in parallel?**
 
 You can use an ID for a moment to prevent naming collisions.
-The Moment IDs differentiate between separate parallel instances of Moments with the same name.
-For aggregation purposes, the moment identifier will be ignored and only the Moment name will be considered.
+The moment IDs differentiate between separate parallel instances of moments with the same name.
+For aggregation purposes, the moment identifier will be ignored and only the moment name will be considered.
 
 ## Views
 

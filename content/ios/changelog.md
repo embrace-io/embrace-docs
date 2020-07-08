@@ -16,7 +16,7 @@ weight: 14
 
 ## 4.1.15
 *April 27, 2020*
-- Improved rety logic
+- Improved retry logic
 
 ## 4.1.14
 *April 14, 2020*

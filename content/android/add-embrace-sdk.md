@@ -42,7 +42,6 @@ android {
   }
   ...
 }
-
 ```
 
 The Swazzler works as a support process during build time for the Embrace SDK to work properly during run time. It performs a few key functions:
@@ -61,7 +60,7 @@ You'll need to set the following permissions so the Embrace SDK can send events 
 
 ## Add the config file
 
-Add a config file to configure the Embrace SDK. This file must be named `embrace-config.json` at should be placed in `app/src/main`. The config file supports many more options than those shown in the example below, but for the initial integration, only the two settings listed below are needed.
+Add a config file to configure the Embrace SDK. This file must be named `embrace-config.json` and should be placed in `app/src/main`. The config file supports many more options than those shown in the example below, but for the initial integration, only the two settings listed below are needed.
 
 ```json
 {
