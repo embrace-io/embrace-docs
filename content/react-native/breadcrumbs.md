@@ -29,7 +29,7 @@ For how to best use Breadcrumbs, check out the [Best Practices]({{< relref "/bes
 
 ---
 
-We use the Breadcrumb method for our logging and not the Log Message API.
+We generally use the Breadcrumb method for our logging and not the Log Message API to add context to sessions.
 Breadcrumbs are a lightweight way to add logging to your session. They add no CPU or memory overhead, and trigger no networking calls.
 The Log Message API is a much heavier mechanism. We will learn about it in the [Alerting]({{< relref "/react-native/log-message-api" >}}) section of the documentation.
 For now, just know that using Breadcrumbs is the right thing to do most of the time.
