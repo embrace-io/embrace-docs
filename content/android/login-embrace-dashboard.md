@@ -20,7 +20,7 @@ register for a new one.
 ## Integration page
 
 Once you've finished logging in or registering for a new account, you'll be able
-to create a new app. Follow the promps until you get to the integration page.
+to create a new app. Follow the prompts until you get to the integration page.
 Keep this tab open in your browser throughout the integration process. This will
 assist you in verifying that data is sent, along with helping you become
 familiar with the features the Embrace Dashboard offers.

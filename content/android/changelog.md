@@ -78,7 +78,7 @@ weight: 13
 - Added a more flexible configuration approach that simplifies how custom configurations can be set up for different build variants 
 - Added user info association that is set during a session even if it was cleared before the session ended 
 - Added optional argument to `endSession` method to clear user info when ending the session
-- Added ability to ignore non-serializeable log and event properties
+- Added ability to ignore non-serializable log and event properties
 - Fixed crash caused by trying to capture null headers from network requests.
 - Fixed a network path override issue when network requests ended in connection errors.
 - Improved sourcemap upload task for React Native
