@@ -98,10 +98,14 @@ If you encounter any errors, please get in touch on Slack and we can assist you.
 
 ## Trigger a Session Upload
 
-To trigger a session upload, simply stop the application by either force killing
-it or using the Android Studio stop button. Now run the application again. This second
-launch will upload the previous session immediately. Refresh the dashboard in
+You can trigger a session upload by sending your app to the background. Refresh the dashboard in
 your browser and you should now see that you've moved on to the next step.
+
+{{< hint warning >}}
+If you stop your application by either force killing it or using the Android Studio stop button, 
+the Embrace SDK will not be able to upload the session that was just completed until you restart 
+your application. During the next application launch the previous session will be immediately uploaded. 
+{{< /hint >}}
 
 ---
 

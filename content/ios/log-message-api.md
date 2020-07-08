@@ -7,8 +7,7 @@ weight: 9
 
 # Adding Alerts
 
-As we've discussed in the [Session Reporting section]({{< relref "/ios/session-reporting">}}), Embrace uploads its sessions on the next app launch.
-This delay may seem like it hurts the immediacy of the data you are seeing, but the reality is that at scale this still means you are finding out about issues very quickly.
+As we've discussed in the [Session Reporting section]({{< relref "/ios/session-reporting">}}), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
 
 However, some situations might require immediate feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout.
 
