@@ -6,6 +6,14 @@ weight: 14
 
 # iOS SDK Changelog
 
+## 4.2.0
+
+* Improved compatibility with SafeDK
+* Report current crash handler in session to improve report collection and integrations
+* Report terminated WKWebView content threads in session
+* Process console logging data to improve crash report categorization
+* Allow crash testing while connected to a debugger
+
 ## 4.1.18
 *May 14, 2020*
 - Improve HTTP Live Streaming (HLS) caching performance when using Embrace
