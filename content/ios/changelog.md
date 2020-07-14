@@ -6,7 +6,16 @@ weight: 14
 
 # iOS SDK Changelog
 
+## 4.2.2
+*May 13, 2020*
+
+* Stop EMBProxy from invoking nil invocation
+* Disable clean logging mode
+
+## 4.2.1 (DOA)
+
 ## 4.2.0
+*July 8, 2020*
 
 * Improved compatibility with SafeDK
 * Report current crash handler in session to improve report collection and integrations
