@@ -26,5 +26,6 @@ steps to complete your integration:
 1. [**Add Alerts.**]({{< relref "/ios/log-message-api" >}}) Use Embrace’s Log Events to power a real-time alerting system so you can rest easy knowing we will tell you if your application breaks.
 1. [**Measure Performance.**]({{< relref "/ios/performance-monitoring" >}}) In this section you will learn how you can use Embrace to go beyond logging and crashes and start to examine critical user flows within your application. Measure performance, completion and abandonment easily and consistently.
 1. [**Know your users.**]({{< relref "/ios/identify-users" >}}) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
+1. [**Augment Sessions using OS Log**]({{< relref "/ios/augment-sessions" >}}) Embrace can use your OS Log stream to help you understand complex problems with your application.
 
 {{< button relref="/ios/linking-embrace" >}}Get started{{< /button >}}

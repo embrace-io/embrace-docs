@@ -66,6 +66,6 @@ For example, you could prioritize fixing the issues that affect customers that u
 
 ---
 
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/ios/next-steps" >}}) page to wrap up your integration.
+Finally, use OS Log data to augment your sessions and help you understand even more about your app.
 
-{{< button relref="/ios/next-steps" >}}Next Steps{{< /button >}}
+{{< button relref="/ios/augment-sessions" >}}Augment Sessions using OS Log{{< /button >}}

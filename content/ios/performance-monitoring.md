@@ -55,7 +55,7 @@ For more on tracking abandonment, see the [Best Practices]({{< relref "/best-pra
 
 ---
 
-Finally, learn how to annotate sessions with user identifiers so you can search
+Next, learn how to annotate sessions with user identifiers so you can search
 for them later.
 
 {{< button relref="/ios/identify-users" >}}Know Your Users{{< /button >}}
