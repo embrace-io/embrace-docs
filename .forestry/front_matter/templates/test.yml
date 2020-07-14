@@ -28,5 +28,6 @@ pages:
 - content/android/log-message-api.md
 - content/android/login-embrace-dashboard.md
 - content/android/session-reporting.md
+- content/ios/Augment Sessions using OS Log.md
 - content/ios/linking-embrace.md
 - content/react-native/_index.md
