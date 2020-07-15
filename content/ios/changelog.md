@@ -6,6 +6,15 @@ weight: 14
 
 # iOS SDK Changelog
 
+## 4.2.4
+*July 15, 2020*
+
+* Update run.sh to support multiple 3rd party source-built depdencies
+* Expose all configuration options on EmbraceConfig object for documentation
+* Update nullability hints for swift compatibility
+
+## 4.2.3 (DOA)
+
 ## 4.2.2
 *July 13, 2020*
 
