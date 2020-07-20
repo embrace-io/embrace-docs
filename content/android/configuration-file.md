@@ -23,6 +23,7 @@ Explanations for each of the fields are provided below.
 {
   "app_id": "NNNNN",
   "api_token": "0123456789abcdef0123456789abcdef",
+  "ndk_enabled": false,
   "sdk_config": {
     "app": {
       "report_disk_usage": true,
@@ -57,6 +58,10 @@ Your 5 character app ID.
 #### app_token *string, required*
 
 Your API 32-hexdigit token.
+
+#### ndk_enabled *bool*
+
+Enables NDK crash capture. Defaults to `false`.
 
 ### app
 
