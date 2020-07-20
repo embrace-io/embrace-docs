@@ -6,6 +6,12 @@ weight: 13
 
 # Android SDK Changelog
 
+## 4.4.1
+*July 14, 2020*
+
+* Fixed bug where cached sessions were not sent if NDK crash support was not enabled
+* Fixed bug where only the first 3 ANR intervals were captured
+
 ## 4.4.0
 *July 2, 2020*
 
