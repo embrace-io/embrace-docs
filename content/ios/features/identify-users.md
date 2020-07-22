@@ -13,8 +13,8 @@ It is important that you annotate your sessions with enough information so that 
 You will also want to be able to answer questions about a session to help you understand the severity of an issue.
 Embrace offers two mechanisms for annotating sessions in a searchable way:
 
-1. [**User Personas**]({{< relref "/ios/identify-users#user-personas" >}}). This is data you can set and update about the user of a session.
-1. [**Session Properties**]({{< relref "/ios/identify-users#session-properties" >}}). This is data you use to track information about the device or the session itself.  
+1. [**User Personas**]({{< relref "/ios/features/identify-users#user-personas" >}}). This is data you can set and update about the user of a session.
+1. [**Session Properties**]({{< relref "/ios/features/identify-users#session-properties" >}}). This is data you use to track information about the device or the session itself.  
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 
@@ -30,7 +30,7 @@ We recommend including an anonymized user ID that only your agents can search fo
 {{< /hint >}}
 
 ```swift
-Embrace.sharedInstance()?.setUserIdentifier("internal_user_id_1234");
+Embrace.sharedInstance().setUserIdentifier("internal_user_id_1234");
 ```
 
 The above call annotates the session with a user identifier that we can use later to search for this user.
@@ -39,7 +39,7 @@ If the user contacts our customer service department, those agents will look the
 Sometimes you need to set customized values for specific use cases or user segmentation scenarios:
 
 ```swift
-Embrace.sharedInstance()?.setUserPersona("high_value_cart");
+Embrace.sharedInstance().setUserPersona("high_value_cart");
 ```
 
 The session is annotated with `"high_value_cart"` in the above example.
@@ -49,13 +49,13 @@ you can prioritize fixing bugs that affect such users.
 ## Session Properties
 
 Session Properties are another way to annotate the session.
-The difference between session properties and [user personas]({{< relref "/ios/identify-users#user-personas" >}}) is that the former are for items relating to the session or the device, and not necessarily to the user.
+The difference between session properties and [user personas]({{< relref "/ios/features/identify-users#user-personas" >}}) is that the former are for items relating to the session or the device, and not necessarily to the user.
 Although, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:
 
 ```swift
-Embrace.sharedInstance()?.addSessionProperty("normal", withKey: "launch type", permanent: false)
+Embrace.sharedInstance().addSessionProperty("normal", withKey: "launch type", permanent: false)
 ```
 
 In the above, the `"launch type"` property is set with a value of `"normal"`.
@@ -64,10 +64,4 @@ When the app is launched via a push notification tap, you can set the value `"pu
 This can help to understand issues that are hurting push notification adoption rates.
 For example, you could prioritize fixing the issues that affect customers that use push notifications, since they generally provide higher lifetime value.
 
-Session Properties can be marked permanent by setting the `permanent` parameter to true.  Use this for retail kiosk application that are installed in a single location and seldom moved, or a user's home office location.  Permanent properties persist across sessions and will appear in all sessions sent from that device until the property is removed.  Non-permanent properties exist only within the session they are added.
-
----
-
-Finally, use OS Log data to augment your sessions and help you understand even more about your app.
-
-{{< button relref="/ios/augment-sessions" >}}Augment Sessions using OS Log{{< /button >}}
+Session Properties can be marked permanent by setting the `permanent` parameter to true. Use this for retail kiosk application that are installed in a single location and seldom moved, or a user's home office location. Permanent properties persist across sessions and will appear in all sessions sent from that device until the property is removed. Non-permanent properties exist only within the session they are added.

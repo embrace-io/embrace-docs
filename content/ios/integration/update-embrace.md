@@ -29,11 +29,11 @@ When a new version of the Embrace SDK is published we announce it in our Slack c
 
 If you’d like to upgrade, simply grab the latest version, which is hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{< sdk platform="ios">}}.zip).
 
-Overwrite your downloaded copy in the `third_party` folder and Xcode should automatically pick it up the next time you build your application. This assumes you've followed the manual integration steps from the [Linking Embrace section]({{< relref "/ios/linking-embrace#manual" >}}).
+Overwrite your downloaded copy in the `third_party` folder and Xcode should automatically pick it up the next time you build your application. This assumes you've followed the manual integration steps from the [Linking Embrace section]({{< relref "/ios/integration/linking-embrace#manual" >}}).
 
 ---
 
 Now that you know how to keep Embrace up to date, it's time to login to the
 Embrace dashboard.
 
-{{< button relref="/ios/login-embrace-dashboard" >}}How to Access the Dashboard{{< /button >}}
+{{< button relref="/ios/integration/login-embrace-dashboard" >}}How to Access the Dashboard{{< /button >}}

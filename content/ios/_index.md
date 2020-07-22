@@ -1,36 +1,24 @@
 ---
 bookCollapseSection: true
 title: "iOS"
-description: Get started with integrating Embrace into your iOS application
+description: Learn about Embrace for the iOS platform
 weight: 2
 ---
 
-# iOS Integration
+# iOS Platform Documentation
 
 ## Getting Started
 
-We'll be guiding you through integrating Embrace into your Android application
-with a series of articles. We recommend going through them in order, although
-you are free to skip around. 
+This documentation is split into two sections:
 
-## Decisions You Need To Make
+1. [**Integration Guide**]({{< relref "/ios/integration">}})
+2. [**Feature Reference**]({{< relref "/ios/features">}})
 
-Before you dive into integrating Embrace there are a few decisions you should
-make to help guide your process:
+If you are just starting out with Embrace, follow the [**Integration Guide**]({{< relref "/ios/integration">}}) to learn
+the key steps to successfully using our product.  
 
-1. Are you integrating a new App or an existing application?
-1. Are you replacing an existing automated debugging SDK?
-1. Do you plan to use multiple automated debugging SDKs?
-1. What integration path makes sense for you?  CocoaPods, Carthage or Manual?
+Once you've completed that, browse through our [**Feature Reference**]({{< relref "/ios/features">}}) guides to learn how
+to use some of the advanced features our SDK provides.  
 
-Thinking about the above questions will help to define the path you will take
-through this documentation.  
-
-If you are starting a new application and thinking about Embrace, we recommend
-you follow the CocoaPods integration path.  This path automates many of the
-steps you would otherwise have to do yourself.
-
-If you have an established application then follow the path that most closely
-matches the processes you are already using to build your application.
-
-{{< button relref="/ios/integration-steps" >}}To Integration Steps{{< /button >}}
+You can also view our [FAQ]({{< relref "/ios/faq" >}})
+and [Change Log]({{< relref "/ios/changelog" >}})

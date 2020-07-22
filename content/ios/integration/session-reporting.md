@@ -15,12 +15,12 @@ it's time to collect your first session.
 Embrace always uploads sessions on subsequent launches. This means the general
 process we're going to follow to collect our first session is:
 
-1. [**Import the Embrace module**]({{< relref "/ios/session-reporting#import-embrace" >}})
-1. [**Add a start call to the Embrace SDK**]({{< relref "/ios/session-reporting#add-a-start-call" >}})
-1. [**End the Startup Moment**]({{< relref "/ios/session-reporting#end-the-startup-moment" >}})
-1. [**Build and run our application**]({{< relref "/ios/session-reporting#build-and-run-your-application" >}})
+1. [**Import the Embrace module**]({{< relref "/ios/integration/session-reporting#import-embrace" >}})
+1. [**Add a start call to the Embrace SDK**]({{< relref "/ios/integration/session-reporting#add-a-start-call" >}})
+1. [**End the Startup Moment**]({{< relref "/ios/integration/session-reporting#end-the-startup-moment" >}})
+1. [**Build and run our application**]({{< relref "/ios/integration/session-reporting#build-and-run-your-application" >}})
     1. Verify Embrace started via the logs
-1. [**Trigger a session upload**]({{< relref "/ios/session-reporting#trigger-a-session-upload" >}})
+1. [**Trigger a session upload**]({{< relref "/ios/integration/session-reporting#trigger-a-session-upload" >}})
     1. Close, or send the application to the background
     1. Launch the application to the foreground
     1. Verify that our first session was uploaded to Embrace by checking the Dashboard
@@ -106,16 +106,16 @@ Embrace.sharedInstance()?.endAppStartup();
 
 **A Note On Ensuring the Start Moment Ends**
 
-This moment is used to track launch performance, but also launch abandonment.  This is the 
-number of users who close the app before the launch finishes.  To correctly track this
-it is critical that all code paths end the startup moment eventually.  For example if your
+This moment is used to track launch performance, but also launch abandonment. This is the 
+number of users who close the app before the launch finishes. To correctly track this
+it is critical that all code paths end the startup moment eventually. For example if your
 app can launch via a push notification, ensure that path also ends the startup moment or you
 may see false abandonment data.
 
 {{< /hint >}}
 
 You can learn more about moments and measuring performance yourself in the
-[Measure Performance]({{< relref "/ios/performance-monitoring" >}}) section.
+[Measure Performance]({{< relref "/ios/features/performance-monitoring" >}}) section.
 
 ## Build and Run Your Application
 
@@ -152,4 +152,4 @@ Congratulations! At this point you've completed a basic integration of Embrace.
 Embrace is already collecting interesting data from your application. You can
 see this data by browsing around the timeline page for the session you just captured.
 
-{{< button relref="/ios/crash-report" >}}On to Crash Reporting{{< /button >}}
+{{< button relref="/ios/integration/crash-report" >}}On to Crash Reporting{{< /button >}}
