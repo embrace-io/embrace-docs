@@ -17,4 +17,4 @@ To enable this display of OS Log information in the dashboard you must add this 
 ENABLE_OS_LOG
 ```
 
-This feature works even if your application does not use the OS Log APIs as other logging methods such as `NSLog` or `print` redirect to that system. If you wish to better protect the privacy of your users while using this feature we recommend migrating to the OS Log system and using the privacy mechanisms available which Embrace will honor: https://developer.apple.com/documentation/os/logging
+This feature works even if your application does not use the OS Log APIs as other logging methods such as `NSLog` or `print` redirect to that system. If you wish to better protect the privacy of your users while using this feature we recommend migrating to the OS Log system and using the privacy mechanisms available which Embrace will honor.  You can read more about that in [Apple's documentation](https://developer.apple.com/documentation/os/logging).

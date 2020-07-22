@@ -64,4 +64,4 @@ When the app is launched via a push notification tap, you can set the value `"pu
 This can help to understand issues that are hurting push notification adoption rates.
 For example, you could prioritize fixing the issues that affect customers that use push notifications, since they generally provide higher lifetime value.
 
-Session Properties can be marked permanent by setting the `permanent` parameter to true.  Use this for retail kiosk application that are installed in a single location and seldom moved, or a user's home office location.  Permanent properties persist across sessions and will appear in all sessions sent from that device until the property is removed.  Non-permanent properties exist only within the session they are added.
+Session Properties can be marked permanent by setting the `permanent` parameter to true. Use this for retail kiosk application that are installed in a single location and seldom moved, or a user's home office location. Permanent properties persist across sessions and will appear in all sessions sent from that device until the property is removed. Non-permanent properties exist only within the session they are added.

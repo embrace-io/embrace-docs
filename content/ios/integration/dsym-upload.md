@@ -21,7 +21,7 @@ To enable automatic dSYM uploads, we will need to locate a number of items first
 
 Now, open the "Build Phases" tab in Xcode. We will be adding a new phase.
 
-{{< image src="/docs/images/ios-xcode-build-phase.png" alt="Build Phase in Xcode" title="Build Phase" caption="Xcode opened to the 'Build Phases' tab.  Note the '+' button in the upper middle for adding new phases" width="1600" height="1069">}}
+{{< image src="/docs/images/ios-xcode-build-phase.png" alt="Build Phase in Xcode" title="Build Phase" caption="Xcode opened to the 'Build Phases' tab. Note the '+' button in the upper middle for adding new phases" width="1600" height="1069">}}
 
 Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "Embrace Symbol Uploads".
 
@@ -73,7 +73,7 @@ In this version we're referencing the Embrace folder inside our `third_party` fo
 {{< /tabs >}}
 
 {{< hint info >}}
-In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script.  This is important, if the environment variables are not available when run.sh executes, the command will fail.
+In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script. This is important, if the environment variables are not available when run.sh executes, the command will fail.
 {{< /hint >}}
 
 

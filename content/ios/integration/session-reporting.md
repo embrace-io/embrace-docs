@@ -106,9 +106,9 @@ Embrace.sharedInstance()?.endAppStartup();
 
 **A Note On Ensuring the Start Moment Ends**
 
-This moment is used to track launch performance, but also launch abandonment.  This is the 
-number of users who close the app before the launch finishes.  To correctly track this
-it is critical that all code paths end the startup moment eventually.  For example if your
+This moment is used to track launch performance, but also launch abandonment. This is the 
+number of users who close the app before the launch finishes. To correctly track this
+it is critical that all code paths end the startup moment eventually. For example if your
 app can launch via a push notification, ensure that path also ends the startup moment or you
 may see false abandonment data.
 

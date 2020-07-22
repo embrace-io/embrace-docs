@@ -23,8 +23,8 @@ Make sure to continue reading after linking to learn how to open and use the Emb
 **Notes on our documentation**
 
 While writing this documentation we were using Xcode 11.5 with iOS SDK 13.5.
-The screenshots you will see all come from this version of Xcode.  Older or
-newer versions may have UI differences.  If you have any problems at all
+The screenshots you will see all come from this version of Xcode. Older or
+newer versions may have UI differences. If you have any problems at all
 following our instructions, please reach out to us on Slack and we’d love to
 help you out.
 
