@@ -87,7 +87,7 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
  
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs]({{< relref "/ios/dsym-upload#automatic-uploads" >}}) to learn how to locate this file in your project. You will also need your API key and API token.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs]({{< relref "/ios/integration/dsym-upload#automatic-uploads" >}}) to learn how to locate this file in your project. You will also need your API key and API token.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 
@@ -103,5 +103,5 @@ dSYM's are complicated, but ensuring that Embrace has them will make the data yo
 
 In the next section, we'll learn how to keep Embrace updated.
 
-{{< button relref="/ios/update-embrace" >}}Keeping Embrace Up To Date{{< /button >}}
+{{< button relref="/ios/integration/update-embrace" >}}Keeping Embrace Up To Date{{< /button >}}
 

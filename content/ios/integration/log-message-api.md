@@ -7,7 +7,7 @@ weight: 9
 
 # Adding Alerts
 
-As we've discussed in the [Session Reporting section]({{< relref "/ios/session-reporting">}}), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
+As we've discussed in the [Session Reporting section]({{< relref "/ios/integration/session-reporting">}}), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
 
 However, some situations might require immediate feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout.
 
@@ -25,7 +25,7 @@ Embrace.sharedInstance()?.logMessage("Loading not finished in time.", with: .err
 Let's examine the method call from above to understand the arguments involved:
 
 1. **logMessage**: The first argument is a string and represents the message itself. 
-2. **with**: This is the severity of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs]({{< relref "/ios/breadcrumbs" >}}).
+2. **with**: This is the severity of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs]({{< relref "/ios/integration/breadcrumbs" >}}).
 3. **properties**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
 4. **takeScreenshot**: A boolean indicating whether or not we should include a screenshot with this alert.
 
@@ -49,7 +49,6 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 
 ---
 
-Embrace offers an API to measure the performance of key actions within your app. 
-Let's learn about **moments** next.
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/ios/integration/next-steps" >}}) page to wrap up your integration.
 
-{{< button relref="/ios/performance-monitoring" >}}Learn About Moments{{< /button >}}
+{{< button relref="/ios/integration/next-steps" >}}Next Steps{{< /button >}}

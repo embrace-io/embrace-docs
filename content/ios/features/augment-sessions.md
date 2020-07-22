@@ -18,9 +18,3 @@ ENABLE_OS_LOG
 ```
 
 This feature works even if your application does not use the OS Log APIs as other logging methods such as `NSLog` or `print` redirect to that system. If you wish to better protect the privacy of your users while using this feature we recommend migrating to the OS Log system and using the privacy mechanisms available which Embrace will honor: https://developer.apple.com/documentation/os/logging
-
----
-
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/ios/next-steps" >}}) page to wrap up your integration.
-
-{{< button relref="/ios/next-steps" >}}Next Steps{{< /button >}}

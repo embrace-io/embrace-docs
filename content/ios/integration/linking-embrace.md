@@ -10,9 +10,9 @@ Embrace is distributed as a framework.
 You will be dynamically linking that framework with your application.
 We support three methods for accomplishing that:
 
-1. [**CocoaPods.**]({{< relref "/ios/linking-embrace#cocoapods" >}}) You can easily add Embrace to your PodFile and have most of this work done for you.
-1. [**Carthage.**]({{< relref "/ios/linking-embrace#carthage" >}}) Carthage will help you keep track of Embrace versions and upgrades, you will still perform much of the linking process manually.
-1. [**Manual.**]({{< relref "/ios/linking-embrace#manual" >}}) You will download the framework directly and manually link it with your project.
+1. [**CocoaPods.**]({{< relref "/ios/integration/linking-embrace#cocoapods" >}}) You can easily add Embrace to your PodFile and have most of this work done for you.
+1. [**Carthage.**]({{< relref "/ios/integration/linking-embrace#carthage" >}}) Carthage will help you keep track of Embrace versions and upgrades, you will still perform much of the linking process manually.
+1. [**Manual.**]({{< relref "/ios/integration/linking-embrace#manual" >}}) You will download the framework directly and manually link it with your project.
 
 We’ve broken out the integration for each method individually below.
 You only need to look at the section relevant to your application and can safely skip the other 3.  
@@ -165,4 +165,4 @@ sure this all worked.
 Next, let's make sure we upload dSYMs correctly so stack traces get
 symbolicated.
 
-{{< button relref="/ios/dsym-upload" >}}Learn About dSYM Uploads{{< /button >}}
+{{< button relref="/ios/integration/dsym-upload" >}}Learn About dSYM Uploads{{< /button >}}
