@@ -88,7 +88,7 @@ pod install
 ```
 
 Finally, you'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
-Please see the [Session Reporting]({{< relref "/ios/session-reporting#import-embrace" >}}) page from the iOS integration guide page on how to add this file in Xcode. 
+Please see the [Session Reporting]({{< relref "/ios/integration/session-reporting#import-embrace" >}}) page from the iOS integration guide page on how to add this file in Xcode. 
 
 {{< /tab >}}
 

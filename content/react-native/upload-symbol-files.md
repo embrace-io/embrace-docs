@@ -94,7 +94,7 @@ ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle .
 
 {{< tab "iOS" >}}
 
-Please see the [Uploading dSYMs]({{< relref "/ios/dsym-upload" >}}) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
+Please see the [Uploading dSYMs]({{< relref "/ios/integration/dsym-upload" >}}) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
 
 {{< /tab >}}
 
