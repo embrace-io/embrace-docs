@@ -2,6 +2,8 @@
 title: "Uploading Symbol Files"
 description: Learn how to upload source maps to Embrace to translate JavaScript stack traces for your React Native application
 weight: 4
+aliases:
+  - /react-native/upload-symbol-files/
 ---
 
 # Uploading Symbol Files

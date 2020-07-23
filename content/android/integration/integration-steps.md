@@ -2,6 +2,8 @@
 title: Integration Steps
 weight: 1
 description: Integration steps to add Embrace to your Android application
+aliases:
+  - /android/integration-steps/
 
 ---
 # Integration Steps

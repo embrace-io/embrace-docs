@@ -2,7 +2,8 @@
 title: Linking Embrace
 weight: 2
 description: Linking Embrace with your application is quick and easy.
-
+aliases:
+  - /ios/linking-embrace/
 ---
 # Linking Embrace with your Application
 

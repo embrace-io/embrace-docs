@@ -2,6 +2,8 @@
 title: "Identify Users"
 description: Get to know the users of your React Native application with the Embrace SDK
 weight: 2
+aliases:
+  - /react-native/identify-users/
 ---
 
 # Know Your Users

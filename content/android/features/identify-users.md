@@ -2,7 +2,8 @@
 title: Identify Your Users
 weight: 2
 description: Get to know the users of your Android application with the Embrace SDK
-
+aliases:
+  - /android/identify-users/
 ---
 # Know Your Users
 

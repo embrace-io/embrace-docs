@@ -2,6 +2,8 @@
 title: "Performance Monitoring"
 description: Measure the performance of your React Native application using Embrace
 weight: 1
+aliases:
+  - /react-native/performance-monitoring/
 ---
 
 # Measure Performance

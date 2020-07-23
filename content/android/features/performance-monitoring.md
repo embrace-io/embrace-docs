@@ -2,6 +2,8 @@
 title: "Performance Monitoring"
 description: Measure the performance of your Android application using Embrace
 weight: 1
+aliases:
+  - /android/performance-monitoring/
 ---
 
 # Measure Performance

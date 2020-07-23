@@ -2,6 +2,8 @@
 title: "Update Embrace"
 description: Learn how to update the Embrace SDK
 weight: 4
+aliases:
+  - /ios/update-embrace/
 ---
 
 # Keeping Embrace Up To Date

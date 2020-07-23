@@ -2,6 +2,8 @@
 title: "Performance Monitoring"
 description: Measure the performance of your iOS application using Embrace
 weight: 1
+aliases:
+  - /ios/performance-monitoring/
 ---
 
 # Measure Performance

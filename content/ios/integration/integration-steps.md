@@ -1,6 +1,8 @@
 ---
 title: "Integration Steps"
 weight: 1
+aliases:
+  - /ios/integration-steps/
 ---
 
 # Integration Steps
