@@ -2,6 +2,8 @@
 title: Next Steps
 description: Resources to help you take your Embrace integration for your Android application to the next level
 weight: 8
+aliases:
+  - /android/next-steps/
 ---
 
 # Next Steps

@@ -2,7 +2,8 @@
 title: Breadcrumbs
 weight: 6
 description: Add logging to your Android application using Breadcrumbs with the Embrace SDK
-
+aliases:
+  - /android/breadcrumbs/
 ---
 # Add a Breadcrumb
 

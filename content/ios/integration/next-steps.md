@@ -2,6 +2,8 @@
 title: "Next Steps"
 description: Resources to help you take your Embrace integration for your iOS application to the next level
 weight: 10
+aliases:
+  - /ios/next-steps/
 ---
 
 # Next Steps

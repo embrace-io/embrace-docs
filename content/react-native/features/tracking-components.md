@@ -2,6 +2,8 @@
 title: "Tracking Components"
 description: Track the mounting and unmounting of React Components for your React Native application using the Embrace SDK
 weight: 3
+aliases:
+  - /react-native/tracking-components/
 ---
 
 # Tracking Components

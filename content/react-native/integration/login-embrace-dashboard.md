@@ -2,6 +2,8 @@
 title: "Login to the Embrace Dashboard"
 description: Login to the Embrace dashboard to get started with your React Native integration
 weight: 2
+aliases:
+  - /react-native/login-embrace-dashboard/
 ---
 
 # Getting Started with the Embrace Dashboard

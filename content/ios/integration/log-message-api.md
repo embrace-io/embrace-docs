@@ -2,7 +2,8 @@
 title: "Log Message API"
 description: Trigger alerts for your iOS application using logs with the Embrace SDK
 weight: 9
-
+aliases:
+  - /ios/log-message-api/
 ---
 
 # Adding Alerts

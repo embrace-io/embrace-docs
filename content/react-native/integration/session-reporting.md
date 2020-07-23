@@ -2,6 +2,8 @@
 title: "Session Reporting"
 description: Upload session reports from your React Native application using the Embrace SDK
 weight: 5
+aliases:
+  - /react-native/session-reporting/
 ---
 
 # Session Reporting

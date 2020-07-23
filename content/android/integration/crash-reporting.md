@@ -2,7 +2,8 @@
 title: Crash Reporting
 weight: 5
 description: Upload crash reports from your Android application using the Embrace SDK
-
+aliases:
+  - /android/crash-reporting/
 ---
 # Collect Your First Crash Report
 

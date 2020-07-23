@@ -2,6 +2,8 @@
 title: "Breadcrumb Logs"
 description: Add logging to your React Native application using Breadcrumbs with the Embrace SDK
 weight: 7
+aliases:
+  - /react-native/breadcrumbs/
 ---
 
 # Add a Breadcrumb

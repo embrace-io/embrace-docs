@@ -2,7 +2,8 @@
 title: "Session Reporting"
 description: Upload session reports from your iOS application using the Embrace SDK
 weight: 6
-
+aliases:
+  - /ios/session-reporting/
 ---
 
 # Session Reporting

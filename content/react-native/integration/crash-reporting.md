@@ -2,6 +2,8 @@
 title: "Crash Reporting"
 description: Upload crash reports for both native and JavaScript exceptions from your React Native application using the Embrace SDK
 weight: 6
+aliases:
+  - /react-native/crash-reporting/
 ---
 
 # Collect your first crash report 

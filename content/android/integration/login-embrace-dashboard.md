@@ -2,7 +2,8 @@
 title: Login to the Embrace Dashboard
 weight: 2
 description: Login to the Embrace dashboard to get started with your Android integration
-
+aliases:
+  - /android/login-embrace-dashboard/
 ---
 # Getting Started with the Embrace Dashboard
 

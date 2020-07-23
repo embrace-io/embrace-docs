@@ -2,6 +2,8 @@
 title: Session Reporting
 weight: 4
 description: Upload session reports from your Android application using the Embrace SDK
+aliases:
+  - /android/session-reporting/
 
 ---
 # Session Reporting
