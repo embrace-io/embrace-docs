@@ -1,7 +1,7 @@
 ---
 title: "iOS SDK Changelog"
 description: Changelog for the iOS Embrace SDK
-weight: 14
+weight: 4
 ---
 
 # iOS SDK Changelog

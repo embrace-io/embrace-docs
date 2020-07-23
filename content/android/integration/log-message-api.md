@@ -1,6 +1,6 @@
 ---
 title: Log Message API
-weight: 8
+weight: 7
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 
 ---
@@ -60,6 +60,6 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 
 ---
 
-We'll be introducing you to **moments** in the next section, which you'll be able to use to measure the performance of various actions within your app.
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/android/integration/next-steps" >}}) page to wrap up your integration.
 
-{{< button relref="/android/performance-monitoring" >}}Learn about Moments{{< /button >}}
+{{< button relref="/android/integration/next-steps" >}}Next Steps{{< /button >}}

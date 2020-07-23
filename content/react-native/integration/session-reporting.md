@@ -9,11 +9,11 @@ weight: 5
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 Here are the steps you’ll be taking to create your first session.
 
-1. [Import Embrace]({{< relref "/react-native/session-reporting#import-embrace" >}})
-1. [Add a start call to the Embrace SDK]({{< relref "/react-native/session-reporting#add-the-start-call" >}})
-1. [End the Startup Moment]({{< relref "/react-native/session-reporting#end-the-startup-moment" >}})
-1. [Build and run the application]({{< relref "/react-native/session-reporting#build-and-run-the-application" >}})
-1. [Trigger a session upload]({{< relref "/react-native/session-reporting#trigger-a-session-upload" >}})
+1. [Import Embrace]({{< relref "/react-native/integration/session-reporting#import-embrace" >}})
+1. [Add a start call to the Embrace SDK]({{< relref "/react-native/integration/session-reporting#add-the-start-call" >}})
+1. [End the Startup Moment]({{< relref "/react-native/integration/session-reporting#end-the-startup-moment" >}})
+1. [Build and run the application]({{< relref "/react-native/integration/session-reporting#build-and-run-the-application" >}})
+1. [Trigger a session upload]({{< relref "/react-native/integration/session-reporting#trigger-a-session-upload" >}})
 
 ## Import Embrace 
 
@@ -45,7 +45,7 @@ import io.embrace.android.embracesdk.Embrace;
 
 {{< hint info >}}
 
-If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relref "/react-native/add-embrace-sdk" >}}) page, this change has already been made for you.
+If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relref "/react-native/integration/add-embrace-sdk" >}}) page, this change has already been made for you.
 
 {{< /hint >}}
 
@@ -90,12 +90,12 @@ public class MainApplication extends Application implements ReactApplication {
 ## End the Startup Moment
 
 Embrace automatically starts the **startup** moment when your application launches.
-You'll learn more about moments in [Performance Monitoring]({{< relref "/react-native/performance-monitoring" >}}) guide.
+You'll learn more about moments in [Performance Monitoring]({{< relref "/react-native/features/performance-monitoring" >}}) guide.
 For now, you can think of the startup moment as a timer that measures how long it took your application to launch.
 Although in both Android and iOS the moment is started automatically, ending it is platform specific.
 
 For Android, the SDK will end the moment automatically.
-To end the startup moment when you React component mounts, see the [Android guide]({{< relref "/android/session-reporting#end-the-startup-moment" >}}) to prevent the moment from ending automatically.
+To end the startup moment when you React component mounts, see the [Android guide]({{< relref "/android/integration/session-reporting#end-the-startup-moment" >}}) to prevent the moment from ending automatically.
 
 The iOS SDK does not end the moment automatically.
 
@@ -140,4 +140,4 @@ see this data by browsing around the timeline page for the session you just capt
 
 Up next, you'll be learning about uploading crash reports.
 
-{{< button relref="/react-native/crash-reporting" >}}Upload Crash Report{{< /button >}}
+{{< button relref="/react-native/integration/crash-reporting" >}}Upload Crash Report{{< /button >}}

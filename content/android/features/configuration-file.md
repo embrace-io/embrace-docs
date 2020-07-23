@@ -1,7 +1,7 @@
 ---
 title: Configuration File
 description: Configuration file for the Android Embrace SDK
-weight: 11
+weight: 3
 ---
 
 # Android Configuration File

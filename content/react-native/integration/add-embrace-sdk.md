@@ -37,7 +37,7 @@ cd ios && pod install
 
 {{< tab "Android" >}}
 
-Follow the steps in the [Setup Script]({{< relref "/android/add-embrace-sdk#using-the-setup-script" >}}) section or the [Manual]({{< relref "/android/add-embrace-sdk#adding-the-sdk-manually" >}}) section to
+Follow the steps in the [Setup Script]({{< relref "/android/integration/add-embrace-sdk#using-the-setup-script" >}}) section or the [Manual]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) section to
 add the Android native dependencies.
 
 {{</tab >}}
@@ -61,7 +61,7 @@ You can use git to see the changes that the script made.
 git diff
 ```
 
-Compare the changes to the [Manual Setup]({{< relref "/android/add-embrace-sdk#adding-the-sdk-manually" >}}) step to verify the changes were made
+Compare the changes to the [Manual Setup]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) step to verify the changes were made
 correctly.
 
 ## Adding the SDK Manually
@@ -169,5 +169,5 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 There's a little more configuration we have to do to setup the uploading of symbol files.
 You'll be learning about that next.
 
-{{< button relref="/react-native/upload-symbol-files" >}}On to Uploading Symbol Files{{< /button >}}
+{{< button relref="/react-native/integration/upload-symbol-files" >}}On to Uploading Symbol Files{{< /button >}}
 

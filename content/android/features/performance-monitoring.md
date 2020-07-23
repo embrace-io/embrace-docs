@@ -1,7 +1,7 @@
 ---
 title: "Performance Monitoring"
 description: Measure the performance of your Android application using Embrace
-weight: 9
+weight: 1
 ---
 
 # Measure Performance
@@ -9,9 +9,9 @@ weight: 9
 ## Moments
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
-This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/android/session-reporting" >}}) section.
+This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) section.
 
-Similar to [Logs]({{< relref "/android/log-message-api" >}}), moments will immediately make a network request.
+Similar to [Logs]({{< relref "/android/integration/log-message-api" >}}), moments will immediately make a network request.
 
 {{< hint info >}}
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.
@@ -51,8 +51,3 @@ You can end the moment from multiple locations in your app, or from multiple thr
 In addition to measuring performance, moments can also measure abandonment.
 For more on tracking abandonment, see the [Best Practices]({{< relref "/best-practices/app-performance" >}}) section.
 
----
-
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/android/next-steps" >}}) page to wrap up your integration.
-
-{{< button relref="/android/next-steps" >}}Next Steps{{< /button >}}

@@ -1,7 +1,7 @@
 ---
 title: iOS FAQ
 description: Frequently asked questions about the iOS Embrace SDK
-weight: 13
+weight: 3
 ---
 
 # iOS FAQ

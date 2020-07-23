@@ -1,12 +1,12 @@
 ---
-title: "Login to the Embrace Dashboard"
-description: Login to the Embrace dashboard to get started with your React Native integration
+title: Login to the Embrace Dashboard
 weight: 2
----
+description: Login to the Embrace dashboard to get started with your Android integration
 
+---
 # Getting Started with the Embrace Dashboard
 
-## Logging In
+## Logging in
 
 Before being able to integrate, you'll need to create an account on the Embrace
 dashboard so you can access your app ID and API token. Open a browser and
@@ -34,4 +34,4 @@ Embrace SDK with your app.
 
 Now we are ready to add the SDK to your app.
 
-{{< button relref="/react-native/add-embrace-sdk" >}}Add Embrace SDK{{< /button >}}
+{{< button relref="/android/integration/add-embrace-sdk" >}}Add Embrace SDK{{< /button >}}

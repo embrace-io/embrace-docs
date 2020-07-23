@@ -9,7 +9,7 @@ description: Upload crash reports from your Android application using the Embrac
 ##  Setting up the Crash Reporter
 
 For Android, the Embrace SDK automatically captures crash reports and uploads them.
-Assuming you've initialized the Embrace SDK in the [Session Reporting]({{< relref "/android/session-reporting" >}}) section,
+Assuming you've initialized the Embrace SDK in the [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) section,
 congratulations, you're done!
 
 Trigger a crash organically, or by adding the following code.
@@ -41,6 +41,7 @@ on Slack and we'll work with you directly.
 
 ---
 
-In the next section, you'll learn how to annotate sessions with user identifiers so you can search for them later.
+In the next section, you'll be learning how to add Breadcrumb logs to add
+context to sessions. 
 
-{{< button relref="/android/identify-users" >}}Identify Your Users{{< /button >}}
+{{< button relref="/android/integration/breadcrumbs" >}}Learn About Breadcrumb Logging{{< /button >}}

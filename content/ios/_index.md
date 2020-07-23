@@ -2,7 +2,7 @@
 bookCollapseSection: true
 title: "iOS"
 description: Learn about Embrace for the iOS platform
-weight: 2
+weight: 1
 ---
 
 # iOS Platform Documentation

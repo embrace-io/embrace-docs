@@ -1,25 +1,23 @@
 ---
 bookCollapseSection: true
 title: React Native
-weight: 3
-description: Get started with integrating Embrace into your React Native application
----
+weight: 1
+description: Learn about Embrace for the React Native platform
 
-# React Native Integration
+---
+# Native platform Platform Documentation
 
 ## Getting Started
 
-We'll be guiding you through integrating Embrace into your React Native application
-with a series of articles. We recommend going through them in order, although
-you are free to skip around. 
+This documentation is split into two sections:
 
-## Requirements
+1. [**Integration Guide**]({{< relref "/react-native/integration">}})
+2. [**Feature Reference**]({{< relref "/react-native/features">}})
 
-### Android
+If you are just starting out with Embrace, follow the [**Integration Guide**]({{< relref "/react-native/integration">}}) to learn
+the key steps to successfully using our product.  
 
-* Android 4.1 (API 16) or later
-* Gradle 4.4 or later
-* Android Build Tools Plugin 3.+
-* Java 8
+Once you've completed that, browse through our [**Feature Reference**]({{< relref "/react-native/features">}}) guides to learn how
+to use some of the advanced features our SDK provides.  
 
-{{< button relref="/react-native/integration-steps" >}}To Integration Steps{{< /button >}}
+and [Change Log]({{< relref "/react-native/changelog" >}})

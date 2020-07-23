@@ -34,7 +34,7 @@ export EXTRA_PACKAGER_ARGS="--sourcemap-output $CONFIGURATION_BUILD_DIR/$UNLOCAL
 
 {{< hint info >}}
 
-If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relref "/react-native/add-embrace-sdk" >}}) page, this change has already been made for you.
+If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relref "/react-native/integration/add-embrace-sdk" >}}) page, this change has already been made for you.
 
 {{< /hint >}}
 
@@ -117,5 +117,5 @@ If you don’t see symbolicated crashes while using Proguard, reach out to us on
 
 Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.  
 
-{{< button relref="/react-native/session-reporting" >}}Create Your First Session{{< /button >}}
+{{< button relref="/react-native/integration/session-reporting" >}}Create Your First Session{{< /button >}}
 

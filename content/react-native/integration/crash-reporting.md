@@ -29,7 +29,7 @@ initialize({patch: 'v1'});
 
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
-described in the [Adding the Embrace SDK]({{< relref "/react-native/add-embrace-sdk" >}}) page).
+described in the [Adding the Embrace SDK]({{< relref "/react-native/integration/add-embrace-sdk" >}}) page).
 If you're using Crashlytics, set this value to false.
 {{< /hint >}}
 
@@ -85,6 +85,6 @@ Additionally your crash is visible in the crashes section of the dashboard.
 
 ---
 
-In the next section, you'll be learning how to annotate sessions with user identifiers. 
+In the next guide, you'll learn how to add context to your sessions using Breadcrumb Logs.
 
-{{< button relref="/react-native/identify-users" >}}Learn How to Identify Your Users{{< /button >}}
+{{< button relref="/react-native/integration/breadcrumbs" >}}Learn About Breadcrumb Logs{{< /button >}}
