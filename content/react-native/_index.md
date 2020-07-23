@@ -1,7 +1,7 @@
 ---
 bookCollapseSection: true
 title: React Native
-weight: 3
+weight: 1
 description: Learn about Embrace for the React Native platform
 
 ---

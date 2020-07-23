@@ -1,7 +1,7 @@
 ---
 title: "Performance Monitoring"
 description: Measure the performance of your React Native application using Embrace
-weight: 10
+weight: 1
 ---
 
 # Measure Performance

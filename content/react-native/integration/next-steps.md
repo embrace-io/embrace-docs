@@ -1,7 +1,7 @@
 ---
 title: "Next Steps"
 description: Resources to help you take your Embrace integration for your React Native application to the next level
-weight: 12
+weight: 9
 ---
 
 # Next Steps
@@ -16,7 +16,7 @@ please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 ## Feature Reference
 
 Embrace includes many optional advanced features that can help you figure out some of 
-the most challeging issues. Learn about these features, and how to enable them, in
+the most challenging issues. Learn about these features, and how to enable them, in
 our [Feature Reference]({{< relref "/react-native/features" >}}).
 
 ## API Docs

@@ -1,7 +1,7 @@
 ---
 title: "Android SDK Changelog"
 description: Changelog for the Android Embrace SDK
-weight: 13
+weight: 4
 ---
 
 # Android SDK Changelog

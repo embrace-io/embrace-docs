@@ -1,6 +1,6 @@
 ---
 title: Log Message API
-weight: 8
+weight: 7
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 
 ---

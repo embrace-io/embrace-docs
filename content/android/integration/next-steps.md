@@ -1,7 +1,7 @@
 ---
 title: Next Steps
 description: Resources to help you take your Embrace integration for your Android application to the next level
-weight: 10
+weight: 8
 ---
 
 # Next Steps
@@ -16,7 +16,7 @@ please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 ## Feature Reference
 
 Embrace includes many optional advanced features that can help you figure out some of 
-the most challeging issues. Learn about these features, and how to enable them, in
+the most challenging issues. Learn about these features, and how to enable them, in
 our [Feature Reference]({{< relref "/android/features" >}}).
 
 ## API Docs
@@ -27,7 +27,7 @@ the [Android API docs]({{< api android >}}).
 ## Configuration Options
 
 The SDK has many configuration options that we have not explored as we get you onboarded. Explore the options avialable 
-on the [SDK Configuration Page]({{< relref "/android/integration/configuration-file" >}}) to see if any are of use to you in your application.
+on the [SDK Configuration Page]({{< relref "/android/features/configuration-file" >}}) to see if any are of use to you in your application.
 
 ## Check Out the FAQ
 

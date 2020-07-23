@@ -1,7 +1,7 @@
 ---
 title: "Performance Monitoring"
 description: Measure the performance of your Android application using Embrace
-weight: 9
+weight: 1
 ---
 
 # Measure Performance

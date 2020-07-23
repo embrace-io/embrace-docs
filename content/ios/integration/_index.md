@@ -2,7 +2,7 @@
 bookCollapseSection: true
 title: "Integration Guide"
 description: Get started with integrating Embrace into your iOS application
-weight: 2
+weight: 1
 ---
 
 # iOS Integration

@@ -1,7 +1,7 @@
 ---
 bookCollapseSection: true
 title: "Integration Guide"
-weight: 3
+weight: 1
 description: Get started with integrating Embrace into your React Native application
 ---
 

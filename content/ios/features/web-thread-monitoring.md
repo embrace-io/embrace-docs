@@ -1,7 +1,7 @@
 ---
 title: "Web Thread Monitoring"
 description: Embrace can monitor the JavaScript threads in your WKWebViews
-weight: 6
+weight: 4
 
 ---
 
