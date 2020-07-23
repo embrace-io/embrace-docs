@@ -19,9 +19,3 @@ startView('MyView');
 
 endView('MyView');
 ```
-
----
-
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/react-native/next-steps" >}}) page to wrap up your integration.
-
-{{< button relref="/react-native/next-steps" >}}Next Steps{{< /button >}}

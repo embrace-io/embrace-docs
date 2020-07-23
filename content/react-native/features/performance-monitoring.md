@@ -9,7 +9,7 @@ weight: 10
 ## Moments
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
-This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/react-native/session-reporting" >}}) section.
+This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/react-native/integration/session-reporting" >}}) section.
 
 ## Starting a Moment
 
@@ -44,9 +44,3 @@ You can end the moment from multiple locations in your app.
 
 In addition to measuring performance, moments can also measure abandonment.
 For more on tracking abandonment, see the [Best Practices]({{< relref "/best-practices/app-performance" >}}) section.
-
----
-
-In the next guide, you'll be learning how to track the React components in your application mounting and unmounting.
-
-{{< button relref="/react-native/tracking-components" >}}Learn How to Track Components{{< /button >}}
