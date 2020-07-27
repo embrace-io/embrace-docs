@@ -6,6 +6,12 @@ weight: 4
 
 # iOS SDK Changelog
 
+## 5.0.0
+*July 27, 2020*
+
+* Use dispatch-io channels to improve performance and improve session resolution
+* Update run.sh to support locally build framework dsyms
+
 ## 4.2.4
 *July 15, 2020*
 
