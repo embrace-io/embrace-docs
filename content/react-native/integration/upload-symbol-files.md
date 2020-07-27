@@ -115,6 +115,51 @@ If you don’t see symbolicated crashes while using Proguard, reach out to us on
 
 {{< /tabs >}}
 
+## Pointing the Embrace SDK to the JavaScript Bundle
+
+If you distribute changes to the JavaScript code without submitting a new version to the App Store or Google Play Store (i.e. Expo OTA updates),
+you must point the Embrace SDK to where the updated JavaScript bundle will be downloaded on the device.
+You can do this in either the JavaScript part or native parts of your app with the code snippet provided below.
+Note that this step is unnecessary if you use CodePush since the Embrace SDK will leverage the CodePush SDK to find the location of the bundle.
+
+{{< tabs >}}
+
+{{< tab "JavaScript" >}}
+
+```javascript
+import {setJavaScriptBundlePath} from 'react-native-embrace';
+
+setJavaScriptBundlePath(pathToBundle)
+```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];
+```
+
+{{< /tab >}}
+
+{{< tab "Java" >}}
+
+```java
+Embrace.getInstance().setJavaScriptBundleURL(pathToBundle)
+```
+
+{{< /tab >}}
+
+
+{{< /tabs >}}
+
+## Expo Apps
+
+If your app is built using Expo and you leverage OTA to distribute updates to your users, you must manually upload source maps using the script distributed with the SDK
+as described in the [Symbolication with CodePush]({{< relref "/react-native/integration/upload-symbol-files#symbolication-with-codepush" >}}) section.
+
+You must also point the Embrace SDK to the location the updated bundle will be downloaded to on the device, as described in the [Pointing the Embrace SDK to the JavaScript Bundle]({{< relref "/react-native/integration/upload-symbol-files#pointing-the-embrace-sdk-to-the-javascript-bundle" >}}).
+
 ---
 
 Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.  
