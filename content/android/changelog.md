@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.5.0
+*July 24, 2020*
+
+* Added configuration to disable swazzling for specific build types
+* Fixed bug introduced in 4.4.1 that prevented upload of Proguard files 
+
 ## 4.4.1
 *July 14, 2020*
 
