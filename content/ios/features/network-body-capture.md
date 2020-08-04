@@ -18,7 +18,7 @@ In your Embrace-Info.plist file, include a public RSA key as a string in this fi
 CAPTURE_PUBLIC_KEY
 ```
 
-Make sure to only inlcude the public key, and to include entire key as displayed by the cat command in CLI, for example:
+Make sure to only inlcude the public key, and to include the entire key as displayed by the cat command in CLI, for example:
 
 ```sh
 cat ~/.ssh/id_rsa.pub
@@ -27,4 +27,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDQzL6+6tvCyV7PZmNM4saG6h/7HiLxhiF7xpiNw8za
 
 You can use any size key that is compatible with the iOS platforms you target, which is currently a minimum of 1024 and a max of 4096.
 
-If configured this way, the Embrace SDK will encrypt the entire captured object, including headers, into a single payload that only you can decrypt.
+If configured this way, the Embrace SDK will encrypt the captured object, including headers, into a single payload that only you can decrypt.
