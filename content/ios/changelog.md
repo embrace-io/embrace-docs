@@ -6,6 +6,12 @@ weight: 4
 
 # iOS SDK Changelog
 
+## 5.0.1
+*Aug 4, 2020*
+
+* Fix threading crash in EMBStreamingBreadcrumbManager's cache layer
+* Apple TV compatible framework now included in release
+
 ## 5.0.0
 *July 27, 2020*
 
