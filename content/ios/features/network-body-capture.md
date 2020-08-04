@@ -8,17 +8,17 @@ weight: "5"
 
 Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.  
 
-This feature can only be enabled by your Embrace CS representative, so reach out to them on slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you.
+This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you.
 
 If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.  
 
-In your Embrace-Info.plist file, include a public RSA key as a string in this field:
+In your `Embrace-Info.plist` file, include a public RSA key as a string in this field:
 
 ```sh
 CAPTURE_PUBLIC_KEY
 ```
 
-Make sure to only inlcude the public key, and to include the entire key as displayed by the cat command in CLI, for example:
+Make sure to only inlcude the public key, and to include the entire key as displayed by the cat command in your terminal, for example:
 
 ```sh
 cat ~/.ssh/id_rsa.pub
@@ -27,4 +27,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDQzL6+6tvCyV7PZmNM4saG6h/7HiLxhiF7xpiNw8za
 
 You can use any size key that is compatible with the iOS platforms you target, which is currently a minimum of 1024 and a max of 4096.
 
-If configured this way, the Embrace SDK will encrypt the captured object, including headers, into a single payload that only you can decrypt.
+If configured this way, the Embrace SDK will encrypt the captured object, including headers, into a single payload that only you can decrypt it.
