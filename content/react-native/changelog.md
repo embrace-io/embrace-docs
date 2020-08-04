@@ -6,6 +6,12 @@ weight: 3
 
 # React Native SDK Changelog
 
+## 3.5.0
+*August 3, 2020*
+
+- Allow passing properties into the `logHandledError` method.
+- Fix issue with gradle file and specifying Java 8.
+
 ##  3.4.0
 *May 20, 2020*
 
