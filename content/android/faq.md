@@ -20,6 +20,18 @@ To turn off screenshots via the SDK,
 please refer to the sections for [Logs]({{< relref "/android/integration/log-message-api" >}}) and [Moments]({{< relref "/android/features/performance-monitoring" >}}), or see the [API docs]({{< api android >}}).
 If you'd like to turn off screenshots for the entire app, please contact us and we will change the app configuration for you.
 
+## Crash Capture
+
+### **Can I use other crash reporters in addition to the Embrace one?**
+
+Yes, we add ourselves as a listener for uncaught JVM exceptions, but we pass on exceptions to any handler that was
+registered when we registered ours so that both listeners will receive the uncaught exceptions.
+
+For NDK exceptions, we replace the any existing signal handlers, which are used to capture C and C++ exceptions.
+Similarly, other NDK crash capture tools would be likely to replace our signal handlers if they are initialized after
+our SDK.
+
+
 ## Integrating
 
 ### **The SDK should support API level 16 but, I get an error saying API level 24 is needed. What's wrong?**

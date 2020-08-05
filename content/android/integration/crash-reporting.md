@@ -9,6 +9,10 @@ aliases:
 
 ##  Setting up the Crash Reporter
 
+{{< hint info >}}
+See our [FAQ]({{< relref "/android/faq#crash-capture" >}}) for details on compatibility with other crash reporters.
+{{< /hint >}}
+
 For Android, the Embrace SDK automatically captures crash reports and uploads them.
 Assuming you've initialized the Embrace SDK in the [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) section,
 congratulations, you're done!
@@ -19,7 +23,7 @@ Trigger a crash organically, or by adding the following code.
 throw new RuntimeException("This is a crash");
 ```
 
-{{< hint warning >}}
+{{< hint danger >}}
 
 **Note** This will crash your app, so only use it for testing purposes.
 
