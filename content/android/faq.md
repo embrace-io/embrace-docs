@@ -65,6 +65,11 @@ buildscript {
 }
 ```
 
+### **Is there a way that I can speed up build times?**
+
+Yes, the swazzling cache can help with this. An in-depth description of this feature can be found [here]({{< relref "/android/features/build-options#improving-build-speed">}}).
+
+
 ### **What determines if a session is classified as prod or dev?**
 
 A session is classified as dev if all of the following are true:
