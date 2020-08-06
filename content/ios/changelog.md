@@ -6,6 +6,12 @@ weight: 4
 
 # iOS SDK Changelog
 
+## 5.0.2
+*Aug 6, 2020*
+
+* Improve crash linking reliability to sessions
+* Fix compatibility with Firebase's new crashlytics interface
+
 ## 5.0.1
 *Aug 4, 2020*
 
