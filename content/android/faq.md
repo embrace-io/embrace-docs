@@ -27,7 +27,7 @@ If you'd like to turn off screenshots for the entire app, please contact us and 
 Yes, we add ourselves as a listener for uncaught JVM exceptions, but we pass on exceptions to any handler that was
 registered when we registered ours so that both listeners will receive the uncaught exceptions.
 
-For NDK exceptions, we replace the any existing signal handlers, which are used to capture C and C++ exceptions.
+For NDK exceptions, we replace any existing signal handlers, which are used to capture C and C++ exceptions.
 Similarly, other NDK crash capture tools would be likely to replace our signal handlers if they are initialized after
 our SDK.
 
