@@ -1,11 +1,11 @@
 ---
 bookCollapseSection: true
-title: "iOS/Apple TV"
+title: "iOS/tvOS"
 description: Learn about Embrace for the iOS platform
 weight: 1
 ---
 
-# iOS/Apple TV Platform Documentation
+# iOS/tvOS Platform Documentation
 
 ## Getting Started
 

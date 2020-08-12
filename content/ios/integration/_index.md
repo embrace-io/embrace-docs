@@ -5,7 +5,7 @@ description: Get started with integrating Embrace into your iOS application
 weight: 1
 ---
 
-# iOS/Apple TV Integration
+# iOS/tvOS Integration
 
 ## Getting Started
 
