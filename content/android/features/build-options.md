@@ -79,3 +79,23 @@ A: Yes. That way other developers on your team will use the same rules and your 
 
 Q: Can I manually edit the `app/embrace-swazzling-rules.json` file?
 A: Yes, but any time you re-run the `generateEmbraceSwazzlingRulesFor<Variant>` task, your changes will be overwritten.
+
+## Disabling Swazzling for Specific JARs and Classes
+
+You may need to skip swazzling of certain JARs and/or classes in your application. It is very uncommon for this to be
+necessary, but it can be problematic to swazzle certain security-related JARs. Disable swazzling of these JARs using the
+`swazzler.jarSkipList` and `swazzler.classSkipList` settings in your `app/build.gradle` file. Both these settings are 
+lists of regular expressions that the swazzler will use to skip entire JARs or specific classes. 
+
+```
+swazzler {
+  jarSkipList = ["MyFirstJar", "MySecondJar"]
+  classSkipList = ["MyFirstClass", "MySecondClass"]
+}
+```
+
+The build logs will emit info indicating what classes and JARs were skipped, for example
+
+```
+[io.embrace.android.gradle.swazzler.compile.swazzler.SwazzlerConfiguration] [Embrace.io Swazzler: INFO] Skipping swazzling for {class=MyFirstClass.class} since it matched {regex=MyFirstClass}
+```

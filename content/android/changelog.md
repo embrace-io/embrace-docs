@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.5.1
+
+*August 10, 2020*
+
+* Added build option to disable swazzling of specific classes and/or jars
+* Improved performance of serializing sessions with large numbers of recorded network calls
+
 ## 4.5.0
 *July 24, 2020*
 
