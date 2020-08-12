@@ -1,13 +1,15 @@
 ---
 bookCollapseSection: true
-title: "iOS"
+title: "iOS/Apple TV"
 description: Learn about Embrace for the iOS platform
 weight: 1
 ---
 
-# iOS Platform Documentation
+# iOS/Apple TV Platform Documentation
 
 ## Getting Started
+
+Embrace's SDK supports both the iOS and the Apple TV platform from a common codebase. All of the API you can use on iOS, is also available on Apple TV. 
 
 This documentation is split into two sections:
 

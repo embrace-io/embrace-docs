@@ -5,7 +5,7 @@ description: Learn about the advanced ways Embrace can help your application
 weight: 2
 ---
 
-# iOS Feature Reference
+# iOS/Apple TV Feature Reference
 
 Embrace's SDK includes many advanced features that you can enable to help you understand more about
 how your application is performing in production.

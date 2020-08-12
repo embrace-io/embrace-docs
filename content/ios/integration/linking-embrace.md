@@ -43,6 +43,8 @@ CocoaPods is a dependency management system for iOS; You can learn more about it
 the `pod` command, and you'll configure it via a `PodFile` at the root of your
 project.
 
+With CocoaPods your Apple TV target will also be automatically configured through a single podfile addition.
+
 If you are starting a new project, first initialize the project and repo using
 Xcode. Then, run `pod init` from the command line and a `PodFile` will be created
 for you.
@@ -80,6 +82,11 @@ as follows:
 binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
 ```
 
+If you also have an Apple TV target in your project, also add this to your `Cartfile`:
+```sh
+binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-tvos.json"
+```
+
 
 Now run `carthage update` from the root and carthage will download and prepare
 the Embrace framework for integration:
@@ -106,6 +113,8 @@ open in a finder window. Also, open your project or workspace in xcode. From
 here you should follow the Carthage integration documentation for adding
 frameworks to a project, which you can find [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 
+For Apple TV targets, repeat these steps using the `tvos` variant of the Embrace framework.
+
 After you've completed that, you should be able to import and use the Embrace
 module in your project. If you encounter any issues it might help to read
 through the manual integration steps below as they go over a lot of the same
@@ -115,6 +124,8 @@ concepts as used by Carthage.
 ## Swift Package Manager
 
 With Xcode 12 Apple is adding the ability to manage binary framework dependencies, like Embrace, via the Swift Package Manager. If your team is already managing source-built dependencies this way, adding Embrace will be simple and not require any third party tools.
+
+Apple TV targets are automatically configured via the Swift Package Manager by following these steps.
 
 The screenshots here are taken using Xcode 12 beta 4.
 
@@ -183,6 +194,8 @@ and embedding settings. Make sure to choose "Embed without signing" as the
 Embrace binary is distributed in an already signed format.
 
 {{< image src="/docs/images/ios-embed-framework.png" alt="Using the General tab" title="General tab" caption="Using the General tab to configure embedding the Embrace framework" width="736" height="491" >}}
+
+For Apple TV targets repeat the above steps using the Embrace framework found in the `tvos` folder.
 
 At this point you've completed the manual integration of Embrace. You can now
 import the Embrace module into your application and perform a test build to make
