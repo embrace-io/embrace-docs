@@ -18,10 +18,27 @@ You can leverage the log message API for this.
 
 You can log a message immediately by calling the `logMessage` method.
 
+{{< tabs >}}
+
+{{< tab "Swift" >}}
+
 ```swift
 let properties = ["property_a": "value_a", "property_b": "value_b"]
-Embrace.sharedInstance()?.logMessage("Loading not finished in time.", with: .error, properties: properties, takeScreenshot: true)
+Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .error, properties: properties, takeScreenshot: true)
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+NSDictionary *properties = @{@"property_a": @"value_a", @"property_b": @"value_b"};
+[[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity EMBSeverityError properties:properties takeScreenshot:YES];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 Let's examine the method call from above to understand the arguments involved:
 

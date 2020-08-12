@@ -26,9 +26,25 @@ For more suggestions on what to measure with moments, see the [Best Practices]({
 
 Here's what a call to start a moment looks like.
 
+{{< tabs "tabs1" >}}
+
+{{< tab "Swift" >}}
+
 ```swift
-Embrace.sharedInstance()?.startMoment(withName: "add_item")
+Embrace.sharedInstance().startMoment(withName: "add_item")
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] startMomentWithName:@"add_item"];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 In a fictional scenario, this is a moment we're using to measure how quickly our UITableView renders after adding a new item using the plus button.
 We start the moment when we add the item, and we'll end it when the animation finishes.
@@ -42,9 +58,25 @@ For more on this, check out the [API docs]({{< api ios >}}).
 
 Here's how to end a moment.
 
+{{< tabs "tabs2" >}}
+
+{{< tab "Swift" >}}
+
 ```swift
-Embrace.sharedInstance()?.endMoment(withName: "add_item")
+Embrace.sharedInstance().endMoment(withName: "add_item")
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] endMomentWithName:@"add_item"];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 Once you start a moment, a timer is started.
 If you end the moment within a configurable threshold, then the timer ends and the client's measurement is used to report performance.

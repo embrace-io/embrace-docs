@@ -42,9 +42,25 @@ On the simulator, you can replicate this by running the app once with Xcode, pre
 Now we're ready to trigger a crash.
 You can trigger a crash organically, or Embrace provides a test crash function you can call from anywhere in your application.
 
+{{< tabs >}}
+
+{{< tab "Swift" >}}
+
 ```swift
-Embrace.sharedInstance()?.crash()
+Embrace.sharedInstance().crash()
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] crash];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 {{< hint warning>}}
 **Note** This function will crash your app so only use it for testing purposes.

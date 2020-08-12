@@ -31,18 +31,50 @@ We recommend including an anonymized user ID that only your agents can search fo
 
 {{< /hint >}}
 
+{{< tabs "tabs1" >}}
+
+{{< tab "Swift" >}}
+
 ```swift
 Embrace.sharedInstance().setUserIdentifier("internal_user_id_1234");
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] setUserIdentifier:@"internal_user_id_1234"];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 The above call annotates the session with a user identifier that we can use later to search for this user.
 If the user contacts our customer service department, those agents will look the user up by the identifier to find sessions in the Embrace dashboard to investigate.
 
 Sometimes you need to set customized values for specific use cases or user segmentation scenarios:
 
+{{< tabs "tabs2" >}}
+
+{{< tab "Swift" >}}
+
 ```swift
 Embrace.sharedInstance().setUserPersona("high_value_cart");
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] setUserPersona:@"high_value_cart"];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 The session is annotated with `"high_value_cart"` in the above example.
 This property helps you to identify users who have a certain dollar value in their shopping cart so 
@@ -56,9 +88,25 @@ Although, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:
 
+{{< tabs "tabs3" >}}
+
+{{< tab "Swift" >}}
+
 ```swift
 Embrace.sharedInstance().addSessionProperty("normal", withKey: "launch type", permanent: false)
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] addSessionProperty:@"normal" withKey:@"launch type" permanent:NO];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 In the above, the `"launch type"` property is set with a value of `"normal"`.
 This is to indicate normal launches by the user.
