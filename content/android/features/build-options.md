@@ -8,6 +8,28 @@ aliases:
 
 # Build Options
 
+## Disabling Swazzling for a Build Type
+
+{{< hint warning >}}
+
+Disabling swazzling means we won't capture network calls, activity transitions, and taps. For this reason, avoid 
+disabling swazzling for release builds.
+{{< /hint >}}
+
+The swazzling operation adds to the build time and you may want to disable it for debug builds. Use the
+`ext.disableSwazzling` setting to turn off swazzling for a given build type. The example below illustrates how to
+disable it for the `debug` build type in your `app/build.gradle` file.
+
+```
+buildTypes {
+    debug {
+        ...
+        ext.disableSwazzling = true
+        ...
+    }
+}
+```
+
 ## Improving Build Speed
 
 The Embrace SDK injects code into your APK using a process we call “swazzling” to automatically capture activity 
