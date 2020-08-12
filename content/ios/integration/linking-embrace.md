@@ -43,7 +43,7 @@ CocoaPods is a dependency management system for iOS; You can learn more about it
 the `pod` command, and you'll configure it via a `PodFile` at the root of your
 project.
 
-With CocoaPods your Apple TV target will also be automatically configured through a single podfile addition.
+With CocoaPods your Apple TV target will also be automatically configured through a single `Podfile` addition.
 
 If you are starting a new project, first initialize the project and repo using
 Xcode. Then, run `pod init` from the command line and a `PodFile` will be created
