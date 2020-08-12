@@ -12,13 +12,13 @@ aliases:
 
 {{< hint warning >}}
 
-Disabling swazzling means we won't capture network calls, activity transitions, and taps, so you should avoid disabling
-it for release builds.
+Disabling swazzling means we won't capture network calls, activity transitions, and taps. For this reason, avoid 
+disabling swazzling for release builds.
 {{< /hint >}}
 
-Since the swazzling operation adds to the build time and you may want to disable it for debug builds. Use the
+The swazzling operation adds to the build time and you may want to disable it for debug builds. Use the
 `ext.disableSwazzling` setting to turn off swazzling for a given build type. The example below illustrates how to
-disable it for the the `debug` build type in your `app/build.gradle` file.
+disable it for the `debug` build type in your `app/build.gradle` file.
 
 ```
 buildTypes {
