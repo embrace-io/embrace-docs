@@ -118,11 +118,11 @@ With Xcode 12 Apple is adding the ability to manage binary framework dependencie
 
 The screenshots here are taken using Xcode 12 beta 4.
 
-First open your project in a compatible version of Xcode, binary distributions are only compatible with Xcode 12 or higher. This process will not work in Xcode 11 or below.
+First open your project in a compatible version of Xcode. Binary distributions are only compatible with Xcode 12 or higher. This process will not work in Xcode 11 or below.
 
-{{< image src="/docs/images/ios-spm-step-1.png" alt="Xcode project ready to integrate Embrace via Swift Package Manager" title="Swift Package Manager Step 1" caption="Xcode project open to the Swift Package Manager ui" width="736" height="181" >}}
+{{< image src="/docs/images/ios-spm-step-1.png" alt="Xcode project ready to integrate Embrace via Swift Package Manager" title="Swift Package Manager Step 1" caption="Xcode project open to the Swift Package Manager UI" width="736" height="181" >}}
 
-Pressing the `+` button on this screen will open the add repository dialogue box. The Embrace repository is: `https://github.com/embrace-io/embrace-spm`.
+Pressing the `+` button on this screen will open the add repository dialogue box. The Embrace repository is: [https://github.com/embrace-io/embrace-spm](https://github.com/embrace-io/embrace-spm).
 
 {{< image src="/docs/images/ios-spm-step-2.png" alt="The add repository dialogue box" title="Swift Package Manager Step 2" caption="Adding the Embrace repository" width="736" height="434" >}}
 
