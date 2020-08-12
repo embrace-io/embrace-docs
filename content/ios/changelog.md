@@ -6,6 +6,13 @@ weight: 4
 
 # iOS SDK Changelog
 
+## 5.0.3
+*Aug 10, 2020*
+
+* Fix web-thread-termination outcome tracking
+* Exception logging for corrupt proxy invocations
+* Better support for upstream 'cmd' renaming (ex: Flipper/Flex style swizzling)
+
 ## 5.0.2
 *Aug 6, 2020*
 

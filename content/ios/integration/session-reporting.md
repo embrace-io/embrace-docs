@@ -38,9 +38,25 @@ Let's start by importing the Embrace module. Open your program's
 At the top of the file where you see the other import statements, add one for
 Embrace.
 
+{{< tabs >}}
+
+{{< tab "Swift" >}}
+
 ```swift
 import Embrace
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+#import <Embrace/Embrace.h>
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 Now we're going to add a new file to our project. Embrace has many optional
 features and configuration options that you may want to use. It is best to
@@ -65,9 +81,26 @@ Next, inside your main startup function (usually
 `ApplicationDidFinishLaunching`) add the following code to start Embrace. Embrace does not perform any tracking
 or other actions until this call is made.
 
+{{< tabs >}}
+
+{{< tab "Swift" >}}
+
 ```swift
-Embrace.sharedInstance()?.start(launchOptions: launchOptions);
+Embrace.sharedInstance().start(launchOptions: launchOptions);
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] startWithLaunchOptions:launchOptions];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
 {{< hint info >}}
 
 **A Note On Placing the Start Call**
@@ -85,7 +118,7 @@ ensure that everyone can interoperate successfully in your application.
 If you are a swift user you may want to also make this call after starting Embrace:
 
 ```swift
-Embrace.sharedInstance()?.setCleanLogsEnabled(true);
+Embrace.sharedInstance().setCleanLogsEnabled(true);
 ```
 
 This will tell Embrace to use swift-style logging that will better match your existing logging.
@@ -99,9 +132,25 @@ recommend placing the call as close to the point that your UI is ready for use
 as possible, as doing so will give you the most accurate picture of the
 performance your users are experiencing with app launch.
 
+{{< tabs >}}
+
+{{< tab "Swift" >}}
+
 ```swift
-Embrace.sharedInstance()?.endAppStartup();
+Embrace.sharedInstance().endAppStartup();
 ```
+
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] endAppStartup];
+```
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 {{< hint info >}}
 
