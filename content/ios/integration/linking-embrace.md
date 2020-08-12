@@ -13,6 +13,7 @@ We support three methods for accomplishing that:
 
 1. [**CocoaPods.**]({{< relref "/ios/integration/linking-embrace#cocoapods" >}}) You can easily add Embrace to your PodFile and have most of this work done for you.
 1. [**Carthage.**]({{< relref "/ios/integration/linking-embrace#carthage" >}}) Carthage will help you keep track of Embrace versions and upgrades, you will still perform much of the linking process manually.
+1. [**Swift Package Manager.**]({{< relref "/ios/integration/linking-embrace#Swift-Package-Manager" >}}) Use Xcode to manage the Embrace dependency for you.
 1. [**Manual.**]({{< relref "/ios/integration/linking-embrace#manual" >}}) You will download the framework directly and manually link it with your project.
 
 We’ve broken out the integration for each method individually below.
@@ -110,6 +111,32 @@ module in your project. If you encounter any issues it might help to read
 through the manual integration steps below as they go over a lot of the same
 concepts as used by Carthage.
  
+
+## Swift Package Manager
+
+With Xcode 12 Apple is adding the ability to manage binary framework dependencies, like Embrace, via the Swift Package Manager. If your team is already managing source-built dependencies this way, adding Embrace will be simple and not require any third party tools.
+
+The screenshots here are taken using Xcode 12 beta 4.
+
+First open your project in a compatible version of Xcode. Binary distributions are only compatible with Xcode 12 or higher. This process will not work in Xcode 11 or below.
+
+{{< image src="/docs/images/ios-spm-step-1.png" alt="Xcode project ready to integrate Embrace via Swift Package Manager" title="Swift Package Manager Step 1" caption="Xcode project open to the Swift Package Manager UI" width="736" height="181" >}}
+
+Pressing the `+` button on this screen will open the add repository dialogue box. The Embrace repository is: [https://github.com/embrace-io/embrace-spm](https://github.com/embrace-io/embrace-spm).
+
+{{< image src="/docs/images/ios-spm-step-2.png" alt="The add repository dialogue box" title="Swift Package Manager Step 2" caption="Adding the Embrace repository" width="736" height="434" >}}
+
+After entering the URL, click next and you will be taken to the version settings page. Here you configure what version of Embrace to use and how to check for updates. We recommend the default settings unless your app has specific version requirements.
+
+{{< image src="/docs/images/ios-spm-step-3.png" alt="The version settings screen" title="Swift Package Manager Step 3" caption="Configuring the Embrace version to use" width="736" height="431" >}}
+
+After clicking next, the Swift Package Manager may take a few minutes to download a copy of our repository. Once downloaded you will get a chance to confirm the libraries and target associations you'd like to use. For simple apps, the default settings should work. If you have many targets or publish to both Apple TV and iOS, ensure that the associations are correct before continuing.
+
+{{< image src="/docs/images/ios-spm-step-4.png" alt="The target association screen" title="Swift Package Manager Step 4" caption="Configuring the targets to use with the Embrace library" width="736" height="431" >}}
+
+Finally you should now see the Embrace package has been added to your project and is being tracked by the Swift Package Manager.
+
+{{< image src="/docs/images/ios-spm-step-5.png" alt="Verifying the installation" title="Swift Package Manager Step 5" caption="Verify that Embrace has been correctly added to your project" width="736" height="246" >}}
 
 ## Manual
 
