@@ -102,14 +102,20 @@ A: Yes. That way other developers on your team will use the same rules and your 
 Q: Can I manually edit the `app/embrace-swazzling-rules.json` file?
 A: Yes, but any time you re-run the `generateEmbraceSwazzlingRulesFor<Variant>` task, your changes will be overwritten.
 
-## Disabling Swazzling for Specific JARs and Classes
+## Configuring Swazzling behaviour
+
+Some particular features of the swazzling process can be altered by defining specific arguments in a `swazzler` extension 
+in in your `app/build.gradle` file.
+
+
+### Disabling Swazzling for Specific JARs and Classes
 
 You may need to skip swazzling of certain JARs and/or classes in your application. It is very uncommon for this to be
 necessary, but it can be problematic to swazzle certain security-related JARs. Disable swazzling of these JARs using the
 `swazzler.jarSkipList` and `swazzler.classSkipList` settings in your `app/build.gradle` file. Both these settings are 
 lists of regular expressions that the swazzler will use to skip entire JARs or specific classes. 
 
-```
+```groovy
 swazzler {
   jarSkipList = ["MyFirstJar", "MySecondJar"]
   classSkipList = ["MyFirstClass", "MySecondClass"]
@@ -121,3 +127,36 @@ The build logs will emit info indicating what classes and JARs were skipped, for
 ```
 [io.embrace.android.gradle.swazzler.compile.swazzler.SwazzlerConfiguration] [Embrace.io Swazzler: INFO] Skipping swazzling for {class=MyFirstClass.class} since it matched {regex=MyFirstClass}
 ```
+
+### Forcing behaviours
+
+{{< hint info >}}
+Most applications do not require any custom configuration of the Embrace SDK Gradle Plugin, but some modular applications require one or more of these settings to be present.
+Please contact <support@embrace.io> if you have any questions about these settings and if they are needed for your app.
+{{< /hint >}}
+
+```groovy
+swazzler {
+  forceIncrementalOverwrite = false
+  forceOkHttpWrapperInjection = false
+  forceVolleyWrapperInjection = false
+}
+```
+
+#### forceIncrementalOverwrite *bool*
+
+Enable this to force copying of unchanged JAR files during the swazzling phase.
+Enabling this is discouraged unless Embrace's support team has instructed you to enable it.
+Defaults to `false`.
+
+#### forceOkHttpWrapperInjection *bool*
+
+Enable this if okHttp exists as a dependency in any of your dependencies or submodules.
+The plugin will emit a warning at build time indicating if you need to add this setting.
+Defaults to `false`.
+
+#### forceVolleyWrapperInjection *bool*
+
+Enable this if Volley exists as a dependency in any of your dependencies or submodules.
+The plugin will emit a warning at build time indicating if you need to add this setting.
+Defaults to `false`.

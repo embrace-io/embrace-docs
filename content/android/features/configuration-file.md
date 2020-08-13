@@ -158,39 +158,3 @@ and the following configuration files
 | freeDebug   | `app/src/main/embrace-config.json`        | No matching variant, flavor, or build type config exists, so we fall back on the default config |
 
 *Note that this is an artificially-complicated example to illustrate what is possible. Most likely your configuration will be much simpler.*
-
-## SDK Gradle Plugin Config File
-
-{{< hint info >}}
-Most applications do not require any custom configuration of the Embrace SDK Gradle Plugin, but some modular applications require one or more of these settings to be present.
-Please contact <support@embrace.io> if you have any questions about these settings and if they are needed for your app.
-{{< /hint >}}
-
-```json
-{
-  "force_incremental_overwrite": false,
-  "force_okhttp_wrapper_injection": false,
-  "force_volley_wrapper_injection": false
-}
-```
-
-If included, the SDK Gradle Plugin config file must be located in your project at the following location `src/main/embrace-swazzler-config.json`.
-The configuration is shared by all variants.
-
-#### force_volley_wrapper_injection *bool*
-
-Enable this to force copying of unchanged JAR files during the swazzling phase.
-Enabling this is discouraged unless Embrace's support team has instructed you to enable it.
-Defaults to `false`.
-
-#### force_okhttp_wrapper_injection *bool*
-
-Enable this if okHttp exists as a dependency in any of your dependencies or submodules.
-The plugin will emit a warning at build time indicating if you need to add this setting.
-Defaults to `false`.
-
-#### force_volley_wrapper_injection *bool*
-
-Enable this if Volley exists as a dependency in any of your dependencies or submodules.
-The plugin will emit a warning at build time indicating if you need to add this setting.
-Defaults to `false`.
