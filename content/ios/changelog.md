@@ -1,10 +1,10 @@
 ---
-title: "iOS SDK Changelog"
+title: "iOS/tvOS SDK Changelog"
 description: Changelog for the iOS Embrace SDK
 weight: 4
 ---
 
-# iOS SDK Changelog
+# iOS/tvOS SDK Changelog
 
 ## 5.0.3
 *Aug 10, 2020*

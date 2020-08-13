@@ -1,10 +1,10 @@
 ---
-title: iOS FAQ
+title: iOS/tvOS FAQ
 description: Frequently asked questions about the iOS Embrace SDK
 weight: 3
 ---
 
-# iOS FAQ
+# iOS/tvOS FAQ
 
 Here are a list of questions we commonly receive along with their answers.
 If you don't see your question here, or would like more clarification on one please reach out to use on Slack
