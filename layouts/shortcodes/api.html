@@ -1,4 +1,5 @@
 {{- $platform := (.Get 0) -}}
-{{ with (eq $platform "android") -}}android docs{{ end -}}
-{{ with (eq $platform "ios") -}}ios docs{{ end -}}
+<!-- TODO: Update Android API docs with new ones when available. -->
+{{ with (eq $platform "android") -}}https://docs.embrace.io/docs/android-sdk-api{{ end -}}
+{{ with (eq $platform "ios") -}}https://embrace-io.github.io/embrace-ios-sdk/{{ end -}}
 {{ with (eq $platform "rn") -}}https://embrace-io.github.io/react-native-embrace{{ end -}}
