@@ -6,6 +6,20 @@ weight: 3
 
 # React Native SDK Changelog
 
+## 3.6.1
+*August 13, 2020*
+
+- Upgrades default Embrace Android SDK to 4.5.1
+- Fixes type mismatch issue when calling `logMessage` method for warning logs on Android
+
+{{< hint warning >}}
+
+To use this version on Android, you will need to make sure the `embrace-io:embrace-android-sdk`
+dependency is set to at least 4.5.1 in your `build.gradle` file.
+
+{{< /hint >}}
+
+
 ## 3.5.0
 *August 3, 2020*
 
