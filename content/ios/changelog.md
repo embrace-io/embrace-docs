@@ -6,6 +6,17 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.0.4
+*Aug 14, 2020*
+
+* Fix crash in EMBNetworkManager
+
+## 4.2.5
+*Aug 14, 2020*
+
+* Fix crash in EMBNetworkManager
+* This release branches from 4.2.4 for users unable to update to 5.0 releases
+
 ## 5.0.3
 *Aug 10, 2020*
 
