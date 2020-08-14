@@ -152,11 +152,13 @@ Defaults to `false`.
 #### forceOkHttpWrapperInjection *bool*
 
 Enable this if okHttp exists as a dependency in any of your dependencies or submodules.
+This is only necessary if OkHttp is present in any of your project submodules and not on your main module (app).
 The plugin will emit a warning at build time indicating if you need to add this setting.
 Defaults to `false`.
 
 #### forceVolleyWrapperInjection *bool*
 
 Enable this if Volley exists as a dependency in any of your dependencies or submodules.
+This is only necessary if Volley is present in any of your project submodules and not on your main module (app).
 The plugin will emit a warning at build time indicating if you need to add this setting.
 Defaults to `false`.
