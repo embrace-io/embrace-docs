@@ -8,6 +8,12 @@ aliases:
 ---
 # Adding the Android Embrace SDK
 
+{{< hint info >}}
+
+For a sample integration, check out the Kotlin and Java apps in the <a href="https://github.com/embrace-io/embrace-demo-apps/tree/master/android" target="_blank">Embrace demo apps repo</a>.
+
+{{< /hint >}}
+
 ## Add Embrace as a dependency
 
 The Embrace SDK is available on JCenter. Make the following changes in your
