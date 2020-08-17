@@ -21,6 +21,12 @@ Embrace includes many optional advanced features that can help you figure out so
 the most challenging issues. Learn about these features, and how to enable them, in
 our [Feature Reference]({{< relref "/android/features" >}}).
 
+
+## Sample Integration Apps
+
+For a sample integration, or to check out how you can use more advanced features of the SDK, take a look at the Kotlin
+and Java apps in the <a href="https://github.com/embrace-io/embrace-demo-apps/tree/master/android" target="_blank">Embrace demo apps repo</a>.
+
 ## API Docs
 
 To see the full list of methods that the Android Embrace SDK exposes, please see
