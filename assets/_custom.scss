@@ -1,4 +1,6 @@
-/* roboto-300italic - latin */
+/*
+ * Fonts
+ */
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,800&display=swap');
 
 * {
@@ -38,21 +40,6 @@ code {
   margin-inline-end: 0;
 }
 
-.markdown figure figcaption {
-  align-items: baseline;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.markdown figure figcaption h4 {
-  margin: 10px 10px 0 0;
-  white-space: nowrap;
-}
-
-.markdown figure figcaption p {
-  font-style: italic;
-}
-
 header {
   background: #013555;
 }
@@ -82,6 +69,25 @@ header {
   text-decoration: none;
   background-color: rgba(242, 108, 74, 0.8);
   border-color: #F26C4A;
+}
+
+/*
+ * Markdown Styles
+ */
+
+ .markdown figure figcaption {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.markdown figure figcaption h4 {
+  margin: 10px 10px 0 0;
+  white-space: nowrap;
+}
+
+.markdown figure figcaption p {
+  font-style: italic;
 }
 
 .markdown .book-columns > div {
