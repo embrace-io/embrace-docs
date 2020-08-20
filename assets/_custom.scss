@@ -13,8 +13,8 @@ code {
   font-family: 'Poppins', sans-serif;
 }
 
-.book-menu nav, .book-toc nav {
-  margin-top: 60px;
+.book-menu nav, .book-toc nav, .book-page {
+  margin-top: 80px;
 }
 
 .book-brand img {
@@ -36,10 +36,15 @@ code {
   font-style: italic;
 }
 
+header {
+  background: #013555;
+}
+
 .fixed-top {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 999;
+  padding: 20px 0 15px 0;
 }
