@@ -13,8 +13,25 @@ code {
   font-family: 'Poppins', sans-serif;
 }
 
+.book-search input {
+  background: #fff;
+}
+
 .book-menu nav, .book-toc nav, .book-page {
   margin-top: 80px;
+}
+
+.book-menu nav {
+  background: #f8f8f8;
+  padding-left: 2rem;
+}
+
+.book-menu a.collapsed::after {
+  content: '';
+}
+
+.book-page {
+  padding: 2rem 2rem;
 }
 
 .book-brand img {
@@ -65,4 +82,15 @@ header {
   text-decoration: none;
   background-color: rgba(242, 108, 74, 0.8);
   border-color: #F26C4A;
+}
+
+.markdown .book-columns > div {
+  border: 1px solid #e4e4e4;
+  min-width: 10rem;
+  margin: 0 1rem;
+  padding: 15px 25px;
+}
+
+.markdown blockquote {
+  padding: 1rem 1.2rem;
 }
