@@ -27,10 +27,9 @@ process of integrating Embrace into your application and organization.
 
 {{< columns >}}
 
+{{< icon src="/docs/images/android-icon.svg" >}}
 
 ### **Android**
-
-{{< icon src="/docs/images/android-icon.svg" >}}
 
 Add Embrace to your Android project.
 
@@ -38,9 +37,9 @@ Add Embrace to your Android project.
 
 <--->
 
-### **iOS**
-
 {{< icon src="/docs/images/ios-icon.svg" >}}
+
+### **iOS**
 
 Add Embrace to your iOS project.
 
@@ -49,9 +48,9 @@ Add Embrace to your iOS project.
 
 <--->
 
-### **React Native**
-
 {{< icon src="/docs/images/react-native-icon.svg" >}}
+
+### **React Native**
 
 Add Embrace to your React Native project.
 
