@@ -891,3 +891,19 @@ header {
   left: 0;
   z-index: 999;
   padding: 20px 0 15px 0; }
+
+.align-content-center * {
+  text-align: center; }
+
+.align-content-center a, .align-content-center a:visited {
+  display: block;
+  text-decoration: none;
+  background: #f06b49;
+  border-color: #F26C4A;
+  color: #fff;
+  padding: 10px 20px; }
+
+.align-content-center a:hover {
+  text-decoration: none;
+  background-color: rgba(242, 108, 74, 0.8);
+  border-color: #F26C4A; }

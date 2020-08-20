@@ -33,7 +33,7 @@ process of integrating Embrace into your application and organization.
 
 Add Embrace to your Android project.
 
-[Get Started With Android]({{< relref "/android" >}})
+[GET STARTED]({{< relref "/android" >}})
 
 <--->
 
@@ -43,7 +43,7 @@ Add Embrace to your Android project.
 
 Add Embrace to your iOS project.
 
-[Get Started With iOS]({{< relref "/ios" >}})
+[GET STARTED]({{< relref "/ios" >}})
 
 
 <--->
@@ -54,7 +54,7 @@ Add Embrace to your iOS project.
 
 Add Embrace to your React Native project.
 
-[Get Started With React Native]({{< relref "/react-native" >}})
+[GET STARTED]({{< relref "/react-native" >}})
 
 
 {{< /columns >}}
