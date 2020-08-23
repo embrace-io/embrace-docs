@@ -175,17 +175,20 @@ code {
   font-family: 'Poppins', sans-serif;
 }
 
-.book-search input {
-  background: #fff;
+.book-search { 
+  input {
+      background: #fff;
+  }
 }
 
 .book-menu nav, .book-toc nav, .book-page {
   margin-top: 80px;
 }
 
-.book-menu nav {
+.book-menu { nav {
   background: #f8f8f8;
   padding-left: 2rem;
+}
 }
 
 .book-menu a.collapsed::after {
@@ -200,11 +203,8 @@ code {
   margin-inline-end: 0;
 }
 
-header {
-  background: #013555;
-}
-
 .fixed-top {
+  background: #013555;
   position: fixed;
   top: 0;
   right: 0;
