@@ -181,26 +181,32 @@ code {
   }
 }
 
-.book-menu nav, .book-toc nav, .book-page {
-  margin-top: 80px;
-}
-
-.book-menu { nav {
-  background: #f8f8f8;
-  padding-left: 2rem;
-}
-}
-
-.book-menu a.collapsed::after {
-  content: '';
+.book-toc {
+  nav {
+    margin-top: 80px;
+  }
 }
 
 .book-page {
+  margin-top: 80px;
   padding: 2rem 2rem;
 }
 
-.book-brand img {
-  margin-inline-end: 0;
+.book-menu {
+  nav {
+    background: #f8f8f8;
+    padding-left: 2rem;
+    margin-top: 80px;
+  }
+  a.collapsed::after {
+    content: '';
+  }
+}
+
+.book-brand {
+  img {
+    margin-inline-end: 0;
+  }
 }
 
 .fixed-top {
@@ -217,46 +223,61 @@ code {
   text-align: center;
 }
 
-.align-content-center a, .align-content-center a:visited {
-  display: block;
-  text-decoration: none;
-  background: #f06b49;
-  border-color: #F26C4A;
-  color: #fff;
-  padding: 10px 20px;
-}
-.align-content-center a:hover {
-  text-decoration: none;
-  background-color: rgba(242, 108, 74, 0.8);
-  border-color: #F26C4A;
+.align-content-center { 
+  a, a:visited {
+    display: block;
+    text-decoration: none;
+    background: #f06b49;
+    border-color: #F26C4A;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  a:hover {
+    text-decoration: none;
+    background-color: rgba(242, 108, 74, 0.8);
+    border-color: #F26C4A;
+  }
 }
 
 /*
  * Markdown Styles
  */
 
- .markdown figure figcaption {
-  align-items: baseline;
-  display: flex;
-  flex-wrap: wrap;
-}
+ .markdown {
+  figure figcaption {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  figure figcaption h4 {
+    margin: 10px 10px 0 0;
+    white-space: nowrap;
+  }
 
-.markdown figure figcaption h4 {
-  margin: 10px 10px 0 0;
-  white-space: nowrap;
-}
+  figure figcaption p {
+    font-style: italic;
+  }
 
-.markdown figure figcaption p {
-  font-style: italic;
-}
+  .book-columns {
+  div {
+    border: 1px solid #e4e4e4;
+    min-width: 10rem;
+    margin: 0 1rem;
+    padding: 15px 18px;
+  }
+  .i-amphtml-element {
+    width: 65px !important;
+    height: 65px !important;
+    margin-top: 20px;
+  }
+  img {
+    background: #f3f3f3;
+    border-radius: 40px;
+    padding: 12px !important;
+  }
+  }
 
-.markdown .book-columns > div {
-  border: 1px solid #e4e4e4;
-  min-width: 10rem;
-  margin: 0 1rem;
-  padding: 15px 18px;
-}
-
-.markdown blockquote {
-  padding: 1rem 1.2rem;
+  blockquote {
+    padding: 1rem 1.2rem;
+  }
 }
