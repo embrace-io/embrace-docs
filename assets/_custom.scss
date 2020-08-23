@@ -244,6 +244,22 @@ code {
  */
 
  .markdown {
+   p {
+     letter-spacing: 0.5px;
+   }
+   a.book-btn, a.book-btn::visited {
+    display: block;
+    text-decoration: none;
+    background: #f06b49;
+    border-color: #F26C4A;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  a.book-btn:hover {
+    text-decoration: none;
+    background-color: rgba(242, 108, 74, 0.8);
+    border-color: #F26C4A;
+  }
   figure figcaption {
     align-items: baseline;
     display: flex;
@@ -263,7 +279,7 @@ code {
     border: 1px solid #e4e4e4;
     min-width: 10rem;
     margin: 0 1rem;
-    padding: 15px 18px;
+    padding: 15px 16px;
   }
   .i-amphtml-element {
     width: 65px !important;
@@ -278,6 +294,6 @@ code {
   }
 
   blockquote {
-    padding: 1rem 1.2rem;
+    padding: 1.2rem 1.3rem;
   }
 }
