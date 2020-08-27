@@ -362,6 +362,13 @@ code {
     font-weight: 600;
   }
 }
+@media (max-width: 1275px) {
+  .fixed-top {
+    img {
+      margin-left: 2rem;
+    }
+  }
+}
 
 @media (max-width: 607px) {
   .markdown {

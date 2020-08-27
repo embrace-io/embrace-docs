@@ -1158,6 +1158,10 @@ code {
 .markdown strong {
   font-weight: 600; }
 
+@media (max-width: 1275px) {
+  .fixed-top img {
+    margin-left: 2rem; } }
+
 @media (max-width: 607px) {
   .markdown .book-columns div:last-child {
     margin-top: 1.8rem; } }
