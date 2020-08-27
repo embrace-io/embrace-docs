@@ -856,7 +856,7 @@ code {
  * Poppins Font
  */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 100;
   font-display: swap;
@@ -865,7 +865,7 @@ code {
 
 /* latin-ext */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 100;
   font-display: swap;
@@ -874,7 +874,7 @@ code {
 
 /* latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 100;
   font-display: swap;
@@ -883,7 +883,7 @@ code {
 
 /* devanagari */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -892,7 +892,7 @@ code {
 
 /* latin-ext */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -901,7 +901,7 @@ code {
 
 /* latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -910,7 +910,7 @@ code {
 
 /* devanagari */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -919,7 +919,7 @@ code {
 
 /* latin-ext */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -928,7 +928,7 @@ code {
 
 /* latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -937,7 +937,7 @@ code {
 
 /* devanagari */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -946,7 +946,7 @@ code {
 
 /* latin-ext */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -955,7 +955,7 @@ code {
 
 /* latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -964,7 +964,7 @@ code {
 
 /* devanagari */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -973,7 +973,7 @@ code {
 
 /* latin-ext */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -982,7 +982,7 @@ code {
 
 /* latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -991,7 +991,7 @@ code {
 
 /* devanagari */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -1000,7 +1000,7 @@ code {
 
 /* latin-ext */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -1009,7 +1009,7 @@ code {
 
 /* latin */
 @font-face {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -1017,13 +1017,13 @@ code {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 * {
-  font-family: 'Poppins', sans-serif; }
+  font-family: "Poppins", sans-serif; }
 
 body {
-  font-family: 'Poppins', sans-serif; }
+  font-family: "Poppins", sans-serif; }
 
 code {
-  font-family: 'Poppins', sans-serif; }
+  font-family: "Poppins", sans-serif; }
 
 .book-search input {
   background: #fff; }
@@ -1041,7 +1041,10 @@ code {
   margin-top: 80px; }
 
 .book-menu a.collapsed::after {
-  content: ''; }
+  content: ""; }
+
+.book-menu .book-brand a span {
+  font-weight: 700 !important; }
 
 .book-brand img {
   margin-inline-end: 0; }
@@ -1058,37 +1061,59 @@ code {
 .align-content-center * {
   text-align: center; }
 
-.align-content-center a, .align-content-center a:visited {
+.align-content-center a,
+.align-content-center a:visited {
   display: block;
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
   background: #f06b49;
-  border-color: #F26C4A;
-  color: #fff;
+  border-color: #f26c4a;
+  color: #fff !important;
   padding: 10px 20px; }
 
 .align-content-center a:hover {
   text-decoration: none;
   background-color: rgba(242, 108, 74, 0.8);
-  border-color: #F26C4A; }
+  border-color: #f26c4a; }
 
 /*
  * Markdown Styles
  */
-.markdown p {
-  letter-spacing: 0.5px; }
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-weight: 700; }
 
-.markdown a.book-btn, .markdown a.book-btn::visited {
-  display: block;
+.markdown p {
+  letter-spacing: 1px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 300; }
+
+.markdown a,
+.markdown a:visited {
+  color: #05b; }
+
+.markdown a.book-btn,
+.markdown a.book-btn:visited {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
   text-decoration: none;
   background: #f06b49;
-  border-color: #F26C4A;
-  color: #fff;
-  padding: 10px 20px; }
+  border-color: #f26c4a;
+  padding: 10px 20px;
+  text-transform: uppercase; }
 
 .markdown a.book-btn:hover {
   text-decoration: none;
   background-color: rgba(242, 108, 74, 0.8);
-  border-color: #F26C4A; }
+  border-color: #f26c4a; }
 
 .markdown figure figcaption {
   align-items: baseline;
@@ -1106,7 +1131,7 @@ code {
   border: 1px solid #e4e4e4;
   min-width: 10rem;
   margin: 0 1rem;
-  padding: 15px 16px; }
+  padding: 12px 12px; }
 
 .markdown .book-columns .i-amphtml-element {
   width: 65px !important;
@@ -1119,4 +1144,19 @@ code {
   padding: 12px !important; }
 
 .markdown blockquote {
-  padding: 1.2rem 1.3rem; }
+  padding: 1.2rem 1.3rem;
+  line-height: 1.5rem;
+  font-weight: 300; }
+
+.markdown li {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.5rem;
+  font-weight: 300; }
+
+.markdown strong {
+  font-weight: 600; }
+
+@media (max-width: 607px) {
+  .markdown .book-columns div:last-child {
+    margin-top: 1.8rem; } }
