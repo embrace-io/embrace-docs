@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.0.5
+*Aug 28, 2020*
+
+* Improve performance when large number of queued failed events exist
+* Fix rare crash in sendShortSession
+
 ## 5.0.4
 *Aug 14, 2020*
 
