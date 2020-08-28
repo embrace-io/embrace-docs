@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.0.6
+*Aug 28, 2020*
+
+* Hotfix for V3 migration of failed.events cache
+
 ## 5.0.5
 *Aug 28, 2020*
 
