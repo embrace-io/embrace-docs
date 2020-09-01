@@ -370,6 +370,12 @@ code {
   }
 }
 
+@media (max-width: 896px) {
+  .book-header {
+    margin-bottom: 1rem;
+  }
+}
+
 @media (max-width: 607px) {
   .markdown {
     .book-columns {
