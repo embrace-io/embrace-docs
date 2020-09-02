@@ -6,6 +6,13 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.0.7
+*Sep 1, 2020*
+
+* Fix for crash in [EMBSession serialize]
+* Fix for crash in NSKeyedUnarchiver
+* Ensure background tasks are always ended before starting a new task
+
 ## 5.0.6
 *Aug 28, 2020*
 
