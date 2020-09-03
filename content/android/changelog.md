@@ -6,6 +6,15 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.5.2
+
+*September 2, 2020*
+
+* Capture additional metrics
+* Capture user info for NDK crashes
+* Enable ANR stacktrace capture by default for all users
+* Fixed issue with ANR stacktrace capture that could attribute an ANR to the session after it occurred
+
 ## 4.5.1
 
 *August 10, 2020*
