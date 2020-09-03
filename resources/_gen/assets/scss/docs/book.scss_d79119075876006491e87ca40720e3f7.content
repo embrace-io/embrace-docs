@@ -1023,7 +1023,7 @@ body {
   font-family: "Poppins", sans-serif; }
 
 code {
-  font-family: "Poppins", sans-serif; }
+  font-family: monospace; }
 
 .book-search input {
   background: #fff; }
@@ -1044,7 +1044,7 @@ code {
   content: ""; }
 
 .book-menu .book-brand a span {
-  font-weight: 700 !important; }
+  font-weight: 700; }
 
 .book-brand img {
   margin-inline-end: 0; }
@@ -1057,25 +1057,6 @@ code {
   left: 0;
   z-index: 999;
   padding: 20px 0 15px 0; }
-
-.align-content-center * {
-  text-align: center; }
-
-.align-content-center a,
-.align-content-center a:visited {
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  background: #f06b49;
-  border-color: #f26c4a;
-  color: #fff !important;
-  padding: 10px 20px; }
-
-.align-content-center a:hover {
-  text-decoration: none;
-  background-color: rgba(242, 108, 74, 0.8);
-  border-color: #f26c4a; }
 
 /*
  * Markdown Styles
@@ -1097,6 +1078,31 @@ code {
 .markdown a,
 .markdown a:visited {
   color: #05b; }
+
+.markdown code {
+  font-family: monospace; }
+
+.markdown pre code {
+  font-family: monospace; }
+
+.markdown .align-content-center * {
+  text-align: center; }
+
+.markdown .align-content-center a,
+.markdown .align-content-center a:visited {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #f06b49;
+  border-color: #f26c4a;
+  color: #fff; }
+
+.markdown .align-content-center a:hover {
+  text-decoration: none;
+  background-color: rgba(242, 108, 74, 0.8);
+  border-color: #f26c4a; }
 
 .markdown a.book-btn,
 .markdown a.book-btn:visited {
@@ -1135,14 +1141,14 @@ code {
   padding: 12px 12px; }
 
 .markdown .book-columns .i-amphtml-element {
-  width: 65px !important;
-  height: 65px !important;
+  width: 65px;
+  height: 65px;
   margin-top: 20px; }
 
 .markdown .book-columns img {
   background: #f3f3f3;
   border-radius: 40px;
-  padding: 12px !important; }
+  padding: 12px; }
 
 .markdown blockquote {
   padding: 1.2rem 1.3rem;
@@ -1161,6 +1167,10 @@ code {
 @media (max-width: 1275px) {
   .fixed-top img {
     margin-left: 2rem; } }
+
+@media (max-width: 896px) {
+  .book-header {
+    margin-bottom: 1rem; } }
 
 @media (max-width: 607px) {
   .markdown .book-columns div:last-child {
