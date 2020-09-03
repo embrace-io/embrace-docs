@@ -248,6 +248,10 @@ code {
   left: 0;
   z-index: 999;
   padding: 20px 0 15px 0;
+  .i-amphtml-element {
+    width: 150px;
+    height: 41px;
+  }
 }
 
 /*
@@ -344,12 +348,12 @@ code {
     .i-amphtml-element {
       width: 65px;
       height: 65px;
-      margin-top: 20px;
-    }
-    img {
-      background: #f3f3f3;
-      border-radius: 40px;
-      padding: 12px;
+      margin: 20px auto;
+      img {
+        background: #f3f3f3;
+        border-radius: 40px;
+        padding: 12px !important;
+      }
     }
   }
 
