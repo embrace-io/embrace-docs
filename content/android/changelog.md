@@ -14,6 +14,7 @@ weight: 4
 * Capture user info for NDK crashes
 * Enable ANR stacktrace capture by default for all users
 * Fixed issue with ANR stacktrace capture that could attribute an ANR to the session after it occurred
+* Fixed issue with Proguard/R8 upload that could prevent upload of mapping files for flavors 
 
 ## 4.5.1
 
