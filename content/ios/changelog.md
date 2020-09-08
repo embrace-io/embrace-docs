@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.0.8
+*Sep 8, 2020*
+
+* Add config filter to disable URLSessionDelegate swizzling
+
 ## 5.0.7
 *Sep 1, 2020*
 
