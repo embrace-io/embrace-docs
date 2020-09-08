@@ -1057,7 +1057,7 @@ code {
   left: 0;
   z-index: 999;
   padding: 20px 0 15px 0; }
-  .fixed-top .i-amphtml-element {
+  .fixed-top amp-img {
     width: 150px;
     height: 41px; }
 
@@ -1143,14 +1143,8 @@ code {
   margin: 0 1rem;
   padding: 12px 12px; }
 
-.markdown .book-columns .i-amphtml-element {
-  width: 65px;
-  height: 65px;
+.markdown .book-columns amp-img {
   margin: 20px auto; }
-  .markdown .book-columns .i-amphtml-element img {
-    background: #f3f3f3;
-    border-radius: 40px;
-    padding: 12px !important; }
 
 .markdown blockquote {
   padding: 1.2rem 1.3rem;

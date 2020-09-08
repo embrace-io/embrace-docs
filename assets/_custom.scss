@@ -248,7 +248,7 @@ code {
   left: 0;
   z-index: 999;
   padding: 20px 0 15px 0;
-  .i-amphtml-element {
+  amp-img {
     width: 150px;
     height: 41px;
   }
@@ -345,13 +345,8 @@ code {
       margin: 0 1rem;
       padding: 12px 12px;
     }
-    .i-amphtml-element {
-      width: 65px;
-      height: 65px;
+    amp-img {
       margin: 20px auto;
-      img {
-        border-radius: 40px;
-      }
     }
   }
 
