@@ -14,7 +14,7 @@ Embrace can collect basic session data and crashes as you've already seen in the
 Embrace can also collect your logging data and include it as context within your sessions. 
 Here's how you add a breadcrumb to the session.
 
-{{< tabs >}}
+{{< tabs "iosBreadcrumbs1" >}}
 
 {{< tab "Swift" >}}
 

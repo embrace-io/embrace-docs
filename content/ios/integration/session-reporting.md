@@ -38,7 +38,7 @@ Let's start by importing the Embrace module. Open your program's
 At the top of the file where you see the other import statements, add one for
 Embrace.
 
-{{< tabs >}}
+{{< tabs "iosNativeImportEmbrace" >}}
 
 {{< tab "Swift" >}}
 
@@ -81,7 +81,7 @@ Next, inside your main startup function (usually
 `ApplicationDidFinishLaunching`) add the following code to start Embrace. Embrace does not perform any tracking
 or other actions until this call is made.
 
-{{< tabs >}}
+{{< tabs "iosSessionReporting1" >}}
 
 {{< tab "Swift" >}}
 
@@ -132,7 +132,7 @@ recommend placing the call as close to the point that your UI is ready for use
 as possible, as doing so will give you the most accurate picture of the
 performance your users are experiencing with app launch.
 
-{{< tabs >}}
+{{< tabs "iosSessionReporting2" >}}
 
 {{< tab "Swift" >}}
 

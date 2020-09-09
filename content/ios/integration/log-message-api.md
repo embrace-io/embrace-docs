@@ -18,7 +18,7 @@ You can leverage the log message API for this.
 
 You can log a message immediately by calling the `logMessage` method.
 
-{{< tabs >}}
+{{< tabs "iosLogMessage1" >}}
 
 {{< tab "Swift" >}}
 

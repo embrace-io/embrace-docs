@@ -42,7 +42,7 @@ On the simulator, you can replicate this by running the app once with Xcode, pre
 Now we're ready to trigger a crash.
 You can trigger a crash organically, or Embrace provides a test crash function you can call from anywhere in your application.
 
-{{< tabs >}}
+{{< tabs "iosCrashReporting1" >}}
 
 {{< tab "Swift" >}}
 
