@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.0.9
+*Sep 9, 2020*
+
+* Fix blocked downloads when using expo +  flex for debugging
+
 ## 5.0.8
 *Sep 8, 2020*
 

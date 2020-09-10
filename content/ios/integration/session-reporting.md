@@ -50,7 +50,7 @@ import Embrace
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```swift
 #import <Embrace/Embrace.h>
 ```
 
