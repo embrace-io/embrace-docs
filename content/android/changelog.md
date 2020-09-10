@@ -6,7 +6,16 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.5.3
+
+*September 9, 2020*
+
+* Fixed issue with setting user ID, email, and username on clean installs (introduced in 4.5.2)
+
+
 ## 4.5.2
+
+*Use 4.5.3 since it contains a bugfix for a critical bug introduced in this release*
 
 *September 2, 2020*
 
