@@ -36,6 +36,10 @@ Here's a breakdown of the arguments being passed to the `logMessage` function.
 1. **Properties.** A map of key-value pairs you can use to categorize and filter log messages with. 
 1. **Screenshot capture enables.** Boolean value indicating whether you'd like a screenshot captured or not.
 
+{{< hint warning >}}
+{{< readFile file="shared/log-limit.md" >}}
+{{< /hint >}}
+
 ## Being Alerted on Logs
 
 Once you start using our alerting feature you can also configure how these are handled on the backend.

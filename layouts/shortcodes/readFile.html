@@ -1,0 +1,8 @@
+<!--
+  Rendering shortcodes is currently not supported.
+  Hugo has plans to support this soon:
+  https://github.com/gohugoio/hugo/issues/6703
+-->
+{{ with .Params.file }}
+{{ readFile . | markdownify }}
+{{ end }}

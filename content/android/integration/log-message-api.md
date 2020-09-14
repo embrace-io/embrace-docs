@@ -45,6 +45,11 @@ Embrace.getInstance().logInfo("User has entered checkout flow");
 
 {{< /hint >}}
 
+{{< hint warning >}}
+{{< readFile file="shared/log-limit.md" >}}
+* The following types are supported for property values: String, Integer, Long, Float, Double, Boolean.
+{{< /hint >}}
+
 ## Being Alerted on Logs
 
 Once you start using our alerting feature you can also configure how these are handled on the backend.

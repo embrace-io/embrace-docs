@@ -89,6 +89,15 @@ specify the width and height to be AMP-compatible, and to also improve SEO.
 [Additional shortcodes](https://themes.gohugo.io/hugo-book/#shortcodes) are available from the [theme](https://github.com/alex-shpak/hugo-book) we're using.
 
 
+**readFile**
+Reads file and parses contents as markdown.
+Note that although there's plans on supporting it soon, currently it's not possible to render shortcodes from parsed strings.
+Follow the status of the [issue here](https://github.com/gohugoio/hugo/issues/6703).
+
+```
+{{< readFile file="shared/log-limit.md" >}}
+```
+
 ### Deployment
 
 Travis-CI will deploy any new commit to the master branch to `dev.embrace.io/docs`
