@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.0.10
+*Sep 15, 2020*
+
+* deployment target upgraded to 9 for Xcode 12 support
+
 ## 5.0.9
 *Sep 9, 2020*
 
