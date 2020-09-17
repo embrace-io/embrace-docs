@@ -48,6 +48,10 @@ Explanations for each of the fields are provided below.
     },
     "taps": {
       "capture_coordinates": true
+    },
+    "webview": {
+      "capture_query_params": true,
+      "enable": true
     }
   }  
 }
@@ -115,7 +119,17 @@ Control whether screenshots are taken during the startup moment. Defaults to `tr
 
 #### capture_coordinates *bool*
 
-Set to false to disable capturing tap coordinates. Defaults to `true`.
+Set to `false` to disable capturing tap coordinates. Defaults to `true`.
+
+### webview
+
+#### capture_query_params *bool*
+
+Set to `false` to disable capturing of web view query parameters. Defaults to `true`. If `webview:enable` is set to 
+`false`, this setting has no effect since all capture of web view information is disabled. 
+
+#### enable *bool*
+Set to `false` to disable capturing of web views. Defaults to `true`.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 
