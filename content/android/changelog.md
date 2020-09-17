@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.5.4
+
+*September 17, 2020*
+
+* Added options to disable capture of web views and web view query parameters.
+* Truncate ANR stack traces to 100 lines.
+
 ## 4.5.3
 
 *September 9, 2020*
