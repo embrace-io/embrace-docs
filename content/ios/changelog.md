@@ -6,10 +6,23 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.1.0
+*Sep 21, 2020*
+
+* Change threading model so all IO callbacks happen on the main thread
+* Fix crash reporting auto-detection for cases without an Embrace-Info.plist
+* Reinstall signal handlers when crash reporting enabled via remote config
+* Startup moment duration and threshold included in the session payload
+
+## 4.2.6
+*Sep 16, 2020*
+
+* Deployment target upgraded to 9 for Xcode 12 support
+
 ## 5.0.10
 *Sep 15, 2020*
 
-* deployment target upgraded to 9 for Xcode 12 support
+* Deployment target upgraded to 9 for Xcode 12 support
 
 ## 5.0.9
 *Sep 9, 2020*
