@@ -6,6 +6,18 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.1.1
+*Sep 24, 2020*
+
+* Fix crash in EMBNetworkManager's predicate logic
+* Fix sendSession:addObject crash
+* Update to firebase's latest formats to mirror crash reports
+
+## 4.2.7
+*Sep 24, 2020*
+
+* fix crash in EMBNetworkManager's predicate logic
+
 ## 5.1.0
 *Sep 21, 2020*
 
