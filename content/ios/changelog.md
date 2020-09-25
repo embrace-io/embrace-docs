@@ -6,6 +6,13 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.1.2
+*Sep 25, 2020*
+
+* Fix caught exception on non-firebase crash upload path
+* Session properties in event payloads
+* memory warnings re-added to session payloads
+
 ## 5.1.1
 *Sep 24, 2020*
 
