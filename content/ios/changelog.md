@@ -6,6 +6,13 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.1.3
+*Sep 30, 2020*
+
+* Fix crash in unarchiver usage
+* Fix crash in filtered array with predicate usage
+* low power warnings re-added to session payloads
+
 ## 5.1.2
 *Sep 25, 2020*
 

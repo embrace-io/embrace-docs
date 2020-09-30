@@ -16,7 +16,7 @@ outputs:
 
 params:
   sdkVersion:
-    ios: "5.1.2"
+    ios: "5.1.3"
     android: "4.5.4"
     rn: "3.6.1"
   BookSection: '*'
