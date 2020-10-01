@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.2.0
+*Sep 30, 2020*
+
+* Change how failed events are queued to fix perf and OOM issues
+* Update code for xcode 12 standards
+
 ## 5.1.3
 *Sep 30, 2020*
 
