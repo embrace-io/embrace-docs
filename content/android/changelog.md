@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.5.5
+
+*October 1, 2020*
+
+* Fixed capture of ANR stacktraces for Android 7 and earlier.
+* Fixed Gradle plugin compatibility with AGP 4.1.0-rc1.
+
 ## 4.5.4
 
 *September 17, 2020*
