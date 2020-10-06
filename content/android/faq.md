@@ -79,20 +79,7 @@ A session is classified as dev if all of the following are true:
 
 ### **How can I define custom app IDs for different build types?**
 
-You can override the app ID in your `build.gradle` file as shown below
-```groovy
-buildTypes {
-        release {
-            // ...
-            // note the single quotes inside the double quotes for the app ID value
-            buildConfigField "String", "EMBRACE_APP_ID", "'YOUR_APP_ID_HERE'"
-        }
-        debug {
-            // ...
-            // if you don't specify an app ID here, it will fall back on the default one 
-        }
-}
-```
+See [this section]({{< relref "/android/features/configuration-file#custom-settings-for-build-types-flavors-and-variants">}}) on how to configure different app IDs.
 
 ### **Does Embrace work with Buck / OKBuck?**
 
