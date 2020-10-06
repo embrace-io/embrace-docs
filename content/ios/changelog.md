@@ -7,7 +7,7 @@ weight: 4
 # iOS/tvOS SDK Changelog
 
 ## 5.2.1
-*Sep 31, 2020*
+*Oct 1, 2020*
 
 * Fix power manager hang on launch
 
