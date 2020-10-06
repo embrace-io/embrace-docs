@@ -136,7 +136,7 @@ All network calls are automatically tracked without any code changes. Network ca
 
 If you use a library not listed or do not see expected network calls, please contact us at <support@embrace.io> or via Slack.
 
-### ** Compatibility with Akamai, Cloudflare, PacketZoom and Other Networking Services
+### **Compatibility with Akamai, Cloudflare, PacketZoom and Other Networking Services**
 
 Embrace is compatible with SDKs that optimize networking, such as those from Akamai, Cloudflare, and PacketZoom.
 However, it is important that the Embrace SDK is initialized *after* any of these types of SDKs are initialized to ensure
