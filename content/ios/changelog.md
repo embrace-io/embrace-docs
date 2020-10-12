@@ -6,6 +6,17 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.2.2
+*Oct 12, 2020*
+
+* fix crash when launching through Xcode with customize trace_id header
+* fix mis-tracked start moments
+
+## 4.2.8
+*Oct 12, 2020*
+
+* fix crash when launching through Xcode with customize trace_id header
+
 ## 5.2.1
 *Oct 1, 2020*
 
