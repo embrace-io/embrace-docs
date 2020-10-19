@@ -6,6 +6,18 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.2.3
+*Oct 19, 2020*
+
+* ensure tvos crashes are correctly marked in metadata
+* ensure failed sessions are always uplaoded
+* tight session duration tracking
+
+## 4.2.9
+*Oct 16, 2020*
+
+* add support for modern firebase crash reports
+
 ## 5.2.2
 *Oct 12, 2020*
 
