@@ -6,6 +6,16 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.2.4
+*Oct 22, 2020*
+
+* ensure handled exceptions are properly recorded
+
+## 4.2.10
+*Oct 22, 2020*
+
+* ensure handled exceptions are properly recorded
+
 ## 5.2.3
 *Oct 19, 2020*
 
