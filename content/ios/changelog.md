@@ -6,6 +6,17 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.3.0
+*Dec 1st, 2020*
+
+* Framework is now a universal xcframework
+* Network filtering via embrace-info.plist now supported on v5
+* Fix session-to-session data handoffs
+* Fix crashes related to filtering network capture arrays
+* Fix crash related to sending failed session start message
+* Maximum length for webview url capture is now 1024 bytes
+* Log events now have limits for each type per session
+
 ## 5.2.5
 *Oct 30, 2020*
 
