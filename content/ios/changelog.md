@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.3.1
+*Dec 10th, 2020*
+
+* Ensure sessions with abnormal exits have correct endtimes
+* Update dSYM upload utility with better diagnostics
+
 ## 5.3.0
 *Dec 1st, 2020*
 
