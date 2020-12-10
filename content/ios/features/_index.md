@@ -15,3 +15,4 @@ how your application is performing in production.
 1. [**Augment Sessions using OS Log**]({{< relref "/ios/features/augment-sessions" >}}) Embrace can use your OS Log stream to help you understand complex problems with your application.
 1. [**Web Thread Monitoring**]({{< relref "/ios/features/web-thread-monitoring" >}}) If you use WKWebView in your application, Embrace can monitor the JavaScript threads behind the view. You can log these events to your sessions or even have Embrace automatically reload the views for you.
 1. [**Network Body Capture**]({{< relref "/ios/features/network-body-capture" >}}) Embrace can upload network bodies from your requests to help you troubleshoot.  Learn how to enable this feature in a secure way.
+1. [**Configuration File**]({{< relref "/ios/features/configuration-file" >}}) Embrace supports a number of configuration options, this reference guide will help you understand them all.
