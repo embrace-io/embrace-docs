@@ -97,6 +97,8 @@ To enable dSYMs generation in XCode:
 6. Search for `debug information format`
 7. Modify both the `Debug`and `Release` settings as needed to select `DWARF with dSYM File`. If dSYM generation is not enabled for debug builds, the Embrace dashboard will not show symbolicated crashes and log stack traces for sessions from these builds.
 
+{{< image src="/docs/images/ios-dsym-enable.png" alt="Enabling dSYM generation in Xcode" width="1037" height="219" >}}
+
 ### Verifying dSYM upload and viewing the associated logs
 
 {{< hint warning >}}
