@@ -116,7 +116,7 @@ To view the `run.sh` logs in XCode:
 
 To view the `upload` script logs in the system log:
 
-1. Open the `Console` app
+1. Open the <a href="https://support.apple.com/guide/console/welcome/mac" target="_blank">Console</a> app
 2. Select `system.log` from the `Reports` section
 3. Filter by `embrace`
 
