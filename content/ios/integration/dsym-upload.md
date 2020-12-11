@@ -75,9 +75,12 @@ In this version we're referencing the Embrace folder inside our `third_party` fo
 {{< /tabs >}}
 
 {{< hint info >}}
-In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script. This is important, if the environment variables are not available when run.sh executes, the command will fail.
+In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script. If the environment variables are on different lines, they will not be available when run.sh executes and the command will fail.
 {{< /hint >}}
 
+{{< hint info >}}
+If your crashes are not being symbolicated due to dSYM files being missing, see the section on [troubleshooting dSYM uploads]({{< relref "/ios/faq#troubleshooting-dsym-upload" >}}) in the FAQ.
+{{< /hint >}}
 
 ## Manual Uploads
 
