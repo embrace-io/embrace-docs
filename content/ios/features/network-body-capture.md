@@ -15,7 +15,7 @@ If your application handles sensitive or private data of any kind, you can prote
 In your `Embrace-Info.plist` file, first create a new Dictionary entry titled:
 
 ```sh
-NETOWRK
+NETWORK
 ```
 
 Within that dictionary, place a new string entry with the key titled:
