@@ -6,6 +6,18 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
+## 3.6.3
+
+_December 17, 2020_
+
+* Update function signatures to use typed object instead of Map for properties. 
+
+## 3.6.2
+
+_October 2, 2020_
+
+* Fix warning raised when checking for CodePush integration.
+
 ## 3.6.1
 
 _August 13, 2020_
