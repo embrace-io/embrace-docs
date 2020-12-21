@@ -6,6 +6,20 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.6.0
+
+*December 14, 2020*
+
+* Added support for Unity applications.
+* Added debug logging mode.
+
+
+## 4.5.6
+
+*October 21, 2020*
+
+* Fixed dependency resolution issues with AGP 4.1.0+.
+
 ## 4.5.5
 
 *October 1, 2020*
