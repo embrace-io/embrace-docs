@@ -66,6 +66,16 @@ You'll need to set the following permissions so the Embrace SDK can send events 
 
 {{< /hint >}}
 
+## Add a dependency to modules or libraries you want to call Embrace from (optional)
+
+If you have an app that uses internal modules or libraries, you must specify the Embrace SDK dependency directly in your module's Gradle file
+
+```
+implementation `'embrace-io:embrace-android-sdk:{{< sdk platform="android" >}}'`.
+```
+
+You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
+
 ## Add the config file
 
 Add a config file to configure the Embrace SDK. This file must be named `embrace-config.json` and should be placed in `app/src/main`. The config file supports many more options than those shown in the example below, but for the initial integration, only the two settings listed below are needed.
