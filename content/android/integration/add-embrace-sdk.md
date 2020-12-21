@@ -70,8 +70,8 @@ You'll need to set the following permissions so the Embrace SDK can send events 
 
 If you have an app that uses internal modules or libraries, you must specify the Embrace SDK dependency directly in your module's Gradle file
 
-```
-implementation `'embrace-io:embrace-android-sdk:{{< sdk platform="android" >}}'`.
+```groovy
+implementation 'embrace-io:embrace-android-sdk:{{< sdk platform="android" >}}'
 ```
 
 You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
