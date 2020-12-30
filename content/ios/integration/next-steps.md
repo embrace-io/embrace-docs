@@ -10,7 +10,7 @@ aliases:
 
 ## Wrapping Up
 
-Congratulations on completing the Android integration guide! 
+Congratulations on completing the iOS integration guide!
 
 If you found anything confusing or have suggestions on improving the docs,
 please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
@@ -23,7 +23,7 @@ our [Feature Reference]({{< relref "/ios/features" >}}).
 
 ## API Docs
 
-To see the full list of methods that the Android Embrace SDK exposes, please see
+To see the full list of methods that the iOS Embrace SDK exposes, please see
 the [iOS API docs]({{< api ios >}}).
 
 ## Check Out the FAQ
