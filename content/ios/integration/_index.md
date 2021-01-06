@@ -9,7 +9,7 @@ weight: 1
 
 ## Getting Started
 
-We'll be guiding you through integrating Embrace into your Android application
+We'll be guiding you through integrating Embrace into your iOS application
 with a series of articles. We recommend going through them in order, although
 you are free to skip around. 
 

@@ -60,5 +60,14 @@ Add Embrace to your React Native project.
 
 [GET STARTED]({{< relref "/react-native" >}})
 
+<--->
+
+{{< icon src="/docs/images/unity-icon.svg" >}}
+
+### **Unity**
+
+Add Embrace to your Unity Engine project.
+
+[GET STARTED]({{< relref "/unity" >}})
 
 {{< /columns >}}
