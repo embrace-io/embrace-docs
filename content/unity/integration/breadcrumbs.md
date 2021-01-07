@@ -18,7 +18,7 @@ Here's how you add a breadcrumb to the session.
 Embrace.Instance.LogBreadcrumb("a test breadcrumb message");
 ```
 
-Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded, for example if you make a network call - Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
+Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example if you make a network call, Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
 
 {{< hint info >}}
 
@@ -29,10 +29,9 @@ For how to best use Breadcrumbs, check out the [Best Practices]({{< relref "/bes
 ---
 
 We use the breadcrumb method for our logging and not the LogEvent method.
-Breadcrumbs are a lightweight way to add logging to your session. They add little CPU or memory overhead, and trigger no networking calls.
+Breadcrumbs are a lightweight way to add logging to your session. They add little CPU or memory overhead, and trigger no network calls.
 `LogEvent` is a much heavier mechanism. We will learn about it in the [alerting]({{< relref "/unity/integration/log-message-api" >}}) section of the documentation.
 
 For now, just know that using breadcrumbs is the right thing to do most of the time.
 
 {{< button relref="/unity/integration/log-message-api" >}}Learn about alerting{{< /button >}}
-

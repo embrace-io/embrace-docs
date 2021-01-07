@@ -49,7 +49,6 @@ Add Embrace to your iOS project.
 
 [GET STARTED]({{< relref "/ios" >}})
 
-
 <--->
 
 {{< icon src="/docs/images/react-native-icon.svg" >}}
@@ -61,8 +60,6 @@ Add Embrace to your React Native project.
 [GET STARTED]({{< relref "/react-native" >}})
 
 <--->
-
-{{< icon src="/docs/images/unity-icon.svg" >}}
 
 ### **Unity**
 

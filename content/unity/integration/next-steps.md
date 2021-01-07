@@ -20,7 +20,7 @@ please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 Embrace includes many optional advanced features that can help you figure out some of 
 the most challenging issues. 
 
-Depending on the platform you are targetting you may want to read one or both of these sections:
+Depending on the platform you are targeting you may want to read one or both of these sections:
 
 1. [iOS Feature Reference]({{< relref "/ios/features" >}})
 1. [Android Feature Reference]({{< relref "/android/features" >}})

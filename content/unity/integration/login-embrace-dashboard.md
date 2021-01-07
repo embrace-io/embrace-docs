@@ -1,6 +1,6 @@
 ---
 title: "Login to the Embrace Dashboard"
-description: Login to the Embrace dashboard to get started with your iOS integration
+description: Login to the Embrace dashboard to get started with your Unity integration
 weight: 5
 aliases:
   - /unity/login-embrace-dashboard/
@@ -22,7 +22,6 @@ Keep your dashboard tab open throughout the integration process. This will help 
 
 ---
 
-Next, we're going to send data to Embrace so we can finally see some interesting
-things in the dashboard.
+Next, we're going to send data to Embrace so we can see some interesting things in the dashboard.
 
 {{< button relref="/unity/integration/session-reporting" >}}Create Your First Session{{< /button >}}

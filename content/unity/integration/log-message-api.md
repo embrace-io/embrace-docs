@@ -22,10 +22,10 @@ You can log a message immediately by calling the `logMessage` method.
 Embrace.Instance.LogMessage("error log", EMBSeverity.Error, null, true);
 ```
 
-Let's examine the method call from above to understand the arguments involved:
+Let's examine the method call above to understand the arguments involved:
 
 1. The first argument is a string and represents the message itself. 
-2. This is the severity of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs]({{< relref "/ios/integration/breadcrumbs" >}}).
+2. This is the severity of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but the latter is better left to [breadcrumbs]({{< relref "/ios/integration/breadcrumbs" >}}).
 3. This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
 4. A boolean indicating whether or not we should include a screenshot with this alert.
 
@@ -36,14 +36,11 @@ Let's examine the method call from above to understand the arguments involved:
 
 ## Being Alerted on Logs
 
-Once you start using our alerting feature you can also configure how these are handled on the backend.
-Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with logEvents.
-For example, if you have a steady rate of 1% for a given logEvent, then you can set a threshold so that if it rises in a sustained way you get an email sent directly to you.
+Once you start using our alerting feature you can also configure how these are handled on the backend. Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with logEvents. For example, if you have a steady rate of 1% for a given logEvent, then you can set a threshold so that if it rises in a sustained way you get an email sent directly to you.
 
 ## Best Practices
 
-Embrace's logMessage API is immediate mode.
-A call to this API results in a networking call between your app and Embrace's servers immediately.
+Embrace's logMessage API will immediately make network calls to report logs, and will not wait for the session to complete. A call to this API results in a networking call from your app to Embrace's servers immediately.
 This can have a negative effect on your application's performance or battery life when over-used.
 It can also be an invaluable tool for getting information about your application quickly.
 
