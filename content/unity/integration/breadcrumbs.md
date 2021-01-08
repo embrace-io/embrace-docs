@@ -18,7 +18,7 @@ Here's how you add a breadcrumb to the session.
 Embrace.Instance.LogBreadcrumb("a test breadcrumb message");
 ```
 
-Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example if you make a network call, Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
+Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
 
 {{< hint info >}}
 
