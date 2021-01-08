@@ -19,14 +19,14 @@ You can leverage the log message API for this.
 You can log a message immediately by calling the `logMessage` method.
 
 ```C#
-Embrace.Instance.LogMessage("error log", EMBSeverity.Error, null, true);
+Embrace.Instance.LogMessage("error log", EMBSeverity.Error, new Dictionary<string, string>(), true);
 ```
 
 Let's examine the method call above to understand the arguments involved:
 
 1. The first argument is a string and represents the message itself. 
-2. This is the severity of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but the latter is better left to [breadcrumbs]({{< relref "/ios/integration/breadcrumbs" >}}).
-3. This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
+2. This is the severity of the event. Typically we use this mechanism for errors, warnings, and occasionally for tracing purposes, but [breadcrumbs]({{< relref "/ios/integration/breadcrumbs" >}}) are better for that purpose.
+3. The third argument is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
 4. A boolean indicating whether or not we should include a screenshot with this alert.
 
 {{< hint warning >}}

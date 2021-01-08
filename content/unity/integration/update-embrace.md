@@ -12,7 +12,7 @@ Since we've integrated the SDK using Unity's Package Manager, updates are delive
 
 Either way, simply return to the Package Manager and refresh it. If there is a new Embrace SDK available you will see it listed under the Embrace entry. Click the download button and then import the update.
 
-If you have more specialized versioning needs the package manager is fully scriptable, you can read more about that in Unity's documentation here: https://docs.unity3d.com/Manual/upm-git.html.
+If you have more specialized versioning needs, the package manager is fully scriptable. You can read more about that in Unity's documentation here: https://docs.unity3d.com/Manual/upm-git.html.
 
 ---
 

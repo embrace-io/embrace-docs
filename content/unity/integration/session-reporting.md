@@ -29,7 +29,7 @@ process we're going to follow to collect our first session is:
 
 ## Import Embrace
 
-Let's start by importing the Embrace module. Embrace on Unity is accessibly via a singleton C# class called `Embrace` in the `EmbraceSDK` namespace. Simply add this line to the top of any C# script you'd like to use with Embrace:
+Let's start by importing the Embrace module. Embrace on Unity is accessible via a singleton C# class called `Embrace` in the `EmbraceSDK` namespace. Simply add this line to the top of any C# script you'd like to use with Embrace:
 
 ```C#
 Using EmbraceSDK;
@@ -46,13 +46,13 @@ From there you can call any public method on the API.
 Our SDK has three runtime modes:
 1. `Android` - in this mode Embrace logs to logcat. This mode is only activated if your build target is currently Android.
 1. `iOS` - in this mode Embrace logs to the system console. This mode is only activated in your build target is iOS.
-1. `Editor` - in this mode Embrace logs to the Unity console. This mode is active when you run inside the editor regardless of build target. Embrace only logs the actions would happen in this mode. No data is uploaded while running in the editor.
+1. `Editor` - in this mode Embrace logs to the Unity console. This mode is active when you run inside the editor regardless of build target. Embrace only logs the actions it would perform. No data is uploaded while running in the editor.
 
 For all other build targets, the result of Embrace API calls are no-ops. You can make calls to the Embrace SDK in shared code, but on platforms like Windows or MacOS those calls will do nothing and no data is uploaded to Embrace.
 
 ## Add a start call
 
-Embrace does nothing until it's start method has been called. Find the place in your project where you initialize other 3rd party SDKs or some other good entry point and add the following code:
+Embrace does nothing until its start method has been called. Find the place in your project where you initialize other third party SDKs or some other good entry point and add the following code:
 
 ```C#
 Embrace.Instance.StartSDK();
@@ -62,7 +62,7 @@ Embrace.Instance.StartSDK();
 
 **A Note On Placing the Start Call**
 
-It is important that this call be made as early as possible in the lifecycle of your application to ensure we can collect as much relevant data as possible data. Additionally, Embrace has taken great care to ensure we can operate alongside any other third party SDKs. If Embrace is initialized first, then our code can set things up to ensure that everyone can interoperate successfully in your application.
+It is important that this call be made as early as possible in the lifecycle of your application to ensure we can collect as much relevant data as possible. Additionally, Embrace has taken great care to ensure we can operate alongside any other third party SDKs. If Embrace is initialized first, then our code can set things up to ensure that everyone can interoperate successfully in your application.
 
 {{< /hint >}}
 
@@ -76,7 +76,7 @@ Embrace.Instance.EndAppStartup();
 
 {{< hint info >}}
 
-**A Note On Ensuring the Start Moment Ends**
+**A Note On Ensuring the Startup Moment Ends**
 
 This moment is used to track both launch performance and launch abandonment. The latter is the number of users who close the app before the launch finishes. To correctly track this, it is critical that all code paths end the startup moment eventually. For example, if your app can launch via a push notification, ensure that path also ends the startup moment or you may see inaccurate abandonment data.
 
@@ -84,7 +84,7 @@ This moment is used to track both launch performance and launch abandonment. The
 
 ## Build and Run Your Application
 
-You're now ready to build and run your application. Assuming the app launches correctly, pay attention to the system logging and look for Embrace to print out it's version number.
+You're now ready to build and run your application. Assuming the app launches correctly, pay attention to the system logging and look for Embrace to print out its version number.
 
 ```sh
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="unity" >}}
@@ -101,7 +101,7 @@ If you see a log line like this, you've succeeded in integrating Embrace with yo
 
 ## Trigger a Session Upload
 
-To trigger a session upload, simply send the application to the background by pressing the device's 'home' button. Typically the SDK will be given sufficient time to upload the session as the app is going to the background, but sometimes the OS will not allow the app to complete the upload in the background. To ensure the session was uploaded, launch the application again. Refresh the dashboard in your browser and you should now see that you've moved on to the next step.
+To trigger a session upload, simply send the application to the background by pressing the device's "home" button. Typically the SDK will be given sufficient time to upload the session as the app is going to the background, but sometimes the OS will not allow the app to complete the upload in the background. To ensure the session was uploaded, launch the application again. Refresh the dashboard in your browser and you should now see that you've moved on to the next step.
 
 ---
 

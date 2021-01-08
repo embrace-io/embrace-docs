@@ -9,11 +9,11 @@ weight: 1
 
 ## Getting Started
 
-Embrace's Unity SDK let's you bring the deep introspective and native debugging power of Embrace into your Unity game or application.
+Embrace's Unity SDK lets you bring the deep, introspective and native debugging power of Embrace into your Unity game or application.
 
-We test our SDK on all Unity LTS versions. This documentation is written using `2019.4.17f1`. Each Unity release varies and all Unity projects are a little different so don't hestitate to reach out to us for support during the integration process.
+We test our SDK on all Unity LTS versions. This documentation is written using `2019.4.17f1`. Each Unity release varies and all Unity projects are a little different, so don't hestitate to reach out to us for support during the integration process.
 
 Get started by following our integration guide:
 [**Integration Guide**]({{< relref "/unity/integration">}})
 
-You can also view our [Change Log]({{< relref "/unity/changelog" >}})
+You can also view our [Change Log]({{< relref "/unity/changelog" >}}).

@@ -10,9 +10,9 @@ aliases:
 
 ## Debuggers
 
-Before we actually trigger a crash, we need to talk about debuggers. Xcode and Android Studio are both debuggers. This means that they can attach to a program and stop/start/pause/modify that program, including stepping through and around exceptions and signals. When working on your app, this is exactly what you want. When trying to test crashes, this functionality is always in the way.
+Before we actually trigger a crash, we need to talk about debuggers. Xcode and Android Studio are both debuggers. This means that they can attach to a program and stop/start/pause/modify that program, including stepping through and around exceptions and signals. When working on your app, this is exactly what you want. However, when trying to test crashes, this functionality is always in the way.
 
-It is important when testing crashes to not be connected to any debugger, including Xcode, Android Studio or even Unity's own profiler. If you can, test on a device that is no longer plugged into your computer over USB and launch the app by tapping its icon directly.
+It is important when testing crashes to not be connected to any debugger, including Xcode, Android Studio, or even Unity's own profiler. If you can, test on a device that is no longer plugged into your computer over USB and launch the app by tapping its icon directly.
 
 ## Triggering a Crash
 
