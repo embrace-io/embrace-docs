@@ -30,7 +30,7 @@ Even when disabled, Embrace will still attempt to mirror the reports from your e
 
 Before we actually trigger a crash, we need to talk about debuggers.
 Xcode is a debugger. This means that it can attach itself to a program and stop/start/pause/modify that program, including stepping through and around exceptions and signals.
-When working on your app, this is exactly what you want. Howerver, when trying to test crashes, this functionality is always in the way.
+When working on your app, this is exactly what you want. However, when trying to test crashes, this functionality is always in the way.
 
 It is important when testing crashes to not be connected to any debugger, including Xcode.
 If you launch your app with the play button in Xcode, then it is attached to a debugger and Embrace will not receive any crash reports.
