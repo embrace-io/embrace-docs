@@ -20,6 +20,12 @@ Embrace offers two mechanisms for annotating sessions in a searchable way:
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 
+{{< hint info >}}
+
+For a full set of APIs related to user identification, see the `Embrace` class in the [iOS API]({{< api ios >}}) documentation.
+
+{{< /hint >}}
+
 ## User Personas
 
 We offer a set of methods to set the username, the email address, or a user identifier.

@@ -13,6 +13,12 @@ sessions for an unhappy user.
 1. [**User Personas**]({{< relref "/android/features/identify-users#user-personas" >}}). This is data you can set and update about the user of a session.
 1. [**Session Properties**]({{< relref "/android/features/identify-users#session-properties" >}}). This is data you use to track information about the device or the session itself.
 
+{{< hint info >}}
+
+For a full set of APIs related to user identification, see the `io.embrace.android.embracesdk.Embrace` class in the [Android API]({{< api android >}}) documentation.
+
+{{< /hint >}}
+
 ## User Personas
 
 Embrace offers a set of methods to set the username, email, or user identifier.
