@@ -45,11 +45,13 @@ Add Embrace to your Android project.
 
 ### **iOS**
 
-Add Embrace to your iOS project.
+Add Embrace to your  
+iOS project.
 
 [GET STARTED]({{< relref "/ios" >}})
 
-<--->
+{{< /columns >}}
+{{< columns >}}
 
 {{< icon src="/docs/images/react-native-icon.svg" >}}
 
