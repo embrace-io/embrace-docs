@@ -6,6 +6,21 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.6.2
+
+*January 12, 2021*
+
+* Added configuration setting to disable capture of native network requests.
+
+
+## 4.6.1
+
+*January 11, 2021*
+
+* Added support for configuration files for product flavors.
+* Fixed bug that could cause a crash when network request size capture was enabled for native requests.
+
+
 ## 4.6.0
 
 *December 14, 2020*
