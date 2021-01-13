@@ -36,6 +36,7 @@ Explanations for each of the fields are provided below.
     "networking": {
       "capture_request_content_length": true,
       "disabled_url_patterns": [],
+      "enable_native_monitoring": true,
       "track_id_header": "x-emb-trace-id"
     },
     "session": {
@@ -90,6 +91,10 @@ Disable capture of network length which can interfere with certain streaming net
 #### disabled_url_patterns *string array*
 
 Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
+
+#### enable_native_monitoring *bool*
+
+Enable capture of network requests made using the native Java network API. Defaults to `true`.
 
 #### track_id_header *string*
 
