@@ -31,11 +31,11 @@ Now when you build and run your project, our editor script will use those values
 
 # Configure the Android platform
 
-On Android, Unity builds are handled by gradle. Unity has already given us ways to customize the gradle configuration via templates accessible from the `Player Settings` menu.
+On Android, Unity builds are handled by Gradle. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 
 # Unity 2019 and Newer
 
-{{< image src="/docs/images/unity-android-gradle-templates.png" alt="Image showing how to customize the Unity gradle templates" caption="The gradle template customization features in Unity." width="700" height="452" >}}
+{{< image src="/docs/images/unity-android-gradle-templates.png" alt="Image showing how to customize the Unity Gradle templates" caption="The Gradle template customization features in Unity." width="700" height="452" >}}
 
 If your project already modifies these files, then apply the changes below to your existing files. If you do not customize the template currently, add a customization and then modify them as described below.
 
@@ -53,14 +53,14 @@ After creating or finding these template files in your project, make the followi
 
 # Unity 2018 and older
 
-{{< image src="/docs/images/unity-android-gradle-templates-2018.png" alt="Image showing how to customize the Unity gradle templates" caption="The gradle template customization features in Unity." width="700" height="409" >}}
+{{< image src="/docs/images/unity-android-gradle-templates-2018.png" alt="Image showing how to customize the Unity Gradle templates" caption="The Gradle template customization features in Unity." width="700" height="409" >}}
 
-In Unity 2018 and older there was only 1 gradle template available for customization.  All of the required changes can still be done in this file:
+In Unity 2018 and older there was only one Gradle template available for customization.  All of the required changes can still be done in this file.
 
 1. In `mainTemplate.gradle`, add `classpath 'embrace-io:embrace-swazzler:{{< sdk platform="android" >}}'` to `allprojects:buildscript:dependencies:`
 1. In `mainTemplate.gradle`, add `apply plugin: 'embrace-swazzler'`
 
-Next, to enable androidX support we also must add this block to the `mainTemplate.gradle` file:
+Next, to enable AndroidX support we also must add this block to the `mainTemplate.gradle` file:
 
 ```
 ([rootProject] + (rootProject.subprojects as List)).each {
