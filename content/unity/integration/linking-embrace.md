@@ -8,7 +8,13 @@ aliases:
 
 # Linking Embrace with your Unity project
 
-Embrace is distributed as a unitypackage. The easiest way to integrate Embrace is using the Unity Package Manager's git import feature:
+Embrace supports two methods of integration, automatic via the UPM git-repo feature for newer versions of the Unity Editor (2019 or newer) and a manual import solution.
+
+Depending on how your project is structured and the Unity Editor version you use, follow the appropriate guide.
+
+# Using the Unity Package Manager to Add Embrace
+
+If your project is using Unity editor version 2019 or newer, you can easily integrate Embrace by adding our UPM git-repo in package manager:
 
 {{< image src="/docs/images/unity-upm-import.png" alt="Image showing how to use the package manager in Unity" caption="Unity Project showing the package manager's git import feature." width="800" height="520" >}}
 
@@ -16,6 +22,18 @@ Embrace is distributed as a unitypackage. The easiest way to integrate Embrace i
 1. Press the `+` button in the upper left corner and choose `add package from git url`
 1. Enter this url: `https://github.com/embrace-io/embrace-unity-upm.git`
 1. The Embrace SDK will now be imported into the packages folder of your project
+
+# Manually Importing the Embrace SDK
+
+For projects using older versions of the Unity Editor, or projects that prefer to control the location of their dependencies, we also distribute our SDK as a Unity Package that you can download.
+
+[Download Embrace For Unity](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage.zip)
+
+Once downloaded, unzip the archive and drag the Unity Package into your assets folder in the editor.
+
+{{< image src="/docs/images/unity-import-embrace.png" alt="Image showing the import dialog box for the Embrace SDK" caption="After dragging Embrace into your project, import all the required files." width="175" height="283" >}}
+
+--- 
 
 Now that Embrace is part of your project, learn how to add some required configuration options in the next section. 
 

@@ -133,9 +133,9 @@ First open your project in a compatible version of Xcode. Binary distributions a
 
 {{< image src="/docs/images/ios-spm-step-1.png" alt="Xcode project ready to integrate Embrace via Swift Package Manager" title="Swift Package Manager Step 1" caption="Xcode project open to the Swift Package Manager UI" width="736" height="181" >}}
 
-Pressing the `+` button on this screen will open the add repository dialogue box. The Embrace repository is: [https://github.com/embrace-io/embrace-spm](https://github.com/embrace-io/embrace-spm).
+Pressing the `+` button on this screen will open the add repository dialog box. The Embrace repository is: [https://github.com/embrace-io/embrace-spm](https://github.com/embrace-io/embrace-spm).
 
-{{< image src="/docs/images/ios-spm-step-2.png" alt="The add repository dialogue box" title="Swift Package Manager Step 2" caption="Adding the Embrace repository" width="736" height="434" >}}
+{{< image src="/docs/images/ios-spm-step-2.png" alt="The add repository dialog box" title="Swift Package Manager Step 2" caption="Adding the Embrace repository" width="736" height="434" >}}
 
 After entering the URL, click next and you will be taken to the version settings page. Here you configure what version of Embrace to use and how to check for updates. We recommend the default settings unless your app has specific version requirements.
 

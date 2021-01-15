@@ -37,7 +37,7 @@ dependency is set to at least 4.5.1 in your `build.gradle` file.
 _August 3, 2020_
 
 * Allow passing properties into the `logHandledError` method.
-* Fix issue with gradle file and specifying Java 8.
+* Fix issue with Gradle file and specifying Java 8.
 
 ## 3.4.0
 
