@@ -22,7 +22,7 @@ Without those in place, your project may build and run but will not report data 
 {{< image src="/docs/images/unity-ios-config-file.png" alt="Image showing the location of the Embrace-Info.plist within the Embrace package" caption="The location of the Embrace-Info.plist in the Embrace package." width="800" height="525" >}}
 
 {{< hint warning>}}
-**Note** If you imported Embrace manually this path will be under `Plugins` instead
+**Note** If you imported Embrace manually, this path will be under `Plugins` instead
 {{< /hint >}}
 
 Open the file and fill in the missing `API_KEY` and `API_TOKEN`. You can get the correct values from the settings page in your dash. 
@@ -42,7 +42,7 @@ If your project already modifies these files, then apply the changes below to yo
 {{< image src="/docs/images/unity-android-config-file.png" alt="Image showing the location of the embrace-config file within the Embrace package" caption="The location of the embrace-config file in the Embrace package." width="800" height="625" >}}
 
 {{< hint warning>}}
-**Note** If you imported Embrace manually this path will be under `Plugins` instead
+**Note** If you imported Embrace manually, this path will be under `Plugins` instead
 {{< /hint >}}
 
 After creating or finding these template files in your project, make the following changes:
@@ -51,7 +51,7 @@ After creating or finding these template files in your project, make the followi
 1. In `gradleTemplate.properties`, add `android.useAndroidX=true` and `android.enableJetifier=true`
 1. In `launcherTemplate.gradle`, add `apply plugin: 'embrace-swazzler'`
 
-# Unity 2018 and older
+# Unity 2018 and Older
 
 {{< image src="/docs/images/unity-android-gradle-templates-2018.png" alt="Image showing how to customize the Unity Gradle templates" caption="The Gradle template customization features in Unity." width="700" height="409" >}}
 

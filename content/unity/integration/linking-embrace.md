@@ -8,11 +8,11 @@ aliases:
 
 # Linking Embrace with your Unity project
 
-Embrace supports two methods of integration, automatic via the UPM git-repo feature of newer versions of the Unity Editor and a manual import solution.
+Embrace supports two methods of integration, automatic via the UPM git-repo feature for newer versions of the Unity Editor (2019 or newer) and a manual import solution.
 
-Depending on how your project is structured and the Unity Editor version you use, follow one of these guides:
+Depending on how your project is structured and the Unity Editor version you use, follow the appropriate guide.
 
-# Using the Unity Package Manager to add Embrace
+# Using the Unity Package Manager to Add Embrace
 
 If your project is using Unity editor version 2019 or newer, you can easily integrate Embrace by adding our UPM git-repo in package manager:
 
@@ -23,15 +23,15 @@ If your project is using Unity editor version 2019 or newer, you can easily inte
 1. Enter this url: `https://github.com/embrace-io/embrace-unity-upm.git`
 1. The Embrace SDK will now be imported into the packages folder of your project
 
-# Manually importing the Embrace SDK
+# Manually Importing the Embrace SDK
 
-For projects using older versions of the Unity Editor, or projects that prefer to contorl the location of their depencies, we also distribute our SDK as a unitypackage that you can download:
+For projects using older versions of the Unity Editor, or projects that prefer to control the location of their dependencies, we also distribute our SDK as a Unity Package that you can download.
 
 [Download Embrace For Unity](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage.zip)
 
-Once downloaded, unzip the archive and drag the unitypackage into your assets folder in the editor:
+Once downloaded, unzip the archive and drag the Unity Package into your assets folder in the editor.
 
-{{< image src="/docs/images/unity-import-embrace.png" alt="Image showing the import dialogue box for the Embrace SDK" caption="After dragging Embrace into your project, import all the required files." width="175" height="283" >}}
+{{< image src="/docs/images/unity-import-embrace.png" alt="Image showing the import dialog box for the Embrace SDK" caption="After dragging Embrace into your project, import all the required files." width="175" height="283" >}}
 
 --- 
 
