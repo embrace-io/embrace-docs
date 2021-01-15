@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.6.3
+
+*January 14, 2021*
+
+* Fixed device ID generation to allow it to be used in automated tests.
+
+
 ## 4.6.2
 
 *January 12, 2021*
