@@ -50,7 +50,7 @@ weight: 4
 *Oct 19, 2020*
 
 * ensure tvos crashes are correctly marked in metadata
-* ensure failed sessions are always uplaoded
+* ensure failed sessions are always uploaded
 * tight session duration tracking
 
 ## 4.2.9
@@ -191,7 +191,7 @@ weight: 4
 ## 4.2.4
 *July 15, 2020*
 
-* Update run.sh to support multiple 3rd party source-built depdencies
+* Update run.sh to support multiple 3rd party source-built dependencies
 * Expose all configuration options on EmbraceConfig object for documentation
 * Update nullability hints for swift compatibility
 

@@ -10,7 +10,7 @@ aliases:
 Integrating any new SDK with your application can be a daunting task. We’ve
 designed our documentation to guide you through the process as painlessly as
 possible. Following these steps will ensure you have a solid foundation for
-montoring your application in production.
+monitoring your application in production.
 
 Regardless of the path you choose, you will be performing the following common
 steps to complete your integration:

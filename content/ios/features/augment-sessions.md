@@ -8,7 +8,7 @@ aliases:
 
 # Augment Sessions using OS Log
 
-Embrace can use OS Log data from your application to augment your sessions and crash reports. This data can help you find runtime exceptions that are causing problems for your users but not crashing your application. Exceptions from CollectionView and AutoLayout are the most common. Additionally, this data can help uncover and catogorize instances of watchdog terminations with your application. These happen when you run a background task that doesn't complete in time.
+Embrace can use OS Log data from your application to augment your sessions and crash reports. This data can help you find runtime exceptions that are causing problems for your users but not crashing your application. Exceptions from CollectionView and AutoLayout are the most common. Additionally, this data can help uncover and categorize instances of watchdog terminations with your application. These happen when you run a background task that doesn't complete in time.
 
 This feature is off by default as OS Log data can contain private user information. Embrace only processes the last few seconds of OS Log data, and that processing happens client side. In the case we find something interesting, we can upload that data to our servers for you to see in our dashboard. Doing so is completely under your control and off by default.
 
