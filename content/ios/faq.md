@@ -214,6 +214,8 @@ Yes. You can add the following method to your view controller to have a view be 
 
 You can turn off capture of tap coordinates with the `CAPTURE_COORDINATES` setting in the `Embrace-Info.plist` file.
 
+You can also API to pause and resume capture during sensitive user interactions such as login or messaging: `pauseTapCoordinateCapture` and `resumeTapCoordinateCapture`.
+
 ## Trace IDs
 
 ### **Can trace IDs for network requests be captured?**
