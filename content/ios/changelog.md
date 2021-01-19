@@ -6,6 +6,15 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.3.2
+*Jan 18th, 2021*
+
+* Add queueing to streaming cache updates
+* Prevent the same message from uploading multiple times
+* Ensure session number persists across upgrades
+* Add API to pause/resume tap coordinate capture
+* Improve performance of network capture filtering
+
 ## 5.3.1
 *Dec 10th, 2020*
 
