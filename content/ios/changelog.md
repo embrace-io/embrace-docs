@@ -6,6 +6,13 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.3.3
+*Jan 26th, 2021*
+
+* Stop using expired URLSession on resume
+* Optimize collection of device metadata to be off main thread
+* Optimize session payload creation login on app suspension
+
 ## 5.3.2
 *Jan 18th, 2021*
 
