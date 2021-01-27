@@ -55,7 +55,7 @@ The path you put these files in will be the path used by the dSYM upload phase.
 The zip file contains the `run.sh` script, so modify the path below to match your location.
 
 ```sh
-EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$(SRCROOT)/my/path/EmbraceIO/run.sh"
+EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO/run.sh"
 ```
 
 {{< /tab >}}
@@ -65,7 +65,7 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$(SRCROOT)/my/path/Embrace
 For Manual linking, the command looks similar to the CocoaPods version but the location has changed.
 
 ```sh
-EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$(SRCROOT)/third_party/EmbraceIO/run.sh"
+EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/third_party/EmbraceIO/run.sh"
 ```
 
 In this version we're referencing the Embrace folder inside our `third_party` folder at the root of our project.  
