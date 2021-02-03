@@ -6,6 +6,21 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.6.5
+
+*February 2, 2021*
+
+* Improved SDK startup time.
+* Added Gradle task dependencies to support a single flavor anchoring tests for other variants.
+
+
+## 4.6.4
+
+*January 22, 2021*
+
+* Fixed issue that could cause session message to not be sent when the device had been in airplane mode and NDK crash support is enabled.
+
+
 ## 4.6.3
 
 *January 14, 2021*
