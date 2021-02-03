@@ -23,7 +23,7 @@ npm install react-native-embrace --save
 ## Use Autolinking
 
 If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md)
-to setup the native modules. 
+to set up the native modules. 
 
 {{< tabs >}}
 
@@ -168,7 +168,7 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 
 ---
 
-There's a little more configuration we have to do to setup the uploading of symbol files.
+There's a little more configuration we have to do to set up the uploading of symbol files.
 You'll be learning about that next.
 
 {{< button relref="/react-native/integration/upload-symbol-files" >}}On to Uploading Symbol Files{{< /button >}}

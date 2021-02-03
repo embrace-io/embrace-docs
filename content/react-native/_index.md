@@ -18,6 +18,6 @@ If you are just starting out with Embrace, follow the [**Integration Guide**]({{
 the key steps to successfully using our product.
 
 Once you've completed that, browse through our [**Feature Reference**]({{< relref "/react-native/features">}}) guides to learn how
-to use some of the advanced features our SDK provides.
+to use the advanced features our SDK provides.
 
 You can also view our [Change Log]({{< relref "/react-native/changelog" >}})

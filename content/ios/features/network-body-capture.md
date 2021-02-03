@@ -32,7 +32,7 @@ There are many ways to generate working key pairs. For these instructions we wil
 openssl genrsa -des3 -out private.pem 2048
 ```
 
-You can use any size key that is compatible with the iOS platforms you target, which is currently a minimum of 1024 and a max of 4096. The above command uses a keysize of 2048.
+You can use any size key that is compatible with the iOS platforms you target, which is currently a minimum of 1024 and a max of 4096. The above command uses a key size of 2048.
 
 The file you just made should never be shared with anyone outside your organization and should be kept in a safe place. This file is required to decrypt network body data captured by Embrace. Embrace will not have a copy of this. Only you can decrypt the files, and if you lose the private key you also lose the ability to decrypt any data captured by the SDK.
 
