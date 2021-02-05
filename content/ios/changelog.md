@@ -6,6 +6,17 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.3.5
+*Feb 5th, 2021*
+
+* Expose custom network event logging on native interface
+* Handle WKWebView terminations correctly when loadHTMLString is used
+
+## 5.3.4
+*Jan 29th, 2021*
+
+* Fix memory leak when proxying a WKWebView with a WKNavigationDelegate
+
 ## 5.3.3
 *Jan 26th, 2021*
 
