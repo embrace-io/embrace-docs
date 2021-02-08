@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.3.6
+*Feb 8th, 2021*
+
+* Fix unarchiving nil strings from disk
+
 ## 5.3.5
 *Feb 5th, 2021*
 
