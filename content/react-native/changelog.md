@@ -6,6 +6,12 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
+## 3.6.4
+
+_February 12, 2021_
+
+* Make SDK compatible with Xcode 12.
+
 ## 3.6.3
 
 _December 17, 2020_
