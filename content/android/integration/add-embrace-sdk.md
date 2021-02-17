@@ -35,7 +35,7 @@ Then, apply the Embrace swazzler plugin in your app's `build.gradle` file. Also,
 
 ```groovy
 apply plugin: 'com.android.application'
-apply plugin 'embrace-swazzler'
+apply plugin: 'embrace-swazzler'
 
 repositories {
   jcenter()
