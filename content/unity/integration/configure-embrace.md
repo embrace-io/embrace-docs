@@ -31,7 +31,51 @@ Now when you build and run your project, our editor script will use those values
 
 # Configure the Android platform
 
-On Android, Unity builds are handled by Gradle. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
+On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
+
+# External Dependency Manager
+
+If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
+
+Embrace fully supports the External Dependency Manager, our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally add the following code to your gradle template to disable our own internal dependency resolver:
+
+{{< tabs "unity_swazzler_config" >}}
+
+{{< tab "2019 and higher" >}}
+
+Use this command format for CocoaPods integrations.
+
+```gradle
+swazzler {
+    disableDependencyInjection = true
+}
+```
+
+This should be added to the `launcherTemplate.gradle` at the root level.
+
+{{< /tab >}}
+
+{{< tab "2018 and lower" >}}
+
+Carthage linking requires a download of a Carthage Support zip file from [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_carthage_support.zip). 
+
+Place those files in your project where you can easily find and reference them later.
+The path you put these files in will be the path used by the dSYM upload phase.
+The zip file contains the `run.sh` script, so modify the path below to match your location.
+
+```gradle
+swazzler {
+    disableDependencyInjection = true
+}
+```
+
+This should be added to the `mainTemplate.gradle` at the root level.
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
 
 # Unity 2019 and Newer
 
