@@ -7,7 +7,7 @@ weight: 4
 # Unity SDK Changelog
 
 ## 1.0.13
-*Feb 19th, 2021*
+*Feb 22nd, 2021*
 
 * Support for the External Dependency Manager
 
