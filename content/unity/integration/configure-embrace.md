@@ -31,13 +31,13 @@ Now when you build and run your project, our editor script will use those values
 
 # Configure the Android platform
 
-On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
+On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 
 # External Dependency Manager
 
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
 
-Embrace fully supports the External Dependency Manager, our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally add the following code to your gradle template to disable our own internal dependency resolver:
+Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally, the following setting must be added to your Gradle template to disable our own Gradle plugin's automatic dependency resolver:
 
 {{< tabs "unity_swazzler_config" >}}
 
