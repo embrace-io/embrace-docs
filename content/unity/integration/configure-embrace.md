@@ -31,7 +31,56 @@ Now when you build and run your project, our editor script will use those values
 
 # Configure the Android platform
 
-On Android, Unity builds are handled by Gradle. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
+On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
+
+# External Dependency Manager
+
+{{< hint info >}}
+**Notes on minimum versions**
+
+To use the External Dependency Manager you must be using:
+1. At least version `1.0.13` of the Unity SDK
+1. At least version `4.7.0` of the Android Swazzler Plugin
+
+{{< /hint >}}
+
+If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
+
+Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally, the following setting must be added to your Gradle template to disable our own Gradle plugin's automatic dependency resolver:
+
+{{< tabs "unity_swazzler_config" >}}
+
+{{< tab "2019 and higher" >}}
+
+This disables our custom dependency resolution:
+
+```gradle
+swazzler {
+    disableDependencyInjection = true
+}
+```
+
+This should be added to the `launcherTemplate.gradle` at the root level.
+
+{{< /tab >}}
+
+{{< tab "2018 and lower" >}}
+
+This disables our custom dependency resolution:
+
+```gradle
+swazzler {
+    disableDependencyInjection = true
+}
+```
+
+This should be added to the `mainTemplate.gradle` at the root level.
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
 
 # Unity 2019 and Newer
 
