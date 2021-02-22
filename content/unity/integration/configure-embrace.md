@@ -35,6 +35,15 @@ On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be a
 
 # External Dependency Manager
 
+{{< hint info >}}
+**Notes on minimum versions**
+
+To use the External Dependency Manager you must be using:
+1. At least version `1.0.13` of the Unity SDK
+1. At least version `4.7.0` of the Android Swazzler Plugin
+
+{{< /hint >}}
+
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
 
 Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally, the following setting must be added to your Gradle template to disable our own Gradle plugin's automatic dependency resolver:
