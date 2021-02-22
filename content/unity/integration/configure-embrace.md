@@ -43,7 +43,7 @@ Embrace fully supports the External Dependency Manager. Our dependencies are def
 
 {{< tab "2019 and higher" >}}
 
-Use this command format for CocoaPods integrations.
+This disables our custom dependency resolution:
 
 ```gradle
 swazzler {
@@ -57,11 +57,7 @@ This should be added to the `launcherTemplate.gradle` at the root level.
 
 {{< tab "2018 and lower" >}}
 
-Carthage linking requires a download of a Carthage Support zip file from [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_carthage_support.zip). 
-
-Place those files in your project where you can easily find and reference them later.
-The path you put these files in will be the path used by the dSYM upload phase.
-The zip file contains the `run.sh` script, so modify the path below to match your location.
+This disables our custom dependency resolution:
 
 ```gradle
 swazzler {
