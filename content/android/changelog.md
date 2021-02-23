@@ -6,6 +6,32 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.7.0
+
+*February 22, 2021*
+
+* Added limits for number of logs per session: 250 error, 100 warning, 100 info (contact support to have these increased for your app).
+* Limit how many breadcrumbs are captured for a session at capture time rather than at the completion of a session. This limits the memory used to store breadcrumbs for a session.
+* Improved accuracy of startup moment timing by moving the start of the timer to earlier in the SDK startup process.
+* Fixed compatibility issues with AGP 4.1.x.
+* Added setting to allow disabling of automatic injection of SDK dependencies by the Gradle plugin. This is only needed for certain Unity build configurations.
+
+## 4.6.7
+
+*February 18, 2021*
+
+* Reverted relaxed AndroidX version requirements introduced in 4.6.6. since AndroidX 2.3.0+ caused issues.
+
+## 4.6.6
+
+*February 10, 2021*
+
+{{< hint warning >}}
+This version has known issues and should not be used
+{{< /hint >}}
+
+* Relaxed version requirements for AndroidX components
+
 ## 4.6.5
 
 *February 2, 2021*
