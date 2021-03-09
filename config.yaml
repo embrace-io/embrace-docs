@@ -16,10 +16,10 @@ outputs:
 
 params:
   sdkVersion:
-    ios: "5.3.6"
+    ios: "5.3.7"
     android: "4.7.0"
     rn: "3.6.1"
-    unity: "1.0.13"
+    unity: "1.0.14"
   BookSection: '*'
   BookMenuReset: false
 

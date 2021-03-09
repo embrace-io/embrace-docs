@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.0.14
+*March 9th, 2021*
+
+* Adopt 5.3.7 iOS native build
+* Fix typo in iOS info log severity value
+
 ## 1.0.13
 *Feb 22nd, 2021*
 

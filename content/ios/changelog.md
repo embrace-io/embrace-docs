@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.3.7
+*March 9th, 2021*
+
+* Fix crash when view category methods are called off main thread
+
 ## 5.3.6
 *Feb 8th, 2021*
 
