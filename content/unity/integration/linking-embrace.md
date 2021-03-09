@@ -8,9 +8,19 @@ aliases:
 
 # Linking Embrace with your Unity project
 
-Embrace supports two methods of integration, automatic via the UPM git-repo feature for newer versions of the Unity Editor (2019 or newer) and a manual import solution.
+Embrace supports two methods of integration, a manual import solution, or automatic via the UPM git-repo feature for newer versions of the Unity Editor (2019 or newer).
 
 Depending on how your project is structured and the Unity Editor version you use, follow the appropriate guide.
+
+# Manually Importing the Embrace SDK
+
+For projects using older versions of the Unity Editor, or projects that prefer to control the location of their dependencies, we also distribute our SDK as a Unity Package that you can download.
+
+[Download Embrace For Unity](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage.zip)
+
+Once downloaded, unzip the archive and drag the Unity Package into your assets folder in the editor.
+
+{{< image src="/docs/images/unity-import-embrace.png" alt="Image showing the import dialog box for the Embrace SDK" caption="After dragging Embrace into your project, import all the required files." width="175" height="283" >}}
 
 # Using the Unity Package Manager to Add Embrace
 
@@ -22,16 +32,6 @@ If your project is using Unity editor version 2019 or newer, you can easily inte
 1. Press the `+` button in the upper left corner and choose `add package from git url`
 1. Enter this url: `https://github.com/embrace-io/embrace-unity-upm.git`
 1. The Embrace SDK will now be imported into the packages folder of your project
-
-# Manually Importing the Embrace SDK
-
-For projects using older versions of the Unity Editor, or projects that prefer to control the location of their dependencies, we also distribute our SDK as a Unity Package that you can download.
-
-[Download Embrace For Unity](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage.zip)
-
-Once downloaded, unzip the archive and drag the Unity Package into your assets folder in the editor.
-
-{{< image src="/docs/images/unity-import-embrace.png" alt="Image showing the import dialog box for the Embrace SDK" caption="After dragging Embrace into your project, import all the required files." width="175" height="283" >}}
 
 --- 
 
