@@ -19,17 +19,13 @@ When Unity builds your project for iOS, it uses the Apple provided tool chain, i
 
 Without those in place, your project may build and run but will not report data to Embrace.
 
-{{< image src="/docs/images/unity-ios-config-file.png" alt="Image showing the location of the Embrace-Info.plist within the Embrace package" caption="The location of the Embrace-Info.plist in the Embrace package." width="800" height="525" >}}
-
-{{< hint warning>}}
-**Note** If you imported Embrace manually, this path will be under `Plugins` instead
-{{< /hint >}}
-
 Open the file and fill in the missing `API_KEY` and `API_TOKEN`. You can get the correct values from the settings page in your dash. 
 
 Now when you build and run your project, our editor script will use those values to correctly setup the final IPA to work with Embrace.
 
 # Configure the Android platform
+
+Look for the file `Android/embrace-config.json` and fill in your unique app ID and API token.
 
 On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 
