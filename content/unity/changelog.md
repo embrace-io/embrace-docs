@@ -6,6 +6,13 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.1
+*March 18th, 2021*
+
+* Add method to enable debug logging for Android platform
+* Add method to manually log a network request
+* Fix exception when logging warning messages on Android platform
+
 ## 1.0.14
 *March 9th, 2021*
 

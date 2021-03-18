@@ -19,7 +19,7 @@ params:
     ios: "5.3.7"
     android: "4.7.0"
     rn: "3.6.1"
-    unity: "1.0.14"
+    unity: "1.1"
   BookSection: '*'
   BookMenuReset: false
 
