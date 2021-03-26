@@ -10,10 +10,11 @@ weight: 4
 *March 25th, 2021*
 
 * Optimization for object serialization
-* New API to disable uploading for battery/data concious scenarios
+* New API to disable uploading for battery/data conscious scenarios
 * Fix memory leak when using the OS_LOG feature
 * Ensure failed sessions are uploaded whenever possible
 * Fix memory leak when using GAD WKWebView instances
+* Fix crash with NSURLSession proxying
 
 ## 5.3.7
 *March 9th, 2021*
