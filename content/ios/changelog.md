@@ -6,6 +6,15 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.4.0
+*March 25th, 2021*
+
+* Optimization for object serialization
+* New API to disable uploading for battery/data concious scenarios
+* Fix memory leak when using the OS_LOG feature
+* Ensure failed sessions are uploaded whenever possible
+* Fix memory leak when using GAD WKWebView instances
+
 ## 5.3.7
 *March 9th, 2021*
 
