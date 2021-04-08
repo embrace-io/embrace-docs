@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.4.1
+*April 8th, 2021*
+
+* Resolve crash when tracking views with nil titles
+* Resolve crash when serializing json data
+
 ## 5.4.0
 *March 25th, 2021*
 
