@@ -1,7 +1,7 @@
 +++
 description = "Software License Notice for Embrace"
 title = "Embrace Software Notice"
-weight = 2
+weight = 4
 
 +++
 # Embrace Software Notice
