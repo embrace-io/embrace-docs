@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Overview of Embrace Integration and Guidelines
 type: docs
 description: Add crash reporting, logging, performance measurement, and more with
   Embrace.
