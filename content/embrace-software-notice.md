@@ -1,4 +1,5 @@
 +++
+bookHidden = true
 description = "Software License Notice for Embrace"
 title = "Embrace Software Notice"
 weight = 4
