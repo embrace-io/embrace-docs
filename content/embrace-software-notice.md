@@ -4,7 +4,7 @@ title = "Embrace Software Notice"
 weight = 4
 
 +++
-# Embrace Software Notice
+# Embrace License Software Notice
 
 _Last Updated: April 13, 2021_
 
