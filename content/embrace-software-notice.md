@@ -1,6 +1,5 @@
 +++
 description = "Software License Notice for Embrace"
-draft = true
 title = "Embrace Software Notice"
 weight = 2
 
