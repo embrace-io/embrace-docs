@@ -18,7 +18,7 @@ params:
   sdkVersion:
     ios: "5.4.1"
     android: "4.8.2"
-    rn: "3.6.1"
+    rn: "3.6.4"
     unity: "1.1"
   BookSection: '*'
   BookMenuReset: false
