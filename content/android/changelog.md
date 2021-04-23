@@ -8,9 +8,38 @@ weight: 4
 
 ## 4.8.2
 
+{{< hint warning >}}
+With the shutdown of JCenter, we have migrated our SDK and Gradle plugin to Maven Central. Release 4.8.2 is the first version hosted on Maven Central.
+
+As part of this migration, Maven Central's hosting requirements necessitated the changed of the artifacts' group ID from `embrace-io` to `io.embrace`. Thus, it is necessary to change the Gradle plugin dependency from
+
+```
+classpath 'embrace-io:embrace-swazzler:4.7.1'
+```
+
+to
+
+```
+classpath 'io.embrace:embrace-swazzler:4.8.2'
+```
+
+Also, any instances of the SDK dependency being manually applied must be changed from
+
+```
+    implementation 'embrace-io:embrace-android-sdk:4.7.1'
+```
+
+to
+
+```
+    implementation 'io.embrace:embrace-android-sdk:4.8.2'
+
+```
+{{< /hint >}}
+
 *April 22, 2021*
 
-* Moved from JCenter to MavenCentral
+* Moved from JCenter to Maven Central
 
 ## 4.8.0
 

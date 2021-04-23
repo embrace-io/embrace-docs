@@ -90,7 +90,7 @@ If your project already modifies these files, then apply the changes below to yo
 
 After creating or finding these template files in your project, make the following changes:
 
-1. In `baseProjectTemplate.gradle`, add `classpath 'embrace-io:embrace-swazzler:{{< sdk platform="android" >}}'` to `allprojects:buildscript:dependencies:`
+1. In `baseProjectTemplate.gradle`, add `classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'` to `allprojects:buildscript:dependencies:`
 1. In `gradleTemplate.properties`, add `android.useAndroidX=true` and `android.enableJetifier=true`
 1. In `launcherTemplate.gradle`, add `apply plugin: 'embrace-swazzler'`
 
@@ -100,7 +100,7 @@ After creating or finding these template files in your project, make the followi
 
 In Unity 2018 and older there was only one Gradle template available for customization.  All of the required changes can still be done in this file.
 
-1. In `mainTemplate.gradle`, add `classpath 'embrace-io:embrace-swazzler:{{< sdk platform="android" >}}'` to `buildscript:dependencies:`
+1. In `mainTemplate.gradle`, add `classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'` to `buildscript:dependencies:`
 1. In `mainTemplate.gradle`, add `apply plugin: 'embrace-swazzler'`
 
 Next, to enable AndroidX support we also must add this block to the `mainTemplate.gradle` file:

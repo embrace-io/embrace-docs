@@ -105,7 +105,7 @@ buildscript {
     google()
   }
   dependencies {
-    classpath('embrace-io:embrace-swazzler:{{< sdk platform="android" >}}')
+    classpath('io.embrace:embrace-swazzler:{{< sdk platform="android" >}}')
   }
 }
 ```
