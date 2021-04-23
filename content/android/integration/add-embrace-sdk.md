@@ -22,6 +22,7 @@ project's `build.gradle` file to add the Embrace SDK to your app.
 ```groovy
 buildscript {
   repositories {
+    mavenCentral()
     jcenter()
     google()
   }
@@ -38,6 +39,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'embrace-swazzler'
 
 repositories {
+  mavenCentral()
   jcenter()
   google()
 }

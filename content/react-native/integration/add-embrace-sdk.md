@@ -101,6 +101,7 @@ Update the `build.gradle` file (usually located at `<root>/android/build.gradle`
 ```groovy
 buildscript {
   repositories {
+    mavenCentral()
     jcenter()
     google()
   }
@@ -116,6 +117,7 @@ Then, update the app `build.gradle` file (usually located at `<root>/android/app
 apply plugin: 'com.android.application'
 apply plugin: 'embrace-swazzler'
 repositories {
+  mavenCentral()
   jcenter()
   google()
 }
