@@ -19,7 +19,7 @@ Embrace requires the following:
 
 * Android 4.1 (API 16) or later
 * Gradle 5.1 or later
-* Android Gradle Build Tools Plugin 3.1.0+
+* Android Gradle Build Tools Plugin 3.4.0+
 * Java 8
 
 If you use a version older than any of those listed above, please contact us via

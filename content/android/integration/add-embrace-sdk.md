@@ -31,7 +31,7 @@ buildscript {
 }
 ```
 
-Then, apply the Embrace swazzler plugin in your app's `build.gradle` file. Also, specify that the Embrace SDK uses Java 8 features with the `compileOptions` settings.
+Then, apply the Embrace swazzler plugin in your `app/build.gradle` file. Also, specify that the Embrace SDK uses Java 8 features with the `compileOptions` settings.
 
 ```groovy
 apply plugin: 'com.android.application'
