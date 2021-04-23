@@ -6,6 +6,32 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.8.2
+
+*April 22, 2021*
+
+* Moved from JCenter to MavenCentral
+
+## 4.8.0
+
+*April 9, 2021*
+
+* Added method to allow overriding of the configured app ID to be overridden at runtime.
+* Modified Gradle plugin to use original JARs when no changes were needed to them. This addresses an issue with the `kotlin-reflect` module for Kotlin 1.4.10 and newer.
+* Improved Gradle plugin dependency injection approach to address rare race condition.
+* Fixed issue with parsing of config file that could cause changes to it to only be picked up on clean builds.
+* Fixed JSON parsing issue that could cause NDK crashes in Unity apps to be corrupted
+
+## 4.7.1
+
+*March 18, 2021*
+
+* Modified capture_request_content_length setting to also affect requests made with OkHTTP
+* Fixed issue that would remove Content-Length and Content-Encoding from certain captured requests
+* Send startup moment even if the app is in the foreground when the SDK is started
+* Support manual network request capture in Unity apps
+* Build will not complete if a corrupted Embrace configuration file is used and improved error output to simplify debugging of config issue
+
 ## 4.7.0
 
 *February 22, 2021*
