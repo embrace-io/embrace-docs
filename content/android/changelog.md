@@ -11,7 +11,7 @@ weight: 4
 {{< hint warning >}}
 With the shutdown of JCenter, we have migrated our SDK and Gradle plugin to Maven Central. Release 4.8.2 is the first version hosted on Maven Central.
 
-As part of this migration, Maven Central's hosting requirements necessitated the changed of the artifacts' group ID from `embrace-io` to `io.embrace`. Thus, it is necessary to change the Gradle plugin dependency from
+As part of this migration, Maven Central's hosting requirements necessitated the change of the artifacts' group ID from `embrace-io` to `io.embrace`. Thus, it is necessary to change the Gradle plugin dependency from
 
 ```
 classpath 'embrace-io:embrace-swazzler:4.7.1'
