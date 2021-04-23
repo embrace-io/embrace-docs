@@ -6,6 +6,112 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.8.2
+
+{{< hint warning >}}
+With the shutdown of JCenter, we have migrated our SDK and Gradle plugin to Maven Central. Release 4.8.2 is the first version hosted on Maven Central.
+
+If you do not already have `mavenCentral()` in your list of project repositories, please add it to your `build.gradle` file.
+
+```
+buildscript {
+    ...
+    repositories {
+        ...
+        mavenCentral()  # <=== add this
+    }
+}
+
+allprojects {
+    ...
+    repositories {
+        ...
+        mavenCentral()  # <=== add this
+    }
+}
+
+```
+
+As part of this migration, Maven Central's hosting requirements necessitated the change of the artifacts' group ID from `embrace-io` to `io.embrace`. Thus, it is necessary to change the Gradle plugin dependency from
+
+```
+classpath 'embrace-io:embrace-swazzler:4.7.1'
+```
+
+to
+
+```
+classpath 'io.embrace:embrace-swazzler:4.8.2'
+```
+
+Also, any instances of the SDK dependencies being manually applied must be changed from
+
+```
+    implementation 'embrace-io:embrace-android-sdk:4.7.1'
+    implementation 'embrace-io:embrace-android-okhttp3:4.7.1'
+    implementation 'embrace-io:embrace-android-volley:4.7.1'
+```
+
+to
+
+```
+    implementation 'io.embrace:embrace-android-sdk:4.8.2'
+    implementation 'io.embrace:embrace-android-okhttp3:4.8.2'
+    implementation 'io.embrace:embrace-android-volley:4.8.2'
+
+```
+{{< /hint >}}
+
+*April 22, 2021*
+
+* Moved from JCenter to Maven Central
+
+## 4.8.0
+
+*April 9, 2021*
+
+* Added method to allow overriding of the configured app ID to be overridden at runtime.
+* Modified Gradle plugin to use original JARs when no changes were needed to them. This addresses an issue with the `kotlin-reflect` module for Kotlin 1.4.10 and newer.
+* Improved Gradle plugin dependency injection approach to address rare race condition.
+* Fixed issue with parsing of config file that could cause changes to it to only be picked up on clean builds.
+* Fixed JSON parsing issue that could cause NDK crashes in Unity apps to be corrupted
+
+## 4.7.1
+
+*March 18, 2021*
+
+* Modified capture_request_content_length setting to also affect requests made with OkHTTP
+* Fixed issue that would remove Content-Length and Content-Encoding from certain captured requests
+* Send startup moment even if the app is in the foreground when the SDK is started
+* Support manual network request capture in Unity apps
+* Build will not complete if a corrupted Embrace configuration file is used and improved error output to simplify debugging of config issue
+
+## 4.7.0
+
+*February 22, 2021*
+
+* Added limits for number of logs per session: 250 error, 100 warning, 100 info (contact support to have these increased for your app).
+* Limit how many breadcrumbs are captured for a session at capture time rather than at the completion of a session. This limits the memory used to store breadcrumbs for a session.
+* Improved accuracy of startup moment timing by moving the start of the timer to earlier in the SDK startup process.
+* Fixed compatibility issues with AGP 4.1.x.
+* Added setting to allow disabling of automatic injection of SDK dependencies by the Gradle plugin. This is only needed for certain Unity build configurations.
+
+## 4.6.7
+
+*February 18, 2021*
+
+* Reverted relaxed AndroidX version requirements introduced in 4.6.6. since AndroidX 2.3.0+ caused issues.
+
+## 4.6.6
+
+*February 10, 2021*
+
+{{< hint warning >}}
+This version has known issues and should not be used
+{{< /hint >}}
+
+* Relaxed version requirements for AndroidX components
+
 ## 4.6.5
 
 *February 2, 2021*

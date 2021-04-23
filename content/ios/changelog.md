@@ -6,6 +6,31 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.4.1
+*April 8th, 2021*
+
+* Resolve crash when tracking views with nil titles
+* Resolve crash when serializing json data
+
+## 5.4.0
+*March 25th, 2021*
+
+{{< hint warning >}}
+This version has known issues and should not be used
+{{< /hint >}}
+
+* Optimization for object serialization
+* New API to disable uploading for battery/data conscious scenarios
+* Fix memory leak when using the OS_LOG feature
+* Ensure failed sessions are uploaded whenever possible
+* Fix memory leak when using GAD WKWebView instances
+* Fix crash with NSURLSession proxying
+
+## 5.3.7
+*March 9th, 2021*
+
+* Fix crash when view category methods are called off main thread
+
 ## 5.3.6
 *Feb 8th, 2021*
 

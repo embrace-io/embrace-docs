@@ -89,12 +89,24 @@ or other actions until this call is made.
 Embrace.sharedInstance().start(launchOptions: launchOptions);
 ```
 
+Alternatively, if you do not want to keep your API_KEY in the plist file you can send it in programmatically using:
+
+```swift
+Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions)
+```
+
 {{< /tab >}}
 
 {{< tab "Objective-C" >}}
 
 ```objective-c
 [[Embrace sharedInstance] startWithLaunchOptions:launchOptions];
+```
+
+Alternatively, if you do not want to keep your API_KEY in the plist file you can send it in programmatically using:
+
+```objective-c
+[[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions];
 ```
 
 {{< /tab >}}

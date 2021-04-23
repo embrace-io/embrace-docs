@@ -33,7 +33,7 @@ _August 13, 2020_
 
 {{< hint warning >}}
 
-To use this version on Android, you will need to make sure the `embrace-io:embrace-swazzler`
+To use this version on Android, you will need to make sure the `io.embrace:embrace-swazzler`
 dependency is set to at least 4.5.1 in your `build.gradle` file.
 
 {{< /hint >}}

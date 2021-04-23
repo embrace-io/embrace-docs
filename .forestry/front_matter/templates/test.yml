@@ -20,4 +20,5 @@ fields:
 pages:
 - content/_index.md
 - content/android/_index.md
+- content/embrace-software-notice.md
 - content/react-native/_index.md

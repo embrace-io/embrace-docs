@@ -21,7 +21,7 @@ Embrace offers a set of methods to set the username, email, or user identifier.
 ```javascript
 import {setUserIdentifier} from 'react-native-embrace';
 
-setUserIdentifer('internal_user_id_1234');
+setUserIdentifier('internal_user_id_1234');
 ```
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
