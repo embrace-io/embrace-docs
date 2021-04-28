@@ -6,6 +6,19 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
+## 3.7.1
+
+_April 23, 2021_
+
+* Updated Android native Embrace SDK dependency to 4.8.2
+
+{{< hint warning >}}
+
+Please follow the [instructions in the Embrace Android SDK changelog]({{< relref "../android/changelog.md#482" >}}) to fetch the SDK from Maven Central instead of JCenter.
+
+
+{{< /hint >}}
+
 ## 3.6.4
 
 _February 12, 2021_
