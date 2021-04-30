@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2
+*April 30th, 2021*
+
+* Support for unhandled exception reporting
+
 ## 1.1
 *March 18th, 2021*
 

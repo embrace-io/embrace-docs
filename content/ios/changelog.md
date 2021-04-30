@@ -6,6 +6,17 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.5.0
+*April 30th, 2021*
+
+* Etag support for config fetches
+* Hybrid background mode API added
+* Allow filtering of cancelled http requests by domain
+* Fix background task usage to avoid expired tasks
+* Use weak retention when dealing with WKNavigationDelegates
+* Support for Firebase 7.4.0 and beyond
+* Unity unhandled exception support
+
 ## 5.4.1
 *April 8th, 2021*
 
