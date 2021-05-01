@@ -6,8 +6,6 @@ weight: 4
 
 # Android SDK Changelog
 
-## 4.8.2
-
 {{< hint warning >}}
 With the shutdown of JCenter, we have migrated our SDK and Gradle plugin to Maven Central. Release 4.8.2 is the first version hosted on Maven Central.
 
@@ -61,6 +59,15 @@ to
 
 ```
 {{< /hint >}}
+
+## 4.8.3
+
+*April 30, 2021*
+
+* Added support for Unity unhandled exceptions
+* Fixed issue with the upload of NDK symbols for Unity 2018 and injection of references to the symbols into the SDK
+
+## 4.8.2
 
 *April 22, 2021*
 
