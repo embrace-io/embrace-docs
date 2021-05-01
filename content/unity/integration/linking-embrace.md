@@ -10,11 +10,11 @@ aliases:
 
 To install Embrace, download our latest SDK.
 
-[Download Embrace {{< sdk platform="unity">}} For Unity](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage)
+[**Download Embrace {{< sdk platform="unity">}} For Unity**](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage)
 
 Once downloaded, import the Unity Package by selecting Assets → Import Package → Custom Package.
 
-{{< image src="/docs/images/unity-import-embrace.png" alt="Image showing the import dialog box for the Embrace SDK" caption="After dragging Embrace into your project, import all the required files." width="175" height="283" >}}
+{{< image src="/docs/images/unity-import-embrace.png" alt="Image showing the import dialog box for the Embrace SDK" caption="After selecting the downloaded package, import all the required files." width="92" height="137" >}}
 
 ---
 

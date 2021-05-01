@@ -105,7 +105,7 @@ In Unity 2018 and older there was only one Gradle template available for customi
 ```
 buildscript {
     dependencies {
-        classpath 'io.embrace:embrace-swazzler:4.8.3'
+        classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
     }
 }
 
