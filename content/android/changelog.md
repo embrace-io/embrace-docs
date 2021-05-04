@@ -60,6 +60,12 @@ to
 ```
 {{< /hint >}}
 
+## 4.8.4
+
+*May 4, 2021*
+
+* Added more flexible support for disabling swazzling based on variant.
+
 ## 4.8.3
 
 *April 30, 2021*
