@@ -16,16 +16,16 @@ Disabling swazzling means we won't capture network calls, activity transitions, 
 disabling swazzling for release builds.
 {{< /hint >}}
 
-The swazzling operation adds to the build time and you may want to disable it for debug builds. Use the
-`ext.disableSwazzling` setting to turn off swazzling for a given build type. The example below illustrates how to
-disable it for the `debug` build type in your `app/build.gradle` file.
+The swazzling operation adds to the build time, and you may want to disable it for debug builds. Use the
+`variantFilter` option to turn off swazzling for a given variant. The example below illustrates how to
+disable it for the `debug` build type in your `app/build.gradle` or `app/build.gradle.kts` file.
 
 ```
-buildTypes {
-    debug {
-        ...
-        ext.disableSwazzling = true
-        ...
+swazzler {
+    variantFilter {
+        if(it.name.toLowerCase().contains("debug")) {
+            it.setSwazzlingEnabled(false)
+        }
     }
 }
 ```
