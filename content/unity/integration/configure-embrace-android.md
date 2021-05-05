@@ -84,7 +84,7 @@ After creating or finding these template files in your project, make the followi
                 jcenter()
             }
             dependencies {
-                 lcasspath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
+                 classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
             }
         }
         repositories {
