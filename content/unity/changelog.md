@@ -6,10 +6,15 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.2
+*May 4th, 2021*
+
+* Use correct group id in external depedency xml
+
 ## 1.2.1
 *May 4th, 2021*
 
-* Update Android artifact version is external depedency xml
+* Update Android artifact version in external depedency xml
 
 ## 1.2
 *April 30th, 2021*
