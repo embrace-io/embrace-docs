@@ -84,7 +84,7 @@ After creating or finding these template files in your project, make the followi
                 jcenter()
             }
             dependencies {
-                 classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
+                 classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
             }
         }
         repositories {
@@ -117,7 +117,7 @@ In Unity 2018 and older there was only one Gradle template available for customi
            jcenter()
        }
        dependencies {
-           classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
+           classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
        }
    }
    
