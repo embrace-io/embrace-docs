@@ -75,7 +75,7 @@ If your project already modifies these files, then apply the changes below to yo
 
 After creating or finding these template files in your project, make the following changes:
 
-1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Make sure you have both Maven Central and JCenter added like shown below (in two places). 
+1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have both Maven Central and JCenter defined as repositories as shown below. Note that they must be added in two places.
     ```
     allprojects {
         buildscript {
@@ -109,7 +109,7 @@ After creating or finding these template files in your project, make the followi
 
 In Unity 2018 and older there was only one Gradle template available for customization.  All of the required changes can still be done in this file.
 
-1. In `mainTemplate.gradle`, add the swazzler as a dependency. Make sure you have both Maven Central and JCenter added like shown below (in two places). Apply the plugin:
+1. In `mainTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have both Maven Central and JCenter defined as repositories as shown below. Note that they must be added in two places. Apply the plugin:
    ```
    buildscript {
        repositories {
