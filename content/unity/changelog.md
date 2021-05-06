@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.3
+*May 6th, 2021*
+
+* Fix iOS timestamps for manually logged network requests
+* Support for latest Android sdk
+
 ## 1.2.2
 *May 4th, 2021*
 
