@@ -75,25 +75,33 @@ If your project already modifies these files, then apply the changes below to yo
 
 After creating or finding these template files in your project, make the following changes:
 
-1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency.
+1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have both Maven Central and JCenter defined as repositories as shown below. Note that they must be added in two places.
     ```
     allprojects {
         buildscript {
-            dependencies {
-                classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
+            repositories {
+                mavenCentral()
+                jcenter()
             }
+            dependencies {
+                 classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
+            }
+        }
+        repositories {
+            mavenCentral()
+            jcenter()
         }
     }
     ```
 2. In `gradleTemplate.properties`, add the following:
-    ```
-    android.useAndroidX=true
-    android.enableJetifier=true
-    ```
+     ```
+     android.useAndroidX=true
+     android.enableJetifier=true
+     ```
 3. In `launcherTemplate.gradle`, add:
-    ```
-    apply plugin: 'embrace-swazzler'
-    ```
+     ```
+     apply plugin: 'embrace-swazzler'
+     ```
 
 # Unity 2018 and Older
 
@@ -101,29 +109,42 @@ After creating or finding these template files in your project, make the followi
 
 In Unity 2018 and older there was only one Gradle template available for customization.  All of the required changes can still be done in this file.
 
-1. In `mainTemplate.gradle`, add the swazzler as a dependency and apply the plugin:
-```
-buildscript {
-    dependencies {
-        classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
-    }
-}
-
-...
-
-apply plugin: 'embrace-swazzler'
-```
-
-2. Next, to enable AndroidX support we also must add this block to the `mainTemplate.gradle` file:
-
-```
-([rootProject] + (rootProject.subprojects as List)).each {
-    ext {
-        it.setProperty("android.useAndroidX", true)
-        it.setProperty("android.enableJetifier", true)
-    }
-}
-```
+1. In `mainTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have both Maven Central and JCenter defined as repositories as shown below. Note that they must be added in two places. Apply the plugin:
+   ```
+   buildscript {
+       repositories {
+           mavenCentral()
+           jcenter()
+       }
+       dependencies {
+           classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
+       }
+   }
+   
+   ...
+   
+   allprojects {
+       repositories {
+           mavenCentral()
+           jcenter()
+       }
+   }
+   
+   ...
+   
+   apply plugin: 'embrace-swazzler'
+   ```
+   
+   2. Next, to enable AndroidX support we also must add this block to the `mainTemplate.gradle` file:
+   
+   ```
+   ([rootProject] + (rootProject.subprojects as List)).each {
+       ext {
+           it.setProperty("android.useAndroidX", true)
+           it.setProperty("android.enableJetifier", true)
+       }
+   }
+   ```
 
 ---
 
