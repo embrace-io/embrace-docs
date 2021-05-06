@@ -60,6 +60,13 @@ to
 ```
 {{< /hint >}}
 
+## 4.8.5
+
+*May 6, 2021*
+
+* Fixed issue with bytes-in/-out values for manually recorded network calls on Unity
+* Added exception message to manually-recorded network calls on Unity for network calls that had an error.
+
 ## 4.8.4
 
 *May 4, 2021*
