@@ -60,11 +60,18 @@ to
 ```
 {{< /hint >}}
 
+## 4.8.6
+
+*May 10, 2021*
+
+* Fixed a compatibility issue with gradle 7.x.
+* Added support for automatic upload of NDK symbols for unexported Unity projects.
+
 ## 4.8.5
 
 *May 6, 2021*
 
-* Fixed issue with bytes-in/-out values for manually recorded network calls on Unity
+* Fixed issue with bytes-in/-out values for manually recorded network calls on Unity.
 * Added exception message to manually-recorded network calls on Unity for network calls that had an error.
 
 ## 4.8.4
