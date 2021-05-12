@@ -60,6 +60,12 @@ to
 ```
 {{< /hint >}}
 
+## 4.8.7
+
+*May 11, 2021*
+
+* Fixed an issue where HTTP network calls made using the Java library could get disrupted during capture. This issue did not affect HTTPS calls or those made with Volley or OkHttp.
+
 ## 4.8.6
 
 *May 10, 2021*
