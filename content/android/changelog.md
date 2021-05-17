@@ -60,6 +60,12 @@ to
 ```
 {{< /hint >}}
 
+## 4.8.8
+
+*May 17, 2021*
+
+* Fixed an issue with registering build tasks for React Native apps.
+
 ## 4.8.7
 
 *May 11, 2021*
