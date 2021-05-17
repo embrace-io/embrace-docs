@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.4
+*May 17th, 2021*
+
+* Fix quotes in iOS dSYM build phase to handle path spaces
+* Update run.sh to support iOS dSYM search depth
+
 ## 1.2.3
 *May 6th, 2021*
 
