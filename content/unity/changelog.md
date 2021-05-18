@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.5
+*May 17th, 2021*
+
+* Update android dependency to 4.8.7
+
 ## 1.2.4
 *May 17th, 2021*
 
