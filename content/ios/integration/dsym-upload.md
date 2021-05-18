@@ -71,6 +71,20 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/third_party/Embra
 In this version we're referencing the Embrace folder inside our `third_party` folder at the root of our project.  
 
 {{< /tab >}}
+
+{{< tab "SPM" >}}
+
+SPM linking requires a download of our support utility, which we publish at [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_carthage_support.zip). SPM uses the same utility as Carthage for uploads.
+
+Place those files in your project where you can easily find and reference them later.
+The path you put these files in will be the path used by the dSYM upload phase.
+The zip file contains the `run.sh` script, so modify the path below to match your location.
+
+```sh
+EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO/run.sh"
+```
+
+{{< /tab >}}
  
 {{< /tabs >}}
 
