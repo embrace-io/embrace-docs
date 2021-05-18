@@ -74,7 +74,7 @@ In this version we're referencing the Embrace folder inside our `third_party` fo
 
 {{< tab "SPM" >}}
 
-SPM linking requires a download of a Carthage Support zip file from [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_carthage_support.zip). 
+SPM linking requires a download of our support utility, which we publish at [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_carthage_support.zip). SPM uses the same utility as Carthage for uploads.
 
 Place those files in your project where you can easily find and reference them later.
 The path you put these files in will be the path used by the dSYM upload phase.
