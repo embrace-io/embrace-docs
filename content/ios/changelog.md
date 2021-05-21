@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.5.1
+*May 21st, 2021*
+
+* Update background mode logic based on beta feedback
+* New configuration options to control view tracking
+
 ## 5.5.0
 *April 30th, 2021*
 
