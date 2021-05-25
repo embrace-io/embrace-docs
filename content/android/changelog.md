@@ -7,7 +7,7 @@ weight: 4
 # Android SDK Changelog
 
 {{< hint warning >}}
-With the shutdown of JCenter, we have migrated our SDK and Gradle plugin to Maven Central. Release 4.8.2 is the first version hosted on Maven Central.
+With the shutdown of JCenter, we have migrated our SDK and Gradle plugin to Maven Central. Release 4.8.2 is the first version hosted on Maven Central. As of release 4.8.9, our SDK no longer has any dependencies hosted at JCenter.
 
 If you do not already have `mavenCentral()` in your list of project repositories, please add it to your `build.gradle` file.
 
@@ -59,6 +59,13 @@ to
 
 ```
 {{< /hint >}}
+
+## 4.8.9
+
+*May 25, 2021*
+
+* Removed all dependencies on JCenter
+* Added support for symbol upload for Unity 2020 non-exported apps
 
 ## 4.8.8
 
