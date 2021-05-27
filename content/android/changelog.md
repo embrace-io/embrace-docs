@@ -60,6 +60,12 @@ to
 ```
 {{< /hint >}}
 
+## 4.8.10
+
+*May 27, 2021*
+
+* Track JNI thread attachement for Unity
+
 ## 4.8.9
 
 *May 25, 2021*

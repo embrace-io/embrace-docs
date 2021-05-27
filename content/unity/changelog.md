@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.6
+*May 27th, 2021*
+
+* Update android dependency to 4.8.10
+* Ensure JNI is always attached to current thread before usage
+
 ## 1.2.5
 *May 17th, 2021*
 
