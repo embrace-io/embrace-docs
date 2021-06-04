@@ -33,7 +33,7 @@ Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .erro
 
 ```objective-c
 NSDictionary *properties = @{@"property_a": @"value_a", @"property_b": @"value_b"};
-[[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity EMBSeverityError properties:properties takeScreenshot:YES];
+[[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity:EMBSeverityError properties:properties takeScreenshot:YES];
 ```
 
 {{< /tab >}}
