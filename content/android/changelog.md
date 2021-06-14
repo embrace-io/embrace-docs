@@ -64,7 +64,8 @@ to
 
 *May 27, 2021*
 
-* Track JNI thread attachement for Unity
+* Fixed issue with NDK crash stack trace parsing that could fail for certain stack traces
+* Track JNI thread attachment for Unity
 
 ## 4.8.9
 
