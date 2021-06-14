@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.7
+*June 14th, 2021*
+
+* Ensure that the NDK is always referenced correctly
+
 ## 1.2.6
 *May 27th, 2021*
 
