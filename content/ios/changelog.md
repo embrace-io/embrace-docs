@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.5.2
+*Jun 15th, 2021*
+
+* Manually logged network request can now include an error with no response code
+* Ensure that cancelled network requests are correctly filtered
+
 ## 5.5.1
 *May 21st, 2021*
 
