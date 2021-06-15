@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.8
+*June 15th, 2021*
+
+* Include the latest iOS 5.5.2 SDK
+
 ## 1.2.7
 *June 14th, 2021*
 
