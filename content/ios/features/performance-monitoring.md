@@ -54,6 +54,10 @@ We wanted to verify that for ourselves.
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
 For more on this, check out the [API docs]({{< api ios >}}).
 
+{{< hint warning>}}
+{{< readFile file="shared/property-limit.md" >}}
+{{< /hint >}}
+
 ## Ending a Moment
 
 Here's how to end a moment.

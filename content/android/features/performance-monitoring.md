@@ -35,6 +35,9 @@ In a fictional scenario, this is a moment we're using to measure how quickly an 
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
 For more on this, check out the [API docs]({{< api android >}}).
 
+{{< hint warning>}}
+{{< readFile file="shared/property-limit.md" >}}
+{{< /hint >}}
 
 ## Ending a Moment
 

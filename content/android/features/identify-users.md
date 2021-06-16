@@ -58,6 +58,9 @@ Here is an example of setting a session property:
 ```java
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false)
 ```
+{{< hint warning>}}
+{{< readFile file="shared/property-limit.md" >}}
+{{< /hint >}}
 
 In the above, the `"launch type"` property is set with a value of `"normal"`.
 This is to indicate normal launches by the user.
