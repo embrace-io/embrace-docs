@@ -114,6 +114,10 @@ Embrace.sharedInstance().addSessionProperty("normal", withKey: "launch type", pe
 
 {{< /tabs >}}
 
+{{< hint warning>}}
+{{< readFile file="shared/property-limit.md" >}}
+{{< /hint >}}
+
 In the above, the `"launch type"` property is set with a value of `"normal"`.
 This is to indicate normal launches by the user.
 When the app is launched via a push notification tap, you can set the value `"push"`.
