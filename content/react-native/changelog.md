@@ -6,6 +6,12 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
+## 3.8.0
+
+_June 17, 2021_
+
+* Updated Android native Embrace SDK dependency to 4.8.10
+
 ## 3.7.1
 
 _April 23, 2021_
