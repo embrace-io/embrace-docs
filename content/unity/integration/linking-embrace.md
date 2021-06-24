@@ -8,15 +8,8 @@ aliases:
 
 # Linking Embrace with your Unity project
 
-Embrace supports two methods of installation: OpenUPM and manual installation.
 
-## Using OpenUPM to add Embrace
-
-[**See our package on OpenUPM**](https://openupm.com/packages/io.embrace.unity/) and follow the instructions on the right to install. Updates to the Embrace SDK will be automatically available through the Unity Package Manager.
-
-## Manually importing the Embrace SDK
-
-To manually install Embrace, download our latest SDK below. To keep Embrace updated, you will need to delete the SDK from your project and re-import new versions.
+To install Embrace, download our latest SDK below.
 
 [**Download Embrace {{< sdk platform="unity">}} For Unity**](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage)
 
