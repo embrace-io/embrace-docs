@@ -1,5 +1,5 @@
 baseURL: "https://embrace.io/docs/"
-disableHugoGeneratorInject = true
+disableHugoGeneratorInject: true
 languageCode: "en-us"
 title: "Embrace Docs"
 theme: "book"
