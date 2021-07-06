@@ -100,7 +100,6 @@ Follow the status of the [issue here](https://github.com/gohugoio/hugo/issues/67
 
 ### Deployment
 
-Travis-CI will deploy any new commit to the master branch to `dev.embrace.io/docs`
-
+GitHub Actions will deploy any new commit to the master branch to `dev.embrace.io/docs`
 
 To deploy to production, create a new release with a Semantic Version (e.g. 1.2.4)

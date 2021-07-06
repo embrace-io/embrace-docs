@@ -1,0 +1,75 @@
+name: CI
+
+env:
+  AWS_DEFAULT_REGION: 'us-west-2'
+  HUGO_VERSION: '0.73.0'
+
+  # https://embrace.io/docs/
+  # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:ENILO2YUDEJ88
+  PROD_AWS_S3_BUCKET: prod.embrace.io-docs
+  PROD_AWS_CLOUDFRONT_ID: ENILO2YUDEJ88
+
+  # https://dev.embrace.io/docs/
+  # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:E20WGO1Z361L37
+  STG_AWS_S3_BUCKET: dev.embrace.io-docs
+  STG_AWS_CLOUDFRONT_ID: E20WGO1Z361L37
+
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+  release:
+    types: [ released ]
+
+jobs:
+  hugo-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Install Hugo
+        run: |
+          wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.deb
+          sudo dpkg -i hugo_${HUGO_VERSION}_Linux-64bit.deb
+
+      - name: Run Hugo
+        run: |
+          hugo
+
+      - name: Destination Staging
+        if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+        run: |
+          echo "AWS_S3_BUCKET=${{ env.STG_AWS_S3_BUCKET }}" >> $GITHUB_ENV
+          echo "AWS_CLOUDFRONT_ID=${{ env.STG_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
+
+      - name: Destination Production
+        if: ${{ github.event_name == 'release' && github.event.action == 'released' }}
+        run: |
+          echo "AWS_S3_BUCKET=${{ env.PROD_AWS_S3_BUCKET }}" >> $GITHUB_ENV
+          echo "AWS_CLOUDFRONT_ID=${{ env.PROD_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
+
+      - name: Install AWS CLI
+        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
+        run: |
+          pip install --upgrade awscli
+
+      - name: Sync to S3 bucket
+        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
+        env:
+          # From https://console.aws.amazon.com/iam/home?region=us-west-2#/users/travis-website?section=security_credentials
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 sync --acl public-read --delete public/ s3://${{ env.AWS_S3_BUCKET }}
+
+      - name: Invalidate CloudFront cache
+        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
+        env:
+          # From https://console.aws.amazon.com/iam/home?region=us-west-2#/users/travis-website?section=security_credentials
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_ID }} --paths '/*'
