@@ -8,7 +8,8 @@ aliases:
 
 # Linking Embrace with your Unity project
 
-To install Embrace, download our latest SDK.
+
+To install Embrace, download our latest SDK below.
 
 [**Download Embrace {{< sdk platform="unity">}} For Unity**](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage)
 

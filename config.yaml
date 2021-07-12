@@ -1,8 +1,10 @@
 baseURL: "https://embrace.io/docs/"
+disableHugoGeneratorInject: true
 languageCode: "en-us"
 title: "Embrace Docs"
 theme: "book"
 publishDir: "public/docs"
+
 outputs:
   page:
     - AMP
