@@ -23,7 +23,7 @@ import {startMoment} from 'react-native-embrace';
 startMoment('addItem');
 ```
 
-In a fictional scenario, this is a moment we're using to measure how quickly an item is added to a list after a user selects the plus button.
+In a sample scenario, this is a moment we're using to measure how quickly an item is added to a list after a user selects the plus button.
 
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
 For more on this, check out the [API docs]({{< api rn >}}).
