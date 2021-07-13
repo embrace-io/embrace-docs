@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.9
+*July 13th, 2021*
+
+* Fixed iOS project to remove reference to Unity source.
+
 ## 1.2.8
 *June 15th, 2021*
 
