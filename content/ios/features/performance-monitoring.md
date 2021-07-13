@@ -46,7 +46,7 @@ Embrace.sharedInstance().startMoment(withName: "add_item")
 
 {{< /tabs >}}
 
-In a fictional scenario, this is a moment we're using to measure how quickly our UITableView renders after adding a new item using the plus button.
+In a sample scenario, this is a moment we're using to measure how quickly our UITableView renders after adding a new item using the plus button.
 We start the moment when we add the item, and we'll end it when the animation finishes.
 Our UX designers have been experimenting with different animation styles, and we've read in our reviews that some users get annoyed by the animation and quit the app over it.
 We wanted to verify that for ourselves.

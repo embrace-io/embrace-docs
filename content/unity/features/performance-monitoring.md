@@ -1,9 +1,9 @@
 ---
 title: "Performance Monitoring"
-description: Measure the performance of your React Native application using Embrace
+description: Measure the performance of your Unity application using Embrace
 weight: 1
 aliases:
-  - /react-native/performance-monitoring/
+  - /unity/performance-monitoring/
 ---
 
 # Measure Performance
@@ -11,22 +11,20 @@ aliases:
 ## Moments
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
-This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/react-native/integration/session-reporting" >}}) section.
+This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/unity/integration/session-reporting" >}}) section.
 
 ## Starting a Moment
 
 Here's how you start a moment.
 
-```javascript
-import {startMoment} from 'react-native-embrace';
-
-startMoment('addItem');
+```csharp
+Embrace.Instance.StartMoment("addItem");
 ```
 
 In a sample scenario, this is a moment we're using to measure how quickly an item is added to a list after a user selects the plus button.
 
-You can also start a moment with **properties**, an **identifier**, and **screenshots**.
-For more on this, check out the [API docs]({{< api rn >}}).
+You can also start a moment with **properties**, an **identifier**, and **screenshots**. You can filter moments by properties in the dashboard.
+For more on this, check out the [API docs]({{< api unity >}}).
 
 {{< hint warning>}}
 {{< readFile file="shared/property-limit.md" >}}
@@ -36,10 +34,8 @@ For more on this, check out the [API docs]({{< api rn >}}).
 
 Next, here's how you end a moment.
 
-```javascript
-import {endMoment} from 'react-native-embrace';
-
-endMoment('addItem');
+```csharp
+Embrace.Instance.EndMoment("addItem");
 ```
 
 A timer is started once you make a call to start a moment.
