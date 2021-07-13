@@ -60,6 +60,21 @@ to
 ```
 {{< /hint >}}
 
+## 4.9.1
+
+*July 13, 2021*
+
+* Fixed issue that could prevent capture of OkHTTP- and Volley-based network calls for certain configurations.
+* Prevent multiple attempts to add Embrace SDK dependency for certain configurations.  
+
+## 4.9.0
+
+*July 1, 2021*
+
+* Fixed how SDK dependencies are injected, which could cause build errors for certain Gradle configurations.
+* Handle case where a project provides the same JAR twice to Gradle our Gradle transformer.
+* Fixed issue where a class could not be processed by our Gradle transformer when it contains a reference to an optional dependency that is not present in the app.
+
 ## 4.8.10
 
 *May 27, 2021*
