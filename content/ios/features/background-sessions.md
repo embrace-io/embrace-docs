@@ -29,7 +29,7 @@ Embrace.sharedInstance().setBackgroundSessionMode(EMBBackgroundSessionHybrid)
 
 {{< /tabs >}}
 
-To disable background session capture, either remove the `setBackgroundSessionMode` method call or use the `EMBBackgroundSessionDisabled` enum value. You can also disable the collection of background sessions on the settings page on the Embrace dashboard.
+To disable background session capture, either remove the `setBackgroundSessionMode` method call or use the `EMBBackgroundSessionDisabled` enum value. You can also disable the collection of background sessions on the settings page of the Embrace dashboard.
 
 {{< hint warning >}}
 Enabling the collection of background session will increase the amount of sessions that are collected.
