@@ -1,7 +1,7 @@
 ---
 title: "Configuration File"
 description: A reference guide to configuration options available in the iOS SDK
-weight: 6
+weight: 7
 aliases:
   - /ios/configuration-file/
 ---
