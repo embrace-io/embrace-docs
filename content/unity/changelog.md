@@ -6,10 +6,16 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.10
+*July 15, 2021*
+
+* Updated to unity-resolver config to use latest version of Android SDK, which addresses a compatibility issue with androidx.lifecycle v.2.3.0+
+* Automatically set dSYM configuration for UnityFramework target.
+
 ## 1.2.9
 *July 13th, 2021*
 
-* Fixed iOS project to remove reference to Unity source.
+* Removed references to Unity source in iOS project.
 
 ## 1.2.8
 *June 15th, 2021*
