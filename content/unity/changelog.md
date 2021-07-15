@@ -13,112 +13,112 @@ weight: 4
 * Automatically set dSYM configuration for UnityFramework target.
 
 ## 1.2.9
-*July 13th, 2021*
+*July 13, 2021*
 
 * Removed references to Unity source in iOS project.
 
 ## 1.2.8
-*June 15th, 2021*
+*June 15, 2021*
 
 * Include the latest iOS 5.5.2 SDK
 
 ## 1.2.7
-*June 14th, 2021*
+*June 14, 2021*
 
 * Ensure that the NDK is always referenced correctly
 
 ## 1.2.6
-*May 27th, 2021*
+*May 27, 2021*
 
 * Update android dependency to 4.8.10
 * Ensure JNI is always attached to current thread before usage
 
 ## 1.2.5
-*May 17th, 2021*
+*May 17, 2021*
 
 * Update android dependency to 4.8.7
 
 ## 1.2.4
-*May 17th, 2021*
+*May 17, 2021*
 
 * Fix quotes in iOS dSYM build phase to handle path spaces
 * Update run.sh to support iOS dSYM search depth
 
 ## 1.2.3
-*May 6th, 2021*
+*May 6, 2021*
 
 * Fix iOS timestamps for manually logged network requests
 * Support for latest Android sdk
 
 ## 1.2.2
-*May 4th, 2021*
+*May 4, 2021*
 
 * Use correct group id in external depedency xml
 
 ## 1.2.1
-*May 4th, 2021*
+*May 4, 2021*
 
 * Update Android artifact version in external depedency xml
 
 ## 1.2
-*April 30th, 2021*
+*April 30, 2021*
 
 * Support for unhandled exception reporting
 
 ## 1.1
-*March 18th, 2021*
+*March 18, 2021*
 
 * Add method to enable debug logging for Android platform
 * Add method to manually log a network request
 * Fix exception when logging warning messages on Android platform
 
 ## 1.0.14
-*March 9th, 2021*
+*March 9, 2021*
 
 * Adopt 5.3.7 iOS native build
 * Fix typo in iOS info log severity value
 
 ## 1.0.13
-*Feb 22nd, 2021*
+*Feb 22, 2021*
 
 * Support for the External Dependency Manager
 
 ## 1.0.12
-*Feb 8th, 2021*
+*Feb 8, 2021*
 
 * Adopt 5.3.6 iOS native build
 
 ## 1.0.11
-*Feb 5th, 2021*
+*Feb 5, 2021*
 
 * Adopt 5.3.5 iOS native build
 
 ## 1.0.10
-*Jan 29th, 2021*
+*Jan 29, 2021*
 
 * Adopt 5.3.4 iOS native build
 
 ## 1.0.9
-*Jan 26th, 2021*
+*Jan 26, 2021*
 
 * Adopt 5.3.3 iOS native build
 
 ## 1.0.8
-*Jan 18th, 2021*
+*Jan 18, 2021*
 
 * Adopt 5.3.2 iOS native build
 
 ## 1.0.7
-*Jan 14th, 2021*
+*Jan 14, 2021*
 
 * Updated post-build processing to support pre 2019.3 project configuration on Android
 
 ## 1.0.6
-*Jan 11th, 2021*
+*Jan 11, 2021*
 
 * Updated post-build processing to support pre 2019.3 project configuration on iOS
 
 ## 1.0.5
-*Dec 20th, 2020*
+*Dec 20, 2020*
 
 * First public release of the Embrace Unity SDK
