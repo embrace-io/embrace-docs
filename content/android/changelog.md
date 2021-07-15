@@ -60,6 +60,12 @@ to
 ```
 {{< /hint >}}
 
+## 4.9.2
+
+*July 15, 2021*
+
+* Fixed compatibility issue with androidx.lifecycle 2.3.0+ when not starting the SDK on the main thread.
+
 ## 4.9.1
 
 *July 13, 2021*
