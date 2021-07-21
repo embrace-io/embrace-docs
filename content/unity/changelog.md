@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.11
+*July 20, 2021*
+
+* Expanded search path in dSYM upload script to automatically include location of dSYMs for all supported Unity versions and configurations.
+
 ## 1.2.10
 *July 15, 2021*
 
