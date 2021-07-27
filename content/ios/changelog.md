@@ -6,6 +6,18 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.6.0
+*July 27th, 2021*
+
+* Fixed memory leak that occured during startup
+* Fix for missing sessions on upgrading between v4 of sdk to v5
+
+## 5.5.3
+*July 13th, 2021*
+
+* Fix disabled SDK in a scene-based app 
+* Fix micro sessions in a scene-baed app
+
 ## 5.5.2
 *Jun 15th, 2021*
 
