@@ -6,6 +6,13 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.12
+*July 29, 2021*
+
+* Made initialization more robust, removing initialization steps from Awake method.
+* Disable SDK gracefully on unsupported platforms.
+* Upgraded to the latest Android SDK version.
+
 ## 1.2.11
 *July 20, 2021*
 

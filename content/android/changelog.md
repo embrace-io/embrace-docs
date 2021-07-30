@@ -60,6 +60,13 @@ to
 ```
 {{< /hint >}}
 
+## 4.9.3
+
+*July 29, 2021*
+
+* Fixed issue that could cause an ANR when capturing memory warnings.
+* Fixed issue that could cause SDK to start during an app cold start even when remote config should have disabled it.
+
 ## 4.9.2
 
 *July 15, 2021*
