@@ -21,3 +21,13 @@ startView('MyView');
 
 endView('MyView');
 ```
+
+There's also a `logScreen` function available, which will log a breadcrumb with the name of the screen.
+This could be helpful as a lightweight way to breadcrumb which screens were visible, but in most cases it's recommended to use `startView` and `endView`.
+
+```javascript
+import {logScreen} from 'react-native-embrace';
+
+// This will add a breadcrumb to the session with the following format: "Opening screen [MyView]".
+logScreen('MyView'); 
+```
