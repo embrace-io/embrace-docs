@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.2.13
+*August 9, 2021*
+
+* Fixed issue where all dSYM files would not be uploaded for 2019+ Unity projects
+* Enforce execution permission on scripts used in upload of dSYM files when they are copied to the Xcode project
+
 ## 1.2.12
 *July 29, 2021*
 
