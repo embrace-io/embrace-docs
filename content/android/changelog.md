@@ -60,6 +60,23 @@ to
 ```
 {{< /hint >}}
 
+## 4.11.0
+
+*Sep, 1 2021*
+
+* Fixed a race-condition issue with the NDK crash capture that could lead to incomplete stacktrace capture
+* Added nullability decorators to improve usage from Kotlin
+* Added swazzling class skipping support for AGP 4.2+
+
+
+## 4.10.0
+
+*Aug 16, 2021*
+
+* Added support for custom Unity symbols archive name
+* Improved handling of JAR files that could not be swazzled 
+
+
 ## 4.9.3
 
 *July 29, 2021*
