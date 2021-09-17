@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.00
+*September 17, 2021*
+
+* Improved how configuration files are handled for both IOS and Android.
+
 ## 1.2.13
 *August 9, 2021*
 
