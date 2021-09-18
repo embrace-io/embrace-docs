@@ -6,7 +6,7 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
-## 3.8.0
+## 3.8.1
 
 _September 9, 2021_
 
