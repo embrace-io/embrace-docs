@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.1
+*September 17, 2021*
+
+* Fixed issue with iOS symbol upload
+
 ## 1.3.0
 *September 17, 2021*
 
