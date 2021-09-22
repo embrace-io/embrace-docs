@@ -10,11 +10,15 @@ aliases:
 
 The Embrace Unity SDK includes an editor script to assist with properly linking the SDK, and collecting and uploading debug information for symbolication. That component requires configuration prior to building. If your project ships on both Android and iOS make sure to configure both platforms.
 
+Create an `EmbraceConfiguration` asset from the Assets tab, if not already present.
+
+{{< image src="/docs/images/unity-embrace-configurator.png" alt="Image showing the location of the Embrace-Info.plist within the Embrace package" caption="Adding the EmbraceSDK Configuration asset" width="702" height="438" >}}
+
 # Configure the Android platform
 
-Look for the file `Android/embrace-config.json` and fill in your unique app ID and API token.
+Locate the `EmbraceConfiguration.asset` file within the Embrace package, there fill in your unique `APP_ID` and `API_TOKEN`. You can get the correct values from the settings page in your dash.
 
-{{< image src="/docs/images/unity-android-config-file.png" alt="Image showing the location of the embrace-config file within the Embrace package" caption="The location of the embrace-config file in the Embrace package." width="800" height="625" >}}
+{{< image src="/docs/images/unity-android-config.png" alt="Image showing the location of the embrace-config file within the Embrace package" caption="The location of the EmbraceConfiguration.asset in the Embrace package." width="800" height="438" >}}
 
 On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 

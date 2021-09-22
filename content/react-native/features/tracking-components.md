@@ -20,4 +20,15 @@ import {startView, endView} from 'react-native-embrace';
 startView('MyView');
 
 endView('MyView');
+```  
+
+There's also a `logScreen` function available, which will log a breadcrumb with the name of the component.
+This could be helpful as a lightweight option to breadcrumb which components were visible if you don't care about the duration the component was visible for.
+In most cases it's recommended to use `startView` and `endView`.
+
+```javascript
+import {logScreen} from 'react-native-embrace';
+
+// This will add a breadcrumb to the session with the following format: "Opening screen [MyView]".
+logScreen('MyComponent'); 
 ```

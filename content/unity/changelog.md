@@ -6,6 +6,29 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.1
+*September 17, 2021*
+
+* Fixed issue with iOS symbol upload
+
+## 1.3.0
+*September 17, 2021*
+
+* Improved how configuration files are handled for both IOS and Android.
+
+## 1.2.13
+*August 9, 2021*
+
+* Fixed issue where all dSYM files would not be uploaded for 2019+ Unity projects
+* Enforce execution permission on scripts used in upload of dSYM files when they are copied to the Xcode project
+
+## 1.2.12
+*July 29, 2021*
+
+* Made initialization more robust, removing initialization steps from Awake method.
+* Disable SDK gracefully on unsupported platforms.
+* Upgraded to the latest Android SDK version.
+
 ## 1.2.11
 *July 20, 2021*
 
