@@ -6,6 +6,17 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.6.2
+*September 22nd, 2021*
+
+* Fixed EMBWKNavigationProxy implementation
+* Fixed multithreading access to the network domains dictionary
+
+## 5.6.1
+*August 9th, 2021*
+
+* iOS 15 Support
+
 ## 5.6.0
 *July 27th, 2021*
 
