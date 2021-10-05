@@ -60,9 +60,18 @@ to
 ```
 {{< /hint >}}
 
+## 4.11.2
+
+*Oct 5, 2021*
+
+* Added option to specify API key as an environment variable instead of in the config file
+* Cache device-related values that could take a long time to fetch on certain device types, to prevent ANRs.
+* Rolled back swazzling class skipping support from 4.11.0, which could cause certain network calls and taps to not be captured.
+* Removed ANDROID_ID as an input to the hashing function used create the device identifier.
+
 ## 4.11.0
 
-*Sep, 1 2021*
+*Sep 1, 2021*
 
 * Fixed a race-condition issue with the NDK crash capture that could lead to incomplete stacktrace capture
 * Added nullability decorators to improve usage from Kotlin
