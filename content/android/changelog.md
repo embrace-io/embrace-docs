@@ -6,60 +6,6 @@ weight: 4
 
 # Android SDK Changelog
 
-{{< hint warning >}}
-With the shutdown of JCenter, we have migrated our SDK and Gradle plugin to Maven Central. Release 4.8.2 is the first version hosted on Maven Central. As of release 4.8.9, our SDK no longer has any dependencies hosted at JCenter.
-
-If you do not already have `mavenCentral()` in your list of project repositories, please add it to your `build.gradle` file.
-
-```
-buildscript {
-    ...
-    repositories {
-        ...
-        mavenCentral()  # <=== add this
-    }
-}
-
-allprojects {
-    ...
-    repositories {
-        ...
-        mavenCentral()  # <=== add this
-    }
-}
-
-```
-
-As part of this migration, Maven Central's hosting requirements necessitated the change of the artifacts' group ID from `embrace-io` to `io.embrace`. Thus, it is necessary to change the Gradle plugin dependency from
-
-```
-classpath 'embrace-io:embrace-swazzler:4.7.1'
-```
-
-to
-
-```
-classpath 'io.embrace:embrace-swazzler:4.8.2'
-```
-
-Also, any instances of the SDK dependencies being manually applied must be changed from
-
-```
-    implementation 'embrace-io:embrace-android-sdk:4.7.1'
-    implementation 'embrace-io:embrace-android-okhttp3:4.7.1'
-    implementation 'embrace-io:embrace-android-volley:4.7.1'
-```
-
-to
-
-```
-    implementation 'io.embrace:embrace-android-sdk:4.8.2'
-    implementation 'io.embrace:embrace-android-okhttp3:4.8.2'
-    implementation 'io.embrace:embrace-android-volley:4.8.2'
-
-```
-{{< /hint >}}
-
 ## 4.11.2
 
 *Oct 5, 2021*
