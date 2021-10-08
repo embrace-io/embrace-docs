@@ -16,6 +16,7 @@ weight: 4
 * Removed ANDROID_ID as an input to the hashing function used create the device identifier.
 
 ## 4.11.0
+<mark>**This version has known issues and should not be used**<mark>
 
 *Sep 1, 2021*
 
