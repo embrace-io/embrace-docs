@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.6.3
+*October 7, 2021*
+
+* Fixed crash related to network data capture introduced in 5.6.2
+
 ## 5.6.2
 *September 22nd, 2021*
 
