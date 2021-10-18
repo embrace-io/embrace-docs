@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.11.3
+
+*Oct 18, 2021*
+
+* Fix an issue with missing network calls in the session
+
 ## 4.11.2
 
 *Oct 5, 2021*
