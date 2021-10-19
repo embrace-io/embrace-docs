@@ -6,6 +6,13 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.2
+*October 18, 2021*
+
+* Added editor windows to improve the SDK experience. 
+* Enabled users to configure both Android and iOS at the same time using the new Embrace editor window. 
+* Welcome window informs users of important changes, new features or warns them of potential issues.
+
 ## 1.3.1
 *September 17, 2021*
 
