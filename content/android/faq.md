@@ -55,7 +55,6 @@ You still need to apply the Swazzler plugin in the app's Gradle file `(apply plu
 buildscript {
     repositories {
         mavenCentral()
-        jcenter()
         google()
     }
     dependencies {
