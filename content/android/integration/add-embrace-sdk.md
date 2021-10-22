@@ -16,14 +16,13 @@ For a sample integration, check out the Kotlin and Java apps in the <a href="htt
 
 ## Add Embrace as a dependency
 
-The Embrace SDK is available on JCenter. Make the following changes in your
+The Embrace SDK is available on Maven Central. Make the following changes in your
 project's `build.gradle` file to add the Embrace SDK to your app.
 
 ```groovy
 buildscript {
   repositories {
     mavenCentral()
-    jcenter()
     google()
   }
   dependencies {
@@ -40,7 +39,6 @@ apply plugin: 'embrace-swazzler'
 
 repositories {
   mavenCentral()
-  jcenter()
   google()
 }
 

@@ -75,13 +75,12 @@ If your project already modifies these files, then apply the changes below to yo
 
 After creating or finding these template files in your project, make the following changes:
 
-1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have both Maven Central and JCenter defined as repositories as shown below. Note that they must be added in two places.
+1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. Note that they must be added in two places.
     ```
     allprojects {
         buildscript {
             repositories {
                 mavenCentral()
-                jcenter()
             }
             dependencies {
                  classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
@@ -89,7 +88,6 @@ After creating or finding these template files in your project, make the followi
         }
         repositories {
             mavenCentral()
-            jcenter()
         }
     }
     ```
@@ -109,12 +107,11 @@ After creating or finding these template files in your project, make the followi
 
 In Unity 2018 and older there was only one Gradle template available for customization.  All of the required changes can still be done in this file.
 
-1. In `mainTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have both Maven Central and JCenter defined as repositories as shown below. Note that they must be added in two places. Apply the plugin:
+1. In `mainTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. Note that they must be added in two places. Apply the plugin:
    ```
    buildscript {
        repositories {
            mavenCentral()
-           jcenter()
        }
        dependencies {
            classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
@@ -126,7 +123,6 @@ In Unity 2018 and older there was only one Gradle template available for customi
    allprojects {
        repositories {
            mavenCentral()
-           jcenter()
        }
    }
    
@@ -135,7 +131,7 @@ In Unity 2018 and older there was only one Gradle template available for customi
    apply plugin: 'embrace-swazzler'
    ```
    
-   2. Next, to enable AndroidX support we also must add this block to the `mainTemplate.gradle` file:
+   1. Next, to enable AndroidX support we also must add this block to the `mainTemplate.gradle` file:
    
    ```
    ([rootProject] + (rootProject.subprojects as List)).each {

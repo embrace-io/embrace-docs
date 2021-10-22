@@ -102,7 +102,6 @@ Update the `build.gradle` file (usually located at `<root>/android/build.gradle`
 buildscript {
   repositories {
     mavenCentral()
-    jcenter()
     google()
   }
   dependencies {
@@ -118,7 +117,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'embrace-swazzler'
 repositories {
   mavenCentral()
-  jcenter()
   google()
 }
 ```
