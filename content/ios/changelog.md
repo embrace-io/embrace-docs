@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.6.4
+*October 28, 2021*
+
+* Fix Embrace version number
+
 ## 5.6.3
 *October 7, 2021*
 
