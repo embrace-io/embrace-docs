@@ -6,6 +6,14 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.12.0
+
+*Oct 29, 2021*
+
+* Added swazzling class skipping support for AGP 4.2+
+* Added swazzling rules generation support for AGP 4.2+
+* Fix an issue with ANRs caused while capturing network calls in the session
+
 ## 4.11.3
 
 *Oct 18, 2021*
