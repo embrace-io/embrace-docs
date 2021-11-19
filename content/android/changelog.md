@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.13.0
+
+*Nov 19, 2021*
+
+* Upgrade Gson to 2.8.9
+* Added a new EmbraceCustomPathException to capture the proper custom path on connectivity errors
+
 ## 4.12.0
 
 *Oct 29, 2021*

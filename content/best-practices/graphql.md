@@ -90,13 +90,18 @@ httpClient.addInterceptor(chain -> {
      * and apply it as one of their headers. We can pull that out, and pass that to
      * `x-emb-path` so that stats are broken out for each unique GraphQL query.
      */
+    String combinedPath = ""
     String gqlQueryName = originalRequest.headers().get("X-APOLLO-OPERATION-NAME");
     if (gqlQueryName != null && !gqlQueryName.isEmpty()) {
-        String combinedPath = "/graphql/" + gqlQueryName;
+        combinedPath = "/graphql/" + gqlQueryName;
         newRequestBuilder.header("x-emb-path", combinedPath);
     }
     Request newRequest = newRequestBuilder.build();
-    return chain.proceed(newRequest);
+    try {
+        return chain.proceed(newRequest);
+    } catch (Exception e) {
+        throw new EmbraceGraphqlException(combinedPath, e);
+    }
 });
 ```
 {{< /tab >}}
