@@ -6,6 +6,14 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.0
+*November 24th, 2021*
+
+* Ensure embrace always receives crashes first.
+* Updated carthage integration to work with newer format
+* Fix for bug introduced by apple involving low power mode
+* Fix for network domain dictionary crash
+
 ## 5.6.5
 *November 5th, 2021*
 
