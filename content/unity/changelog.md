@@ -6,6 +6,13 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.3
+*November 24, 2021*
+
+* Upgrades native iOS SDK to 5.7.0
+* Updated Embrace Android configurations to allow enable_native_monitoring as an option in the Embrace Editor window. Includes a CustomAndroidConfigurations JSON file that allows overriding of the editor configurations.
+* Improved namespaces and stability updates.
+
 ## 1.3.2
 *October 18, 2021*
 
