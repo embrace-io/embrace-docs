@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.4
+*December 01, 2021*
+
+* Provides validation for the config ID and Token Key, For both the Embrace Post Build Processor and the customer-facing editor
+* Upgrades native Android SDK to 4.13.0 for builds using the external dependency manager.
+
 ## 1.3.3
 *November 24, 2021*
 
