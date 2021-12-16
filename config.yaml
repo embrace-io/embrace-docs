@@ -4,28 +4,25 @@ languageCode: "en-us"
 title: "Embrace Docs"
 theme: "book"
 publishDir: "public/docs"
-
 outputs:
   page:
-    - AMP
-    - HTML
+  - AMP
+  - HTML
   home:
-    - HTML
-    - AMP
+  - HTML
+  - AMP
   section:
-    - HTML
-    - AMP
-
+  - HTML
+  - AMP
 params:
   sdkVersion:
     ios: "5.7.1"
     android: "4.13.0"
     rn: "3.8.1"
-    unity: "1.3.2"
+    unity: "1.3.4"
     unity_android: "4.11.3"
   BookSection: '*'
   BookMenuReset: false
-
 markup:
   goldmark:
     renderer:
