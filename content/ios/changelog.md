@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.1
+*December 16th, 2021*
+
+* Added CUSTOM_PATH_HEADER config option that allows for automatically generating the x-emb-path value from a specified header.
+
 ## 5.7.0
 *November 24th, 2021*
 
