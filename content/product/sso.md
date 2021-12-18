@@ -5,11 +5,9 @@ weight: 2
 
 # SSO Configuration
 
-We offer SSO support for teams currently using SAML 2.0.
-This documentation will go over how to configure SSO for your organization.
+Embrace offers SSO support using SAML 2.0. This documentation goes over how to configure SSO for your organization using OneLogin as the SSO provider, however these steps would be very similar with other providers and Okta, PingIdentity and Google have been tested.
 
-Embrace officially supports OneLogin as an SSO provider and will plan on adding support for additional SSO providers in the future.
-However, as long as you're using SAML 2.0, we can also work on configuring SSO providers other than OneLogin. Please [email us](mailto:support@embrace.io) or [Slack](https://embraceio-community.slack.com/join/shared_invite/enQtNDUxNTcxOTk3NTI0LWU2YmEyMzk4OGFjMDVkYzFhMThhY2E3ZDMwNmIxMGIxYzUzNTM4M2EzMmMyOTljZjU0ZDZiYzg4M2JhZjAwZGY#/) us if you're interested in support for other providers.
+If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or Slack us.
 
 We currently support IdP-initiated login. This means that if you're using SSO for your organization, you should navigate to your organization's SSO portal and select our app from the portal. That will bring you directly to the Embrace dashboard. You will not be able to access the dashboard via SSO if you do not go through your organization's SSO portal. If you prefer to use SP-initiated login, [please let us know](mailto:support@embrace.io) and we'll work with your provider to enable it.
 
@@ -21,7 +19,7 @@ In order to properly configure SSO for OneLogin, we'll need two pieces of inform
 
 {{< image src="/docs/images/onelogin-sso-issuer-url.png" width="610" height="350" alt="OneLogin admin portal" title="OneLogin Admin Portal" caption="Note the Issuer URL in the OneLogin Admin Portal" >}}
 
-2. **Domain**: In most cases, it will be the domain of your email (i.e. apple.com if your email is bob.smith@apple.com).
+2. **Domain**: In most cases, it will be the domain of your email (i.e. example.com if your email is bob.smith@example.com).
 
 Once you have obtained those two pieces of information, navigate to [dash.embrace.io](https://dash.embrace.io) and select your app:
 1. Navigate to the **Settings Page** (gear icon on the top right hand corner of the dashboard).
@@ -34,7 +32,7 @@ Once you have obtained those two pieces of information, navigate to [dash.embrac
 
 4. Select if you wish to **Allow Login** or not. If you toggle **Allow Login**, you will allow your organization's users to bypass the SSO flow. If your organization adheres to strict SSO policies, this is highly **not recommended**.
 
-5. Once the **Metadata URL** and **Login Domain** are input and saved, we will generate an **Org ID** for you towards the right of the config panel.   
+5. Once the **Metadata URL** and **Login Domain** are input and saved, we will generate an **Org ID** for you towards the right of the config panel.
 
 {{< image src="/docs/images/sso-org-id.png" width="488" height="249" alt="Generated SSO Org ID" title="Generated SSO Org ID" caption="You'll need this Org ID to finish your SSO configuration with OneLogin" >}}
 
@@ -47,4 +45,4 @@ Once you have obtained those two pieces of information, navigate to [dash.embrac
 If you've followed all of these instructions, SSO should be configured for your organization.
 We're planning on adding support for other SSO providers as well as SP-initiated login in the future.
 
-Feel free to [email us](mailto:support@embrace.io) or [Slack](https://embraceio-community.slack.com/join/shared_invite/enQtNDUxNTcxOTk3NTI0LWU2YmEyMzk4OGFjMDVkYzFhMThhY2E3ZDMwNmIxMGIxYzUzNTM4M2EzMmMyOTljZjU0ZDZiYzg4M2JhZjAwZGY#/) us if you have any questions or feedback!
+Feel free to [email us](mailto:support@embrace.io) or Slack us if you have any questions or feedback!
