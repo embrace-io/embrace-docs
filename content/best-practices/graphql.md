@@ -100,7 +100,7 @@ httpClient.addInterceptor(chain -> {
     try {
         return chain.proceed(newRequest);
     } catch (Exception e) {
-        throw new EmbraceGraphqlException(combinedPath, e);
+        throw new EmbraceCustomPathException(combinedPath, e);
     }
 });
 ```
