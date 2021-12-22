@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.2
+*December 21st, 2021*
+
+* Modified CUSTOM_PATH_HEAEDER functionality to be more customizable and have a more general use case.
+* Defaulted Screenshots to OFF
+
 ## 5.7.1
 *December 16th, 2021*
 
