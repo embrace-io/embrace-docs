@@ -156,6 +156,28 @@ Yes. Please contact us for the steps to track GRPC.
 
 Yes, we have multiple customers that use GraphQL. Please see the [GraphQL guide]({{< relref "/best-practices/graphql" >}}).
 
+### **Do you allow changing the relative url path shown in the dash per network request?**
+
+Yes, you can set the relative path of the url request (Everything after the domain in the url) by setting an http header value for **x-emb-path**
+
+### **Is there any way to use a different http header for this?**
+
+Yes there is, you can set a value in the Embrace-Info.plist in your main bundle for the key CUSTOM_PATH_HEADER_INFO. Here is an example
+
+{{< image src="/docs/images/ios-custom-header-example.png" alt="Custom Header Plist Entry Example" title="Custom Header Plist Entry" width="1236" height="118" >}}
+
+The above example is for Apollo's GraphQL implementation. As you can see there are two Keys:
+1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
+2. RELATVIE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
+
+The the format for the above example will be this
+``` 
+/graphql/(value for X-APOLLO-OPERATION-NAME header)
+```
+With a possible fully generated path as this
+```
+/graphql/Notifications
+```
 ### **How much delay does swizzling add to network calls?**
 
 We measured an average delay of 0.7ms and a peak of 1.2ms on an iPhone 5s (old device).
