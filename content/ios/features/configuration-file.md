@@ -128,7 +128,7 @@ Embrace adds a header to all network requests to allow us to track that request 
 
 This is for auto generating relative paths for network requests similiar to how x-emb-path works.
 
-This dictionary that contains Two Keys.
+This is a dictionary that contains Two Keys.
 
 1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
 2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
