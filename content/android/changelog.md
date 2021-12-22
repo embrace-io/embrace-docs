@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.14.0
+
+*Dec 21, 2021*
+
+* Screenshots aren't captured by default. They should be manually requested by calling the proper methods of the SDK.
+
 ## 4.13.0
 
 *Nov 19, 2021*
