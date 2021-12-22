@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.5
+*December 21, 2021*
+
+* Upgrades native iOS SDK to 5.7.1
+* Upgrades native Android SDK to 4.14.0 for builds using the external dependency manager
+
 ## 1.3.4
 *December 01, 2021*
 
