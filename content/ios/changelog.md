@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.3
+*December 22nd, 2021*
+
+* Fixed Typo in key
+
 ## 5.7.2
 *December 21st, 2021*
 
