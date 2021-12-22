@@ -46,7 +46,7 @@ If omitted, Embrace attempts to guess the right configuration by looking at the 
 
 #### STARTUP_MOMENT_SCREENSHOT_ENABLED *boolean, optional*
 
-Controls whether the Embrace startup moment will take a screenshot on completion or not. The default is on.
+Controls whether the Embrace startup moment will take a screenshot on completion or not. The default is off.
 
 #### CAPTURE_COORDINATES *boolean, optional*
 
@@ -124,5 +124,25 @@ Controls the automatic ending of sessions after a certain time has passed. This 
 
 Embrace adds a header to all network requests to allow us to track that request and match it with the response. For certain server configurations it is necessary to customize that header: this can be done using this plist setting.
 
+#### CUSTOM_PATH_HEADER_INFO *dictionary, optional*
 
+This is for auto generating relative paths for network requests similiar to how x-emb-path works.
 
+This dictionary that contains Two Keys.
+
+1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
+2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
+
+this is the format
+``` 
+/(RELATIVE_URL_PATH value)/(value for http header thats name is equal to the value of HEADER)
+```
+
+Here is an example use case
+
+{{< image src="/docs/images/ios-custom-header-example.png" alt="Custom Header Plist Entry Example" title="Custom Header Plist Entry" width="1236" height="118" >}}
+
+This is a resulting Relative URL with above use case
+```
+/graphql/Notifications
+```
