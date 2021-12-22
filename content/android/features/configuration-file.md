@@ -118,7 +118,7 @@ Control whether the startup moment is automatically ended. Defaults to `true`.
 
 #### take_screenshot *bool*
 
-Control whether screenshots are taken during the startup moment. Defaults to `true`.
+Control whether screenshots are taken during the startup moment. Defaults to `false`.
 
 ### taps
 

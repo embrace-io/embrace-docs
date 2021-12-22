@@ -12,13 +12,11 @@ or email us at <support@embrace.io>.
 
 ## Common Questions
 
-### **Can I turn off screenshots for specific areas of my app?**
+### **Can I turn on screenshots for specific areas of my app?**
 
 Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-Screenshots are taken by default for moments (e.g. Startup), Error Logs, and Warning Logs.
-To turn off screenshots via the SDK,
-please refer to the sections for [Logs]({{< relref "/android/integration/log-message-api" >}}) and [Moments]({{< relref "/android/features/performance-monitoring" >}}), or see the [API docs]({{< api android >}}).
-If you'd like to turn off screenshots for the entire app, please contact us and we will change the app configuration for you.
+To turn on screenshots, please refer to the sections for [Logs]({{< relref "/android/integration/log-message-api" >}}) and [Moments]({{< relref "/android/features/performance-monitoring" >}}), or see the [API docs]({{< api android >}}). 
+If you'd like to turn off screenshots for the entire published app, please contact us and we will change the app configuration for you.
 
 ## Crash Capture
 

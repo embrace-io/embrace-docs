@@ -7,7 +7,7 @@ weight: 3
 
 # GDPR Data Processing Addendum
 
-*Last Updated: September 18, 2019*
+*Last Updated: December 22, 2021*
 
 This GDPR Data Processing Addendum (“DPA”) forms part of the Terms of Service available at [https://embrace.io/docs/terms-of-service/]({{< relref "/terms-of-service" >}}) or such other location as the Terms of Service may be posted from time to time (as applicable, the “Agreement”), entered into by and between the Customer and Embrace Mobile, Inc. (“Embrace”), pursuant to which Customer has accessed Embrace’s Application Services as defined in the applicable Agreement. The purpose of this DPA is to reflect the parties’ agreement with regard to the processing of personal data in accordance with the requirements of Data Protection Legislation as defined below.
 
@@ -48,23 +48,24 @@ In respect of personal data processed in the course of providing the Application
 Embrace shall process information to provide the Application Services pursuant to the Agreement. Embrace shall process information sent by Customer’s end users identified through Customer’s implementation of the Application Services.  As an example, in a standard programmatic implementation, to utilize the Application Services, Customer may allow the following information to be sent by default as "default properties:"
 
 ### Types of Personal Data
-•  City
-•  Region
-•  Country
-•  Time zone
-•  Browser
-•  Browser Version
-•  Device
-•  Operating System
-•  Embrace Library
-•  Screen Height
-•  Screen Width
-•  Search Engine
-•  Search Keyword
-•  Email
-•  Username
-•  User ID
-•  Last Seen (the last time a property was set or updated)
+
+-  City
+-  Region
+-  Country
+-  Time zone
+-  Browser
+-  Browser Version
+-  Device
+-  Operating System
+-  Embrace Library
+-  Screen Height
+-  Screen Width
+-  Search Engine
+-  Search Keyword
+-  Email
+-  Username
+-  User ID
+-  Last Seen (the last time a property was set or updated)
 
 Additional detail regarding what information Customer may send to Embrace can be found in the terms of the Agreement.
 
@@ -76,6 +77,6 @@ The provision of Application Services by Embrace to Customer.
 ## Contacts
 If you have any comments, concerns or questions, please send us an email at [support@embrace.io](mailto:support@embrace.io) or send mail to:
 
-Embrace
-8569 Higuera Avenue
-Culver City, CA 90232
+Embrace  
+8569 Higuera Avenue  
+Culver City, CA 90232  
