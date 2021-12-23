@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.4
+*December 22nd, 2021*
+
+* Fixed Crash on startup
+
 ## 5.7.3
 *December 22nd, 2021*
 
