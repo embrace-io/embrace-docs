@@ -24,7 +24,7 @@ You can log a message immediately by calling the `logMessage` method.
 
 ```swift
 let properties = ["property_a": "value_a", "property_b": "value_b"]
-Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .error, properties: properties, takeScreenshot: true)
+Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .error, properties: properties, takeScreenshot: false)
 ```
 
 {{< /tab >}}
@@ -33,7 +33,7 @@ Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .erro
 
 ```objective-c
 NSDictionary *properties = @{@"property_a": @"value_a", @"property_b": @"value_b"};
-[[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity:EMBSeverityError properties:properties takeScreenshot:YES];
+[[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity:EMBSeverityError properties:properties takeScreenshot:NO];
 ```
 
 {{< /tab >}}
