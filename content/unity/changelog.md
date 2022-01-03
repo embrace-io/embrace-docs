@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.6
+*January 03, 2022*
+
+* Updated native SDK's to change default behavior for screenshot capturing.
+
 ## 1.3.5
 *December 21, 2021*
 
