@@ -48,6 +48,8 @@ compileOptions {
 
 In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file
 implementation `'io.embrace:embrace-android-sdk:{{< sdk platform="android" >}}'`.
+In case you have implemented OkHttp in your module, you will also need to specify the Embrace OkHttp library in your module's Gradle file
+implementation `'io.embrace:embrace-android-okhttp3:{{< sdk platform="android" >}}'`.
 You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
 ```groovy
 buildscript {

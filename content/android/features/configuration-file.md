@@ -45,7 +45,7 @@ Explanations for each of the fields are provided below.
     },
     "startup_moment": {
       "automatically_end": true,
-      "take_screenshot": true
+      "take_screenshot": false
     },
     "taps": {
       "capture_coordinates": true
