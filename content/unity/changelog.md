@@ -6,6 +6,13 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.7
+*January 24, 2022*
+
+* Introduces a Settings Window which exposes new features and settings using an editor window.
+* Allows users to create and manage environments which enables you to handle configurations based on your desired environment.
+* Added A text field that allows users to add Android settings to the embrace-config.json file that are not currently provided by the Unity SDK editor windows.
+
 ## 1.3.6
 *January 03, 2022*
 
