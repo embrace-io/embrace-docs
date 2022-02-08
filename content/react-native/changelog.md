@@ -11,6 +11,7 @@ weight: "3"
 _February 8, 2022_
 
 * Fixed issue where you needed to specify a moment identifier when starting a moment with properties
+* Fixed issue where stack traces were not captured for error logs on Android
 * Upgraded to latest Android SDK version
 
 ## 3.8.3
