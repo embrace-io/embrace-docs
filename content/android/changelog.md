@@ -6,6 +6,15 @@ weight: 4
 
 # Android SDK Changelog
 
+## 4.15.0
+
+*Feb 07, 2022*
+
+* Updated Kotlin to 1.4.32
+* Fixed stacktrace capture for React Native and Unity log messages
+* Added improvements to SDK startup time
+* Added support for encoding file names when unpacking jars to prevent clashes in case-insensitive file systems
+
 ## 4.14.0
 
 *Dec 21, 2021*
