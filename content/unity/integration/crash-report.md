@@ -42,3 +42,13 @@ UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCate
 In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 
 
 {{< button relref="/unity/integration/breadcrumbs" >}}Learn About Breadcrumb Logging{{< /button >}}
+
+## iOS Crash Report Settings
+For iOS Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
+
+The first step in initializing crash reporting is configuring which mode you want Embrace to operate in.
+Open the Getting Started editor window located at Tools -> Embrace -> Getting Started. Selecting the iOS tab will allow you to toggle the `Crash Report Enabled` on or off.
+
+Toggle this on if you want to use Embrace's internal crash reporting.
+If you prefer to use an existing solution like Crashlytics, toggle this to off.
+Even when disabled, Embrace will still attempt to mirror the reports from your existing solution so you will still have that data in the Embrace Dashboard.
