@@ -6,6 +6,13 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.8
+*February 11, 2022*
+
+* Fixes TimeUtil main thread bug.
+* Updated android config settings.
+* Upgrades native Android SDK to 4.15.0 for builds using the external dependency manager.
+
 ## 1.3.7
 *January 24, 2022*
 
