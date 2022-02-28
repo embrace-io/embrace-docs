@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.3.9
+*February 28, 2022*
+
+* Added demos to help users get started using the Embrace SDK.
+* Fixed serialization bug that affected config environments ability to save.
+
 ## 1.3.8
 *February 11, 2022*
 
