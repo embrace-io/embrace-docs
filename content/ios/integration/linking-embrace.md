@@ -79,7 +79,7 @@ artifact in this case.
 First edit or create a `Cartfile` at the root of your project, add a line to file
 as follows:
 ```sh
-binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 ```
 
 If you also have an Apple TV target in your project, also add this to your `Cartfile`:
@@ -94,11 +94,11 @@ the Embrace framework for integration:
 ```sh
 elanz in ~/dev/playground/carthagetester  > Carthage update
 *** Downloading binary-only framework embrace-ios at
-"https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+"https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 *** xcodebuild output can be found in
 /var/folders/qp/gt8h3p297jb778655s3c4z4h0000gn/T/carthage-xcodebuild.e1oenh.log
 *** Downloading binary-only framework embrace-ios at
-"https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+"https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 *** Downloading embrace-ios.framework binary at "4.1.18"
 ```
 
