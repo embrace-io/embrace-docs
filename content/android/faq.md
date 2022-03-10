@@ -16,7 +16,7 @@ or email us at <support@embrace.io>.
 
 Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
 To turn on screenshots, please refer to the sections for [Logs]({{< relref "/android/integration/log-message-api" >}}) and [Moments]({{< relref "/android/features/performance-monitoring" >}}), or see the [API docs]({{< api android >}}). 
-If you'd like to turn off screenshots for the entire published app, please contact us and we will change the app configuration for you.
+If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
 
 ## Crash Capture
 
