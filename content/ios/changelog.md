@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.6
+*March 14th, 2022*
+
+* Fix potential ANR on launch that could cause a crash in some situations
+* Added Log Message variants that allow for logging caught exceptions
+
 ## 5.7.5
 *January 19th, 2022*
 
