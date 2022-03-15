@@ -9,6 +9,7 @@ weight: 4
 ## 5.7.6
 *March 14th, 2022*
 
+* Fixed for missing some network requests metrics. 
 * Fix potential ANR on launch that could cause a crash in some situations
 * Added Log Message variants that allow for logging caught exceptions
 
