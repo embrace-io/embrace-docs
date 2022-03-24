@@ -9,7 +9,7 @@ weight: 4
 ## 1.4.0
 *March 15, 2022*
 
-* Updated SDK to use the official package management system for Unity.
+* Updated SDK to use the official package management system for Unity. These changes require you to delete your previous version of our SDK before importing the new update.
 * Upgrades native iOS SDK to 5.7.6
 
 ## 1.3.9
