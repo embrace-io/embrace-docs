@@ -8,7 +8,7 @@ The Embrace Webhooks feature is an outgoing webhook sent by Embrace  when an ale
 
 
 
-![Webhook flow]{{ <image src="/docs/images/webhooks/image1.png" caption="webhook flow"> }}
+{{<image src="/docs/images/webhooks/image1.png" alt="Webhook flow" title="Webhook flow" caption="webhook flow">}}
 
 
 <h3>Generic Webhook</h3>
@@ -30,7 +30,7 @@ In the Webhook Integration area, there is a Nickname field and the Webhook URL f
 
 
 
-![Webhook field]{{ <image src="/docs/images/webhooks/image3.png" caption="webhook field"> }}
+{{<image src="/docs/images/webhooks/image3.png" alt="Webhook field" title="Webhook field" caption="webhook field">}}
 
 
 When you navigate to the [webhook.site](https://webhook.site/) page, you will get a randomly generated path; paste that path in the Webhook URL field in the Embrace dash. 
@@ -40,7 +40,7 @@ For example:  https://webhook.site/b8a8c93a-0111-48d0-aedc-051092311a6a
 
 
 
-![webhook.site test]{{ <image src="/docs/images/webhooks/image4.png" caption="webhook.site test"> }}
+{{<image src="/docs/images/webhooks/image4.png" alt="webhook.site test" title="webhook.site test" caption="webhook.site test">}}
 
 
 In this example, the Nickname is “webhook.site” and the Webhook URL is the random path from the webhook.site page. 
@@ -55,14 +55,14 @@ In your Project, click on Project settings
 
 
 
-![Jira Project settings]{{ <image src="/docs/images/webhooks/image5.png" caption="Jira Project Settings"> }}
+{{<image src="/docs/images/webhooks/image5.png" alt="Jira Project Settings" title="Jira Project Settings" caption="Jira Project Settings">}}
 
 
 
 
 
 
-![Jira Automation]{{ <image src="/docs/images/webhooks/image6.png" caption="Jira Automation"> }}
+{{<image src="/docs/images/webhooks/image6.png" alt="Jira Automation" title="Jira Automation" caption="Jira Automation">}}
 
 Then click on Create rule 
 
@@ -71,7 +71,7 @@ Search for webhook, then click on Incoming webhook
 
 
 
-![Webhook Trigger]{{ <image src="/docs/images/webhooks/image7.png" caption="Webhook Trigger"> }}
+{{<image src="/docs/images/webhooks/image7.png" alt="Webhook Trigger"  title="Webhook Trigger" caption="Webhook Trigger">}}
 
 
 Copy the generated Webhook URL; in this example, the Webhook URL is 
@@ -86,7 +86,7 @@ https://automation.atlassian.com/pro/hooks/<random-40-character-string>
 
 
 
-![Incoming webhook URL]{{ <image src="/docs/images/webhooks/image8.png" caption="Incoming webhook URL"> }}
+{{<image src="/docs/images/webhooks/image8.png" alt="Incoming webhook URL" title="Incoming webhook URL" caption="Incoming webhook URL">}}
 
 
 Choose “No issues from the webhook” 
@@ -100,7 +100,7 @@ Choose Create issue
 
 
 
-![Create issue]{{ <image src="/docs/images/webhooks/image9.png" caption="Create issue"> }}
+{{<image src="/docs/images/webhooks/image9.png" alt="Create issue" title="Create issue" caption="Create issue">}}
 
 
 Complete the rest of the Jira automation per your organization’s needs. 
@@ -127,7 +127,7 @@ Your webhook will be disabled if there is a problem during the validation step (
 
 
 
-![Disabled webhook]{{ <image src="/docs/images/webhooks/image10.png" caption="Disabled webhook"> }}
+{{<image src="/docs/images/webhooks/image10.png" alt="Disabled webhook" title="Disabled webhook" caption="Disabled webhook">}}
 
 
 To fix the disabled webhook, select the webhook to edit. Re-test the webhook to validate. 
@@ -137,14 +137,14 @@ To examine the payload that is being sent, use the Webhook.site page mentioned a
 Invalid Webhooks will also trigger an email alert. For example, you will get an email alert similar to this: 
 
 
-![Invalid webhook email warning]{{ <image src="/docs/images/webhooks/image11.png" caption="Invalid webhook email warning"> }}
+{{<image src="/docs/images/webhooks/image11.png" alt="Invalid webhook email warning" title="Invalid webhook email warning" caption="Invalid webhook email warning">}}
  
 
 After 2 failed email notifications, you will get a final email alert: 
 
 
 
-![Final invalid webhook email warning]{{ <image src="/docs/images/webhooks/image12.png" caption="Final webhook email warning"> }}
+{{<image src="/docs/images/webhooks/image12.png" alt="Final webhook email warning" title="Final webhook email warning" caption="Final webhook email warning">}}
 
 
 Enjoy our new webhook feature!
