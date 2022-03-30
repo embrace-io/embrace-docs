@@ -8,7 +8,7 @@ The Embrace Webhooks feature is an outgoing webhook sent by Embrace  when an ale
 
 
 
-{{<image src="/docs/images/webhooks/image1.png" alt="Webhook flow" title="Webhook flow" caption="webhook flow" width="624" height="212">}}
+{{<image src="/docs/images/webhooks/image1.png" title="Webhook flow" caption="webhook flow" width="624" height="212">}}
 
 
 <h3>Generic Webhook</h3>
