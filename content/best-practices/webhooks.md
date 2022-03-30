@@ -1,6 +1,6 @@
 ---
 title: "Webhooks"
-description: Coming Soon
+description: Webhook Integration instructions
 weight: 3
 ---
 The Embrace Webhooks feature is an outgoing webhook sent by Embrace  when an alert condition is met. Here is a high-level flow diagram: 
