@@ -8,7 +8,7 @@ The Embrace Webhooks feature is an outgoing webhook sent by Embrace  when an ale
 
 
 
-{{<image src="/docs/images/webhooks/image1.png" title="Webhook flow" style="cursor:pointer;" width="624" height="212">}}
+{{<image src="/docs/images/webhooks/image1.png" width="624" height="212">}}
 
 
 <h3>Generic Webhook</h3>
@@ -21,7 +21,7 @@ First, within the Embrace dashboard, click on the gear icon to access the Settin
 
 
 
-{{<image src="/docs/images/webhooks/image2.png" title="dashboard settings" style="cursor:pointer;" width="291" height="132">}}
+{{<image src="/docs/images/webhooks/image2.png" width="291" height="132">}}
 
 
 Select the Notifications tab.  \
@@ -30,7 +30,7 @@ In the Webhook Integration area, there is a Nickname field and the Webhook URL f
 
 
 
-{{<image src="/docs/images/webhooks/image3.png" title="webhook field" style="cursor:pointer;" width="332" height="112">}}
+{{<image src="/docs/images/webhooks/image3.png" width="332" height="112">}}
 
 
 When you navigate to the [webhook.site](https://webhook.site/) page, you will get a randomly generated path; paste that path in the Webhook URL field in the Embrace dash. 
@@ -40,7 +40,7 @@ For example:  https://webhook.site/b8a8c93a-0111-48d0-aedc-051092311a6a
 
 
 
-{{<image src="/docs/images/webhooks/image4.png"  title="webhook.site test" style="cursor:pointer;" width="324" height="129">}}
+{{<image src="/docs/images/webhooks/image4.png"  width="324" height="129">}}
 
 
 In this example, the Nickname is “webhook.site” and the Webhook URL is the random path from the webhook.site page. 
@@ -55,14 +55,14 @@ In your Project, click on Project settings
 
 
 
-{{<image src="/docs/images/webhooks/image5.png" title="Jira Project Settings" style="cursor:pointer;" width="624" height="463">}}
+{{<image src="/docs/images/webhooks/image5.png" width="624" height="463">}}
 
 
 
 
 
 
-{{<image src="/docs/images/webhooks/image6.png" title="Jira Automation" style="cursor:pointer;" width="624" height="193">}}
+{{<image src="/docs/images/webhooks/image6.png" width="624" height="193">}}
 
 Then click on Create rule 
 
@@ -71,22 +71,7 @@ Search for webhook, then click on Incoming webhook
 
 
 
-{{<image src="/docs/images/webhooks/image7.png" title="Webhook Trigger" style="cursor:pointer;" width="624" height="162">}}
-
-
-Copy the generated Webhook URL; in this example, the Webhook URL is 
-
-
-```
-https://automation.atlassian.com/pro/hooks/<random-40-character-string>
-```
-
-
-
-
-
-
-{{<image src="/docs/images/webhooks/image8.png" title="Incoming webhook URL" style="cursor:pointer;" width="624" height="252">}}
+{{<image src="/docs/images/webhooks/image7.png" width="624" height="252">}}
 
 
 Choose “No issues from the webhook” 
@@ -100,7 +85,7 @@ Choose Create issue
 
 
 
-{{<image src="/docs/images/webhooks/image9.png"  title="Create issue" style="cursor:pointer;" width="624" height="241">}}
+{{<image src="/docs/images/webhooks/image9.png"  width="624" height="241">}}
 
 
 Complete the rest of the Jira automation per your organization’s needs. 
@@ -127,7 +112,7 @@ Your webhook will be disabled if there is a problem during the validation step (
 
 
 
-{{<image src="/docs/images/webhooks/image10.png" title="Disabled webhook" style="cursor:pointer;" width="624" height="116">}}
+{{<image src="/docs/images/webhooks/image10.png" width="624" height="116">}}
 
 
 To fix the disabled webhook, select the webhook to edit. Re-test the webhook to validate. 
@@ -137,14 +122,14 @@ To examine the payload that is being sent, use the Webhook.site page mentioned a
 Invalid Webhooks will also trigger an email alert. For example, you will get an email alert similar to this: 
 
 
-{{<image src="/docs/images/webhooks/image11.png" title="Invalid webhook email warning" style="cursor:pointer;" width="624" height="604">}}
+{{<image src="/docs/images/webhooks/image11.png"  width="624" height="604">}}
  
 
 After 2 failed email notifications, you will get a final email alert: 
 
 
 
-{{<image src="/docs/images/webhooks/image12.png" title="Final webhook email warning" style="cursor:pointer;" width="624" height="666">}}
+{{<image src="/docs/images/webhooks/image12.png"  width="624" height="666">}}
 
 
 Enjoy our new webhook feature!
