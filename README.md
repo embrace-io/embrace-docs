@@ -102,4 +102,4 @@ Follow the status of the [issue here](https://github.com/gohugoio/hugo/issues/67
 
 GitHub Actions will deploy any new commit to the master branch to `dev.embrace.io/docs`
 
-To deploy to production, create a new release with a Semantic Version (e.g. 1.2.4)
+To deploy to production, create a new release with a date-based version YYYYMMDD.n (e.g. 20220330.1) where "n" starts at 1 and is incremented if you need to do more releases on the same day.
