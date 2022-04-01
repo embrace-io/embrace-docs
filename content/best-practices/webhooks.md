@@ -107,7 +107,7 @@ Copy the URL generated in the Inbound Webhook Configuration step into the Embrac
 <h3>Troubleshooting</h3>
 
 
-Your webhook will be disabled if there is a problem during the validation step (i.e., the TEST button). 
+Your webhook will be disabled if the alerts fail to deliver 3 times in a row. 
 
 
 
