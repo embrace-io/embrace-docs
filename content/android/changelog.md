@@ -6,6 +6,14 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.0.1
+
+*April 08, 2022*
+
+* Added backward compatibility up to AGP 3.4.0
+* Migrated to task configuration avoidance API's for task registration
+* Added improvements to SDK startup time
+
 ## 4.15.0
 
 *Feb 07, 2022*

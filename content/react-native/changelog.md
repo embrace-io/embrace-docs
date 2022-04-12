@@ -6,6 +6,12 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
+## 3.9.1
+
+_April 8, 2022_
+
+* Added a new API call to log network calls manually
+
 ## 3.8.4
 
 _February 8, 2022_
