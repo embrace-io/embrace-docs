@@ -11,7 +11,7 @@ weight: 4
 *April 08, 2022*
 
 * Added backward compatibility up to AGP 3.4.0
-* Changeded build ID resource injection to keep unchanged on non-minified builds.
+* Changed build ID resource injection to keep unchanged on non-minified builds.
 * Migrated to task configuration avoidance API's for task registration
 * Added improvements to SDK startup time
 
