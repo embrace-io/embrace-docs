@@ -104,6 +104,39 @@ Follow the instructions on the [xMatters Workflow documentation for Webhooks](ht
 
 Copy the URL generated in the Inbound Webhook Configuration step into the Embrace dash. 
 
+<h3>Pagerduty Integration</h3>
+
+You will need to setup a Custom Event Transformer integration (CET).
+
+Follow the instructions on the [Pagerduty documentation for CET](https://www.pagerduty.com/docs/guides/custom-event-transformer/)
+
+When you get to steps 5-7, modify the Javscript and replace it with the following code (you can also customize it to fit your needs):
+
+```
+var webhook = PD.inputRequest.body;
+var event_type = PD.Trigger;
+if(webhook.event.metric_props.new_state=="Normal") {event_type = PD.Resolve;}
+
+var normalized_event = {
+  event_type: event_type,
+  incident_key: webhook.alert.id,
+  description: webhook.alert.name,
+  details: {
+    description: webhook.event.metric_props,
+    environment: webhook.app.environment,
+    app_id: webhook.app.id,
+    app: webhook.app.name,
+    platform: webhook.app.platform
+  },
+  client: "Embrace Dashboard",
+  client_url: webhook.links.dashboard_url
+};
+
+PD.emitGenericEvents([normalized_event]);
+```
+
+Finally, copy the Integration URL generated in the CET Integration Configuration step into the Embrace dash.
+
 <h3>Troubleshooting</h3>
 
 
