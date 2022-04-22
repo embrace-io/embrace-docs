@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.0.2
+
+*April 22, 2022*
+
+* Fixed an issue that prevented the SDK to use the traffic settings override for specific app versions.
+
 ## 5.0.1
 
 *April 08, 2022*
