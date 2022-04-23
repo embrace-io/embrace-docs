@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.4.1
+*April 22, 2022*
+
+* Upgrades native Android SDK to 5.0.2 for builds using the external dependency manager.
+
 ## 1.4.0
 *March 15, 2022*
 
