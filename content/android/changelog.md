@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.0.3
+
+*May 2, 2022*
+
+* Fixed a race condition that could lead to exceptions during SDK initialization.
+
 ## 5.0.2
 
 *April 22, 2022*
