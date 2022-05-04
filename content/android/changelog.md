@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.0.4
+
+*May 4, 2022*
+
+* Fixed an issue where "Bytes in" and "Bytes out" where shown reversed when logging network requests manually.
+
 ## 5.0.3
 
 *May 2, 2022*
