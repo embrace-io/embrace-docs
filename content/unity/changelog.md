@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.0
+*May 05, 2022*
+
+* Added Scoped Registries to allow users to manage, download and install packages using the Package Manager.
+
 ## 1.4.2
 *May 04, 2022*
 
