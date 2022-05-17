@@ -100,13 +100,9 @@ The `NETWORK` dictionary can be added to the plist to allow more fine grained co
 
 Sets a default limit for how many instances of any given domain to capture in a single session. The value can then be overridden on a domain-by-domain basis below.
 
-##### NETWORK:DOMAINS *array[string], optional*
+##### NETWORK:DOMAINS *dictionary[string, int], optional*
 
-This array contains regex strings that match network domains we might capture. For each domain a corresponding limit key must be added below:
-
-##### NETWORK:DEFAULT_CAPTURE_LIMIT *array[int], optional*
-
-For each domain above, a limit is added to this array. The domains and limits are matched by their index in the array. The limit controls how many times we will capture this domain in a single session.
+This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the [**DEFAULT_CAPTURE_LIMIT**]({{<relref "#networkdefault_capture_limit-int-optional">}}).
 
 ##### NETWORK:CAPTURE_PUBLIC_KEY *string, optional*
 
