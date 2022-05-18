@@ -6,11 +6,30 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.0.4
+
+*May 4, 2022*
+
+* Fixed an issue where "Bytes in" and "Bytes out" where shown reversed when logging network requests manually.
+
+## 5.0.3
+
+*May 2, 2022*
+
+* Fixed a race condition that could lead to exceptions during SDK initialization.
+
+## 5.0.2
+
+*April 22, 2022*
+
+* Fixed an issue that prevented the SDK to use the traffic settings override for specific app versions.
+
 ## 5.0.1
 
 *April 08, 2022*
 
 * Added backward compatibility up to AGP 3.4.0
+* Changed build ID resource injection to keep unchanged on non-minified builds.
 * Migrated to task configuration avoidance API's for task registration
 * Added improvements to SDK startup time
 

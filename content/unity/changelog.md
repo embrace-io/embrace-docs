@@ -6,6 +6,32 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.2
+*May 16, 2022*
+
+* Upgrades native Android SDK to 5.1.0-beta02 for builds using the external dependency manager.
+
+## 1.5.1
+*May 12, 2022*
+
+* Upgrades native Android SDK to 5.1.0 for builds using the external dependency manager.
+* Upgrades Embrace Swazzler to 5.1.0 to allow NDK stacktrace collection.
+
+## 1.5.0
+*May 05, 2022*
+
+* Added Scoped Registries to allow users to manage, download and install packages using the Package Manager.
+
+## 1.4.2
+*May 04, 2022*
+
+* Upgrades native Android SDK to 5.0.4 for builds using the external dependency manager.
+
+## 1.4.1
+*April 22, 2022*
+
+* Upgrades native Android SDK to 5.0.2 for builds using the external dependency manager.
+
 ## 1.4.0
 *March 15, 2022*
 
