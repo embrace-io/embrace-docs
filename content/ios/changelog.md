@@ -6,6 +6,23 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.7
+*April 12th, 2022*
+
+Fixed duplicate send of RN js crashes
+
+## 5.7.6
+*March 14th, 2022*
+
+* Fixed for missing some network requests metrics. 
+* Fix potential ANR on launch that could cause a crash in some situations
+* Added Log Message variants that allow for logging caught exceptions
+
+## 5.7.5
+*January 19th, 2022*
+
+* Fix potential ANR on launch.
+
 ## 5.7.4
 *December 22nd, 2021*
 

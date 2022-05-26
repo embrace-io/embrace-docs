@@ -6,6 +6,27 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
+## 3.9.1
+
+_April 8, 2022_
+
+* Added a new API call to log network calls manually
+
+## 3.8.4
+
+_February 8, 2022_
+
+* Fixed issue where you needed to specify a moment identifier when starting a moment with properties
+* Fixed issue where stack traces were not captured for error logs on Android
+* Upgraded to latest Android SDK version
+
+## 3.8.3
+
+_January 20, 2022_
+
+* Removed dependency on JCenter for Android
+* Upgraded to latest Android SDK version
+
 ## 3.8.1
 
 _September 9, 2021_

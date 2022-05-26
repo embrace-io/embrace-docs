@@ -12,7 +12,7 @@ The Embrace Unity SDK includes an editor script to assist with properly linking 
 
 # Configure the Android platform
 
-Go to Tools -> Embrace and click on it to reveal the Embrace editor window. Select the Android tab and there fill in your unique `APP_ID` and `API_TOKEN`. You can get the correct values from the settings page in your dash.
+Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace editor window. Select the Android tab and fill in your unique `APP_ID` and `API_TOKEN`. You can get the correct values from the settings page in your dash.
 
 {{< image src="/docs/images/android-configure-editor-window.png" alt="Image showing the location of the Embrace Unity Editor within the Embrace package" caption="The location of the Embrace Unity Editor in the Embrace package." width="702" height="438" >}}
 

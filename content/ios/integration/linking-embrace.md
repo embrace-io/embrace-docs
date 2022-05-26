@@ -11,7 +11,7 @@ Embrace is distributed as a framework.
 You will be dynamically linking that framework with your application.
 We support three methods for accomplishing that:
 
-1. [**CocoaPods.**]({{< relref "/ios/integration/linking-embrace#cocoapods" >}}) You can easily add Embrace to your PodFile and have most of this work done for you.
+1. [**CocoaPods.**]({{< relref "/ios/integration/linking-embrace#cocoapods" >}}) You can easily add Embrace to your Podfile and have most of this work done for you.
 1. [**Carthage.**]({{< relref "/ios/integration/linking-embrace#carthage" >}}) Carthage will help you keep track of Embrace versions and upgrades, you will still perform much of the linking process manually.
 1. [**Swift Package Manager.**]({{< relref "/ios/integration/linking-embrace#swift-package-manager" >}}) Use Xcode to manage the Embrace dependency for you.
 1. [**Manual.**]({{< relref "/ios/integration/linking-embrace#manual" >}}) You will download the framework directly and manually link it with your project.
@@ -79,7 +79,7 @@ artifact in this case.
 First edit or create a `Cartfile` at the root of your project, add a line to file
 as follows:
 ```sh
-binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 ```
 
 If you also have an Apple TV target in your project, also add this to your `Cartfile`:
@@ -94,11 +94,11 @@ the Embrace framework for integration:
 ```sh
 elanz in ~/dev/playground/carthagetester  > Carthage update
 *** Downloading binary-only framework embrace-ios at
-"https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+"https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 *** xcodebuild output can be found in
 /var/folders/qp/gt8h3p297jb778655s3c4z4h0000gn/T/carthage-xcodebuild.e1oenh.log
 *** Downloading binary-only framework embrace-ios at
-"https://s3.amazonaws.com/embrace-downloads-prod/embrace-ios.json"
+"https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 *** Downloading embrace-ios.framework binary at "4.1.18"
 ```
 

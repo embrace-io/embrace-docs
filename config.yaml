@@ -16,10 +16,10 @@ outputs:
   - AMP
 params:
   sdkVersion:
-    ios: "5.7.4"
-    android: "4.14.0"
-    rn: "3.8.1"
-    unity: "1.3.6"
+    ios: "5.7.5"
+    android: "5.0.4"
+    rn: "3.9.1"
+    unity: "1.5.2"
     unity_android: "4.11.3"
   BookSection: '*'
   BookMenuReset: false

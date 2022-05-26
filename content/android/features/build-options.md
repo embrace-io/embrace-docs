@@ -162,3 +162,8 @@ Enable this if Volley exists as a dependency in any of your dependencies or subm
 This is only necessary if Volley is present in any of your project submodules and not on your main module (app).
 The plugin will emit a warning at build time indicating if you need to add this setting.
 Defaults to `false`.
+
+#### encodeExtractedFileNames *bool*
+
+Enable this if one of the dependencies in your project has a JAR file with class names that are only distinguished by case (due to obfuscation, for example), and you are building your application in a case-insensitive file system.
+Defaults to `false`.
