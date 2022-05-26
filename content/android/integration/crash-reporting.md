@@ -35,7 +35,7 @@ Once the crash and session messages are uploaded, you should notice that your se
 
 ## Symbolicating Stack Traces
 
-If you you have obfuscated your application with ProGuard, R8, or another obfuscation tool, the captured crashes will contain obfuscated method names. ProGuard and R8 files will be uploaded automatically at build time. If you don't see symbolicated crashes while using ProGuard or R8, reach out to us
+If you have obfuscated your application with ProGuard, R8, or another obfuscation tool, the captured crashes will contain obfuscated method names. ProGuard and R8 files will be uploaded automatically at build time. If you don't see symbolicated crashes while using ProGuard or R8, reach out to us
 on Slack and we'll work with you directly.
 
 {{< hint warning >}}
