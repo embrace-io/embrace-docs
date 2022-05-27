@@ -17,7 +17,7 @@ outputs:
 params:
   sdkVersion:
     ios: "5.7.5"
-    android: "5.0.4"
+    android: "5.1.0"
     rn: "3.9.1"
     unity: "1.5.2"
     unity_android: "4.11.3"
