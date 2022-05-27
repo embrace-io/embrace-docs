@@ -42,10 +42,6 @@ public final class MyApplication extends Application {
 }
 ```
 
-{{< hint warning >}}
-Make sure any networking libraries such as OkHttp or Retrofit are **initialized before** Embrace.
-{{< /hint >}}
-
 ## End the startup moment
 
 The Embrace SDK automatically records the special "startup" moment that's used to track app launch performance.

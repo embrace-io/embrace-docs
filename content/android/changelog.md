@@ -6,6 +6,15 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.1.0
+
+*May 27, 2022*
+
+* Added extra logging for NDK crash.
+* Prevented NPE in native crash loading.
+* Fixed an issue in gradle task registration that was not letting the symbols files to upload. 
+* React Native - Fixed an issue with the set of the bundle ID for OTA releases like CodePush
+
 ## 5.0.4
 
 *May 4, 2022*

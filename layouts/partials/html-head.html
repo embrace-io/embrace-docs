@@ -16,7 +16,7 @@
 {{ end -}}
 
 <style amp-custom>
-{{ $styles := resources.Get "book.scss" | resources.ExecuteAsTemplate "book.scss" . | resources.Minify | resources.ToCSS | resources.Fingerprint }}
+{{ $styles := resources.Get "book.scss" | resources.ExecuteAsTemplate "book.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 {{ $cssStr := $styles.Content | safeCSS }}
 {{ $cssStrReplaced := replace $cssStr "@charset \"UTF-8\"" "" }}
 {{ $cssStrReplaced | safeCSS }}

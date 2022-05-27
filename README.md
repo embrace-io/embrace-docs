@@ -12,7 +12,7 @@ Install the Hugo CLI using homebrew.
 brew install hugo
 ```
 
-This project was started using hugo version `v0.72.0/extended`
+This project was started using hugo version `v0.85.0/extended`
 
 You can check the installed hugo version by running:
 
@@ -100,6 +100,10 @@ Follow the status of the [issue here](https://github.com/gohugoio/hugo/issues/67
 
 ### Deployment
 
-GitHub Actions will deploy any new commit to the master branch to `dev.embrace.io/docs`
+- Staging
 
-To deploy to production, create a new release with a date-based version YYYYMMDD.n (e.g. 20220330.1) where "n" starts at 1 and is incremented if you need to do more releases on the same day.
+When you merge your change to `master` branch [GitHub Actions](https://github.com/embrace-io/embrace-docs/actions) will automatically deploy your change and make it accessible via https://dev.embrace.io/docs
+
+- Production
+
+To deploy to production, create a [GitHub "release"](https://github.com/embrace-io/embrace-docs/releases) with a date-based version YYYYMMDD.n (e.g. 20220330.1) where "n" starts at 1 and is incremented if you need to do more releases on the same day. A [GitHub Action will run](https://github.com/embrace-io/embrace-docs/actions) and deploy your changes to live https://embrace.io/docs
