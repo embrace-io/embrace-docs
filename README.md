@@ -6,7 +6,7 @@ This is a [Hugo](https://gohugo.io/) project for the Embrace documentation websi
 
 ### Install Hugo
 
-> **_IMPORTANT:_**  As of May 2022, the latest version of Hugo currently does not work so you should download 0.72 from https://github.com/gohugoio/hugo/releases/tag/v0.72.0 and not use other tools below because they install "latest"
+> **_IMPORTANT:_**  As of May 2022, the latest version of Hugo currently does not work so you should download 0.85 from https://github.com/gohugoio/hugo/releases/tag/v0.85.0 and not use other tools below because they install "latest"
 
 Install the Hugo CLI using homebrew.
 
@@ -14,7 +14,7 @@ Install the Hugo CLI using homebrew.
 brew install hugo
 ```
 
-This project was started using hugo version `v0.72.0/extended`
+This project was started using hugo version `v0.85.0/extended`
 
 You can check the installed hugo version by running:
 
