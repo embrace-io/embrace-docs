@@ -6,10 +6,19 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.7.8
+*May 31st, 2022*
+
+* Fix crash report enabled property. The remote config can't re-enable it
+* Fix for Embrace delegate callback not happening
+* Added property for whether or not the sdk has started
+* Fix for very rare edge case of properties dictionary trying to be serialized when changed
+
+
 ## 5.7.7
 *April 12th, 2022*
 
-Fixed duplicate send of RN js crashes
+* Fixed duplicate send of RN js crashes
 
 ## 5.7.6
 *March 14th, 2022*
