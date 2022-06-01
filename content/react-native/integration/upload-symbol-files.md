@@ -86,9 +86,32 @@ appcenter codepush release-react -a MyApp --output-dir ./build --sourcemap-outpu
 ``` 
 
 Then, use the Embrace upload script to upload the source map.
+
+{{< tabs "uploadingCodepushSourceMaps" >}}
+
+{{< tab "iOS" >}}
+
 ```sh
 ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/main.jsbundle --rn-map ./map
 ```
+
+{{< /tab >}}
+
+{{< tab "Android" >}}
+
+```sh
+ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
+```
+
+{{< hint info >}}
+
+The android map is generated with a different name, but the tool to upload is the same as iOS
+
+{{< /hint >}}
+
+{{< /tab >}}
+
+{{< /tabs >}}
 
 ## Uploading Native Symbol Files
 
