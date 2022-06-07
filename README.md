@@ -12,7 +12,7 @@ Install the Hugo CLI using homebrew.
 brew install hugo
 ```
 
-This project was started using hugo version `v0.85.0/extended`
+This project was started using hugo version `v0.100.1/extended`
 
 You can check the installed hugo version by running:
 
