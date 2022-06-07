@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.4
+*June 06, 2022*
+
+* Fixed issue with JSON conversion for log properties.
+* Upgrades native iOS SDK to 5.7.8
+
 ## 1.5.3
 *May 27, 2022*
 
@@ -15,7 +21,8 @@ weight: 4
 ## 1.5.2
 *May 16, 2022*
 
-* Upgrades native Android SDK to 5.1.0-beta02 for builds using the external dependency manager.
+* Upgrades native Android SDK to 5.1.0-beta02 for builds using the external dependency manager.
+
 
 ## 1.5.1
 *May 12, 2022*
