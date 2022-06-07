@@ -69,6 +69,11 @@ After importing Embrace, you'll update the same files that you edited in the pre
 }
 ```
 
+{{< hint info >}}
+
+If you are using Swift, follow the steps in the [iOS Linking Embrace section]({{< relref "/ios/integration/session-reporting/" >}})
+
+{{< /hint >}}
 {{< /tab >}}
 
 {{< tab "Android" >}}
@@ -103,15 +108,52 @@ The iOS SDK does not end the moment automatically.
 
 In either platform, you can end the startup moment when your application mounts.
 
+
+
+
+{{< tabs "reactNativeImportEmbrace" >}}
+
+{{< tab "Classes" >}}
+
 ```javascript
 import {endAppStartup} from 'react-native-embrace';
 
 export default class App extends Component {
   componentDidMount() {
+    // Add this command at the end of componentDidMount
     endAppStartup();
   }
 }
 ```
+
+{{< /tab >}}
+
+{{< tab "Hooks" >}}
+
+```javascript
+import React, {useEffect, useState} from 'react'
+import {endAppStartup} from 'react-native-embrace';
+
+const App = ()=> {
+
+  useEffect(()=>{
+    endAppStartup();
+  },[])
+
+ return ...
+}
+export default App
+```
+{{< hint info >}}
+
+As useEffect does not block the render thread, unlike componentDidMount, so it might be necessary add a variable, eg isReady, to wait until all yours sideEffect are finished and the user is able to interact with the application
+
+{{< /hint >}}
+{{< /tab >}}
+
+
+{{< /tabs >}}
+
 
 End the startup moment as soon as your users are able to interact with the application. 
 
