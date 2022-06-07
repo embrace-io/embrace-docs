@@ -71,7 +71,7 @@ After importing Embrace, you'll update the same files that you edited in the pre
 
 {{< hint info >}}
 
-If you are using Swift, follow the steps in the [iOS Linking Embrace section]({{< relref "/ios/integration/session-reporting/" >}})
+If you are using Swift, follow the steps in the [iOS Linking Embrace section]({{< relref "/ios/integration/session-reporting" >}})
 
 {{< /hint >}}
 {{< /tab >}}
