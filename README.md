@@ -100,6 +100,10 @@ Follow the status of the [issue here](https://github.com/gohugoio/hugo/issues/67
 
 ### Deployment
 
+- Reviewing
+
+Please follow the usual "pull request" process to create a PR in GitHub and have it reviewed by @steve-koontz for proofreading.
+
 - Staging
 
 When you merge your change to `master` branch [GitHub Actions](https://github.com/embrace-io/embrace-docs/actions) will automatically deploy your change and make it accessible via https://dev.embrace.io/docs
