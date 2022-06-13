@@ -54,7 +54,7 @@ Controls Embrace's capture of tap coordinates within the app. When disabled, Emb
 
 #### CAPTURE_TAPPED_ELEMENTS *boolean, optional*
 
-Controls Embrace's capture of tap element names within the app. When disabled, Embrace still captures taps but not the name of the elements of the tap. The default is on.
+Controls Embrace's capture of tap element names within the app. When disabled, Embrace still captures taps but not the name of the tapped element. The default is on.
 
 #### BACKGROUND_FETCH_CAPTURE_ENABLE *boolean, optional*
 
