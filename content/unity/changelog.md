@@ -6,6 +6,14 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.5
+*June 10, 2022*
+
+* Added Multi-Threaded Logging toggle to Main Settings editor window.
+* Added option to disable Embrace Unity SDK logs.
+* Upgraded native iOS SDK to 5.8.0
+* Fixes a potential crash in the Android Provider where successful attachment to the Java VM was not being checked.
+
 ## 1.5.4
 *June 06, 2022*
 
