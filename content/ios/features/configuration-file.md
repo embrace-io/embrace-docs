@@ -52,6 +52,10 @@ Controls whether the Embrace startup moment will take a screenshot on completion
 
 Controls Embrace's capture of tap coordinates within the app. When disabled, Embrace still captures taps but not the exact coordinates of the tap. The default is on.
 
+#### CAPTURE_TAPPED_ELEMENTS *boolean, optional*
+
+Controls Embrace's capture of tap element names within the app. When disabled, Embrace still captures taps but not the name of the elements of the tap. The default is on.
+
 #### BACKGROUND_FETCH_CAPTURE_ENABLE *boolean, optional*
 
 If enabled, Embrace will swizzle and capture requests made via the background task downloading API. The default if off.
