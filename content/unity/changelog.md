@@ -14,6 +14,7 @@ weight: 4
 ## 1.5.5
 *June 10, 2022*
 
+* NOTE: This version introduced a compatibility issue with Unity versions before 2020.2. Please upgrade to version 1.5.6.
 * Added Multi-Threaded Logging toggle to Main Settings editor window.
 * Added option to disable Embrace Unity SDK logs.
 * Upgraded native iOS SDK to 5.8.0
