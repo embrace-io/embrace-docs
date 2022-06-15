@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.6
+*June 15, 2022*
+
+* Fixed compatibility issue with Unity versions prior to 2020.2 introduced in v1.5.5.
+
 ## 1.5.5
 *June 10, 2022*
 
