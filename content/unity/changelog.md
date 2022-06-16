@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.7
+*June 16, 2022*
+
+* Added support for symbols upload in Unity 2020.
+* Removed UGUI package from being included in our SDK's unitypackage.
+
 ## 1.5.4
 *June 06, 2022*
 
