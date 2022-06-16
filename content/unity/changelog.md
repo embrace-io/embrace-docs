@@ -12,6 +12,20 @@ weight: 4
 * Added support for symbols upload in Unity 2020.
 * Removed UGUI package from being included in our SDK's unitypackage.
 
+## 1.5.6
+*June 15, 2022*
+
+* Fixed compatibility issue with Unity versions prior to 2020.2 introduced in v1.5.5.
+
+## 1.5.5
+*June 10, 2022*
+
+* NOTE: This version introduced a compatibility issue with Unity versions before 2020.2. Please upgrade to version 1.5.6.
+* Added Multi-Threaded Logging toggle to Main Settings editor window.
+* Added option to disable Embrace Unity SDK logs.
+* Upgraded native iOS SDK to 5.8.0
+* Fixes a potential crash in the Android Provider where successful attachment to the Java VM was not being checked.
+
 ## 1.5.4
 *June 06, 2022*
 

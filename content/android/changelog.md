@@ -6,6 +6,16 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.2.0
+
+*Jun 10, 2022*
+
+* Added support for symbols upload in Unity 2020, 2021, 2022. 
+* Fixed symbols upload failure while searching .so files in a folder with another folder inside. 
+* Added extra logging for NDK layer.
+* Fixed bytecode transformation with ASM.
+* Added improvement in order to skip swazzling if it's disabled for variant in old transform API.
+
 ## 5.1.0
 
 *May 27, 2022*
