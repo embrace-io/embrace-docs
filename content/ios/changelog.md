@@ -6,8 +6,15 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.8.1
+*June 17th, 2022*
+
+* Fixes crash that could occur when uploading session data.
+* Improves handling of memory allocation when uploading session data.
+
 ## 5.8.0
 *June 8th, 2022*
+
 * Adds ability to disable the element name from being included in tap capture. Set the Embrace-Info.plist boolean `CAPTURE_TAPPED_ELEMENTS` to false to disable this feature.
 
 ## 5.7.8
