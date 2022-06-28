@@ -12,7 +12,7 @@ Install the Hugo CLI using homebrew.
 brew install hugo
 ```
 
-This project was started using hugo version `v0.100.1/extended`
+This project was started using hugo version `v0.101.0/extended`
 
 You can check the installed hugo version by running:
 
@@ -26,8 +26,7 @@ hugo version
 git clone https://github.com/embrace-io/embrace-docs.git
 ```
 
-Then, initialize the submodules (this if for the
-[theme](https://github.com/alex-shpak/hugo-book) we're using.)
+Then, initialize the submodules (this if for the [theme](https://github.com/alex-shpak/hugo-book) we're using.)
 
 ```sh
 cd embrace-docs
@@ -44,7 +43,6 @@ hugo server -D
 ```
 
 Visit [http://localhost:1313/docs](http://localhost:1313/docs)
-
 
 ## Adding Content
 

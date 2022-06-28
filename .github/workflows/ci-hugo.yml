@@ -2,7 +2,7 @@ name: CI
 
 env:
   AWS_DEFAULT_REGION: 'us-west-2'
-  HUGO_VERSION: '0.100.1'
+  HUGO_VERSION: '0.101.0'
 
   # https://embrace.io/docs/
   # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:ENILO2YUDEJ88
@@ -32,7 +32,7 @@ jobs:
 
       - name: Install Hugo
         run: |
-          wget https://github.com/gohugoio/hugo/releases/download/v0.100.1/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
+          wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
           sudo dpkg -i hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
 
       - name: Run Hugo
