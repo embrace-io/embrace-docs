@@ -3,6 +3,8 @@ bookHidden: true
 title: Data Processing Addendum
 description: Data Processing Addendum
 weight: 3
+aliases:
+  - /gdpr/
 ---
 
 # Data Processing Addendum
