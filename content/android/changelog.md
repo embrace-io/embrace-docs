@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.3.0
+
+*Jun 30, 2022*
+
+* ASM bytecode transformation API is now the default api.
+
 ## 5.2.0
 
 *Jun 10, 2022*
