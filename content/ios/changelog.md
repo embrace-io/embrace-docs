@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.9.0
+*June 30th, 2022*
+
+* Fixes incompatibility issues with SafeDK
+
 ## 5.8.1
 *June 17th, 2022*
 
