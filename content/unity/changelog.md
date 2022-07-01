@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.9
+*July 01, 2022*
+
+* Upgrades native iOS SDK to 5.9.0
+
 ## 1.5.8
 *June 17, 2022*
 
