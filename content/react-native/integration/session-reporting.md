@@ -53,7 +53,7 @@ If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relre
 
 ## Add the Start Call
 
-After importing Embrace, you'll update the same files that you edited in the previous step make a call to the Embrace SDK to start capturing data.
+After importing Embrace, update the same files that you edited in the previous step to make a call to the Embrace SDK to start capturing data.
 
 {{< tabs "reactNativeStartEmbrace" >}}
 
@@ -71,7 +71,7 @@ After importing Embrace, you'll update the same files that you edited in the pre
 
 {{< hint info >}}
 
-If you are using Swift, follow the steps in the [iOS Linking Embrace section]({{< relref "/ios/integration/session-reporting" >}})
+If you are using Swift, follow the steps in the [iOS Linking Embrace section.]({{< relref "/ios/integration/session-reporting" >}})
 
 {{< /hint >}}
 {{< /tab >}}
@@ -146,7 +146,7 @@ export default App
 ```
 {{< hint info >}}
 
-As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable, eg isReady, to wait until all yours sideEffect are finished and the user is able to interact with the application
+As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your sideEffect are finished and the user is able to interact with the application.
 
 {{< /hint >}}
 {{< /tab >}}
