@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.5.10
+*July 07, 2022*
+
+* Fixed breaking change in Embrace class
+* Improved comments
+
 ## 1.5.9
 *July 01, 2022*
 
