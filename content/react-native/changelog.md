@@ -5,7 +5,11 @@ weight: "3"
 
 ---
 # React Native SDK Changelog
+## 3.9.2
 
+_June 9, 2022_
+
+* Added `getDeviceId` to get the Embrace ID
 ## 3.9.1
 
 _April 8, 2022_
