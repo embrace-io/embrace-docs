@@ -9,7 +9,7 @@ weight: "3"
 
 _June 9, 2022_
 
-* Added `getDeviceId` to get the embrace ID
+* Added `getDeviceId` to get the Embrace ID
 ## 3.9.1
 
 _April 8, 2022_
