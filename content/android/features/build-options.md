@@ -8,6 +8,8 @@ aliases:
 
 # Build Options
 
+The Embrace SDK injects code into your APK using a process we call “swazzling” to automatically capture activity transitions, taps, and network requests in your application.
+
 ## Disabling Swazzling for a Build Type
 
 {{< hint warning >}}
@@ -30,7 +32,77 @@ swazzler {
 }
 ```
 
+### Forcing behaviours
+
+{{< hint info >}}
+Most applications do not require any custom configuration of the Embrace SDK Gradle Plugin, but some modular applications require one or more of these settings to be present.
+Please contact <support@embrace.io> if you have any questions about these settings and if they are needed for your app.
+{{< /hint >}}
+
+```groovy
+swazzler {
+  forceIncrementalOverwrite = false
+  forceOkHttpWrapperInjection = false
+  forceVolleyWrapperInjection = false
+}
+```
+
+#### forceIncrementalOverwrite *bool*
+
+Enable this to force copying of unchanged JAR files during the swazzling phase.
+Enabling this is discouraged unless Embrace's support team has instructed you to enable it.
+Defaults to `false`.
+
+#### forceOkHttpWrapperInjection *bool*
+
+Enable this if okHttp exists as a dependency in any of your dependencies or submodules.
+This is only necessary if OkHttp is present in any of your project submodules and not on your main module (app).
+The plugin will emit a warning at build time indicating if you need to add this setting.
+Defaults to `false`.
+
+#### forceVolleyWrapperInjection *bool*
+
+Enable this if Volley exists as a dependency in any of your dependencies or submodules.
+This is only necessary if Volley is present in any of your project submodules and not on your main module (app).
+The plugin will emit a warning at build time indicating if you need to add this setting.
+Defaults to `false`.
+
+#### encodeExtractedFileNames *bool*
+
+Enable this if one of the dependencies in your project has a JAR file with class names that are only distinguished by case (due to obfuscation, for example), and you are building your application in a case-insensitive file system.
+Defaults to `false`.
+
+## Disabling Swazzling for Specific JARs and Classes
+
+{{< hint warning >}}
+`jarSkipList` only skips swazzling if you use Embrace <v5.3.0 or have specified `embrace.useAsmTransformApi=false` in your `gradle.properties` file. If you want to skip swazzling in later versions of Embrace, you should use `classSkipList`.
+{{< /hint >}}
+
+You may need to skip swazzling of certain JARs and/or classes in your application. It is very uncommon for this to be
+necessary, but it can be problematic to swazzle certain security-related JARs. Disable swazzling of these JARs using the
+`swazzler.jarSkipList` and `swazzler.classSkipList` settings in your `app/build.gradle` file. Both these settings are 
+lists of regular expressions that the swazzler will use to skip entire JARs or specific classes. 
+
+```groovy
+swazzler {
+  jarSkipList = ["MyFirstJar", "MySecondJar"]
+  classSkipList = ["MyFirstClass", "MySecondClass"]
+}
+```
+
+The build logs will emit info indicating what classes and JARs were skipped, for example
+
+```
+[io.embrace.android.gradle.swazzler.compile.swazzler.SwazzlerConfiguration] [Embrace.io Swazzler: INFO] Skipping swazzling for {class=MyFirstClass.class} since it matched {regex=MyFirstClass}
+```
+
 ## Improving Build Speed
+
+{{< hint warning >}}
+Embrace v5.3.0 shipped large improvements to build speed by using a new Transform API. This information is only relevant if you use Embrace <v5.3.0 , or if you have specified `embrace.useAsmTransformApi=false` in your `gradle.properties` file.
+
+It is strongly recommended that you update to the latest Embrace version as this will decrease your build times more than the following recommendations.
+{{< /hint >}}
 
 The Embrace SDK injects code into your APK using a process we call “swazzling” to automatically capture activity 
 transitions, taps, and network requests in your application. The time taken for the swazzling process varies, 
@@ -106,64 +178,3 @@ A: Yes, but any time you re-run the `generateEmbraceSwazzlingRulesFor<Variant>` 
 
 Some particular features of the swazzling process can be altered by defining specific arguments in a `swazzler` extension 
 in in your `app/build.gradle` file.
-
-
-### Disabling Swazzling for Specific JARs and Classes
-
-You may need to skip swazzling of certain JARs and/or classes in your application. It is very uncommon for this to be
-necessary, but it can be problematic to swazzle certain security-related JARs. Disable swazzling of these JARs using the
-`swazzler.jarSkipList` and `swazzler.classSkipList` settings in your `app/build.gradle` file. Both these settings are 
-lists of regular expressions that the swazzler will use to skip entire JARs or specific classes. 
-
-```groovy
-swazzler {
-  jarSkipList = ["MyFirstJar", "MySecondJar"]
-  classSkipList = ["MyFirstClass", "MySecondClass"]
-}
-```
-
-The build logs will emit info indicating what classes and JARs were skipped, for example
-
-```
-[io.embrace.android.gradle.swazzler.compile.swazzler.SwazzlerConfiguration] [Embrace.io Swazzler: INFO] Skipping swazzling for {class=MyFirstClass.class} since it matched {regex=MyFirstClass}
-```
-
-### Forcing behaviours
-
-{{< hint info >}}
-Most applications do not require any custom configuration of the Embrace SDK Gradle Plugin, but some modular applications require one or more of these settings to be present.
-Please contact <support@embrace.io> if you have any questions about these settings and if they are needed for your app.
-{{< /hint >}}
-
-```groovy
-swazzler {
-  forceIncrementalOverwrite = false
-  forceOkHttpWrapperInjection = false
-  forceVolleyWrapperInjection = false
-}
-```
-
-#### forceIncrementalOverwrite *bool*
-
-Enable this to force copying of unchanged JAR files during the swazzling phase.
-Enabling this is discouraged unless Embrace's support team has instructed you to enable it.
-Defaults to `false`.
-
-#### forceOkHttpWrapperInjection *bool*
-
-Enable this if okHttp exists as a dependency in any of your dependencies or submodules.
-This is only necessary if OkHttp is present in any of your project submodules and not on your main module (app).
-The plugin will emit a warning at build time indicating if you need to add this setting.
-Defaults to `false`.
-
-#### forceVolleyWrapperInjection *bool*
-
-Enable this if Volley exists as a dependency in any of your dependencies or submodules.
-This is only necessary if Volley is present in any of your project submodules and not on your main module (app).
-The plugin will emit a warning at build time indicating if you need to add this setting.
-Defaults to `false`.
-
-#### encodeExtractedFileNames *bool*
-
-Enable this if one of the dependencies in your project has a JAR file with class names that are only distinguished by case (due to obfuscation, for example), and you are building your application in a case-insensitive file system.
-Defaults to `false`.
