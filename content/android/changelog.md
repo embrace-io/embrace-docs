@@ -6,6 +6,15 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.4.0
+
+*Jul 18, 2022*
+
+* Strict Mode was added to automatically capture serious local error logs to be sent as part of the session payload.
+* The background ANRs are not displayed by default anymore. They should be manually enabled through remote configuration.
+* Fixed an issue where the ANR duration was incorrectly reported with 1 second less.
+* Fixed build error for customers using gradle < 6.1.
+
 ## 5.3.0
 
 *Jun 30, 2022*
