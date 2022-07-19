@@ -73,8 +73,10 @@ Add the `take_screenshot` setting to the `embrace-config.json` file that you add
 {
   "app_id": "xxxxx",
   "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "startup_moment": {
-    "take_screenshot": true
+  "sdk_config": {
+    "startup_moment": {
+      "take_screenshot": true
+    }
   }
 }
 ```
