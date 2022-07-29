@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.9.2
+*July 29th, 2022*
+
+* Fixes issue that would prevent Embrace crash reporter from being enabled by default.
+
 ## 5.9.1
 *July 19th, 2022*
 
