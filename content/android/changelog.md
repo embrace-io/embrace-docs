@@ -6,6 +6,15 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.5.0
+
+*Aug 02, 2022*
+
+* Added Hermes support
+* Automatic integration: We added a method that does everything necessary to verify an integration in one call.
+* Added a feature flag that controls beta features. This can be manually disabled from the configuration.
+
+
 ## 5.4.0
 
 *Jul 18, 2022*
