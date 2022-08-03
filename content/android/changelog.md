@@ -15,6 +15,10 @@ weight: 4
 
 *Aug 02, 2022*
 
+{{< hint warning >}}
+This version has a known issue with Gradle < 6.1
+{{< /hint >}}
+
 * Added Hermes support
 * Automatic integration: We added a method that does everything necessary to verify an integration in one call.
 * Added a feature flag that controls beta features. This can be manually disabled from the configuration.
@@ -24,14 +28,21 @@ weight: 4
 
 *Jul 18, 2022*
 
+{{< hint warning >}}
+This version has a known issue with Gradle < 6.1
+{{< /hint >}}
+
 * Strict Mode was added to automatically capture serious local error logs to be sent as part of the session payload.
 * The background ANRs are not displayed by default anymore. They should be manually enabled through remote configuration.
 * Fixed an issue where the ANR duration was incorrectly reported with 1 second less.
-* Fixed build error for customers using gradle < 6.1.
 
 ## 5.3.0
 
 *Jun 30, 2022*
+
+{{< hint warning >}}
+This version has a known issue with Gradle < 6.1
+{{< /hint >}}
 
 * ASM bytecode transformation API is now the default api.
 
