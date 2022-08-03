@@ -6,6 +6,11 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.5.1
+*Aug 03, 2022*
+
+* Fixes an issue where customers were having ClassNotFoundException: BuildEventsListenerRegistry for gradle versions < 6.1
+
 ## 5.5.0
 
 *Aug 02, 2022*
