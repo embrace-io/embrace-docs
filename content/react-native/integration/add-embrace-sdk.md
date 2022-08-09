@@ -45,7 +45,7 @@ cd ios && pod install
 
 {{< tab "Android" >}}
 
-Follow the steps in the [Setup Script]({{< relref "/android/integration/add-embrace-sdk#using-the-setup-script" >}}) section or the [Manual]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) section to
+Follow the steps in the [Manual]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) section to
 add the Android native dependencies.
 
 {{</tab >}}
@@ -53,7 +53,7 @@ add the Android native dependencies.
 
 {{< /tabs >}}
 
-## Using the Setup Script
+<!-- ## Using the Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup script can be found in your
@@ -70,7 +70,7 @@ git diff
 ```
 
 Compare the changes to the [Manual Setup]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) step to verify the changes were made
-correctly.
+correctly. -->
 
 ## Adding the SDK Manually
 
