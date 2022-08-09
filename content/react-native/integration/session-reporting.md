@@ -53,7 +53,7 @@ If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relre
 
 ## Add the Start Call
 
-After importing Embrace, you'll update the same files that you edited in the previous step make a call to the Embrace SDK to start capturing data.
+After importing Embrace, update the same files that you edited in the previous step to make a call to the Embrace SDK to start capturing data.
 
 {{< tabs "reactNativeStartEmbrace" >}}
 
@@ -69,6 +69,11 @@ After importing Embrace, you'll update the same files that you edited in the pre
 }
 ```
 
+{{< hint info >}}
+
+If you are using Swift, follow the steps in the [iOS Linking Embrace]({{< relref "/ios/integration/session-reporting" >}}) section.
+
+{{< /hint >}}
 {{< /tab >}}
 
 {{< tab "Android" >}}
@@ -103,15 +108,52 @@ The iOS SDK does not end the moment automatically.
 
 In either platform, you can end the startup moment when your application mounts.
 
+
+
+
+{{< tabs "reactNativeImplementationEmbrace" >}}
+
+{{< tab "Classes" >}}
+
 ```javascript
 import {endAppStartup} from 'react-native-embrace';
 
 export default class App extends Component {
   componentDidMount() {
+    // Add this command at the end of componentDidMount
     endAppStartup();
   }
 }
 ```
+
+{{< /tab >}}
+
+{{< tab "Hooks" >}}
+
+```javascript
+import React, {useEffect, useState} from 'react'
+import {endAppStartup} from 'react-native-embrace';
+
+const App = ()=> {
+
+  useEffect(()=>{
+    endAppStartup();
+  },[])
+
+ return ...
+}
+export default App
+```
+{{< hint info >}}
+
+As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your background process are finished and the user is able to interact with the application.
+
+{{< /hint >}}
+{{< /tab >}}
+
+
+{{< /tabs >}}
+
 
 End the startup moment as soon as your users are able to interact with the application. 
 

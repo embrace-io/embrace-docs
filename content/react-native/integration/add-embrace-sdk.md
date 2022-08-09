@@ -20,6 +20,12 @@ yarn add react-native-embrace
 npm install react-native-embrace --save
 ```
 
+{{< hint info >}}
+
+If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
+
+{{< /hint >}}
+
 ## Use Autolinking
 
 If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md)
