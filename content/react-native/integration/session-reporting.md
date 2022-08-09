@@ -146,7 +146,7 @@ export default App
 ```
 {{< hint info >}}
 
-As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your sideEffect are finished and the user is able to interact with the application.
+As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your background process are finished and the user is able to interact with the application.
 
 {{< /hint >}}
 {{< /tab >}}
