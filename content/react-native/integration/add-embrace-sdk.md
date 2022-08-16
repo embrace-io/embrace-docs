@@ -26,7 +26,7 @@ If you are using a yarn workspace, you must run the command at the react-native 
 
 {{< /hint >}}
 
-## Use Autolinking
+## Native Modules
 
 If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md)
 to set up the native modules. 
@@ -34,8 +34,17 @@ to set up the native modules.
 {{< tabs >}}
 
 {{< tab "iOS" >}}
+Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
 
-Add the EmbraceIO Pod.
+```ruby
+target 'MyApp' do
+  # ...
+
+  pod 'EmbraceIO'
+  pod 'RNEmbrace', :path => '../node_modules/react-native-embrace'
+end
+```
+Then, install the pod.
 
 ```sh
 cd ios && pod install
@@ -44,23 +53,29 @@ cd ios && pod install
 {{</tab >}}
 
 {{< tab "Android" >}}
-
-Follow the steps in the [Setup Script]({{< relref "/android/integration/add-embrace-sdk#using-the-setup-script" >}}) section or the [Manual]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) section to
-add the Android native dependencies.
+<!-- This is wrong because the manual instalation is related to the SDK not the native modules 
+We have to check how is the integration for RN project without autolinking -->
+Follow the steps in the **Setup Script** section or the [Manual]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) section to add the Android native dependencies.
 
 {{</tab >}}
 
 
 {{< /tabs >}}
 
-## Using the Setup Script
+
+
+# Adding the SDK 
+
+
+## Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup script can be found in your
 `node_modules` folder at `node_modules/react-native-embrace/dist/scripts/setup/setup.js`
 
+**Run the setup script**
 ```sh
-node node_modules/react-native-embrace/dist/scripts/setup/setup.js
+node node_modules/react-native-embrace/dist/scripts/setup/run.js
 ```
 
 You can use git to see the changes that the script made.
@@ -72,30 +87,14 @@ git diff
 Compare the changes to the [Manual Setup]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) step to verify the changes were made
 correctly.
 
-## Adding the SDK Manually
 
-{{< tabs "reactNativeAddSDK" >}}
+
+## Manually
+
+{{< tabs "reactNativeAddSDKManually" >}}
 
 {{< tab "iOS" >}}
-
-Configure your `PodFile` to add Embrace.
-
-```ruby
-target 'MyApp' do
-  # ...
-
-  pod 'EmbraceIO'
-  pod 'RNEmbrace', :path => '../node_modules/react-native-embrace'
-end
-```
-
-Then, install the pod.
-
-```sh
-pod install
-```
-
-Finally, you'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
+You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 Please see the [Session Reporting]({{< relref "/ios/integration/session-reporting#import-embrace" >}}) page from the iOS integration guide page on how to add this file in Xcode. 
 
 {{< /tab >}}
