@@ -44,19 +44,27 @@ If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relre
 
 {{< tab "Android" >}}
 
-No steps are needed
+Add extra arguments to the bundle step in `android/app/build.gradle`.
+
+```groovy
+project.ext.react = [
+    entryFile: "index.js",
+    extraPackagerArgs: ["--sourcemap-output", "$buildDir/generated/sourcemaps/android-embrace.bundle.map"]
+]
+```
 
 {{< hint info >}}
 
 **Note on variants**
 By default, source maps are uploaded only for the release variant.
-If you'd like to upload source maps for other variants, make the following changes in `android/app/build.gradle`:
+If you'd like to upload source maps for other variants, make the following changes:
 
 ```groovy
 project.ext.react = [
         ...
         bundleIn<customVariant>: true,
         devDisabledIn<customVariant>: true,
+        extraPackagerArgs: ["--sourcemap-output", "$buildDir/generated/sourcemaps/android-embrace.bundle.map"]
 ]
 ```
 This creates a bundle and sets the debuggable flag to false.
