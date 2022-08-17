@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.5.2
+*Aug 17, 2022*
+
+* Fixes a bug in our gradle plugin where the build sometimes failed with duplicate resource files
+* Fixes a minor bug where network intercepting triggers a log when it tries to intercept calls before Embrace is started.
+
 ## 5.5.1
 *Aug 03, 2022*
 
@@ -91,6 +97,19 @@ This version has a known issue with Gradle < 6.1
 * Changed build ID resource injection to keep unchanged on non-minified builds.
 * Migrated to task configuration avoidance API's for task registration
 * Added improvements to SDK startup time
+* Upgrade Gson to 2.9.0.
+{{< hint warning >}}
+This Gson version can break compatibility. See https://github.com/google/gson/pull/1989
+
+Consider using a strictly resolution strategy if you need a previous version
+```
+implementation('com.google.code.gson:gson') {
+    version {
+        strictly '2.8.9'
+    }
+}
+```
+{{< /hint >}}
 
 ## 4.15.0
 
