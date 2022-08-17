@@ -100,20 +100,6 @@ This version has a known issue with Gradle < 6.1
 * Added improvements to SDK startup time
 * Upgrade Gson to 2.9.0.
 
-{{< hint warning >}}
-Gson 2.9.0 can break compatibility. See https://github.com/google/gson/pull/1989
-
-Consider using a strictly resolution strategy if you need a previous version
-```
-implementation('com.google.code.gson:gson') {
-    version {
-        strictly '2.8.9'
-    }
-}
-```
-{{< /hint >}}
-
-
 ## 4.15.0
 
 *Feb 07, 2022*
