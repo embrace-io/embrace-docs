@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.5.2
+*Aug 17, 2022*
+
+* Fixes a bug in our gradle plugin where the build sometimes failed with duplicate resource files
+* Fixes a minor bug where network intercepting triggers a log when it tries to intercept calls before Embrace is started.
+* Improve NDK crash report quality when other signal handlers are installed after Embrace has initialized
+
 ## 5.5.1
 *Aug 03, 2022*
 
@@ -91,6 +98,7 @@ This version has a known issue with Gradle < 6.1
 * Changed build ID resource injection to keep unchanged on non-minified builds.
 * Migrated to task configuration avoidance API's for task registration
 * Added improvements to SDK startup time
+* Upgrade Gson to 2.9.0.
 
 ## 4.15.0
 
