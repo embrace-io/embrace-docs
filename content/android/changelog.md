@@ -100,7 +100,7 @@ This version has a known issue with Gradle < 6.1
 * Upgrade Gson to 2.9.0.
 {{< hint warning >}}
 This Gson version can break compatibility. See https://github.com/google/gson/pull/1989
-
+{{< /hint >}}
 Consider using a strictly resolution strategy if you need a previous version
 ```
 implementation('com.google.code.gson:gson') {
@@ -109,7 +109,7 @@ implementation('com.google.code.gson:gson') {
     }
 }
 ```
-{{< /hint >}}
+
 
 ## 4.15.0
 
