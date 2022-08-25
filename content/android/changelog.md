@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.5.3
+*Aug 25, 2022*
+
+* Fixed a logic bug in how the previous signal handler was called that prevented native tombstones from being captured by the Android OS.
+* Fixed an issue that prevented the Swazzler to build on AGP versions greater or equal than 7.2.
+
 ## 5.5.2
 *Aug 17, 2022*
 
