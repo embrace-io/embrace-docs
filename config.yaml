@@ -19,8 +19,8 @@ params:
     ios: "5.9.2"
     android: "5.5.3"
     rn: "3.9.2"
-    unity: "1.5.10"
-    unity_android: "5.1.0"
+    unity: "1.6.0"
+    unity_android: "5.5.2"
   BookSection: '*'
   BookMenuReset: false
   BookTheme: light
