@@ -5,6 +5,13 @@ weight: "3"
 
 ---
 # React Native SDK Changelog
+## 3.9.21
+
+_August 29, 2022_
+
+* Fixed setup script.
+* Upgraded to latest Android SDK version
+* Upgraded to latest iOS SDK version
 ## 3.9.2
 
 _June 9, 2022_
