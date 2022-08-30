@@ -6,6 +6,11 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.5.4
+*Aug 30, 2022*
+
+* Performance improvement: moved some disk I/O operations on startup to a worker thread.
+
 ## 5.5.3
 *Aug 25, 2022*
 
