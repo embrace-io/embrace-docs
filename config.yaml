@@ -6,20 +6,20 @@ theme: "hugo-book"
 publishDir: "public/docs"
 outputs:
   page:
-  - AMP
-  - HTML
+    - AMP
+    - HTML
   home:
-  - HTML
-  - AMP
+    - HTML
+    - AMP
   section:
-  - HTML
-  - AMP
+    - HTML
+    - AMP
 params:
   sdkVersion:
     ios: "5.9.2"
     android: "5.5.3"
     rn: "3.9.21"
-    unity: "1.5.10"
+    unity: "1.6.0"
     unity_android: "5.1.0"
   BookSection: '*'
   BookMenuReset: false
