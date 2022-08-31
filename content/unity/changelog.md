@@ -6,6 +6,17 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.6.0
+*August 29, 2022*
+
+* Updated iOS SDK to 5.9.1
+* Updated Android SDK Version 5.5.3
+* Bugfix for swapped bytesin/bytesout values in Android LogNetworkRequest
+* Embrace SDK configuration scriptable objects moved to project Assets/Embrace folder.
+* Fixed issue with dSYM upload scripts sometimes not being executable
+* Settings window now features full list of configuration options.
+* Bugfix for UnhandledExceptionRateLimiter
+
 ## 1.5.10
 *July 07, 2022*
 
@@ -77,6 +88,7 @@ weight: 4
 * Upgrades native Android SDK to 5.0.4 for builds using the external dependency manager.
 
 ## 1.4.1
+
 *April 22, 2022*
 
 * Upgrades native Android SDK to 5.0.2 for builds using the external dependency manager.

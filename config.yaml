@@ -6,14 +6,14 @@ theme: "hugo-book"
 publishDir: "public/docs"
 outputs:
   page:
-  - AMP
-  - HTML
+    - AMP
+    - HTML
   home:
-  - HTML
-  - AMP
+    - HTML
+    - AMP
   section:
-  - HTML
-  - AMP
+    - HTML
+    - AMP
 params:
   sdkVersion:
     ios: "5.9.2"
