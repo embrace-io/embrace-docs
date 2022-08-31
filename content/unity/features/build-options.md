@@ -11,20 +11,20 @@ aliases:
 *If you upgrading from `v1.5.10` or earlier, please note that configuration data will no longer be embedded in our SDK package directory, and instead relocated to your project's Assets folder under `Assets/Embrace`.  Any previously defined configurations will be automatically converted at installation time to the updated format described in this document.*
 
 ## SDK Configuration Options
-The Embrace Unity SDK enables users to customize the behavior of the SDK through a complete list of configuration options.  These options are the same ones available to consumers of the native Android and iOS SDKs. 
+The behavior of the Embrace Unity SDK can be customized through the same list of configuration options as the Android and iOS SDKs.
 
-Configuration options can be accessed in the **Configurations** tab of the **Settings** window. This window can be displayed through the top-level menu **Tools > Embrace > Settings** or by clicking on the **Customize SDK Configuration** button from the **Getting Started** window.
+Configuration options can be accessed in the **Configurations** tab of the **Settings** window. This window can be opened through the top-level menu **Tools > Embrace > Settings** or by clicking on the **Customize SDK Configuration** button from the **Getting Started** window.
 {{< image src="/docs/images/unity-config-windows.png" alt="Image showing Embrace windows" width="1208" height="702" >}}
 
 For details about what each option does, please consult the documenation for [Android]({{<relref "/android/features/configuration-file.md">}} "Android") or [iOS]({{<relref "/ios/features/configuration-file.md">}}).
 
 ## Configuring Environments
-Some applications have complex build pipelines.  For example, it's common practice for a development team to work in a "Dev" environment, then push their changes to a "Staing" when features are complete and ready to be tested, and finally released to a "Production" upon final approval. In such cases it may be beneficial define different configuration options for each environment.  The Embrace SDK supports this this type of orkflow through the **Environments** list available in the **Settings** window.
+Some applications have complex build pipelines.  For example, it's common practice for a development team to work in a "Dev" environment, then push their changes to a "Staging" when features are complete and ready to be tested, and finally released to a "Production" upon final approval. In such cases it may be beneficial define different configuration options for each environment.  The Embrace SDK supports this this type of workflow through the **Environments** list available in the **Settings** window.
 {{< image src="/docs/images/unity-environments-configuration.png" alt="Image showing Embrace environmnets configuration" width="1089" height="619" >}}
 
 Using this list you can easily add, rename, or remove environments as needed.  Each environment will create an Android and iOS configuration file stored in the Embrace data directory.  
 
-You can select and configre each environment by clicking on the **"="** icon to the left of each list item in the **Settings** window, or by selecting an environment from the **Getting Started** window.
+You can select and configure each environment by clicking on the **"="** icon to the left of each list item in the **Settings** window, or by selecting an environment from the **Getting Started** window.
 {{< image src="/docs/images/unity-environments-select.png" alt="Image showing Embrace environmnets configuration" width="1330" height="492" >}}
 
 *NOTE: Most of the time users will not see the creation of configuration data when the **Environments** list is edited.  However, if you happen to peek in the **Configurations** folder, you'll notice that upon defining an environment configuration objects are created with a GUID-based name.  They will get automatically renamed to match user input once the **Update Environments** is pressed, or if the **Settings** window loses focus.  See the reference images above for an example.*
