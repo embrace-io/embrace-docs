@@ -8,7 +8,7 @@ aliases:
 
 # Build Options
 
-*If you upgrading from `v1.5.10` or earlier, please note that configuration data will no longer be embedded in our SDK package directory, and instead relocated to your projects Assets folder under `Assets/Embrace`.  Any previously defined configurations will be automatically converted at installation time to the updated format described in this document.*
+*If you upgrading from `v1.5.10` or earlier, please note that configuration data will no longer be embedded in our SDK package directory, and instead relocated to your project's Assets folder under `Assets/Embrace`.  Any previously defined configurations will be automatically converted at installation time to the updated format described in this document.*
 
 ## SDK Configuration Options
 The Embrace Unity SDK enables users to customize the behavior of the SDK through a complete list of configuration options.  These options are the same ones available to consumers of the native Android and iOS SDKs. 
