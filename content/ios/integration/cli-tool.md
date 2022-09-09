@@ -6,14 +6,14 @@ aliases:
 ---
 
 
-# Integration Validation
+# Command Line Tool
 
 In order to ease the process of configuring the Xcode project for use with the 
 Embrace SDK. We provide a CLI tool that you can use to help validate your 
 project. 
 
 Feel free to
-[download the tool](https://s3.amazonaws.com/embrace-downloads-prod/embtool.pkg).
+[download the tool](https://s3.amazonaws.com/embrace-downloads-prod/embtool-1.0.0.pkg).
 
 By default, the package installer will install the binary into your
 `/usr/local/bin` path. This is a default location in your `$PATH`, so you can
@@ -72,7 +72,19 @@ made so it is very clear what changes the install command makes.
 
 
 
+### dSYM Lookup
+
+```bash
+$ embtool dsym lookup --help
+$ embtool dsym lookup --scheme <my-scheme> <path-to-xcodeproj>
+```
+
+The `dsym lookup` command will search for dSYM files in your
+~/Library/Developer/Xcode/DerivedData directory. It is suggested to use this
+after a build has been made to verify the output to your expected dSYM files.
 
 
-
+If you have many projects on your computer, its recommend to pipe the output
+of this command to `grep` to filter the output to a specific project build
+directory.
 
