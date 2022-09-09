@@ -13,7 +13,8 @@ Embrace SDK. We provide a CLI tool that you can use to help validate your
 project. 
 
 Feel free to
-[download the tool](https://s3.amazonaws.com/embrace-downloads-prod/embtool-1.0.0.pkg).
+
+[download the tool](https://embrace-downloads-prod.s3.amazonaws.com/embtool/embtool-latest.pkg).
 
 By default, the package installer will install the binary into your
 `/usr/local/bin` path. This is a default location in your `$PATH`, so you can
