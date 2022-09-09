@@ -1,8 +1,8 @@
 ---
-title: "Integration Validation"
+title: "Command Line Tool"
 weight: 1
 aliases:
-  - /ios/integration-validation/
+  - /ios/cli-tool/
 ---
 
 
