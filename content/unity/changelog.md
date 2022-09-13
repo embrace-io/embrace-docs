@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.7.0
+*September 12, 2022*
+
+* Added support for automatically logging web requests made via UnityWebRequest and HttpClient (BETA)
+* Updated Android SDK to 5.5.4
+
 ## 1.6.0
 *August 29, 2022*
 
