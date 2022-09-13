@@ -1,7 +1,7 @@
 ---
 title: Build Options
 description: Build Options for the Embrace Unity SDK
-weight: 4
+weight: 5
 aliases:
   - /Unity/build-options/
 ---
