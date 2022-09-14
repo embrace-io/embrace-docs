@@ -24,7 +24,7 @@ confirm the installation by using:
 $ which embtool
 /usr/local/bin/embtool
 
-atemmons@Embrace embrace-docs % embtool --help
+exampleuser@Embrace embrace-docs % embtool --help
 OVERVIEW: A command line tool to help with Embrace integration
 
 ```
