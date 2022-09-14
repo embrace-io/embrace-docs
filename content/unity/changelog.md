@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.7.1
+*September 14, 2022*
+
+* Removed unnecessary dependency on Unity's default version control package introduced in 1.7.0
+
 ## 1.7.0
 *September 12, 2022*
 
