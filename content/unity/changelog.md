@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.7.2
+*September 15, 2022*
+
+* Resolved a dependency conflict between the Embrace SDK and Unity's Burst package.
+* Fixed a UI bug in the Embrace Settings window that occurred when the SDK was reset.
+
 ## 1.7.1
 *September 14, 2022*
 
