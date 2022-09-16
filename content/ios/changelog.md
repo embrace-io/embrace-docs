@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.9.3
+*September 16th, 2022*
+
+* Improvements to installation of signal handler to more consistently receive crash information.
+
 ## 5.9.2
 *July 29th, 2022*
 
