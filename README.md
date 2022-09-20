@@ -100,7 +100,7 @@ Follow the status of the [issue here](https://github.com/gohugoio/hugo/issues/67
 
 - Reviewing
 
-Please follow the usual "pull request" process to create a PR in GitHub and have it reviewed by @steve-koontz for proofreading.
+Please follow the usual "pull request" process to create a PR in GitHub and have it reviewed for proofreading.
 
 - Staging
 
