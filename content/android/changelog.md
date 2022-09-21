@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.6.0
+*Sep 20, 2022*
+
+* Prevent disk i/o strict mode violations for session caching.
+* Added a step to the automatic verification that validates that the SDK is receiving lifecycle events
+* Increment network timeout when uploading large mapping files.
+
 ## 5.5.4
 *Aug 30, 2022*
 
