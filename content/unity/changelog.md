@@ -6,6 +6,14 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.7.3
+*September 22, 2022*
+
+* Updated Android SDK to version 5.6.1
+* Updated iOS SDK to version 5.9.3
+* Fixed a UI bug with the Getting Started and Embrace Settings windows that occured when the Environments object was deleted from embrace data directory manually.
+
+
 ## 1.7.2
 *September 15, 2022*
 
