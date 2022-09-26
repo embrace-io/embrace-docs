@@ -6,6 +6,10 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.6.1
+*Sep 22, 2022*
+* Removed capture_google attribute from the embrace-config.json file.
+
 ## 5.6.0
 *Sep 20, 2022*
 
