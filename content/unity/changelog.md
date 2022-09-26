@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.7.4
+*September 26, 2022*
+
+* Fixed an issue that could cause the Embrace SDK to fail to load the active configuration in the editor.
+* Fixed the list of available configurations in the settings window getting out of sync with the configurtations available in the project.
+
 ## 1.7.3
 *September 22, 2022*
 
