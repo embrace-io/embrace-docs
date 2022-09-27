@@ -14,11 +14,15 @@ weight: 4
 ## 1.7.4
 *September 26, 2022*
 
+> This version includes a compatibility issue the Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.7.5 or later.
+
 * Fixed an issue that could cause the Embrace SDK to fail to load the active configuration in the editor.
 * Fixed the list of available configurations in the settings window getting out of sync with the configurtations available in the project.
 
 ## 1.7.3
 *September 22, 2022*
+
+> This version includes a compatibility issue the Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.7.5 or later.
 
 * Updated Android SDK to version 5.6.1
 * Updated iOS SDK to version 5.9.3
@@ -83,7 +87,8 @@ weight: 4
 ## 1.5.5
 *June 10, 2022*
 
-* NOTE: This version introduced a compatibility issue with Unity versions before 2020.2. Please upgrade to version 1.5.6.
+> This version introduced a compatibility issue with Unity versions before 2020.2. Please upgrade to version 1.5.6.
+
 * Added Multi-Threaded Logging toggle to Main Settings editor window.
 * Added option to disable Embrace Unity SDK logs.
 * Upgraded native iOS SDK to 5.8.0
