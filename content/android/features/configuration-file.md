@@ -37,7 +37,7 @@ Explanations for each of the fields are provided below.
       "capture_request_content_length": true,
       "disabled_url_patterns": [],
       "enable_native_monitoring": true,
-      "track_id_header": "x-emb-trace-id"
+      "trace_id_header": "x-emb-trace-id"
     },
     "session": {
       "async_end": false,
@@ -100,7 +100,7 @@ Example:
 
 Enable capture of network requests made using the native Java network API. Defaults to `true`.
 
-#### track_id_header *string*
+#### trace_id_header *string*
 
 Set the name of the header used for the trace ID. Defaults to `"x-emb-trace-id"`.
 

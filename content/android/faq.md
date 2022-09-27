@@ -172,7 +172,7 @@ Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordin
 
 Yes, you can capture trace IDs in two ways:
 1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value
-1. If the ID is already present in the request in a different header, set the name of the header in the `embrace-config.json` file with the [`networking[trace_id_header]` setting]({{< relref "/android/features/configuration-file#networkingtrack_id_header" >}})
+1. If the ID is already present in the request in a different header, set the name of the header in the `embrace-config.json` file with the [`networking[trace_id_header]` setting]({{< relref "/android/features/configuration-file#networkingtrace_id_header" >}})
 
 {{< hint warning >}}
 Trace IDs longer than 64 characters will be truncated
