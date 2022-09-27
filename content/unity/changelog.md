@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.7.5
+*September 26, 2022*
+
+* Fixed a compatibility issue with Embrace Android SDK version 5.6.0 and higher.
+
 ## 1.7.4
 *September 26, 2022*
 
