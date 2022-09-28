@@ -31,39 +31,13 @@ To use the External Dependency Manager you must be using:
 
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
 
-Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally, the following setting must be added to your Gradle template to disable our own Gradle plugin's automatic dependency resolver:
-
-{{< tabs "unity_swazzler_config" >}}
-
-{{< tab "2019 and higher" >}}
-
-This disables our custom dependency resolution:
+Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally, the following setting must be added to the root level of your `launcherTemplate.gradle` file to disable our own Gradle plugin's automatic dependency resolver:
 
 ```gradle
 swazzler {
     disableDependencyInjection = true
 }
 ```
-
-This should be added to the `launcherTemplate.gradle` at the root level.
-
-{{< /tab >}}
-
-{{< tab "2018 and lower" >}}
-
-This disables our custom dependency resolution:
-
-```gradle
-swazzler {
-    disableDependencyInjection = true
-}
-```
-
-This should be added to the `mainTemplate.gradle` at the root level.
-
-{{< /tab >}}
-
-{{< /tabs >}}
 
 Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
 
