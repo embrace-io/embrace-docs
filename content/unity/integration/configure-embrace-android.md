@@ -67,7 +67,7 @@ This should be added to the `mainTemplate.gradle` at the root level.
 
 Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
 
-# Unity 2019 and Newer
+# Customize Gradle Templates
 
 {{< image src="/docs/images/unity-android-gradle-templates.png" alt="Image showing how to customize the Unity Gradle templates" caption="The Gradle template customization features in Unity." width="700" height="452" >}}
 
@@ -100,47 +100,6 @@ After creating or finding these template files in your project, make the followi
      ```
      apply plugin: 'embrace-swazzler'
      ```
-
-# Unity 2018 and Older
-
-{{< image src="/docs/images/unity-android-gradle-templates-2018.png" alt="Image showing how to customize the Unity Gradle templates" caption="The Gradle template customization features in Unity." width="700" height="409" >}}
-
-In Unity 2018 and older there was only one Gradle template available for customization.  All of the required changes can still be done in this file.
-
-1. In `mainTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. Note that they must be added in two places. Apply the plugin:
-   ```
-   buildscript {
-       repositories {
-           mavenCentral()
-       }
-       dependencies {
-           classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
-       }
-   }
-   
-   ...
-   
-   allprojects {
-       repositories {
-           mavenCentral()
-       }
-   }
-   
-   ...
-   
-   apply plugin: 'embrace-swazzler'
-   ```
-   
-   1. Next, to enable AndroidX support we also must add this block to the `mainTemplate.gradle` file:
-   
-   ```
-   ([rootProject] + (rootProject.subprojects as List)).each {
-       ext {
-           it.setProperty("android.useAndroidX", true)
-           it.setProperty("android.enableJetifier", true)
-       }
-   }
-   ```
 
 ---
 
