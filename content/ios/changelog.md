@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.10.0
+*October 3rd, 2022*
+
+* Adds support for Flutter
+
 ## 5.9.3
 *September 16th, 2022*
 
