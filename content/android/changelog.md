@@ -6,8 +6,19 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.6.2
+*Oct 03, 2022*
+
+* Fixed a lost backward compatibility with previous Unity SDK versions.
+* Fixed internal exception triggered when used androidX startup library in Unity builds.
+
 ## 5.6.1
 *Sep 22, 2022*
+
+{{< hint warning >}}
+This version has a known backward compatibility issue between the Unity SDK and the Android SDK
+{{< /hint >}}
+
 * Removed capture_google attribute from the embrace-config.json file.
 
 ## 5.6.0
