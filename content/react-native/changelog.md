@@ -11,6 +11,7 @@ weight: "3"
 _August 29, 2022_
 
 * Added Axios interceptor to force log network calls
+* Now Embrace will track errors in DEV mode
 * Upgraded to latest Android SDK version
 * Upgraded to latest iOS SDK version
 
