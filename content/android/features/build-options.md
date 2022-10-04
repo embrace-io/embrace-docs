@@ -42,8 +42,9 @@ Please contact <support@embrace.io> if you have any questions about these settin
 ```groovy
 swazzler {
   forceIncrementalOverwrite = false
-  forceOkHttpWrapperInjection = false
-  forceVolleyWrapperInjection = false
+  useNewDependencyInstaller = false
+  forceOkHttpWrapperInjection = false 
+  forceVolleyWrapperInjection = false 
 }
 ```
 
@@ -53,11 +54,22 @@ Enable this to force copying of unchanged JAR files during the swazzling phase.
 Enabling this is discouraged unless Embrace's support team has instructed you to enable it.
 Defaults to `false`.
 
-#### forceOkHttpWrapperInjection *bool*
+#### encodeExtractedFileNames *bool*
+
+Enable this if one of the dependencies in your project has a JAR file with class names that are only distinguished by case (due to obfuscation, for example), and you are building your application in a case-insensitive file system.
+Defaults to `false`.
+
+#### useNewDependencyInstaller *bool*
+
+Now we not need to forceOkHttpWrapperInjection and forceVolleyWrapperInjection anymore, we have useNewDependencyInstaller enabled by default. Disable this only if you find any issue related to the new dependency installer.
+If useNewDependencyInstaller is set to false, the properties forceOkHttpWrapperInjection and forceVolleyWrapperInjection should be set to true if needed. 
+
+#### forceOkHttpWrapperInjection *bool* 
 
 Enable this if okHttp exists as a dependency in any of your dependencies or submodules.
 This is only necessary if OkHttp is present in any of your project submodules and not on your main module (app).
 The plugin will emit a warning at build time indicating if you need to add this setting.
+This property is ignored if `{useNewDependencyInstaller = true}`
 Defaults to `false`.
 
 #### forceVolleyWrapperInjection *bool*
@@ -65,11 +77,7 @@ Defaults to `false`.
 Enable this if Volley exists as a dependency in any of your dependencies or submodules.
 This is only necessary if Volley is present in any of your project submodules and not on your main module (app).
 The plugin will emit a warning at build time indicating if you need to add this setting.
-Defaults to `false`.
-
-#### encodeExtractedFileNames *bool*
-
-Enable this if one of the dependencies in your project has a JAR file with class names that are only distinguished by case (due to obfuscation, for example), and you are building your application in a case-insensitive file system.
+This property is ignored if `{useNewDependencyInstaller = true}`
 Defaults to `false`.
 
 ## Disabling Swazzling for Specific JARs and Classes
