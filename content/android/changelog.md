@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.7.0
+*Oct 03, 2022*
+
+* New mechanism to auto-install Embrace dependencies. If you prefer to use the old mechanism, the new API can be disabled by setting the `useNewDependencyInstaller` property to false. You can check our documentation [**here**]({{< relref "/android/features/build-options#useNewDependencyInstaller-bool" >}}) 
+
+
 ## 5.6.2
 *Oct 03, 2022*
 
