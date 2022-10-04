@@ -77,8 +77,7 @@ Defaults to `false`.
 
 #### useNewDependencyInstaller *bool*
 
-Now we not need to forceOkHttpWrapperInjection and forceVolleyWrapperInjection anymore, we have useNewDependencyInstaller enabled by default. Disable this only if you find any issue related to the new dependency installer.
-If useNewDependencyInstaller is set to false, the properties forceOkHttpWrapperInjection and forceVolleyWrapperInjection should be set to true if needed. 
+Uses a new mechanism for adding Embrace's build-time dependencies to your project. You should only disable this property if instructed to by the Embrace support team - the vast majority of customers will not need to set this.
 Defaults to `true`.
 
 ## Disabling Swazzling for Specific JARs and Classes
