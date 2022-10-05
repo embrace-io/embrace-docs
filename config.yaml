@@ -20,7 +20,7 @@ params:
     android: "5.6.2"
     rn: "3.9.21"
     unity: "1.7.6"
-    unity_android: "5.6.1"
+    unity_android: "5.7.0"
   BookSection: '*'
   BookMenuReset: false
   BookTheme: light

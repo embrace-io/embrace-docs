@@ -14,5 +14,6 @@ how your application is performing in production.
 1. [**Know your users.**]({{< relref "/unity/features/identify-users" >}}) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 1. [**Tracking Views.**]({{< relref "/unity/features/tracking-views" >}}) Track custom views using the Embrace SDK.
 1. [**Log Network Requests.**]({{< relref "/unity/features/log-network-requests.md" >}}) Log network requests made by your application.
+1. [**Log Unhandled Exceptions.**]({{< relref "/unity/features/exception-logging.md">}}) Automatically log unhandled exceptions thrown by your application.
 1. [**Build Options.**]({{< relref "/unity/features/build-options" >}}) The Embrace Unity Editor Windows have options that can modify the build process.
 
