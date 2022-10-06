@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.11.0
+*October 6th, 2022*
+
+* Fixes bug in crash handler introduced in 5.9.3.
+* Adds unity sdk version property.
+
 ## 5.10.0
 *October 3rd, 2022*
 
