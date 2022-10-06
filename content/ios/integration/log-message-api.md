@@ -6,7 +6,7 @@ aliases:
   - /ios/log-message-api/
 ---
 
-# Adding Alerts
+# Adding Logs
 
 As we've discussed in the [Session Reporting section]({{< relref "/ios/integration/session-reporting">}}), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
 
