@@ -5,6 +5,16 @@ weight: "3"
 
 ---
 # React Native SDK Changelog
+
+## 3.10.0
+
+_August 29, 2022_
+
+* Added Axios interceptor to force log network calls
+* Now Embrace will track errors in DEV mode
+* Upgraded to latest Android SDK version
+* Upgraded to latest iOS SDK version
+
 ## 3.9.21
 
 _August 29, 2022_
