@@ -16,11 +16,11 @@ outputs:
     - AMP
 params:
   sdkVersion:
-  ios: "5.10.0"
-  android: "5.6.2"
-  rn: "3.10.0"
-  unity: "1.7.6"
-  unity_android: "5.7.0"
+    ios: "5.11.0"
+    android: "5.6.2"
+    rn: "3.10.0"
+    unity: "1.7.6"
+    unity_android: "5.7.0"
   BookSection: '*'
   BookMenuReset: false
   BookTheme: light
