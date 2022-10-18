@@ -6,6 +6,11 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.7.1
+*Oct 18, 2022*
+
+* Fixed an ANR occurring in React Native projects using a custom Javascript bundle URL.
+
 ## 5.7.0
 *Oct 03, 2022*
 
