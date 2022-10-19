@@ -7,29 +7,7 @@ weight: 6
 
 # Capture Background Sessions
 
-The Embrace SDK can be configured to enable the capturing of background sessions. To enable capturing background sessions, call the `setBackgroundSessionMode` method with the `EMBBackgroundSessionHybrid` enum value. 
-
-{{< tabs "tabs1" >}}
-
-{{< tab "Swift" >}}
-
-```swift
-Embrace.sharedInstance().setBackgroundSessionMode(.hybrid)
-```
-
-{{< /tab >}}
-
-{{< tab "Objective-C" >}}
-
-```objective-c
-[[Embrace sharedInstance] setBackgroundSessionMode: EMBBackgroundSessionHybrid];
-```
-
-{{< /tab >}}
-
-{{< /tabs >}}
-
-To disable background session capture, either remove the `setBackgroundSessionMode` method call or use the `EMBBackgroundSessionDisabled` enum value (`.disabled` for Swift). You can also disable the collection of background sessions on the settings page of the Embrace dashboard.
+The Embrace SDK can be configured to enable the capturing of background sessions. You can enable and disable capturing background sessions on the settings page of the Embrace dashboard.
 
 {{< hint info >}}
 Capturing background sessions requires v5.5.1 or higher.
