@@ -59,7 +59,7 @@ If you'd like to specify "Staging" via it's index, you would define the followin
 
 Alternatively, to specify by the name "Staging":
 
-**OSX/Linux:**
+**macOS/Linux:**
 ```$ export EMBRACE_ENVIRONMENTS_NAME=Staging```
 
 **Windows:**
