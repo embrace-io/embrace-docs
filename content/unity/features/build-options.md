@@ -51,7 +51,7 @@ For example, let's assume the following environment configurations are defined (
 
 If you'd like to specify "Staging" via it's index, you would define the following:
 
-**OSX/Linux:**
+**macOS/Linux:**
 ```$ export EMBRACE_ENVIRONMENTS_INDEX=1```
 
 **Windows:**
