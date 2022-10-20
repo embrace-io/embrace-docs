@@ -6,6 +6,13 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.12.0
+*October 20th, 2022*
+
+* Added a "enableIntegrationHelp" parameter to the SDK initialization methods. When enabled (and only on development), the SDK will show an alert view when there's a critical error during the initialization process.
+* Fix session end time potentially being incorrect for crashes.
+* Fixed Unity crashes not saving properly.
+
 ## 5.11.0
 *October 6th, 2022*
 
