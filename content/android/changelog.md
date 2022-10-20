@@ -6,6 +6,15 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.8.0
+*Oct 20, 2022*
+
+* Fixed message for Ironsource and Moshi known issues.
+* Automate disabling dependency injection when using EDM4U.
+* Automate NDK Enabling for Unity and Native projects when value is default.
+* Added integration mode to identify potential issues with the SDK integration.
+* Rolled back the use of DefaultLifecycleObserver
+
 ## 5.7.1
 *Oct 18, 2022*
 
