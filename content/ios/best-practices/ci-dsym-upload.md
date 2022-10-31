@@ -127,7 +127,7 @@ It is recommended that this `dsym_output.zip` archive is saved as a build artifa
 
 ### Upload
 
-Its also possible to manually run the Embrace upload tool directly from a CI step. Here is our reference guide for a [manual upload]({{<relref "/ios/integration/dsym-upload/#manual-uploads">}}) to the Embrace dashboard.
+Its also possible to manually run the Embrace upload tool directly from a CI step. Here is our reference guide for a [manual upload]({{<relref "/ios/integration/dsym-upload#manual-uploads">}}) to the Embrace dashboard.
 
 The `APP_KEY` and `API_TOKEN` envvars should be retrieved from the Embrace dashboard.
 
