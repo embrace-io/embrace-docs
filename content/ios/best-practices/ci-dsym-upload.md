@@ -9,7 +9,7 @@ aliases:
 
 # CI Providers and Job Artifacts
 
-Most common CI providers (Bitrise, Buildkite, CircleCI, Github Actions, etc.) have provided mechanism for storing build "artifacts". These artifacts are outputs from a build job. When automating the build process for your Xcode project, its wise to store the application binary as a build artifact. This allows for easy distribution when the job completes.
+Most common CI providers (Bitrise, Buildkite, CircleCI, GitHub Actions, etc.) have provided mechanism for storing build "artifacts". These artifacts are outputs from a build job. When automating the build process for your Xcode project, it is wise to store the application binary as a build artifact. This allows for easy distribution when the job completes.
 
 Similarly, it is recommended to store any dSYM files created during the build. In this article, we'll walk through where dSYM files are generated and provide some quick scripts to use to easily collect and store these artifacts.
 
@@ -25,7 +25,7 @@ Here are quick links to documentation for storing artifacts in common mobile CI 
 
 # The Gist
 
-Most CI systems operate via a build "job", where that job consists of multiple "steps". These jobs run on an "agent" - an environment to host this process. These build jobs become very customizable and very different but for the sake of this document lets focus on the following example workflow:
+Most CI systems operate via a build "job", where that job consists of multiple "steps". These jobs run on an "agent" - an environment to host this process. These build jobs become very customizable and very different but for the sake of this document we will focus on the following example workflow:
 
 The following is a psuedo job declaration syntax:
 ```
@@ -38,9 +38,9 @@ Build Job
 
 The first three steps are pretty self explanatory, we want to validate our build, then create an app release ready for distribution.
 
-The "Deploy App" step is very team dependent. It may be an automated deployment to Testflight or something more customized that involves uploading the app binary to a web server that can be accessed by authorized testers. In this scenario, only the app artifact is copied from the build agent. For release builds, this lacks a very important piece - dSYMS.
+The "Deploy App" step is very team dependent. It may be an automated deployment to TestFlight or something more customized that involves uploading the app binary to a web server that can be accessed by authorized testers. In this scenario, only the app artifact is copied from the build agent. For release builds, this lacks a very important piece - dSYMs.
 
-Lets update the above job to account for these missing dSYMS.
+Let's update the above job to account for these missing dSYMs.
 
 ```
 Build Job
@@ -107,10 +107,41 @@ find ~/Library/Developer/Xcode/DerivedData/MyProject*/Build/Products -iname "*.d
 zip -r dsym_output.zip ./dsym_output
 ```
 
-Getting back to storing artifacts, its recommended that this `dsym_output.zip` archive is saved as a build artifact. This will help if its needed to [manually upload]({{<relref "/ios/integration/dsym-upload/#manual-uploads">}}) dSYM files using the `upload` tool or in the Embrace dashboard.
+Once you have this archive built, be sure to store it with your CI provider. Below is an example using GitHub Actions:
+```yaml
+steps:
+  - name: Collect dSYM Archive
+    run: |
+      mkdir ./dsym_output
+      find ~/Library/Developer/Xcode/DerivedData/MyProject*/Build/Products -iname "*.dsym" | xargs -n 1 -J % cp -r % ./dsym_output
+      zip -r dsym_output.zip ./dsym_output
+
+  - name: Store dSYM Archvie
+        uses: actions/upload-artifact@v3
+        with:
+          name: dSYM Archive
+          path: dsym_output.zip
+```
+
+It is recommended that this `dsym_output.zip` archive is saved as a build artifact. Even better, it should be saved to a longer term storage solution like AWS S3 or a private web server.
+
+### Upload
+
+Its also possible to manually run the Embrace upload tool directly from a CI step. Here is our reference guide for a [manual upload]({{<relref "/ios/integration/dsym-upload/#manual-uploads">}}) to the Embrace dashboard.
+
+The `APP_KEY` and `API_TOKEN` envvars should be retrieved from the Embrace dashboard.
 
 ```sh
-/EmbraceIO/upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
+/path/to/EmbraceIO/upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
+```
+
+If the Embrace `upload` utility is in a known location you should use the existing binary. If it is non-deterministic or not included alongside the Embrace package itself, then you should not hesitate to download the utility directly.
+
+```
+$ curl -o ./embrace_support.zip https://s3.amazonaws.com/embrace-downloads-prod/embrace_carthage_support.zip
+$ unzip ./embrace_support.zip
+$ ./upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
+
 ```
 
 # dSYM Upload
