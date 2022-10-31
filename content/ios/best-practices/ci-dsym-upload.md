@@ -68,6 +68,7 @@ DWARF_DSYM_FOLDER_PATH = /Users/myuser/Library/Developer/Xcode/DerivedData/MyPro
 Keep in mind that these settings are available in an Xcode build context, so you'd have access to them in an custom Run Script phase.
 
 Let's break down that `DWARF_DSYM_FOLDER_PATH` value:
+
 	- `~/Library/Developer/Xcode/DerivedData`. A path to the Xcode DerivedData directory. This is the location Xcode uses as a build cache. You may have some experience deleting this directory when Xcode is having one of those days.
 	-  `MyProject-csghshgvxlwqxigvbxpltluvkykv`. This is a project specific folder. It appends a seemingly random hash to the end
 	- `Build/Products/`. This subpath is the location for finalized build artifacts.
