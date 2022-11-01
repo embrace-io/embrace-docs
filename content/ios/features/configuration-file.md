@@ -17,8 +17,6 @@ Embrace is configured via an `Embrace-Info.plist` file placed at the root of the
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BACKGROUND_FETCH_CAPTURE_ENABLE</key>
-	<true/>
 	<key>API_KEY</key>
 	<string>TEST_KEY</string>
 	<key>CRASH_REPORT_ENABLED</key>
@@ -55,10 +53,6 @@ Controls Embrace's capture of tap coordinates within the app. When disabled, Emb
 #### CAPTURE_TAPPED_ELEMENTS *boolean, optional*
 
 Controls Embrace's capture of tap element names within the app. When disabled, Embrace still captures taps but not the name of the tapped element. The default is on.
-
-#### BACKGROUND_FETCH_CAPTURE_ENABLE *boolean, optional*
-
-If enabled, Embrace will swizzle and capture requests made via the background task downloading API. The default if off.
 
 #### COLLECT_NETWORK_REQUEST_METRICS *boolean, optional*
 
