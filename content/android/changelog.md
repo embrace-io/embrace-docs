@@ -6,6 +6,13 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.9.0
+*Nov 03, 2022*
+* Allow Unity customers to verify their integration.
+* Improve NDK service logs to work with strict and integration mode
+* Improved the EmbraceSamples.verify() method
+* Added Profile Installer to support Baseline Profiles.
+
 ## 5.8.0
 *Oct 20, 2022*
 
