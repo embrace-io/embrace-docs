@@ -6,8 +6,20 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.8.0
+*November 3, 2022*
+
+* Added support for selecting environment configurations at build time by setting the `EMBRACE_ENVIRONMENTS_NAME` or `EMBRACE_ENVIRONMENTS_INDEX` environment variable
+* Updated Android SDK to version 5.9.0
+* Updated iOS SDK to version 5.12.1
+    - Improved reliability of exception logs on iOS when app is immediately terminated after the exception
+    - Fixed app freezing when encountering a native crash
+    - Fixed some dSYMs failing to upload
+
 ## 1.7.6
 *October 4, 2022*
+
+> This version of the Unity SDK introduced a bug in the iOS crash handler that can cause the app to freeze when encountering a native crash. Please update to the latest version.
 
 * Updated Android SDK to version 5.7.0
 * Updated iOS SDK to version 5.10.0
