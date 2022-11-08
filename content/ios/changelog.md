@@ -6,6 +6,18 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.12.2
+*November 8th, 2022*
+
+* Fix issue where the included `upload` utility and `run.sh` script would not have executable permissions when distributed through Cocoapods.
+* Bumped `upload` utility version to `10.0.4`
+
+## 5.12.1
+*November 8th, 2022*
+
+* Fix issue where tap element capture would not be enabled by default when passing an `EmbraceConfig` object at runtime to initialize the SDK.
+* Fix issue on Unity where a crash signal would cause the app to freeze instead of exit.
+
 ## 5.12.0
 *October 20th, 2022*
 
