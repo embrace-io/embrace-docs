@@ -16,7 +16,7 @@ outputs:
     - AMP
 params:
   sdkVersion:
-    ios: "5.12.0"
+    ios: "5.12.2"
     android: "5.9.0"
     rn: "3.10.0"
     unity: "1.8.0"
