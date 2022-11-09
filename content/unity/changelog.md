@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.8.1
+*November 9, 2022*
+
+* Excluded all Embrace assemblies when building for platforms other than iOS and Android.
+* Disabled Embrace IL weaver when building for platforms other than iOS and Android.
+
 ## 1.8.0
 *November 3, 2022*
 
