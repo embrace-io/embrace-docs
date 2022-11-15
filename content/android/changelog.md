@@ -6,6 +6,10 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.9.1
+*Nov 14, 2022*
+* Fixed an internal exception when trying to access the jailbroken status of the device.
+
 ## 5.9.0
 *Nov 03, 2022*
 * Improve NDK service logs to work with strict and integration mode
