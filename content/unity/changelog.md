@@ -34,6 +34,8 @@ weight: 4
 ## 1.7.5
 *September 26, 2022*
 
+> The version of the Embrace Android SDK used in this version contains a bug that can cause Embrace to fail to initialize properly. Please update to Unity SDK version 1.8.0 or later and Android SDK version 5.7.0 or later.
+
 * Fixed a compatibility issue with Embrace Android SDK version 5.6.0 and higher.
 
 ## 1.7.4
