@@ -6,6 +6,12 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.12.3
+*November 15th, 2022*
+
+* Ensured remote config fetch does not impact main thread
+* setBackgroundMode API Deprecation 
+
 ## 5.12.2
 *November 8th, 2022*
 
