@@ -96,7 +96,7 @@ Several customers have encountered the scenario in which they have mistakenly di
 
 When using a version of 'appCompat' ≥ 1.4.1, the 'androidx.startup' library is used to initialise lifecycle event listeners. This is the same library used by WorkManager on Android.
 
-In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two way of implementing custom configuration settings are described. 
+In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described. 
 
 If the following code block is present in your Manifest file, **Embrace SDK will not run.** This deactivates every initialization provider:
 ```groovy
@@ -122,7 +122,7 @@ If the following code block is present in your Manifest file, **Embrace SDK will
 </provider>
 ```
 
-In other instances, a library may disable the initializer. In such a scenario, we may not locate any explicit provider block in the application manifest file. In this situation, the initialization provider might be added explicitly:
+In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, the initialization provider should be added explicitly:
 
 ```groovy
 <provider android:authorities="${applicationId}.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
@@ -130,7 +130,7 @@ In other instances, a library may disable the initializer. In such a scenario, w
 </provider>
 ```
 
-*Note: Since this issue only occurs with appcompat 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.*
+*Note: Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.*
 
 *Please contact us if you have any questions or require help.*
 
