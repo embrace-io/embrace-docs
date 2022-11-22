@@ -6,6 +6,11 @@ weight: "3"
 ---
 # React Native SDK Changelog
 
+## 0.0.1
+
+ _November 25, 2022_
+ * Added React Navigation Screen Tracker
+
 ## 3.10.0
 
 _October 09, 2022_
