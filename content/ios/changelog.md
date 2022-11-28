@@ -6,6 +6,14 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.12.4
+*November 28th, 2022*
+
+* Fix potential loss of logs in edge case
+* Potential infinite loop fix when using AFNetworking
+* Potential infinite loop fixed when for rare edge case with logging
+* Potential undefined behavior fix 
+
 ## 5.12.3
 *November 15th, 2022*
 
