@@ -1,8 +1,7 @@
 ---
-bookCollapseSection: true
 title: "Metrics API Code Samples"
 description: Learn how to integrate the Metrics API using code
-weight: 1
+weight: 2
 ---
 
 # Metrics API Code Samples

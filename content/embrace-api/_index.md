@@ -2,7 +2,7 @@
 bookCollapseSection: true
 title: "Embrace Metrics API"
 description: Learn about the Embrace API to pull data 
-weight: 1
+weight: 5
 ---
 
 # Embrace Metrics API
