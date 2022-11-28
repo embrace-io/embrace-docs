@@ -1,0 +1,127 @@
+---
+bookCollapseSection: true
+title: "Embrace API"
+description: Learn about the Embrace API to pull data 
+weight: 1
+---
+
+# Pull API Grafana Integration Steps
+
+## Prerequisites
+
+- Grafana ≥ 2.5.0
+- Embrace Pull API Token. This can be found in the Settings page
+
+## Setting Up Embrace as a Datasource
+
+1. Add Prometheus as a data source in the Grafana dashboard. 
+    1. Click the gear icon to go to the Configurations page.
+    2. Click on “Add data source” and select Prometheus.
+    3. Name your source “embrace-pull-api” and set the following fields:
+        1. URL: `https://api.embrace.io/metrics`
+        2. Under Custom HTTP Headers, add a Header with a name “Authorization” and use “Bearer <API TOKEN>” as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
+
+## Importing Dashboard JSON
+
+We provide a JSON file that is pre-populated with common queries. To add the dashboard to Grafana, click on the Dashboards icon and select “+ Import”. Click on the Upload JSON file button. You may be asked to change the uid of the dashboard if some other dashboard already has that name. You can set it to something like “a-0000000”.
+
+## Creating Time Series
+
+Add a new panel and set the visualization to “Time series”.
+
+{{<figure src="/docs/images/embrace-api/timeseries_visualization.png" alt="Image showing Grafana timeseries visualization" width="700" height="700" >}}
+
+
+Set the data source to “embrace-pull-api”.  In the “Query options” section set the “Min interval”. Currently only the following intervals are supported: 1m, 5m, 10m, 15m, 30m, 1hr, and 1d. **Keep in mind that Prometheus only supports 11,000 points per time series.** 
+
+{{<figure src="/docs/images/embrace-api/query_options.jpg" alt="Image showing Grafana timeseries visualization" caption="" width="2922" height="532" >}}
+
+The following query will provide a time series graph for total sessions for your app.
+
+```promql
+sessions_total{app_id="<app ID>"}
+```
+
+You’ll note that this gives you several time series, one for each combination of app version and OS version. We can make these more useful by grouping by app version. Each timeseries now shows the total sessions grouped by app version.
+
+```promql
+sum(sessions_total{app_id="<app ID>"}) by (app_version)
+```
+
+You can filter by an app version by specifying it in the expression
+
+```promql
+sessions_total{app_id="<app ID>", app_version="1.2.3"}
+```
+
+You can visualize multiple app versions in the same graph by creating multiple queries and filtering by each desired app version.
+
+{{<figure src="/docs/images/embrace-api/two_timeseries_panel.png" alt="Image showing Grafana timeseries visualization" caption="Multiple PromQL queries can be visualized on the same panel" width="2960" height="1664" >}}
+
+## Creating Tables
+
+Add a new panel and select the Table visualization. 
+
+{{<figure src="/docs/images/embrace-api/table_visualization.png" alt="Image showing Grafana timeseries visualization" width="421" height="399" >}}
+
+Add a query. For our example, we’ll see the session counts grouped by app version and OS version in descending order.
+
+```promql
+sum(sessions_total{app_id="<app ID>"}) by (app_version, os_version)
+```
+
+Select the Transform tab and add the Reduce transform. Set Mode to “Series to rows”, Calculations to “Total”, and turn ”Labels to fields” on.
+
+{{<figure src="/docs/images/embrace-api/transform_series_to_rows.png" alt="Image showing Grafana timeseries visualization" width="575" height="260" >}}
+
+The table should now have the columns Field, app_version, os_version, and Total. Let’s get rid of that “Field” column. 
+
+Add a new transformation, “Organize fields”. You’ll see that each column can be renamed or hidden. Click the eye icon to hide the “Field” column.
+
+{{<figure src="/docs/images/embrace-api/organize_fields.png" alt="Image showing Grafana timeseries visualization" title="Organize Fields" caption="Hide or relabel fields in the \"Organize fields\" transformation." width="803" height="459">}}
+
+Finally, you can sort the rows in descending order by clicking on the label for the Total order.
+
+
+## Supported Metrics
+
+The following metrics are supported. Metrics with the suffix "_total" are counters. All other metrics are gauges.
+
+| Metric | Description |  Filters |
+| --- | --- | --- |
+| daily_crash_free_session_by_device_rate | Percentage of crash free sessions grouped by device model |  app_version, device_model, os_version |
+| daily_crash_free_session_rate | Percentage of crash free sessions |  app_version, os_version |
+| daily_crashed_users | Number of unique users with crashes |  app_version, os_version |
+| daily_crashes_total | Number of crashes |  app_version, os_version |
+| daily_sessions_by_device_total | Number of sessions grouped by device model |  app_version, device_model, os_version |
+| daily_sessions_total | Number of sessions |  app_version, os_version |
+| daily_users | Number of unique users |  app_version, os_version |
+| hourly_crash_free_session_by_device_rate | Percentage of crash free sessions group by device model |  app_version, device_model, os_version |
+| hourly_crash_free_session_rate | Percentage of crash free sessions |  app_version, os_version |
+| hourly_crashed_users | Number of unique users with crashes |  app_version, os_version |
+| hourly_crashes_total | Number of crashes |  app_version, os_version |
+| hourly_sessions_by_device_total | Number of sessions grouped by device model |  app_version, device_model, os_version |
+| hourly_sessions_total | Number of sessions |  app_version, os_version |
+| hourly_users | Number of unique users |  app_version, os_version |
+
+
+## Sample Queries
+
+### Sessions Grouped by App Version
+
+```promql
+sum(sessions_total{app_id="<app ID>"}) by (app_version)
+```
+
+### Sessions Grouped by Devices
+
+```promql
+sum(sessions_by_device_model_total{app_id="<app ID>"}) by (device_model)
+```
+
+### Sessions Grouped by Devices for a Given App Version
+
+```promql
+sum(sessions_by_device_model_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
+```
+
