@@ -20,7 +20,7 @@ This example uses the [prometheus-query](https://www.npmjs.com/package/prometheu
 // npm install prometheus-query
 const promQuery = require('prometheus-query');
 
-const PULL_API_ENDPOINT = "https://api.embrace.io/metrics/";
+const METRICS_API_ENDPOINT = "https://api.embrace.io/metrics/";
 
 const TOKEN = '<your token>';
 const AUTH_HEADER = `Bearer ${TOKEN}`;
@@ -29,7 +29,7 @@ const TIME_STEP_SECS = 3600; // NOTE: Steps smaller than one hour will be rounde
 const QUERY = `sum(hourly_sessions_total{app_id="${MY_APP_ID}"})`;
 
 const prom = new promQuery.PrometheusDriver({
-    endpoint: PULL_API_ENDPOINT,
+    endpoint: METRICS_API_ENDPOINT,
     baseURL: "/api/v1", // default value
     headers: {Authorization: AUTH_HEADER},
     preferPost: true
