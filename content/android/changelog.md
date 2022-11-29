@@ -6,6 +6,10 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.9.2
+*Nov 28, 2022*
+* Improved Embrace startup time
+
 ## 5.9.1
 *Nov 14, 2022*
 * Fixed an internal exception when trying to access the jailbroken status of the device.
