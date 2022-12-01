@@ -6,6 +6,18 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.9.0
+*December 1, 2022*
+
+* The Embrace Unity SDK now automatically updates the version of the `embrace-swazzler` dependency defined in the project's `baseProjectTemplate.gradle`
+* Fixed a bug that could cause multiple small editor windows to open while the Embrace SDK is imported for the first time
+* Fixed a bug that could throw an exception when adding the Embrace scoped registry to the project's package manifest
+* Embrace SDK editor windows no longer open when the Unity editor is running in batch mode
+* Fixed a bug that could cause the Embrace SDK to fail to load configurations when the Embrace data path was set to a custom path and the project was opened on a new machine
+* Fixed a potential build-time `NullReferenceException` when automatic network capture is enabled and a UnityWebRequest was disposed via an `IDisposable` reference as the first instruction in a method
+* Updated iOS SDK to version 5.12.4
+* Updated Android SDK to version 5.9.3
+
 ## 1.8.1
 *November 9, 2022*
 
@@ -361,3 +373,4 @@ weight: 4
 *Dec 20, 2020*
 
 * First public release of the Embrace Unity SDK
+
