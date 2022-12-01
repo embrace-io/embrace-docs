@@ -18,7 +18,7 @@ weight: 1
     2. Click on “Add data source” and select Prometheus.
     3. Name your source “embrace-metrics-api” and set the following fields:
         1. URL: `https://api.embrace.io/metrics`
-        2. Under Custom HTTP Headers, add a Header with a name “Authorization” and use “Bearer <API TOKEN>” as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
+        2. Under Custom HTTP Headers, add a Header with a name “Authorization” and use “Bearer \<API TOKEN\>” as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
 
 ## Importing Dashboard JSON
 
