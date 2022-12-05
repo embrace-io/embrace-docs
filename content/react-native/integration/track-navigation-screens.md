@@ -22,7 +22,7 @@ Currently we are only supporting the React Navigation SDK, if you are using anot
 
 ## Adding the complement
 
-Embrace has a separated module for track Screens, to use it you will need to add the React Navigation Tracker
+Embrace has a separate module for tracking Screens, to use it you will need to add the React Navigation Tracker
 
 ### Install the complement
 
