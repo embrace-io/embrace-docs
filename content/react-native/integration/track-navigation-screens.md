@@ -79,7 +79,7 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 ```
 
 ### iOS:
-Go to your Embrace-info.plist insde ios/YOURAPPNAME and add the ENABLE_AUTOMATIC_VIEW_CAPTURE in false, your file should be like this
+Go to your Embrace-info.plist inside ios/YOURAPPNAME and add ENABLE_AUTOMATIC_VIEW_CAPTURE as false, your file should be like this
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
