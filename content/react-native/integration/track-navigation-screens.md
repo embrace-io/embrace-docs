@@ -1,6 +1,6 @@
 ---
 title: "Track Screens"
-description: Add logging to your React Native application to track screens using Embrace SDK
+description: Add logging to your React Native application to track screens using the Embrace SDK
 weight: 8
 aliases:
   - /react-native/track-screens/
