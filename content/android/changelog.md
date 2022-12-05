@@ -6,6 +6,18 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.9.3
+*Nov 20, 2022*
+* It fixes a Gradle issue on anyone running Gradle < 6.2
+
+## 5.9.2
+*Nov 28, 2022*
+{{< hint warning >}}
+This version has a known issue with Gradle < 6.2
+{{< /hint >}}
+
+* Improved Embrace startup time
+
 ## 5.9.1
 *Nov 14, 2022*
 * Fixed an internal exception when trying to access the jailbroken status of the device.

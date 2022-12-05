@@ -86,6 +86,54 @@ See [this section]({{< relref "/android/features/configuration-file#custom-setti
 Not currently. Please contact us at <support@embrace.io> or on Slack if you would like to request support.
 
 
+### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
+
+A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events. 
+
+Several customers have encountered the scenario in which they have mistakenly disabled the SDK's ability to listen for such events. In such cases, customer intervention is required to determine how the startup library was disabled and how to re-enable it.
+
+**Technical Examples**
+
+When using a version of 'appCompat' ≥ 1.4.1, the 'androidx.startup' library is used to initialise lifecycle event listeners. This is the same library used by WorkManager on Android.
+
+In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described. 
+
+If the following code block is present in your Manifest file, **Embrace SDK will not run.** This deactivates every initialization provider:
+```groovy
+<!-- If you want to disable android.startup completely. -->
+<provider
+    android:name="androidx.startup.InitializationProvider"
+    android:authorities="${applicationId}.androidx-startup"
+    tools:node="remove">
+</provider>
+```
+**Recommended Usage:** Only disable the WorkManager initializer. This will allow the Embrace SDK to function properly:
+```groovy
+<provider
+    android:name="androidx.startup.InitializationProvider"
+    android:authorities="${applicationId}.androidx-startup"
+    android:exported="false"
+    tools:node="merge">
+    <!-- If you are using androidx.startup to initialize other components -->
+    <meta-data
+        android:name="androidx.work.WorkManagerInitializer"
+        android:value="androidx.startup"
+        tools:node="remove" />
+</provider>
+```
+
+In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, the initialization provider should be added explicitly:
+
+```groovy
+<provider android:authorities="${applicationId}.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+   <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+</provider>
+```
+
+*Note: Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.*
+
+*Please contact us if you have any questions or require help.*
+
 
 ## Users
 
