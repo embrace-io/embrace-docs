@@ -49,7 +49,7 @@ function App() {
   useEmbraceNavigationTracker(navigationRef);
 
   return (
-      // Asign the NavigationContainer reference value to the useRef created
+      // Assign the NavigationContainer reference value to the useRef created
       <NavigationContainer ref={navigationRef}>
         <Screens... />
       </NavigationContainer>
