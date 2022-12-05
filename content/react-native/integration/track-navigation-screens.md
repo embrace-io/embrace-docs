@@ -90,7 +90,7 @@ Go to your Embrace-info.plist insde ios/YOURAPPNAME and add the ENABLE_AUTOMATIC
 	<string>{API_KEY}</string>
 	<key>CRASH_REPORT_ENABLED</key>
 	<true/>
-   <!-- Add this key and the value in false-->
+   <!-- Add this key and the value as false-->
 	<key>ENABLE_AUTOMATIC_VIEW_CAPTURE</key>
 	<false/>
 </dict>
