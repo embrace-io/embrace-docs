@@ -16,7 +16,7 @@ Here's how you add the screen tracker to the session.
 
 {{< hint info >}}
 
-Currently we are only support React Navigation SDK, if you are using other library please contact us at <support@embrace.io> or on Slack if you would like to request support.
+Currently we are only supporting the React Navigation SDK, if you are using another library please contact us at <support@embrace.io> or on Slack if you would like to request support.
 
 {{< /hint >}}
 
