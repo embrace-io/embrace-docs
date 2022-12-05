@@ -36,7 +36,7 @@ npm install @react-native-embrace/react-navigation
 
 ### Adding the complement to your code
 
-Add an useRef for the NavigationContainer and pass it to the Embrace's hook
+Add an useRef for the NavigationContainer and pass it to Embrace's hook
 
 ```javascript
 import {useRef} from 'react'
