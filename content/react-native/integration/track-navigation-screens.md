@@ -20,11 +20,11 @@ Currently we are only supporting the React Navigation SDK, if you are using anot
 
 {{< /hint >}}
 
-## Adding the complement
+## Adding the component
 
 Embrace has a separate module for tracking Screens, to use it you will need to add the React Navigation Tracker
 
-### Install the complement
+### Install the component
 
 ```sh
 yarn add @react-native-embrace/react-navigation
@@ -34,7 +34,7 @@ yarn add @react-native-embrace/react-navigation
 npm install @react-native-embrace/react-navigation
 ```
 
-### Adding the complement to your code
+### Adding the component to your code
 
 Add an useRef for the NavigationContainer and pass it to Embrace's hook
 
