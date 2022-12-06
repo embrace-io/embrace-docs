@@ -1,7 +1,7 @@
 ---
 title: "Log Message API"
 description: Trigger alerts for your React Native application using logs with the Embrace SDK
-weight: 8
+weight: 9
 aliases:
   - /react-native/log-message-api/
 ---
