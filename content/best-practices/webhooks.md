@@ -90,20 +90,6 @@ Choose Create issue
 
 Complete the rest of the Jira automation per your organization’s needs. 
 
-<h3>Microsoft Teams Integration </h3>
-
-
-Follow the instructions on the [Microsoft Teams documentation for Incoming Webhooks](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
-
-Copy the URL generated in step 5 and paste that into the Embrace dash. 
-
-<h3>xMatters Integration</h3>
-
-
-Follow the instructions on the [xMatters Workflow documentation for Webhooks](https://help.xmatters.com/integrations/other/webhooks.htm?cshid=Webhook)
-
-Copy the URL generated in the Inbound Webhook Configuration step into the Embrace dash. 
-
 <h3>Pagerduty Integration</h3>
 
 You will need to setup a Custom Event Transformer integration (CET).
