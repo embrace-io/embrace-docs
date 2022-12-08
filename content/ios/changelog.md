@@ -10,7 +10,7 @@ weight: 4
 *December 6th, 2022*
 
 * ``setBackgroundMode`` removed in favor of the dashboard configuration options
-* Re-wrote configuration system in order to ensure easier code modiciation and performance improvements.
+* Re-wrote configuration system in order to ensure easier code modification and performance improvements.
 
 ## 5.12.4
 *November 28th, 2022*
