@@ -6,6 +6,16 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.10.0
+*Dec 07, 2022*
+- Automatically capture push notifications when the app is on foreground.
+- Added the ability to manually log push notifications.
+- Capture background activity
+
+## 5.9.4:
+*Dec 05, 2022*
+- Added the ability to report the version of the Embrace React Native SDK being used.
+
 ## 5.9.3
 *Nov 20, 2022*
 * It fixes a Gradle issue on anyone running Gradle < 6.2
