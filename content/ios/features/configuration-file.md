@@ -19,8 +19,8 @@ Embrace is configured via an `Embrace-Info.plist` file placed at the root of the
 <dict>
 	<key>API_KEY</key>
 	<string>TEST_KEY</string>
-	<key>CRASH_REPORT_ENABLED</key>
-	<true/>
+	<key>CRASH_REPORT_PROVIDER</key>
+	<string>embrace</string>
 	<key>NETWORK</key>
 	<dict>
 		<key>DEFAULT_CAPTURE_LIMIT</key>
@@ -36,9 +36,13 @@ Embrace is configured via an `Embrace-Info.plist` file placed at the root of the
 ```
 As you can see there are many properties available. Even so most apps that use Embrace do not include this file at the start. The common setup options are all available via API. You will only require this file if you intend to use one of our more advanced configuration options.
 
-#### CRASH_REPORT_ENABLED *boolean, optional*
+#### CRASH_REPORT_PROVIDER *string, optional*
 
-Controls whether Embrace's internal kscrash-based signal handler is installed or not. If disabled, Embrace will still attempt to mirror Firebase/Crashlytics crash reports but will not collect original reports.
+Determines which type of crashr reporting embrace uses. It accepts three values
+* embrace - this is the default value and enables embraces internal crash reporting
+* crashlytics - this enables the crashlytics support for crash reporting, this must be the value if you intended to use both embrace and crashlytics together. 
+* none - this completly turns off all crash reporting for embrace, but other functionaliy, like view trackking, continues to work
+the values are case insensitive. 
 
 If omitted, Embrace attempts to guess the right configuration by looking at the runtime classes.
 
