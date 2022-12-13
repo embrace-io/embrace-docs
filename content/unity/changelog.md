@@ -6,6 +6,11 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.9.1
+*December 13, 2022*
+
+* Updated Android SDK to version 5.10.0
+
 ## 1.9.0
 *December 1, 2022*
 
