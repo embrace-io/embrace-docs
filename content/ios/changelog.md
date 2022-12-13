@@ -6,6 +6,15 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.14.0
+*December 13th, 2022*
+
+* Fixes issue that could prevent logs from appearing in session if many sessions occur without app cold start
+* Removes call to deprecated method on NSKeyedUnarchiver
+* Updates tap capture behavior to prevent coordinate capture for touches that occur on system keyboard
+* Adds ability to capture breadcrumbs from Push Notifications
+
+
 ## 5.13.0
 *December 6th, 2022*
 
