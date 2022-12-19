@@ -11,6 +11,7 @@ weight: 4
 - Automatically capture push notifications when the app is on foreground.
 - Added the ability to manually log push notifications.
 - Capture background activity
+- Power save mode changes track added
 
 ## 5.9.4:
 *Dec 05, 2022*
