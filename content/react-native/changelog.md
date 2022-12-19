@@ -4,12 +4,12 @@ description: Changelog for the React Native Embrace SDK
 weight: "3"
 
 ---
-# React Native SDK Navigation Tracker Changelog
-## 0.1.0 
-
- _November 25, 2022_
- * Added React Navigation Screen Tracker
 # React Native SDK Changelog
+## 3.10.6 
+
+_December 19, 2022_
+* Added React Navigation Screen Tracker verison 0.1.0
+* Fixed a small bug when users use a recent React Native SDK with an old Android SDK
 ## 3.10.5
 
 _December 16, 2022_
