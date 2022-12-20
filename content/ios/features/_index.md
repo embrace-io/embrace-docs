@@ -16,4 +16,5 @@ how your application is performing in production.
 1. [**Web Thread Monitoring**]({{< relref "/ios/features/web-thread-monitoring" >}}) If you use WKWebView in your application, Embrace can monitor the JavaScript threads behind the view. You can log these events to your sessions or even have Embrace automatically reload the views for you.
 1. [**Network Body Capture**]({{< relref "/ios/features/network-body-capture" >}}) Embrace can upload network bodies from your requests to help you troubleshoot.  Learn how to enable this feature securely.
 1. [**Capture Background Sessions**]({{< relref "/ios/features/background-sessions" >}}) Embrace can capture background sessions so you can see events that happened in the background. Learn how to enable this feature.
+1. [**Push Notifications**]({{< relref "/ios/features/push-notifications" >}}) Embrace automatically captures push notifications received. Learn how to disable this feature.
 1. [**Configuration File**]({{< relref "/ios/features/configuration-file" >}}) Embrace supports a number of configuration options. This reference guide will help you understand them all.

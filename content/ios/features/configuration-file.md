@@ -1,7 +1,7 @@
 ---
 title: "Configuration File"
 description: A reference guide to configuration options available in the iOS SDK
-weight: 7
+weight: 8
 aliases:
   - /ios/configuration-file/
 ---
@@ -121,6 +121,14 @@ Controls the automatic ending of sessions after a certain time has passed. This 
 #### TRACE_ID_HEADER_NAME *string, optional*
 
 Embrace adds a header to all network requests to allow us to track that request and match it with the response. For certain server configurations it is necessary to customize that header: this can be done using this plist setting.
+
+#### ENABLE_PUSH_NOTIFICATIONS_CAPTURE *boolean, optional*
+
+Enables or disables the automatic capture of push notifications. The default is enabled.
+
+#### ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE *boolean, optional*
+
+Enables or disables the ability to capture the data inside push notifications. We recommend you disable this functionallty if your push notifications contain sensitive information. The default is enabled.
 
 #### CUSTOM_PATH_HEADER_INFO *dictionary, optional*
 
