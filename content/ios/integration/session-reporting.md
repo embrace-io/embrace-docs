@@ -138,6 +138,39 @@ ensure that everyone can interoperate successfully in your application.
 {{< /hint >}}
 
 {{< hint info >}}
+
+**Integration Help**
+
+If you're running into issues trying to initialize the Embrace SDK, you can enable
+the integration help mode by passing `true` to the `enableIntegrationHelp` property
+when starting Embrace.
+When this mode is enabled you'll see an alert with descriptive errors if Embrace
+fails to initialize properly.
+Please note that this alert will only show in development environments.
+
+{{< tabs "iosIntegrationHelp" >}}
+
+{{< tab "Swift" >}}
+
+```swift
+Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions, framework: .native, enableIntegrationHelp: true)
+```
+{{< /tab >}}
+
+{{< tab "Objective-C" >}}
+
+```objective-c
+[[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions framework:EMBAppFrameworkNative enableIntegrationHelp:YES];
+```
+{{< /tab >}}
+
+{{< /tabs >}}
+
+
+
+{{< /hint >}}
+
+{{< hint info >}}
 **Tip:**
 If you are a swift user you may want to also make this call after starting Embrace:
 
