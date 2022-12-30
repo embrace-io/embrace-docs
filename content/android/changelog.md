@@ -13,7 +13,7 @@ weight: 4
 - Capture background activity
 - Power save mode changes track added
 
-## 5.9.4:
+## 5.9.4
 *Dec 05, 2022*
 - Added the ability to report the version of the Embrace React Native SDK being used.
 
@@ -31,6 +31,9 @@ This version has a known issue with Gradle < 6.2
 
 ## 5.9.1
 *Nov 14, 2022*
+{{< hint warning >}}
+This version has networking known issues and should not be used
+{{< /hint >}}
 * Fixed an internal exception when trying to access the jailbroken status of the device.
 
 ## 5.9.0
