@@ -6,6 +6,14 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.14.1
+*January 9th, 2023*
+
+* Unity: Fixed an issue where unhandled logs would sometimes not be saved.
+* Made endAppStartup return when the SDK hasnt been started to prevent a crash
+* React Native: implemented a RN exclusive breadcrumb to handle actions from State Management.
+
+
 ## 5.14.0
 *December 13th, 2022*
 
