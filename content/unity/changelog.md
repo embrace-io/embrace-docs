@@ -6,6 +6,14 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.9.2
+*January 11, 2023*
+
+* Updated Android SDK to version 5.11.0
+* Fixed a bug that could cause the value of `Exception-Free Sessions` shown in the dashboard to be innacurate for Unity Android apps
+* Updated iOS SDK to version 5.14.1
+* Further improved reliability of exception logs on iOS when app is immediately terminated after the exception
+
 ## 1.9.1
 *December 13, 2022*
 
