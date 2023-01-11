@@ -6,6 +6,12 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.11.0
+*Jan 11, 2023*
+- Cpu cores
+- Compress Proguard/R8 mapping files before uploading
+- Added logHandledException method
+
 ## 5.10.0
 *Dec 07, 2022*
 - Automatically capture push notifications when the app is on foreground.
