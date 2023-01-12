@@ -8,7 +8,7 @@ weight: 4
 
 ## 5.11.0
 *Jan 11, 2023*
-- Cpu cores
+- Capture CPU number of cores
 - Compress Proguard/R8 mapping files before uploading
 - Added logHandledException method
 
