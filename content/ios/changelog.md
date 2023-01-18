@@ -6,6 +6,11 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.15.0
+*January 18th, 2023*
+
+* Added a new PUSH_NOTIFICATIONS_CAPTURE_MODE config that provides control on how Embrace will capture push notifications. Possible modes are: manual and automatic.
+
 ## 5.14.1
 *January 9th, 2023*
 
