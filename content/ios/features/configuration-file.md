@@ -39,9 +39,9 @@ As you can see there are many properties available. Even so most apps that use E
 #### CRASH_REPORT_PROVIDER *string, optional*
 
 Determines which type of crashr reporting embrace uses. It accepts three values
-* embrace - this is the default value and enables embraces internal crash reporting
-* crashlytics - this enables the crashlytics support for crash reporting, this must be the value if you intended to use both embrace and crashlytics together. 
-* none - this completly turns off all crash reporting for embrace, but other functionaliy, like view trackking, continues to work
+* `embrace` - this is the default value and enables embraces internal crash reporting
+* `crashlytics` - this enables the crashlytics support for crash reporting, this must be the value if you intended to use both embrace and crashlytics together. 
+* `none` - this completely turns off all crashes reporting for embrace, but other functionality, like view tracking, continues to work
 the values are case insensitive. 
 
 If omitted, Embrace attempts to guess the right configuration by looking at the runtime classes.
@@ -122,9 +122,11 @@ Controls the automatic ending of sessions after a certain time has passed. This 
 
 Embrace adds a header to all network requests to allow us to track that request and match it with the response. For certain server configurations it is necessary to customize that header: this can be done using this plist setting.
 
-#### ENABLE_PUSH_NOTIFICATIONS_CAPTURE *boolean, optional*
+#### PUSH_NOTIFICATIONS_CAPTURE_MODE *string, optional*
 
-Enables or disables the automatic capture of push notifications. The default is enabled.
+Defines the capture mode for push notifications. Possible values:
+* `manual` (default) - to use the manual mode you'll have to make some calls to the Embrace class. For more information about this feature read here: [**Push Notifications**]({{< relref "/ios/features/push-notifications" >}})
+* `automatic` - no extra steps needed with this mode.
 
 #### ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE *boolean, optional*
 
