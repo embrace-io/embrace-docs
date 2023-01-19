@@ -6,6 +6,11 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.12.0
+*Jan 19, 2023*
+- Fixed an issue on ndk symbols.
+- Fixed an ndk issue when building.
+
 ## 5.11.0
 *Jan 11, 2023*
 - Capture CPU number of cores
