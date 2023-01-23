@@ -6,6 +6,12 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.9.3
+*January 23, 2023*
+
+* Updated Android SDK to version 5.12.0
+* Updated iOS SDK to version 5.15.0
+
 ## 1.9.2
 *January 11, 2023*
 
