@@ -5,6 +5,10 @@ weight: "3"
 
 ---
 # React Native SDK Changelog
+## 3.10.7
+
+_January 26, 2023_
+* Added React Redux's Actions Tracker verison 0.1.0
 ## 3.10.6 
 
 _December 19, 2022_
