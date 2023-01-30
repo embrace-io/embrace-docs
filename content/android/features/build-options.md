@@ -42,9 +42,11 @@ Please contact <support@embrace.io> if you have any questions about these settin
 ```groovy
 swazzler {
   forceIncrementalOverwrite = false
-  useNewDependencyInstaller = false
   forceOkHttpWrapperInjection = false
   forceVolleyWrapperInjection = false
+  forceFcmWrapperInjection = false
+  encodeExtractedFileNames = false
+  useNewDependencyInstaller = false
 }
 ```
 
@@ -66,6 +68,14 @@ Defaults to `false`.
 
 Enable this if Volley exists as a dependency in any of your dependencies or submodules.
 This is only necessary if Volley is present in any of your project submodules and not on your main module (app).
+The plugin will emit a warning at build time indicating if you need to add this setting.
+This property is ignored if `{useNewDependencyInstaller = true}`
+Defaults to `false`.
+
+#### forceFcmWrapperInjection *bool*
+
+Enable this if Firebase Cloud Messaging (FCM) exists as a dependency in any of your dependencies or submodules.
+This is only necessary if FCM is present in any of your project submodules and not on your main module (app).
 The plugin will emit a warning at build time indicating if you need to add this setting.
 This property is ignored if `{useNewDependencyInstaller = true}`
 Defaults to `false`.
