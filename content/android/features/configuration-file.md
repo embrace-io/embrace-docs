@@ -86,7 +86,7 @@ Set to `false` to prevent the SDK from connecting to the uncaught exception hand
 
 #### capture_request_content_length *bool*
 
-Disable capture of network length which can interfere with certain streaming network requests. Defaults to `false`.
+Disable capture of network length which can interfere with certain streaming network requests. Defaults to `false`. For network body capture feature this should be set to `true`. 
 
 #### disabled_url_patterns *string array*
 
