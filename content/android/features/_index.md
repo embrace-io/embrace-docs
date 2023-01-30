@@ -14,4 +14,4 @@ how your application is performing in production.
 1. [**Know your users.**]({{< relref "/android/features/identify-users" >}}) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 1. [**Configuration File**]({{< relref "/android/features/configuration-file" >}}) The SDK has many configuration options available.
 1. [**Build Options**]({{< relref "/android/features/build-options" >}}) The Embrace Gradle plugin has options that can modify the build process.
-
+1. [**Network Body Capture**]({{< relref "/android/features/network-body-capture" >}}) Network Body Capture Embrace can upload network bodies from your requests to help you troubleshoot. Learn how to enable this feature securely.
