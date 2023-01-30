@@ -15,3 +15,5 @@ how your application is performing in production.
 1. [**Configuration File**]({{< relref "/android/features/configuration-file" >}}) The SDK has many configuration options available.
 1. [**Build Options**]({{< relref "/android/features/build-options" >}}) The Embrace Gradle plugin has options that can modify the build process.
 1. [**Network Body Capture**]({{< relref "/android/features/network-body-capture" >}}) Network Body Capture Embrace can upload network bodies from your requests to help you troubleshoot. Learn how to enable this feature securely.
+1. [**Push Notifications**]({{< relref "/android/features/push-notifications" >}}) Embrace automatically captures push notifications received. Learn how to configure this feature.
+
