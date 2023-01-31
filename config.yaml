@@ -16,7 +16,7 @@ outputs:
     - AMP
 params:
   sdkVersion:
-    ios: "5.15.0"
+    ios: "5.16.0"
     android: "5.13.0"
     rn: "3.10.0"
     rn_screen_tracker: "0.0.1"
