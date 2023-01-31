@@ -7,7 +7,7 @@ weight: 4
 # iOS/tvOS SDK Changelog
 
 ## 5.16.0
-*January 31th, 2023*
+*January 31st, 2023*
 
 * Add logic to demangle SwiftUI view names. Will now be in a more readable format.
 * Fix issue that caused all network requests from Unity to be flagged as error.
