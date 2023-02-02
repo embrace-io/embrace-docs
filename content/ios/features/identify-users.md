@@ -28,12 +28,12 @@ For a full set of APIs related to user identification, see the `Embrace` class i
 
 ## User Personas
 
-We offer a set of methods to set the username, the email address, or a user identifier.
+Embrace offers a set of methods to pass information about your users.
 
 {{< hint warning >}}
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
-We recommend including an anonymized user ID that only your agents can search for.
+We recommend using an anonymized or hashed user ID that only your agents can search for.
 
 {{< /hint >}}
 
@@ -42,7 +42,7 @@ We recommend including an anonymized user ID that only your agents can search fo
 {{< tab "Swift" >}}
 
 ```swift
-Embrace.sharedInstance().setUserIdentifier("internal_user_id_1234");
+Embrace.sharedInstance().setUserIdentifier("internal_random_id_1234");
 ```
 
 {{< /tab >}}
@@ -50,14 +50,14 @@ Embrace.sharedInstance().setUserIdentifier("internal_user_id_1234");
 {{< tab "Objective-C" >}}
 
 ```objective-c
-[[Embrace sharedInstance] setUserIdentifier:@"internal_user_id_1234"];
+[[Embrace sharedInstance] setUserIdentifier:@"internal_random_id_1234"];
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-The above call annotates the session with a user identifier that we can use later to search for this user.
+The above call annotates the session with a user identifier that you can use later to search for this user.
 If the user contacts our customer service department, those agents will look the user up by the identifier to find sessions in the Embrace dashboard to investigate.
 
 Sometimes you need to set customized values for specific use cases or user segmentation scenarios:
