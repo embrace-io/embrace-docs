@@ -473,8 +473,7 @@ This version has known issues and should not be used
 
 *September 9, 2020*
 
-* Fixed issue with setting user ID, email, and username on clean installs (introduced in 4.5.2)
-
+* Fixed issue with setting user identity on clean installs (introduced in 4.5.2)
 
 ## 4.5.2
 

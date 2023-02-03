@@ -21,16 +21,16 @@ For a full set of APIs related to user identification, see the `io.embrace.andro
 
 ## User Personas
 
-Embrace offers a set of methods to set the username, email, or user identifier.
+Embrace offers a set of methods to pass information about your users.
 
 ```java
-Embrace.getInstance().setUserIdentifier("internal_user_id_1234");
+Embrace.getInstance().setUserIdentifier("internal_random_id_1234");
 ```
 
 {{< hint warning >}}
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
-We recommend including an anonymized user ID that only your agents can search for.
+We recommend using an anonymized or hashed user ID that only your agents can search for.
 
 {{< /hint >}}
 

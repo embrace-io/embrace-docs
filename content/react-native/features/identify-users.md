@@ -16,12 +16,12 @@ sessions for an unhappy user.
 
 ## User Personas
 
-Embrace offers a set of methods to set the username, email, or user identifier.
+Embrace offers a set of methods to pass information about your users.
 
 ```javascript
 import {setUserIdentifier} from 'react-native-embrace';
 
-setUserIdentifier('internal_user_id_1234');
+setUserIdentifier('internal_random_id_1234');
 ```
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
@@ -30,7 +30,7 @@ For more methods on setting user values, see the [API docs]({{< api rn >}}).
 {{< hint warning >}}
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
-We recommend including an anonymized user ID that only your agents can search for.
+We recommend using an anonymized or hashed user ID that only your agents can search for.
 
 {{< /hint >}}
 

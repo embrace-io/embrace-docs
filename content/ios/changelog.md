@@ -626,7 +626,7 @@ This version has known issues and should not be used
 *July 15, 2019* 
 
 - Added `logNetworkRequest` method and `EmbraceNetworkRequest` class to allow manual capture of network requests. The SDK is capable of automatically capturing the majority of REST network calls made by applications, but this new method allows recording of network requests that are not automatically captured, such as gRPC requests.
-- Removed the restriction that the SDK must be initialized before username, email, or user ID are set.
+- Removed the restriction that the SDK must be initialized before user identity is set.
 - Eliminated redundant network call to Embrace that contained data that is now provided to us as part of other network calls.
 - Gracefully handle multiple calls to start the SDK. We now ignore all except for the first one.
 
