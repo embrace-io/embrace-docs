@@ -6,6 +6,14 @@ weight: 4
 
 # iOS/tvOS SDK Changelog
 
+
+## 5.16.1
+*February 08, 2023*
+
+* Updates breadcrumb limit to 100
+* Fixes issue that would cause network requests in Unity to show a duration of zero
+
+
 ## 5.16.0
 *January 31st, 2023*
 
