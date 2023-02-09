@@ -39,6 +39,15 @@ swazzler {
 }
 ```
 
+{{< hint info >}}
+**External Dependency Manager Settings**
+
+We recommend enabling the `Patch mainTemplate.gradle` setting in the External Dependency Manager menu. When enabled, the External Dependency Manager will declare dependencies in the `mainTemplate.gradle` file rather than download dependency artifacts into the Unity project. This allows gradle to handle retrieving those dependencies, and often results in fewer conflicts.
+
+Please note that in order for the `Patch mainTemplate.gradle` setting to take effect your Unity project must contain a `mainTemplate.gradle` file. If you do not already have one in your `Plugins/Android` directory, create one by toggling the `Custom Main Gradle Template` option in `Project Settings -> Player -> Android -> Publishing Settings -> Build`.
+
+{{< /hint >}}
+
 Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
 
 # Customize Gradle Templates
