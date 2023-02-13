@@ -20,8 +20,8 @@ params:
     android: "5.13.0"
     rn: "3.10.0"
     rn_screen_tracker: "0.0.1"
-    unity: "1.9.3"
-    unity_android: "5.12.0"
+    unity: "1.9.4"
+    unity_android: "5.13.0"
   BookSection: '*'
   BookMenuReset: false
   BookTheme: light

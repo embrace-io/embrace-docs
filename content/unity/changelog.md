@@ -6,6 +6,15 @@ weight: 4
 
 # Unity SDK Changelog
 
+## 1.9.4
+*February 13, 2023*
+
+* Updated Android SDK to version 5.13.0
+* Updated iOS SDK to version 5.16.1
+* Fixed successful network requests being logged as errors in the dashboard on iOS
+* Fixed network request durations being rounded to the nearest second on iOS
+* Fixed network request error logs showing incorrect error message on iOS
+
 ## 1.9.3
 *January 23, 2023*
 
