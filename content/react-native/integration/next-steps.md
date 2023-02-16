@@ -1,7 +1,7 @@
 ---
 title: "Next Steps"
 description: Resources to help you take your Embrace integration for your React Native application to the next level
-weight: 10
+weight: 11
 aliases:
   - /react-native/next-steps/
 ---
