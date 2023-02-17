@@ -7,10 +7,10 @@ weight: 6
 
 # Capture Background Sessions
 
-The Embrace SDK can be configured to enable the capturing of background sessions. Please contact Embrace support if you would like it to be enabled or disabled.
+The Embrace SDK can be configured to enable the capturing of background sessions. You can enable and disable capturing background sessions on the settings page of the Embrace dashboard.
 
 {{< hint info >}}
-Capturing background sessions requires v5.5.1 or higher.
+Capturing background sessions requires v5.15.0 or higher.
 {{< /hint >}}
 
 {{< hint warning >}}
