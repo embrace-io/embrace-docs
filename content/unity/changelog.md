@@ -6,9 +6,20 @@ weight: 4
 
 # Unity SDK Changelog
 
-## 1.9.4
+## 1.10.1
+*February 21, 2023*
+
+* Fixed automatic network capture beta failing to resolve assemblies in some scenarios when the project contains pre-compiled DLLs.
+* The Embrace Unity SDK now explicitly declares dependencies on the following built-in Unity packages:
+    - com.unity.modules.androidjni
+    - com.unity.modules.jsonserialize
+    - com.unity.ugui
+    - com.unity.modules.unitywebrequest 
+
+## 1.10.0
 *February 13, 2023*
 
+* Added option to automatically log Unity Scene changes as Views (beta)
 * Updated Android SDK to version 5.13.0
 * Updated iOS SDK to version 5.16.1
 * Fixed successful network requests being logged as errors in the dashboard on iOS
