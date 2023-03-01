@@ -7,6 +7,12 @@ weight: 4
 # iOS/tvOS SDK Changelog
 
 
+## 5.16.2
+*March 01, 2023*
+
+* Fix issue that caused cold start background sessions to be captured when configuration did not enable them
+* Removes validation check for `http` and `https` schemes in network requests. Will now allow `ws` and `wss` URLs
+
 ## 5.16.1
 *February 08, 2023*
 
