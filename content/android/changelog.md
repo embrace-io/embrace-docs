@@ -10,7 +10,7 @@ weight: 4
 *Mar 7, 2023*
 - Fix first activity repeated in the timeline
 - Fixes a timing bug with ANR intervals where a check on monitorThreadLag was setting the start time to be in the beginning of an ANR interval.
-- Ignore newDependencyInstaller property. It's now used as the unique mechanism to inject dependencies, so it's safe to remove it.git 
+- Ignore useNewDependencyInstaller property from the `swazzler` block. It's now used as the unique mechanism to inject dependencies, so it's safe to remove it from your `app/build.gradle` file
 
 ## 5.13.0
 *Jan 27, 2023*

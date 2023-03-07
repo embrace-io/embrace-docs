@@ -46,7 +46,6 @@ swazzler {
   forceVolleyWrapperInjection = false
   forceFcmWrapperInjection = false
   encodeExtractedFileNames = false
-  useNewDependencyInstaller = false
 }
 ```
 
@@ -84,11 +83,6 @@ Defaults to `false`.
 
 Enable this if one of the dependencies in your project has a JAR file with class names that are only distinguished by case (due to obfuscation, for example), and you are building your application in a case-insensitive file system.
 Defaults to `false`.
-
-#### useNewDependencyInstaller *bool*
-
-Uses a new mechanism for adding Embrace's build-time dependencies to your project. You should only disable this property if instructed to by the Embrace support team - the vast majority of customers will not need to set this.
-Defaults to `true`.
 
 ## Disabling Swazzling for Specific JARs and Classes
 
