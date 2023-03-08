@@ -7,9 +7,9 @@ weight: "3"
 # React Native SDK Changelog
 ## 3.10.8
 _March 8, 2023_
-* Added React Native Navigation Screen Tracker version 0.0.1
+* Added React Native Navigation Screen Tracker version 0.2.7
 * Update Android SDK to 5.14.2
-* Update iOS SDK to 5.16.1
+* Update iOS SDK to 5.16.2
 
 ## 3.10.7
 _February 26, 2023_
