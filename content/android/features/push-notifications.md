@@ -12,12 +12,15 @@ The Embrace SDK is able to automatically capture Firebase push notifications rec
 
 ## Configuration 
 
-To enable this feature you need to have `embrace.useAsmTransformApi` enabled. It's enabled by default since `5.3.0`, so you can just check that `embrace.useAsmTransformApi=false` is not present in your `gradle.properties`. 
-The other configuration you need is to set `instrumentFirebaseMessaging` to true in your `build.gradle` file. 
+Push Notifications Capture is enabled by default. 
+
+The only requirement is having `embrace.useAsmTransformApi` enabled, but it's enabled by default since `5.3.0`. You can check that `embrace.useAsmTransformApi=false` is not in your `gradle.properties`.
+
+If you want to disable the Push Notifications feature, you can set `instrumentFirebaseMessaging` to false in your `build.gradle` file. 
 
 ```groovy
     swazzler {
-        instrumentFirebaseMessaging = true
+        instrumentFirebaseMessaging = false
     }
 ```
 
