@@ -7,6 +7,12 @@ weight: 4
 # iOS/tvOS SDK Changelog
 
 
+## 5.16.3
+*March 14, 2023*
+
+* Improves SDK startup performance by moving disk usage collection to background queue
+* Added the ability to report the Flutter error runtime type.
+
 ## 5.16.2
 *March 01, 2023*
 
