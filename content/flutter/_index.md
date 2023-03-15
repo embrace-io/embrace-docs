@@ -7,8 +7,17 @@ description: Learn about Embrace for the Flutter platform
 ---
 # Flutter Platform Documentation
 
-## Coming soon!
+## Getting Started
 
-Embrace’s Flutter SDK is the newest addition to our family of platform support! Our full documentation will be published soon, so keep an eye out on this page.
+This documentation is split into two sections:
 
-For more information on our Flutter SDK, check out our [release blog](https://blog.embrace.io/embrace-flutter-sdk/). You can also access our [pub.dev](https://pub.dev/packages/embrace/changelog) directly to get started. 
+1. [**Integration Guide**]({{< relref "/flutter/integration">}})
+2. [**Feature Reference**]({{< relref "/flutter/features">}})
+
+If you are just starting out with Embrace, follow the [**Integration Guide**]({{< relref "/flutter/integration">}}) to learn
+the key steps to successfully using our product.  
+
+Once you've completed that, browse through our [**Feature Reference**]({{< relref "/flutter/features">}}) guides to learn how
+to use some of the advanced features our SDK provides.  
+
+You can also view our [Change Log]({{< relref "/flutter/changelog" >}})
