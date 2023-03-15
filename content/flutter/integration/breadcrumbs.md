@@ -1,5 +1,5 @@
 ---
-title: "Breadcrumb Logs"
+title: "Breadcrumbs"
 description: Add logging to your Flutter application using Breadcrumbs with the Embrace SDK
 weight: 7
 aliases:
@@ -17,11 +17,10 @@ Here's how you add a Breadcrumb to the session.
 ```dart
 import 'package:embrace/embrace.dart';
 
-Embrace.instance.logBreadcrumb("component updated -- 'show' prop changed from true to false");
+Embrace.instance.logBreadcrumb('a test breadcrumb message');
 ```
 
-In the above example, a Breadcrumb is being logged when a prop named "show" changed and triggered a component update.
-This event is not otherwise shown in the session and can be important depending on what the user does next.
+Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
 
 {{< hint info >}}
 

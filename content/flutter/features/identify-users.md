@@ -19,8 +19,6 @@ sessions for an unhappy user.
 Embrace offers a set of methods to pass information about your users.
 
 ```dart
-import 'package:embrace/embrace.dart';
-
 Embrace.instance.setUserIdentifier('internal_random_id_1234');
 ```
 
@@ -37,8 +35,6 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 You can also set customized values for specific use cases or segments of users.
 
 ```dart
-import 'package:embrace/embrace.dart';
-
 Embrace.instance.setUserPersona('high_value_cart');
 ```
 
@@ -54,9 +50,7 @@ However, you are free to use both mechanisms interchangeably.
 Here is an example of setting a session property:
 
 ```dart
-import 'package:embrace/embrace.dart';
-
-Embrace.instance.addSessionProperty('launch type', 'normal', false);
+Embrace.instance.addSessionProperty('launch type', 'normal');
 ```
 
 {{< hint warning>}}
@@ -65,6 +59,6 @@ Embrace.instance.addSessionProperty('launch type', 'normal', false);
 
 In the above, the `'launch type'` property is set with a value of `'normal'`.
 This is to indicate normal launches by the user.
-When the app is launched via a push notification tap, you can set the value `"push"`.
+When the app is launched via a push notification tap, you can set the value `'push'`.
 This can help to understand issues that are hurting push notification adoption rates.
 For example, you could prioritize fixing the issues that affect customers that use push notifications, since they generally provide higher lifetime value.

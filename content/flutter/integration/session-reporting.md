@@ -13,7 +13,9 @@ Now that you’ve added the Embrace SDK to your project and can login to the Emb
 Here are the steps you'll be taking to create your first session.
 
 1. [**Import Embrace**]({{< relref "/flutter/integration/session-reporting#import-embrace" >}})
-1. [**Add a start call to the Embrace SDK**]({{< relref "/flutter/integration/session-reporting#add-the-start-call" >}})
+1. [**Add a start call to the Embrace SDK**]({{< relref "/flutter/integration/session-reporting#add-the-flutter-sdk-start-call" >}})
+1. [**Add the iOS SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-ios-sdk-start-call" >}})
+1. [**Add the Android SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-android-sdk-start-call" >}})
 1. [**End the startup moment**]({{< relref "/flutter/integration/session-reporting#end-the-startup-moment" >}})
 1. [**Build and run the application**]({{< relref "/flutter/integration/session-reporting#build-and-run-the-application" >}})
 1. [**Trigger a session upload**]({{< relref "/flutter/integration/session-reporting#trigger-a-session-upload" >}})
@@ -27,9 +29,9 @@ Start by importing Embrace in the file where your `main()` function exists.
 import 'package:embrace/embrace.dart';
 ```
 
-## Add the Embrace SDK start call
+## Add the Flutter SDK start call
 
-Wrap the entire contents of your Dart main function in `Embrace.instance.start()`. It is essential to wrap the entire contents of `main()` if you want Embrace to capture Dart errors.
+Wrap the entire contents of your `main()` function in `Embrace.instance.start()`. It is essential do this if you want Embrace to capture Dart errors.
 
 ```dart
 import 'package:embrace/embrace.dart';
@@ -39,20 +41,150 @@ Future<void> main() async {
 }
 ```
 
+## Add the iOS SDK start call
+
+Add a call to start the iOS SDK from within your `AppDelegate`:
+
+{{< tabs iosStart >}}
+
+{{< tab "Swift" >}}
+Add the following to AppDelegate.swift:
+
+```swift
+import UIKit
+import Flutter
+import Embrace
+
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+override func application(
+  _ application: UIApplication,
+  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+) -> Bool {
+  Embrace.sharedInstance().start(launchOptions: launchOptions, framework: EMBAppFramework.flutter)
+  /*
+      Initialize additional crash reporters and
+      any other libraries to track *after* Embrace, including
+      network libraries, 3rd party SDKs
+  */
+  return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+}
+```
+{{</tab >}}
+
+{{< tab "Objective-C" >}}
+Add the following to AppDelegate.m:
+
+```objective-c
+#import AppDelegate.h
+#import <Embrace/Embrace.h>
+@implementation AppDelegate
+- (BOOL)application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+[[Embrace sharedInstance] startWithLaunchOptions:launchOptions framework:EMBAppFrameworkFlutter];
+    /*
+    Initialize additional crash reporters and
+    any other libraries to track *after* Embrace, including
+    network libraries, 3rd party SDKs
+    */
+  return YES;
+}
+@end
+```
+{{</tab >}}
+
+{{< /tabs >}}
+
+## Add the Android SDK start call
+
+The call to start the Embrace Android SDK can be placed in either:
+1. A custom Application class, or
+2. The `MainActivity` class
+
+### Adding to a custom application class
+
+If you have a custom application class, you can start the Embrace Android SDK in its `onCreate` method:
+
+{{< tabs androidStart >}}
+{{< tab "Java">}}
+```java
+import io.embrace.android.embracesdk.Embrace;
+import android.app.Application;
+
+public final class MyApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Embrace.getInstance().start(this, false, Embrace.AppFramework.FLUTTER);
+    }
+}
+```
+{{< /tab >}}
+{{< tab "Kotlin">}}
+```kotlin
+import android.app.Application
+import io.embrace.android.embracesdk.Embrace
+
+class MyApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        Embrace.getInstance().start(this, false, Embrace.AppFramework.FLUTTER)
+    }
+}
+```
+{{< /tab >}}
+{{< /tabs >}}
+
+### Adding to `MainActivity`
+
+If you don't want to create a custom application class, you can start the Embrace Android SDK from the `MainActivity`: 
+
+```kotlin
+import android.os.Bundle
+import io.embrace.android.embracesdk.Embrace
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity() {
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+      super.onCreate(savedInstanceState)
+      Embrace.getInstance().start(this, false, Embrace.AppFramework.FLUTTER)
+  }
+}
+```
+
 ## End the startup moment
 
-The Embrace SDK automatically records the special "startup" moment that's used to track app launch performance.
-The end of the startup moment is recorded when the `Activity.onResume()` method returns.
-However, if `onResume()` is not a good indication of when the app launch has ended (apps that have a splash screen, for example),
-you can use the `@StartupActivity` annotation to indicate that you don't want the startup moment to end when the `onResume` method returns.
-Add the `@StartupActivity` annotation to any Activity class where this applies.
+Embrace automatically starts the **startup** moment when your application launches.
+You'll learn more about moments in [Performance Monitoring]({{< relref "/flutter/features/performance-monitoring" >}}) guide.
+For now, you can think of the startup moment as a timer that measures how long it took your application to launch.
+Although in both Android and iOS the moment is started automatically, ending it is platform specific.
+
+For Android, the SDK will end the moment automatically, for iOS it will not.
+
+In iOS, end the startup moment as close to the point that your UI is ready for use by adding the following to your `AppDelegate`:
+
+{{< tabs iosendstartup >}}
+{{< tab "Swift" >}}
+```swift
+Embrace.sharedInstance().endAppStartup()
+```
+{{</tab >}}
+{{< tab "Objective-C" >}}
+```objective-c
+[[Embrace sharedInstance] endAppStartup];
+```
+{{</tab >}}
+{{< /tabs >}}
+
+You should end the startup moment before the user has a chance to interact with the application.
+Add this method call to every location where the startup moment can end. You can call this method as many times as you like.
+
+In either platform, you can also end the startup moment from your Dart code:
 
 ```dart
 Embrace.instance.endStartupMoment();
 ```
-
-You should end the startup moment before the user has a chance to interact with the application.
-Add this method call to every location where the startup moment can end. You can call this method as many times as you like.
 
 ## Build and Run the Application
 
@@ -64,7 +196,7 @@ Embrace Flutter SDK Version: 0.4.0
 ```
 
 In addition to that message, you should also see an initialization message for the underlying native Embrace SDK:
-{{< tabs >}}
+{{< tabs initializationMessage >}}
 
 {{< tab "iOS" >}}
 ```sh
@@ -77,6 +209,8 @@ In addition to that message, you should also see an initialization message for t
 Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
 ```
 {{< /tab >}}
+
+{{< /tabs >}}
 
 {{< hint info >}}
 
@@ -97,6 +231,6 @@ Congratulations! At this point you've completed a basic integration of Embrace.
 Embrace is already collecting interesting data from your application. You can
 see this data by browsing around the timeline page for the session you just captured.
 
-In the next guide, you'll learn how to add context to your sessions using Breadcrumb Logs.
+Up next, you'll be learning about uploading crash reports.
 
-{{< button relref="/flutter/integration/breadcrumbs" >}}Learn About Breadcrumb Logs{{< /button >}}
+{{< button relref="/flutter/integration/crash-reporting" >}}Upload Crash Report{{< /button >}}

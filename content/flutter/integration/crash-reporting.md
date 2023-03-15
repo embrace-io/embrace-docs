@@ -1,7 +1,7 @@
 ---
 title: "Crash Reporting"
 description: Upload crash reports from your Flutter application using the Embrace SDK
-weight: 7
+weight: 6
 aliases:
   - /flutter/crash-reporting/
 ---
@@ -31,16 +31,14 @@ This means that after seeing the application crash, you must now launch the appl
 
 Once uploaded, you will notice that your session is marked with the "crashed" icon. Additionally your crash is visible in the "crashes" section of the dashboard.
 
-## iOS Crash Report Settings
+{{< hint info >}}
+**Note for iOS**
 
-For iOS Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
-
-The first step in initializing crash reporting is configuring which mode you want Embrace to operate in.
-Open the Getting Started editor window located at Tools -> Embrace -> Getting Started. Selecting the iOS tab will allow you to toggle the `Crash Report Enabled` on or off.
-
-Toggle this on if you want to use Embrace's internal crash reporting.
-If you prefer to use an existing solution like Crashlytics, toggle this to off.
-Even when disabled, Embrace will still attempt to mirror the reports from your existing solution so you will still have that data in the Embrace Dashboard.
+If you'd like to use Embrace's internal crash reporter,
+set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
+described in the [Adding the Embrace SDK]({{< relref "/flutter/integration/add-embrace-sdk" >}}) page).
+If you're using Crashlytics, set this value to false.
+{{< /hint >}}
 
 ---
 

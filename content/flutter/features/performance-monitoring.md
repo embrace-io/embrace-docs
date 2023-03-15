@@ -18,8 +18,6 @@ This mechanism is the same one used to measure application launch performance, w
 Here's how you start a moment.
 
 ```dart
-import 'package:embrace/embrace.dart';
-
 Embrace.instance.startMoment('addItem');
 ```
 
@@ -37,8 +35,6 @@ For more on this, check out the [API docs]({{< api flutter >}}).
 Next, here's how you end a moment.
 
 ```dart
-import 'package:embrace/embrace.dart';
-
 Embrace.instance.endMoment('addItem');
 ```
 
