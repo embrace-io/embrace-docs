@@ -13,7 +13,7 @@ Now that you’ve added the Embrace SDK to your project and can login to the Emb
 Here are the steps you'll be taking to create your first session.
 
 1. [**Import Embrace**]({{< relref "/flutter/integration/session-reporting#import-embrace" >}})
-1. [**Add a start call to the Embrace SDK**]({{< relref "/flutter/integration/session-reporting#add-the-flutter-sdk-start-call" >}})
+1. [**Add the Flutter SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-flutter-sdk-start-call" >}})
 1. [**Add the iOS SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-ios-sdk-start-call" >}})
 1. [**Add the Android SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-android-sdk-start-call" >}})
 1. [**End the startup moment**]({{< relref "/flutter/integration/session-reporting#end-the-startup-moment" >}})
