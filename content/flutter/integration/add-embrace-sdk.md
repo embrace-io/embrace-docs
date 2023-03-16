@@ -40,8 +40,6 @@ Create the `Embrace-Info.plist` configuration file. You can find your 5-characte
 
 To make stack traces of native crashes readable, Embrace needs the dSym symbol files of your application. These can be uploaded with a script included in the Embrace iOS SDK.
 
-### Add a build phase to upload application symbols
-
 On the Xcode Build Phase tab, add a new run script. You can find your 5-character app ID and API token in the Embrace dashboard:
 
 ```sh

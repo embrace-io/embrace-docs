@@ -19,6 +19,8 @@ It is important when testing crashes to not be connected to any debugger, includ
 Now we're ready to trigger a crash. You can trigger a crash organically, or you can use Embrace's test crash function that you can call from anywhere in your application.
 
 ```dart
+'package:embrace/embrace_samples.dart';
+
 EmbraceSamples.triggerNativeSdkError();
 ```
 
