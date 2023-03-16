@@ -20,7 +20,7 @@ import 'package:embrace/embrace.dart';
 Embrace.instance.logBreadcrumb('a test breadcrumb message');
 ```
 
-Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
+Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, [Embrace can already track that](https://pub.dev/documentation/embrace/latest/embrace/EmbraceHttpClient-class.html), so you do not need to also make a breadcrumb for that event.
 
 {{< hint info >}}
 
