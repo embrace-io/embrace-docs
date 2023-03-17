@@ -83,7 +83,7 @@ mySidebar: [
       items: [
         {
           type: 'doc',
-          id: 'dpa',
+          id: 'privacy-policy',
         },
         {
           type: 'doc',
@@ -91,7 +91,7 @@ mySidebar: [
         },
         {
           type: 'doc',
-          id: 'privacy-policy',
+          id: 'dpa',
         },
       ],
     },

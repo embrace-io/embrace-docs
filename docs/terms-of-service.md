@@ -1,11 +1,11 @@
 ---
-bookHidden: true
 title: Terms of Service
 description: Terms of Service for using Embrace
 sidebar_position: 1
-
 ---
+
 # Terms of Service
+
 _Last Updated: June 28, 2022_
 
 Welcome to Embrace, an infrastructure and application monitoring service operated by Embrace Mobile, Inc. (“Embrace,” “we,” or “us”). These Terms of Service govern your use of this website and all of Embrace’s online, web-based and mobile-based applications (collectively, the “Application Services”).

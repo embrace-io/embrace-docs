@@ -1,5 +1,4 @@
 ---
-bookHidden: true
 title: Privacy Policy
 description: Information on how Embrace collects, processes, and stores data
 sidebar_position: 2
