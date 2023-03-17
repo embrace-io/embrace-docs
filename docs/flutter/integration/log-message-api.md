@@ -1,5 +1,5 @@
 ---
-title: "Log Message API"
+title: Log Message API
 description: Trigger alerts for your Flutter application using logs with the Embrace SDK
 sidebar_position: 10
 aliases:
@@ -71,6 +71,3 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 ---
 
 Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/flutter/integration/next-steps) page to wrap up your integration.
-
-{{< button relref="/flutter/integration/next-steps" >}}Next Steps{{< /button >}}
-

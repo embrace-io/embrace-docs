@@ -25,6 +25,3 @@ you are free to skip around.
 ### Expo
 
 Expo apps must be ejected to integrate the required native components.
-
-
-{{< button relref="/react-native/integration/integration-steps" >}}To Integration Steps{{< /button >}}

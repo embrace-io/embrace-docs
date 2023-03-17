@@ -1,5 +1,5 @@
 ---
-title: "Crash Reporting"
+title: Crash Reporting
 description: Upload crash reports from your Flutter application using the Embrace SDK
 sidebar_position: 6
 aliases:
@@ -44,6 +44,3 @@ If you're using Crashlytics, set this value to false.
 ---
 
 In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 
-
-{{< button relref="/flutter/integration/breadcrumbs" >}}Learn About Breadcrumb Logging{{< /button >}}
-

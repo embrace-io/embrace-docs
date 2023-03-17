@@ -20,5 +20,3 @@ Regardless of the path you choose, you will be performing the following common s
 1. [**Collect your first crash report.**](/unity/integration/crash-report) Here you will use Embrace to generate an intentional crash in your application so you can learn how those reports are collected and displayed.
 1. [**Add a breadcrumb.**](/unity/integration/breadcrumbs) Learn how logging works in Embrace and how to port any existing logs you may have to the Embrace SDK.
 1. [**Add alerts.**](/unity/integration/log-message-api) Use Embrace’s Log Events to power a real-time alerting system so you can rest easy knowing we will tell you if anything in your application breaks.
-
-{{< button relref="/unity/integration/linking-embrace" >}}Get started{{< /button >}}

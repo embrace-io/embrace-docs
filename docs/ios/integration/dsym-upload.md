@@ -121,6 +121,3 @@ This process can be scripted into your CI backend as well. Simply include the up
 dSYM's are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
 
 In the next section, we'll learn how to keep Embrace updated.
-
-{{< button relref="/ios/integration/update-embrace" >}}Keeping Embrace Up To Date{{< /button >}}
-

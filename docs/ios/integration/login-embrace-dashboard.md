@@ -22,7 +22,4 @@ Keep your dashboard tab open throughout the integration process. This will help 
 
 ---
 
-Next, we're going to send data to Embrace so we can finally see some interesting
-things in the dashboard.
-
-{{< button relref="/ios/integration/session-reporting" >}}Create Your First Session{{< /button >}}
+Next, we're going to send data to Embrace so we can finally see some interesting things in the dashboard.

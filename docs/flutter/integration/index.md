@@ -1,6 +1,5 @@
 ---
-bookCollapseSection: true
-title: "Integration Guide"
+title: Integration Guide
 sidebar_position: 1
 description: Get started with integrating Embrace into your Flutter application
 ---
@@ -29,5 +28,3 @@ you are free to skip around.
 ### iOS
 
 * iOS 9.0
-
-{{< button relref="/flutter/integration/integration-steps" >}}To Integration Steps{{< /button >}}

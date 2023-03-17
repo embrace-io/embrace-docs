@@ -24,6 +24,3 @@ steps to complete your integration:
 1. [**Collect your first crash report.**](/ios/integration/crash-report) Here you will use Embrace to generate an intentional crash in your application so you can learn how those reports are collected and displayed.
 1. [**Add a breadcrumb.**](/ios/integration/breadcrumbs) Learn how logging works in Embrace and how to port any existing logs you may have to the Embrace SDK.
 1. [**Add Alerts.**](/ios/integration/log-message-api) Use Embrace’s Log Events to power a real-time alerting system so you can rest easy knowing we will tell you if your application breaks.
-
-
-{{< button relref="/ios/integration/linking-embrace" >}}Get started{{< /button >}}

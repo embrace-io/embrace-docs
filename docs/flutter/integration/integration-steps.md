@@ -1,5 +1,5 @@
 ---
-title: "Integration Steps"
+title: Integration Steps
 description: Integration steps to add Embrace to your Flutter application
 sidebar_position: 1
 aliases:
@@ -17,5 +17,3 @@ aliases:
    gets uploaded.
 1. [**Add a Breadcrumb.**](/flutter/integration/breadcrumbs) Log messages using the Embrace SDK.
 1. [**Add Alerts.**](/flutter/integration/log-message-api) Use Embrace's Log Events to power a real-time alerting system so you can rest easy knowing we will tell you if your application breaks.
-
-{{< button relref="/flutter/integration/login-embrace-dashboard" >}}Get Started{{< /button >}}

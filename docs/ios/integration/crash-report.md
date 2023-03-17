@@ -1,5 +1,5 @@
 ---
-title: "Crash Reporting"
+title: Crash Reporting
 description: Upload crash reports from your iOS application using the Embrace SDK
 sidebar_position: 7
 aliases:
@@ -63,11 +63,10 @@ Embrace.sharedInstance().crash()
 ```
 
 </TabItem>
-
 </Tabs>
 
 :::warning
-**Note** This function will crash your app so only use it for testing purposes.
+This function will crash your app so only use it for testing purposes.
 :::
 
 Remember that Embrace sessions only upload on subsequent launches after crashes have occurred.
@@ -78,7 +77,4 @@ Additionally your crash is visible in the crashes section of the dashboard.
 
 ---
 
-In the next section, you'll be learning how to add Breadcrumb logs to add
-context to sessions. 
-
-{{< button relref="/ios/integration/breadcrumbs" >}}Learn About Breadcrumb Logging{{< /button >}}
+In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 

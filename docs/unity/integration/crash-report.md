@@ -1,9 +1,7 @@
 ---
-title: "Crash Reporting"
+title: Crash Reporting
 description: Upload crash reports from your Unity application using the Embrace SDK
 sidebar_position: 7
-aliases:
-  - /unity/crash-report/
 ---
 
 # Collect Your First Crash Report 
@@ -18,12 +16,12 @@ It is important when testing crashes to not be connected to any debugger, includ
 
 Now we're ready to trigger a crash. You can trigger a crash organically, or you can use Embrace's test crash function that you can call from anywhere in your application.
 
-```C#
+```cs
 Embrace.Instance.Crash();
 ```
 
 :::warning
-**Note** This function will crash your app so only use it for testing purposes.
+This function will crash your app so only use it for testing purposes.
 :::
 
 Remember that Embrace sessions only upload on subsequent launches after crashes have occurred.
@@ -33,7 +31,7 @@ Once uploaded, you will notice that your session is marked with the "crashed" ic
 
 The Unity runtime can be surprisingly difficult to crash on purpose. If you are struggling to generate a crash you may want to use Unity's own crash API instead:
 
-```C#
+```cs
 UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCategory.Abort);
 ```
 
@@ -41,9 +39,8 @@ UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCate
 
 In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 
 
-{{< button relref="/unity/integration/breadcrumbs" >}}Learn About Breadcrumb Logging{{< /button >}}
-
 ## iOS Crash Report Settings
+
 For iOS Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
 
 The first step in initializing crash reporting is configuring which mode you want Embrace to operate in.

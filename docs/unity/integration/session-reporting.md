@@ -106,5 +106,3 @@ To trigger a session upload, simply send the application to the background by pr
 ---
 
 Congratulations! At this point you've completed a basic integration of Embrace. Embrace is already collecting interesting data from your application. You can see this data by browsing around the timeline page for the session you just captured.
-
-{{< button relref="/unity/integration/crash-report" >}}On to Crash Reporting{{< /button >}}

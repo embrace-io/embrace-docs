@@ -33,5 +33,3 @@ Take note of the app ID and API token, as you'll need those when integrating the
 {{< image src="/docs/images/android-integration.png" alt="Integration page" title="Integration Page" caption="Note the message box with your app ID and API token at the bottom" width="3068" height="1520" >}}
 
 Now we are ready to add the SDK to your app.
-
-{{< button relref="/android/integration/add-embrace-sdk" >}}Add Embrace SDK{{< /button >}}

@@ -34,5 +34,3 @@ See a list of frequently asked questions on the [FAQ](/ios/faq) page.
 
 We offer further guides in the [Best Practices](/best-practices) section of the docs.
 Be sure to check these out, as they'll help you make decisions that will allow you to make the most of Embrace.
-
-{{< button relref="/best-practices" >}}To Best Practices{{< /button >}}

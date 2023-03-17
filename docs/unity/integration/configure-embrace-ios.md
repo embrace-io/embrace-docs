@@ -1,9 +1,7 @@
 ---
-title: "Configure the iOS Platform"
+title: Configure the iOS Platform
 description: Configuring the Embrace Unity iOS SDK for mobile platforms
 sidebar_position: 3
-aliases:
-  - /unity/configure-embrace-ios/
 ---
 
 # Configure Embrace
@@ -22,5 +20,3 @@ Now when you build and run your project, our editor script will use those values
 ---
 
 In the next section, we'll learn how to configure the Android Platform.
-
-{{< button relref="/unity/integration/configure-embrace-android" >}}Configure the Android Platform{{< /button >}}

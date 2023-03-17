@@ -169,5 +169,3 @@ You must also point the Embrace SDK to the location the updated bundle will be d
 ---
 
 Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.  
-
-{{< button relref="/react-native/integration/session-reporting" >}}Create Your First Session{{< /button >}}

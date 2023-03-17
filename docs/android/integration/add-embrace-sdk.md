@@ -118,5 +118,3 @@ Unlike JVM-based crash reporters, you can only attach one set of signal handlers
 ---
 
 Next, you'll be creating your first session.
-
-{{< button relref="/android/integration/session-reporting" >}}Create First Session{{< /button >}}

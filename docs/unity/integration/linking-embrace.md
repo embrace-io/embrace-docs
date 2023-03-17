@@ -26,5 +26,3 @@ We've automated the process of setting up Embrace as a scoped registry. If you w
 ---
 
 Now that Embrace is part of your project, learn how to add some required configuration options in the next section.
-
-{{< button relref="/unity/integration/configure-embrace-ios" >}}Configure the iOS Platform{{< /button >}}

@@ -37,5 +37,3 @@ Overwrite your downloaded copy in the `third_party` folder and Xcode should auto
 
 Now that you know how to keep Embrace up to date, it's time to login to the
 Embrace dashboard.
-
-{{< button relref="/ios/integration/login-embrace-dashboard" >}}How to Access the Dashboard{{< /button >}}

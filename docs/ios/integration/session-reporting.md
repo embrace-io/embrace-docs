@@ -128,21 +128,16 @@ If you have a **React Native project** you have to add the framework
 
 </Tabs>
 
-:::info
-
-**A Note On Placing the Start Call**
+:::info A Note On Placing the Start Call
 
 It is important that this call be made as early as possible in the lifecycle of
 your application to ensure we can collect the most data. Additionally,
 Embrace has taken great care to ensure we can operate alongside any other third
 party SDKs. If Embrace is initialized first, then our code can set things up to
 ensure that everyone can interoperate successfully in your application.
-
 :::
 
-:::info
-
-**Integration Help**
+:::info Integration Help
 
 If you're running into issues trying to initialize the Embrace SDK, you can enable
 the integration help mode by passing `true` to the `enableIntegrationHelp` property
@@ -168,12 +163,9 @@ Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions,
 
 </Tabs>
 
-
-
 :::
 
-:::info
-**Tip:**
+:::info Tip
 If you are a swift user you may want to also make this call after starting Embrace:
 
 ```swift
@@ -207,19 +199,14 @@ Embrace.sharedInstance().endAppStartup();
 ```
 
 </TabItem>
-
 </Tabs>
 
-:::info
-
-**A Note On Ensuring the Start Moment Ends**
-
+:::info Note On Ensuring the Start Moment Ends
 This moment is used to track launch performance, but also launch abandonment. This is the 
 number of users who close the app before the launch finishes. To correctly track this
 it is critical that all code paths end the startup moment eventually. For example if your
 app can launch via a push notification, ensure that path also ends the startup moment or you
 may see false abandonment data.
-
 :::
 
 You can learn more about moments and measuring performance yourself in the
@@ -236,15 +223,12 @@ it's version number.
 ```
 
 :::info
-
 If you encounter any errors, please get in touch on Slack and we can help you out.
-
 :::
 
 If you see a log line like this, you've succeeded in integrating Embrace with
 your application. Let's trigger a session upload and verify this in the
 Dashboard.
-
 
 ## Trigger a session upload
 
@@ -259,5 +243,3 @@ your browser and you should now see that you've moved on to the next step.
 Congratulations! At this point you've completed a basic integration of Embrace.
 Embrace is already collecting interesting data from your application. You can
 see this data by browsing around the timeline page for the session you just captured.
-
-{{< button relref="/ios/integration/crash-report" >}}On to Crash Reporting{{< /button >}}

@@ -171,5 +171,3 @@ Embrace is already collecting interesting data from your application. You can
 see this data by browsing around the timeline page for the session you just captured.
 
 Up next, you'll be learning about uploading crash reports.
-
-{{< button relref="/react-native/integration/crash-reporting" >}}Upload Crash Report{{< /button >}}

@@ -200,7 +200,4 @@ sure this all worked.
 
 ---
 
-Next, let's make sure we upload dSYMs correctly so stack traces get
-symbolicated.
-
-{{< button relref="/ios/integration/dsym-upload" >}}Learn About dSYM Uploads{{< /button >}}
+Next, let's make sure we upload dSYMs correctly so stack traces get symbolicated.

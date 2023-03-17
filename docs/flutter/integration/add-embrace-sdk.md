@@ -82,5 +82,3 @@ In `app/src/main`, add a config file named `embrace-config.json`. You can find y
 ---
 
 Next, you'll be creating your first session.
-
-{{< button relref="/flutter/integration/session-reporting" >}}Create First Session{{< /button >}}

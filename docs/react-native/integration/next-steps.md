@@ -19,7 +19,7 @@ please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 
 Embrace includes many optional advanced features that can help you figure out some of 
 the most challenging issues. Learn about these features, and how to enable them, in
-our [Feature Reference](/react-native/features).
+our [Feature Reference](/react-native/features/).
 
 ## API Docs
 
@@ -28,7 +28,5 @@ the [React Native API docs]({{< api rn >}}).
 
 ## Best Practices
 
-We offer further guides in the [Best Practices](/best-practices) section of the docs.
+We offer further guides in the [Best Practices](/best-practices/) section of the docs.
 Be sure to check these out, as they'll help you make decisions that will allow you to make the most of Embrace.
-
-{{< button relref="/best-practices" >}}To Best Practices{{< /button >}}

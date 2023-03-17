@@ -38,5 +38,3 @@ We generally use the Breadcrumb method for our logging and not the Log Message A
 Breadcrumbs are a lightweight way to add logging to your session. They add no CPU or memory overhead, and trigger no networking calls.
 The Log Message API is a much heavier mechanism. We will learn about it in the [Alerting](/android/integration/log-message-api) section of the documentation.
 For now, just know that using Breadcrumbs is the right thing to do most of the time.
-
-{{< button relref="/android/integration/log-message-api" >}}Learn About the Log Message API{{< /button >}}

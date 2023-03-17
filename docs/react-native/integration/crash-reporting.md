@@ -97,5 +97,3 @@ Additionally your crash is visible in the crashes section of the dashboard.
 ---
 
 In the next guide, you'll learn how to add context to your sessions using Breadcrumb Logs.
-
-{{< button relref="/react-native/integration/breadcrumbs" >}}Learn About Breadcrumb Logs{{< /button >}}

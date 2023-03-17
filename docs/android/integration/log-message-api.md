@@ -63,5 +63,3 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 ---
 
 Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/android/integration/next-steps) page to wrap up your integration.
-
-{{< button relref="/android/integration/next-steps" >}}Next Steps{{< /button >}}

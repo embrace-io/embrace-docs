@@ -33,5 +33,3 @@ Breadcrumbs are a lightweight way to add logging to your session. They add littl
 `LogEvent` is a much heavier mechanism. We will learn about it in the [alerting](/unity/integration/log-message-api) section of the documentation.
 
 For now, just know that using breadcrumbs is the right thing to do most of the time.
-
-{{< button relref="/unity/integration/log-message-api" >}}Learn about alerting{{< /button >}}

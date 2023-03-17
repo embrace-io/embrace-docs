@@ -1,5 +1,5 @@
 ---
-title: "Configure the Android Platform"
+title: Configure the Android Platform
 description: Configuring the Embrace Unity Android SDK for mobile platforms
 sidebar_position: 4
 aliases:
@@ -20,13 +20,10 @@ On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be a
 
 # External Dependency Manager
 
-:::info
-**Notes on minimum versions**
-
+:::info Notes on minimum versions**
 To use the External Dependency Manager you must be using:
 1. At least version `1.0.13` of the Unity SDK
 1. At least version `4.7.0` of the Android Swazzler Plugin
-
 :::
 
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
@@ -39,13 +36,11 @@ swazzler {
 }
 ```
 
-:::info
-**External Dependency Manager Settings**
+:::info External Dependency Manager Settings
 
 We recommend enabling the `Patch mainTemplate.gradle` setting in the External Dependency Manager menu. When enabled, the External Dependency Manager will declare dependencies in the `mainTemplate.gradle` file rather than download dependency artifacts into the Unity project. This allows gradle to handle retrieving those dependencies, and often results in fewer conflicts.
 
 Please note that in order for the `Patch mainTemplate.gradle` setting to take effect your Unity project must contain a `mainTemplate.gradle` file. If you do not already have one in your `Plugins/Android` directory, create one by toggling the `Custom Main Gradle Template` option in `Project Settings -> Player -> Android -> Publishing Settings -> Build`.
-
 :::
 
 Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
@@ -59,7 +54,8 @@ If your project already modifies these files, then apply the changes below to yo
 After creating or finding these template files in your project, make the following changes:
 
 1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. Note that they must be added in two places.
-    ```
+
+    ```gradle
     allprojects {
         buildscript {
             repositories {
@@ -88,12 +84,8 @@ After creating or finding these template files in your project, make the followi
 
 Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings.
 
-
 {{< image src="/docs/images/unity-android-build-settings.png" alt="Image showing the correct build settings for exporting an Android project with Embrace from Unity" caption="The build settings window showing the checkbox to create symbols.zip." width="584" height="600" >}}
 
 --- 
 
-Now that you've configured the Android platform, it's time to login to the
-Embrace dashboard.
-
-{{< button relref="/unity/integration/login-embrace-dashboard" >}}How to Access the Dashboard{{< /button >}}
+Now that you've configured the Android platform, it's time to login to the Embrace dashboard.

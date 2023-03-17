@@ -40,5 +40,3 @@ Please contact us if you need Dexguard support.
 ---
 
 In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions.
-
-{{< button relref="/android/integration/breadcrumbs" >}}Learn About Breadcrumb Logging{{< /button >}}

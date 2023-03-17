@@ -18,5 +18,3 @@ aliases:
    gets uploaded.
 1. [**Add a breadcrumb.**](/android/integration/breadcrumbs) Log messages using the Embrace SDK.
 1. [**Add alerts.**](/android/integration/log-message-api) Use Embrace's log events to power a real-time alerting system so you can rest easy knowing we will tell you if your application breaks.
-
-{{< button relref="/android/integration/login-embrace-dashboard" >}}Get Started{{< /button >}}
