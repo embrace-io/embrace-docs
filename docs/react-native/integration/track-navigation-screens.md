@@ -19,11 +19,11 @@ Embrace has a separate module for tracking Screens, to use it you will need to a
 
 #### Install the component
 
-```sh
+```shell-session
 yarn add @react-native-embrace/react-navigation
 ```
 
-```sh
+```shell-session
 npm install @react-native-embrace/react-navigation
 ```
 
@@ -58,11 +58,11 @@ Embrace has a separate module for tracking Screens, to use it you will need to a
 
 #### Install the component
 
-```sh
+```shell-session
 yarn add @react-native-embrace/react-native-navigation
 ```
 
-```sh
+```shell-session
 npm install @react-native-embrace/react-native-navigation
 ```
 
@@ -71,9 +71,7 @@ npm install @react-native-embrace/react-native-navigation
 Apply the EmbraceNavigationTracker to your Navigation instance. You should do this in your entry point, usually index.js
 
 :::info
-
 If you have more than one navigation instance, you can pass a second parameter to the build method with an identifier
-
 :::
 
 ```javascript
@@ -103,9 +101,7 @@ Navigation.events().registerAppLaunchedListener(() => {
 ```
 
 :::info
-
 Currently we are only supporting 'React Native Navigation SDK' and 'React Navigation SDK', if you are using another library please contact us at <support@embrace.io> or on Slack if you would like to request support.
-
 :::
 
 ### Disable Auto Tracking for Native Screens
@@ -146,5 +142,4 @@ Go to your Embrace-info.plist inside ios/YOURAPPNAME and add ENABLE_AUTOMATIC_VI
 	<false/>
 </dict>
 </plist>
-
 ```

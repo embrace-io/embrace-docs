@@ -26,11 +26,11 @@ Embrace has a separate module for tracking Redux's Actions, to use it you will n
 
 ### Install the component
 
-```sh
+```shell-session
 yarn add @react-native-embrace/action-tracker
 ```
 
-```sh
+```shell-session
 npm install @react-native-embrace/action-tracker
 ```
 

@@ -207,14 +207,14 @@ In addition to that message, you should also see an initialization message for t
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
-```sh
+```
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
 ```
 
 </TabItem>
 <TabItem value="android" label="Android">
 
-```sh
+```
 Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
 ```
 

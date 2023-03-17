@@ -42,7 +42,7 @@ import TabItem from '@theme/TabItem';
 
 Use this command format for CocoaPods integrations.
 
-```sh
+```shell-session
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 
@@ -57,7 +57,7 @@ Place those files in your project where you can easily find and reference them l
 The path you put these files in will be the path used by the dSYM upload phase.
 The zip file contains the `run.sh` script, so modify the path below to match your location.
 
-```sh
+```shell-session
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO/run.sh"
 ```
 
@@ -66,7 +66,7 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO
 
 For Manual linking, the command looks similar to the CocoaPods version but the location has changed.
 
-```sh
+```shell-session
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/third_party/EmbraceIO/run.sh"
 ```
 
@@ -81,7 +81,7 @@ Place those files in your project where you can easily find and reference them l
 The path you put these files in will be the path used by the dSYM upload phase.
 The zip file contains the `run.sh` script, so modify the path below to match your location.
 
-```sh
+```shell-session
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO/run.sh"
 ```
 
@@ -110,7 +110,7 @@ The upload utility is distributed with the Embrace SDK. See the section above on
 
 Run the upload tool and your dSYM will be sent to Embrace.
 
-```sh
+```shell-session
 /EmbraceIO/upload -app $APP_KEY -token $API_TOKEN dsyms.zip
 ```
 

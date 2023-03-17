@@ -1,6 +1,5 @@
-
 ---
-title: "Capture Background Sessions"
+title: Capture Background Sessions
 description: Embrace can capture background sessions so that you can gain insight into user experiences that are affected by events that happen in the background.
 sidebar_position: 6
 ---

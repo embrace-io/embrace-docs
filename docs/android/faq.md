@@ -51,6 +51,7 @@ implementation `'io.embrace:embrace-android-sdk:{{< sdk platform="android" >}}'`
 In case you have implemented OkHttp in your module, you will also need to specify the Embrace OkHttp library in your module's Gradle file
 implementation `'io.embrace:embrace-android-okhttp3:{{< sdk platform="android" >}}'`.
 You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
+
 ```groovy
 buildscript {
     repositories {
@@ -85,7 +86,6 @@ See [this section](/android/features/configuration-file#custom-settings-for-buil
 
 Not currently. Please contact us at <support@embrace.io> or on Slack if you would like to request support.
 
-
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
 A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events. 
@@ -99,7 +99,8 @@ When using a version of 'appCompat' ≥ 1.4.1, the 'androidx.startup' library i
 In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described. 
 
 If the following code block is present in your Manifest file, **Embrace SDK will not run.** This deactivates every initialization provider:
-```groovy
+
+```xml
 <!-- If you want to disable android.startup completely. -->
 <provider
     android:name="androidx.startup.InitializationProvider"
@@ -108,7 +109,7 @@ If the following code block is present in your Manifest file, **Embrace SDK will
 </provider>
 ```
 **Recommended Usage:** Only disable the WorkManager initializer. This will allow the Embrace SDK to function properly:
-```groovy
+```xml
 <provider
     android:name="androidx.startup.InitializationProvider"
     android:authorities="${applicationId}.androidx-startup"
@@ -124,7 +125,7 @@ If the following code block is present in your Manifest file, **Embrace SDK will
 
 In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, the initialization provider should be added explicitly:
 
-```groovy
+```xml
 <provider android:authorities="${applicationId}.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
    <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
 </provider>
@@ -133,7 +134,6 @@ In other instances, a library may disable the initializer. In such a scenario, t
 *Note: Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.*
 
 *Please contact us if you have any questions or require help.*
-
 
 ## Users
 
@@ -177,7 +177,6 @@ Embrace is compatible with SDKs that optimize networking, such as those from Aka
 However, it is important that the Embrace SDK is initialized *after* any of these types of SDKs are initialized to ensure
 that our SDK captures network requests.
 
-
 ### **My network calls are not being captured. What could be going wrong?**
 
 This could be due to one of the following reasons:
@@ -213,7 +212,6 @@ Embrace.getInstance().endEvent("load_photos", "<MOMENT_IDENTIFIER>");
 
 Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file#tapscapture_coordinates) in the `embrace-config.json` file.
 
-
 ## Trace IDs
 
 ### **Can trace IDs for network requests be captured?**
@@ -222,7 +220,6 @@ Yes, you can capture trace IDs in two ways:
 1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value
 1. If the ID is already present in the request in a different header, set the name of the header in the `embrace-config.json` file with the [`networking[trace_id_header]` setting](/android/features/configuration-file#networkingtrace_id_header)
 
-:::warning
+:::note
 Trace IDs longer than 64 characters will be truncated
 :::
-

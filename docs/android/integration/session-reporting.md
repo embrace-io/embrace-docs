@@ -2,10 +2,8 @@
 title: Session Reporting
 sidebar_position: 4
 description: Upload session reports from your Android application using the Embrace SDK
-aliases:
-  - /android/session-reporting/
-
 ---
+
 # Session Reporting
 
 Now that you've added the Embrace SDK to your project and can login to the Embrace dashboard, you're ready to create your first session.
@@ -33,7 +31,6 @@ Embrace does not perform any tracking or other actions until this method call is
 
 ```java
 public final class MyApplication extends Application {
-
   @Override
   public void onCreate() {
       super.onCreate();
@@ -86,14 +83,12 @@ Add the `take_screenshot` setting to the `embrace-config.json` file that you add
 Now you're ready to build and run the application. Assuming the app launches correctly,
 pay attention to the system logging and look for Embrace to print its version number.
 
-```sh
+```
 Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
 ```
 
 :::info
-
 If you encounter any errors, please get in touch on Slack and we can assist you.
-
 :::
 
 ## Trigger a Session Upload

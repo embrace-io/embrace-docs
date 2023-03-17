@@ -26,7 +26,7 @@ If your application handles sensitive or private data of any kind, you can prote
 
 In your `embrace-config.json` file, first create a new property entry titled:
 
-```sh
+```
 capture_public_key
 ```
 
@@ -34,7 +34,7 @@ RSA encryption uses two keys: a private and a public key. You may already be fam
 
 There are many ways to generate working key pairs. For these instructions we will use the CLI opensll tool installed by default on most linux-like systems using a **size key of 2048**:
 
-```sh
+```shell-session
 openssl genrsa -des3 -out private.pem 2048
 ```
 
@@ -44,13 +44,13 @@ You'll be providing Embrace a public version of the key. This is a derived key t
 
 To make the public key run the following command:
 
-```sh
+```shell-session
 openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 ```
 
 The file public.pem contains the public key. Use the command `cat public.pem` to view the key. Below is an example we generated while writing this documentation. Remember: it is completely safe to share public keys. Only the private key needs to be protected.
 
-```sh
+```
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2st+1ouwmsYLOF+kZ/LE
 uZ+jzFuMv+AatKYWXQCwOWP9U02gbXDDOw1rvpeXFUapF1iGF9SASsyBZj4uTfJH

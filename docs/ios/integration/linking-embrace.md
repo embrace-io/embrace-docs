@@ -75,12 +75,12 @@ artifact in this case.
 
 First edit or create a `Cartfile` at the root of your project, add a line to file
 as follows:
-```sh
+```
 binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 ```
 
 If you also have an Apple TV target in your project, also add this to your `Cartfile`:
-```sh
+```
 binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-tvos.json"
 ```
 
@@ -88,8 +88,9 @@ binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-tvos.json"
 Now run `carthage update` from the root and carthage will download and prepare
 the Embrace framework for integration:
 
-```sh
-embracian in ~/dev/playground/carthagetester > Carthage update
+```shell-session
+Carthage update
+
 *** Downloading binary-only framework embrace-ios at
 "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 *** xcodebuild output can be found in
@@ -116,7 +117,6 @@ After you've completed that, you should be able to import and use the Embrace
 module in your project. If you encounter any issues it might help to read
 through the manual integration steps below as they go over a lot of the same
 concepts as used by Carthage.
- 
 
 ## Swift Package Manager
 

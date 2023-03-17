@@ -93,10 +93,7 @@ _April 23, 2021_
 * Updated Android native Embrace SDK dependency to 4.8.2
 
 :::warning
-
 Please follow the [instructions in the Embrace Android SDK changelog](../android/changelog.md#482) to fetch the SDK from Maven Central instead of JCenter.
-
-
 :::
 
 ## 3.6.4
@@ -125,10 +122,7 @@ _August 13, 2020_
 * Fixes type mismatch issue when calling `logMessage` method for warning logs on Android
 
 :::warning
-
-To use this version on Android, you will need to make sure the `io.embrace:embrace-swazzler`
-dependency is set to at least 4.5.1 in your `build.gradle` file.
-
+To use this version on Android, you will need to make sure the `io.embrace:embrace-swazzler` dependency is set to at least 4.5.1 in your `build.gradle` file.
 :::
 
 ## 3.5.0

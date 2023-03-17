@@ -86,7 +86,7 @@ This moment is used to track both launch performance and launch abandonment. The
 
 You're now ready to build and run your application. Assuming the app launches correctly, pay attention to the system logging and look for Embrace to print out its version number.
 
-```sh
+```
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="unity" >}}
 ```
 

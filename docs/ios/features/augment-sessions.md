@@ -14,7 +14,7 @@ This feature is off by default as OS Log data can contain private user informati
 
 To enable this display of OS Log information in the dashboard you must add this key to your `Embrace-Info.plist` and set the value to true:
 
-```sh
+```
 ENABLE_OS_LOG
 ```
 

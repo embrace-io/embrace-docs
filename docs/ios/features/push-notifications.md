@@ -82,7 +82,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 If you want to prevent any data inside the notifications from being captured, you can set the local config `ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE` to `NO`.
 :::
 
-:::warning
+:::note
 If your app supports iOS 9, you should pass the launch options when starting up the Embrace SDK. This will allow Embrace to capture notifications that opened the app when it was closed.
 :::
 

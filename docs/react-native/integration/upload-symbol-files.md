@@ -25,14 +25,14 @@ import TabItem from '@theme/TabItem';
 In Xcode, find the "Bundle React Native code and images" step in the Build Phases tab.
 The contents should look something like the following:
 
-```sh
+```shell-session
 export NODE_BINARY=node
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
 Change the contents to the following:
 
-```sh
+```shell-session
 export NODE_BINARY=node
 export EXTRA_PACKAGER_ARGS="--sourcemap-output $CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/main.jsbundle.map"
 ../node_modules/react-native/scripts/react-native-xcode.sh
@@ -78,7 +78,7 @@ If you use [App Center CodePush](https://docs.microsoft.com/en-us/appcenter/dist
 you'll need to upload those source maps to Embrace using the upload script that ships with the iOS SDK.
 
 For CodePush, you'll need to generate the bundle and source map to be uploaded.
-```sh
+```shell-session
 appcenter codepush release-react -a MyApp --output-dir ./build --sourcemap-output ./map
 ``` 
 
@@ -87,14 +87,14 @@ Then, use the Embrace upload script to upload the source map.
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
-```sh
+```shell-session
 ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/main.jsbundle --rn-map ./map
 ```
 
 </TabItem>
 <TabItem value="android" label="Android">
 
-```sh
+```shell-session
 ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
 ```
 
@@ -118,7 +118,7 @@ Please see the [Uploading dSYMs](/ios/integration/dsym-upload) page from the iOS
 Proguard files will be uploaded automatically.
 If you don’t see symbolicated crashes while using Proguard, reach out to us on Slack and we’ll work with you directly.
 
-:::notice
+:::note
 We do not officially support Dexguard.
 :::
 
@@ -143,7 +143,7 @@ setJavaScriptBundlePath(pathToBundle)
 ```
 
 </TabItem>
-<TabItem value="objectivec" label="ObjectiveC">
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];

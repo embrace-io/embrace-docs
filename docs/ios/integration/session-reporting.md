@@ -231,7 +231,7 @@ Alright, you're ready to build and run your application. Assuming the app launch
 correctly, pay attention to the system logging and look for Embrace to print out
 it's version number.
 
-```sh
+```
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
 ```
 

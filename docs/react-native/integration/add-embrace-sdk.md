@@ -12,11 +12,11 @@ aliases:
 
 Use Yarn or NPM to install the NPM module.
 
-```sh
+```shell-session
 yarn add react-native-embrace
 ```
 
-```sh
+```shell-session
 npm install react-native-embrace --save
 ```
 
@@ -51,7 +51,7 @@ end
 ```
 Then, install the pod.
 
-```sh
+```shell-session
 cd ios && pod install
 ```
 
@@ -74,13 +74,13 @@ project to add the native dependencies. The setup script can be found in your
 `node_modules` folder at `node_modules/react-native-embrace/dist/scripts/setup/setup.js`
 
 **Run the setup script**
-```sh
+```shell-session
 node node_modules/react-native-embrace/dist/scripts/setup/run.js
 ```
 
 You can use git to see the changes that the script made.
 
-```sh
+```shell-session
 git diff
 ```
 

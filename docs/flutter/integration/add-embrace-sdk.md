@@ -12,7 +12,7 @@ aliases:
 
 Add the Embrace package to `pubspec.yaml` with the following command:
 
-```sh
+```shell-session
 flutter pub add embrace
 ```
 
@@ -42,7 +42,7 @@ To make stack traces of native crashes readable, Embrace needs the dSym symbol f
 
 On the Xcode Build Phase tab, add a new run script. You can find your 5-character app ID and API token in the Embrace dashboard:
 
-```sh
+```
 EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 

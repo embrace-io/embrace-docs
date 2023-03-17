@@ -26,8 +26,7 @@ You can also pass in a patch number to the `initialize` function to use along si
 initialize({patch: 'v1'});
 ```
 
-:::info
-**Note for iOS**
+:::info Note for iOS
 
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
@@ -35,9 +34,12 @@ described in the [Adding the Embrace SDK](/react-native/integration/add-embrace-
 If you're using Crashlytics, set this value to false.
 :::
 
-:::warning
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-**OTA Updates**
+:::warning OTA Updates
 
 If you distribute updated JavaScript bundles outside of the App Store/Google
 Play Store, you will
@@ -46,24 +48,31 @@ on the device. Otherwise, the stack traces will not be translated properly.
 If you use CodePush, this is done automatically and there is no need to point
 the Embrace SDK to where CodePush downloads the latest JavaScript bundle. 
 
-In JavaScript:
+<Tabs groupId="rn-language" queryString="rn-language">
+<TabItem value="javascript" label="JavaScript">
+
 ```javascript
 import {setJavaScriptBundlePath} from 'react-native-embrace';
 
 setJavaScriptBundlePath('/path/to/bundle');
 ```
 
-In Objective-C:
+</TabItem>
+<TabItem value="objectivec" label="Objective-C">
+
 ```objectivec
 [[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];
 ```
 
-In Java:
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 Embrace.getInstance().setJavaScriptBundleURL(pathToBundle);
 ```
 
+</TabItem>
+</Tabs>
 
 :::
 
