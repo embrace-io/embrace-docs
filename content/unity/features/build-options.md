@@ -55,7 +55,7 @@ If you'd like to specify "Staging" via it's index, you would define the followin
 ```$ export EMBRACE_ENVIRONMENTS_INDEX=1```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONEMNTS_INDEX=1```
+```C:\> SET EMBRACE_ENVIRONMENTS_NAME=1```
 
 Alternatively, to specify by the name "Staging":
 
@@ -63,12 +63,12 @@ Alternatively, to specify by the name "Staging":
 ```$ export EMBRACE_ENVIRONMENTS_NAME=Staging```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONEMNTS_NAME=Staging```
+```C:\> SET EMBRACE_ENVIRONMENTS_NAME=Staging```
 
 ## Configuration Output
+
 Users will notice that both default, and environment-defined configurations already have some fields defined upon creation.  These fields correspond to the defaults specified for [Android]({{<relref "/android/features/configuration-file.md">}} "Android") and [iOS]({{<relref "/ios/features/configuration-file.md">}}).  At build time, configuration files are loaded and scanned for **non-default** settings, which are then output to an override configuration file for their specific platforms.
 {{< image src="/docs/images/unity-configuration-defaults.png" alt="Image showing configuration defaults" width="1330" height="681" >}}
-
 
 For example, in the `sdk_config.session` sub-element of the Android configuration, if the `async_end` flag is set to `true` and `max_session_seconds` is set to `120` the output `embrace-config.json` file will only feature those fields as overrides since they are overriding default settings. Likewise, in the iOS configuration the `CRASH_REPORT_ENABLED` `ENABLE_AUTOMATIC_VIEW_CAPTURE` and `STARTUP_MOMENT_SCREENSHOT_ENABLED` fields were modified with non-default values, and are therefore the only settings included in the `Embrace-Info.plist` output.
 
@@ -76,5 +76,7 @@ For example, in the `sdk_config.session` sub-element of the Android configuratio
 {{< image src="/docs/images/unity-config-overrides.png" alt="Image showing configuration defaults" width="1116" height="206" >}}
 
 ## Data Directory
+
 The Unity Embrace SDK will store configuration data in the `Assets/Embrace` directory of your project.  This directory can be customized in the **Settings** window under the **General** tab.  Specify a new directory in the **Embrace Data Directory** field.  Note that this path will remain relative to your project's `Assets` folder. This is a necessary constraint since we depend on the Unity's `AssetDatabase` utility to manage user-generated configuration files.
+
 {{< image src="/docs/images/unity-embrace-data-directory.png" alt="Image showing configuration defaults" width="701" height="243" >}}
