@@ -31,9 +31,14 @@ If you are using a yarn workspace, you must run the command at the react-native 
 If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md)
 to set up the native modules. 
 
-{{< tabs >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "iOS" >}}
+<Tabs groupId="rn-platform" queryString="rn-platform">
+<TabItem value="ios" label="iOS">
+
 Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
 
 ```ruby
@@ -50,20 +55,17 @@ Then, install the pod.
 cd ios && pod install
 ```
 
+</TabItem>
+<TabItem value="android" label="Android">
 
-{{< tab "Android" >}}
 <!-- This is wrong because the manual instalation is related to the SDK not the native modules 
 We have to check how is the integration for RN project without autolinking -->
 Follow the steps in the **Setup Script** section or the [Manual](/android/integration/add-embrace-sdk#adding-the-sdk-manually) section to add the Android native dependencies.
 
-
-
-{{< /tabs >}}
-
-
+</TabItem>
+</Tabs>
 
 # Adding the SDK 
-
 
 ## Setup Script
 
@@ -85,19 +87,16 @@ git diff
 Compare the changes to the [Manual Setup](/android/integration/add-embrace-sdk#adding-the-sdk-manually) step to verify the changes were made
 correctly.
 
-
-
 ## Manually
 
-{{< tabs "reactNativeAddSDKManually" >}}
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
 
-{{< tab "iOS" >}}
 You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 Please see the [Session Reporting](/ios/integration/session-reporting#import-embrace) page from the iOS integration guide page on how to add this file in Xcode. 
 
-{{< /tab >}}
-
-{{< tab "Android" >}}
+</TabItem>
+<TabItem value="android" label="Android">
 
 Update the `build.gradle` file (usually located at `<root>/android/build.gradle`) to include the Embrace Swazzler.
 
@@ -144,7 +143,6 @@ android {
 
 Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token.
 
-
 ```json
 {
   "app_id": "xxxxx",
@@ -165,9 +163,8 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 
 :::
 
-{{< /tab >}}
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 ---
 
@@ -175,4 +172,3 @@ There's a little more configuration we have to do to set up the uploading of sym
 You'll be learning about that next.
 
 {{< button relref="/react-native/integration/upload-symbol-files" >}}On to Uploading Symbol Files{{< /button >}}
-

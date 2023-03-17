@@ -32,9 +32,13 @@ This phase is going to be calling Embrace's `run.sh` upload script. You can conf
 The run.sh script is distributed alongside the `Embrace.framework` file. Depending on how you linked Embrace, this file will be in a different location.
 See the section relevant for your integration for how to call the run script.
 
-{{< tabs "runscript" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "CocoaPods" >}}
+<Tabs groupId="ios-type" queryString="ios-type">
+<TabItem value="cocoapods" label="CocoaPods">
 
 Use this command format for CocoaPods integrations.
 
@@ -44,9 +48,8 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run
 
 Notice how the script's location is a reference to the CocoaPods installation folder.
 
-{{< /tab >}}
-
-{{< tab "Carthage" >}}
+</TabItem>
+<TabItem value="carthage" label="Carthage">
 
 Carthage linking requires a download of a Carthage Support zip file from [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip).
 
@@ -58,9 +61,8 @@ The zip file contains the `run.sh` script, so modify the path below to match you
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO/run.sh"
 ```
 
-{{< /tab >}}
-
-{{< tab "Manual" >}}
+</TabItem>
+<TabItem value="manual" label="Manual">
 
 For Manual linking, the command looks similar to the CocoaPods version but the location has changed.
 
@@ -70,9 +72,8 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/third_party/Embra
 
 In this version we're referencing the Embrace folder inside our `third_party` folder at the root of our project.  
 
-{{< /tab >}}
-
-{{< tab "SPM" >}}
+</TabItem>
+<TabItem value="spm" label="SPM">
 
 SPM linking requires a download of our support utility, which we publish at [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip). SPM uses the same utility as Carthage for uploads.
 
@@ -84,9 +85,8 @@ The zip file contains the `run.sh` script, so modify the path below to match you
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO/run.sh"
 ```
 
-{{< /tab >}}
- 
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 :::info
 In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script. If the environment variables are on different lines, they will not be available when run.sh executes and the command will fail.

@@ -26,25 +26,29 @@ For more suggestions on what to measure with moments, see the [Best Practices](/
 
 Here's what a call to start a moment looks like.
 
-{{< tabs "tabs1" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().startMoment(withName: "add_item")
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] startMomentWithName:@"add_item"];
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 In a sample scenario, this is a moment we're using to measure how quickly our UITableView renders after adding a new item using the plus button.
 We start the moment when we add the item, and we'll end it when the animation finishes.
@@ -62,25 +66,24 @@ import PropertyLimit from '@site/shared/property-limit.md';
 
 Here's how to end a moment.
 
-{{< tabs "tabs2" >}}
-
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().endMoment(withName: "add_item")
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] endMomentWithName:@"add_item"];
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 Once you start a moment, a timer is started.
 If you end the moment within a configurable threshold, then the timer ends and the client's measurement is used to report performance.

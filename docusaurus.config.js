@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Embrace',
+  title: 'Embrace - Documentation',
   tagline: 'Learn how to set up comprehensive mobile app performance monitoring.',
   favicon: 'static/favicon.png',
   trailingSlash: true,
@@ -119,7 +119,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["clike","java","kotlin","swift","csharp","groovy","json"],
+        additionalLanguages: ["clike","java","kotlin","swift","csharp","groovy","json","shell-session"],
       },
     }),
 };

@@ -34,9 +34,13 @@ header to `/graphql/friends_list`, the request will be reported as
 * Must only contain ASCII characters
 :::
 
-{{< tabs graphqlExample >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 import Foundation
@@ -77,9 +81,8 @@ extension Network: HTTPNetworkTransportPreflightDelegate {
   }
 }
 ```
-{{< /tab >}}
-
-{{< tab "Java" >}}
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 httpClient.addInterceptor(chain -> {
@@ -104,6 +107,6 @@ httpClient.addInterceptor(chain -> {
     }
 });
 ```
-{{< /tab >}}
 
-{{< /tabs >}}
+</TabItem>
+</Tabs>

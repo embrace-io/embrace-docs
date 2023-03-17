@@ -21,18 +21,21 @@ Here are the steps you’ll be taking to create your first session.
 
 Start by importing the Embrace native SDK in the file that applies for each platform.
 
-{{< tabs "reactNativeImportEmbrace" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "iOS" >}}
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
 
 Open the `AppDelegate.m` file (usually located at `<project root>/ios/<MyApp>/AppDelegate.m`) and import Embrace.
 ```objectivec
 #import <Embrace/Embrace.h>
 ```
 
-{{< /tab >}}
-
-{{< tab "Android" >}}
+</TabItem>
+<TabItem value="android" label="Android">
 
 Open the `MainApplication.java` file (usually located at `<project root>/android/app/src/main/java/com/<MyApp>/MainApplication.java`) and import Embrace.
 
@@ -40,24 +43,19 @@ Open the `MainApplication.java` file (usually located at `<project root>/android
 import io.embrace.android.embracesdk.Embrace;
 ```
 
-{{< /tab >}}
-
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 :::info
-
 If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page, this change has already been made for you.
-
 :::
 
 ## Add the Start Call
 
 After importing Embrace, update the same files that you edited in the previous step to make a call to the Embrace SDK to start capturing data.
 
-{{< tabs "reactNativeStartEmbrace" >}}
-
-{{< tab "iOS" >}}
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
 
 ```objectivec
 @implementation AppDelegate
@@ -70,13 +68,11 @@ After importing Embrace, update the same files that you edited in the previous s
 ```
 
 :::info
-
 If you are using Swift, follow the steps in the [iOS Linking Embrace](/ios/integration/session-reporting) section.
-
 :::
-{{< /tab >}}
 
-{{< tab "Android" >}}
+</TabItem>
+<TabItem value="android" label="Android">
 
 ```java
 public class MainApplication extends Application implements ReactApplication {
@@ -90,9 +86,8 @@ public class MainApplication extends Application implements ReactApplication {
 }
 ```
 
-{{< /tab >}}
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 ## End the Startup Moment
 
@@ -108,12 +103,8 @@ The iOS SDK does not end the moment automatically.
 
 In either platform, you can end the startup moment when your application mounts.
 
-
-
-
-{{< tabs "reactNativeImplementationEmbrace" >}}
-
-{{< tab "Classes" >}}
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
 
 ```javascript
 import {endAppStartup} from 'react-native-embrace';
@@ -126,9 +117,8 @@ export default class App extends Component {
 }
 ```
 
-{{< /tab >}}
-
-{{< tab "Hooks" >}}
+</TabItem>
+<TabItem value="hooks" label="Hooks">
 
 ```javascript
 import React, {useEffect, useState} from 'react'
@@ -149,10 +139,8 @@ export default App
 As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your background process are finished and the user is able to interact with the application.
 
 :::
-{{< /tab >}}
-
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 
 End the startup moment as soon as your users are able to interact with the application. 

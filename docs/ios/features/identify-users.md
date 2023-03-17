@@ -37,50 +37,53 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 
 :::
 
-{{< tabs "tabs1" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().setUserIdentifier("internal_random_id_1234");
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] setUserIdentifier:@"internal_random_id_1234"];
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
 If the user contacts our customer service department, those agents will look the user up by the identifier to find sessions in the Embrace dashboard to investigate.
 
 Sometimes you need to set customized values for specific use cases or user segmentation scenarios:
 
-{{< tabs "tabs2" >}}
-
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().setUserPersona("high_value_cart");
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] setUserPersona:@"high_value_cart"];
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 The session is annotated with `"high_value_cart"` in the above example.
 This property helps you to identify users who have a certain dollar value in their shopping cart so 
@@ -94,25 +97,24 @@ Although, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:
 
-{{< tabs "tabs3" >}}
-
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().addSessionProperty("normal", withKey: "launch type", permanent: false)
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] addSessionProperty:@"normal" withKey:@"launch type" permanent:NO];
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 import PropertyLimit from '@site/shared/property-limit.md';
 

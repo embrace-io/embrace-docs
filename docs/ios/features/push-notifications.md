@@ -15,9 +15,13 @@ The automatic mode doesn't require any changes in your code.
 
 To use the manual mode you'll have add a few lines:
 
-{{< tabs "launchOptionsHelp" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 // push notifications
@@ -43,9 +47,9 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     completionHandler(.newData)
 }
 ```
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 // push notifications
@@ -69,9 +73,9 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     completionHandler(UIBackgroundFetchResultNewData);
 }
 ```
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 
 :::info

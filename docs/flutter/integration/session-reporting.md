@@ -49,7 +49,7 @@ Future<void> main() async {
 Add a call to start the iOS SDK from within your `AppDelegate`:
 
 <Tabs groupId="ios-language" queryString="ios-language">
-  <TabItem value="swift" label="Swift">
+<TabItem value="swift" label="Swift">
 
 ```swift title="AppDelegate.swift"
 import UIKit
@@ -72,8 +72,8 @@ override func application(
 }
 ```
 
-  </TabItem>
-  <TabItem value="objective-c" label="Objectice-C">
+</TabItem>
+<TabItem value="objective-c" label="Objectice-C">
 
 ```objectivec title="AppDelegate.m"
 #import AppDelegate.h
@@ -91,7 +91,7 @@ override func application(
 @end
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ## Add the Android SDK start call
@@ -105,7 +105,7 @@ The call to start the Embrace Android SDK can be placed in either:
 If you have a custom application class, you can start the Embrace Android SDK in its `onCreate` method:
 
 <Tabs groupId="android-language" queryString="android-language">
-  <TabItem value="java" label="Java">
+<TabItem value="java" label="Java">
 
 ```java
 import io.embrace.android.embracesdk.Embrace;
@@ -120,8 +120,8 @@ public final class MyApplication extends Application {
 }
 ```
 
-  </TabItem>
-  <TabItem value="kotlin" label="Kotlin">
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
 import android.app.Application
@@ -135,7 +135,7 @@ class MyApplication : Application() {
 }
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 ### Adding to `MainActivity`
@@ -168,20 +168,20 @@ In iOS, end the startup moment as close to the point that your UI is ready for u
 
 
 <Tabs groupId="ios-language" queryString="ios-language">
-  <TabItem value="swift" label="Swift">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().endAppStartup()
 ```
 
-  </TabItem>
-  <TabItem value="objective-c" label="Objective-C">
+</TabItem>
+<TabItem value="objective-c" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] endAppStartup];
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 You should end the startup moment before the user has a chance to interact with the application.
@@ -205,20 +205,20 @@ Embrace Flutter SDK Version: {{< sdk platform="flutter" >}}
 In addition to that message, you should also see an initialization message for the underlying native Embrace SDK:
 
 <Tabs groupId="platform" queryString="platform">
-  <TabItem value="ios" label="iOS">
+<TabItem value="ios" label="iOS">
 
 ```sh
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
 ```
 
-  </TabItem>
-  <TabItem value="android" label="Android">
+</TabItem>
+<TabItem value="android" label="Android">
 
 ```sh
 Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
 ```
 
-  </TabItem>
+</TabItem>
 </Tabs>
 
 :::info

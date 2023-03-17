@@ -18,27 +18,30 @@ You can leverage the log message API for this.
 
 You can log a message immediately by calling the `logMessage` method.
 
-{{< tabs "iosLogMessage1" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 let properties = ["property_a": "value_a", "property_b": "value_b"]
 Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .error, properties: properties, takeScreenshot: false)
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 NSDictionary *properties = @{@"property_a": @"value_a", @"property_b": @"value_b"};
 [[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity:EMBSeverityError properties:properties takeScreenshot:NO];
 ```
 
-{{< /tab >}}
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 Let's examine the method call from above to understand the arguments involved:
 

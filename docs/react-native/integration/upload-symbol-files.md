@@ -14,9 +14,13 @@ For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the 
 
 ## Uploading Source Maps
 
-{{< tabs "uploadingJavaScriptSourceMaps" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "iOS" >}}
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
 
 In Xcode, find the "Bundle React Native code and images" step in the Build Phases tab.
 The contents should look something like the following:
@@ -35,14 +39,11 @@ export EXTRA_PACKAGER_ARGS="--sourcemap-output $CONFIGURATION_BUILD_DIR/$UNLOCAL
 ```
 
 :::info
-
 If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page, this change has already been made for you.
-
 :::
 
-{{< /tab >}}
-
-{{< tab "Android" >}}
+</TabItem>
+<TabItem value="android" label="Android">
 
 Add extra arguments to the bundle step in `android/app/build.gradle`.
 
@@ -53,9 +54,7 @@ project.ext.react = [
 ]
 ```
 
-:::info
-
-**Note on variants**
+:::info Note on variants
 By default, source maps are uploaded only for the release variant.
 If you'd like to upload source maps for other variants, make the following changes:
 
@@ -68,12 +67,10 @@ project.ext.react = [
 ]
 ```
 This creates a bundle and sets the debuggable flag to false.
-
 :::
 
-{{< /tab >}}
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 ## Symbolication with CodePush
 
@@ -87,56 +84,47 @@ appcenter codepush release-react -a MyApp --output-dir ./build --sourcemap-outpu
 
 Then, use the Embrace upload script to upload the source map.
 
-{{< tabs "uploadingCodepushSourceMaps" >}}
-
-{{< tab "iOS" >}}
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
 
 ```sh
 ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/main.jsbundle --rn-map ./map
 ```
 
-{{< /tab >}}
-
-{{< tab "Android" >}}
+</TabItem>
+<TabItem value="android" label="Android">
 
 ```sh
 ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
 ```
 
 :::info
-
 The android map is generated with a different name, but the tool to upload is the same as iOS
-
 :::
 
-{{< /tab >}}
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 ## Uploading Native Symbol Files
 
-{{< tabs "uploadingNativeSymbolFiles" >}}
-
-{{< tab "iOS" >}}
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
 
 Please see the [Uploading dSYMs](/ios/integration/dsym-upload) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
 
-{{< /tab >}}
-
-{{< tab "Android" >}}
+</TabItem>
+<TabItem value="android" label="Android">
 
 Proguard files will be uploaded automatically.
 If you don’t see symbolicated crashes while using Proguard, reach out to us on Slack and we’ll work with you directly.
 
-:::warning
-
-**Note** We do not officially support Dexguard.
-
+:::notice
+We do not officially support Dexguard.
 :::
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 ## Pointing the Embrace SDK to the JavaScript Bundle
 
@@ -145,9 +133,8 @@ you must point the Embrace SDK to where the updated JavaScript bundle will be do
 You can do this in either the JavaScript part or native parts of your app with the code snippet provided below.
 Note that this step is unnecessary if you use CodePush since the Embrace SDK will leverage the CodePush SDK to find the location of the bundle.
 
-{{< tabs >}}
-
-{{< tab "JavaScript" >}}
+<Tabs groupId="rn-language" queryString="rn-language">
+<TabItem value="javascript" label="JavaScript">
 
 ```javascript
 import {setJavaScriptBundlePath} from 'react-native-embrace';
@@ -155,26 +142,22 @@ import {setJavaScriptBundlePath} from 'react-native-embrace';
 setJavaScriptBundlePath(pathToBundle)
 ```
 
-{{< /tab >}}
-
-{{< tab "Objective-C" >}}
+</TabItem>
+<TabItem value="objectivec" label="ObjectiveC">
 
 ```objectivec
 [[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];
 ```
 
-{{< /tab >}}
-
-{{< tab "Java" >}}
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 Embrace.getInstance().setJavaScriptBundleURL(pathToBundle)
 ```
 
-{{< /tab >}}
-
-
-{{< /tabs >}}
+</TabItem>
+</Tabs>
 
 ## Expo Apps
 
@@ -188,4 +171,3 @@ You must also point the Embrace SDK to the location the updated bundle will be d
 Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.  
 
 {{< button relref="/react-native/integration/session-reporting" >}}Create Your First Session{{< /button >}}
-

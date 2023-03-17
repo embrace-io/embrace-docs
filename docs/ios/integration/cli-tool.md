@@ -18,20 +18,19 @@ By default, the package installer will install the binary into your
 `/usr/local/bin` path. This is a default location in your `$PATH`, so you can
 confirm the installation by using:
 
-```bash
+```shell-session
 $ which embtool
 /usr/local/bin/embtool
 
-exampleuser@Embrace embrace-docs % embtool --help
+$ embtool --help
 OVERVIEW: A command line tool to help with Embrace integration
-
 ```
 
 There are a few subcommands to be aware of when using this tool.
 
 ### Project Validation
 
-```bash
+```shell-session
 $ embtool project validate --help
 $ embtool project validate <path-to-xcodeproj>
 ```
@@ -50,7 +49,7 @@ team.
 
 ### Project Installation
 
-```bash
+```shell-session
 $ embtool project install --help
 $ embtool project install --api-key <api-key> --token <token> <path-to-xcodeproj>
 ```
@@ -73,7 +72,7 @@ made so it is very clear what changes the install command makes.
 
 ### dSYM Lookup
 
-```bash
+```shell-session
 $ embtool dsym lookup --help
 $ embtool dsym lookup --scheme <my-scheme> <path-to-xcodeproj>
 ```

@@ -14,27 +14,31 @@ Embrace can collect basic session data and crashes as you've already seen in the
 Embrace can also collect your logging data and include it as context within your sessions. 
 Here's how you add a breadcrumb to the session.
 
-{{< tabs "iosBreadcrumbs1" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 let msg = String(format: "Master table view editing mode did change to: \(editing), animated: \(animated)")
 Embrace.sharedInstance().logBreadcrumb(withMessage: msg)
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 NSString *msg = [NSString stringWithFormat:"Master table view editing mode did change to: %@, animated: %@", editing, animated];
 [[Embrace sharedInstance] logBreadcrumbWithMessage:msg];
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 This is an example of a log we added to our sample application so we'd know when the user enters and exits editing mode on our table view.
 This event is not otherwise shown in the session and can be important depending on what the user does next.

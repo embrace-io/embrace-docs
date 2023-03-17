@@ -38,25 +38,29 @@ Let's start by importing the Embrace module. Open your program's
 At the top of the file where you see the other import statements, add one for
 Embrace.
 
-{{< tabs "iosNativeImportEmbrace" >}}
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 import Embrace
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```swift
 #import <Embrace/Embrace.h>
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 Now we're going to add a new file to our project. Embrace has many optional
 features and configuration options that you may want to use. It is best to
@@ -81,9 +85,8 @@ Next, inside your main startup function (usually
 `ApplicationDidFinishLaunching`) add the following code to start Embrace. Embrace does not perform any tracking
 or other actions until this call is made.
 
-{{< tabs "iosSessionReporting1" >}}
-
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().start(launchOptions: launchOptions);
@@ -102,9 +105,9 @@ Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions,
 ```
 :::
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] startWithLaunchOptions:launchOptions];
@@ -121,9 +124,9 @@ If you have a **React Native project** you have to add the framework
 [[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions framework:EMBAppFrameworkReactNative];
 ```
 :::
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 :::info
 
@@ -148,23 +151,22 @@ When this mode is enabled you'll see an alert with descriptive errors if Embrace
 fails to initialize properly.
 Please note that this alert will only show in development environments.
 
-{{< tabs "iosIntegrationHelp" >}}
-
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions, framework: .native, enableIntegrationHelp: true)
 ```
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions framework:EMBAppFrameworkNative enableIntegrationHelp:YES];
 ```
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 
 
@@ -189,25 +191,24 @@ recommend placing the call as close to the point that your UI is ready for use
 as possible, as doing so will give you the most accurate picture of the
 performance your users are experiencing with app launch.
 
-{{< tabs "iosSessionReporting2" >}}
-
-{{< tab "Swift" >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
 
 ```swift
 Embrace.sharedInstance().endAppStartup();
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< tab "Objective-C" >}}
+<TabItem value="objectivec" label="Objective-C">
 
 ```objectivec
 [[Embrace sharedInstance] endAppStartup];
 ```
 
-{{< /tab >}}
+</TabItem>
 
-{{< /tabs >}}
+</Tabs>
 
 :::info
 
