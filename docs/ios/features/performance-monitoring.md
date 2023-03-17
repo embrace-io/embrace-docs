@@ -38,7 +38,7 @@ Embrace.sharedInstance().startMoment(withName: "add_item")
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] startMomentWithName:@"add_item"];
 ```
 
@@ -74,7 +74,7 @@ Embrace.sharedInstance().endMoment(withName: "add_item")
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] endMomentWithName:@"add_item"];
 ```
 

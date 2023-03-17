@@ -106,13 +106,13 @@ Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions,
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] startWithLaunchOptions:launchOptions];
 ```
 
 Alternatively, if you do not want to keep your API_KEY in the plist file you can send it in programmatically using:
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions];
 ```
 :::info
@@ -159,7 +159,7 @@ Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions,
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions framework:EMBAppFrameworkNative enableIntegrationHelp:YES];
 ```
 {{< /tab >}}
@@ -201,7 +201,7 @@ Embrace.sharedInstance().endAppStartup();
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] endAppStartup];
 ```
 

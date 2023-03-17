@@ -159,7 +159,7 @@ setJavaScriptBundlePath(pathToBundle)
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];
 ```
 

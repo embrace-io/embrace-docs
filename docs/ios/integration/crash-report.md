@@ -54,7 +54,7 @@ Embrace.sharedInstance().crash()
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] crash];
 ```
 

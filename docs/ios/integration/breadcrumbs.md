@@ -27,7 +27,7 @@ Embrace.sharedInstance().logBreadcrumb(withMessage: msg)
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 NSString *msg = [NSString stringWithFormat:"Master table view editing mode did change to: %@, animated: %@", editing, animated];
 [[Embrace sharedInstance] logBreadcrumbWithMessage:msg];
 ```

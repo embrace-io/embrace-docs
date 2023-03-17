@@ -47,7 +47,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 // push notifications
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [[Embrace sharedInstance] applicationDidReceiveNotification:userInfo];

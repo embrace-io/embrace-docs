@@ -49,7 +49,7 @@ Embrace.sharedInstance().setUserIdentifier("internal_random_id_1234");
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] setUserIdentifier:@"internal_random_id_1234"];
 ```
 
@@ -74,7 +74,7 @@ Embrace.sharedInstance().setUserPersona("high_value_cart");
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] setUserPersona:@"high_value_cart"];
 ```
 
@@ -106,7 +106,7 @@ Embrace.sharedInstance().addSessionProperty("normal", withKey: "launch type", pe
 
 {{< tab "Objective-C" >}}
 
-```objective-c
+```objectivec
 [[Embrace sharedInstance] addSessionProperty:@"normal" withKey:@"launch type" permanent:NO];
 ```
 

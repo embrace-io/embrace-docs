@@ -26,7 +26,7 @@ Start by importing the Embrace native SDK in the file that applies for each plat
 {{< tab "iOS" >}}
 
 Open the `AppDelegate.m` file (usually located at `<project root>/ios/<MyApp>/AppDelegate.m`) and import Embrace.
-```objective-c
+```objectivec
 #import <Embrace/Embrace.h>
 ```
 
@@ -59,7 +59,7 @@ After importing Embrace, update the same files that you edited in the previous s
 
 {{< tab "iOS" >}}
 
-```objective-c
+```objectivec
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions
 {

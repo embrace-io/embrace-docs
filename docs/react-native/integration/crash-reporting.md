@@ -54,7 +54,7 @@ setJavaScriptBundlePath('/path/to/bundle');
 ```
 
 In Objective-C:
-```objective-c
+```objectivec
 [[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];
 ```
 
