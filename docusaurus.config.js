@@ -137,7 +137,7 @@ const config = {
               },
               {
                 label: 'Terms of Service',
-                to: '/term-of-service/',
+                to: '/terms-of-service/',
               },
               {
                 label: 'Data Processing Agreement',
