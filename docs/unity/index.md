@@ -15,14 +15,14 @@ We test our SDK on all Unity LTS versions 2019 and newer. Each Unity release var
 
 This documentation is split into two sections:
 
-1. [**Integration Guide**]({{< relref "/unity/integration">}})
-2. [**Feature Reference**]({{< relref "/unity/features">}})
+1. [**Integration Guide**](/unity/integration)
+2. [**Feature Reference**](/unity/features)
 
-If you are just starting out with Embrace, follow the [**Integration Guide**]({{< relref "/unity/integration">}}) to learn
+If you are just starting out with Embrace, follow the [**Integration Guide**](/unity/integration) to learn
 the key steps to successfully using our product.
 
-Once you've completed that, browse through our [**Feature Reference**]({{< relref "/unity/features">}}) guides to learn how
+Once you've completed that, browse through our [**Feature Reference**](/unity/features) guides to learn how
 to use the advanced features our SDK provides.
 
 
-You can also view our [Change Log]({{< relref "/unity/changelog" >}}).
+You can also view our [Change Log](/unity/changelog).

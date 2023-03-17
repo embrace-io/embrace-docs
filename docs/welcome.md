@@ -37,7 +37,7 @@ process of integrating Embrace into your application and organization.
 
 Add Embrace to your Android project.
 
-[GET STARTED]({{< relref "/android" >}})
+[GET STARTED](/android)
 
 
 {{< icon src="/docs/images/ios-icon.svg" >}}
@@ -47,7 +47,7 @@ Add Embrace to your Android project.
 Add Embrace to your  
 iOS project.
 
-[GET STARTED]({{< relref "/ios" >}})
+[GET STARTED](/ios)
 
 {{< /columns >}}
 {{< columns >}}
@@ -58,7 +58,7 @@ iOS project.
 
 Add Embrace to your React Native project.
 
-[GET STARTED]({{< relref "/react-native" >}})
+[GET STARTED](/react-native)
 
 TODO2
 
@@ -68,6 +68,6 @@ TODO2
 
 Add Embrace to your Unity Engine project.
 
-[GET STARTED]({{< relref "/unity" >}})
+[GET STARTED](/unity)
 
 {{< /columns >}}

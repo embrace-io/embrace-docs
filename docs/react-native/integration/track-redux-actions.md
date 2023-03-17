@@ -10,7 +10,7 @@ aliases:
 
 ## Adding Context to Sessions
 
-Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting]({{< relref "/react-native/integration/crash-reporting" >}}) and [Session Reporting]({{< relref "/react-native/integration/session-reporting" >}}) sections.
+Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.
 Embrace can also collect the redux's actions that are being dispatched and include it as context within your sessions.
 Here's how you add the action tracker to the session.
 

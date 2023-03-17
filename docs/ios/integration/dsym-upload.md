@@ -93,7 +93,7 @@ In the examples above, notice how the environment variables for your key and tok
 :::
 
 :::info
-If your crashes are not being symbolicated due to dSYM files being missing, see the section on [troubleshooting dSYM uploads]({{< relref "/ios/faq#troubleshooting-dsym-upload" >}}) in the FAQ.
+If your crashes are not being symbolicated due to dSYM files being missing, see the section on [troubleshooting dSYM uploads](/ios/faq#troubleshooting-dsym-upload) in the FAQ.
 :::
 
 ## Manual Uploads
@@ -106,7 +106,7 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
  
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs]({{< relref "/ios/integration/dsym-upload#automatic-uploads" >}}) to learn how to locate this file in your project. You will also need your API key and API token.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your API key and API token.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 

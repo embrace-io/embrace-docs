@@ -94,7 +94,7 @@ _April 23, 2021_
 
 :::warning
 
-Please follow the [instructions in the Embrace Android SDK changelog]({{< relref "../android/changelog.md#482" >}}) to fetch the SDK from Maven Central instead of JCenter.
+Please follow the [instructions in the Embrace Android SDK changelog](../android/changelog.md#482) to fetch the SDK from Maven Central instead of JCenter.
 
 
 :::

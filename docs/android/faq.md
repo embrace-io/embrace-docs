@@ -15,7 +15,7 @@ or email us at <support@embrace.io>.
 ### **Can I turn on screenshots for specific areas of my app?**
 
 Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-To turn on screenshots, please refer to the sections for [Logs]({{< relref "/android/integration/log-message-api" >}}) and [Moments]({{< relref "/android/features/performance-monitoring" >}}), or see the [API docs]({{< api android >}}). 
+To turn on screenshots, please refer to the sections for [Logs](/android/integration/log-message-api) and [Moments](/android/features/performance-monitoring), or see the [API docs]({{< api android >}}). 
 If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
 
 ## Crash Capture
@@ -67,7 +67,7 @@ buildscript {
 
 ### **Is there a way that I can speed up build times?**
 
-Yes, the swazzling cache can help with this. An in-depth description of this feature can be found [here]({{< relref "/android/features/build-options#improving-build-speed">}}).
+Yes, the swazzling cache can help with this. An in-depth description of this feature can be found [here](/android/features/build-options#improving-build-speed).
 
 
 ### **What determines if a session is classified as prod or dev?**
@@ -79,7 +79,7 @@ A session is classified as dev if all of the following are true:
 
 ### **How can I define custom app IDs for different build types?**
 
-See [this section]({{< relref "/android/features/configuration-file#custom-settings-for-build-types-flavors-and-variants">}}) on how to configure different app IDs.
+See [this section](/android/features/configuration-file#custom-settings-for-build-types-flavors-and-variants) on how to configure different app IDs.
 
 ### **Does Embrace work with Buck / OKBuck?**
 
@@ -159,7 +159,7 @@ Yes. Please contact us for the steps to track GRPC.
 
 ### **Do you support GraphQL?**
 
-Yes, we have multiple customers that use GraphQL. See the [GraphQL guide]({{< relref "/best-practices/graphql">}}) in [Best Practices]({{< relref "/best-practices" >}}).
+Yes, we have multiple customers that use GraphQL. See the [GraphQL guide](/best-practices/graphql) in [Best Practices](/best-practices).
 
 ### **Which network libraries do you support?**
 
@@ -194,7 +194,7 @@ This could be due to one of the following reasons:
 ### **Why do I have super low rates of incomplete for startup; e.g. 99.5% to 100%?**
 
 The most common scenario is that we are auto-detecting an early activity for which you should skip.
-Please refer to the  [Performance Monitoring guide]({{< relref "/android/features/performance-monitoring" >}}) for how to correctly track startup completion rates and durations.
+Please refer to the  [Performance Monitoring guide](/android/features/performance-monitoring) for how to correctly track startup completion rates and durations.
 
 ### **How do I measure activities running in parallel?**
 
@@ -211,7 +211,7 @@ Embrace.getInstance().endEvent("load_photos", "<MOMENT_IDENTIFIER>");
 
 ### **Can I disable the capture of tap coordinates?**
 
-Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting]({{< relref "/android/features/configuration-file#tapscapture_coordinates" >}}) in the `embrace-config.json` file.
+Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file#tapscapture_coordinates) in the `embrace-config.json` file.
 
 
 ## Trace IDs
@@ -220,7 +220,7 @@ Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordin
 
 Yes, you can capture trace IDs in two ways:
 1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value
-1. If the ID is already present in the request in a different header, set the name of the header in the `embrace-config.json` file with the [`networking[trace_id_header]` setting]({{< relref "/android/features/configuration-file#networkingtrace_id_header" >}})
+1. If the ID is already present in the request in a different header, set the name of the header in the `embrace-config.json` file with the [`networking[trace_id_header]` setting](/android/features/configuration-file#networkingtrace_id_header)
 
 :::warning
 Trace IDs longer than 64 characters will be truncated

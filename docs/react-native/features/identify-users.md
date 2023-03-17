@@ -11,8 +11,8 @@ aliases:
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
 sessions for an unhappy user.
 
-1. [**User Personas**]({{< relref "/react-native/features/identify-users#user-personas" >}}). This is data you can set and update about the user of a session.
-1. [**Session Properties**]({{< relref "/react-native/features/identify-users#session-properties" >}}). This is data you use to track information about the device or the session itself.
+1. [**User Personas**](/react-native/features/identify-users#user-personas). This is data you can set and update about the user of a session.
+1. [**Session Properties**](/react-native/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
 ## User Personas
 
@@ -48,7 +48,7 @@ This will help you identify users who have a certain dollar value in their shopp
 ## Session Properties
 
 Session Properties are another way to annotate the session.
-The difference between session properties and [user personas]({{< relref "/react-native/features/identify-users#user-personas" >}}) is that the former are for items relating to the session or the device and not necessarily to the user.
+The difference between session properties and [user personas](/react-native/features/identify-users#user-personas) is that the former are for items relating to the session or the device and not necessarily to the user.
 However, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:

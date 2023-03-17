@@ -15,8 +15,8 @@ It is important that you annotate your sessions with enough information so that 
 You will also want to be able to answer questions about a session to help you understand the severity of an issue.
 Embrace offers two mechanisms for annotating sessions in a searchable way:
 
-1. [**User Personas**]({{< relref "/ios/features/identify-users#user-personas" >}}). This is data you can set and update about the user of a session.
-1. [**Session Properties**]({{< relref "/ios/features/identify-users#session-properties" >}}). This is data you use to track information about the device or the session itself.  
+1. [**User Personas**](/ios/features/identify-users#user-personas). This is data you can set and update about the user of a session.
+1. [**Session Properties**](/ios/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.  
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 
@@ -89,7 +89,7 @@ you can prioritize fixing bugs that affect such users.
 ## Session Properties
 
 Session Properties are another way to annotate the session.
-The difference between session properties and [user personas]({{< relref "/ios/features/identify-users#user-personas" >}}) is that the former are for items relating to the session or the device, and not necessarily to the user.
+The difference between session properties and [user personas](/ios/features/identify-users#user-personas) is that the former are for items relating to the session or the device, and not necessarily to the user.
 Although, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:

@@ -12,11 +12,11 @@ Now that you've added the Embrace SDK to your project and can login to the Embra
 
 Here are the steps you'll be taking to create your first session.
 
-1. [**Import Embrace**]({{< relref "/android/integration/session-reporting#import-embrace" >}})
-1. [**Add a start call to the Embrace SDK**]({{< relref "/android/integration/session-reporting#add-the-start-call" >}})
-1. [**End the startup moment**]({{< relref "/android/integration/session-reporting#end-the-startup-moment" >}})
-1. [**Build and run the application**]({{< relref "/android/integration/session-reporting#build-and-run-the-application" >}})
-1. [**Trigger a session upload**]({{< relref "/android/integration/session-reporting#trigger-a-session-upload" >}})
+1. [**Import Embrace**](/android/integration/session-reporting#import-embrace)
+1. [**Add a start call to the Embrace SDK**](/android/integration/session-reporting#add-the-start-call)
+1. [**End the startup moment**](/android/integration/session-reporting#end-the-startup-moment)
+1. [**Build and run the application**](/android/integration/session-reporting#build-and-run-the-application)
+1. [**Trigger a session upload**](/android/integration/session-reporting#trigger-a-session-upload)
 
 ## Import Embrace
 
@@ -67,7 +67,7 @@ You should end the startup moment before the user has a chance to interact with 
 Add this method call to every location where the startup moment can end. You can call this method as many times as you like.
 
 A screenshot can be captured if the startup moment does not complete within five seconds while the app is still in the foreground.
-Add the `take_screenshot` setting to the `embrace-config.json` file that you added in the [Adding the Android SDK]({{< relref "/android/integration/add-embrace-sdk#add-the-config-file" >}}) section to enable this behavior.
+Add the `take_screenshot` setting to the `embrace-config.json` file that you added in the [Adding the Android SDK](/android/integration/add-embrace-sdk#add-the-config-file) section to enable this behavior.
 
 ```json
 {

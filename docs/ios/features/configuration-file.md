@@ -68,11 +68,11 @@ Controls Embrace's automatic view capture service. When enabled Embrace will aut
 
 <!---#### ENABLE_OS_LOG *boolean, optional*
 
-Enables Embrace's OS_LOG tracking features. You can read more about those here: [**Augment Sessions using OS Log**]({{< relref "/ios/features/augment-sessions" >}}) This feature is off by default.-->
+Enables Embrace's OS_LOG tracking features. You can read more about those here: [**Augment Sessions using OS Log**](/ios/features/augment-sessions) This feature is off by default.-->
 
 #### ENABLE_WK_AUTO_RELOAD *boolean, optional*
 
-Embrace can perform some automatic webkit management for you. This is off by default as not all apps can safely use it. You can read more about this feature here: [**Web Thread Monitoring**]({{< relref "/ios/features/web-thread-monitoring" >}})
+Embrace can perform some automatic webkit management for you. This is off by default as not all apps can safely use it. You can read more about this feature here: [**Web Thread Monitoring**](/ios/features/web-thread-monitoring)
 
 #### DISABLED_URL_PATTERNS *array[string], optional*
 
@@ -104,11 +104,11 @@ Sets a default limit for how many instances of any given domain to capture in a 
 
 ##### NETWORK:DOMAINS *dictionary[string, int], optional*
 
-This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the [**DEFAULT_CAPTURE_LIMIT**]({{<relref "#networkdefault_capture_limit-int-optional">}}).
+This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the [**DEFAULT_CAPTURE_LIMIT**](#networkdefault_capture_limit-int-optional).
 
 ##### NETWORK:CAPTURE_PUBLIC_KEY *string, optional*
 
-When present, the value in this field is used as a public RSA key to encrypt any captured network data to protect PII. You can read more about this feature here: [**Network Body Capture**]({{< relref "/ios/features/network-body-capture" >}})
+When present, the value in this field is used as a public RSA key to encrypt any captured network data to protect PII. You can read more about this feature here: [**Network Body Capture**](/ios/features/network-body-capture)
 
 #### NSURLCONNECTION_PROXY_ENABLE *boolean, optional*
 
@@ -125,7 +125,7 @@ Embrace adds a header to all network requests to allow us to track that request 
 #### PUSH_NOTIFICATIONS_CAPTURE_MODE *string, optional*
 
 Defines the capture mode for push notifications. Possible values:
-* `manual` (default) - to use the manual mode you'll have to make some calls to the Embrace class. For more information about this feature read here: [**Push Notifications**]({{< relref "/ios/features/push-notifications" >}})
+* `manual` (default) - to use the manual mode you'll have to make some calls to the Embrace class. For more information about this feature read here: [**Push Notifications**](/ios/features/push-notifications)
 * `automatic` - no extra steps needed with this mode.
 
 #### ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE *boolean, optional*

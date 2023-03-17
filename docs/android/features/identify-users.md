@@ -10,8 +10,8 @@ aliases:
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
 sessions for an unhappy user.
 
-1. [**User Personas**]({{< relref "/android/features/identify-users#user-personas" >}}). This is data you can set and update about the user of a session.
-1. [**Session Properties**]({{< relref "/android/features/identify-users#session-properties" >}}). This is data you use to track information about the device or the session itself.
+1. [**User Personas**](/android/features/identify-users#user-personas). This is data you can set and update about the user of a session.
+1. [**Session Properties**](/android/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
 :::info
 
@@ -50,7 +50,7 @@ This will help you identify users who have a certain dollar value in their shopp
 ## Session Properties
 
 Session Properties are another way to annotate the session.
-The difference between session properties and [user personas]({{< relref "/android/features/identify-users#user-personas" >}}) is that the former are for items relating to the session or the device and not necessarily to the user.
+The difference between session properties and [user personas](/android/features/identify-users#user-personas) is that the former are for items relating to the session or the device and not necessarily to the user.
 However, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:

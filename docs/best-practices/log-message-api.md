@@ -9,7 +9,7 @@ sidebar_position: 2
 ## Formatting the Message
 
 Try to make the log message short, yet informative.
-Don't pack details about the error into message, as those belong in [Properties]({{< relref "/best-practices/log-message-api#properties">}}).
+Don't pack details about the error into message, as those belong in [Properties](/best-practices/log-message-api#properties).
 
 The alerting capability of log messages is why breaking details into properties is so important. If your log message is a string that says `"Main page took 2.45ms to render"`, you cannot configure any thresholds on this. If the log was instead `"Main page took too long to render"` with a property of `"rendertime"` set to `"> 2ms"`, now you can customize an email alert based on this event. You could configure the alerts so that any render times greater than 5 seconds are emailed directly to you. 
 
@@ -35,6 +35,6 @@ When in doubt skip the screenshot.
 
 ## Using Breadcrumbs Instead
 
-If you're looking to add context around sessions and don't need the immediacy that Log Events provide, we recommend using [Breadcrumbs]({{< relref "/best-practices/breadcrumbs">}}) instead as they have a lower overhead cost.
+If you're looking to add context around sessions and don't need the immediacy that Log Events provide, we recommend using [Breadcrumbs](/best-practices/breadcrumbs) instead as they have a lower overhead cost.
 
 

@@ -15,12 +15,12 @@ Now that you've got Embrace linked and know how to login to the Embrace dashboar
 Embrace always uploads sessions on subsequent launches. This means the general
 process we're going to follow to collect our first session is:
 
-1. [**Import the Embrace module**]({{< relref "/unity/integration/session-reporting#import-embrace" >}})
-1. [**Add a start call to the Embrace SDK**]({{< relref "/unity/integration/session-reporting#add-a-start-call" >}})
-1. [**End the Startup Moment**]({{< relref "/unity/integration/session-reporting#end-the-startup-moment" >}})
-1. [**Build and run our application**]({{< relref "/unity/integration/session-reporting#build-and-run-your-application" >}})
+1. [**Import the Embrace module**](/unity/integration/session-reporting#import-embrace)
+1. [**Add a start call to the Embrace SDK**](/unity/integration/session-reporting#add-a-start-call)
+1. [**End the Startup Moment**](/unity/integration/session-reporting#end-the-startup-moment)
+1. [**Build and run our application**](/unity/integration/session-reporting#build-and-run-your-application)
     1. Verify Embrace started via the logs
-1. [**Trigger a session upload**]({{< relref "/unity/integration/session-reporting#trigger-a-session-upload" >}})
+1. [**Trigger a session upload**](/unity/integration/session-reporting#trigger-a-session-upload)
     1. Close or send the application to the background
     1. Launch the application to the foreground
     1. Verify that our first session was uploaded to Embrace by checking the dashboard

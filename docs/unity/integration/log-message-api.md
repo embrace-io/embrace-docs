@@ -8,7 +8,7 @@ aliases:
 
 # Adding Alerts
 
-As we've discussed in the [Session Reporting section]({{< relref "/unity/integration/session-reporting">}}), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
+As we've discussed in the [Session Reporting section](/unity/integration/session-reporting), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
 
 However, some situations might require immediate feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout.
 
@@ -25,7 +25,7 @@ Embrace.Instance.LogMessage("error log", EMBSeverity.Error, new Dictionary<strin
 Let's examine the method call above to understand the arguments involved:
 
 1. The first argument is a string and represents the message itself. 
-2. This is the severity of the event. Typically we use this mechanism for errors, warnings, and occasionally for tracing purposes, but [breadcrumbs]({{< relref "/ios/integration/breadcrumbs" >}}) are better for that purpose.
+2. This is the severity of the event. Typically we use this mechanism for errors, warnings, and occasionally for tracing purposes, but [breadcrumbs](/ios/integration/breadcrumbs) are better for that purpose.
 3. The third argument is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
 4. A boolean indicating whether or not we should include a screenshot with this alert.
 
@@ -45,11 +45,11 @@ This can have a negative effect on your application's performance or battery lif
 It can also be an invaluable tool for getting information about your application quickly.
 
 :::info
-For more tips on making the most of the Log Message API, checkout the [Best Practices]({{< relref "/best-practices/log-message-api" >}}).
+For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api).
 :::
 
 ---
 
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/unity/integration/next-steps" >}}) page to wrap up your integration.
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/unity/integration/next-steps) page to wrap up your integration.
 
 {{< button relref="/unity/integration/next-steps" >}}Next Steps{{< /button >}}

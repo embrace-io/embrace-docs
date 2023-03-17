@@ -38,7 +38,7 @@ Once uploaded, you will notice that your session is marked with the "crashed" ic
 
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
-described in the [Adding the Embrace SDK]({{< relref "/flutter/integration/add-embrace-sdk" >}}) page).
+described in the [Adding the Embrace SDK](/flutter/integration/add-embrace-sdk) page).
 If you're using Crashlytics, set this value to false.
 :::
 

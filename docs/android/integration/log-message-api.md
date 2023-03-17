@@ -62,11 +62,11 @@ Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
 :::info
-For more tips on making the most of the Log Message API, checkout the [Best Practices]({{< relref "/best-practices/log-message-api" >}}).
+For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api).
 :::
 
 ---
 
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/android/integration/next-steps" >}}) page to wrap up your integration.
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/android/integration/next-steps) page to wrap up your integration.
 
 {{< button relref="/android/integration/next-steps" >}}Next Steps{{< /button >}}

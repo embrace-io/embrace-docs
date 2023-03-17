@@ -154,7 +154,7 @@ Yes. Please contact us for the steps to track GRPC.
 
 ### **Do you support GraphQL?**
 
-Yes, we have multiple customers that use GraphQL. Please see the [GraphQL guide]({{< relref "/best-practices/graphql" >}}).
+Yes, we have multiple customers that use GraphQL. Please see the [GraphQL guide](/best-practices/graphql).
 
 ### **Do you allow changing the relative url path shown in the dash per network request?**
 

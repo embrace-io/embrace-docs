@@ -54,7 +54,7 @@ cd ios && pod install
 {{< tab "Android" >}}
 <!-- This is wrong because the manual instalation is related to the SDK not the native modules 
 We have to check how is the integration for RN project without autolinking -->
-Follow the steps in the **Setup Script** section or the [Manual]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) section to add the Android native dependencies.
+Follow the steps in the **Setup Script** section or the [Manual](/android/integration/add-embrace-sdk#adding-the-sdk-manually) section to add the Android native dependencies.
 
 
 
@@ -82,7 +82,7 @@ You can use git to see the changes that the script made.
 git diff
 ```
 
-Compare the changes to the [Manual Setup]({{< relref "/android/integration/add-embrace-sdk#adding-the-sdk-manually" >}}) step to verify the changes were made
+Compare the changes to the [Manual Setup](/android/integration/add-embrace-sdk#adding-the-sdk-manually) step to verify the changes were made
 correctly.
 
 
@@ -93,7 +93,7 @@ correctly.
 
 {{< tab "iOS" >}}
 You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
-Please see the [Session Reporting]({{< relref "/ios/integration/session-reporting#import-embrace" >}}) page from the iOS integration guide page on how to add this file in Xcode. 
+Please see the [Session Reporting](/ios/integration/session-reporting#import-embrace) page from the iOS integration guide page on how to add this file in Xcode. 
 
 {{< /tab >}}
 

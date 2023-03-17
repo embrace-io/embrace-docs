@@ -15,7 +15,7 @@ or email us at <support@embrace.io>.
 ### **Can I turn on screenshots for specific areas of my app?**
 
 Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-To turn on screenshots, please refer to the sections for [Logs]({{< relref "/react-native/integration/log-message-api" >}}) and [Moments](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html#startmoment), or see the [API docs](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html). 
+To turn on screenshots, please refer to the sections for [Logs](/react-native/integration/log-message-api) and [Moments](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html#startmoment), or see the [API docs](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html). 
 If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
 
 ### **Does Embrace work with Buck / OKBuck?**
@@ -47,7 +47,7 @@ Yes. Please contact us for the steps to track GRPC.
 
 ### **Do you support GraphQL?**
 
-Yes, we have multiple customers that use GraphQL. See the [GraphQL guide]({{< relref "/best-practices/graphql">}}) in [Best Practices]({{< relref "/best-practices" >}}).
+Yes, we have multiple customers that use GraphQL. See the [GraphQL guide](/best-practices/graphql) in [Best Practices](/best-practices).
 
 ### **My network calls are not being captured. What could be going wrong?**
 

@@ -8,7 +8,7 @@ aliases:
 
 # Adding Alerts
 
-As we've discussed in the [Session Reporting section]({{< relref "/flutter/integration/session-reporting">}}), Embrace uploads its sessions when the application is backgrounded or, if that fails, on the next app launch.
+As we've discussed in the [Session Reporting section](/flutter/integration/session-reporting), Embrace uploads its sessions when the application is backgrounded or, if that fails, on the next app launch.
 This delay may seem like it hurts the immediacy of the data you are seeing, but the reality is that at scale this still means you are finding out about issues very quickly.
 
 However, some situations might require instant feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout.
@@ -65,12 +65,12 @@ Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
 :::info
-For more tips on making the most of the Log Message API, checkout the [Best Practices]({{< relref "/best-practices/log-message-api" >}}).
+For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api).
 :::
 
 ---
 
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps]({{< relref "/flutter/integration/next-steps" >}}) page to wrap up your integration.
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/flutter/integration/next-steps) page to wrap up your integration.
 
 {{< button relref="/flutter/integration/next-steps" >}}Next Steps{{< /button >}}
 

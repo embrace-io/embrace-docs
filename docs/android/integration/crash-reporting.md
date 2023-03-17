@@ -10,11 +10,11 @@ aliases:
 ##  Setting up the Crash Reporter
 
 :::info
-See our [FAQ]({{< relref "/android/faq#crash-capture" >}}) for details on compatibility with other crash reporters.
+See our [FAQ](/android/faq#crash-capture) for details on compatibility with other crash reporters.
 :::
 
 For Android, the Embrace SDK automatically captures crash reports and uploads them.
-Assuming you've initialized the Embrace SDK in the [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) section,
+Assuming you've initialized the Embrace SDK in the [Session Reporting](/android/integration/session-reporting) section,
 congratulations, you're done!
 
 Trigger a crash organically, or by adding the following code.

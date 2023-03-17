@@ -15,7 +15,7 @@ Still, knowing when and how your application crashed is important.
 Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
 
 The first step in initializing crash reporting is configuring which mode you want Embrace to operate in.
-Open the `Embrace-Info.plist` file you added to the project in the [Session Reporting]({{< relref "/ios/integration/session-reporting" >}}) step. Add the following new key to that file.
+Open the `Embrace-Info.plist` file you added to the project in the [Session Reporting](/ios/integration/session-reporting) step. Add the following new key to that file.
 
 ```
 CRASH_REPORT_ENABLED

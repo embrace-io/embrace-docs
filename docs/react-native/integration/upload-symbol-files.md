@@ -36,7 +36,7 @@ export EXTRA_PACKAGER_ARGS="--sourcemap-output $CONFIGURATION_BUILD_DIR/$UNLOCAL
 
 :::info
 
-If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relref "/react-native/integration/add-embrace-sdk" >}}) page, this change has already been made for you.
+If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page, this change has already been made for you.
 
 :::
 
@@ -119,7 +119,7 @@ The android map is generated with a different name, but the tool to upload is th
 
 {{< tab "iOS" >}}
 
-Please see the [Uploading dSYMs]({{< relref "/ios/integration/dsym-upload" >}}) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
+Please see the [Uploading dSYMs](/ios/integration/dsym-upload) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
 
 {{< /tab >}}
 
@@ -179,9 +179,9 @@ Embrace.getInstance().setJavaScriptBundleURL(pathToBundle)
 ## Expo Apps
 
 If your app is built using Expo and you leverage OTA to distribute updates to your users, you must manually upload source maps using the script distributed with the SDK
-as described in the [Symbolication with CodePush]({{< relref "/react-native/integration/upload-symbol-files#symbolication-with-codepush" >}}) section.
+as described in the [Symbolication with CodePush](/react-native/integration/upload-symbol-files#symbolication-with-codepush) section.
 
-You must also point the Embrace SDK to the location the updated bundle will be downloaded to on the device, as described in the [Pointing the Embrace SDK to the JavaScript Bundle]({{< relref "/react-native/integration/upload-symbol-files#pointing-the-embrace-sdk-to-the-javascript-bundle" >}}).
+You must also point the Embrace SDK to the location the updated bundle will be downloaded to on the device, as described in the [Pointing the Embrace SDK to the JavaScript Bundle](/react-native/integration/upload-symbol-files#pointing-the-embrace-sdk-to-the-javascript-bundle).
 
 ---
 

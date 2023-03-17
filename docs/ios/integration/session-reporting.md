@@ -16,12 +16,12 @@ it's time to collect your first session.
 Embrace always uploads sessions on subsequent launches. This means the general
 process we're going to follow to collect our first session is:
 
-1. [**Import the Embrace module**]({{< relref "/ios/integration/session-reporting#import-embrace" >}})
-1. [**Add a start call to the Embrace SDK**]({{< relref "/ios/integration/session-reporting#add-a-start-call" >}})
-1. [**End the Startup Moment**]({{< relref "/ios/integration/session-reporting#end-the-startup-moment" >}})
-1. [**Build and run our application**]({{< relref "/ios/integration/session-reporting#build-and-run-your-application" >}})
+1. [**Import the Embrace module**](/ios/integration/session-reporting#import-embrace)
+1. [**Add a start call to the Embrace SDK**](/ios/integration/session-reporting#add-a-start-call)
+1. [**End the Startup Moment**](/ios/integration/session-reporting#end-the-startup-moment)
+1. [**Build and run our application**](/ios/integration/session-reporting#build-and-run-your-application)
     1. Verify Embrace started via the logs
-1. [**Trigger a session upload**]({{< relref "/ios/integration/session-reporting#trigger-a-session-upload" >}})
+1. [**Trigger a session upload**](/ios/integration/session-reporting#trigger-a-session-upload)
     1. Close, or send the application to the background
     1. Launch the application to the foreground
     1. Verify that our first session was uploaded to Embrace by checking the Dashboard
@@ -222,7 +222,7 @@ may see false abandonment data.
 :::
 
 You can learn more about moments and measuring performance yourself in the
-[Measure Performance]({{< relref "/ios/features/performance-monitoring" >}}) section.
+[Measure Performance](/ios/features/performance-monitoring) section.
 
 ## Build and Run Your Application
 

@@ -11,16 +11,16 @@ aliases:
 ## Moments
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature.
-Embrace uses this mechanism to measure your application launch performance. This is why you must call `endAppStartup` somewhere in your application, as mentioned in the [Session Reporting]({{< relref "/ios/integration/session-reporting" >}}) section.
+Embrace uses this mechanism to measure your application launch performance. This is why you must call `endAppStartup` somewhere in your application, as mentioned in the [Session Reporting](/ios/integration/session-reporting) section.
 
-You can use that same mechanism yourself to measure any portion of your application. We call this concept **moments**. This API is also immediate mode (like [logs]({{< relref "/ios/integration/log-message-api" >}})), meaning your users will incur a networking call whenever you start and stop a moment.
+You can use that same mechanism yourself to measure any portion of your application. We call this concept **moments**. This API is also immediate mode (like [logs](/ios/integration/log-message-api)), meaning your users will incur a networking call whenever you start and stop a moment.
 
 :::info
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.
 :::
 
 Moments are best used for tracking critical user flows that are generally short in nature.
-For more suggestions on what to measure with moments, see the [Best Practices]({{< relref "/best-practices/app-performance#keep-it-short" >}}) page.
+For more suggestions on what to measure with moments, see the [Best Practices](/best-practices/app-performance#keep-it-short) page.
 
 ## Starting a Moment
 
@@ -89,4 +89,4 @@ You can end the moment from multiple locations in your app, or from multiple thr
 ## Tracking Abandonment
 
 In addition to performance, moments also measure abandonment by default. 
-For more on tracking abandonment, see the [Best Practices]({{< relref "/best-practices/app-performance" >}}) section.
+For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance) section.

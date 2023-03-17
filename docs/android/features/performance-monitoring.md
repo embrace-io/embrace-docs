@@ -11,16 +11,16 @@ aliases:
 ## Moments
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
-This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) section.
+This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting](/android/integration/session-reporting) section.
 
-Similar to [Logs]({{< relref "/android/integration/log-message-api" >}}), moments will immediately make a network request.
+Similar to [Logs](/android/integration/log-message-api), moments will immediately make a network request.
 
 :::info
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.
 :::
 
 Moments are best used for tracking critical user flows that are generally short in nature.
-For more suggestions on what to measure with moments, see the [Best Practices]({{< relref "/best-practices/app-performance#keep-it-short" >}}) page.
+For more suggestions on what to measure with moments, see the [Best Practices](/best-practices/app-performance#keep-it-short) page.
 
 ## Starting a Moment
 
@@ -54,5 +54,5 @@ You can end the moment from multiple locations in your app, or from multiple thr
 ## Tracking Abandonment
 
 In addition to measuring performance, moments can also measure abandonment.
-For more on tracking abandonment, see the [Best Practices]({{< relref "/best-practices/app-performance" >}}) section.
+For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance) section.
 
