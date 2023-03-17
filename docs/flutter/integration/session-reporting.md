@@ -1,24 +1,27 @@
 ---
-title: "Session Reporting"
+title: Session Reporting
 description: Upload session reports from your Flutter application using the Embrace SDK
 sidebar_position: 5
-aliases:
-  - /flutter/session-reporting/
 ---
 
 # Session Reporting
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 
 Here are the steps you'll be taking to create your first session.
 
-1. [**Import Embrace**]({{< relref "/flutter/integration/session-reporting#import-embrace" >}})
-1. [**Add the Flutter SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-flutter-sdk-start-call" >}})
-1. [**Add the iOS SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-ios-sdk-start-call" >}})
-1. [**Add the Android SDK start call**]({{< relref "/flutter/integration/session-reporting#add-the-android-sdk-start-call" >}})
-1. [**End the startup moment**]({{< relref "/flutter/integration/session-reporting#end-the-startup-moment" >}})
-1. [**Build and run the application**]({{< relref "/flutter/integration/session-reporting#build-and-run-the-application" >}})
-1. [**Trigger a session upload**]({{< relref "/flutter/integration/session-reporting#trigger-a-session-upload" >}})
+1. [**Import Embrace**](#import-embrace)
+1. [**Add the Flutter SDK start call**](#add-the-flutter-sdk-start-call)
+1. [**Add the iOS SDK start call**](#add-the-ios-sdk-start-call)
+1. [**Add the Android SDK start call**](#add-the-android-sdk-start-call)
+1. [**End the startup moment**](#end-the-startup-moment)
+1. [**Build and run the application**](#build-and-run-the-application)
+1. [**Trigger a session upload**](#trigger-a-session-upload)
 
 
 ## Import Embrace
@@ -45,13 +48,10 @@ Future<void> main() async {
 
 Add a call to start the iOS SDK from within your `AppDelegate`:
 
-{{< tabs iosStart >}}
+<Tabs groupId="ios-language" queryString="ios-language">
+  <TabItem value="swift" label="Swift">
 
-{{< tab "Swift" >}}
-
-Add the following to AppDelegate.swift:
-
-```swift
+```swift title="AppDelegate.swift"
 import UIKit
 import Flutter
 import Embrace
@@ -72,12 +72,10 @@ override func application(
 }
 ```
 
-{{< /tab >}}
+  </TabItem>
+  <TabItem value="objective-c" label="Objectice-C">
 
-{{< tab "Objective-C" >}}
-Add the following to AppDelegate.m:
-
-```objective-c
+```objectivec title="AppDelegate.m"
 #import AppDelegate.h
 #import <Embrace/Embrace.h>
 @implementation AppDelegate
@@ -92,9 +90,9 @@ Add the following to AppDelegate.m:
 }
 @end
 ```
-{{< /tab >}}
 
-{{< /tabs >}}
+  </TabItem>
+</Tabs>
 
 ## Add the Android SDK start call
 
@@ -106,8 +104,9 @@ The call to start the Embrace Android SDK can be placed in either:
 
 If you have a custom application class, you can start the Embrace Android SDK in its `onCreate` method:
 
-{{< tabs androidStart >}}
-{{< tab "Java">}}
+<Tabs groupId="android-language" queryString="android-language">
+  <TabItem value="java" label="Java">
+
 ```java
 import io.embrace.android.embracesdk.Embrace;
 import android.app.Application;
@@ -120,8 +119,10 @@ public final class MyApplication extends Application {
     }
 }
 ```
-{{< /tab >}}
-{{< tab "Kotlin">}}
+
+  </TabItem>
+  <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 import android.app.Application
 import io.embrace.android.embracesdk.Embrace
@@ -134,12 +135,13 @@ class MyApplication : Application() {
     }
 }
 ```
-{{< /tab >}}
-{{< /tabs >}}
+
+  </TabItem>
+</Tabs>
 
 ### Adding to `MainActivity`
 
-If you don't want to create a custom application class, you can start the Embrace Android SDK from the `MainActivity`: 
+If you don't want to create a custom application class, you can start the Embrace Android SDK from the `MainActivity`:
 
 ```kotlin
 import android.os.Bundle
@@ -147,7 +149,6 @@ import io.embrace.android.embracesdk.Embrace
 import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity : FlutterActivity() {
-
   override fun onCreate(savedInstanceState: Bundle?) {
       super.onCreate(savedInstanceState)
       Embrace.getInstance().start(this, false, Embrace.AppFramework.FLUTTER)
@@ -158,7 +159,7 @@ class MainActivity : FlutterActivity() {
 ## End the startup moment
 
 Embrace automatically starts the **startup** moment when your application launches.
-You'll learn more about moments in [Performance Monitoring]({{< relref "/flutter/features/performance-monitoring" >}}) guide.
+You'll learn more about moments in [Performance Monitoring](/flutter/features/performance-monitoring/) guide.
 For now, you can think of the startup moment as a timer that measures how long it took your application to launch.
 Although in both Android and iOS the moment is started automatically, ending it is platform specific.
 
@@ -166,18 +167,23 @@ For Android, the SDK will end the moment automatically, for iOS it will not.
 
 In iOS, end the startup moment as close to the point that your UI is ready for use by adding the following to your `AppDelegate`:
 
-{{< tabs iosendstartup >}}
-{{< tab "Swift" >}}
+
+<Tabs groupId="ios-language" queryString="ios-language">
+  <TabItem value="swift" label="Swift">
+
 ```swift
 Embrace.sharedInstance().endAppStartup()
 ```
-{{ < /tab >}}
-{{< tab "Objective-C" >}}
-```objective-c
+
+  </TabItem>
+  <TabItem value="objective-c" label="Objective-C">
+
+```objectivec
 [[Embrace sharedInstance] endAppStartup];
 ```
-{{< /tab >}}
-{{< /tabs >}}
+
+  </TabItem>
+</Tabs>
 
 You should end the startup moment before the user has a chance to interact with the application.
 Add this method call to every location where the startup moment can end. You can call this method as many times as you like.
@@ -193,32 +199,32 @@ Embrace.instance.endStartupMoment();
 Now you're ready to build and run the application. Assuming the app launches correctly,
 pay attention to the system logging and look for Embrace to print its version number.
 
-```sh
-Embrace Flutter SDK Version: 0.4.0
+```
+Embrace Flutter SDK Version: {{< sdk platform="flutter" >}}
 ```
 
 In addition to that message, you should also see an initialization message for the underlying native Embrace SDK:
-{{< tabs initializationMessage >}}
 
-{{< tab "iOS" >}}
+<Tabs groupId="platform" queryString="platform">
+  <TabItem value="ios" label="iOS">
+
 ```sh
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
 ```
-{{< /tab >}}
 
-{{< tab "Android" >}}
+  </TabItem>
+  <TabItem value="android" label="Android">
+
 ```sh
 Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
 ```
-{{< /tab >}}
 
-{{< /tabs >}}
+  </TabItem>
+</Tabs>
 
-{{< hint info >}}
-
+:::info
 If you encounter any errors, please get in touch on Slack and we can assist you.
-
-{{< /hint >}}
+:::
 
 ## Trigger a Session Upload
 
@@ -233,6 +239,4 @@ Congratulations! At this point you've completed a basic integration of Embrace.
 Embrace is already collecting interesting data from your application. You can
 see this data by browsing around the timeline page for the session you just captured.
 
-Up next, you'll be learning about uploading crash reports.
-
-{{< button relref="/flutter/integration/crash-reporting" >}}Upload Crash Report{{< /button >}}
+Up next, you'll be learning about [uploading crash reports](/flutter/integration/crash-reporting/).

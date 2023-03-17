@@ -60,12 +60,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'TODOimg/docusaurus-social-card.jpg',
 
       navbar: {
         logo: {
           alt: 'Embrace Mobile',
-//          src: 'https://embrace.io/docs/images/embrace_color_logo.png',
           src: 'images/embrace_color_logo.png',
         },
 //        title: 'HomeLink1',
@@ -119,6 +118,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["clike","java","kotlin","swift"],
       },
     }),
 };

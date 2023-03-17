@@ -38,8 +38,7 @@ Here's a breakdown of the arguments being passed to the `logError` method (the o
 1. **properties** This is a map of key-value pairs you can use to categorize and filter log messages with.
 1. **allowScreenshot** This indicates whether you'd like a screenshot captured or not (screenshots must also be configured in the Embrace configuration for your app).
 
-{{< hint info >}}
-**Adjusting Severity**
+:::info Adjusting Severity
 
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
@@ -48,8 +47,7 @@ Embrace.instance.logWarning("User attempted expired credit card", props);
 
 Embrace.instance.logInfo("User has entered checkout flow");
 ```
-
-{{< /hint >}}
+:::
 
 {{< hint warning >}}
 {{< readFile file="shared/log-limit.md" >}}

@@ -42,6 +42,8 @@ mySidebar: [
 
     {
       type: 'category',
+      collapsible: false,
+      collapsed: false,
       label: 'Legal',
       items: [
         {
