@@ -28,7 +28,7 @@ Breadcrumb messages must be 64 characters or less.
 
 :::info
 
-For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs) page. 
+For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs) page.
 
 :::
 
