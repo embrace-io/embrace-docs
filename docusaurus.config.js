@@ -68,52 +68,85 @@ const config = {
           alt: 'Embrace Mobile',
           src: 'images/embrace_color_logo.png',
         },
-//        title: 'HomeLink1',
+/*
+        title: 'HomeLink1',
 
-//        items: [
-//          {
-//            type: 'doc',
-//            docId: 'best-practices/app-performance',
-//            position: 'left',
-//            label: 'OptionalMenuItem2',
-//          },
-//        ],
+        items: [
+          {
+            type: 'doc',
+            docId: 'best-practices/app-performance',
+            position: 'left',
+            label: 'OptionalMenuItem2',
+          },
+        ],
+*/
       },
 
       footer: {
         style: 'dark',
+
         links: [
           {
-            title: 'Placeholder Section 1',
+            title: ' ',
             items: [
               {
-                label: 'Section1 Link1',
-                href: 'https://embrace.io/?link1',
+                label: 'Embrace Overview',
+                to: 'https://embrace.io/product/',
               },
               {
-                label: 'Section1 Link2',
-                href: 'https://embrace.io/?link2',
+                label: 'Crash Reporting',
+                to: 'https://embrace.io/product/crash-reporting/',
               },
               {
-                label: 'Section1 Link3',
-                href: 'https://embrace.io/?link3',
+                label: 'Session Replay',
+                to: 'https://embrace.io/product/session-replay/',
+              },
+              {
+                label: 'App Health and Stability',
+                to: 'https://embrace.io/product/app-health-and-stability/',
+              },
+          ]
+          },
+          {
+            title: ' ',
+            items: [
+              {
+                label: 'Network Monitoring',
+                to: 'https://embrace.io/product/network-monitoring/',
+              },
+              {
+                label: 'Error Log Management',
+                to: 'https://embrace.io/product/error-log-management/',
+              },
+              {
+                label: 'Real-Time Dashboards',
+                to: 'https://embrace.io/product/real-time-dashboards/',
+              },
+              {
+                label: 'Unity',
+                to: 'https://embrace.io/unity/',
               },
             ],
           },
           {
-            title: 'Placeholder Section 2',
+            title: ' ',
             items: [
               {
-                label: 'Blog',
-                to: 'https://embrace.io/blog/',
+                label: 'Privacy Policy',
+                to: '/privacy-policy/',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/embrace-io',
+                label: 'Terms of Service',
+                to: '/term-of-service/',
+              },
+              {
+                label: 'Data Processing Agreement',
+                to: '/dpa/',
               },
             ],
           },
         ],
+
         copyright: `Copyright © ${new Date().getFullYear()} Embrace Mobile, Inc.`,
       },
       prism: {
