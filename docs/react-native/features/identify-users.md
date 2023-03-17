@@ -59,9 +59,9 @@ import {addSessionProperty} from 'react-native-embrace';
 addSessionProperty('launch type', 'normal', false);
 ```
 
-:::warning
-{{< readFile file="shared/property-limit.md" >}}
-:::
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />
 
 In the above, the `'launch type'` property is set with a value of `'normal'`.
 This is to indicate normal launches by the user.

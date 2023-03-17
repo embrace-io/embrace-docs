@@ -49,9 +49,9 @@ Embrace.instance.logInfo("User has entered checkout flow");
 ```
 :::
 
-:::warning
-{{< readFile file="shared/log-limit.md" >}}
-:::
+import LogLimit from '@site/shared/log-limit.md';
+
+<LogLimit />
 
 ## Being Alerted on Logs
 

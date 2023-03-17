@@ -54,9 +54,9 @@ We wanted to verify that for ourselves.
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
 For more on this, check out the [API docs]({{< api ios >}}).
 
-:::warning
-{{< readFile file="shared/property-limit.md" >}}
-:::
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />
 
 ## Ending a Moment
 

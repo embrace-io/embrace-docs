@@ -10,6 +10,7 @@ const config = {
   tagline: 'Learn how to set up comprehensive mobile app performance monitoring.',
   favicon: 'static/favicon.png',
   trailingSlash: true,
+  noIndex: false,
 
   // Set the production url of your site here
   url: 'https://embrace.io',
@@ -118,7 +119,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["clike","java","kotlin","swift"],
+        additionalLanguages: ["clike","java","kotlin","swift","csharp","groovy","json"],
       },
     }),
 };

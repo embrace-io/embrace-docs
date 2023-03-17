@@ -24,9 +24,9 @@ you will be able to see if an issue is disproportionately related to a `"cardtyp
 
 An example of a less useful property would be `"cart_total"`, where the property value could be any dollar amount. This won't lead to a cohesive set of property values since the cart total amount could vary widely. An alternative that would be more useful is to bucket the amounts (`"< $5"`, `"$5 - $10"`, etc.).
 
-:::warning
-{{< readFile file="shared/property-limit.md" >}}
-:::
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />
 
 ## Screenshots
 

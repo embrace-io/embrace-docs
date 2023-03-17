@@ -47,10 +47,9 @@ Let's examine the method call from above to understand the arguments involved:
 3. **properties**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
 4. **takeScreenshot**: A boolean indicating whether or not we should include a screenshot with this alert.
 
-:::warning
-{{< readFile file="shared/log-limit.md" >}}
-:::
+import LogLimit from '@site/shared/log-limit.md';
 
+<LogLimit />
 
 ## Being Alerted on Logs
 

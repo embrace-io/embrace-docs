@@ -2,10 +2,8 @@
 title: Log Message API
 sidebar_position: 7
 description: Trigger alerts for your Android application using logs with the Embrace SDK
-aliases:
-  - /android/log-message-api/
-
 ---
+
 # Adding Alerts
 
 Typically the Embrace SDK uploads data at the end of a session. However, some situations 
@@ -32,23 +30,20 @@ Here's a breakdown of the arguments being passed to the `logError` method.
 1. **Properties.** This is a map of key-value pairs you can use to categorize and filter log messages with.
 1. **Screenshot capture enabled.** The final boolean indicates whether you'd like a screenshot captured or not.
 
-:::info
-**Adjusting Severity**
+:::info Adjusting Severity
 
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
 ```java
 Embrace.getInstance().logWarning("User attempted expired credit card", props);
-
 Embrace.getInstance().logInfo("User has entered checkout flow");
 ```
 
 :::
 
-:::warning
-{{< readFile file="shared/log-limit.md" >}}
-* The following types are supported for property values: String, Integer, Long, Float, Double, Boolean.
-:::
+import LogLimit from '@site/shared/log-limit.md';
+
+<LogLimit />
 
 ## Being Alerted on Logs
 

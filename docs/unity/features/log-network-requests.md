@@ -12,7 +12,7 @@ aliases:
 
 Network requests of any type can be logged manually via the log message API.
 
-```csharp
+```cs
 Embrace.Instance.LogNetworkRequest(...)
 ```
 
@@ -24,13 +24,13 @@ On iOS, requests sent through `UnityWebRequest` are logged automatically by the 
 
 Embrace provides an implementation of `HttpMessageHandler` that automatically logs all network requests passed through it. To enable this behavior, pass an instance of the Embrace handler to the constructor when instantiating your `HttpClient`.
 
-```csharp
+```cs
 var client = new HttpClient(new EmbraceLoggingHttpMessageHandler());
 ```
 
 After logging the request, the `EmbraceLoggingHttpMessageHandler` delegates to an inner handler. An instance of `HttpMessageHandler` is used by default. If you'd like to use your own handler, pass it to the constructor when instantiating the Embrace handler.
 
-```csharp
+```cs
 var handler = new EmbraceLoggingHttpMessageHandler(new MyHandler());
 var client = new HttpClient(handler);
 ```

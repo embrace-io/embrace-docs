@@ -2,8 +2,6 @@
 title: Identify Your Users
 sidebar_position: 2
 description: Get to know the users of your Android application with the Embrace SDK
-aliases:
-  - /android/identify-users/
 ---
 # Know Your Users
 
@@ -14,9 +12,7 @@ sessions for an unhappy user.
 1. [**Session Properties**](/android/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
 :::info
-
 For a full set of APIs related to user identification, see the `io.embrace.android.embracesdk.Embrace` class in the [Android API]({{< api android >}}) documentation.
-
 :::
 
 ## User Personas
@@ -28,10 +24,8 @@ Embrace.getInstance().setUserIdentifier("internal_random_id_1234");
 ```
 
 :::warning
-
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
-
 :::
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
@@ -46,7 +40,6 @@ Embrace.getInstance().setUserPersona("high_value_cart");
 In the above example, the session is annotated with `"high_value_cart"`.
 This will help you identify users who have a certain dollar value in their shopping cart so you can prioritize fixing bugs that affect such users.
 
-
 ## Session Properties
 
 Session Properties are another way to annotate the session.
@@ -58,9 +51,10 @@ Here is an example of setting a session property:
 ```java
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false)
 ```
-:::warning
-{{< readFile file="shared/property-limit.md" >}}
-:::
+
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />
 
 In the above, the `"launch type"` property is set with a value of `"normal"`.
 This is to indicate normal launches by the user.

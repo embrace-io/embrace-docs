@@ -2,8 +2,6 @@
 title: "Identify Users"
 description: Get to know the users of your Unity application with the Embrace SDK
 sidebar_position: 2
-aliases:
-  - /unity/identify-users/
 ---
 
 # Know Your Users
@@ -18,7 +16,7 @@ sessions for an unhappy user.
 
 Embrace offers a set of methods to pass information about your users.
 
-```csharp
+```cs
 Embrace.Instance.SetUserIdentifier("internal_random_id_1234");
 ```
 
@@ -34,7 +32,7 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 
 You can also set customized values for specific use cases or segments of users.
 
-```csharp
+```cs
 Embrace.Instance.SetUserPersona("high_value_cart");
 ```
 
@@ -49,13 +47,13 @@ However, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:
 
-```csharp
+```cs
 Embrace.Instance.AddSessionProperty("launch type", "normal", false);
 ```
 
-:::warning
-{{< readFile file="shared/property-limit.md" >}}
-:::
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />
 
 In the above, the `"launch type"` property is set with a value of `"normal"`.
 This is to indicate normal launches by the user.
