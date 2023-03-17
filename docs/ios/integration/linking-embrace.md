@@ -21,8 +21,7 @@ You only need to look at the section relevant to your application and can safely
 
 Make sure to continue reading after linking to learn how to open and use the Embrace Dashboard.
 
-:::info
-**Notes on our documentation**
+:::info Notes on our documentation
 
 While writing this documentation we were using Xcode 11.5 with iOS SDK 13.5.
 The screenshots you will see all come from this version of Xcode. Older or
@@ -33,8 +32,6 @@ help you out.
 Additionally we will be referencing our publicly available sample application
 and project throughout. You can find that project on [GitHub](https://github.com/embrace-io/embrace-demo-apps/tree/master/sample_integration).
 :::
-
-
 
 ## CocoaPods
 
@@ -92,7 +89,7 @@ Now run `carthage update` from the root and carthage will download and prepare
 the Embrace framework for integration:
 
 ```sh
-elanz in ~/dev/playground/carthagetester  > Carthage update
+embracian in ~/dev/playground/carthagetester > Carthage update
 *** Downloading binary-only framework embrace-ios at
 "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
 *** xcodebuild output can be found in

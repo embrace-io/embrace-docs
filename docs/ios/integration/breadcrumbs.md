@@ -10,7 +10,7 @@ aliases:
 
 ## Adding Context to Sessions
 
-Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/ios/integration/crash-report) and [Session Reporting](session-reporting) sections.
+Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/ios/integration/crash-report/) and [Session Reporting](/ios/integration/session-reporting/) sections.
 Embrace can also collect your logging data and include it as context within your sessions. 
 Here's how you add a breadcrumb to the session.
 
@@ -47,7 +47,7 @@ Breadcrumb messages must be 256 characters or less.
 
 :::info
 
-For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs) page. 
+For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs/) page. 
 
 :::
  
