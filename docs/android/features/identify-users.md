@@ -13,11 +13,11 @@ sessions for an unhappy user.
 1. [**User Personas**]({{< relref "/android/features/identify-users#user-personas" >}}). This is data you can set and update about the user of a session.
 1. [**Session Properties**]({{< relref "/android/features/identify-users#session-properties" >}}). This is data you use to track information about the device or the session itself.
 
-{{< hint info >}}
+:::info
 
 For a full set of APIs related to user identification, see the `io.embrace.android.embracesdk.Embrace` class in the [Android API]({{< api android >}}) documentation.
 
-{{< /hint >}}
+:::
 
 ## User Personas
 
@@ -27,12 +27,12 @@ Embrace offers a set of methods to pass information about your users.
 Embrace.getInstance().setUserIdentifier("internal_random_id_1234");
 ```
 
-{{< hint warning >}}
+:::warning
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
 
-{{< /hint >}}
+:::
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
 For more methods on setting user values, see the [API docs]({{< api android >}}). 
@@ -58,9 +58,9 @@ Here is an example of setting a session property:
 ```java
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false)
 ```
-{{< hint warning>}}
+:::warning
 {{< readFile file="shared/property-limit.md" >}}
-{{< /hint >}}
+:::
 
 In the above, the `"launch type"` property is set with a value of `"normal"`.
 This is to indicate normal launches by the user.

@@ -15,9 +15,9 @@ Embrace uses this mechanism to measure your application launch performance. This
 
 You can use that same mechanism yourself to measure any portion of your application. We call this concept **moments**. This API is also immediate mode (like [logs]({{< relref "/ios/integration/log-message-api" >}})), meaning your users will incur a networking call whenever you start and stop a moment.
 
-{{< hint info >}}
+:::info
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.
-{{< /hint >}}
+:::
 
 Moments are best used for tracking critical user flows that are generally short in nature.
 For more suggestions on what to measure with moments, see the [Best Practices]({{< relref "/best-practices/app-performance#keep-it-short" >}}) page.
@@ -54,9 +54,9 @@ We wanted to verify that for ourselves.
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
 For more on this, check out the [API docs]({{< api ios >}}).
 
-{{< hint warning>}}
+:::warning
 {{< readFile file="shared/property-limit.md" >}}
-{{< /hint >}}
+:::
 
 ## Ending a Moment
 

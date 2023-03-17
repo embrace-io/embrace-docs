@@ -45,11 +45,11 @@ import io.embrace.android.embracesdk.Embrace;
 
 {{< /tabs >}}
 
-{{< hint info >}}
+:::info
 
 If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relref "/react-native/integration/add-embrace-sdk" >}}) page, this change has already been made for you.
 
-{{< /hint >}}
+:::
 
 ## Add the Start Call
 
@@ -69,11 +69,11 @@ After importing Embrace, update the same files that you edited in the previous s
 }
 ```
 
-{{< hint info >}}
+:::info
 
 If you are using Swift, follow the steps in the [iOS Linking Embrace]({{< relref "/ios/integration/session-reporting" >}}) section.
 
-{{< /hint >}}
+:::
 {{< /tab >}}
 
 {{< tab "Android" >}}
@@ -144,11 +144,11 @@ const App = ()=> {
 }
 export default App
 ```
-{{< hint info >}}
+:::info
 
 As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your background process are finished and the user is able to interact with the application.
 
-{{< /hint >}}
+:::
 {{< /tab >}}
 
 
@@ -162,11 +162,11 @@ End the startup moment as soon as your users are able to interact with the appli
 Now you're ready to build and run the application.
 Launch the application how you usually would during development.
 
-{{< hint info >}}
+:::info
 
 If you encounter any errors, please get in touch on Slack and we can assist you.
 
-{{< /hint >}}
+:::
 
 ## Trigger a Session Upload
 

@@ -20,11 +20,11 @@ yarn add react-native-embrace
 npm install react-native-embrace --save
 ```
 
-{{< hint info >}}
+:::info
 
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 
-{{< /hint >}}
+:::
 
 ## Native Modules
 
@@ -124,7 +124,7 @@ repositories {
 }
 ```
 
-{{< hint warning >}}
+:::warning
 React Native 0.59.0 and later automatically adds the required `compileOptions` directive to the `android/app/build.gradle` file.
 If you are using a version of React Native older than 0.59.0, or your project was created with a version older than 0.59.0, add the following to your `android/app/build.gradle` file:
 
@@ -140,7 +140,7 @@ android {
 }
 ```
 
-{{< /hint >}}
+:::
 
 Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token.
 
@@ -152,18 +152,18 @@ Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, 
 }
 ```
 
-{{< hint info >}}
+:::info
 Your API ID and token are available on the Embrace dashboard.
-{{< /hint >}}
+:::
 
-{{< hint info >}}
+:::info
 
 You’ll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
 
 * `android.permission.INTERNET`
 * `android.permission.ACCESS_NETWORK_STATE`
 
-{{< /hint >}}
+:::
 
 {{< /tab >}}
 

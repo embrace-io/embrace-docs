@@ -24,9 +24,9 @@ If you want to disable the Push Notifications feature, you can set `instrumentFi
     }
 ```
 
-{{< hint warning >}}
+:::warning
 If you want to prevent any data inside the notifications from being read, you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_configs`. This value is false by default.
-{{< /hint >}}
+:::
 
 ## Usage
 

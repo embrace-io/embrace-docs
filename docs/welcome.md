@@ -15,14 +15,14 @@ Embrace is an automated bug tracking and performance monitoring platform that in
 1. A web based dashboard to view your collected data
 2. A set of SDKs that integrate with mobile applications
 
-{{< hint info >}}
+:::info
 
 Our mobile SDKs ship with your application and collect data while the
 application is running. That collected data is then uploaded to Embrace’s
 servers for processing. The processed data is then made available via our
 web-based dashboard.
 
-{{< /hint >}}
+:::
 
 ## Platform Guides
 

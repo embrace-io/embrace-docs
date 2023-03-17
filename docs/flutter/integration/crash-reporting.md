@@ -24,23 +24,23 @@ Now we're ready to trigger a crash. You can trigger a crash organically, or you 
 EmbraceSamples.triggerNativeSdkError();
 ```
 
-{{< hint warning>}}
+:::warning
 **Note** This function will crash your app so only use it for testing purposes.
-{{< /hint >}}
+:::
 
 Remember that Embrace sessions only upload on subsequent launches after crashes have occurred.
 This means that after seeing the application crash, you must now launch the application again for that crashed session to upload to the Embrace servers.
 
 Once uploaded, you will notice that your session is marked with the "crashed" icon. Additionally your crash is visible in the "crashes" section of the dashboard.
 
-{{< hint info >}}
+:::info
 **Note for iOS**
 
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
 described in the [Adding the Embrace SDK]({{< relref "/flutter/integration/add-embrace-sdk" >}}) page).
 If you're using Crashlytics, set this value to false.
-{{< /hint >}}
+:::
 
 ---
 

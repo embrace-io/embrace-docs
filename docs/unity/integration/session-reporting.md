@@ -58,13 +58,13 @@ Embrace does nothing until its start method has been called. Find the place in y
 Embrace.Instance.StartSDK();
 ```
 
-{{< hint info >}}
+:::info
 
 **A Note On Placing the Start Call**
 
 It is important that this call be made as early as possible in the lifecycle of your application to ensure we can collect as much relevant data as possible. Additionally, Embrace has taken great care to ensure we can operate alongside any other third party SDKs. If Embrace is initialized first, then our code can set things up to ensure that everyone can interoperate successfully in your application.
 
-{{< /hint >}}
+:::
 
 ## End the Startup Moment
 
@@ -74,13 +74,13 @@ Finally, make sure to end the special "startup" moment that Embrace uses to trac
 Embrace.Instance.EndAppStartup();
 ```
 
-{{< hint info >}}
+:::info
 
 **A Note On Ensuring the Startup Moment Ends**
 
 This moment is used to track both launch performance and launch abandonment. The latter is the number of users who close the app before the launch finishes. To correctly track this, it is critical that all code paths end the startup moment eventually. For example, if your app can launch via a push notification, ensure that path also ends the startup moment or you may see inaccurate abandonment data.
 
-{{< /hint >}}
+:::
 
 ## Build and Run Your Application
 
@@ -90,11 +90,11 @@ You're now ready to build and run your application. Assuming the app launches co
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="unity" >}}
 ```
 
-{{< hint info >}}
+:::info
 
 If you encounter any errors, please get in touch on Slack and we can help you out.
 
-{{< /hint >}}
+:::
 
 If you see a log line like this, you've succeeded in integrating Embrace with your application. Let's trigger a session upload and verify this in the dashboard.
 

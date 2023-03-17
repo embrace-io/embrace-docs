@@ -14,11 +14,11 @@ Embrace can collect basic session data and crashes as you've already seen in the
 Embrace can also collect the redux's actions that are being dispatched and include it as context within your sessions.
 Here's how you add the action tracker to the session.
 
-{{< hint info >}}
+:::info
 
 Currently we are only supporting the Redux SDK and others libraries that supports middleware as Saga, if you are using another library please contact us at <support@embrace.io> or on Slack if you would like to request support.
 
-{{< /hint >}}
+:::
 
 ## Adding the component
 

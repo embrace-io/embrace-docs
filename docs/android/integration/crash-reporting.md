@@ -9,9 +9,9 @@ aliases:
 
 ##  Setting up the Crash Reporter
 
-{{< hint info >}}
+:::info
 See our [FAQ]({{< relref "/android/faq#crash-capture" >}}) for details on compatibility with other crash reporters.
-{{< /hint >}}
+:::
 
 For Android, the Embrace SDK automatically captures crash reports and uploads them.
 Assuming you've initialized the Embrace SDK in the [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) section,
@@ -23,11 +23,11 @@ Trigger a crash organically, or by adding the following code.
 throw new RuntimeException("This is a crash");
 ```
 
-{{< hint danger >}}
+:::danger
 
 **Note** This will crash your app, so only use it for testing purposes.
 
-{{< /hint >}}
+:::
 
 In most scenarios, the Embrace SDK is able to upload a crash report and session message after a crash occurs, but for certain scenarios they can only be uploaded on the next launch. If you do not see your crash in the dashboard, relaunch your application.
 
@@ -38,11 +38,11 @@ Once the crash and session messages are uploaded, you should notice that your se
 If you have obfuscated your application with ProGuard, R8, or another obfuscation tool, the captured crashes will contain obfuscated method names. ProGuard and R8 files will be uploaded automatically at build time. If you don't see symbolicated crashes while using ProGuard or R8, reach out to us
 on Slack and we'll work with you directly.
 
-{{< hint warning >}}
+:::warning
 
 **Note** Please contact us if you need Dexguard support.
 
-{{< /hint >}}
+:::
 
 ---
 

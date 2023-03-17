@@ -88,13 +88,13 @@ EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/my/path/EmbraceIO
  
 {{< /tabs >}}
 
-{{< hint info >}}
+:::info
 In the examples above, notice how the environment variables for your key and token are on the same line as the call to the `run.sh` script. If the environment variables are on different lines, they will not be available when run.sh executes and the command will fail.
-{{< /hint >}}
+:::
 
-{{< hint info >}}
+:::info
 If your crashes are not being symbolicated due to dSYM files being missing, see the section on [troubleshooting dSYM uploads]({{< relref "/ios/faq#troubleshooting-dsym-upload" >}}) in the FAQ.
-{{< /hint >}}
+:::
 
 ## Manual Uploads
 

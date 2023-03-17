@@ -26,16 +26,16 @@ You can also pass in a patch number to the `initialize` function to use along si
 initialize({patch: 'v1'});
 ```
 
-{{< hint info >}}
+:::info
 **Note for iOS**
 
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
 described in the [Adding the Embrace SDK]({{< relref "/react-native/integration/add-embrace-sdk" >}}) page).
 If you're using Crashlytics, set this value to false.
-{{< /hint >}}
+:::
 
-{{< hint warning >}}
+:::warning
 
 **OTA Updates**
 
@@ -65,7 +65,7 @@ Embrace.getInstance().setJavaScriptBundleURL(pathToBundle);
 ```
 
 
-{{< /hint >}}
+:::
 
 ## Triggering a Crash
 

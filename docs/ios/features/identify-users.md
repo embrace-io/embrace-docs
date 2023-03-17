@@ -20,22 +20,22 @@ Embrace offers two mechanisms for annotating sessions in a searchable way:
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 
-{{< hint info >}}
+:::info
 
 For a full set of APIs related to user identification, see the `Embrace` class in the [iOS API]({{< api ios >}}) documentation.
 
-{{< /hint >}}
+:::
 
 ## User Personas
 
 Embrace offers a set of methods to pass information about your users.
 
-{{< hint warning >}}
+:::warning
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
 
-{{< /hint >}}
+:::
 
 {{< tabs "tabs1" >}}
 
@@ -114,9 +114,9 @@ Embrace.sharedInstance().addSessionProperty("normal", withKey: "launch type", pe
 
 {{< /tabs >}}
 
-{{< hint warning>}}
+:::warning
 {{< readFile file="shared/property-limit.md" >}}
-{{< /hint >}}
+:::
 
 In the above, the `"launch type"` property is set with a value of `"normal"`.
 This is to indicate normal launches by the user.

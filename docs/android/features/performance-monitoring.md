@@ -15,9 +15,9 @@ This mechanism is the same one used to measure application launch performance, w
 
 Similar to [Logs]({{< relref "/android/integration/log-message-api" >}}), moments will immediately make a network request.
 
-{{< hint info >}}
+:::info
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.
-{{< /hint >}}
+:::
 
 Moments are best used for tracking critical user flows that are generally short in nature.
 For more suggestions on what to measure with moments, see the [Best Practices]({{< relref "/best-practices/app-performance#keep-it-short" >}}) page.
@@ -35,9 +35,9 @@ In a sample scenario, this is a moment we're using to measure how quickly an ite
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
 For more on this, check out the [API docs]({{< api android >}}).
 
-{{< hint warning>}}
+:::warning
 {{< readFile file="shared/property-limit.md" >}}
-{{< /hint >}}
+:::
 
 ## Ending a Moment
 

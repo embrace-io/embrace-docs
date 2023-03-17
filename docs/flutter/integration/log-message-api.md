@@ -49,9 +49,9 @@ Embrace.instance.logInfo("User has entered checkout flow");
 ```
 :::
 
-{{< hint warning >}}
+:::warning
 {{< readFile file="shared/log-limit.md" >}}
-{{< /hint >}}
+:::
 
 ## Being Alerted on Logs
 
@@ -64,9 +64,9 @@ For example, let's say you have a steady rate of 1% for a given log event. You c
 Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
-{{< hint info >}}
+:::info
 For more tips on making the most of the Log Message API, checkout the [Best Practices]({{< relref "/best-practices/log-message-api" >}}).
-{{< /hint >}}
+:::
 
 ---
 

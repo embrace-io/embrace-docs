@@ -12,11 +12,11 @@ The Embrace SDK injects code into your APK using a process we call “swazzling�
 
 ## Disabling Swazzling for a Build Type
 
-{{< hint warning >}}
+:::warning
 
 Disabling swazzling means we won't capture network calls, activity transitions, and taps. For this reason, avoid 
 disabling swazzling for release builds.
-{{< /hint >}}
+:::
 
 The swazzling operation adds to the build time, and you may want to disable it for debug builds. Use the
 `variantFilter` option to turn off swazzling for a given variant. The example below illustrates how to
@@ -34,10 +34,10 @@ swazzler {
 
 ### Forcing behaviours
 
-{{< hint info >}}
+:::info
 Most applications do not require any custom configuration of the Embrace SDK Gradle Plugin, but some modular applications require one or more of these settings to be present.
 Please contact <support@embrace.io> if you have any questions about these settings and if they are needed for your app.
-{{< /hint >}}
+:::
 
 ```groovy
 swazzler {
@@ -86,9 +86,9 @@ Defaults to `false`.
 
 ## Disabling Swazzling for Specific JARs and Classes
 
-{{< hint warning >}}
+:::warning
 `jarSkipList` only skips swazzling if you use Embrace <v5.3.0 or have specified `embrace.useAsmTransformApi=false` in your `gradle.properties` file. If you want to skip swazzling in later versions of Embrace, you should use `classSkipList`.
-{{< /hint >}}
+:::
 
 You may need to skip swazzling of certain JARs and/or classes in your application. It is very uncommon for this to be
 necessary, but it can be problematic to swazzle certain security-related JARs. Disable swazzling of these JARs using the
@@ -110,11 +110,11 @@ The build logs will emit info indicating what classes and JARs were skipped, for
 
 ## Improving Build Speed
 
-{{< hint warning >}}
+:::warning
 Embrace v5.3.0 shipped large improvements to build speed by using a new Transform API. This information is only relevant if you use Embrace <v5.3.0 , or if you have specified `embrace.useAsmTransformApi=false` in your `gradle.properties` file.
 
 It is strongly recommended that you update to the latest Embrace version as this will decrease your build times more than the following recommendations.
-{{< /hint >}}
+:::
 
 The Embrace SDK injects code into your APK using a process we call “swazzling” to automatically capture activity 
 transitions, taps, and network requests in your application. The time taken for the swazzling process varies, 

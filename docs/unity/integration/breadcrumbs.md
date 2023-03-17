@@ -20,11 +20,11 @@ Embrace.Instance.LogBreadcrumb("a test breadcrumb message");
 
 Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
 
-{{< hint info >}}
+:::info
 
 For how to best use Breadcrumbs, check out the [Best Practices]({{< relref "/best-practices/breadcrumbs" >}}) page. 
 
-{{< /hint >}}
+:::
  
 ---
 

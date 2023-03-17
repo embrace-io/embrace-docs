@@ -32,7 +32,7 @@ Here's a breakdown of the arguments being passed to the `logError` method.
 1. **Properties.** This is a map of key-value pairs you can use to categorize and filter log messages with.
 1. **Screenshot capture enabled.** The final boolean indicates whether you'd like a screenshot captured or not.
 
-{{< hint info >}}
+:::info
 **Adjusting Severity**
 
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
@@ -43,12 +43,12 @@ Embrace.getInstance().logWarning("User attempted expired credit card", props);
 Embrace.getInstance().logInfo("User has entered checkout flow");
 ```
 
-{{< /hint >}}
+:::
 
-{{< hint warning >}}
+:::warning
 {{< readFile file="shared/log-limit.md" >}}
 * The following types are supported for property values: String, Integer, Long, Float, Double, Boolean.
-{{< /hint >}}
+:::
 
 ## Being Alerted on Logs
 
@@ -61,9 +61,9 @@ For example, let's say you have a steady rate of 1% for a given log event. You c
 Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
-{{< hint info >}}
+:::info
 For more tips on making the most of the Log Message API, checkout the [Best Practices]({{< relref "/best-practices/log-message-api" >}}).
-{{< /hint >}}
+:::
 
 ---
 

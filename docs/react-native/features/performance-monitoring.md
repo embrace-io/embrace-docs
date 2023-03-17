@@ -28,9 +28,9 @@ In a sample scenario, this is a moment we're using to measure how quickly an ite
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
 For more on this, check out the [API docs]({{< api rn >}}).
 
-{{< hint warning>}}
+:::warning
 {{< readFile file="shared/property-limit.md" >}}
-{{< /hint >}}
+:::
 
 ## Ending a Moment
 

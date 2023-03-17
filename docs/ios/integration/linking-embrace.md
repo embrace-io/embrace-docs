@@ -21,7 +21,7 @@ You only need to look at the section relevant to your application and can safely
 
 Make sure to continue reading after linking to learn how to open and use the Embrace Dashboard.
 
-{{< hint info >}}
+:::info
 **Notes on our documentation**
 
 While writing this documentation we were using Xcode 11.5 with iOS SDK 13.5.
@@ -32,7 +32,7 @@ help you out.
 
 Additionally we will be referencing our publicly available sample application
 and project throughout. You can find that project on [GitHub](https://github.com/embrace-io/embrace-demo-apps/tree/master/sample_integration).
-{{< /hint >}}
+:::
 
 
 

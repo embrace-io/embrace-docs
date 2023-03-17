@@ -23,11 +23,11 @@ logBreadcrumb("component updated -- 'show' prop changed from true to false");
 In the above example, a Breadcrumb is being logged when a prop named "show" changed and triggered a component update.
 This event is not otherwise shown in the session and can be important depending on what the user does next.
 
-{{< hint info >}}
+:::info
 
 For how to best use Breadcrumbs, check out the [Best Practices]({{< relref "/best-practices/breadcrumbs" >}}) page. 
 
-{{< /hint >}}
+:::
 
 ---
 

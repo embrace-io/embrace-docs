@@ -71,9 +71,9 @@ that it is included in your target.
 For now, you can just add one entry to this file: `"API_KEY"`. Be sure to fill in your real
 key from the Embrace Dashboard.
 
-{{< hint info >}}
+:::info
 Make sure the target membership is checked for the Embrace-Info.plist file.
-{{< /hint >}}
+:::
 
 ## Add a start call
 
@@ -95,12 +95,12 @@ Alternatively, if you do not want to keep your API_KEY in the plist file you can
 Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions)
 ```
 
-{{< hint info >}}
+:::info
 If your have a **React Native project** you have to add the framework
 ``` React Native
 Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions, framework:EMBAppFrameworkReactNative)
 ```
-{{< /hint >}}
+:::
 
 {{< /tab >}}
 
@@ -115,17 +115,17 @@ Alternatively, if you do not want to keep your API_KEY in the plist file you can
 ```objective-c
 [[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions];
 ```
-{{< hint info >}}
+:::info
 If you have a **React Native project** you have to add the framework
 ``` React Native
 [[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions framework:EMBAppFrameworkReactNative];
 ```
-{{< /hint >}}
+:::
 {{< /tab >}}
 
 {{< /tabs >}}
 
-{{< hint info >}}
+:::info
 
 **A Note On Placing the Start Call**
 
@@ -135,9 +135,9 @@ Embrace has taken great care to ensure we can operate alongside any other third
 party SDKs. If Embrace is initialized first, then our code can set things up to
 ensure that everyone can interoperate successfully in your application.
 
-{{< /hint >}}
+:::
 
-{{< hint info >}}
+:::info
 
 **Integration Help**
 
@@ -168,9 +168,9 @@ Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions,
 
 
 
-{{< /hint >}}
+:::
 
-{{< hint info >}}
+:::info
 **Tip:**
 If you are a swift user you may want to also make this call after starting Embrace:
 
@@ -179,7 +179,7 @@ Embrace.sharedInstance().setCleanLogsEnabled(true);
 ```
 
 This will tell Embrace to use swift-style logging that will better match your existing logging.
-{{< /hint >}}
+:::
 
 ## End the Startup Moment
 
@@ -209,7 +209,7 @@ Embrace.sharedInstance().endAppStartup();
 
 {{< /tabs >}}
 
-{{< hint info >}}
+:::info
 
 **A Note On Ensuring the Start Moment Ends**
 
@@ -219,7 +219,7 @@ it is critical that all code paths end the startup moment eventually. For exampl
 app can launch via a push notification, ensure that path also ends the startup moment or you
 may see false abandonment data.
 
-{{< /hint >}}
+:::
 
 You can learn more about moments and measuring performance yourself in the
 [Measure Performance]({{< relref "/ios/features/performance-monitoring" >}}) section.
@@ -234,11 +234,11 @@ it's version number.
 [Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
 ```
 
-{{< hint info >}}
+:::info
 
 If you encounter any errors, please get in touch on Slack and we can help you out.
 
-{{< /hint >}}
+:::
 
 If you see a log line like this, you've succeeded in integrating Embrace with
 your application. Let's trigger a session upload and verify this in the

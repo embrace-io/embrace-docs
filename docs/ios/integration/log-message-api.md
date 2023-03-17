@@ -47,9 +47,9 @@ Let's examine the method call from above to understand the arguments involved:
 3. **properties**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
 4. **takeScreenshot**: A boolean indicating whether or not we should include a screenshot with this alert.
 
-{{< hint warning >}}
+:::warning
 {{< readFile file="shared/log-limit.md" >}}
-{{< /hint >}}
+:::
 
 
 ## Being Alerted on Logs
@@ -65,9 +65,9 @@ A call to this API results in a networking call between your app and Embrace's s
 This can have a negative effect on your application's performance or battery life when over-used.
 It can also be an invaluable tool for getting information about your application quickly.
 
-{{< hint info >}}
+:::info
 For more tips on making the most of the Log Message API, checkout the [Best Practices]({{< relref "/best-practices/log-message-api" >}}).
-{{< /hint >}}
+:::
 
 ---
 

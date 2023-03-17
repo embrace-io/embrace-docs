@@ -6,10 +6,10 @@ sidebar_position: 1
 
 # Breadcrumb Best Practices
 
-{{< hint info >}}
+:::info
 Breadcrumb logging is a powerful feature. However, it is also easy to misuse.
 The following tips will help you make the most of Breadcrumbs.
-{{< /hint >}}
+:::
 
 ## Log Relevant Information
 

@@ -70,11 +70,11 @@ npm install @react-native-embrace/react-native-navigation
 
 Apply the EmbraceNavigationTracker to your Navigation instance. You should do this in your entry point, usually index.js
 
-{{< hint info >}}
+:::info
 
 If you have more than one navigation instance, you can pass a second parameter to the build method with an identifier
 
-{{< /hint >}}
+:::
 
 ```javascript
 import {Navigation} from 'react-native-navigation';
@@ -102,11 +102,11 @@ Navigation.events().registerAppLaunchedListener(() => {
 });
 ```
 
-{{< hint info >}}
+:::info
 
 Currently we are only supporting 'React Native Navigation SDK' and 'React Navigation SDK', if you are using another library please contact us at <support@embrace.io> or on Slack if you would like to request support.
 
-{{< /hint >}}
+:::
 
 ### Disable Auto Tracking for Native Screens
 

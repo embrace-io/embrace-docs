@@ -10,11 +10,11 @@ aliases:
 
 ## SDK Config File
 
-{{< hint warning >}}
+:::warning
 The configuration file format and required configuration file location changed with the release of the 4.x series of SDKs.
 The following section describes the format and location used for versions 4.0.0 and later.
 We encourage everybody to upgrade to a 4.x SDK, but if you are not able to upgrade and you need help with the 3.x configuration file format, please contact <support@embrace.io>.
-{{< /hint >}}
+:::
 
 Certain SDK configs are only settable in a custom `embrace-config.json` file.
 This file should be located in app/src/main.
@@ -142,13 +142,13 @@ Set to `false` to disable capturing of web views. Defaults to `true`.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 
-{{< hint warning >}}
+:::warning
 **SDK Version Needed**
 
 Since SDK release 4.2.7 it is possible to specify flavor configurations.
 Prior to that it was only possible to specify variant and build-type configurations for flavorless projects.
 
-{{< /hint >}}
+:::
 
 It is possible to specify build type-, flavor-, and variant specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
 

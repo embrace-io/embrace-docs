@@ -27,10 +27,10 @@ Keep this tab open in your browser throughout the integration process. This will
 assist you in verifying that data is sent, along with helping you become
 familiar with the features the Embrace Dashboard offers.
 
-{{< hint info >}}
+:::info
 Take note of the app ID and API token, as you'll need those when integrating the
 Embrace SDK with your app.
-{{< /hint >}}
+:::
 
 {{< image src="/docs/images/android-integration.png" alt="Integration page" title="Integration Page" caption="Note the message box with your app ID and API token at the bottom" width="3068" height="1520" >}}
 

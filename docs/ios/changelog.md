@@ -264,9 +264,9 @@ sidebar_position: 4
 ## 5.4.0
 *March 25th, 2021*
 
-{{< hint warning >}}
+:::warning
 This version has known issues and should not be used
-{{< /hint >}}
+:::
 
 * Optimization for object serialization
 * New API to disable uploading for battery/data conscious scenarios

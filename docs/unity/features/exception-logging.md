@@ -10,9 +10,9 @@ aliases:
 
 Embrace automatically logs all unhandled exceptions thrown by your application, including the exception message and managed stack trace when available. 
 
-{{<hint warning>}}
+:::warning
  Embrace uses Unity's `Application.logMessageReceived` event to capture unhandled exceptions. If the logger is disabled (`Debug.unityLogger.logEnabled = false`), Embrace will not automatically log any exceptions. It is recommended to leave the logger enabled in release builds. If desired, lower severity logs can be disabled using `Debug.unityLogger.filterLogType = LogType.Exception`. 
-{{</hint>}}
+:::
 
 ## Multi-Threaded Exceptions
 

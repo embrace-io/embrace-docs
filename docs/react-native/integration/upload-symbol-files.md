@@ -34,11 +34,11 @@ export EXTRA_PACKAGER_ARGS="--sourcemap-output $CONFIGURATION_BUILD_DIR/$UNLOCAL
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
-{{< hint info >}}
+:::info
 
 If you used the setup script mentioned on the [Adding the Embrace SDK]({{< relref "/react-native/integration/add-embrace-sdk" >}}) page, this change has already been made for you.
 
-{{< /hint >}}
+:::
 
 {{< /tab >}}
 
@@ -53,7 +53,7 @@ project.ext.react = [
 ]
 ```
 
-{{< hint info >}}
+:::info
 
 **Note on variants**
 By default, source maps are uploaded only for the release variant.
@@ -69,7 +69,7 @@ project.ext.react = [
 ```
 This creates a bundle and sets the debuggable flag to false.
 
-{{< /hint >}}
+:::
 
 {{< /tab >}}
 
@@ -103,11 +103,11 @@ ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle .
 ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
 ```
 
-{{< hint info >}}
+:::info
 
 The android map is generated with a different name, but the tool to upload is the same as iOS
 
-{{< /hint >}}
+:::
 
 {{< /tab >}}
 
@@ -128,11 +128,11 @@ Please see the [Uploading dSYMs]({{< relref "/ios/integration/dsym-upload" >}}) 
 Proguard files will be uploaded automatically.
 If you don’t see symbolicated crashes while using Proguard, reach out to us on Slack and we’ll work with you directly.
 
-{{< hint warning >}}
+:::warning
 
 **Note** We do not officially support Dexguard.
 
-{{< /hint >}}
+:::
 
 {{< /tab >}}
 

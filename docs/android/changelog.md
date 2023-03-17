@@ -45,17 +45,17 @@ sidebar_position: 4
 
 ## 5.9.2
 *Nov 28, 2022*
-{{< hint warning >}}
+:::warning
 This version has a known issue with Gradle < 6.2
-{{< /hint >}}
+:::
 
 * Improved Embrace startup time
 
 ## 5.9.1
 *Nov 14, 2022*
-{{< hint warning >}}
+:::warning
 This version has networking known issues and should not be used
-{{< /hint >}}
+:::
 * Fixed an internal exception when trying to access the jailbroken status of the device.
 
 ## 5.9.0
@@ -93,9 +93,9 @@ This version has networking known issues and should not be used
 ## 5.6.1
 *Sep 22, 2022*
 
-{{< hint warning >}}
+:::warning
 This version has a known backward compatibility issue between the Unity SDK and the Android SDK
-{{< /hint >}}
+:::
 
 * Removed capture_google attribute from the embrace-config.json file.
 
@@ -133,9 +133,9 @@ This version has a known backward compatibility issue between the Unity SDK and 
 
 *Aug 02, 2022*
 
-{{< hint warning >}}
+:::warning
 This version has a known issue with Gradle < 6.1
-{{< /hint >}}
+:::
 
 * Added Hermes support
 * Automatic integration: We added a method that does everything necessary to verify an integration in one call.
@@ -146,9 +146,9 @@ This version has a known issue with Gradle < 6.1
 
 *Jul 18, 2022*
 
-{{< hint warning >}}
+:::warning
 This version has a known issue with Gradle < 6.1
-{{< /hint >}}
+:::
 
 * Strict Mode was added to automatically capture serious local error logs to be sent as part of the session payload.
 * The background ANRs are not displayed by default anymore. They should be manually enabled through remote configuration.
@@ -158,9 +158,9 @@ This version has a known issue with Gradle < 6.1
 
 *Jun 30, 2022*
 
-{{< hint warning >}}
+:::warning
 This version has a known issue with Gradle < 6.1
-{{< /hint >}}
+:::
 
 * ASM bytecode transformation API is now the default api.
 
@@ -260,9 +260,9 @@ This version has a known issue with Gradle < 6.1
 
 *Sep 1, 2021*
 
-{{< hint warning >}}
+:::warning
 This version has known issues and should not be used
-{{< /hint >}}
+:::
 
 * Fixed a race-condition issue with the NDK crash capture that could lead to incomplete stacktrace capture
 * Added nullability decorators to improve usage from Kotlin
@@ -404,9 +404,9 @@ This version has known issues and should not be used
 
 *February 10, 2021*
 
-{{< hint warning >}}
+:::warning
 This version has known issues and should not be used
-{{< /hint >}}
+:::
 
 * Relaxed version requirements for AndroidX components
 

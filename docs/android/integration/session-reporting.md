@@ -90,22 +90,22 @@ pay attention to the system logging and look for Embrace to print its version nu
 Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
 ```
 
-{{< hint info >}}
+:::info
 
 If you encounter any errors, please get in touch on Slack and we can assist you.
 
-{{< /hint >}}
+:::
 
 ## Trigger a Session Upload
 
 You can trigger a session upload by sending your app to the background. Refresh the dashboard in
 your browser and you should now see that you've moved on to the next step.
 
-{{< hint warning >}}
+:::warning
 If you stop your application by either force killing it or using the Android Studio stop button, 
 the Embrace SDK will not be able to upload the session that was just completed until you restart 
 your application. During the next application launch the previous session will be immediately uploaded. 
-{{< /hint >}}
+:::
 
 ---
 
