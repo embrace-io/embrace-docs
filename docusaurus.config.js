@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Embrace - Documentation',
+  title: 'Embrace Documentation',
   tagline: 'Learn how to set up comprehensive mobile app performance monitoring.',
   favicon: 'static/favicon.png',
   trailingSlash: true,
