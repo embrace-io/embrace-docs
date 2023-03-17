@@ -54,7 +54,7 @@ If you'd like to specify "Staging" via it's index, you would define the followin
 ```$ export EMBRACE_ENVIRONMENTS_INDEX=1```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONEMNTS_INDEX=1```
+```C:\> SET EMBRACE_ENVIRONMENTS_INDEX=1```
 
 Alternatively, to specify by the name "Staging":
 
@@ -62,7 +62,7 @@ Alternatively, to specify by the name "Staging":
 ```$ export EMBRACE_ENVIRONMENTS_NAME=Staging```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONEMNTS_NAME=Staging```
+```C:\> SET EMBRACE_ENVIRONMENTS_NAME=Staging```
 
 ## Configuration Output
 {{< image src="/docs/images/unity-configuration-defaults.png" alt="Image showing configuration defaults" width="1330" height="681" >}}
