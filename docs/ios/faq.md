@@ -87,7 +87,7 @@ DEBUG_INFORMATION_FORMAT set to 'dwarf'. Skipping upload.
 Set to 'dwarf-with-dsym' to generate a dSYM for your application
 ```
 
-To enable dSYMs generation in XCode:
+To enable dSYMs generation in Xcode:
 
 1. Select the Project Navigator
 2. Select the project file
@@ -105,9 +105,9 @@ To enable dSYMs generation in XCode:
 If you are having problems with dSYM uploads, we encourage you to share the logs described below with our support team.
 :::
 
-The logs for the dSYM upload are split between the XCode logs and your computer's system logs. The logs from the `run.sh` script included with the SDK appear in the XCode build logs, while the logs from the `upload` binary appear in the system logs. This is a side effect of doing the upload process in the background, allowing the build to proceed to other steps before it completes.
+The logs for the dSYM upload are split between the Xcode logs and your computer's system logs. The logs from the `run.sh` script included with the SDK appear in the Xcode build logs, while the logs from the `upload` binary appear in the system logs. This is a side effect of doing the upload process in the background, allowing the build to proceed to other steps before it completes.
 
-To view the `run.sh` logs in XCode:
+To view the `run.sh` logs in Xcode:
 
 1. Select the Report Navigator
 2. Select the appropriate build report
@@ -128,7 +128,7 @@ Alternatively, you can view them in a terminal window:
 
 ### Enabling dSYM upload debug mode
 
-dSYM debug mode allows you to view all the upload-related logs in the XCode build logs, shifting the logs that were going to the system logs. This does slow down the build process since the upload is done synchronously in debug mode, so we recommend only enabling this mode if you are having issues with dSYM uploads.
+dSYM debug mode allows you to view all the upload-related logs in the Xcode build logs, shifting the logs that were going to the system logs. This does slow down the build process since the upload is done synchronously in debug mode, so we recommend only enabling this mode if you are having issues with dSYM uploads.
 
 To enable debug mode, set the environment variable `EMBRACE_DEBUG_DSYM=1`, e.g. your build step would have this format
 
