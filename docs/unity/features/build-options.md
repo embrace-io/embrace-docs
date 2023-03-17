@@ -69,6 +69,8 @@ Alternatively, to specify by the name "Staging":
 
 ## Configuration Output
 
+Users will notice that both default, and environment-defined configurations already have some fields defined upon creation.  These fields correspond to the defaults specified for [Android](/android/features/configuration-file/) and [iOS](/ios/features/configuration-file/). At build time, configuration files are loaded and scanned for **non-default** settings, which are then output to an override configuration file for their specific platforms.
+
 <img src={require('@site/static/images/unity-configuration-defaults.png').default} />
 
 For example, in the `sdk_config.session` sub-element of the Android configuration, if the `async_end` flag is set to `true` and `max_session_seconds` is set to `120` the output `embrace-config.json` file will only feature those fields as overrides since they are overriding default settings. Likewise, in the iOS configuration the `CRASH_REPORT_ENABLED` `ENABLE_AUTOMATIC_VIEW_CAPTURE` and `STARTUP_MOMENT_SCREENSHOT_ENABLED` fields were modified with non-default values, and are therefore the only settings included in the `Embrace-Info.plist` output.
@@ -78,6 +80,7 @@ For example, in the `sdk_config.session` sub-element of the Android configuratio
 <img src={require('@site/static/images/unity-config-overrides.png').default} />
 
 ## Data Directory
+
 The Unity Embrace SDK will store configuration data in the `Assets/Embrace` directory of your project.  This directory can be customized in the **Settings** window under the **General** tab.  Specify a new directory in the **Embrace Data Directory** field.  Note that this path will remain relative to your project's `Assets` folder. This is a necessary constraint since we depend on the Unity's `AssetDatabase` utility to manage user-generated configuration files.
 
 <img src={require('@site/static/images/unity-embrace-data-directory.png').default} />
