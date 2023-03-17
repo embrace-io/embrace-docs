@@ -1,20 +1,16 @@
 ---
-title: "Session Reporting"
+title: Session Reporting
 description: Upload session reports from your iOS application using the Embrace SDK
 sidebar_position: 6
-aliases:
-  - /ios/session-reporting/
 ---
 
 # Session Reporting
 
 ## Create your first session
 
-Now that you've got Embrace linked and know how to login to the Embrace Dashboard,
-it's time to collect your first session.  
+Now that you've got Embrace linked and know how to login to the Embrace Dashboard, it's time to collect your first session.  
 
-Embrace always uploads sessions on subsequent launches. This means the general
-process we're going to follow to collect our first session is:
+Embrace always uploads sessions on subsequent launches. This means the general process we're going to follow to collect our first session is:
 
 1. [**Import the Embrace module**](/ios/integration/session-reporting#import-embrace)
 1. [**Add a start call to the Embrace SDK**](/ios/integration/session-reporting#add-a-start-call)
@@ -26,14 +22,12 @@ process we're going to follow to collect our first session is:
     1. Launch the application to the foreground
     1. Verify that our first session was uploaded to Embrace by checking the Dashboard
 
-
-
 ## Import Embrace
 
 Let's start by importing the Embrace module. Open your program's
 `AppDelegate.swift` class or equivalent.
 
-{{< image src="/docs/images/ios-app-delegate.png" alt="Example AppDelegate.swift file" title="AppDelegate.swift" caption="Our Project's AppDelegate before import the Embrace module" width="1600" height="1134" >}}
+<img src={require('@site/static/images/ios-app-delegate.png').default} />
 
 At the top of the file where you see the other import statements, add one for
 Embrace.
@@ -59,7 +53,6 @@ import Embrace
 ```
 
 </TabItem>
-
 </Tabs>
 
 Now we're going to add a new file to our project. Embrace has many optional
@@ -70,10 +63,9 @@ those options later.
 Make a new file in the root of your project called `Embrace-Info.plist` and ensure
 that it is included in your target.
 
-{{< image src="/docs/images/ios-embrace-info-plist.png" alt="Embrace-Info.plist File" title="Embrace-Info.plist" caption="Embrace's sample project showing the Embrace-Info.plist file. Note the target membership is checked." width="1600" height="1134" >}}
+<img src={require('@site/static/images/ios-embrace-info-plist.png').default} />
  
-For now, you can just add one entry to this file: `"API_KEY"`. Be sure to fill in your real
-key from the Embrace Dashboard.
+For now, you can just add one entry to this file: `"API_KEY"`. Be sure to fill in your real key from the Embrace Dashboard.
 
 :::info
 Make sure the target membership is checked for the Embrace-Info.plist file.
@@ -81,9 +73,7 @@ Make sure the target membership is checked for the Embrace-Info.plist file.
 
 ## Add a start call
 
-Next, inside your main startup function (usually
-`ApplicationDidFinishLaunching`) add the following code to start Embrace. Embrace does not perform any tracking
-or other actions until this call is made.
+Next, inside your main startup function (usually `ApplicationDidFinishLaunching`) add the following code to start Embrace. Embrace does not perform any tracking or other actions until this call is made.
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
@@ -165,7 +155,7 @@ Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions,
 
 :::
 
-:::info Tip
+:::tip
 If you are a swift user you may want to also make this call after starting Embrace:
 
 ```swift

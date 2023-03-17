@@ -1,5 +1,5 @@
 ---
-title: "Metrics API Code Samples"
+title: Embrace Metrics API Code Samples
 description: Learn how to integrate the Metrics API using code
 sidebar_position: 2
 ---
@@ -66,7 +66,7 @@ fetchData(QUERY, start, end, TIME_STEP_SECS);
 
 This example uses the [prometheus-api-client](https://pypi.org/project/prometheus-api-client/) package for python.
 
-``` python
+```python
 from datetime import datetime
 
 from prometheus_api_client import PrometheusConnect, MetricsList, Metric, MetricSnapshotDataFrame, MetricRangeDataFrame

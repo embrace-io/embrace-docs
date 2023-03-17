@@ -17,7 +17,7 @@ In order to properly configure SSO for OneLogin, we'll need two pieces of inform
 
 1.  **Metadata URL**: This can be found in the OneLogin admin portal, referred to as the Issuer URL. Add the Embrace app connector from OneLogin's App Catalog and navigate to SSO in the side menu. The Issuer URL should be displayed there.
 
-{{< image src="/docs/images/onelogin-sso-issuer-url.png" width="610" height="350" alt="OneLogin admin portal" title="OneLogin Admin Portal" caption="Note the Issuer URL in the OneLogin Admin Portal" >}}
+<img src={require('@site/static/images/onelogin-sso-issuer-url.png').default} />
 
 2. **Domain**: In most cases, it will be the domain of your email (i.e. example.com if your email is bob.smith@example.com).
 
@@ -28,19 +28,19 @@ Once you have obtained those two pieces of information, navigate to [dash.embrac
 3. Once you're able to access the **SSO Tab**, input your **Metadata URL** and your **Domain**.
 *Note: You must be an admin to make changes to the SSO configuration.*
 
-{{< image src="/docs/images/sso-configuration.png" width="610" height="630" alt="SSO Configuration Fields" title="SSO Configuration Fields" caption="You'll need to fill these values in the Dashboard" >}}
+<img src={require('@site/static/images/sso-configuration.png').default} />
 
 4. Select if you wish to **Allow Login** or not. If you toggle **Allow Login**, you will allow your organization's users to bypass the SSO flow. If your organization adheres to strict SSO policies, this is highly **not recommended**.
 
 5. Once the **Metadata URL** and **Login Domain** are input and saved, we will generate an **Org ID** for you towards the right of the config panel.
 
-{{< image src="/docs/images/sso-org-id.png" width="488" height="249" alt="Generated SSO Org ID" title="Generated SSO Org ID" caption="You'll need this Org ID to finish your SSO configuration with OneLogin" >}}
+<img src={require('@site/static/images/sso-org-id.png').default} />
 
 6. Once you've generated your **Org ID**, head back to your OneLogin portal and select the Embrace app.
 
 7.  Back in OneLogin, navigate to Configuration in the side menu and input your **Org ID** that we've generated into the **Org ID** field.
 
-{{< image src="/docs/images/sso-onelogin-org-id.png" width="610" height="215" alt="Enter the Org ID in the OneLogin admin portal" title="OneLogin Admin Portal: Org ID" caption="Finish configuring SSO in OneLogin using the generated Org ID" >}}
+<img src={require('@site/static/images/sso-onelogin-org-id.png').default} />
 
 If you've followed all of these instructions, SSO should be configured for your organization.
 We're planning on adding support for other SSO providers as well as SP-initiated login in the future.

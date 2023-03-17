@@ -2,8 +2,6 @@
 title: Unhandled Exceptions
 description: Automatic Unhandled Exception Logging
 sidebar_position: 5
-aliases:
-  - /Unity/exception-logging/
 ---
 
 # Unhandled Exception Logging
@@ -21,4 +19,5 @@ By default, only exceptions thrown on the main Unity thread are logged. To captu
 ## Managed Stack Traces
 
 Each exception log can include a managed stack trace provided by the Unity runtime. To ensure that stack traces are available, confirm that the **Stack Trace** level for exceptions in your project's player settings is set to **ScriptOnly** or **Full** for each platform (**Edit > Project Settings > Player > Other Settings > Stack Trace**).
-{{< image src="/docs/images/unity-stack-trace-level.png" alt="Image showing Stack Trace level options" width="650" height="158" >}}
+
+<img src={require('@site/static/images/unity-stack-trace-level.png').default} />

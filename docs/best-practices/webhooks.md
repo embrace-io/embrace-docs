@@ -1,78 +1,47 @@
 ---
-title: "Webhooks"
-description: Webhook Integration instructions
+title: Webhooks
+description: Webhook Integration Instructions
 sidebar_position: 3
 ---
 The Embrace Webhooks feature is an outgoing webhook sent by Embrace  when an alert condition is met. Here is a high-level flow diagram: 
 
+<img src={require('@site/static/images/webhooks/image1.png').default} />
 
-
-
-{{<image src="/docs/images/webhooks/image1.png" width="624" height="212"/>}}
-
-
-<h3>Generic Webhook</h3>
-
+## Generic Webhook
 
 In order to see a sample of the payload sent by the Embrace dash, you can setup a test webhook with [webhook.site](https://webhook.site/):
 
 First, within the Embrace dashboard, click on the gear icon to access the Settings page. 
 
+<img src={require('@site/static/images/webhooks/image2.png').default} />
 
+Select the Notifications tab.
 
-
-{{<image src="/docs/images/webhooks/image2.png" width="291" height="132" />}}
-
-
-Select the Notifications tab.  \
 In the Webhook Integration area, there is a Nickname field and the Webhook URL field: 
 
-
-
-
-{{<image src="/docs/images/webhooks/image3.png" width="332" height="112"/>}}
-
+<img src={require('@site/static/images/webhooks/image3.png').default} />
 
 When you navigate to the [webhook.site](https://webhook.site/) page, you will get a randomly generated path; paste that path in the Webhook URL field in the Embrace dash. 
 
 For example:  https://webhook.site/b8a8c93a-0111-48d0-aedc-051092311a6a
 
-
-
-
-{{<image src="/docs/images/webhooks/image4.png"  width="324" height="129"/>}}
-
+<img src={require('@site/static/images/webhooks/image4.png').default} />
 
 In this example, the Nickname is “webhook.site” and the Webhook URL is the random path from the webhook.site page. 
 
 Click on TEST to see the webhook show up on webhook.site. 
 
-<h3>Jira integration</h3>
-
+## Jira integration
 
 In your Project, click on Project settings 
 
-
-
-
-{{<image src="/docs/images/webhooks/image5.png" width="624" height="463"/>}}
-
-
-
-
-
-
-{{<image src="/docs/images/webhooks/image6.png" width="624" height="193"/>}}
+<img src={require('@site/static/images/webhooks/image5.png').default} />
+<img src={require('@site/static/images/webhooks/image6.png').default} />
 
 Then click on Create rule 
-
 Search for webhook, then click on Incoming webhook 
 
-
-
-
-{{<image src="/docs/images/webhooks/image7.png" width="624" height="252"/>}}
-
+<img src={require('@site/static/images/webhooks/image7.png').default} />
 
 Choose “No issues from the webhook” 
 
@@ -82,23 +51,19 @@ Add a New action
 
 Choose Create issue
 
-
-
-
-{{<image src="/docs/images/webhooks/image9.png"  width="624" height="241"/>}}
-
+<img src={require('@site/static/images/webhooks/image9.png').default} />
 
 Complete the rest of the Jira automation per your organization’s needs. 
 
-<h3>Pagerduty Integration</h3>
+## PagerDuty Integration
 
 You will need to setup a Custom Event Transformer integration (CET).
 
-Follow the instructions on the [Pagerduty documentation for CET](https://www.pagerduty.com/docs/guides/custom-event-transformer/)
+Follow the instructions on the [PagerDuty documentation for CET](https://www.pagerduty.com/docs/guides/custom-event-transformer/)
 
-When you get to steps 5-7, modify the Javscript and replace it with the following code (you can also customize it to fit your needs):
+When you get to steps 5-7, modify the JavaScript and replace it with the following code (you can also customize it to fit your needs):
 
-```
+```javascript
 var webhook = PD.inputRequest.body;
 var event_type = PD.Trigger;
 if(webhook.event.metric_props.new_state=="Normal") {event_type = PD.Resolve;}
@@ -123,16 +88,11 @@ PD.emitGenericEvents([normalized_event]);
 
 Finally, copy the Integration URL generated in the CET Integration Configuration step into the Embrace dash.
 
-<h3>Troubleshooting</h3>
-
+## Troubleshooting Webhooks
 
 Your webhook will be disabled if the alerts fail to deliver 3 times in a row. 
 
-
-
-
-{{<image src="/docs/images/webhooks/image10.png" width="624" height="116"/>}}
-
+<img src={require('@site/static/images/webhooks/image10.png').default} />
 
 To fix the disabled webhook, select the webhook to edit. Re-test the webhook to validate. 
 
@@ -140,15 +100,8 @@ To examine the payload that is being sent, use the Webhook.site page mentioned a
 
 Invalid Webhooks will also trigger an email alert. For example, you will get an email alert similar to this: 
 
-
-{{<image src="/docs/images/webhooks/image11.png"  width="624" height="604"/>}}
+<img src={require('@site/static/images/webhooks/image11.png').default} />
  
-
 After 2 failed email notifications, you will get a final email alert: 
 
-
-
-{{<image src="/docs/images/webhooks/image12.png"  width="624" height="666"/>}}
-
-
-Enjoy our new webhook feature!
+<img src={require('@site/static/images/webhooks/image12.png').default} />

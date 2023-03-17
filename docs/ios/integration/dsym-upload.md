@@ -1,9 +1,7 @@
 ---
-title: "Uploading dSYMs"
+title: Uploading dSYMs
 description: Upload dSYM files to see translated stack traces
 sidebar_position: 3
-aliases:
-  - /ios/dsym-upload/
 ---
 
 # Uploading dSYMs
@@ -23,7 +21,7 @@ To enable automatic dSYM uploads, we will need to locate a number of items first
 
 Now, open the "Build Phases" tab in Xcode. We will be adding a new phase.
 
-{{< image src="/docs/images/ios-xcode-build-phase.png" alt="Build Phase in Xcode" title="Build Phase" caption="Xcode opened to the 'Build Phases' tab. Note the '+' button in the upper middle for adding new phases" width="1600" height="1069">}}
+<img src={require('@site/static/images/ios-xcode-build-phase.png').default} />
 
 Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "Embrace Symbol Uploads".
 
@@ -102,7 +100,7 @@ If your app is using bitcode or a CI system that makes accessing or modifying th
 
 When applications are built with bitcode, it means the final binary and symbols only exist on Apple servers post-submission. As such you must download those symbols manually from Apple. You can do this from the Organizer window in Xcode.
 
-{{< image src="/docs/images/ios-xcode-organizer.png" alt="Organizer window in Xcode" title="Organizer window in Xcode" caption="The organizer window will allow you to download the dSYM files from Apple" width="1600" height="1236" >}}
+<img src={require('@site/static/images/ios-xcode-organizer.png').default} />
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
  

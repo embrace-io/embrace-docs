@@ -2,9 +2,8 @@
 title: Login to the Embrace Dashboard
 sidebar_position: 2
 description: Login to the Embrace dashboard to get started with your Android integration
-aliases:
-  - /android/login-embrace-dashboard/
 ---
+
 # Getting Started with the Embrace Dashboard
 
 ## Logging in
@@ -16,7 +15,7 @@ navigate to [dash.embrace.io](https://dash.embrace.io/).
 Either login if you have created an account already, or follow the prompts to
 register for a new one.
 
-{{< image src="/docs/images/login-page.png" alt="Login page" title="Login Page" caption="The Embrace Dashboard login page" width="3068" height="1520" >}}
+<img src={require('@site/static/images/login-page.png').default} />
 
 ## Integration page
 
@@ -30,6 +29,6 @@ familiar with the features the Embrace Dashboard offers.
 Take note of the app ID and API token, as you'll need those when integrating the Embrace SDK with your app.
 :::
 
-{{< image src="/docs/images/android-integration.png" alt="Integration page" title="Integration Page" caption="Note the message box with your app ID and API token at the bottom" width="3068" height="1520" >}}
+<img src={require('@site/static/images/android-integration.png').default} />
 
 Now we are ready to add the SDK to your app.

@@ -2,8 +2,6 @@
 title: Log Network Requests
 description: Log network requests made by your application
 sidebar_position: 4
-aliases:
-  - /Unity/log-network-requests/
 ---
 
 # Log Network Requests
@@ -47,7 +45,7 @@ Internally, the Embrace weaver uses `Mono.Cecil` to inspect and modify CIL assem
 
 Automatic network capture weaving can be enabled in the **Network Capture** tab of the Embrace settings window (**Tools > Embrace > Settings**). 
 
-{{< image src="/docs/images/unity-network-capture-settings.png" alt="Image showing Embrace network capture settings" width="662" height="271" >}}
+<img src={require('@site/static/images/unity-network-capture-settings.png').default} />
 
 By default, the code weaver processes assemblies any time they are recompiled, including at build time and in the editor. To improve iteration time, weaving can be restricted to builds only by enabling the **Weave Builds Only** toggle. It is recommended to start with this toggle disabled to quickly catch compatibility issues while this feature is in beta.
 

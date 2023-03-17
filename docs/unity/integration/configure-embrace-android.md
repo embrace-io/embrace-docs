@@ -2,8 +2,6 @@
 title: Configure the Android Platform
 description: Configuring the Embrace Unity Android SDK for mobile platforms
 sidebar_position: 4
-aliases:
-  - /unity/configure-embrace-android/
 ---
 
 # Configure Embrace
@@ -14,7 +12,7 @@ The Embrace Unity SDK includes an editor script to assist with properly linking 
 
 Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace editor window. Select the Android tab and fill in your unique `APP_ID` and `API_TOKEN`. You can get the correct values from the settings page in your dash.
 
-{{< image src="/docs/images/android-configure-editor-window.png" alt="Image showing the location of the Embrace Unity Editor within the Embrace package" caption="The location of the Embrace Unity Editor in the Embrace package." width="702" height="438" >}}
+<img src={require('@site/static/images/android-configure-editor-window.png').default} />
 
 On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 
@@ -47,7 +45,7 @@ Whether you use the resolver or not, make sure to also continue with the steps b
 
 # Customize Gradle Templates
 
-{{< image src="/docs/images/unity-android-gradle-templates.png" alt="Image showing how to customize the Unity Gradle templates" caption="The Gradle template customization features in Unity." width="700" height="452" >}}
+<img src={require('@site/static/images/unity-android-gradle-templates.png').default} />
 
 If your project already modifies these files, then apply the changes below to your existing files. If you do not customize the template currently, add a customization and then modify them as described below.
 
@@ -84,7 +82,7 @@ After creating or finding these template files in your project, make the followi
 
 Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings.
 
-{{< image src="/docs/images/unity-android-build-settings.png" alt="Image showing the correct build settings for exporting an Android project with Embrace from Unity" caption="The build settings window showing the checkbox to create symbols.zip." width="584" height="600" >}}
+<img src={require('@site/static/images/unity-android-build-settings.png').default} />
 
 --- 
 

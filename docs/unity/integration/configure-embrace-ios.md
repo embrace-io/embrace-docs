@@ -12,8 +12,7 @@ The Embrace Unity SDK includes an editor script to assist with properly linking 
 
 Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace editor window. Select the iOS tab and fill in the missing `APP_ID` and `API_TOKEN`. You can get the correct values from the settings page in your dash.
 
-{{< image src="/docs/images/ios-configure-editor-window.png" alt="Image showing the location of the Embrace Unity Editor within the Embrace package" caption="The location of the Embrace Unity Editor in the Embrace package." width="702" height="438" >}}
-
+<img src={require('@site/static/images/ios-configure-editor-window.png').default} />
 
 Now when you build and run your project, our editor script will use those values to correctly setup the final IPA to work with Embrace.
 

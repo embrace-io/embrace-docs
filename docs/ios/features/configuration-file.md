@@ -1,9 +1,7 @@
 ---
-title: "Configuration File"
+title: Configuration File
 description: A reference guide to configuration options available in the iOS SDK
 sidebar_position: 8
-aliases:
-  - /ios/configuration-file/
 ---
 
 # Configuration File
@@ -12,7 +10,7 @@ aliases:
 
 Embrace is configured via an `Embrace-Info.plist` file placed at the root of the IPA, alongside the main application binary. An example of this file is included below as a reference:
 
-```plist
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -139,16 +137,14 @@ This is for auto generating relative paths for network requests similiar to how 
 This is a dictionary that contains Two Keys.
 
 1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
-2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
-
-this is the format
+2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash, in the following format:
 ``` 
 /(RELATIVE_URL_PATH value)/(value for http header thats name is equal to the value of HEADER)
 ```
 
 Here is an example use case
 
-{{< image src="/docs/images/ios-custom-header-example.png" alt="Custom Header Plist Entry Example" title="Custom Header Plist Entry" width="1236" height="118" >}}
+<img src={require('@site/static/images/ios-custom-header-example.png').default} />
 
 This is a resulting Relative URL with above use case
 ```
