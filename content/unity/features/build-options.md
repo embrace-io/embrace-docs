@@ -55,7 +55,7 @@ If you'd like to specify "Staging" via it's index, you would define the followin
 ```$ export EMBRACE_ENVIRONMENTS_INDEX=1```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONMENTS_NAME=1```
+```C:\> SET EMBRACE_ENVIRONMENTS_INDEX=1```
 
 Alternatively, to specify by the name "Staging":
 
