@@ -24,8 +24,8 @@ Now we're ready to trigger a crash. You can trigger a crash organically, or you 
 EmbraceSamples.triggerNativeSdkError();
 ```
 
-:::warning
-**Note** This function will crash your app so only use it for testing purposes.
+:::danger
+This function will crash your app so only use it for testing purposes.
 :::
 
 Remember that Embrace sessions only upload on subsequent launches after crashes have occurred.
@@ -33,8 +33,7 @@ This means that after seeing the application crash, you must now launch the appl
 
 Once uploaded, you will notice that your session is marked with the "crashed" icon. Additionally your crash is visible in the "crashes" section of the dashboard.
 
-:::info
-**Note for iOS**
+:::info Note for iOS
 
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as

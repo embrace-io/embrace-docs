@@ -2,9 +2,8 @@
 title: Crash Reporting
 sidebar_position: 5
 description: Upload crash reports from your Android application using the Embrace SDK
-aliases:
-  - /android/crash-reporting/
 ---
+
 # Collect Your First Crash Report
 
 ##  Setting up the Crash Reporter
