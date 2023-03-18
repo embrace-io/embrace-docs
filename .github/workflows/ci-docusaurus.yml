@@ -33,9 +33,14 @@ jobs:
           node-version: 18
           cache: npm
 
+      - name: Install Docusaurus
+        run: |
+          npm install
+
       - name: Docusaurus Build
         run: |
-          yarn build
+          npm install
+          npm run docusaurus build
 
       - name: Destination Staging
         if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
