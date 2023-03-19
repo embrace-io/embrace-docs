@@ -47,9 +47,9 @@ compileOptions {
 ### **How do I use Embrace functions in modules or libraries?**
 
 In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file
-implementation `'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'`.
+implementation `'io.embrace:embrace-android-sdk:<version>'`.
 In case you have implemented OkHttp in your module, you will also need to specify the Embrace OkHttp library in your module's Gradle file
-implementation `'io.embrace:embrace-android-okhttp3:{{ embrace_sdk_version platform="android" }}'`.
+implementation `'io.embrace:embrace-android-okhttp3:<version>'`.
 You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
 
 ```groovy
@@ -108,7 +108,10 @@ If the following code block is present in your Manifest file, **Embrace SDK will
     tools:node="remove">
 </provider>
 ```
-**Recommended Usage:** Only disable the WorkManager initializer. This will allow the Embrace SDK to function properly:
+
+:::tip Recommended Usage
+Only disable the WorkManager initializer. This will allow the Embrace SDK to function properly:
+
 ```xml
 <provider
     android:name="androidx.startup.InitializationProvider"
@@ -122,6 +125,7 @@ If the following code block is present in your Manifest file, **Embrace SDK will
         tools:node="remove" />
 </provider>
 ```
+:::
 
 In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, the initialization provider should be added explicitly:
 

@@ -58,7 +58,8 @@ const config = {
       navbar: {
         logo: {
           alt: 'Embrace Mobile',
-          src: 'images/embrace_color_logo.png',
+          src: 'images/embrace_logo_black-text_transparent-bg_400x200.svg',
+          srcDark: 'images/embrace_logo_white-text_transparent-bg_400x200.svg'
         },
 /*
         title: 'HomeLink1',

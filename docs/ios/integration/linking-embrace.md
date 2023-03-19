@@ -151,10 +151,12 @@ Here is the general process we will be following:
 1. Setup embedding so the framework is included with builds
 1. Import Embrace and perform a test build
 
-First we must download the latest Embrace release. Embrace is distributed as a
-zip file, the latest version is currently hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{ embrace_sdk_version platform="ios"}}.zip).
+First we must download the latest Embrace release which you can do using the following command:
+```shell-session
+curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://embrace-downloads-prod.s3.amazonaws.com/embrace_{{ embrace_sdk_version platform="ios" }}.zip
+```
 After downloading the zip, extract it into a location within your project. If you
-don’t already have a spot for third party frameworks, we recommend following the
+don't already have a spot for third party frameworks, we recommend following the
 file structure shown here:
 
 <img src={require('@site/static/images/ios-download-embrace-sdk.png').default} title="Download Embrace SDK" caption="The Embrace SDK was extracted into a folder called third_party. Setting up a good folder structure now will help as your project grows in complexity." />

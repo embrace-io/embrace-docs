@@ -29,11 +29,14 @@ There are even instructions to [automatically monitor for new releases](https://
 
 When a new version of the Embrace SDK is published we announce it in our Slack channels. 
 
-If you’d like to upgrade, simply grab the latest version, which is hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{ embrace_sdk_version platform="ios"}}.zip).
+If you’d like to upgrade, simply grab the latest version:
+
+```shell-session
+curl -o embrace_{{ embrace_sdk_version platform="ios" }}.zip https://embrace-downloads-prod.s3.amazonaws.com/embrace_{{ embrace_sdk_version platform="ios" }}.zip
+```
 
 Overwrite your downloaded copy in the `third_party` folder and Xcode should automatically pick it up the next time you build your application. This assumes you've followed the manual integration steps from the [Linking Embrace section](/ios/integration/linking-embrace#manual).
 
 ---
 
-Now that you know how to keep Embrace up to date, it's time to login to the
-Embrace dashboard.
+Now that you know how to keep Embrace up to date, it's time to login to the Embrace dashboard.
