@@ -116,7 +116,7 @@ With Xcode 12 Apple is adding the ability to manage binary framework dependencie
 
 Apple TV targets are automatically configured via the Swift Package Manager by following these steps.
 
-The screenshots here are taken using Xcode 12 beta 4.
+The screenshots here are taken using Xcode 12.
 
 First open your project in a compatible version of Xcode. Binary distributions are only compatible with Xcode 12 or higher. This process will not work in Xcode 11 or below.
 
@@ -152,7 +152,7 @@ Here is the general process we will be following:
 1. Import Embrace and perform a test build
 
 First we must download the latest Embrace release. Embrace is distributed as a
-zip file, the latest version is currently hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{< sdk platform="ios">}}.zip).
+zip file, the latest version is currently hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{ embrace_sdk_version platform="ios"}}.zip).
 After downloading the zip, extract it into a location within your project. If you
 don’t already have a spot for third party frameworks, we recommend following the
 file structure shown here:

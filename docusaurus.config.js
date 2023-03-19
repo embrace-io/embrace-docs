@@ -1,8 +1,10 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+// Embrace Remark Plugins
+const embraceSdkVersion = require('./src/remark/embrace-sdk-version');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,13 +13,8 @@ const config = {
   favicon: 'static/favicon.png',
   trailingSlash: true,
   noIndex: false,
-
-  // Set the production url of your site here
   url: 'https://embrace.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/docs',
-
   staticDirectories: ['static'],
 
   // GitHub pages deployment config.
@@ -28,9 +25,6 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -46,9 +40,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-
-          //editUrl:
-          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          remarkPlugins: [embraceSdkVersion],
+          showLastUpdateTime: false,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -60,7 +53,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'TODOimg/docusaurus-social-card.jpg',
 
       navbar: {

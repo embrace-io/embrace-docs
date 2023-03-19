@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Run in the embrace-io docs repo to generate a unique docs release tag
 
@@ -12,5 +12,3 @@ do
 done
 
 echo $today.$release
-
-

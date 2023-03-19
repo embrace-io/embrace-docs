@@ -1,9 +1,7 @@
 ---
-title: "Adding the Embrace SDK"
+title: Adding the Embrace SDK
 description: Add the Embrace SDK as a dependency to your React Native application
 sidebar_position: 3
-aliases:
-  - /react-native/add-embrace-sdk/
 ---
 
 # Adding the React Native Embrace SDK
@@ -21,14 +19,12 @@ npm install react-native-embrace --save
 ```
 
 :::info
-
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
-
 :::
 
 ## Native Modules
 
-If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md)
+If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking/)
 to set up the native modules. 
 
 ```mdx-code-block
@@ -107,7 +103,7 @@ buildscript {
     google()
   }
   dependencies {
-    classpath('io.embrace:embrace-swazzler:{{< sdk platform="android" >}}')
+    classpath('io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}')
   }
 }
 ```
@@ -155,12 +151,10 @@ Your API ID and token are available on the Embrace dashboard.
 :::
 
 :::info
-
 You’ll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
 
 * `android.permission.INTERNET`
 * `android.permission.ACCESS_NETWORK_STATE`
-
 :::
 
 </TabItem>

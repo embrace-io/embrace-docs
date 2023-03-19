@@ -1,6 +1,5 @@
 ---
-bookCollapseSection: true
-title: "Monitoring GraphQL Requests"
+title: Monitoring GraphQL Requests
 description: Best practices for monitoring GraphQL network requests with the Embrace SDK
 ---
 
@@ -23,8 +22,7 @@ It's possible to override the path of a network request that the Embrace SDK
 captures by setting the `x-emb-path` header.
 
 For example, if your network request is made to `https://example.com/graphql`, and you set the `x-emb-path`
-header to `/graphql/friends_list`, the request will be reported as
-`https://example.com/graphql/friends_list`.
+header to `/graphql/friends_list`, the request will be reported as `https://example.com/graphql/friends_list`.
 
 :::warning
 **The x-emb-path value must meet the following requirements or it will be ignored.**

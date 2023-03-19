@@ -1,6 +1,5 @@
 ---
-bookCollapseSection: true
-title: "Feature Reference"
+title: Feature Reference
 description: Learn about the advanced ways Embrace can help your application
 sidebar_position: 2
 ---
@@ -16,4 +15,3 @@ how your application is performing in production.
 1. [**Build Options**](/android/features/build-options) The Embrace Gradle plugin has options that can modify the build process.
 1. [**Network Body Capture**](/android/features/network-body-capture) Network Body Capture Embrace can upload network bodies from your requests to help you troubleshoot. Learn how to enable this feature securely.
 1. [**Push Notifications**](/android/features/push-notifications) Embrace automatically captures push notifications received. Learn how to configure this feature.
-

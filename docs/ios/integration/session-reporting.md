@@ -209,7 +209,7 @@ correctly, pay attention to the system logging and look for Embrace to print out
 it's version number.
 
 ```
-[Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
+[Embrace] Embrace SDK enabled. Version: {{ embrace_sdk_version platform="ios" }}
 ```
 
 :::info

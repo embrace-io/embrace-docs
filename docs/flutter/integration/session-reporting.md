@@ -199,7 +199,7 @@ Now you're ready to build and run the application. Assuming the app launches cor
 pay attention to the system logging and look for Embrace to print its version number.
 
 ```
-Embrace Flutter SDK Version: {{< sdk platform="flutter" >}}
+Embrace Flutter SDK Version: {{ embrace_sdk_version platform="flutter" }}
 ```
 
 In addition to that message, you should also see an initialization message for the underlying native Embrace SDK:
@@ -208,14 +208,14 @@ In addition to that message, you should also see an initialization message for t
 <TabItem value="ios" label="iOS">
 
 ```
-[Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
+[Embrace] Embrace SDK enabled. Version: {{ embrace_sdk_version platform="ios" }}
 ```
 
 </TabItem>
 <TabItem value="android" label="Android">
 
 ```
-Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
+Embrace SDK started. API key: xxxxx Version: {{ embrace_sdk_version platform="android" }}
 ```
 
 </TabItem>

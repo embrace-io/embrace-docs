@@ -1,5 +1,5 @@
 ---
-title: "Performance Monitoring"
+title: Performance Monitoring
 description: Best practices when measuring the performance of your application using the Embrace SDK
 sidebar_position: 3
 ---

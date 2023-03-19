@@ -1,5 +1,5 @@
 ---
-title: "Log Message API"
+title: Log Message API
 description: Trigger alerts for your Unity application using logs with the Embrace SDK
 sidebar_position: 9
 ---

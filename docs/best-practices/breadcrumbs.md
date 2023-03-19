@@ -1,5 +1,5 @@
 ---
-title: "Breadcrumbs"
+title: Breadcrumbs
 description: Best practices when adding logging to your application using the Embrace SDK
 sidebar_position: 1
 ---

@@ -17,7 +17,7 @@ When a new version is released, simply run the command line utility `pod update 
 To verify an update was successful, build and run your application and watch the logs on startup for the Embrace version number to be displayed.
 
 ```sh
-[Embrace] Embrace SDK enabled. Version: {{< sdk platform="ios" >}}
+[Embrace] Embrace SDK enabled. Version: {{ embrace_sdk_version platform="ios" }}
 ```
 
 ## Updating Using Carthage
@@ -29,7 +29,7 @@ There are even instructions to [automatically monitor for new releases](https://
 
 When a new version of the Embrace SDK is published we announce it in our Slack channels. 
 
-If you’d like to upgrade, simply grab the latest version, which is hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{< sdk platform="ios">}}.zip).
+If you’d like to upgrade, simply grab the latest version, which is hosted [here](https://s3.amazonaws.com/embrace-downloads-prod/embrace_{{ embrace_sdk_version platform="ios"}}.zip).
 
 Overwrite your downloaded copy in the `third_party` folder and Xcode should automatically pick it up the next time you build your application. This assumes you've followed the manual integration steps from the [Linking Embrace section](/ios/integration/linking-embrace#manual).
 

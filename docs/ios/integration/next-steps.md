@@ -24,7 +24,7 @@ our [Feature Reference](/ios/features).
 ## API Docs
 
 To see the full list of methods that the iOS Embrace SDK exposes, please see
-the [iOS API docs]({{< api ios >}}).
+the [iOS API docs](/api/ios/).
 
 ## Check Out the FAQ
 

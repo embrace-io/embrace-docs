@@ -84,7 +84,7 @@ Now you're ready to build and run the application. Assuming the app launches cor
 pay attention to the system logging and look for Embrace to print its version number.
 
 ```
-Embrace SDK started. API key: xxxxx Version: {{< sdk platform="android" >}}
+Embrace SDK started. API key: xxxxx Version: {{ embrace_sdk_version platform="android" }}
 ```
 
 :::info

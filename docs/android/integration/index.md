@@ -1,6 +1,5 @@
 ---
-bookCollapseSection: true
-title: "Integration Guide"
+title: Integration Guide
 description: Get started with integrating Embrace into your Android application
 sidebar_position: 1
 ---

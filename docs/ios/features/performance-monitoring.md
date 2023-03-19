@@ -56,7 +56,7 @@ Our UX designers have been experimenting with different animation styles, and we
 We wanted to verify that for ourselves.
 
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
-For more on this, check out the [API docs]({{< api ios >}}).
+For more on this, check out the [API docs](/api/ios/).
 
 import PropertyLimit from '@site/shared/property-limit.md';
 

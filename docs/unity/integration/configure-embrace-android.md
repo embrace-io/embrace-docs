@@ -60,7 +60,7 @@ After creating or finding these template files in your project, make the followi
                 mavenCentral()
             }
             dependencies {
-                 classpath 'io.embrace:embrace-swazzler:{{< sdk platform="unity_android" >}}'
+                 classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}'
             }
         }
         repositories {

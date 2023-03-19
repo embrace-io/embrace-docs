@@ -15,7 +15,7 @@ or email us at <support@embrace.io>.
 ### **Can I turn on screenshots for specific areas of my app?**
 
 Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-To turn on screenshots, please refer to the sections for [Logs](/android/integration/log-message-api) and [Moments](/android/features/performance-monitoring), or see the [API docs]({{< api android >}}). 
+To turn on screenshots, please refer to the sections for [Logs](/android/integration/log-message-api) and [Moments](/android/features/performance-monitoring), or see the [API docs](/api/android/).
 If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
 
 ## Crash Capture
@@ -47,9 +47,9 @@ compileOptions {
 ### **How do I use Embrace functions in modules or libraries?**
 
 In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file
-implementation `'io.embrace:embrace-android-sdk:{{< sdk platform="android" >}}'`.
+implementation `'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'`.
 In case you have implemented OkHttp in your module, you will also need to specify the Embrace OkHttp library in your module's Gradle file
-implementation `'io.embrace:embrace-android-okhttp3:{{< sdk platform="android" >}}'`.
+implementation `'io.embrace:embrace-android-okhttp3:{{ embrace_sdk_version platform="android" }}'`.
 You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
 
 ```groovy
@@ -143,7 +143,7 @@ Yes. We link all sessions to that user from the past and in the future. Search b
 
 ### **Do I have access to the Embrace ID at runtime?**
 
-Yes, we make the Embrace ID available to you via our SDK. See the [API docs]({{< api android >}}).
+Yes, we make the Embrace ID available to you via our SDK. See the [API docs](/api/android/).
 
 ## Network Requests
 

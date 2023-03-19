@@ -1,5 +1,4 @@
 ---
-bookCollapseSection: true
 title: Integration Guide
 description: Get started with integrating Embrace into your iOS application
 sidebar_position: 1
@@ -32,7 +31,7 @@ make to help guide your process:
 1. What integration path makes sense for you?  CocoaPods, Carthage or Manual?
 
 Thinking about the above questions will help to define the path you will take
-through this documentation.  
+through this documentation.
 
 If you are starting a new application and thinking about Embrace, we recommend
 you follow the CocoaPods integration path. This path automates many of the

@@ -27,7 +27,7 @@ and Java apps in the <a href="https://github.com/embrace-io/embrace-demo-apps/tr
 
 ## API Docs
 
-To see the full list of methods that the Android Embrace SDK exposes, please see the [Android API docs]({{< api android >}}).
+To see the full list of methods that the Android Embrace SDK exposes, please see the [Android API docs](/api/android/).
 
 ## Configuration and Build Options
 

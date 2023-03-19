@@ -31,7 +31,7 @@ Embrace.getInstance().startEvent("addItem");
 In a sample scenario, this is a moment we're using to measure how quickly an item is added to a `ListView` after a user selects the plus button.
 
 You can also start a moment with **properties**, an **identifier**, and **screenshots**.
-For more on this, check out the [API docs]({{< api android >}}).
+For more on this, check out the [API docs](/api/android/).
 
 import PropertyLimit from '@site/shared/property-limit.md';
 

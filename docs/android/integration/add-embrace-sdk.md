@@ -2,16 +2,12 @@
 title: Add the Android Embrace SDK
 sidebar_position: 3
 description: Add the Embrace SDK as a dependency to your Android application
-aliases:
-  - /android/add-embrace-sdk/
-
 ---
+
 # Adding the Android Embrace SDK
 
-:::info
-
+:::tip
 For a sample integration, check out the Kotlin and Java apps in the <a href="https://github.com/embrace-io/embrace-demo-apps/tree/master/android" target="_blank">Embrace demo apps repo</a>.
-
 :::
 
 ## Add Embrace as a dependency
@@ -26,7 +22,7 @@ buildscript {
     google()
   }
   dependencies {
-    classpath 'io.embrace:embrace-swazzler:{{< sdk platform="android" >}}'
+    classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}'
   }
 }
 ```
@@ -58,7 +54,7 @@ The Swazzler works as a support process during build time for the Embrace SDK to
 * Runs a code transformation / injection over specified bytecode class files to add hooks that the SDK uses to capture certain data.
 * Injects ProGuard rules for the SDK to work properly when a build type is set to be minified.
 
-:::info
+:::info Note on Permissions
 You'll need to set the following permissions so the Embrace SDK can send events and monitor connectivity. 
 
 * `android.permission.INTERNET`
@@ -71,7 +67,7 @@ You'll need to set the following permissions so the Embrace SDK can send events 
 If you have an app that uses internal modules or libraries, you must specify the Embrace SDK dependency directly in your module's Gradle file
 
 ```groovy
-implementation 'io.embrace:embrace-android-sdk:{{< sdk platform="android" >}}'
+implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'
 ```
 
 You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
@@ -91,14 +87,12 @@ Add a config file to configure the Embrace SDK. This file must be named `embrace
 Your app ID and API token are available on the Embrace dashboard.
 :::
 
-
 ---
 
 ## NDK crash capture
 
 :::info
 If your app is written entirely in Java and Kotlin, you do not need to enable NDK crash capture to capture crashes in your code. However, we recommend enabling it since it will capture crashes that happen in Android system libraries.   
-
 :::
 
 If your app has native components, you can enable NDK crash capture. Simply add the `ndk_enabled` setting to your config file.

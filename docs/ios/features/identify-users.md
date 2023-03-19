@@ -22,7 +22,7 @@ These mechanisms annotate the session so that you can subsequently filter and so
 
 :::info
 
-For a full set of APIs related to user identification, see the `Embrace` class in the [iOS API]({{< api ios >}}) documentation.
+For a full set of APIs related to user identification, see the `Embrace` class in the [iOS API](/api/ios/) documentation.
 
 :::
 

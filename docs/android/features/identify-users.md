@@ -12,7 +12,7 @@ sessions for an unhappy user.
 1. [**Session Properties**](/android/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
 :::info
-For a full set of APIs related to user identification, see the `io.embrace.android.embracesdk.Embrace` class in the [Android API]({{< api android >}}) documentation.
+For a full set of APIs related to user identification, see the `io.embrace.android.embracesdk.Embrace` class in the [Android API](/api/android/) documentation.
 :::
 
 ## User Personas
@@ -29,7 +29,7 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 :::
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, see the [API docs]({{< api android >}}). 
+For more methods on setting user values, see the [API docs](/api/android/). 
 
 You can also set customized values for specific use cases or segments of users.
 

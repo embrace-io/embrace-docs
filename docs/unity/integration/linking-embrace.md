@@ -6,9 +6,11 @@ description: Linking Embrace with your application is quick and easy.
 
 # Linking Embrace with your Unity project
 
-To install Embrace, download our latest SDK below.
+To install Embrace, download the .unitypackage file for our latest SDK.
 
-[**Download Embrace {{< sdk platform="unity">}} For Unity**](https://s3.amazonaws.com/embrace-downloads-prod/EmbraceSDK_{{< sdk platform="unity">}}.unitypackage)
+```shell-session
+curl -o EmbraceSDK_{{ embrace_sdk_version platform="unity" }}.unitypackage https://embrace-downloads-prod.s3.amazonaws.com/EmbraceSDK_{{ embrace_sdk_version platform="unity" }}.unitypackage
+```
 
 Once downloaded, import the Unity Package by selecting Assets -> Import Package -> Custom Package.
 
