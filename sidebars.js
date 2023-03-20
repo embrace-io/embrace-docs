@@ -48,8 +48,8 @@ mySidebar: [
 
     {
       type: 'category',
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       label: 'SDK APIs',
       items: [
         {
@@ -77,8 +77,8 @@ mySidebar: [
 
     {
       type: 'category',
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       label: 'Legal',
       items: [
         {

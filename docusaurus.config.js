@@ -10,11 +10,11 @@ const embraceSdkVersion = require('./src/remark/embrace-sdk-version');
 const config = {
   title: 'Embrace Documentation',
   tagline: 'Learn how to set up comprehensive mobile app performance monitoring.',
-  favicon: 'static/favicon.png',
+  favicon: '/images/favicon.png',
   trailingSlash: true,
   noIndex: false,
-  url: 'https://embrace.io',
-  baseUrl: '/docs',
+  url: process.env.URL ?? 'https://embrace.io',
+  baseUrl: process.env.BASE_URL ?? '/docs',
   staticDirectories: ['static'],
 
   // GitHub pages deployment config.
@@ -53,7 +53,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'TODOimg/docusaurus-social-card.jpg',
+      image: 'images/embrace_logo_black-text_transparent-bg_400x200.svg',
 
       navbar: {
         logo: {
@@ -61,19 +61,18 @@ const config = {
           src: 'images/embrace_logo_black-text_transparent-bg_400x200.svg',
           srcDark: 'images/embrace_logo_white-text_transparent-bg_400x200.svg'
         },
-/*
-        title: 'HomeLink1',
 
         items: [
-          {
-            type: 'doc',
-            docId: 'best-practices/app-performance',
-            position: 'left',
-            label: 'OptionalMenuItem2',
-          },
-        ],
-*/
+          {type: 'html', value: 'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://join.slack.com/t/embraceio-community/shared_invite/zt-ywr4jhzp-DLROX0ndN9a0soHMf6Ksow">Slack</a>', position: 'right'},
+        ]
       },
+
+/*
+      announcementBar: {
+        id: 'announcementBar-20230315', // Increment this when contents change so that it becomes visible to users who previously [x] hidden it
+        content: `Welcome to our new docs!`,
+      },
+*/
 
       footer: {
         style: 'dark',
