@@ -53,7 +53,7 @@ jobs:
           echo "AWS_CLOUDFRONT_ID=${{ env.DEV_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
 
           # See docusaurus.config.js
-          echo "URL=https://${{ env.DEV_AWS_S3_BUCKET }}.s3-website-${{ env.AWS_DEFAULT_REGION }}.amazonaws.com" >> $GITHUB_ENV
+          echo "URL=http://${{ env.DEV_AWS_S3_BUCKET }}.s3-website-${{ env.AWS_DEFAULT_REGION }}.amazonaws.com" >> $GITHUB_ENV
           echo "BASE_URL=/docs-pr${{ github.event.number }}" >> $GITHUB_ENV
 
       - name: Destination Staging
@@ -73,27 +73,18 @@ jobs:
           echo "BASE_URL=/docs"
 
       - name: Install AWS CLI
-        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
+        if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
         run: |
           pip install --upgrade awscli
 
       - name: Sync to S3 bucket
-        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
+        if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
         env:
           # From https://console.aws.amazon.com/iam/home?region=us-west-2#/users/travis-website?section=security_credentials
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws s3 sync --acl public-read --delete build/ s3://${{ env.AWS_S3_BUCKET }}${{ env.BASE_URL }}/
-
-      - name: Invalidate CloudFront cache
-        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
-        env:
-          # From https://console.aws.amazon.com/iam/home?region=us-west-2#/users/travis-website?section=security_credentials
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_ID }} --paths '/*'
 
       - name: Comment
         if: ${{ github.event_name == 'pull_request' }}
@@ -106,3 +97,12 @@ jobs:
               repo: context.repo.repo,
               body: 'Deployed To: ${{ env.URL }}${{ env.BASE_URL }}/'
             })
+
+      - name: Invalidate CloudFront cache
+        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
+        env:
+          # From https://console.aws.amazon.com/iam/home?region=us-west-2#/users/travis-website?section=security_credentials
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_ID }} --paths '/*'
