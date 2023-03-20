@@ -6,11 +6,27 @@ weight: 4
 
 # Android SDK Changelog
 
+## 5.15.1
+*Mar 17, 2023*
+- Improvements in how data is collected after session ends, to avoid extending the app process duration.
+
+
 ## 5.14.2
 *Mar 7, 2023*
+{{< hint warning >}}
+This version has a known issue with Braze. If you need to use this specific version, you can avoid the known issue with the following configuration in your `app/build.gradle` file:
+
+```groovy
+    swazzler {
+        instrumentFirebaseMessaging = true
+    }
+```
+
+{{< /hint >}}
 - Fix first activity repeated in the timeline
 - Fixes a timing bug with ANR intervals where a check on monitorThreadLag was setting the start time to be in the beginning of an ANR interval.
 - Ignore useNewDependencyInstaller property from the `swazzler` block. It's now used as the unique mechanism to inject dependencies, so it's safe to remove it from your `app/build.gradle` file
+
 
 ## 5.13.0
 *Jan 27, 2023*

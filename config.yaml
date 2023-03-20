@@ -17,7 +17,7 @@ outputs:
 params:
   sdkVersion:
     ios: "5.16.3"
-    android: "5.14.2"
+    android: "5.15.1"
     rn: "3.10.0"
     rn_screen_tracker: "0.0.1"
     unity: "1.10.1"
