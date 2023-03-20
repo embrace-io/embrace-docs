@@ -18,7 +18,7 @@ If you want to enable the Push Notifications feature, you can set `instrumentFir
 
 ```groovy
 swazzler {
-    instrumentFirebaseMessaging = false
+    instrumentFirebaseMessaging = true
 }
 ```
 
