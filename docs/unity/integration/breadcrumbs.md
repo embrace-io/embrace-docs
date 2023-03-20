@@ -1,9 +1,7 @@
 ---
-title: "Breadcrumbs"
+title: Breadcrumbs
 description: Add logging to your Unity application using Breadcrumbs with the Embrace SDK
 sidebar_position: 8
-aliases:
-  - /unity/breadcrumbs/
 ---
 
 # Add a Breadcrumb
@@ -14,16 +12,14 @@ Embrace can collect basic session data and crashes as you've already seen in the
 Embrace can also collect your logging data and include it as context within your sessions. 
 Here's how you add a breadcrumb to the session.
 
-```C#
+```cs
 Embrace.Instance.LogBreadcrumb("a test breadcrumb message");
 ```
 
 Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, Embrace already tracks that, so you do not need to also make a breadcrumb for that event.
 
 :::info
-
 For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs) page. 
-
 :::
  
 ---

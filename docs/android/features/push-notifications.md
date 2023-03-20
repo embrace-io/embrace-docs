@@ -1,9 +1,7 @@
 ---
-title: "Push Notifications"
+title: Push Notifications
 description: Embrace can capture push notifications received by your app.
 sidebar_position: 6
-aliases:
-  - /android/push-notifications/
 ---
 
 # Push Notifications
@@ -19,13 +17,13 @@ The only requirement is having `embrace.useAsmTransformApi` enabled, but it's en
 If you want to disable the Push Notifications feature, you can set `instrumentFirebaseMessaging` to false in your `build.gradle` file. 
 
 ```groovy
-    swazzler {
-        instrumentFirebaseMessaging = false
-    }
+swazzler {
+    instrumentFirebaseMessaging = false
+}
 ```
 
 :::warning
-If you want to prevent any data inside the notifications from being read, you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_configs`. This value is false by default.
+If you want to capture data from inside the notifications then you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_configs`. This value is false by default.
 :::
 
 ## Usage
@@ -35,7 +33,7 @@ If your configuration is correct, you don't need to do anything else, you are al
 If you don't want the notifications to get captured automatically, then you can avoid the setup from the previous section and when you receive a notification in your code, make the following call manually:
 
 ```java
-/**
+/*
     Params:
     title – the title of the notification as a string (or null) 
     body – the body of the notification as a string (or null) 
@@ -44,12 +42,12 @@ If you don't want the notifications to get captured automatically, then you can 
     priority – the priority of the message (as resolved on the device)
     isDataType - a boolean indicating if the message is of type notification or data
 */
-    Embrace.getInstance().logPushNotification(
-            @Nullable String title,
-            @Nullable String body,
-            @Nullable String topic,
-            @Nullable String id,
-            @Nullable Integer priority,
-            boolean isDataType)
+Embrace.getInstance().logPushNotification(
+    @Nullable String title,
+    @Nullable String body,
+    @Nullable String topic,
+    @Nullable String id,
+    @Nullable Integer priority,
+    boolean isDataType
+)
 ```
-

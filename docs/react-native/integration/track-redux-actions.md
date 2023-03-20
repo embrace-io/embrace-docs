@@ -1,9 +1,7 @@
 ---
-title: "Track Redux's Actions"
+title: Track Redux's Actions
 description: Add logging to your React Native application to track actions dispatched using the Embrace SDK
 sidebar_position: 9
-aliases:
-  - /react-native/track-actions/
 ---
 
 # Add React Actions tracker
@@ -15,9 +13,7 @@ Embrace can also collect the redux's actions that are being dispatched and inclu
 Here's how you add the action tracker to the session.
 
 :::info
-
 Currently we are only supporting the Redux SDK and others libraries that supports middleware as Saga, if you are using another library please contact us at <support@embrace.io> or on Slack if you would like to request support.
-
 :::
 
 ## Adding the component

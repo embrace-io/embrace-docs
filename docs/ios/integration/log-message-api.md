@@ -1,9 +1,7 @@
 ---
-title: "Log Message API"
+title: Log Message API
 description: Trigger alerts for your iOS application using logs with the Embrace SDK
 sidebar_position: 9
-aliases:
-  - /ios/log-message-api/
 ---
 
 # Adding Logs

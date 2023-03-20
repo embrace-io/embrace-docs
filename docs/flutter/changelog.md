@@ -1,5 +1,5 @@
 ---
-title: "Flutter SDK Changelog"
+title: Flutter SDK Changelog
 description: Changelog for the Flutter Embrace SDK
 sidebar_position: 4
 ---

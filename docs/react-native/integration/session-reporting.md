@@ -1,9 +1,7 @@
 ---
-title: "Session Reporting"
+title: Session Reporting
 description: Upload session reports from your React Native application using the Embrace SDK
 sidebar_position: 5
-aliases:
-  - /react-native/session-reporting/
 ---
 
 # Session Reporting
@@ -151,9 +149,7 @@ Now you're ready to build and run the application.
 Launch the application how you usually would during development.
 
 :::info
-
 If you encounter any errors, please get in touch on Slack and we can assist you.
-
 :::
 
 ## Trigger a Session Upload

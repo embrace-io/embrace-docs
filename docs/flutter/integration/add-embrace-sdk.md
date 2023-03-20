@@ -1,9 +1,7 @@
 ---
-title: "Adding the Embrace SDK"
+title: Adding the Embrace SDK
 description: Add the Embrace SDK as a dependency to your Flutter application
 sidebar_position: 3
-aliases:
-  - /flutter/add-embrace-sdk/
 ---
 
 # Adding the flutter Embrace SDK
@@ -18,7 +16,7 @@ flutter pub add embrace
 
 ## iOS Setup
 
-### Add the Embrace app id
+### Add the Embrace App ID
 Create the `Embrace-Info.plist` configuration file. You can find your 5-character app ID and API token in the Embrace dashboard:
 
 ```xml

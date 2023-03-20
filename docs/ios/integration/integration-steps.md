@@ -1,8 +1,6 @@
 ---
-title: "Integration Steps"
+title: Integration Steps
 sidebar_position: 1
-aliases:
-  - /ios/integration-steps/
 ---
 
 # Integration Steps
@@ -14,7 +12,6 @@ monitoring your application in production.
 
 Regardless of the path you choose, you will be performing the following common
 steps to complete your integration:
-
 
 1. [**Link Embrace with your application.**](/ios/integration/linking-embrace) This is the basic technical process of getting the Embrace SDK linked with your application so you can use it.
 1. [**DSym Upload.**](/ios/integration/dsym-upload) An important step to ensure Embrace can symbolicate addresses in your sessions.

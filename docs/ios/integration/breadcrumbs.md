@@ -1,9 +1,7 @@
 ---
-title: "Breadcrumbs"
+title: Breadcrumbs
 description: Add logging to your iOS application using Breadcrumbs with the Embrace SDK
 sidebar_position: 8
-aliases:
-  - /ios/breadcrumbs/
 ---
 
 # Add a Breadcrumb
@@ -50,10 +48,10 @@ Breadcrumb messages must be 256 characters or less.
 :::info
 For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs/) page. 
 :::
- 
+
 ---
 
 We use the breadcrumb method for our logging and not the LogEvent method.
 Breadcrumbs are a lightweight way to add logging to your session. They add little CPU or memory overhead, and trigger no networking calls.
-`LogEvent` is a much heavier mechanism. We will learn about it in the [alerting](/ios/integration/log-message-api) section of the documentation.
+`LogEvent` is a much heavier mechanism. We will learn about it in the [alerting](/ios/integration/log-message-api/) section of the documentation.
 For now, just know that using breadcrumbs is the right thing to do most of the time.

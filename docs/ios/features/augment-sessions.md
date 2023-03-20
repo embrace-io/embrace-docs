@@ -1,9 +1,7 @@
 ---
-title: "Augment Sessions using OS Log"
+title: Augment Sessions using OS Log
 description: Embrace can use your OS Log stream to help you understand complex problems with your application.
 sidebar_position: 3
-aliases:
-  - /ios/augment-sessions/
 ---
 
 # Augment Sessions using OS Log

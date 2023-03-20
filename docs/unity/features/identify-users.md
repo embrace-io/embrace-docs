@@ -1,5 +1,5 @@
 ---
-title: "Identify Users"
+title: Identify Users
 description: Get to know the users of your Unity application with the Embrace SDK
 sidebar_position: 2
 ---
@@ -24,10 +24,8 @@ The above call annotates the session with a user identifier that you can use lat
 For more methods on setting user values, see the [API docs](/api/unity/).
 
 :::warning
-
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
-
 :::
 
 You can also set customized values for specific use cases or segments of users.

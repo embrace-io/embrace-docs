@@ -1,5 +1,5 @@
 ---
-title: "Login to the Embrace Dashboard"
+title: Login to the Embrace Dashboard
 description: Login to the Embrace dashboard to get started with your Unity integration
 sidebar_position: 5
 ---

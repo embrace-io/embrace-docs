@@ -2,10 +2,8 @@
 title: Integration Steps
 sidebar_position: 1
 description: Integration steps to add Embrace to your Android application
-aliases:
-  - /android/integration-steps/
-
 ---
+
 # Integration Steps
 
 1. [**Login to the Embrace dashboard.**](/android/integration/login-embrace-dashboard) Your data is available in the dashboard. It is important that you have this open while working on the integration to monitor progress.

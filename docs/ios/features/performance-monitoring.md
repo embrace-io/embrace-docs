@@ -1,9 +1,7 @@
 ---
-title: "Performance Monitoring"
+title: Performance Monitoring
 description: Measure the performance of your iOS application using Embrace
 sidebar_position: 1
-aliases:
-  - /ios/performance-monitoring/
 ---
 
 # Measure Performance

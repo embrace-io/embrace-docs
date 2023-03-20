@@ -1,9 +1,7 @@
 ---
-title: "Performance Monitoring"
+title: Performance Monitoring
 description: Measure the performance of your React Native application using Embrace
 sidebar_position: 1
-aliases:
-  - /react-native/performance-monitoring/
 ---
 
 # Measure Performance
@@ -11,7 +9,7 @@ aliases:
 ## Moments
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
-This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting](/react-native/integration/session-reporting) section.
+This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting](/react-native/integration/session-reporting/) section.
 
 ## Starting a Moment
 
@@ -49,4 +47,4 @@ You can end the moment from multiple locations in your app.
 ## Tracking Abandonment
 
 In addition to measuring performance, moments can also measure abandonment.
-For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance) section.
+For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance/) section.

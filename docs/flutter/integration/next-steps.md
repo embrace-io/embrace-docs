@@ -2,8 +2,6 @@
 title: Next Steps
 description: Resources to help you take your Embrace integration for your Flutter application to the next level
 sidebar_position: 11
-aliases:
-  - /flutter/next-steps/
 ---
 
 # Next Steps
@@ -12,8 +10,7 @@ aliases:
 
 Congratulations on completing the Flutter integration guide! 
 
-If you found anything confusing or have suggestions on improving the docs,
-please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
+If you found anything confusing or have suggestions on improving the docs, please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 
 ## Feature Reference
 

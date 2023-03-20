@@ -1,8 +1,6 @@
 ---
-title: "Unity Integration Steps"
+title: Unity Integration Steps
 sidebar_position: 1
-aliases:
-  - /unity/integration-steps/
 ---
 
 # Integration Steps
@@ -10,7 +8,6 @@ aliases:
 Integrating any new SDK with your application may feel like a daunting task. We’ve designed our documentation to guide you through the process as painlessly as possible. Following these steps will ensure you have a solid foundation for monitoring your application in production.
 
 Regardless of the path you choose, you will be performing the following common steps to complete your integration:
-
 
 1. [**Link Embrace with your application.**](/unity/integration/linking-embrace) This is the basic technical process of getting the Embrace SDK linked with your application.
 1. [**Configure the iOS platform.**](/unity/integration/configure-embrace-ios) The Embrace SDK requires setting a few basic configuration options in order to correctly build. Here you will configure the iOS platform.

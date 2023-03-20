@@ -1,9 +1,7 @@
 ---
-title: "Crash Reporting"
+title: Crash Reporting
 description: Upload crash reports for both native and JavaScript exceptions from your React Native application using the Embrace SDK
 sidebar_position: 6
-aliases:
-  - /react-native/crash-reporting/
 ---
 
 # Collect your first crash report 
@@ -27,7 +25,6 @@ initialize({patch: 'v1'});
 ```
 
 :::info Note for iOS
-
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
 described in the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page).
@@ -40,7 +37,6 @@ import TabItem from '@theme/TabItem';
 ```
 
 :::warning OTA Updates
-
 If you distribute updated JavaScript bundles outside of the App Store/Google
 Play Store, you will
 need to point the Embrace SDK to where the most up to date bundle is installed

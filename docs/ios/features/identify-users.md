@@ -1,9 +1,7 @@
 ---
-title: "Identify your users"
+title: Identify your users
 description: Get to know the users of your iOS application with the Embrace SDK
 sidebar_position: 2
-aliases:
-  - /ios/identify-users/
 ---
 
 # Know Your Users
@@ -21,9 +19,7 @@ Embrace offers two mechanisms for annotating sessions in a searchable way:
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 
 :::info
-
 For a full set of APIs related to user identification, see the `Embrace` class in the [iOS API](/api/ios/) documentation.
-
 :::
 
 ## User Personas
@@ -31,10 +27,8 @@ For a full set of APIs related to user identification, see the `Embrace` class i
 Embrace offers a set of methods to pass information about your users.
 
 :::warning
-
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
-
 :::
 
 ```mdx-code-block
@@ -92,7 +86,7 @@ you can prioritize fixing bugs that affect such users.
 ## Session Properties
 
 Session Properties are another way to annotate the session.
-The difference between session properties and [user personas](/ios/features/identify-users#user-personas) is that the former are for items relating to the session or the device, and not necessarily to the user.
+The difference between session properties and [user personas](/ios/features/identify-users/#user-personas) is that the former are for items relating to the session or the device, and not necessarily to the user.
 Although, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:

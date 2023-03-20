@@ -1,9 +1,7 @@
 ---
-title: "Update Embrace"
+title: Update Embrace
 description: Learn how to update the Embrace SDK
 sidebar_position: 4
-aliases:
-  - /ios/update-embrace/
 ---
 
 # Keeping Embrace Up To Date

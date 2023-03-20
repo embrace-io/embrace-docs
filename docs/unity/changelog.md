@@ -1,5 +1,5 @@
 ---
-title: "Unity SDK Changelog"
+title: Unity SDK Changelog
 description: Changelog for the Unity Embrace SDK
 sidebar_position: 4
 ---
@@ -412,4 +412,3 @@ sidebar_position: 4
 *Dec 20, 2020*
 
 * First public release of the Embrace Unity SDK
-

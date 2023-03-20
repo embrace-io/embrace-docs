@@ -1,9 +1,7 @@
 ---
-title: "Capturing network requests"
+title: Capturing network requests
 description: Automatically capture network requests made by your application
 sidebar_position: 3
-aliases:
-  - /flutter/network-requests/
 ---
 
 # Network Requests

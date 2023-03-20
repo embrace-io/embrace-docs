@@ -1,9 +1,7 @@
 ---
-title: "Next Steps"
+title: Next Steps
 description: Resources to help you take your Embrace integration for your React Native application to the next level
 sidebar_position: 11
-aliases:
-  - /react-native/next-steps/
 ---
 
 # Next Steps

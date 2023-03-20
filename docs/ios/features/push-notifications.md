@@ -1,5 +1,5 @@
 ---
-title: "Push Notifications"
+title: Push Notifications
 description: Embrace can capture push notifications received by your app.
 sidebar_position: 7
 ---
@@ -85,4 +85,3 @@ If you want to prevent any data inside the notifications from being captured, yo
 :::note
 If your app supports iOS 9, you should pass the launch options when starting up the Embrace SDK. This will allow Embrace to capture notifications that opened the app when it was closed.
 :::
-

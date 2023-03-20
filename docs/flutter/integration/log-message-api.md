@@ -2,13 +2,11 @@
 title: Log Message API
 description: Trigger alerts for your Flutter application using logs with the Embrace SDK
 sidebar_position: 10
-aliases:
-  - /flutter/log-message-api/
 ---
 
 # Adding Alerts
 
-As we've discussed in the [Session Reporting section](/flutter/integration/session-reporting), Embrace uploads its sessions when the application is backgrounded or, if that fails, on the next app launch.
+As we've discussed in the [Session Reporting section](/flutter/integration/session-reporting/), Embrace uploads its sessions when the application is backgrounded or, if that fails, on the next app launch.
 This delay may seem like it hurts the immediacy of the data you are seeing, but the reality is that at scale this still means you are finding out about issues very quickly.
 
 However, some situations might require instant feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout.
@@ -39,7 +37,6 @@ Here's a breakdown of the arguments being passed to the `logError` method (the o
 1. **allowScreenshot** This indicates whether you'd like a screenshot captured or not (screenshots must also be configured in the Embrace configuration for your app).
 
 :::info Adjusting Severity
-
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
 ```dart
@@ -47,6 +44,7 @@ Embrace.instance.logWarning("User attempted expired credit card", props);
 
 Embrace.instance.logInfo("User has entered checkout flow");
 ```
+
 :::
 
 import LogLimit from '@site/shared/log-limit.md';
@@ -65,9 +63,9 @@ Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
 :::info
-For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api).
+For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api/).
 :::
 
 ---
 
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/flutter/integration/next-steps) page to wrap up your integration.
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/flutter/integration/next-steps/) page to wrap up your integration.

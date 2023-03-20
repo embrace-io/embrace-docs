@@ -1,18 +1,19 @@
 ---
-title: "Track Screens"
+title: Track Screens
 description: Add logging to your React Native application to track screens using the Embrace SDK
 sidebar_position: 8
-aliases:
-  - /react-native/track-screens/
 ---
 
 # Track React Native Screens
+
 ## Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.
 Embrace can also collect the screens that your app opened and include it as context within your sessions.
 Here's how you add the screen tracker to the session.
+
 ## Add React Navigation screen tracker
+
 ### Adding the component
 
 Embrace has a separate module for tracking Screens, to use it you will need to add the React Navigation Tracker
@@ -126,6 +127,7 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 ```
 
 #### iOS:
+
 Go to your Embrace-info.plist inside ios/YOURAPPNAME and add ENABLE_AUTOMATIC_VIEW_CAPTURE as false, your file should be like this
 
 ```xml

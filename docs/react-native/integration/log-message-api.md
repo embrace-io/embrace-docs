@@ -1,9 +1,7 @@
 ---
-title: "Log Message API"
+title: Log Message API
 description: Trigger alerts for your React Native application using logs with the Embrace SDK
 sidebar_position: 10
-aliases:
-  - /react-native/log-message-api/
 ---
 
 # Adding Alerts

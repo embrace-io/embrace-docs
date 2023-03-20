@@ -1,5 +1,5 @@
 ---
-title: "iOS/tvOS SDK Changelog"
+title: iOS/tvOS SDK Changelog
 description: Changelog for the iOS Embrace SDK
 sidebar_position: 4
 ---

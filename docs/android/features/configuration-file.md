@@ -2,8 +2,6 @@
 title: Configuration File
 description: Configuration file for the Android Embrace SDK
 sidebar_position: 3
-aliases:
-  - /android/configuration-file/
 ---
 
 # Android Configuration File

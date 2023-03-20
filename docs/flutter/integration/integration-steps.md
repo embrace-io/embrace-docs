@@ -2,8 +2,6 @@
 title: Integration Steps
 description: Integration steps to add Embrace to your Flutter application
 sidebar_position: 1
-aliases:
-  - /flutter/integration-steps/
 ---
 
 # Integration Steps

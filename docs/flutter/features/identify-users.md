@@ -1,9 +1,7 @@
 ---
-title: "Identify Users"
+title: Identify Users
 description: Get to know the users of your Flutter application with the Embrace SDK
 sidebar_position: 2
-aliases:
-  - /flutter/identify-users/
 ---
 
 # Know Your Users
@@ -11,8 +9,8 @@ aliases:
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
 sessions for an unhappy user.
 
-1. [**User Personas**](/flutter/features/identify-users#user-personas). This is data you can set and update about the user of a session.
-1. [**Session Properties**](/flutter/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
+1. [**User Personas**](/flutter/features/identify-users/#user-personas). This is data you can set and update about the user of a session.
+1. [**Session Properties**](/flutter/features/identify-users/#session-properties). This is data you use to track information about the device or the session itself.
 
 ## User Personas
 
@@ -26,10 +24,8 @@ The above call annotates the session with a user identifier that you can use lat
 For more methods on setting user values, see the [API docs](/api/flutter/). 
 
 :::warning
-
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
-
 :::
 
 You can also set customized values for specific use cases or segments of users.

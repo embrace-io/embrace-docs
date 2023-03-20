@@ -1,9 +1,7 @@
 ---
-title: "Performance Monitoring"
+title: Performance Monitoring
 description: Measure the performance of your Flutter application using Embrace
 sidebar_position: 1
-aliases:
-  - /flutter/performance-monitoring/
 ---
 
 # Measure Performance
@@ -45,4 +43,4 @@ You can end the moment from multiple locations in your app.
 ## Tracking Abandonment
 
 In addition to measuring performance, moments can also measure abandonment.
-For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance) section.
+For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance/) section.

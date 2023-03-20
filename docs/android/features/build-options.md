@@ -2,8 +2,6 @@
 title: Build Options
 description: Build Options for the Embrace Android Gradle Plugin
 sidebar_position: 4
-aliases:
-  - /android/build-options/
 ---
 
 # Build Options
@@ -13,9 +11,7 @@ The Embrace SDK injects code into your APK using a process we call â€œswazzlingâ
 ## Disabling Swazzling for a Build Type
 
 :::warning
-
-Disabling swazzling means we won't capture network calls, activity transitions, and taps. For this reason, avoid 
-disabling swazzling for release builds.
+Disabling swazzling means we won't capture network calls, activity transitions, and taps. For this reason, avoid disabling swazzling for release builds.
 :::
 
 The swazzling operation adds to the build time, and you may want to disable it for debug builds. Use the
@@ -177,6 +173,7 @@ In general, we recommend that you regenerate the rules whenever you update depen
 Happy (faster) swazzling!
 
 ### FAQ
+
 Q: When should I run the `generateEmbraceSwazzlingRulesFor<Variant>` Gradle task?
 A: You should run it once to enable the swazzling cache. After that you should only run it whenever you change your dependencies or make significant changes to your code, such as introducing code that makes network requests in classes that previously existed but were deemed unnecessary to swazzle.
 

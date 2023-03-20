@@ -2,8 +2,6 @@
 title: Integration Steps
 description: Integration steps to add Embrace to your React Native application
 sidebar_position: 1
-aliases:
-  - /react-native/integration-steps/
 ---
 
 # Integration Steps
