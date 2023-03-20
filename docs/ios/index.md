@@ -21,4 +21,4 @@ the key steps to successfully using our product.
 Once you've completed that, browse through our [**Feature Reference**](/ios/features/) guides to learn how
 to use some of the advanced features our SDK provides.
 
-You can also view our [FAQ](/ios/faq/) and [Change Log](/ios/changelog/)
+You can also view our [FAQ](/ios/faq/) and [Changelog](/ios/changelog/)

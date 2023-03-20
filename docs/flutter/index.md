@@ -19,4 +19,4 @@ the key steps to successfully using our product.
 Once you've completed that, browse through our [**Feature Reference**](/flutter/features/) guides to learn how
 to use some of the advanced features our SDK provides.
 
-You can also view our [Change Log](/flutter/changelog/)
+You can also view our [Changelog](/flutter/changelog/)
