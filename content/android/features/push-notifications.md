@@ -25,7 +25,7 @@ If you want to enable the Push Notifications feature, you can set `instrumentFir
 ```
 
 {{< hint warning >}}
-If you want to prevent any data inside the notifications from being read, you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_configs`. This value is false by default.
+If you want to allow any data inside the notifications to be read, you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_configs`. This value is false by default.
 {{< /hint >}}
 
 ## Usage
