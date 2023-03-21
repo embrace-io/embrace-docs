@@ -1,50 +1,62 @@
 // @ts-check
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 // Embrace Remark Plugins
-const embraceSdkVersion = require('./src/remark/embrace-sdk-version');
+const embraceSdkVersion = require("./src/remark/embrace-sdk-version");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Embrace Documentation',
-  tagline: 'Learn how to set up comprehensive mobile app performance monitoring.',
-  favicon: '/images/favicon.png',
+  title: "Embrace Documentation",
+  tagline: "Learn how to set up comprehensive mobile app performance monitoring.",
+  favicon: "/images/favicon.png",
   trailingSlash: true,
   noIndex: false,
-  url: process.env.URL ?? 'https://embrace.io',
-  baseUrl: process.env.BASE_URL ?? '/docs',
-  staticDirectories: ['static'],
+  url: process.env.URL ?? "https://embrace.io",
+  baseUrl: process.env.BASE_URL ?? "/docs",
+  staticDirectories: ["static"],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'embrace-io', // Usually your GitHub org/user name.
-  projectName: 'embrace-docs', // Usually your repo name.
+  organizationName: "embrace-io", // Usually your GitHub org/user name.
+  projectName: "embrace-docs", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
-  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        hashed: true,
+        highlightSearchTermsOnTargetPage: true,
+        indexBlog: false,
+        docsRouteBasePath: "/",
+        removeDefaultStopWordFilter: false,
+      }),
+    ],
+  ],
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          routeBasePath: '/',
+          sidebarPath: require.resolve("./sidebars.js"),
+          routeBasePath: "/",
           remarkPlugins: [embraceSdkVersion],
           showLastUpdateTime: false,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -53,18 +65,23 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'images/embrace_logo_black-text_transparent-bg_400x200.svg',
+      image: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
 
       navbar: {
         logo: {
-          alt: 'Embrace Mobile',
-          src: 'images/embrace_logo_black-text_transparent-bg_400x200.svg',
-          srcDark: 'images/embrace_logo_white-text_transparent-bg_400x200.svg'
+          alt: "Embrace Mobile",
+          src: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
+          srcDark: "images/embrace_logo_white-text_transparent-bg_400x200.svg",
         },
 
         items: [
-          {type: 'html', value: 'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://join.slack.com/t/embraceio-community/shared_invite/zt-ywr4jhzp-DLROX0ndN9a0soHMf6Ksow">Slack</a>', position: 'right'},
-        ]
+          {
+            type: "html",
+            value:
+              'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://join.slack.com/t/embraceio-community/shared_invite/zt-ywr4jhzp-DLROX0ndN9a0soHMf6Ksow">Slack</a>',
+            position: "right",
+          },
+        ],
       },
 
 /*
@@ -75,65 +92,65 @@ const config = {
 */
 
       footer: {
-        style: 'dark',
+        style: "dark",
 
         links: [
           {
-            title: ' ',
+            title: " ",
             items: [
               {
-                label: 'Embrace Overview',
-                to: 'https://embrace.io/product/',
+                label: "Embrace Overview",
+                to: "https://embrace.io/product/",
               },
               {
-                label: 'Crash Reporting',
-                to: 'https://embrace.io/product/crash-reporting/',
+                label: "Crash Reporting",
+                to: "https://embrace.io/product/crash-reporting/",
               },
               {
-                label: 'Session Replay',
-                to: 'https://embrace.io/product/session-replay/',
+                label: "Session Replay",
+                to: "https://embrace.io/product/session-replay/",
               },
               {
-                label: 'App Health and Stability',
-                to: 'https://embrace.io/product/app-health-and-stability/',
-              },
-          ]
-          },
-          {
-            title: ' ',
-            items: [
-              {
-                label: 'Network Monitoring',
-                to: 'https://embrace.io/product/network-monitoring/',
-              },
-              {
-                label: 'Error Log Management',
-                to: 'https://embrace.io/product/error-log-management/',
-              },
-              {
-                label: 'Real-Time Dashboards',
-                to: 'https://embrace.io/product/real-time-dashboards/',
-              },
-              {
-                label: 'Unity',
-                to: 'https://embrace.io/unity/',
+                label: "App Health and Stability",
+                to: "https://embrace.io/product/app-health-and-stability/",
               },
             ],
           },
           {
-            title: ' ',
+            title: " ",
             items: [
               {
-                label: 'Privacy Policy',
-                to: '/privacy-policy/',
+                label: "Network Monitoring",
+                to: "https://embrace.io/product/network-monitoring/",
               },
               {
-                label: 'Terms of Service',
-                to: '/terms-of-service/',
+                label: "Error Log Management",
+                to: "https://embrace.io/product/error-log-management/",
               },
               {
-                label: 'Data Processing Agreement',
-                to: '/dpa/',
+                label: "Real-Time Dashboards",
+                to: "https://embrace.io/product/real-time-dashboards/",
+              },
+              {
+                label: "Unity",
+                to: "https://embrace.io/unity/",
+              },
+            ],
+          },
+          {
+            title: " ",
+            items: [
+              {
+                label: "Privacy Policy",
+                to: "/privacy-policy/",
+              },
+              {
+                label: "Terms of Service",
+                to: "/terms-of-service/",
+              },
+              {
+                label: "Data Processing Agreement",
+                to: "/dpa/",
               },
             ],
           },
@@ -144,7 +161,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["clike","java","kotlin","swift","csharp","groovy","json","shell-session","dart","promql"],
+        additionalLanguages: ["clike", "java", "kotlin", "swift", "csharp", "groovy", "json", "shell-session", "dart", "promql"],
       },
     }),
 };

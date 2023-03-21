@@ -45,7 +45,7 @@ Docusaurus features that we could/should use:
 The following are the extras we added to handle Embrace's documentation:
 
 - `@cmfcmf/docusaurus-search-local` search plugin
-- `src/remark/embrace-sdk-version.js` Remark plugin that inserts latest SDK version (from `embrace.json` into various code blocks)
+- `src/remark/embrace-sdk-version.js` Remark plugin that inserts latest SDK version (from `embrace.json` into various code blocks), using `{{ embrace_sdk_version platform="something" }}` syntax.
 - Snippets in `shared/` that are loaded on several pages
 
 And we customized the following:
