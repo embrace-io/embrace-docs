@@ -4,9 +4,9 @@ description: Add the Embrace SDK as a dependency to your Flutter application
 sidebar_position: 3
 ---
 
-# Adding the flutter Embrace SDK
+# Adding the Flutter Embrace SDK
 
-## Add the Dart library
+## Add the Dart Library
 
 Add the Embrace package to `pubspec.yaml` with the following command:
 

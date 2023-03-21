@@ -31,7 +31,7 @@ In this example, the Nickname is “webhook.site” and the Webhook URL is the r
 
 Click on TEST to see the webhook show up on webhook.site. 
 
-## Jira integration
+## Jira Integration
 
 In your Project, click on Project settings 
 
