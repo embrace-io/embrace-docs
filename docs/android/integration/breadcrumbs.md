@@ -18,7 +18,7 @@ Embrace.getInstance().logBreadcrumb("onDragEvent called, starting drag");
 In the above example, a Breadcrumb is being logged when a drag event listener is called.
 This event is not otherwise shown in the session and can be important depending on what the user does next.
 
-:::warning
+:::warning Important
 Breadcrumb messages must be 64 characters or less.
 :::
 

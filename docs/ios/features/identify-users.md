@@ -26,7 +26,7 @@ For a full set of APIs related to user identification, see the `Embrace` class i
 
 Embrace offers a set of methods to pass information about your users.
 
-:::warning
+:::warning Important
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
 :::

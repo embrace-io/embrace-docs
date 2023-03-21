@@ -36,14 +36,14 @@ The Embrace SDK also supports specifying a configuration environment at build-ti
 ```EMBRACE_ENVIRONMENTS_INDEX```
 * Define this variable with the index number of an existing Embrace configuration environment.
 
-:::warning
+:::warning Important
 Out-of-range indices will result in build failure.
 :::
 
 ```EMBRACE_ENVIRONMENTS_NAME```
 * Define this variable with the name of an existing configuration environment (e.g. "Dev", "Staging", or "Prod");
 
-:::warning
+:::warning Important
   We only support the use of a single environment variable to specify an Embrace configuration. Please be aware that defining both variables at build-time will result in a failed build.
 :::
 

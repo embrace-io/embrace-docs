@@ -12,6 +12,6 @@ The Embrace SDK can be configured to enable the capturing of background sessions
 Capturing background sessions requires v5.10.0 or higher.
 :::
 
-:::warning
+:::warning Important
 Enabling the collection of background session will increase the amount of sessions that are collected.
 :::

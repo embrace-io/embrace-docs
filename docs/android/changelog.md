@@ -12,7 +12,7 @@ sidebar_position: 4
 
 ## 5.14.2
 *Mar 7, 2023*
-:::warning
+:::warning Important
 This version has a known issue with Braze. If you need to use this specific version, you can avoid the known issue with the following configuration in your `app/build.gradle` file:
 
 ```groovy
@@ -60,7 +60,7 @@ swazzler {
 
 ## 5.9.2
 *Nov 28, 2022*
-:::warning
+:::warning Important
 This version has a known issue with Gradle < 6.2
 :::
 
@@ -68,7 +68,7 @@ This version has a known issue with Gradle < 6.2
 
 ## 5.9.1
 *Nov 14, 2022*
-:::warning
+:::warning Important
 This version has networking known issues and should not be used
 :::
 * Fixed an internal exception when trying to access the jailbroken status of the device.
@@ -107,7 +107,7 @@ This version has networking known issues and should not be used
 ## 5.6.1
 *Sep 22, 2022*
 
-:::warning
+:::warning Important
 This version has a known backward compatibility issue between the Unity SDK and the Android SDK
 :::
 
@@ -147,7 +147,7 @@ This version has a known backward compatibility issue between the Unity SDK and 
 
 *Aug 02, 2022*
 
-:::warning
+:::warning Important
 This version has a known issue with Gradle < 6.1
 :::
 
@@ -160,7 +160,7 @@ This version has a known issue with Gradle < 6.1
 
 *Jul 18, 2022*
 
-:::warning
+:::warning Important
 This version has a known issue with Gradle < 6.1
 :::
 
@@ -172,7 +172,7 @@ This version has a known issue with Gradle < 6.1
 
 *Jun 30, 2022*
 
-:::warning
+:::warning Important
 This version has a known issue with Gradle < 6.1
 :::
 
@@ -274,7 +274,7 @@ This version has a known issue with Gradle < 6.1
 
 *Sep 1, 2021*
 
-:::warning
+:::warning Important
 This version has known issues and should not be used
 :::
 
@@ -418,7 +418,7 @@ This version has known issues and should not be used
 
 *February 10, 2021*
 
-:::warning
+:::warning Important
 This version has known issues and should not be used
 :::
 

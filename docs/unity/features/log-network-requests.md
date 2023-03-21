@@ -14,7 +14,7 @@ Network requests of any type can be logged manually via the log message API.
 Embrace.Instance.LogNetworkRequest(...)
 ```
 
-:::warning
+:::warning Important
 On iOS, requests sent through `UnityWebRequest` are logged automatically by the native Embrace SDK.
 :::
 
@@ -37,7 +37,7 @@ var client = new HttpClient(handler);
 
 The Embrace Unity SDK includes a compilation post-processor that can weave code to automatically capture all network requests sent through `UnityWebRequest` and `HttpClient`. 
 
-:::warning
+:::warning Important
 Internally, the Embrace weaver uses `Mono.Cecil` to inspect and modify CIL assemblies. The Embrace package resolves this dependency through the Unity Package Manager. If your project already includes `Mono.Cecil` from another source, we recommend switching to the package manager version to avoid conflicts.
 :::
 
@@ -55,6 +55,6 @@ The **Verbose Logging** option instructs the weaver to log diagnostic informatio
 
 Use the `[EmbraceWeaverExclude]` attribute to instruct the network capture weaver to ignore certain sections of code. It can be applied to a method, class, or an entire assembly. Assemblies can also be excluded by adding the assembly definition to the **Excluded Assemblies** list in the **Network Capture** settings tab. Editor-only assemblies are automatically excluded.
 
-:::warning
+:::warning Important
 The **Automatic Network Capture Weaving** and **Weave Builds Only** toggles work by defining the `EMBRACE_WEAVER_ENABLED` and `EMBRACE_WEAVER_BUILDS_ONLY` symbols, respectively. These symbols are defined project wide, and thus all non-editor assemblies in the project are included in weaving. Network capture weaving can be restricted to targeted assemblies by manually defining those symbols in the desired assembly definitions rather than at the project level.
 :::

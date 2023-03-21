@@ -105,7 +105,7 @@ If your app has native components, you can enable NDK crash capture. Simply add 
 }
 ```
  
-:::warning
+:::warning Important
 Unlike JVM-based crash reporters, you can only attach one set of signal handlers to capture NDK crashes. If you have another NDK crash reporter in your system, enabling NDK crash capture in the Embrace SDK will disable that NDK crash reporter if the Embrace SDK is initialized after it.     
 :::
 

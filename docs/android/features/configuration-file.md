@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## SDK Config File
 
-:::warning
+:::warning Important
 The configuration file format and required configuration file location changed with the release of the 4.x series of SDKs.
 The following section describes the format and location used for versions 4.0.0 and later.
 We encourage everybody to upgrade to a 4.x SDK, but if you are not able to upgrade and you need help with the 3.x configuration file format, please contact <support@embrace.io>.
@@ -140,7 +140,7 @@ Set to `false` to disable capturing of web views. Defaults to `true`.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 
-:::warning
+:::warning Important
 **SDK Version Needed**
 
 Since SDK release 4.2.7 it is possible to specify flavor configurations.

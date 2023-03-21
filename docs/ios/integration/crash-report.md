@@ -63,7 +63,7 @@ Embrace.sharedInstance().crash()
 </TabItem>
 </Tabs>
 
-:::warning
+:::warning Important
 This function will crash your app so only use it for testing purposes.
 :::
 

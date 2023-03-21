@@ -264,7 +264,7 @@ sidebar_position: 4
 ## 5.4.0
 *March 25th, 2021*
 
-:::warning
+:::warning Important
 This version has known issues and should not be used
 :::
 

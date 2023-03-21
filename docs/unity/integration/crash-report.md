@@ -20,7 +20,7 @@ Now we're ready to trigger a crash. You can trigger a crash organically, or you 
 Embrace.Instance.Crash();
 ```
 
-:::warning
+:::warning Important
 This function will crash your app so only use it for testing purposes.
 :::
 

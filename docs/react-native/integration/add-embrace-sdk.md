@@ -119,7 +119,7 @@ repositories {
 }
 ```
 
-:::warning
+:::warning Important
 React Native 0.59.0 and later automatically adds the required `compileOptions` directive to the `android/app/build.gradle` file.
 If you are using a version of React Native older than 0.59.0, or your project was created with a version older than 0.59.0, add the following to your `android/app/build.gradle` file:
 

@@ -24,7 +24,7 @@ captures by setting the `x-emb-path` header.
 For example, if your network request is made to `https://example.com/graphql`, and you set the `x-emb-path`
 header to `/graphql/friends_list`, the request will be reported as `https://example.com/graphql/friends_list`.
 
-:::warning
+:::warning Important
 **The x-emb-path value must meet the following requirements or it will be ignored.**
 
 * Must be a string with a length in the range from 1 to 1024 characters

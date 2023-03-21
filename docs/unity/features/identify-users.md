@@ -23,7 +23,7 @@ Embrace.Instance.SetUserIdentifier("internal_random_id_1234");
 The above call annotates the session with a user identifier that you can use later to search for this user.
 For more methods on setting user values, see the [API docs](/api/unity/).
 
-:::warning
+:::warning Important
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
 We recommend using an anonymized or hashed user ID that only your agents can search for.
 :::

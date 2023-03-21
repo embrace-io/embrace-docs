@@ -41,7 +41,7 @@ NSString *msg = [NSString stringWithFormat:"Master table view editing mode did c
 This is an example of a log we added to our sample application so we'd know when the user enters and exits editing mode on our table view.
 This event is not otherwise shown in the session and can be important depending on what the user does next.
 
-:::warning
+:::warning Important
 Breadcrumb messages must be 256 characters or less.
 :::
 
