@@ -10,7 +10,7 @@ aliases:
 
 ## Moments
 
-Embrace also contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
+Embrace contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
 This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) section.
 
 Similar to [Logs]({{< relref "/android/integration/log-message-api" >}}), moments will immediately make a network request.
