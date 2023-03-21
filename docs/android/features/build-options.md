@@ -82,7 +82,7 @@ Defaults to `false`.
 
 ## Disabling Swazzling for Specific JARs and Classes
 
-:::warning Important
+:::important Important
 `jarSkipList` only skips swazzling if you use Embrace <v5.3.0 or have specified `embrace.useAsmTransformApi=false` in your `gradle.properties` file. If you want to skip swazzling in later versions of Embrace, you should use `classSkipList`.
 :::
 

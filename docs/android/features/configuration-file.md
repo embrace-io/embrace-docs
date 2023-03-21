@@ -140,12 +140,9 @@ Set to `false` to disable capturing of web views. Defaults to `true`.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 
-:::warning Important
-**SDK Version Needed**
-
+:::important SDK Version Needed
 Since SDK release 4.2.7 it is possible to specify flavor configurations.
 Prior to that it was only possible to specify variant and build-type configurations for flavorless projects.
-
 :::
 
 It is possible to specify build type-, flavor-, and variant specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
