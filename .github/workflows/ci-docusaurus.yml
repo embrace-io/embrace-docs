@@ -41,11 +41,6 @@ jobs:
         run: |
           npm install
 
-      - name: Docusaurus Build
-        run: |
-          npm install
-          npm run docusaurus build
-
       - name: Destination Development
         if: ${{ github.event_name == 'pull_request' }}
         run: |
@@ -72,6 +67,10 @@ jobs:
           echo "URL=https://embrace.io" >> $GITHUB_ENV
           echo "BASE_URL=/docs" >> $GITHUB_ENV
 
+      - name: Docusaurus Build
+        run: |
+          npm run docusaurus build
+
       - name: Install AWS CLI
         if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
         run: |
@@ -86,7 +85,7 @@ jobs:
         run: |
           aws s3 sync --acl public-read --delete build/ s3://${{ env.AWS_S3_BUCKET }}${{ env.BASE_URL }}/
 
-      - name: Comment
+      - name: Add Pull Request Comment
         if: ${{ github.event_name == 'pull_request' }}
         uses: actions/github-script@v6
         with:
