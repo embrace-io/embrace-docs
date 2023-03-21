@@ -97,8 +97,7 @@ Your app ID and API token are available on the Embrace dashboard.
 ## NDK crash capture
 
 {{< hint info >}}
-If your app is written entirely in Java and Kotlin, you do not need to enable NDK crash capture to capture crashes in your code. However, we recommend enabling it since it will capture crashes that happen in Android system libraries.   
-
+If your app is written entirely in Java and Kotlin, you do not need to enable NDK crash capture to capture crashes in your code.
 {{< /hint >}}
 
 If your app has native components, you can enable NDK crash capture. Simply add the `ndk_enabled` setting to your config file.
@@ -110,10 +109,6 @@ If your app has native components, you can enable NDK crash capture. Simply add 
   "ndk_enabled": true
 }
 ```
- 
-{{< hint warning >}}
-Unlike JVM-based crash reporters, you can only attach one set of signal handlers to capture NDK crashes. If you have another NDK crash reporter in your system, enabling NDK crash capture in the Embrace SDK will disable that NDK crash reporter if the Embrace SDK is initialized after it.     
-{{< /hint >}}
 
 ---
 

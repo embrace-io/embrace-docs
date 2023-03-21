@@ -7,10 +7,10 @@ aliases:
 ---
 # Add a Breadcrumb
 
-## Adding Context to Sessions
+## Adding Relevant Information to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting]({{< relref "/android/integration/crash-reporting" >}}) and [Session Reporting]({{< relref "/android/integration/session-reporting" >}}) sections.
-Embrace can also collect your logging data and include it as context within your sessions.
+Embrace can also collect your logging data and include it as relevant information and details to enrich your sessions.
 Here's how you add a Breadcrumb to the session.
 
 ```java
@@ -22,7 +22,7 @@ This event is not otherwise shown in the session and can be important depending 
 
 {{< hint warning >}}
 
-Breadcrumb messages must be 64 characters or less.
+Breadcrumb messages must be 256 characters or less.
 
 {{< /hint >}}
 
@@ -34,7 +34,7 @@ For how to best use Breadcrumbs, check out the [Best Practices]({{< relref "/bes
 
 ---
 
-We generally use the Breadcrumb method for our logging and not the Log Message API to add context to sessions.
+We generally use the Breadcrumb method for our logging and not the Log Message API to add relevant information to sessions.
 Breadcrumbs are a lightweight way to add logging to your session. They add no CPU or memory overhead, and trigger no networking calls.
 The Log Message API is a much heavier mechanism. We will learn about it in the [Alerting]({{< relref "/android/integration/log-message-api" >}}) section of the documentation.
 For now, just know that using Breadcrumbs is the right thing to do most of the time.
