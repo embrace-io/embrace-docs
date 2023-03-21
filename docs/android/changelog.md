@@ -8,6 +8,9 @@ sidebar_position: 4
 
 ## 5.15.1
 *Mar 17, 2023*
+:::warning Important
+This version has a known issue. Please do NOT use.
+:::
 - Improvements in how data is collected after session ends, to avoid extending the app process duration.
 
 ## 5.14.2
