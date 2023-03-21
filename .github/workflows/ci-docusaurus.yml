@@ -61,16 +61,16 @@ jobs:
         run: |
           echo "AWS_S3_BUCKET=${{ env.STG_AWS_S3_BUCKET }}" >> $GITHUB_ENV
           echo "AWS_CLOUDFRONT_ID=${{ env.STG_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
-          echo "URL=https://dev.embrace.io"
-          echo "BASE_URL=/docs"
+          echo "URL=https://dev.embrace.io" >> $GITHUB_ENV
+          echo "BASE_URL=/docs" >> $GITHUB_ENV
 
       - name: Destination Production
         if: ${{ github.event_name == 'release' && github.event.action == 'released' }}
         run: |
           echo "AWS_S3_BUCKET=${{ env.PROD_AWS_S3_BUCKET }}" >> $GITHUB_ENV
           echo "AWS_CLOUDFRONT_ID=${{ env.PROD_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
-          echo "URL=https://embrace.io"
-          echo "BASE_URL=/docs"
+          echo "URL=https://embrace.io" >> $GITHUB_ENV
+          echo "BASE_URL=/docs" >> $GITHUB_ENV
 
       - name: Install AWS CLI
         if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
