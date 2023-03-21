@@ -5,8 +5,8 @@ env:
 
   # https://embrace.io/docs/
   # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:ENILO2YUDEJ88
-  PROD_AWS_S3_BUCKET: prod.embrace.io-docs-VITALIY-DISABLED-UNTIL-READY
-  PROD_AWS_CLOUDFRONT_ID: ENILO2YUDEJ88-VITALIY-DISABLED-UNTIL-READY
+  PROD_AWS_S3_BUCKET: prod.embrace.io-docs
+  PROD_AWS_CLOUDFRONT_ID: ENILO2YUDEJ88
 
   # https://dev.embrace.io/docs/
   # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:E20WGO1Z361L37
