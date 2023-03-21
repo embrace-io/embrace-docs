@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 5.15.2
+*Mar 21, 2023*
+- Fix an error from `5.15.1` around identifying users. 
+- Improvements in how data is collected after session ends, to avoid extending the app process duration.
+
 ## 5.15.1
 *Mar 17, 2023*
 :::warning Important
