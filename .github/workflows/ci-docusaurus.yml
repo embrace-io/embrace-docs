@@ -10,12 +10,12 @@ env:
 
   # https://dev.embrace.io/docs/
   # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:E20WGO1Z361L37
-  STG_AWS_S3_BUCKET: dev.embrace.io-docs-DISABLED-FOR-NOW
+  STG_AWS_S3_BUCKET: dev.embrace.io-docs
   STG_AWS_CLOUDFRONT_ID: E20WGO1Z361L37
 
   # https://<url>/docs-prNNN/
   DEV_AWS_S3_BUCKET: dev.embrace.io-docs
-  DEV_AWS_CLOUDFRONT_ID: E20WGO1Z361L37
+  DEV_AWS_CLOUDFRONT_ID: E20WGO1Z361L37 # NOTE: we aren't actually using a CDN for dev
 
 on:
   pull_request:
@@ -95,7 +95,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Deployed To: ${{ env.URL }}${{ env.BASE_URL }}/'
+              body: 'Preview deployed to: ${{ env.URL }}${{ env.BASE_URL }}/'
             })
 
       - name: Invalidate CloudFront cache
