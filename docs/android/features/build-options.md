@@ -1,7 +1,7 @@
 ---
 title: Build Options
 description: Build Options for the Embrace Android Gradle Plugin
-sidebar_position: 4
+sidebar_position: 10
 ---
 
 # Build Options
@@ -27,98 +27,6 @@ swazzler {
     }
 }
 ```
-
-### Forcing behaviours
-
-:::info
-Most applications do not require any custom configuration of the Embrace SDK Gradle Plugin, but some modular applications require one or more of these settings to be present.
-Please contact <support@embrace.io> if you have any questions about these settings and if they are needed for your app.
-:::
-
-```groovy
-swazzler {
-  forceIncrementalOverwrite = false
-  forceOkHttpWrapperInjection = false
-  forceVolleyWrapperInjection = false
-  forceFcmWrapperInjection = false
-  encodeExtractedFileNames = false
-}
-```
-
-#### forceIncrementalOverwrite *bool*
-
-Enable this to force copying of unchanged JAR files during the swazzling phase.
-Enabling this is discouraged unless Embrace's support team has instructed you to enable it.
-Defaults to `false`.
-
-#### forceOkHttpWrapperInjection *bool*
-
-Enable this if okHttp exists as a dependency in any of your dependencies or submodules.
-This is only necessary if OkHttp is present in any of your project submodules and not on your main module (app).
-The plugin will emit a warning at build time indicating if you need to add this setting.
-This property is ignored if `{useNewDependencyInstaller = true}`
-Defaults to `false`.
-
-#### forceVolleyWrapperInjection *bool*
-
-Enable this if Volley exists as a dependency in any of your dependencies or submodules.
-This is only necessary if Volley is present in any of your project submodules and not on your main module (app).
-The plugin will emit a warning at build time indicating if you need to add this setting.
-This property is ignored if `{useNewDependencyInstaller = true}`
-Defaults to `false`.
-
-#### forceFcmWrapperInjection *bool*
-
-Enable this if Firebase Cloud Messaging (FCM) exists as a dependency in any of your dependencies or submodules.
-This is only necessary if FCM is present in any of your project submodules and not on your main module (app).
-The plugin will emit a warning at build time indicating if you need to add this setting.
-This property is ignored if `{useNewDependencyInstaller = true}`
-Defaults to `false`.
-
-#### encodeExtractedFileNames *bool*
-
-Enable this if one of the dependencies in your project has a JAR file with class names that are only distinguished by case (due to obfuscation, for example), and you are building your application in a case-insensitive file system.
-Defaults to `false`.
-
-## Disabling Swazzling for Specific JARs and Classes
-
-:::important Important
-`jarSkipList` only skips swazzling if you use Embrace <v5.3.0 or have specified `embrace.useAsmTransformApi=false` in your `gradle.properties` file. If you want to skip swazzling in later versions of Embrace, you should use `classSkipList`.
-:::
-
-You may need to skip swazzling of certain JARs and/or classes in your application. It is very uncommon for this to be
-necessary, but it can be problematic to swazzle certain security-related JARs. Disable swazzling of these JARs using the
-`swazzler.jarSkipList` and `swazzler.classSkipList` settings in your `app/build.gradle` file. Both these settings are 
-lists of regular expressions that the swazzler will use to skip entire JARs or specific classes. 
-
-```groovy
-swazzler {
-  jarSkipList = ["MyFirstJar", "MySecondJar"]
-  classSkipList = ["MyFirstClass", "MySecondClass"]
-}
-```
-
-The build logs will emit info indicating what classes and JARs were skipped, for example
-
-```
-[io.embrace.android.gradle.swazzler.compile.swazzler.SwazzlerConfiguration] [Embrace.io Swazzler: INFO] Skipping swazzling for {class=MyFirstClass.class} since it matched {regex=MyFirstClass}
-```
-
-## Improving Build Speed
-
-:::warning Important
-Embrace v5.3.0 shipped large improvements to build speed by using a new Transform API. This information is only relevant if you use Embrace <v5.3.0 , or if you have specified `embrace.useAsmTransformApi=false` in your `gradle.properties` file.
-
-It is strongly recommended that you update to the latest Embrace version as this will decrease your build times more than the following recommendations.
-:::
-
-The Embrace SDK injects code into your APK using a process we call “swazzling” to automatically capture activity 
-transitions, taps, and network requests in your application. The time taken for the swazzling process varies, 
-but can become quite long for larger projects especially when doing a clean build.
-
-To speed up this process, the Embrace SDK now supports a mode that eliminates the need for a swazzling scan of all JARs
-and their classes even for a clean build. We have added a Gradle step that can be manually run to produce a list of JARs
-and classes in the JARs that do not need to be swazzled, and will be skipped during subsequent swazzling steps.
 
 ### Enabling the swazzling cache
 

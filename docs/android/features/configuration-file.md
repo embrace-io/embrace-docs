@@ -1,7 +1,7 @@
 ---
 title: Configuration File
 description: Configuration file for the Android Embrace SDK
-sidebar_position: 3
+sidebar_position: 9
 ---
 
 # Android Configuration File
@@ -25,6 +25,7 @@ Explanations for each of the fields are provided below.
   "api_token": "0123456789abcdef0123456789abcdef",
   "ndk_enabled": false,
   "sdk_config": {
+    "capture_fcm_pii_data": false,
     "app": {
       "report_disk_usage": true,
     },
@@ -67,6 +68,10 @@ Your API 32-hexdigit token.
 #### ndk_enabled *bool*
 
 Enables NDK crash capture. Defaults to `false`.
+
+#### capture_fcm_pii_data *bool*
+
+Capture data from inside the notifications
 
 ### app
 
@@ -140,12 +145,7 @@ Set to `false` to disable capturing of web views. Defaults to `true`.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 
-:::important SDK Version Needed
-Since SDK release 4.2.7 it is possible to specify flavor configurations.
-Prior to that it was only possible to specify variant and build-type configurations for flavorless projects.
-:::
-
-It is possible to specify build type-, flavor-, and variant specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
+It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/studio/build/build-variants) specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
 
 The order of evaluation is as follows. The first option that is found will be used
 

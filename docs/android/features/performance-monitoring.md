@@ -17,8 +17,11 @@ Similar to [Logs](/android/integration/log-message-api), moments will immediatel
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.
 :::
 
-Moments are best used for tracking critical user flows that are generally short in nature.
-For more suggestions on what to measure with moments, see the [Best Practices](/best-practices/app-performance#keep-it-short/) page.
+## Keep It Short
+
+import KeepItShort from '@site/shared/keep-it-short.md';
+
+<KeepItShort />
 
 ## Starting a Moment
 
@@ -51,5 +54,6 @@ You can end the moment from multiple locations in your app, or from multiple thr
 
 ## Tracking Abandonment
 
-In addition to measuring performance, moments can also measure abandonment.
-For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance/) section.
+import Abandonment from '@site/shared/tracking-abandonment.md';
+
+<Abandonment />
