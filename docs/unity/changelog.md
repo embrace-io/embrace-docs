@@ -75,8 +75,9 @@ sidebar_position: 4
 
 ## 1.7.6
 *October 4, 2022*
-
-> This version of the Unity SDK introduced a bug in the iOS crash handler that can cause the app to freeze when encountering a native crash. Please update to the latest version.
+:::warning Important
+This version of the Unity SDK introduced a bug in the iOS crash handler that can cause the app to freeze when encountering a native crash. Please update to the latest version.
+:::
 
 * Updated Android SDK to version 5.7.0
 * Updated iOS SDK to version 5.10.0
@@ -84,23 +85,26 @@ sidebar_position: 4
 
 ## 1.7.5
 *September 26, 2022*
-
-> The version of the Embrace Android SDK used in this version contains a bug that can cause Embrace to fail to initialize properly. Please update to Unity SDK version 1.8.0 or later and Android SDK version 5.7.0 or later.
+:::warning Important
+The version of the Embrace Android SDK used in this version contains a bug that can cause Embrace to fail to initialize properly. Please update to Unity SDK version 1.8.0 or later and Android SDK version 5.7.0 or later.
+:::
 
 * Fixed a compatibility issue with Embrace Android SDK version 5.6.0 and higher.
 
 ## 1.7.4
 *September 26, 2022*
-
-> This version includes a compatibility issue with Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.8.0 or later.
+:::warning Important
+This version includes a compatibility issue with Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.8.0 or later.
+:::
 
 * Fixed an issue that could cause the Embrace SDK to fail to load the active configuration in the editor.
 * Fixed the list of available configurations in the settings window getting out of sync with the configurtations available in the project.
 
 ## 1.7.3
 *September 22, 2022*
-
-> This version includes a compatibility issue with Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.8.0 or later.
+:::warning Important
+This version includes a compatibility issue with Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.8.0 or later.
+:::
 
 * Updated Android SDK to version 5.6.1
 * Updated iOS SDK to version 5.9.3
@@ -163,8 +167,9 @@ sidebar_position: 4
 
 ## 1.5.5
 *June 10, 2022*
-
-> This version introduced a compatibility issue with Unity versions before 2020.2. Please upgrade to version 1.5.6.
+:::warning Important
+This version introduced a compatibility issue with Unity versions before 2020.2. Please upgrade to version 1.5.6.
+:::
 
 * Added Multi-Threaded Logging toggle to Main Settings editor window.
 * Added option to disable Embrace Unity SDK logs.
@@ -188,7 +193,6 @@ sidebar_position: 4
 
 * Upgrades native Android SDK to 5.1.0-beta02 for builds using the external dependency manager.
 
-
 ## 1.5.1
 *May 12, 2022*
 
@@ -206,7 +210,6 @@ sidebar_position: 4
 * Upgrades native Android SDK to 5.0.4 for builds using the external dependency manager.
 
 ## 1.4.1
-
 *April 22, 2022*
 
 * Upgrades native Android SDK to 5.0.2 for builds using the external dependency manager.
