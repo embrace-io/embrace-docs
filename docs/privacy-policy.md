@@ -28,6 +28,8 @@ Our customers may optionally request personal information from End Users in orde
 
 We may use cookies and similar technologies (collectively, “cookies”) to access information when you sign in, store your preferences, to keep you logged in, and to store a limited amount of behavioral data. By using our services, you consent to the use of cookies. You can configure your browser to accept or reject these cookies and we will respect this decision.
 
+<script id="CookieDeclaration" src="https://consent.cookiebot.com/df68349b-b0b3-46a6-b2ed-975a4cd03e96/cd.js" type="text/javascript" async></script>
+
 ## THE WAY EMBRACE USES INFORMATION
 
 ### Contact its Users
