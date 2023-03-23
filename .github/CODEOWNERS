@@ -1,0 +1,14 @@
+# DevOps
+.github @embrace-io/team-devops
+scripts @embrace-io/team-devops
+
+# SDK Teams
+docs/android @embrace-io/sdk-android
+docs/flutter @embrace-io/sdk-flutter
+docs/ios @embrace-io/sdk-ios
+docs/react-native @embrace-io/team-react-native
+docs/unity @embrace-io/sdk-unity
+
+# docs/best-practices
+# docs/embrace-api
+# docs/product
