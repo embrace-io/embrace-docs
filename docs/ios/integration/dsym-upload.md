@@ -110,7 +110,7 @@ Run the upload tool and your dSYM will be sent to Embrace.
 
 ```shell-session
 # Upload a single file
-/EmbraceIO/upload -app $APP_KEY -token $API_TOKEN dsyms.zip
+/EmbraceIO/upload --app $APP_KEY --token $API_TOKEN dsyms.zip
 
 # Upload multiple files
 /EmbraceIO/upload --app $APP_KEY --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
