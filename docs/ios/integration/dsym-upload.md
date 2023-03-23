@@ -113,7 +113,7 @@ Run the upload tool and your dSYM will be sent to Embrace.
 /EmbraceIO/upload -app $APP_KEY -token $API_TOKEN dsyms.zip
 
 # Upload multiple files
-/EmbraceIO/upload -app $APP_KEY -token $API_TOKEN --dsym my_dsym --dsym my_file.zip
+/EmbraceIO/upload --app $APP_KEY --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
 ```
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
