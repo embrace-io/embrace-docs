@@ -12,7 +12,7 @@ If you choose not to upload your dSYM files, you will be required to manually sy
 
 ## Automatic Uploads
 
-Automatically uploading dSYM files is a good option for you if you are not using bitcode to distribute your application.  
+Automatically uploading dSYM files is a good option for you if you are not using bitcode to distribute your application.
 
 To enable automatic dSYM uploads, we will need to locate a number of items first:
 
@@ -25,7 +25,7 @@ Now, open the "Build Phases" tab in Xcode. We will be adding a new phase.
 
 Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "Embrace Symbol Uploads".
 
-This phase is going to be calling Embrace's `run.sh` upload script. You can configure the phase to only run on builds you want symbols uploaded to Embrace for, and skip the step on internal only builds to save time.  
+This phase is going to be calling Embrace's `run.sh` upload script. You can configure the phase to only run on builds you want symbols uploaded to Embrace for, and skip the step on internal only builds to save time.
 
 The run.sh script is distributed alongside the `Embrace.framework` file. Depending on how you linked Embrace, this file will be in a different location.
 See the section relevant for your integration for how to call the run script.
@@ -68,7 +68,7 @@ For Manual linking, the command looks similar to the CocoaPods version but the l
 EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/third_party/EmbraceIO/run.sh"
 ```
 
-In this version we're referencing the Embrace folder inside our `third_party` folder at the root of our project.  
+In this version we're referencing the Embrace folder inside our `third_party` folder at the root of our project.
 
 </TabItem>
 <TabItem value="spm" label="SPM">
@@ -96,7 +96,7 @@ If your crashes are not being symbolicated due to dSYM files being missing, see 
 
 ## Manual Uploads
 
-If your app is using bitcode or a CI system that makes accessing or modifying the build phases impossible, you can still upload your dSYM files manually.  
+If your app is using bitcode or a CI system that makes accessing or modifying the build phases impossible, you can still upload your dSYM files manually.
 
 When applications are built with bitcode, it means the final binary and symbols only exist on Apple servers post-submission. As such you must download those symbols manually from Apple. You can do this from the Organizer window in Xcode.
 
@@ -104,12 +104,16 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
  
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your API key and API token.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your API key and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 
 ```shell-session
-/EmbraceIO/upload -app $APP_KEY -token $API_TOKEN dsyms.zip
+# Upload a single file
+/EmbraceIO/upload --app $APP_KEY --token $API_TOKEN dsyms.zip
+
+# Upload multiple files
+/EmbraceIO/upload --app $APP_KEY --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
 ```
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
