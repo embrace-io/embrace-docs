@@ -22,8 +22,8 @@ jobs:
         id: calver
         run: |
           export next_version=$(sh scripts/get_next_version_tag.sh)
-          echo ::set-output name=version::${next_version}
-          echo "Next version will be: ${next_version}"
+          echo "version=${next_version}" >> $GITHUB_OUTPUT
+          echo "Next version will be: ${next_version}" >> $GITHUB_STEP_SUMMARY
       - uses: embrace-io/release-drafter@v5
         with:
           tag: ${{ steps.calver.outputs.version }}
