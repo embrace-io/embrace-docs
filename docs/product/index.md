@@ -1,6 +1,6 @@
 ---
-title: Product Information
-sidebar_position: 5
+title: Overview
+sidebar_position: 0
 ---
 
 # Product Information

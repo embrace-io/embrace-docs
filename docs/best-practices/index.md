@@ -1,7 +1,7 @@
 ---
-title: Best Practices
+title: Overview
 description: Best practices to make sure you're getting the most from Embrace
-sidebar_position: 4
+sidebar_position: 0
 ---
 
 # Best Practices
