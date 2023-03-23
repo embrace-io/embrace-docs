@@ -48,7 +48,7 @@ end
 Then, install the pod.
 
 ```shell-session
-cd ios && pod install
+cd ios && pod install --repo-update
 ```
 
 </TabItem>

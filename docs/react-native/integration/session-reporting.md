@@ -87,6 +87,43 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 </Tabs>
 
+## Initialize Embrace SDK
+
+Initialize method applies the necessary listener to your application. This allow Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
+
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="Component">
+
+```javascript
+import {initialize} from 'react-native-embrace';
+
+export default class App extends Component {
+  componentDidMount() {
+    initialize();
+  }
+}
+```
+
+</TabItem>
+<TabItem value="hooks" label="Hooks">
+
+```javascript
+import React, {useEffect, useState} from 'react'
+import {initialize} from 'react-native-embrace';
+
+const App = ()=> {
+
+  useEffect(()=>{
+    initialize();
+  },[])
+
+ return ...
+}
+export default App
+```
+</TabItem>
+</Tabs>
+
 ## End the Startup Moment
 
 Embrace automatically starts the **startup** moment when your application launches.
@@ -102,14 +139,13 @@ The iOS SDK does not end the moment automatically.
 In either platform, you can end the startup moment when your application mounts.
 
 <Tabs groupId="platform" queryString="platform">
-<TabItem value="ios" label="iOS">
+<TabItem value="ios" label="Component">
 
 ```javascript
 import {endAppStartup} from 'react-native-embrace';
 
 export default class App extends Component {
   componentDidMount() {
-    // Add this command at the end of componentDidMount
     endAppStartup();
   }
 }
