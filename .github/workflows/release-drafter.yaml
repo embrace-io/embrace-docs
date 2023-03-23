@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
@@ -14,7 +12,6 @@ jobs:
   update_release_draft:
     permissions:
       contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,8 +23,9 @@ jobs:
           echo "Next version will be: ${next_version}" >> $GITHUB_STEP_SUMMARY
       - uses: embrace-io/release-drafter@v5
         with:
-          tag: ${{ steps.calver.outputs.version }}
+          disable-autolabeler: true
           name: ${{ steps.calver.outputs.version }}
+          tag: ${{ steps.calver.outputs.version }}
           version: ${{ steps.calver.outputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
