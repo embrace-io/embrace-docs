@@ -35,6 +35,7 @@ const config = {
       require.resolve("@easyops-cn/docusaurus-search-local"),
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
+        explicitSearchResultPath: true,
         hashed: true,
         highlightSearchTermsOnTargetPage: true,
         indexBlog: false,

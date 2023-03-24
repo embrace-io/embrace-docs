@@ -1,5 +1,5 @@
 ---
-title: React Native Feature Reference
+title: Feature Reference
 description: Learn about the advanced ways Embrace can help your application
 sidebar_position: 2
 ---

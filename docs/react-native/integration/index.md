@@ -1,5 +1,5 @@
 ---
-title: React Native Integration Guide
+title: Integration Guide
 description: Get started with integrating Embrace into your React Native application
 sidebar_position: 1
 ---
