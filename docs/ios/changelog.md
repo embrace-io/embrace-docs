@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.17.0
+*March 21, 2023*
+
+* Fix for a very rare crash on archiving current session
+* store the latest breadcrumbs instead of the first
 
 ## 5.16.3
 *March 14, 2023*
