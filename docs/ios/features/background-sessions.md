@@ -14,8 +14,8 @@ How long the app remains active in the background may vary depending on what the
 This means that a background session could be 1 hour long, but only 1 minute in that hour will have any kind of activity.
 
 Here are some examples of what can start a background session:
-- The app is active and it is sent to the background: This can happen when the user minimizes the app manually or another app goes to the foreground.
-- The app is closed and then gets "waken up" in the background by the OS: Usually happens when the app is configured with background tasks like handling silent push notifications. 
+- The app is active and it is sent to the background: this can happen when the user minimizes the app manually or another app goes to the foreground.
+- The app is closed and then gets "waken up" in the background by the OS: usually happens when the app is configured with background tasks like handling silent push notifications. 
 
 :::info
 Capturing background sessions requires v5.15.0 or higher.
