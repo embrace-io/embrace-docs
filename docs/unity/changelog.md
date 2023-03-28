@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.11.0
+*March 24, 2023*
+
+* Added support for building for the iOS simulator
+* Added support for tvOS
+* Added new option to automatically log UnityWebRequest data processing errors
+* Updated iOS SDK to version 5.16.3
+* Updated Android SDK to version 5.15.3
+
 ## 1.10.1
 *February 21, 2023*
 
