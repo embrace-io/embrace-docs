@@ -27,7 +27,6 @@ import io.embrace.android.embracesdk.Embrace;
 ## Add the Start Call
 
 Next, add the following code to your `Application` class at the start of the `onCreate` method to initialize the Embrace SDK.
-Embrace does not perform any tracking or other actions until this method call is made.
 
 ```java
 public final class MyApplication extends Application {
@@ -93,7 +92,7 @@ If you encounter any errors, please get in touch on Slack and we can assist you.
 
 ## Trigger a Session Upload
 
-You can trigger a session upload by sending your app to the background. Refresh the dashboard in
+You can trigger a session upload by sending your app to the background, and restarting it again. Refresh the dashboard in
 your browser and you should now see that you've moved on to the next step.
 
 :::warning Important

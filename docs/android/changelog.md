@@ -20,12 +20,12 @@ This version has a known issue. Please do NOT use.
 
 ## 5.14.2
 *Mar 7, 2023*
-:::warning Important
+:::info Important
 This version has a known issue with Braze. If you need to use this specific version, you can avoid the known issue with the following configuration in your `app/build.gradle` file:
 
 ```groovy
 swazzler {
-    instrumentFirebaseMessaging = true
+    instrumentFirebaseMessaging = false
 }
 ```
 :::
