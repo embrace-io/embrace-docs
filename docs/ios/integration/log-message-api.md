@@ -6,7 +6,7 @@ sidebar_position: 9
 
 # Adding Logs
 
-As we've discussed in the [Session Reporting section](/ios/integration/session-reporting), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
+As we've discussed in the [Session Reporting section](/ios/integration/session-reporting), Embrace will end and attempt to upload the current session when the app is sent to the background.
 
 However, some situations might require immediate feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout.
 

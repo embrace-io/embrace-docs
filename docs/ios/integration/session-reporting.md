@@ -223,7 +223,8 @@ Dashboard.
 ## Trigger a session upload
 
 To trigger a session upload, simply send the application to the background by pressing
-the simulators 'home' button. Typically the SDK will be given sufficient time to upload 
+the simulators 'home' button or swipe up, depending on the simulator you're running, or press Cmd+Shift+H on your keyboard. 
+Typically the SDK will be given sufficient time to upload 
 the session, but sometimes the app is not able to complete the upload in the background. 
 To ensure the session was uploaded, launch the application again. Refresh the dashboard in 
 your browser and you should now see that you've moved on to the next step.

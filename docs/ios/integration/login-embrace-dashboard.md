@@ -8,15 +8,19 @@ sidebar_position: 5
 
 Before you start sending data, let's get logged into the dashboard so you have a place to verify everything you are about to work on.
 
-Open a browser and navigate to [dash.embrace.io](https://dash.embrace.io/)
+Open a browser and navigate to [dash.embrace.io](https://dash.embrace.io/), and create an account if you don't have one yet.
 
 <img src={require('@site/static/images/login-page.png').default} />
 
-Once logged in, select your application and you will be taken to our integration page. We'll be working from here in this documentation.
+Once logged in, press the "Create Project" button or select your application if you've already done so, and you will be taken to our integration page. We'll be working from here in this documentation.
 
-<img src={require('@site/static/images/android-integration.png').default} />
+<img src={require('@site/static/images/ios-integration.png').default} />
 
-Keep your dashboard tab open throughout the integration process. This will help you become familiar with the user interface and features, and also assist in verifying that the integration is working as expected.
+Follow the steps shown on the screen to setup your application on the Embrace Dashboard and receive your App Id.
+
+<img src={require('@site/static/images/ios-integration-appid.png').default} />
+
+This is the unique App Id that you need to integrate the Embrace SDK into your project.
 
 ---
 
