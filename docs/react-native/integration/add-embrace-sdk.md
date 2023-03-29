@@ -66,12 +66,16 @@ Follow the steps in the **Setup Script** section or the [Manual](/android/integr
 ## Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
-project to add the native dependencies. The setup script can be found in your
-`node_modules` folder at `node_modules/react-native-embrace/dist/scripts/setup/setup.js`
+project to add the native dependencies. The setup scripts can be found in your
+`node_modules` folder at `node_modules/react-native-embrace/dist/scripts/setup`
 
 **Run the setup script**
 ```shell-session
-node node_modules/react-native-embrace/dist/scripts/setup/run.js
+node node_modules/react-native-embrace/dist/scripts/setup/installAndroid.js
+```
+
+```shell-session
+node node_modules/react-native-embrace/dist/scripts/setup/installIos.js
 ```
 
 You can use git to see the changes that the script made.
