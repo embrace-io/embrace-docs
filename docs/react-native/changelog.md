@@ -5,6 +5,10 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.10.9
+_March 29, 2023_
+* Added two new scripts, one to install the dependencies for Androd and the other for iOS
+
 ## 3.10.8
 _March 8, 2023_
 * Added React Native Navigation Screen Tracker version 0.2.7
