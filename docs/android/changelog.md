@@ -25,7 +25,7 @@ This version has a known issue with Braze. If you need to use this specific vers
 
 ```groovy
 swazzler {
-    instrumentFirebaseMessaging = true
+    instrumentFirebaseMessaging = false
 }
 ```
 :::
