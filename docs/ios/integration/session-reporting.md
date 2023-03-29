@@ -1,7 +1,7 @@
 ---
 title: Session Reporting
 description: Upload session reports from your iOS application using the Embrace SDK
-sidebar_position: 6
+sidebar_position: 4
 ---
 
 # Session Reporting

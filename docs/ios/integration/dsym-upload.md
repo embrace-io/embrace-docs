@@ -1,7 +1,7 @@
 ---
 title: Uploading dSYMs
 description: Upload dSYM files to see translated stack traces
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # Uploading dSYMs

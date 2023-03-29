@@ -1,7 +1,7 @@
 ---
 title: Login to the Embrace Dashboard
 description: Login to the Embrace dashboard to get started with your iOS integration
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 # Login to the Embrace Dashboard

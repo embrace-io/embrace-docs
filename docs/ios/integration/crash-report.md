@@ -1,7 +1,7 @@
 ---
 title: Crash Reporting
 description: Upload crash reports from your iOS application using the Embrace SDK
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 # Collect your first crash report 
