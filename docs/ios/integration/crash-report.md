@@ -22,7 +22,7 @@ CRASH_REPORT_PROVIDER
 This is a string value. You can set this to one of the following options:
 * `embrace` - This is the default value which uses Embrace's internal crash reporting
 * `crashlytics` - Set this value if you intend to use Crashlytics as your main crash reporter. Embrace will still attempt to mirror reports sent to Crashlytics so you will still have that data available in the Embrace Dashboard.
-* `none` - this completely turns off all crash reporting from Embrace but the rest of the SDK will continue to work as normal.
+* `none` - This option completely turns off all crash reporting from Embrace but the rest of the SDK will continue to work as normal.
 
 The values are case insensitive. 
 

@@ -12,15 +12,19 @@ Open a browser and navigate to [dash.embrace.io](https://dash.embrace.io/), and 
 
 <img src={require('@site/static/images/login-page.png').default} />
 
-Once logged in, press the "Create Project" button or select your application if you've already done so, and you will be taken to our integration page. We'll be working from here in this documentation.
+Once logged in, press the "Install" button or select your application from the list if you've already done so, and you will be taken to our integration page. We'll be working from here in this documentation.
+
+<img src={require('@site/static/images/ios-install.png').default} />
+
+Fill the requested information, selecting iOS as your platform and the environment you plan to use this API-Key on.
 
 <img src={require('@site/static/images/ios-integration.png').default} />
 
-Follow the steps shown on the screen to setup your application on the Embrace Dashboard and receive your App Id.
+Follow the instructions in Step 2 and you'll be given an API-Key needed to continue the integration
 
-<img src={require('@site/static/images/ios-integration-appid.png').default} />
+<img src={require('@site/static/images/ios-integration-apikey.png').default} />
 
-This is the unique App Id that you need to integrate the Embrace SDK into your project.
+This is the unique API-Key that you need to integrate the Embrace SDK into your project.
 
 ---
 
