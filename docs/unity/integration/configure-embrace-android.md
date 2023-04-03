@@ -43,6 +43,40 @@ Please note that in order for the `Patch mainTemplate.gradle` setting to take ef
 
 Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
 
+# Ironsource Mediation
+
+If your project uses Ironsource from AppLovin MAX or as Ads mediation, add the setting to the swazzler configuration in the `launcherTemplate.gradle` file.
+
+```
+swazzler {
+   encodeExtractedFileNames = true
+}
+```
+
+Example:
+```
+apply plugin: 'com.android.application'
+apply plugin: 'embrace-swazzler'
+
+dependencies {
+   implementation project(':unityLibrary')
+}
+
+swazzler {
+   disableDependencyInjection = true
+   encodeExtractedFileNames = true
+}
+
+android {
+   compileSdkVersion **APIVERSION**
+   builtToolsVersion '**BUILDTOOLS**'
+...
+```
+
+:::info More information about this SDK 
+The Ironsource Mediation SDK minifies all the JAR names to a combination of letters and special chars with a sensitive-case system. On non-sensitive-case system, this results in a build exception due to a multiple class definitions for the same provider making the Swazzler plugin transform process impossible to apply due to multiple classes with the same name.
+:::
+
 # Customize Gradle Templates
 
 <img src={require('@site/static/images/unity-android-gradle-templates.png').default} />
