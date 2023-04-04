@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.17.1
+*April 04, 2023*
+
+* Fixes performance issue when serializing network data in session payload
+* Fixes duplication of custom log breadcrumbs.
+
 ## 5.17.0
 *March 21, 2023*
 
