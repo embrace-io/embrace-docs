@@ -25,6 +25,12 @@ on:
     types: [ released ]
   workflow_dispatch:
 
+# These permissions are needed to interact with GitHub's OIDC Token endpoint
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
 jobs:
   docusaurus-build:
     runs-on: ubuntu-latest
@@ -71,17 +77,23 @@ jobs:
         run: |
           npm run docusaurus build
 
-      - name: Install AWS CLI
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ secrets.AWS_LOGIN_ROLE }}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
+
+      - name: Assume AWS role Development
         if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
         run: |
-          pip install --upgrade awscli
+            pip install --upgrade awscli
+            credentials=$( aws sts assume-role --role-arn "${{ secrets.AWS_ASSUME_ROLE }}" --role-session-name "`echo $GITHUB_REPOSITORY | tr "/" "-"`" )
+            echo "AWS_ACCESS_KEY_ID=`echo $credentials | jq -r .Credentials.AccessKeyId`" >> $GITHUB_ENV
+            echo "AWS_SECRET_ACCESS_KEY=`echo $credentials | jq -r .Credentials.SecretAccessKey`" >> $GITHUB_ENV
+            echo "AWS_SESSION_TOKEN=`echo $credentials | jq -r .Credentials.SessionToken`" >> $GITHUB_ENV
 
       - name: Sync to S3 bucket
         if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
-        env:
-          # From https://console.aws.amazon.com/iam/home?region=us-west-2#/users/travis-website?section=security_credentials
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws s3 sync --acl public-read --delete build/ s3://${{ env.AWS_S3_BUCKET }}${{ env.BASE_URL }}/
 
