@@ -9,6 +9,10 @@ sidebar_position: 4
 ## 5.17.0
 *March 21, 2023*
 
+:::warning Important
+This version has known issues and should not be used
+:::
+
 * Fix for a very rare crash on archiving current session
 * store the latest breadcrumbs instead of the first
 
