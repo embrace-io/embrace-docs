@@ -111,9 +111,5 @@ jobs:
 
       - name: Invalidate CloudFront cache
         if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
-        env:
-          # From https://console.aws.amazon.com/iam/home?region=us-west-2#/users/travis-website?section=security_credentials
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_ID }} --paths '/*'
