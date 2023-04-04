@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ## Prerequisites
 
-- Grafana ≥ 2.5.0
+- Grafana ≥ 9.1.0
 - Embrace Metrics API Token. This can be found in the Settings page of the [Dashboard](https://dash.embrace.io/).
 
 ## Setting Up Embrace as a Data Source
