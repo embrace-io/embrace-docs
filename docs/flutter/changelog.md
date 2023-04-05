@@ -6,6 +6,17 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+## 1.1.0
+*Apr 5, 2023*
+- Updated Embrace Android SDK to 5.16.0
+- Updated Embrace iOS SDK to 5.17.1
+
+## 1.0.0
+*Mar 30, 2023*
+- Added runtime type to error information
+- Updated Embrace Android SDK to 5.15.3
+- Updated Embrace iOS SDK to 5.17.0
+
 ## 0.4.0
 *Feb 28, 2023*
 - Added the embrace_dio package to automatically capture network requests made with Dio
