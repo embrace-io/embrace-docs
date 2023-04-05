@@ -22,7 +22,7 @@ Follow these steps to add Prometheus as a data source in the Grafana dashboard:
 
 ## Importing Dashboard JSON
 
-We provide a JSON file that is pre-populated with common queries. To add the dashboard to Grafana, click on the Dashboards icon and select `+ Import`. Click on the Upload JSON file button. You may be asked to change the uid of the dashboard if some other dashboard already has that name. You can set it to something like `a-0000000`.
+Use the [provided JSON file](https://github.com/embrace-io/grafana-metric-plugin/blob/main/src/dashboards/overview.json) that is pre-populated with common queries. To add the dashboard to Grafana, click on the Dashboards icon and select `+ Import`. Click on the Upload JSON file button. You may be asked to change the uid of the dashboard if some other dashboard already has that name. You can set it to something like `a-0000000`.
 
 ## Creating Time Series
 
