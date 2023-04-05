@@ -5,6 +5,11 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.11.0
+_April 5, 2023_
+* Update the install script to recognize native folders instead of a fixed path
+* Update Android SDK to 5.16.0
+* Update iOS SDK to 5.17.1
 ## 3.10.9
 _March 29, 2023_
 * Added two new scripts, one to install the dependencies for Androd and the other for iOS
