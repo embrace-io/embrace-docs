@@ -39,15 +39,19 @@ If you don't want the notifications to get captured automatically, then you can 
     body – the body of the notification as a string (or null) 
     topic – the notification topic (if a user subscribed to one), or null 
     id – A unique ID identifying the message 
-    priority – the priority of the message (as resolved on the device)
-    isDataType - a boolean indicating if the message is of type notification or data
+    notificationPriority – the notificationPriority of the message (as resolved on the device)
+    messageDeliveredPriority – the priority of the message (as resolved on the server)
+    isNotification - a boolean indicating if it is a notification message.
+    hasData - a boolean indicating if the message contains payload data.
 */
 Embrace.getInstance().logPushNotification(
     @Nullable String title,
     @Nullable String body,
     @Nullable String topic,
     @Nullable String id,
-    @Nullable Integer priority,
-    boolean isDataType
+    @Nullable Integer notificationPriority,
+    @NotNull Integer messageDeliveredPriority,
+    @NotNull Boolean isNotification,
+    @NotNull Boolean hasData
 )
 ```

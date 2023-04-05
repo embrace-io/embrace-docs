@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 5.16.0
+*Apr 04, 2023*
+- Added the name and message of the Exception if it is used on logError or logHandledException methods.
+- Deprecated the current logPushNotification method and introduced a new one that fix  compatibility issues.
+
 ## 5.15.2
 *Mar 21, 2023*
 - Fix an error from `5.15.1` around identifying users. 
