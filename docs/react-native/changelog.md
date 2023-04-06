@@ -12,6 +12,11 @@ _April 5, 2023_
 * Update iOS SDK to 5.17.1
 ## 3.10.9
 _March 29, 2023_
+
+:::warning Important
+This version has known issues and should not be used
+:::
+
 * Added two new scripts, one to install the dependencies for Androd and the other for iOS
 
 ## 3.10.8
