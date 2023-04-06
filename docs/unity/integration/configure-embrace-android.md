@@ -10,9 +10,9 @@ The Embrace Unity SDK includes an editor script to assist with properly linking 
 
 # Configure the Android platform
 
-Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace editor window. Select the Android tab and fill in your unique `APP_ID` and `API_TOKEN`. You can get the correct values from the settings page in your dash.
+Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace editor window. Select the Android tab and fill in your unique `App ID` and `Symbol Upload API Token`. You can get the correct values from the settings page in your dash.
 
-<img src={require('@site/static/images/android-configure-editor-window.png').default} />
+<img src={require('@site/static/images/unity-ios-configure-editor-window.png').default} />
 
 On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 
