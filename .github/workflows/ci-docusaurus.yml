@@ -106,7 +106,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Preview deployed to: ${{ env.URL }}${{ env.BASE_URL }}/'
+              body: 'Preview of ${{ github.sha }} deployed to: ${{ env.URL }}${{ env.BASE_URL }}/'
             })
 
       - name: Invalidate CloudFront cache
