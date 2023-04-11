@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.12.0
+*April 11, 2023*
+
+* Improved Embrace configuration editor UI 
+* Removed editor UI assets from runtime resources
+* Updated Android SDK to version 5.16.0
+
 ## 1.11.0
 *March 24, 2023*
 
