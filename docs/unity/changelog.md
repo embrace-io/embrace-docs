@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.12.1
+*April 12, 2023*
+
+* Fixed configuration selection becoming unresponsive in some states
+* Updated iOS SDK to 5.18.0
+
 ## 1.12.0
 *April 11, 2023*
 
