@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.18.0
+*April 12, 2023*
+
+* Fixed issue where view appearance breadcrumbs would not work properly when re-adding the same instance to the navigation stack multiple times.
+* Fixed issue that caused breadcrumb limits to not be applied correctly
+* Improvements to `start` method to defer tasks and have a more consistent runtime
+
 ## 5.17.1
 *April 04, 2023*
 
