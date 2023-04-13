@@ -15,41 +15,41 @@ Configuration options can be accessed in the **Configurations** tab of the **Set
 
 <img src={require('@site/static/images/unity-config-windows.png').default} />
 
-## Configuring Environments
+## Creating and Editing Configurations
 
-Some applications have complex build pipelines.  For example, it's common practice for a development team to work in a "Dev" environment, then push their changes to a "Staging" when features are complete and ready to be tested, and finally released to a "Production" upon final approval. In such cases it may be beneficial define different configuration options for each environment.  The Embrace SDK supports this this type of workflow through the **Environments** list available in the **Settings** window.
+Some applications have complex build pipelines.  For example, it's common practice for a development team to work in a "Dev" environment, then push their changes to a "Staging" when features are complete and ready to be tested, and finally released to a "Production" upon final approval. In such cases it may be beneficial define different configuration options for each environment.  The Embrace SDK supports this this type of workflow through the **Configurations** list available in the **Settings** window.
 
-<img src={require('@site/static/images/unity-environments-configuration.png').default} />
+<img src={require('@site/static/images/unity-configuration-editor.png').default} />
 
-Using this list you can easily add, rename, or remove environments as needed.  Each environment will create an Android and iOS configuration file stored in the Embrace data directory.  
+Using this list you can easily add, rename, or remove configurations as needed.  Each configuration will create an Android and iOS configuration file stored in the Embrace data directory. The names of these configurations are only used to identify them in the Unity editor, and will not be replicated in the Embrace dashboard. 
 
-You can select and configure each environment by clicking on the **"="** icon to the left of each list item in the **Settings** window, or by selecting an environment from the **Getting Started** window.
+You can select and edit each configuration by clicking on the toggle to the left of each list item in the **Settings** window, or by selecting a configuration from the **Getting Started** window.
 
-<img src={require('@site/static/images/unity-environments-select.png').default} />
+<img src={require('@site/static/images/unity-configuration-select.png').default} />
 
-*NOTE: Most of the time users will not see the creation of configuration data when the **Environments** list is edited.  However, if you happen to peek in the **Configurations** folder, you'll notice that upon defining an environment configuration objects are created with a GUID-based name.  They will get automatically renamed to match user input once the **Update Environments** is pressed, or if the **Settings** window loses focus.  See the reference images above for an example.*
+*NOTE: Most of the time users will not see the creation of configuration data when the **Configurations** list is edited.  However, if you happen to peek in the **Configurations** folder, you'll notice that upon defining a configuration objects are created with a GUID-based name.  They will get automatically renamed to match user input once the **Update Configurations** button is pressed, or if the **Settings** window loses focus.  See the reference images above for an example.*
 
-## Specifying Environments At Build Time
+## Specifying Configurations At Build Time
 
-The Embrace SDK also supports specifying a configuration environment at build-time through the use of environment variables defined at the OS level. This feature can enable a CI/CD pipeline to define which environment to build with. We support the follwing definitions:
+The Embrace SDK also supports specifying a configuration at build-time through the use of environment variables defined at the OS level. This feature can enable a CI/CD pipeline to define which configuration to build with. We support the follwing definitions:
 
 ```EMBRACE_ENVIRONMENTS_INDEX```
-* Define this variable with the index number of an existing Embrace configuration environment.
+* Define this variable with the index number of an existing Embrace configuration.
 
 :::warning Important
 Out-of-range indices will result in build failure.
 :::
 
 ```EMBRACE_ENVIRONMENTS_NAME```
-* Define this variable with the name of an existing configuration environment (e.g. "Dev", "Staging", or "Prod");
+* Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
 
 :::warning Important
   We only support the use of a single environment variable to specify an Embrace configuration. Please be aware that defining both variables at build-time will result in a failed build.
 :::
 
-For example, let's assume the following environment configurations are defined ("Dev", "Staging", and "Prod"), and the CI/CD build-time target environment should be "Staging".
+For example, let's assume the following configurations are defined ("Dev", "Staging", and "Prod"), and the CI/CD build-time target environment should be "Staging".
 
-<img src={require('@site/static/images/unity-environments-closeup.png').default} />
+<img src={require('@site/static/images/unity-configuration-closeup.png').default} />
 
 If you'd like to specify "Staging" via it's index, you would define the following:
 
@@ -69,7 +69,7 @@ Alternatively, to specify by the name "Staging":
 
 ## Configuration Output
 
-Users will notice that both default, and environment-defined configurations already have some fields defined upon creation.  These fields correspond to the defaults specified for [Android](/android/features/configuration-file/) and [iOS](/ios/features/configuration-file/). At build time, configuration files are loaded and scanned for **non-default** settings, which are then output to an override configuration file for their specific platforms.
+Users will notice that both default and custom configurations already have some fields defined upon creation.  These fields correspond to the defaults specified for [Android](/android/features/configuration-file/) and [iOS](/ios/features/configuration-file/). At build time, configuration files are loaded and scanned for **non-default** settings, which are then output to an override configuration file for their specific platforms.
 
 <img src={require('@site/static/images/unity-configuration-defaults.png').default} />
 
