@@ -70,7 +70,7 @@ const sidebars = {
         },
         {
           type: "link",
-          href: "https://embrace-io.github.io/embrace-unity-upm/api",
+          href: "https://embrace-io.github.io/embrace-unity-sdk/api",
           label: "Unity",
         },
         {

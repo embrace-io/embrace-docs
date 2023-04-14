@@ -1,7 +1,7 @@
 ---
 title: Crash Reporting
 description: Upload crash reports from your iOS application using the Embrace SDK
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 # Collect your first crash report 
@@ -16,13 +16,16 @@ The first step in initializing crash reporting is configuring which mode you wan
 Open the `Embrace-Info.plist` file you added to the project in the [Session Reporting](/ios/integration/session-reporting) step. Add the following new key to that file.
 
 ```
-CRASH_REPORT_ENABLED
+CRASH_REPORT_PROVIDER
 ```
 
-This is a boolean value.
-Set this to true if you want to use Embrace's internal crash reporting.
-If you prefer to use an existing solution like Crashlytics, set this to false.
-Even when disabled, Embrace will still attempt to mirror the reports from your existing solution so you will still have that data in the Embrace Dashboard.
+This is a string value. You can set this to one of the following options:
+* `embrace` - This is the default value which uses Embrace's internal crash reporting
+* `crashlytics` - Set this value if you intend to use Crashlytics as your main crash reporter. Embrace will still attempt to mirror reports sent to Crashlytics so you will still have that data available in the Embrace Dashboard.
+* `none` - This option completely turns off all crash reporting from Embrace but the rest of the SDK will continue to work as normal.
+
+The values are case insensitive. 
+
 
 ## Debuggers
 

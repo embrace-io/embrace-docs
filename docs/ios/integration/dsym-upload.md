@@ -1,7 +1,7 @@
 ---
 title: Uploading dSYMs
 description: Upload dSYM files to see translated stack traces
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # Uploading dSYMs
@@ -97,6 +97,10 @@ If your crashes are not being symbolicated due to dSYM files being missing, see 
 ## Manual Uploads
 
 If your app is using bitcode or a CI system that makes accessing or modifying the build phases impossible, you can still upload your dSYM files manually.
+
+:::info
+Apple is [deprecating Bitcode Enabled submissions](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes#Deprecations) starting with Xcode 14, no longer accepts submissions with bitcode enabled and will remove the ability to build apps with bitcode enabled altogether on future Xcode releases. If your app still has bitcode enabled, it might be a good idea to disable it. 
+:::
 
 When applications are built with bitcode, it means the final binary and symbols only exist on Apple servers post-submission. As such you must download those symbols manually from Apple. You can do this from the Organizer window in Xcode.
 

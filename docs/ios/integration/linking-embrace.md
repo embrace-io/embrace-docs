@@ -1,6 +1,6 @@
 ---
 title: Linking Embrace
-sidebar_position: 2
+sidebar_position: 3
 description: Linking Embrace with your application is quick and easy.
 ---
 
