@@ -1,5 +1,5 @@
 ---
-title: DataDog Integration
+title: Datadog Integration
 description: Learn about the Embrace <> DataDog integration
 sidebar_position: 1
 ---
@@ -18,6 +18,6 @@ To initiate the integration, you'll need to share your Datadog API Key with an E
 2. Navigate to your [organization settings](https://app.datadoghq.com/organization-settings/api-keys)
 3. Click on the "Key" field (**not Key ID**)
 
-<img src={require('@site/static/images/datadog_key_arrow.png').default} alt="Image showing Datadog field needed" />
+<img src={require('@site/static/images/datadog_api_keys.png').default} alt="Image showing Datadog field needed" />
 
 4. Click on the "Copy" button
