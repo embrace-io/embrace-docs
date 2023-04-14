@@ -1,7 +1,7 @@
 ---
 title: Update Embrace
 description: Learn how to update the Embrace SDK
-sidebar_position: 4
+sidebar_position: 9
 ---
 
 # Keeping Embrace Up To Date

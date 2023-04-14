@@ -1,7 +1,7 @@
 ---
 title: Breadcrumbs
 description: Add logging to your iOS application using Breadcrumbs with the Embrace SDK
-sidebar_position: 8
+sidebar_position: 7
 ---
 
 # Add a Breadcrumb
