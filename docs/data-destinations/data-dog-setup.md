@@ -1,5 +1,5 @@
 ---
-title: DataDog Integration
+title: Datadog Integration
 description: Learn about the Embrace <> DataDog integration
 sidebar_position: 1
 ---
