@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.18.1
+*April 19, 2023*
+
+* Fixed issue where cold start sessions could report the incorrect app state (i.e. forground sessions shows as background)
+* Fixed memory leak on swift class name demangling
+* Fix to allow manual end session calls for extensions
+
 ## 5.18.0
 *April 12, 2023*
 
