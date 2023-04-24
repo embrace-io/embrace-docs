@@ -26,9 +26,9 @@ To use the External Dependency Manager you must be using:
 
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
 
-Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`. You can disable the Embrace automatic EDM support from `Tools -> Settings -> Advanced -> Use External Dependency Manager`. **Warning**, disabling EDM support may cause a `DuplicateClassException` at build time.
+Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`. You can disable the Embrace automatic EDM support from `Tools -> Settings -> Advanced -> Use External Dependency Manager`. **Warning**, disabling EDM support may cause a `RuntimeException` due to duplicated classes at build time.
 
-In case that you decided to disable the EDM support from Settings and the build failed because the `DiplicateClassException`, you can still disable the Embrace Dependencies Injection manually by adding the following setting to the root level of your `launcherTemplate.gradle` to prevents the error:
+In case that you decided to disable the EDM support from Settings and the build failed because the `Duplicated Classes RuntimeException`, you can still disable the Embrace Dependencies Injection manually by adding the following setting to the root level of your `launcherTemplate.gradle` to prevents the error:
 
 ```
 swazzler {
