@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.19.0
+*April 25, 2023*
+
+* Fixed an issue that was causing a deadlock in some rare circumstances
+
 ## 5.18.1
 *April 19, 2023*
 
