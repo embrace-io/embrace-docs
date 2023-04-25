@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.19.0
+*April 25, 2023*
+
+* Added performance support for webviews
+* Fixed issue that was causing the app hang at some circumstances
+* Fixed a crash occurred to capture some network request information
+* Fixed internal log that was not sending the data correctly
+
 ## 5.18.1
 *April 19, 2023*
 
