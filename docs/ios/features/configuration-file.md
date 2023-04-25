@@ -36,7 +36,7 @@ As you can see there are many properties available. Even so most apps that use E
 
 #### CRASH_REPORT_PROVIDER *string, optional*
 
-Determines which type of crashr reporting embrace uses. It accepts three values
+Determines which type of crash reporting embrace uses. It accepts three values
 * `embrace` - this is the default value and enables embraces internal crash reporting
 * `crashlytics` - this enables the crashlytics support for crash reporting, this must be the value if you intended to use both embrace and crashlytics together. 
 * `none` - this completely turns off all crashes reporting for embrace, but other functionality, like view tracking, continues to work
