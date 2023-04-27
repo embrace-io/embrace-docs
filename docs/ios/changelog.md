@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.19.1
+*April 27, 2023*
+
+* Fix crash happened when try to write to disk without free space (introduced in 5.17.0)
+* Fixed crash that could occur in EMBSpanContainer when deserializing invalid/corrupt data (introduced in 5.17.0)
+
 ## 5.19.0
 *April 25, 2023*
 
