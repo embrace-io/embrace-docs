@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 5.17.1
+*Apr 27, 2023*
+- Upgrade compileSDK to 33
+- Improvements on our CPU usage and data consumption of our delivery layer 
+
 ## 5.16.0
 *Apr 04, 2023*
 - Added the name and message of the Exception if it is used on logError or logHandledException methods.
