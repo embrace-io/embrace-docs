@@ -18,7 +18,7 @@ swazzler {
 }
 ```
 
-:::info Note
+:::info
 If you want to capture data from inside the notifications then you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_config`. This value is false by default.
 :::
 
