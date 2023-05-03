@@ -39,7 +39,7 @@ Push notifications can also be manually logged from the Flutter SDK. This could 
     String? title,
     String? body, {
     String? subtitle,
-    String? badge,
+    Int? badge,
     String? category,
     String? from,
     String? messageId,
