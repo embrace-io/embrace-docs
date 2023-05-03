@@ -55,7 +55,7 @@ In the root-level `build.gradle` file, add the `embrace-swazzler` dependency:
         google()
     }
     dependencies {
-       classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}'
+       classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="flutter_android" }}'
     }
   }
 ```
