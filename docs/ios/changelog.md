@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.19.2
+*May 2, 2023*
+
+* Added the ability to capture core web vitals for web view experiences in your app.
+
 ## 5.19.1
 *April 27, 2023*
 
