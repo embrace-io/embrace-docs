@@ -9,6 +9,7 @@ sidebar_position: 4
 ## 5.18.0
 *May 4, 2023*
 - Core Web vitals caputure from web views
+- The encoding for extracted file names is enabled for builds that use Android Gradle Plugin 4.2.1 and below. This handles build issues caused by 3rd party plugins that minify classes during the build phase.
 
 ## 5.17.1
 *Apr 27, 2023*
