@@ -16,7 +16,7 @@ Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace 
 
 On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 
-# External Dependency Manager
+# External Dependency Manager - Android Resolver
 
 :::info Notes on minimum versions**
 To use the External Dependency Manager you must be using:
@@ -26,9 +26,11 @@ To use the External Dependency Manager you must be using:
 
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
 
-Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`.  Additionally, the following setting must be added to the root level of your `launcherTemplate.gradle` file to disable our own Gradle plugin's automatic dependency resolver:
+Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`. You can disable the Embrace automatic EDM support from `Tools -> Settings -> Advanced -> Use External Dependency Manager`. **Warning**, disabling EDM support may cause a `RuntimeException` due to duplicated classes at build time.
 
-```gradle
+In case that you decided to disable the EDM support from Settings and the build failed because the `Duplicated Classes RuntimeException`, you can still disable the Embrace Dependencies Injection manually by adding the following setting to the root level of your `launcherTemplate.gradle` to prevents the error:
+
+```
 swazzler {
     disableDependencyInjection = true
 }
@@ -42,40 +44,6 @@ Please note that in order for the `Patch mainTemplate.gradle` setting to take ef
 :::
 
 Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
-
-# Ironsource Mediation
-
-If your project uses Ironsource from AppLovin MAX or as Ads mediation, add the setting to the swazzler configuration in the `launcherTemplate.gradle` file.
-
-```
-swazzler {
-   encodeExtractedFileNames = true
-}
-```
-
-Example:
-```
-apply plugin: 'com.android.application'
-apply plugin: 'embrace-swazzler'
-
-dependencies {
-   implementation project(':unityLibrary')
-}
-
-swazzler {
-   disableDependencyInjection = true
-   encodeExtractedFileNames = true
-}
-
-android {
-   compileSdkVersion **APIVERSION**
-   builtToolsVersion '**BUILDTOOLS**'
-...
-```
-
-:::info More information about this SDK 
-The Ironsource Mediation SDK minifies all the JAR names to a combination of letters and special chars with a sensitive-case system. On non-sensitive-case system, this results in a build exception due to a multiple class definitions for the same provider making the Swazzler plugin transform process impossible to apply due to multiple classes with the same name.
-:::
 
 # Customize Gradle Templates
 
