@@ -6,6 +6,18 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.13.0
+*May 4, 2023*
+
+* The Embrace Unity SDK now detects the presence of the External Dependency Manager and automatically configures the Android Swazzler as required
+* Added additional SDK log silencing options to filter logs by type
+* Exposed new options for ANR capture behavior
+* Added new sample scene to easily trigger ANRs
+* Fixed a bug that added Embrace.xcframework to exported Xcode projects using an absolute rather than relative path
+* Fixed a build-time exception thrown when an Embrace configuration inspector was open when the build was initiated
+* Updated Android SDK to version 5.18.0
+* Updated iOS SDK to version 5.19.2
+
 ## 1.12.1
 *April 12, 2023*
 
