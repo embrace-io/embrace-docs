@@ -5,6 +5,11 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.12.0
+_April 5, 2023_
+* Integration: The script now says which steps it couldn't finish and shows the url of the documentation where it explains how to do that step manually
+* Update Android SDK to 5.18.0
+* Update iOS SDK to 5.19.2
 ## 3.11.0
 _April 5, 2023_
 * Update the install script to recognize native folders instead of a fixed path
