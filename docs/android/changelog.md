@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
-## 5.10.0
+## 5.18.0
 *May 4, 2023*
 - Core Web vitals caputure from web views
 
