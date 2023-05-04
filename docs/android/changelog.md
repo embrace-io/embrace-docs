@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 5.10.0
+*May 4, 2023*
+- Core Web vitals caputure from web views
+
 ## 5.17.1
 *Apr 27, 2023*
 - Upgrade compileSDK to 33
