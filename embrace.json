@@ -3,10 +3,10 @@
     "version": "5.17.1"
   },
   "flutter": {
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "flutter_android": {
-    "version": "5.16.0"
+    "version": "5.17.1"
   },
   "ios": {
     "version": "5.16.3"
