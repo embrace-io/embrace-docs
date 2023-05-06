@@ -6,13 +6,23 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 5.18.1
+*May 5, 2023*
+- Fixed an error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies. 
+
 ## 5.18.0
 *May 4, 2023*
+:::warning Important
+This version has a known issue solved at `5.18.1`. Please do NOT use.
+:::
 - Core Web vitals caputure from web views
 - The encoding for extracted file names is enabled for builds that use Android Gradle Plugin 4.2.1 and below. This handles build issues caused by 3rd party plugins that minify classes during the build phase.
 
 ## 5.17.1
 *Apr 27, 2023*
+:::warning Important
+This version has a known issue solved at `5.18.1`. Please do NOT use.
+:::
 - Upgrade compileSDK to 33
 - Improvements on our CPU usage and data consumption of our delivery layer 
 
