@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+## 1.2.1
+*May 5, 2023*
+- Make the internal dependencies between Embrace packages fixed.
+- Updated Embrace Android SDK to 5.18.0
+
 ## 1.2.0
 *May 3, 2023*
 - Added a method to manually log push notifications
