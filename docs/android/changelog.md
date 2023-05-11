@@ -12,17 +12,11 @@ sidebar_position: 4
 
 ## 5.18.0
 *May 4, 2023*
-:::warning Important
-This version has a known issue solved at `5.18.1`. Please do NOT use.
-:::
 - Core Web vitals caputure from web views
 - The encoding for extracted file names is enabled for builds that use Android Gradle Plugin 4.2.1 and below. This handles build issues caused by 3rd party plugins that minify classes during the build phase.
 
 ## 5.17.1
 *Apr 27, 2023*
-:::warning Important
-This version has a known issue solved at `5.18.1`. Please do NOT use.
-:::
 - Upgrade compileSDK to 33
 - Improvements on our CPU usage and data consumption of our delivery layer 
 
@@ -38,9 +32,6 @@ This version has a known issue solved at `5.18.1`. Please do NOT use.
 
 ## 5.15.1
 *Mar 17, 2023*
-:::warning Important
-This version has a known issue. Please do NOT use.
-:::
 - Improvements in how data is collected after session ends, to avoid extending the app process duration.
 
 ## 5.14.2
@@ -93,17 +84,13 @@ swazzler {
 
 ## 5.9.2
 *Nov 28, 2022*
-:::warning Important
+:::info Important
 This version has a known issue with Gradle < 6.2
 :::
-
 * Improved Embrace startup time
 
 ## 5.9.1
 *Nov 14, 2022*
-:::warning Important
-This version has networking known issues and should not be used
-:::
 * Fixed an internal exception when trying to access the jailbroken status of the device.
 
 ## 5.9.0
@@ -140,7 +127,7 @@ This version has networking known issues and should not be used
 ## 5.6.1
 *Sep 22, 2022*
 
-:::warning Important
+:::info Important
 This version has a known backward compatibility issue between the Unity SDK and the Android SDK
 :::
 
