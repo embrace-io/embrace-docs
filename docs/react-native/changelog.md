@@ -5,6 +5,9 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.12.1
+_May 10, 2023_
+* Added React Native Screen Orientation Tracker
 ## 3.12.0
 _May 4, 2023_
 * Integration: The script now says which steps it couldn't finish and shows the url of the documentation where it explains how to do that step manually.
