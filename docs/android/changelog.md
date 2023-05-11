@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ## 5.18.2
 *May 11, 2023*
-- Fixed a build time error related to disableDependencyInjection property.
+- Fixed a build time error related to `disableDependencyInjection` property.
 
 ## 5.18.1
 *May 5, 2023*
