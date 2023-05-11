@@ -6,9 +6,13 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 5.18.2
+*May 11, 2023*
+- Fixed a build time error related to disableDependencyInjection property.
+
 ## 5.18.1
 *May 5, 2023*
-- Fixed an error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies. 
+- Fixed a build time error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies. 
 
 ## 5.18.0
 *May 4, 2023*
