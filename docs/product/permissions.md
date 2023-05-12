@@ -61,4 +61,4 @@ Projects can also be configured to allow default access for all org members for 
 
 # 4. Example Org and Project Configuration
 
-<img src={require('@site/static/images/RBAC-structure.png').default} alt="Sample Organization Structure with Multiple Teams" />
+<img src={require('@site/static/images/rbac-structure.png').default} alt="Sample Organization Structure with Multiple Teams" />
