@@ -2,8 +2,15 @@
 title: User Permissions on Organizations and Projects
 sidebar_position: 4
 ---
+Roles categorize users and define what permissions those users have in the Embrace dashboard, such as what projects they can read or what settings they can modify.
 
-# SSO Configuration
+# 1. Organization Roles
+
+To configure roles for your organization:
+
+1. Navigate to your [Settings page](https://dash.embrace.io/settings/my-profile/preferences).
+2. Click on the [Users & Teams](https://dash.embrace.io/settings/organization/users-and-teams/users) tab on the left hand navigation bar.
+3. On this page you can add, remove, and edit user roles & teams.
 
 Embrace offers SSO support using SAML 2.0. This documentation goes over how to configure SSO for your organization using OneLogin as the SSO provider, however these steps would be very similar with other providers and Okta, PingIdentity and Google have been tested.
 
