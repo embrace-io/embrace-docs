@@ -3,12 +3,7 @@ title: User Permissions on Organizations and Projects
 sidebar_position: 4
 ---
 
-
 Roles categorize users and define what permissions those users have in the Embrace dashboard, such as what projects they can read or what settings they can modify.
-
-
----
-
 
 # 1. Organization Roles
 
@@ -33,15 +28,10 @@ Examples of what the Admin can configure:
 Users have default access to different projects within Embrace, depending on the individual settings for the projects.
 
 
----
-
 
 # 2. Teams
 
 Embrace teams allow groups of users to organize their project permissions as a group. Only Org Admins can create new teams. Click on the Teams tab on the top of the [Users & Teams page](https://dash.embrace.io/settings/organization/users-and-teams/teams) to edit teams.
-
-
----
 
 
 # 3. Project Permissions
