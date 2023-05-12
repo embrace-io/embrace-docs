@@ -12,44 +12,52 @@ To configure roles for your organization:
 2. Click on the [Users & Teams](https://dash.embrace.io/settings/organization/users-and-teams/users) tab on the left hand navigation bar.
 3. On this page you can add, remove, and edit user roles & teams.
 
-Embrace offers SSO support using SAML 2.0. This documentation goes over how to configure SSO for your organization using OneLogin as the SSO provider, however these steps would be very similar with other providers and Okta, PingIdentity and Google have been tested.
+### Admin Role
 
-If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or Slack us.
+Users have full control over all organization settings, full access to all projects, and full edit access to user & team permissions.
 
-We currently support IdP-initiated login. This means that if you're using SSO for your organization, you should navigate to your organization's SSO portal and select our app from the portal. That will bring you directly to the Embrace dashboard. You will not be able to access the dashboard via SSO if you do not go through your organization's SSO portal. If you prefer to use SP-initiated login, [please let us know](mailto:support@embrace.io) and we'll work with your provider to enable it.
+Examples of what the Admin can configurable:
 
-## Configuring SSO for OneLogin
+- Jira integration
+- Webhook
+- Single Sign-On
 
-In order to properly configure SSO for OneLogin, we'll need two pieces of information which you will need to obtain from OneLogin's web portal:
+### Member Role
 
-1.  **Metadata URL**: This can be found in the OneLogin admin portal, referred to as the Issuer URL. Add the Embrace app connector from OneLogin's App Catalog and navigate to SSO in the side menu. The Issuer URL should be displayed there.
+Users have default access to different projects within Embrace, depending on the individual settings for the projects.
 
-<img src={require('@site/static/images/onelogin-sso-issuer-url.png').default} />
+# 2. Teams
 
-2. **Domain**: In most cases, it will be the domain of your email (i.e. example.com if your email is bob.smith@example.com).
+Embrace teams allow groups of users to organize their project permissions as a group. Only Org Admins can create new teams. Click on the Teams tab on the top of the [Users & Teams page](https://dash.embrace.io/settings/organization/users-and-teams/teams) to edit teams.
 
-Once you have obtained those two pieces of information, navigate to [dash.embrace.io](https://dash.embrace.io) and select your app:
-1. Navigate to the **Settings Page** (gear icon on the top right hand corner of the dashboard).
-2. Select the **SSO Tab**.
-*Note: SSO is an enterprise-level feature and you'll need to contact support@embrace.io if it has not yet been enabled for your organization.*
-3. Once you're able to access the **SSO Tab**, input your **Metadata URL** and your **Domain**.
-*Note: You must be an admin to make changes to the SSO configuration.*
+# 3. Project Permissions
 
-<img src={require('@site/static/images/sso-configuration.png').default} />
+Each project in Embrace can be configured to allow certain access to a subset of your users within your organization.
 
-4. Select if you wish to **Allow Login** or not. If you toggle **Allow Login**, you will allow your organization's users to bypass the SSO flow. If your organization adheres to strict SSO policies, this is highly **not recommended**.
+To configure roles for your projects:
 
-5. Once the **Metadata URL** and **Login Domain** are input and saved, we will generate an **Org ID** for you towards the right of the config panel.
+1. Navigate to your [Settings page](https://dash.embrace.io/settings/my-profile/preferences).
+2. Click on the project you would like to configure on the left hand navigation.
+3. Click on the “Project Permissions” tab on the top of the page.
 
-<img src={require('@site/static/images/sso-org-id.png').default} />
+## Assigning Access to Individual Users and Teams
 
-6. Once you've generated your **Org ID**, head back to your OneLogin portal and select the Embrace app.
+Users and teams can be added to projects individually with a given access level.
 
-7.  Back in OneLogin, navigate to Configuration in the side menu and input your **Org ID** that we've generated into the **Org ID** field.
+### Full Access
 
-<img src={require('@site/static/images/sso-onelogin-org-id.png').default} />
+Users with full access to a project can configure permissions for all users of that project and configure all settings for that project.
 
-If you've followed all of these instructions, SSO should be configured for your organization.
-We're planning on adding support for other SSO providers as well as SP-initiated login in the future.
+### Regular
 
-Feel free to [email us](mailto:support@embrace.io) or Slack us if you have any questions or feedback!
+Users with regular access to a project will have access to all the data sent to Embrace but will have limited controls over changing the permissions of the project.
+
+## Configure Project Default Access Level
+
+Projects can also be configured to allow default access for all org members for a given project. These are the configurable access levels.
+
+- Regular: All members have regular access
+- Restricted: Only specified users & teams have access to the project
+
+# 4. Example Org and Project Configuration
+
