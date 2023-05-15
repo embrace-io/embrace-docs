@@ -35,6 +35,8 @@ Embrace teams allow groups of users to organize their project permissions as a g
 
 
 ## 3. Project Permissions
+Depending on how to organize your Embrace dashboard, projects are either a collection of different apps or the same app across different environments
+<img src={require('@site/static/images/projects-dashboard.png').default} />
 
 Each project in Embrace can be configured to allow certain access to a subset of your users within your organization.
 
