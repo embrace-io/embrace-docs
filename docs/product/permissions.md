@@ -13,6 +13,10 @@ To configure roles for your organization:
 2. Click on the [Users & Teams](https://dash.embrace.io/settings/organization/users-and-teams/users) tab on the left hand navigation bar.
 3. On this page you can add, remove, and edit user roles & teams.
 
+### Adding New Users
+- New users are added as members by default
+- Only Admins can change the roles of users
+
 ### Admin Role
 
 Users have full control over all organization settings, full access to all projects, and full edit access to user & team permissions.
