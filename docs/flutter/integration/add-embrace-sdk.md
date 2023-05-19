@@ -17,7 +17,10 @@ flutter pub add embrace
 ## iOS Setup
 
 ### Add the Embrace App ID
-Create the `Embrace-Info.plist` configuration file. You can find your 5-character app ID and API token in the Embrace dashboard:
+
+From XCode, create a new file in the root of your iOS project called `Embrace-Info.plist` and ensure that it is included in your target (to verify that it is, you can right-click on the file and choose "Show File Inspector"; at the bottom of the File Inspector window "Target Membership" for the Runner project must be checked). 
+
+The contents of the file will look like this (you can find your 5-character app ID and API token in the Embrace dashboard):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
