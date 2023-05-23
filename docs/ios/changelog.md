@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.19.3
+*May 23, 2023*
+* Improvements to diskIO latency that could occur during an app cold start
+* Adds ability to disable network request capture using the Embrace-Info.plist key NETWORK_CAPTURE_ENABLED. If set to false, Embrace will not capture any network requests.
+
 ## 5.19.2
 *May 2, 2023*
 
