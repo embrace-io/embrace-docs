@@ -108,6 +108,10 @@ This dictionary maps domains to capture limits. It should consist of string keys
 
 When present, the value in this field is used as a public RSA key to encrypt any captured network data to protect PII. You can read more about this feature here: [**Network Body Capture**](/ios/features/network-body-capture)
 
+##### NETWORK_CAPTURE_ENABLED *bool, optional*
+
+If set to false, Embrace will not capture any network requests. By default this is enabled.
+
 #### NSURLCONNECTION_PROXY_ENABLE *boolean, optional*
 
 Enables or disables the capture of URLConnection requests entirely within the SDK. When disabled no URLConnection objects are swizzled or recorded. Default is enabled.
