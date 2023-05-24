@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 5.19.0
+*May 24, 2023*
+- Added support for Gradle 8
+
 ## 5.18.2
 *May 11, 2023*
 - Fixed a build time error related to `disableDependencyInjection` property.
