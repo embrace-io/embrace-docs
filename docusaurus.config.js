@@ -179,7 +179,7 @@ const config = {
           },
         ],
 
-        copyright: `Copyright © ${new Date().getFullYear()} Embrace Mobile, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Embrace`,
       },
       prism: {
         theme: lightCodeTheme,
