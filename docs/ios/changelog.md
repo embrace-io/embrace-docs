@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.19.4
+*May 29, 2023*
+* Fixed logHandledException missing the "reason" property.
+* Fix rare crash in EMBDevice buildUUID that was occurring on the Unity platform.
+* Fix issues with JS Exceptions on React Native
+
 ## 5.19.3
 *May 23, 2023*
 * Improvements to diskIO latency that could occur during an app cold start
