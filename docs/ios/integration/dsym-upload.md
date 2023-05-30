@@ -10,6 +10,9 @@ When applications are uploaded to the AppStore they are often stripped of symbol
 Much of the data our SDK collects relies on addresses, including our crash reports.
 If you choose not to upload your dSYM files, you will be required to manually symbolicate these addresses.
 
+**Important Note** Starting on April 25, 2023 Apple will required all apps to be built with Xcode 14. Apple deprecated bitcode in Xcode 14. This means you may be unable to download dSYMs from Apple in the near future. We recommend that you setup automatic uploads.
+[Apple Announcement](https://developer.apple.com/news/?id=jd9wcyov#:~:text=Starting%20April%2025%2C%202023%2C%20iOS,on%20the%20Mac%20App%20Store.)
+
 ## Automatic Uploads
 
 Automatically uploading dSYM files is a good option for you if you are not using bitcode to distribute your application.
