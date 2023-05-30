@@ -5,6 +5,11 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.13.0
+_May 30, 2023_
+* Fix a bug when the app crash with a Javascript error.
+* Update Android SDK to 5.19.0
+* Update iOS SDK to 5.19.4
 ## 3.12.1
 _May 10, 2023_
 * Added React Native Screen Orientation Tracker
