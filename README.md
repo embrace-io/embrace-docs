@@ -5,13 +5,13 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 ## Installation
 
 ```
-$ yarn
+$ npm i
 ```
 
 ## Local Development
 
 ```
-$ yarn start
+$ npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -19,7 +19,7 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 ```
-$ yarn build
+$ npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
@@ -66,5 +66,5 @@ And we customized the following:
 
 ## Tips
 
-- If you make changes to docusaurus.config.js or some other site-wide .js files you typically need to fully restart `yarn start` process and not rely on its hot-reloading
-- Search is only indexed for static `build` and is not available via local `yarn start`
+- If you make changes to docusaurus.config.js or some other site-wide .js files you typically need to fully restart `npm start` process and not rely on its hot-reloading
+- Search is only indexed for static `build` and is not available via local `npm start`
