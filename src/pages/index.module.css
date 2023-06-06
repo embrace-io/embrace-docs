@@ -10,6 +10,11 @@
   overflow: hidden;
 }
 
+[data-theme='light'] .heroBanner {
+  background-image: url("/static/images/background-top-bar-image.png");
+  background-size: 3840px;
+}
+
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
