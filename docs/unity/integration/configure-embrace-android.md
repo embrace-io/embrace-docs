@@ -53,7 +53,23 @@ If your project already modifies these files, then apply the changes below to yo
 
 After creating or finding these template files in your project, make the following changes:
 
-1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. Note that they must be added in two places.
+1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. 
+
+    If using Unity 2022.2 or later, add the following block to the top of your `baseProjectTemplate.gradle` file.
+
+    ```gradle
+    buildscript {
+        repositories {
+            mavenCentral()
+            google()
+        }
+        dependencies {
+            classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}'
+        }
+    }
+    ```
+
+    If using Unity 2022.1 or learlier, update your `baseProjectTemplate.gradle` file as shown below.Note that the `mavenCentral()` repository must be added in two places.
 
     ```gradle
     allprojects {
