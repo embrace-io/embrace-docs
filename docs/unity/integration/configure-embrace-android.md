@@ -66,89 +66,92 @@ After creating or finding these template files in your project, make the followi
 
 1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. 
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
+    ```mdx-code-block
+    import Tabs from '@theme/Tabs';
+    import TabItem from '@theme/TabItem';
+    ```
 
-<Tabs groupId="gradle_version" queryString="gradle_version">
-<TabItem value="agp_below_7_1" label="2022.1 or learlier or AGP below to 7.1.2">
+    <Tabs groupId="gradle_version" queryString="gradle_version">
+    <TabItem value="agp_below_7_1" label="2022.1 or earlier or AGP below 7.1.2">
 
-If using Unity 2022.1 or learlier, update your `baseProjectTemplate.gradle` file as shown below. Note that the `mavenCentral()` repository must be added in two places.
+    If using Unity 2022.1 or earlier, update your `baseProjectTemplate.gradle` file as shown below. Note that the `mavenCentral()` repository must be added in two places.
 
-    allprojects {
+        allprojects {
+            buildscript {
+                repositories {
+                    mavenCentral()
+                }
+                dependencies {
+                    classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}'
+                }
+            }
+            repositories {
+                mavenCentral()
+            }
+        }
+
+    </TabItem>
+    <TabItem value="agp_above_7_1" label="Unity 2022.2 or later or AGP 7.1.2 or later">
+
+    If using Unity 2022.2 or later, add the following block to the top of your `baseProjectTemplate.gradle` file.
+
         buildscript {
             dependencies {
-                 classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}'
+                classpath "io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}"
             }
         }
-        repositories {
-            mavenCentral()
-        }
-    }
 
-</TabItem>
-<TabItem value="agp_above_7_1" label="Unity 2022.2 or later or AGP 7.1.2 or later">
+    Example:
 
-If using Unity 2022.2 or later, add the following block to the top of your `baseProjectTemplate.gradle` file.
-
-    buildscript {
-        dependencies {
-            classpath "io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}"
-        }
-    }
-
-Example:
-
-    buildscript {
-        dependencies {
-            classpath "io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}"
-        }
-    }
-
-    plugins {
-        // If you are changing the Android Gradle Plugin version, make sure it is compatible with the Gradle version preinstalled with Unity
-        // See which Gradle version is preinstalled with Unity here https://docs.unity3d.com/Manual/android-gradle-overview.html
-        // See official Gradle and Android Gradle Plugin compatibility table here https://developer.android.com/studio/releases/gradle-plugin#updating-gradle
-        // To specify a custom Gradle version in Unity, go do "Preferences > External Tools", uncheck "Gradle Installed with Unity (recommended)" and specify a path to a custom Gradle version
-        id 'com.android.application' version '7.1.2' apply false
-        id 'com.android.library' version '7.1.2' apply false
-        **BUILD_SCRIPT_DEPS**
-    }
-
-    task clean(type: Delete) {
-        delete rootProject.buildDir
-    }
-
-Then, under `settingsTemplate.gradle` file, check if the `mavenCentral()` repositories exists.
-
-Example:
-
-    pluginManagement {
-        repositories {
-            **ARTIFACTORYREPOSITORY**
-            gradlePluginPortal()
-            google()
-            mavenCentral()
-        }
-    }
-
-    include ':launcher', ':unityLibrary'
-    **INCLUDES**
-
-    dependencyResolutionManagement {
-        repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
-        repositories {
-            **ARTIFACTORYREPOSITORY**
-            google()
-            mavenCentral()
-            flatDir {
-                dirs "${project(':unityLibrary').projectDir}/libs"
+        buildscript {
+            dependencies {
+                classpath "io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}"
             }
         }
-    }
-</TabItem>
-</Tabs>
+
+        plugins {
+            // If you are changing the Android Gradle Plugin version, make sure it is compatible with the Gradle version preinstalled with Unity
+            // See which Gradle version is preinstalled with Unity here https://docs.unity3d.com/Manual/android-gradle-overview.html
+            // See official Gradle and Android Gradle Plugin compatibility table here https://developer.android.com/studio/releases/gradle-plugin#updating-gradle
+            // To specify a custom Gradle version in Unity, go do "Preferences > External Tools", uncheck "Gradle Installed with Unity (recommended)" and specify a path to a custom Gradle version
+            id 'com.android.application' version '7.1.2' apply false
+            id 'com.android.library' version '7.1.2' apply false
+            **BUILD_SCRIPT_DEPS**
+        }
+
+        task clean(type: Delete) {
+            delete rootProject.buildDir
+        }
+
+    Then, under `settingsTemplate.gradle` file, check if the `mavenCentral()` repositories exists.
+
+    Example:
+
+        pluginManagement {
+            repositories {
+                **ARTIFACTORYREPOSITORY**
+                gradlePluginPortal()
+                google()
+                mavenCentral()
+            }
+        }
+
+        include ':launcher', ':unityLibrary'
+        **INCLUDES**
+
+        dependencyResolutionManagement {
+            repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+            repositories {
+                **ARTIFACTORYREPOSITORY**
+                google()
+                mavenCentral()
+                flatDir {
+                    dirs "${project(':unityLibrary').projectDir}/libs"
+                }
+            }
+        }
+    </TabItem>
+    </Tabs>
 
 2. In `launcherTemplate.gradle`, add the `embrace-swazzler` plugin.
 
