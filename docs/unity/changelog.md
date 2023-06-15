@@ -9,9 +9,6 @@ sidebar_position: 4
 ## 1.14.0
 *June 14, 2023*
 
-* Added `LogInfo`, `LogWarning`, and `LogError` methods to complement existing `LogMessage` method.
-* Added `AddUserPersona` to replace the now obsolete `SetUserPersona`. `SetUserPersona` will be removed in a future update.
-* Added `AddBreadcrumb` to replace the now obsolete `LogBreadcrumb`. `LogBreadcrumb` will be removed in a future update.
 * Fixed a potential compatibility issue with other packages using Mono.Cecil
 * Updated Android SDK to version 5.19.0
 * Updated iOS SDK to version 5.20.0
