@@ -5,6 +5,13 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+## 5.20.0
+*June 16, 2023*
+- Fixed false positive ANR
+- Improvements in AppExitInfo capture logic
+- Fixed bug for network bodies using gzip compression 
+- Added additional logging for unwinding native crashes 
+- Fixed "Get obj folder" swazzler issue
 
 ## 5.19.0
 *May 24, 2023*
