@@ -6,8 +6,17 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.20.1
+*June 16, 2023*
+* Fixes a problem that would cause a deadlock when using the logging interface
+
 ## 5.20.0
 *June 14, 2023*
+
+:::warning Important
+This version has been pulled as an issue was discovered that would cause the app to lock up when using any logging interface. Please use 5.20.1 instead.
+:::
+
 * Fixed a bug that prevented view appearance breadcrumbs from spanning across sessions
 * Fixes concurrency issue that could occur when using moments
 * Fixes deadlock that could occur when querying the applicationState on UIApplication
