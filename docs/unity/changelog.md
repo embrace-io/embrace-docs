@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.14.1
+*June 16, 2023* 
+
+* Updated iOS SDK to version 5.20.1
+
 ## 1.14.0
 *June 14, 2023*
 
