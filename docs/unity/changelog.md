@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.14.0
+*June 14, 2023*
+
+* Fixed a potential compatibility issue with other packages using Mono.Cecil
+* Updated Android SDK to version 5.19.0
+* Updated iOS SDK to version 5.20.0
+
 ## 1.13.0
 *May 4, 2023*
 
