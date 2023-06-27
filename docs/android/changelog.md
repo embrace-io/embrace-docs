@@ -5,6 +5,12 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+## 5.21.0
+*June 27, 2023*
+- Added the method getLastRunEndState() to check whether the last execution crashed or was a clean exit.
+- Fixed a duplicate resources error that failed the build in some scenarios.
+- Fixed a build-time issue reported when using Gradle 8 and configuration cache.
+
 ## 5.20.0
 *June 16, 2023*
 - Fixed false positive ANR
