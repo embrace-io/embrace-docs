@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.21.0
+*June 28, 2023*
+* Added API for querying the end state of the last run
+* Fixed Unity unhandled exception logging behavior
+* Updated Web Vitals feature defaults
+* Migrated storage location of some SDK data
+
 ## 5.20.1
 *June 16, 2023*
 * Fixes a problem that would cause a deadlock when using the logging interface
