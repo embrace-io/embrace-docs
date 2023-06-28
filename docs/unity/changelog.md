@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.15.0
+*June 27, 2023*
+
+* Added `GetLastRunEndState` method to retrieve enum indicating a crash or clean exit on the previous app launch
+* Updated Android SDK to version 5.21.0
+* Updated iOS SDK to version 5.21.0
+
 ## 1.14.1
 *June 16, 2023* 
 
