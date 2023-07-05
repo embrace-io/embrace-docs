@@ -85,7 +85,7 @@ const config = {
           {
             type: "html",
             value:
-              'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://join.slack.com/t/embraceio-community/shared_invite/zt-ywr4jhzp-DLROX0ndN9a0soHMf6Ksow">Slack</a>',
+              'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjx2cc1CVetJ956WoeWlLL65HoyXMb-cyje0xwppOASD5DAg/viewform">Slack</a>',
             position: "right",
           },
         ],
