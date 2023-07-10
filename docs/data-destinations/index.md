@@ -6,4 +6,11 @@ sidebar_position: 0
 
 # Embrace Data Destinations
 
-Embrace Data Destinations allow you to deliver your metrics to your cross-platform observability tool of choice.  To get started, take a look at [DataDog Integration guide](/data-destinations/data-dog-setup.md) or [Grafana Integration guide](/embrace-api/grafana_integrations/).
+As part of our Metrics Forwarding package, Embrace offers a number of Data Destinations to deliver your metrics to your cross-platform observability tool of choice:
+
+* [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
+* Grafana Cloud
+* [Datadog integration guide](/data-destinations/data-dog-setup.md)
+* New Relic
+
+All destinations receive a set of Standard metrics (definitions [here](/embrace-api/supported_metrics_and_queries.md)) in daily, hourly, and five-minutely granularities.
