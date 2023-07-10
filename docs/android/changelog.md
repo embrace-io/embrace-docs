@@ -5,6 +5,19 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+## 5.21.0
+*June 27, 2023*
+- Added the method getLastRunEndState() to check whether the last execution crashed or was a clean exit.
+- Fixed a duplicate resources error that failed the build in some scenarios.
+- Fixed a build-time issue reported when using Gradle 8 and configuration cache.
+
+## 5.20.0
+*June 16, 2023*
+- Fixed false positive ANR
+- Improvements in AppExitInfo capture logic
+- Fixed bug for network bodies using gzip compression 
+- Added additional logging for unwinding native crashes 
+- Fixed get obj folder swazzler issue, we changed our way of getting .so files
 
 ## 5.19.0
 *May 24, 2023*
@@ -20,7 +33,7 @@ sidebar_position: 4
 
 ## 5.18.0
 *May 4, 2023*
-- Core Web vitals caputure from web views
+- Core Web vitals capture from web views
 - The encoding for extracted file names is enabled for builds that use Android Gradle Plugin 4.2.1 and below. This handles build issues caused by 3rd party plugins that minify classes during the build phase.
 
 ## 5.17.1

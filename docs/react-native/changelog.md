@@ -5,6 +5,11 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.13.1
+_Jun 19, 2023_
+* Fixed iOS install script. Now it supports new projects.
+* Updated Android native Embrace SDK dependency to 5.20.0
+* Updated iOS native Embrace SDK dependency to 5.20.1
 ## 3.13.0
 _May 30, 2023_
 * Fix a bug when the app crash with a Javascript error.
