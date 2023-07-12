@@ -5,6 +5,13 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+## 5.22.0
+*July 12, 2023*
+- Implemented CPU and EGL device information for devices with NDK enabled.
+- Fixed a bug that caused coordinates on Jetpack Compose view to be incorrectly set at 0,0.
+- Fixed an issue in the network capture feature for customers using OkHttp3 where the empty request body was not being handled correctly.
+
+
 ## 5.21.0
 *June 27, 2023*
 - Added the method getLastRunEndState() to check whether the last execution crashed or was a clean exit.
