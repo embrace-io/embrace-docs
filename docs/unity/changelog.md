@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.16.0
+*July 13, 2023*
+
+* Fixed an issue that could cause the Unity package manager manifest to be refreshed when a recompile is triggered in the editor
+* Fixed an issue that could lead to unhandled exceptions being lost or misidentified if no valid stack trace was available
+* Updated Android SDK to version 5.22.0
+* Updated iOS SDK to version 5.21.1
+
 ## 1.15.0
 *June 27, 2023*
 
