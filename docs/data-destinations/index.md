@@ -13,4 +13,7 @@ As part of our Metrics Forwarding package, Embrace offers a number of Data Desti
 * [Datadog integration guide](/data-destinations/data-dog-setup.md)
 * New Relic
 
-All destinations receive a set of Standard metrics (definitions [here](/embrace-api/supported_metrics_and_queries.md)) in daily, hourly, and five-minutely granularities.
+All destinations receive a set of Standard metrics in daily, hourly, and five-minutely granularities:
+* crash total
+* sessions total
+* crash free user total
