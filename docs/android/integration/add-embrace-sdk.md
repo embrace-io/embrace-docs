@@ -16,7 +16,8 @@ This is how you add embrace plugin to your project.
 
 Depending on how you configured your project, add the following to your `settings.gradle` (recommended) or project’s `build.gradle` :
 
-Groovy
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
 ```groovy
 pluginManagement {
     repositories {
@@ -28,8 +29,9 @@ pluginManagement {
     }
 }
 ```
+</TabItem>
 
-Kotlin
+<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 pluginManagement {
     repositories {
@@ -41,12 +43,14 @@ pluginManagement {
     }
 }
 ```
+</TabItem>
+</Tabs>
 
 Where `swazzler_version` is defined in `gradle.properties` for better organization.
 
 We are loading the plugin, but not applying it yet.
 
-Then, on `build.gradle` where you want to apply the plugin (most likely `app/build.gradle` or whatever you have named the main module) add the following:
+Then, on the gradle file where you want to apply the plugin (most likely `app/build.gradle` or whatever you have named the main module) add the following:
 
 Groovy
 ```groovy
