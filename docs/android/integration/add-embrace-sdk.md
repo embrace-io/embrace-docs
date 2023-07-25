@@ -12,6 +12,57 @@ For a sample integration, check out the Kotlin and Java apps in the <a href="htt
 
 ## Add Embrace as a dependency
 
+This is how you add embrace plugin to your project.
+
+Depending on how you configured your project, add the following to your `settings.gradle` (recommended) or project’s `build.gradle` :
+
+```groovy
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+
+    plugins {
+        id ‘embrace-swazzler’ version “${swazzler_version}” apply false
+    }
+}
+```
+
+```kotlin
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+    val swazzler_version: String by settings
+    plugins {
+        id(“embrace-swazzler”) version "${swazzlerVersion}" apply false
+    }
+}
+```
+
+Where `swazzler_version` is defined in `gradle.properties` for better organization.
+
+We are loading the plugin, but not applying it yet.
+
+Then, on `build.gradle` where you want to apply the plugin (most likely `app/build.gradle` or whatever you have named the main module) add the following:
+
+```groovy
+plugins {
+    id 'embrace-swazzler'
+}
+```
+
+```kotlin
+plugins {
+    id(“embrace-swazzler”)
+}
+```
+
+### Legacy approach
+
+With the introduction of <a href="https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block" target="_blank">Pluigns DSL</a> users should have little reason to use the legacy method of applying plugins. 
+If you’re still using legacy code for applying plugins, this is how you should add embrace plugin.
+
 The Embrace SDK is available on Maven Central. Make the following changes in your
 project's `build.gradle` file to add the Embrace SDK to your app.
 
@@ -24,6 +75,17 @@ buildscript {
   dependencies {
     classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}'
   }
+}
+```
+
+```kotlin
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("io.embrace:embrace-swazzler:$swazzler_version")
+    }
 }
 ```
 
@@ -46,6 +108,10 @@ android {
   }
   ...
 }
+```
+
+```kotlin
+apply(plugin = “embrace-“swazzler)
 ```
 
 The Swazzler works as a support process during build time for the Embrace SDK to work properly during run time. It performs a few key functions:
