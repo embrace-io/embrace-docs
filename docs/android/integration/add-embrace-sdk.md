@@ -14,7 +14,7 @@ For a sample integration, check out the Kotlin and Java apps in the <a href="htt
 
 This is how you add embrace plugin to your project.
 
-Depending on how you configured your project, add the following to your `settings.gradle` (recommended) or project’s `build.gradle` :
+Depending on how you configured your project, add the following to your `settings.gradle`:
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -57,9 +57,13 @@ pluginManagement {
 
 Where `swazzler_version` is defined in `gradle.properties` for better organization.
 
+```groovy
+swazzler_version={{ embrace_sdk_version platform="android" }}
+```
+
 We are loading the plugin, but not applying it yet.
 
-Then, on the gradle file where you want to apply the plugin (most likely `app/build.gradle` or whatever you have named the main module) add the following:
+Then, on the `app/build.gradle` add the following:
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="groovy" label="Groovy">
