@@ -21,8 +21,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="groovy" label="Groovy">
 ```groovy
 pluginManagement {
     repositories {
@@ -34,9 +32,7 @@ pluginManagement {
     }
 }
 ```
-</TabItem>
 
-<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 pluginManagement {
     repositories {
@@ -48,6 +44,18 @@ pluginManagement {
     }
 }
 ```
+
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
+```groovy
+probando
+```
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+probando kotlin```
 </TabItem>
 </Tabs>
 
