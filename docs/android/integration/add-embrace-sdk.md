@@ -16,6 +16,7 @@ This is how you add embrace plugin to your project.
 
 Depending on how you configured your project, add the following to your `settings.gradle` (recommended) or project’s `build.gradle` :
 
+Groovy
 ```groovy
 pluginManagement {
     repositories {
@@ -28,6 +29,7 @@ pluginManagement {
 }
 ```
 
+Kotlin
 ```kotlin
 pluginManagement {
     repositories {
@@ -46,12 +48,14 @@ We are loading the plugin, but not applying it yet.
 
 Then, on `build.gradle` where you want to apply the plugin (most likely `app/build.gradle` or whatever you have named the main module) add the following:
 
+Groovy
 ```groovy
 plugins {
     id 'embrace-swazzler'
 }
 ```
 
+Kotlin
 ```kotlin
 plugins {
     id(“embrace-swazzler”)
@@ -66,6 +70,7 @@ If you’re still using legacy code for applying plugins, this is how you should
 The Embrace SDK is available on Maven Central. Make the following changes in your
 project's `build.gradle` file to add the Embrace SDK to your app.
 
+Groovy
 ```groovy
 buildscript {
   repositories {
@@ -78,6 +83,7 @@ buildscript {
 }
 ```
 
+Kotlin
 ```kotlin
 buildscript {
     repositories {
@@ -91,6 +97,7 @@ buildscript {
 
 Then, apply the Embrace swazzler plugin in your `app/build.gradle` file. Also, specify that the Embrace SDK uses Java 8 features with the `compileOptions` settings.
 
+Groovy
 ```groovy
 apply plugin: 'com.android.application'
 apply plugin: 'embrace-swazzler'
@@ -110,6 +117,7 @@ android {
 }
 ```
 
+Kotlin
 ```kotlin
 apply(plugin = “embrace-“swazzler)
 ```
