@@ -48,14 +48,19 @@ pluginManagement {
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="groovy" label="Groovy">
+
 ```groovy
 probando
 ```
+
 </TabItem>
 
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
-probando kotlin```
+probando kotlin
+```
+
 </TabItem>
 </Tabs>
 
