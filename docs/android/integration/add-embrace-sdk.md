@@ -16,6 +16,8 @@ This is how you add embrace plugin to your project.
 
 Depending on how you configured your project, add the following to your `settings.gradle` (recommended) or project’s `build.gradle` :
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
 ```groovy
 pluginManagement {
     repositories {
@@ -26,12 +28,6 @@ pluginManagement {
         id ‘embrace-swazzler’ version “${swazzler_version}” apply false
     }
 }
-```
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="groovy" label="Groovy">
-```groovy
-import bla
 ```
 </TabItem>
 
