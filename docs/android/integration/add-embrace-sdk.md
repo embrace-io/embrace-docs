@@ -16,6 +16,11 @@ This is how you add embrace plugin to your project.
 
 Depending on how you configured your project, add the following to your `settings.gradle` (recommended) or project’s `build.gradle` :
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="groovy" label="Groovy">
 ```groovy
