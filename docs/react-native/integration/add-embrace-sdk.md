@@ -107,7 +107,7 @@ buildscript {
     google()
   }
   dependencies {
-    classpath('io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}')
+    classpath "io.embrace:embrace-swazzler:${findProject(':react-native-embrace').properties['emb_android_sdk']}"
   }
 }
 ```
