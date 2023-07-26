@@ -8,7 +8,7 @@ sidebar_position: 4
 ## 3.14.0
 _Jul 26, 2023_
 * Fixed Android install script. Now it supports new projects created with RN 0.71+.
-* Changed the way we add swazzler dependency, now it will grab the swazzler verison from a file. 
+* Changed the way we add swazzler dependency, now it will grab the swazzler version from a file. 
 **You need to update it manually. Please visit [add embrace sdk](/react-native/integration/add-embrace-sdk/?rn-platform=android&platform=android#manually) for more information**
 * Fix Redux Action Tracker, it was catching any error produced in reducers
 * Updated Android native Embrace SDK dependency to 5.22.0.
