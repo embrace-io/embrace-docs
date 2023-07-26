@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.21.1
+*July 10, 2023*
+* Updates to interface when adding exceptions from Unity, Flutter, and React Native
+* Updates API payload to match interface changes for exceptions
+
 ## 5.21.0
 *June 28, 2023*
 * Added API for querying the end state of the last run
