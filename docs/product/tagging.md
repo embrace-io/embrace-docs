@@ -17,4 +17,4 @@ POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  
 
 ## Consume tagged crashes via Metrics API
 
-Query for `hourly_crashes_by_tag` at [Metrics API](/product/metrics_api)
+Query for `hourly_crashes_by_tag` at [Metrics API](/embrace-api/code-samples)
