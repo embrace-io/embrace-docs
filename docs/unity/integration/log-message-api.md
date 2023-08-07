@@ -4,7 +4,7 @@ description: Trigger alerts for your Unity application using logs with the Embra
 sidebar_position: 9
 ---
 
-# Adding Alerts
+# Adding Logs
 
 As we've discussed in the [Session Reporting section](/unity/integration/session-reporting/), Embrace may not always be able to upload session information when the app is sent to the background for a variety of reasons.
 

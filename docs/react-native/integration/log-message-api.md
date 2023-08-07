@@ -4,7 +4,7 @@ description: Trigger alerts for your React Native application using logs with th
 sidebar_position: 10
 ---
 
-# Adding Alerts
+# Adding Logs
 
 As we've discussed in the [Session Reporting section](/react-native/integration/session-reporting), Embrace uploads its sessions on the next app launch.
 This delay may seem like it hurts the immediacy of the data you are seeing, but the reality is that at scale this still means you are finding out about issues very quickly.
