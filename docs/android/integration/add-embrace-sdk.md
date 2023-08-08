@@ -31,7 +31,7 @@ pluginManagement {
     }
 
     plugins {
-        id ‘embrace-swazzler’ version “${swazzler_version}” apply false
+        id ‘io.embrace.swazzler’ version “${swazzler_version}” apply false
     }
 }
 ```
@@ -47,7 +47,7 @@ pluginManagement {
     }
     val swazzler_version: String by settings
     plugins {
-        id(“embrace-swazzler”) version "${swazzlerVersion}" apply false
+        id(“io.embrace.swazzler”) version "${swazzlerVersion}" apply false
     }
 }
 ```
@@ -70,7 +70,7 @@ Then, on the `app/build.gradle` add the following:
 
 ```groovy
 plugins {
-    id 'embrace-swazzler'
+    id 'io.embrace.swazzler'
 }
 ```
 
@@ -80,7 +80,7 @@ plugins {
 
 ```kotlin
 plugins {
-    id(“embrace-swazzler”)
+    id(“io.embrace.swazzler”)
 }
 ```
 
