@@ -6,6 +6,9 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 ## 3.14.0
+_Aug 8, 2023_
+* Reduce severity from Warn to Info (log) in the success message in the React Navigation Tracker (v0.2.14).
+* Fix a bug in React Navigation Tracker (v0.2.14) if the plugin was started with a null Navigation reference. 
 _Jul 26, 2023_
 * Fixed Android install script. Now it supports new projects created with RN 0.71+.
 * Changed the way we add swazzler dependency, now it will grab the swazzler version from a file. 
