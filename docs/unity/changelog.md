@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.17.0
+*August 10, 2023*
+
+* Added methods for recording iOS and Android push notification data.
+* Updated exceptions API to allow logging of handled exceptions as well as unhandled exceptions.
+* Fixed an issue that caused Embrace to clean the Unity build cache unnecessarily when the weaver assembly was recompiled in projects not using automatic network capture.
+* Fixed a potential null reference exception when calling `GetSessionProperties` on Android before initializing the SDK.
+* Updated Android SDK to version 5.23.0
+
 ## 1.16.0
 *July 13, 2023*
 
