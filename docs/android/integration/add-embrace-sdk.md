@@ -12,8 +12,91 @@ For a sample integration, check out the Kotlin and Java apps in the <a href="htt
 
 ## Add Embrace as a dependency
 
+This is how you add embrace plugin to your project.
+
+Depending on how you configured your project, add the following to your `settings.gradle`:
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+
+    plugins {
+        id ‘io.embrace.swazzler’ version “${swazzler_version}” apply false
+    }
+}
+```
+
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+    val swazzler_version: String by settings
+    plugins {
+        id(“io.embrace.swazzler”) version "${swazzlerVersion}" apply false
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Where `swazzler_version` is defined in `gradle.properties` for better organization.
+
+```groovy
+swazzler_version={{ embrace_sdk_version platform="android" }}
+```
+
+We are loading the plugin, but not applying it yet.
+
+Then, on the `app/build.gradle` add the following:
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+plugins {
+    id 'io.embrace.swazzler'
+}
+```
+
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+plugins {
+    id(“io.embrace.swazzler”)
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Legacy approach
+
+With the introduction of <a href="https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block" target="_blank">Pluigns DSL</a> users should have little reason to use the legacy method of applying plugins. 
+If you’re still using legacy code for applying plugins, this is how you should add embrace plugin.
+
 The Embrace SDK is available on Maven Central. Make the following changes in your
 project's `build.gradle` file to add the Embrace SDK to your app.
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
 
 ```groovy
 buildscript {
@@ -27,7 +110,28 @@ buildscript {
 }
 ```
 
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("io.embrace:embrace-swazzler:$swazzler_version")
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Then, apply the Embrace swazzler plugin in your `app/build.gradle` file. Also, specify that the Embrace SDK uses Java 8 features with the `compileOptions` settings.
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
 
 ```groovy
 apply plugin: 'com.android.application'
@@ -47,6 +151,17 @@ android {
   ...
 }
 ```
+
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+apply(plugin = “embrace-“swazzler)
+```
+
+</TabItem>
+</Tabs>
 
 The Swazzler works as a support process during build time for the Embrace SDK to work properly during run time. It performs a few key functions:
 * Adds the Embrace SDK dependencies to the app's dependency list.
