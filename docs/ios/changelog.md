@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.22.0
+*Aug 14, 2023*
+* Enhancements in Data Persistence related to Sessions.
+* Improved support for `WKNavigationDelegate` APIs.
+
 ## 5.21.1
 *July 10, 2023*
 * Updates to interface when adding exceptions from Unity, Flutter, and React Native
