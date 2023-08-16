@@ -8,11 +8,6 @@ sidebar_position: 2
 
 You can pull data from the Embrace Metrics API using any SDK for your language that supports PromQL. You will need an Embrace Metrics API token, which can be found in your app's settings page.
 
-You can pull data for one, multiple, or all of your organization's apps in a single query.  
-* To pull for a single app, include the `app_id` in the PromQL filter, eg: `sum(hourly_sessions_total{app_id="a1b2C3"})`
-* To pull for multiple apps, include a pipe-delimited array in the filter, eg: `sum(hourly_sessions_total{app_id=~"a1b2C3|Z9Y8x7"})`
-* To pull for all apps, do not include any app ID in the filter, eg: `sum(hourly_sessions_total{})`
-
 ## Node Example
 
 This example uses the [prometheus-query](https://www.npmjs.com/package/prometheus-query) NPM library for JavaScript/TypeScript.
