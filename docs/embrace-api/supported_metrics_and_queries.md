@@ -43,7 +43,7 @@ sum(sessions_by_device_model_total{app_id="<app ID>", app_version="1.2.3"}) by (
 
 # Custom Metrics
 
-Users may request Custom Metrics via their Customer Success Manager.  These will be available via the Metrics API and can also be forwarded to your organization's (observability platform of choice)[/data-destinations].
+Users may request Custom Metrics via their Customer Success Manager.  These will be available via the Metrics API and can also be forwarded to your organization's [observability platform of choice](/data-destinations).
 
 ## Sample Queries
 
