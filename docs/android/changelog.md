@@ -5,6 +5,14 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+## 5.23.0
+*August 09, 2023*
+- Bug fix on retryLock function. Now the ANR monitoring is Serialized to work on a single background executor.
+- Fixed missing Unity ANR
+- Added Plugins DSL support. Please note that embrace-swazzler plugin name changed to "io.embrace.swazzler" when declared through Plugins DSL. Legacy buildscript block declaration remains as "embrace-swazzler".
+- Fixed custom breadcrumbs limit
+- Fixed an issue when capturing network content for OkHttp3 in calls with gzip content.
+
 ## 5.22.0
 *July 12, 2023*
 - Implemented CPU and EGL device information for devices with NDK enabled.
