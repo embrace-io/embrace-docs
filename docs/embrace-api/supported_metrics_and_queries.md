@@ -25,21 +25,20 @@ All metrics are available in daily, hourly, and five-minute increments.  To quer
 ### Sessions Grouped by App Version
 
 ```promql
-sum(sessions_total{app_id="<app ID>"}) by (app_version)
+sum(daily_sessions_by_device_total{app_id="<app ID>"}) by (app_version)
 ```
 
 ### Sessions Grouped by Devices
 
 ```promql
-sum(sessions_by_device_model_total{app_id="<app ID>"}) by (device_model)
+sum(daily_sessions_by_device_total{app_id="<app ID>"}) by (device_model)
 ```
 
 ### Sessions Grouped by Devices for a Given App Version
 
 ```promql
-sum(sessions_by_device_model_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
+sum(daily_sessions_by_device_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
 ```
-
 
 # Custom Metrics
 
