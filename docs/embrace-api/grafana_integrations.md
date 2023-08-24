@@ -37,20 +37,20 @@ Set the data source to "embrace-metrics-api:.  In the "Query options" section se
 The following PromQL query will provide a time series graph for total sessions for your app.
 
 ```promql
-sessions_total{app_id="<app ID>"}
+hourly_sessions_total{app_id="<app ID>"}
 ```
 
 You'll notice that this gives you several time series, one for each combination of app version and OS version. We can 
 make these more useful by grouping by app version. Each time series now shows the total sessions grouped by app version.
 
 ```promql
-sum(sessions_total{app_id="<app ID>"}) by (app_version)
+sum(hourly_sessions_total{app_id="<app ID>"}) by (app_version)
 ```
 
 You can filter by an app version by specifying it in the expression
 
 ```promql
-sessions_total{app_id="<app ID>", app_version="1.2.3"}
+hourly_sessions_total{app_id="<app ID>", app_version="1.2.3"}
 ```
 
 You can visualize multiple app versions in the same graph by creating multiple queries and filtering by each desired app version.
@@ -66,7 +66,7 @@ Add a new panel and select the Table visualization.
 Add a query. For our example, we’ll see the session counts grouped by app version and OS version in descending order.
 
 ```promql
-sum(sessions_total{app_id="<app ID>"}) by (app_version, os_version)
+sum(hourly_sessions_total{app_id="<app ID>"}) by (app_version, os_version)
 ```
 
 Select the Transform tab and add the Reduce transform. Set Mode to "Series to rows", Calculations to "Total", and turn "Labels to fields" on.

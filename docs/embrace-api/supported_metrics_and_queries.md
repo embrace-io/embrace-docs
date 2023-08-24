@@ -4,7 +4,9 @@ description: Learn about the metrics and queries supported by the Embrace API
 sidebar_position: 3
 ---
 
-# Standard Metrics
+# Supported Metrics
+
+## Standard Metrics
 
 The following metrics are supported as Standard Metrics. Metrics with the suffix "_total" are counters. All other metrics are gauges.
 
@@ -20,32 +22,31 @@ All metrics are available in daily, hourly, and five-minute increments.  To quer
 | sessions_total | Number of sessions | app_version, os_version |
 | users | Number of unique users | app_version, os_version |
 
-## Sample Queries
+### Sample Queries
 
-### Sessions Grouped by App Version
-
-```promql
-sum(sessions_total{app_id="<app ID>"}) by (app_version)
-```
-
-### Sessions Grouped by Devices
+#### Sessions Grouped by App Version
 
 ```promql
-sum(sessions_by_device_model_total{app_id="<app ID>"}) by (device_model)
+sum(daily_sessions_by_device_total{app_id="<app ID>"}) by (app_version)
 ```
 
-### Sessions Grouped by Devices for a Given App Version
+#### Sessions Grouped by Devices
 
 ```promql
-sum(sessions_by_device_model_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
+sum(daily_sessions_by_device_total{app_id="<app ID>"}) by (device_model)
 ```
 
+#### Sessions Grouped by Devices for a Given App Version
 
-# Custom Metrics
+```promql
+sum(daily_sessions_by_device_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
+```
+
+## Custom Metrics
 
 Users may request Custom Metrics via their Customer Success Manager.  These will be available via the Metrics API and can also be forwarded to your organization's [observability platform of choice](/data-destinations).
 
-## Sample Queries
+### Sample Queries
 
 You can pull data for one, multiple, or all of your organization's apps in a single query.  
 * To pull for a single app, include the `app_id` in the PromQL filter, eg: `sum(hourly_anr_free_sessions{app_id="a1b2C3"})`
