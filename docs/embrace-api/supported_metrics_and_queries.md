@@ -62,6 +62,6 @@ sum(hourly_anr_free_sessions{app_id="a1b2C3"})
 sum(hourly_crashes_by_tag{app_id=~"a1b2C3|Z9Y8x7"}) by (tag_value) 
 ```
 * To pull for all apps, do not include any app ID in the filter,
-```
+```promql
 sum(five_minute_network_requests_fails_by_domain{}) by (domain)
 ```
