@@ -37,7 +37,7 @@ const FeatureList = [
     title: 'API',
     Svg: require('@site/static/images/api.svg').default,
     description: (<>Build custom integrations with Embrace API.</>),
-    link: 'embrace-metrics-api/',
+    link: 'embrace-api/',
   },
 ];
 
