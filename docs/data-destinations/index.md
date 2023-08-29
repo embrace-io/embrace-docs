@@ -8,7 +8,7 @@ sidebar_position: 0
 
 As part of our Metrics Forwarding package, Embrace offers a number of Data Destinations to deliver your metrics to your cross-platform observability tool of choice:
 
-* [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
+* [Grafana visualization suite integration guide](/metrics-api/grafana_integrations/)
 * Grafana Cloud
 * [Datadog integration guide](/data-destinations/datadog-setup.md)
 * [New Relic integration guide](/data-destination/new-relic-setup.md)

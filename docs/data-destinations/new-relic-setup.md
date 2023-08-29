@@ -1,7 +1,7 @@
 ---
-title: Datadog Integration
+title: New Relic Integration
 description: Learn about the Embrace <> New Relic integration
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Data Destinations New Relic Integration
@@ -15,9 +15,8 @@ To initiate the integration, you'll need to share your New Relic API Key with an
 ## Pulling your New Relic API Key
 
 1. Log into your New Relic account
-2. Navigate to your [organization settings](https://app.datadoghq.com/organization-settings/api-keys)
-3. Click on the "Key" field (**not Key ID**)
-
-<img src={require('@site/static/images/datadog_api_keys.png').default} alt="Image showing Datadog field needed" />
-
-4. Click on the "Copy" button
+2. Navigate to your [API Keys](https://one.newrelic.com/admin-portal/api-keys/home)
+3. Search the "INGEST-LICENSE" type key (if you don't have one, you need to create a new one)
+4. Click on the "..." button
+<img src={require('@site/static/images/new_relic_api_keys.png').default} alt="Image showing New Relic field needed" />
+5. Click on the "Copy key" button
