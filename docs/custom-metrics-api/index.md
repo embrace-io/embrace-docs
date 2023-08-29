@@ -26,29 +26,24 @@ The following metrics are supported to create using the API.
 ## API Endpoints
 
 All the endpoints have the same authentication and authorization method, url and parameters.
-
 - `URL`: `https://api.embrace.io/custom-metrics/api/v1/app/{app_id}/custom-metrics`
 
 ### Request
 
 Headers:
-
-- `Authorization`: token that we created on the dashboard api to authorize our requests.
-  ex: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
+- `Authorization`: custom metrics api token that we are going to use to authorize our requests.
+  i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
 
 URL Params:
-
-- `app_id`: application id in which we are going to manage the custom metrics. ex: `appID1`
-- `custom_metric_name`: custom metric name that we use to identify it. ex: `my_custom_metric_name`
+- `app_id`: application id in which we are going to manage the custom metrics. i.e.: `appID1`
+- `custom_metric_name`: custom metric name that we use to identify it. i.e.: `my_custom_metric_name`
 
 Body:
-
-- `name`: custom metric name that we use to identify it. ex: `my_custom_metric_name`
-- `metric`: metric name. ex: `sessions_total`.
+- `name`: custom metric name that we use to identify it. i.e.: `my_custom_metric_name`
+- `metric`: metric name. i.e.: `sessions_total`.
 - `group_by`: list of group by that we are going to use to group the metric. It can be empty.
-  ex: `["os_version", "app_version"]`.
-- `filters` list of filters that we are going to apply on the metric. It can be empty. ex:
-
+  i.e.: `["os_version", "app_version"]`.
+- `filters` list of filters that we are going to apply on the metric. It can be empty. i.e.:
 ```json
 {
   "op": "and",
@@ -61,23 +56,22 @@ Body:
   ]
 }
 ```
-
 - `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
-  is turned on. ex: `["five_minute", "hourly", "daily"]`
+  is turned on. i.e.: `["five_minute", "hourly", "daily"]`
 
 ### Response
 
 Body:
-`custom_metric_id`: the unique ID for the metric created. ex: `XZ5BDQk`
+- `custom_metric_id`: the unique ID for the metric created. i.e.: `XZ5BDQk`
 
 Status code:
-`200`: request was successful and we return a body with new information.
-`204`: request was successful and we don't return a body.
-`400`: the url params and body are not correct. ex: name of the metric doesn't exist, app_id is empty, etc.
-`403`: you don't have access to this app id.
-`404`: metric that you are trying to consume doesn't exist.
-`409`: metric that you are trying to create already exists with that app id and custom metric name.
-`500`: there was an internal error and you should retry later.
+- `200`: request was successful and we return a body with new information.
+- `204`: request was successful and we don't return a body.
+- `400`: the url params and body are not correct. ex: name of the metric doesn't exist, app_id is empty, etc.
+- `403`: you don't have access to this app id.
+- `404`: metric that you are trying to consume doesn't exist.
+- `409`: metric that you are trying to create already exists with that app id and custom metric name.
+- `500`: there was an internal error and you should retry later.
 
 ### Create custom metric
 
@@ -126,13 +120,11 @@ body:
 ```
 
 Possible status codes:
-
 - `200`
 - `400` body or url params are wrong.
 - `403` you don't have permissions.
 - `409` custom metric already exists.
 - `500` internal server error.
--
 
 ### Get custom metrics
 
@@ -165,12 +157,10 @@ body:
 ```
 
 Possible status codes:
-
 - `200`
 - `400` url params are wrong
 - `403` you don't have permissions.
 - `500` internal server error.
--
 
 ### Delete custom metrics
 
@@ -179,8 +169,10 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
 ```
 
+```
+status_code: 204
+```
 Possible status codes:
-
 - `204`
 - `400` url params are wrong
 - `403` you don't have permissions.
