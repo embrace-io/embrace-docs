@@ -31,14 +31,14 @@ All the endpoints have the same authentication and authorization method, url and
 ### Request
 
 Headers:
-- `Authorization`: custom metrics api token that we are going to use to authorize our requests.
-  i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
+- `Authorization`: we are going to use a Bearer token to authorize and authenticate our requests. 
+i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
 
 URL Params:
 - `app_id`: application id in which we are going to manage the custom metrics. i.e.: `appID1`
 - `custom_metric_name`: custom metric name that we use to identify it. i.e.: `my_custom_metric_name`
 
-Body:
+Body Params:
 - `name`: custom metric name that we use to identify it. i.e.: `my_custom_metric_name`
 - `metric`: metric name. i.e.: `sessions_total`.
 - `group_by`: list of group by that we are going to use to group the metric. It can be empty.
@@ -61,10 +61,10 @@ Body:
 
 ### Response
 
-Body:
+Body Params:
 - `custom_metric_id`: the unique ID for the metric created. i.e.: `XZ5BDQk`
 
-Status code:
+Status codes:
 - `200`: request was successful and we return a body with new information.
 - `204`: request was successful and we don't return a body.
 - `400`: the url params and body were not correct.
@@ -74,6 +74,8 @@ Status code:
 - `500`: there was an internal error and you should retry later.
 
 ### Create custom metric
+
+#### Request
 
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics' \
@@ -91,9 +93,12 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 }'
 ```
 
-```bash
-status_code: 200
-body: 
+#### Response
+
+Status codes: `200`, `400`, `403`, `409` and `500`.
+
+#### OK
+```json 
 {
   "custom_metric_id": "y8vayvn",
   "app_id": "appID1",
@@ -119,23 +124,26 @@ body:
 }
 ```
 
-Possible status codes:
-- `200`
-- `400` body or url params were wrong.
-- `403` you don't have permissions.
-- `409` custom metric already exists.
-- `500` internal server error.
+#### Error (500)
+```json
+{
+  "message": "internal server error"
+}
+```
 
 ### Get custom metrics
 
+#### Request
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
 ```
 
-```bash
-status_code: 200
-body: 
+#### Response
+Status codes: `200`, `400`, `409` and `500`.
+
+#### OK (200)
+```json
 {
   "results": [
     {
@@ -156,27 +164,32 @@ body:
 }
 ```
 
-Possible status codes:
-- `200`
-- `400` url params were wrong
-- `403` you don't have permissions.
-- `500` internal server error.
+#### Error (400)
+```json
+{
+  "message": "app id can't be empty"
+}
+```
 
 ### Delete custom metrics
 
+#### Request
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/sessions_total_v1' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
 ```
 
+#### Response
+Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
+
+#### OK (204), body is empty
+
+#### Error (404)
+```json
+{
+  "message": "metric sessions_total_v1 doesn't exist"
+}
 ```
-status_code: 204
-```
-Possible status codes:
-- `204`
-- `400` url params are wrong
-- `403` you don't have permissions.
-- `404` custom metric doesn't exist.
-- `500` internal server error.
+
 
 
