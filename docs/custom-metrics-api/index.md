@@ -1,14 +1,15 @@
 ---
 title: Introduction
-description: Learn about the Embrace Custom Metrics API to manage custom metrics 
+description: Learn about the Embrace Custom Metrics API to manage custom metrics
 sidebar_position: 0
 ---
 
 # Embrace Custom Metrics API
 
-The Embrace Custom Metrics API allows you to manage (create, get and delete) the custom metrics of you organization. 
-These will be available via the Metrics API and can also be forwarded to your organization's [observability platform of choice](/data-destinations).
-You can follow [this](/metrics-api/code_samples) guide to see how queries custom metrics. 
+The Embrace Custom Metrics API allows you to manage (create, get and delete) the custom metrics of you organization.
+These will be available via the Metrics API and can also be forwarded to your
+organization's [observability platform of choice](/data-destinations).
+You can follow [this](/metrics-api/code_samples) guide to see how queries custom metrics.
 
 ## Prerequisites
 
@@ -18,36 +19,51 @@ You can follow [this](/metrics-api/code_samples) guide to see how queries custom
 
 The following metrics are supported to create using the API.
 
-| Metric                            | Description                                               | Filters                               | Time granularity           |           
-|-----------------------------------|-----------------------------------------------------------|---------------------------------------|----------------------------|
-| sessions_total                    | Number of sessions                                        | app_version, os_version               | five_minute, hourly, daily |
+| Metric         | Description        | Group By                | Filters                 | Time granularity           |           
+|----------------|--------------------|-------------------------|-------------------------|----------------------------|
+| sessions_total | Number of sessions | app_version, os_version | app_version, os_version | five_minute, hourly, daily |
 
 ## API Endpoints
 
 All the endpoints have the same authentication and authorization method, url and parameters.
+
 - `URL`: `https://api.embrace.io/custom-metrics/api/v1/app/{app_id}/custom-metrics`
 
 ### Request
 
 Headers:
-- `Authorization`: token that we created on the dashboard api to authorize our requests. ex: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
+
+- `Authorization`: token that we created on the dashboard api to authorize our requests.
+  ex: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
 
 URL Params:
+
 - `app_id`: application id in which we are going to manage the custom metrics. ex: `appID1`
 - `custom_metric_name`: custom metric name that we use to identify it. ex: `my_custom_metric_name`
 
 Body:
+
 - `name`: custom metric name that we use to identify it. ex: `my_custom_metric_name`
 - `metric`: metric name. ex: `sessions_total`.
-- `group_by`: list of group by that we are going to use to group the metric. It can be empty. ex: `["os_version", "app_version"]`.
+- `group_by`: list of group by that we are going to use to group the metric. It can be empty.
+  ex: `["os_version", "app_version"]`.
 - `filters` list of filters that we are going to apply on the metric. It can be empty. ex:
+
 ```json
 {
-  "op":"and",
-  "children":[{"field_op":"eq","key":"os_version","val":"12"}]
+  "op": "and",
+  "children": [
+    {
+      "field_op": "eq",
+      "key": "os_version",
+      "val": "12"
+    }
+  ]
 }
 ```
-- `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly is turned on. ex: `["five_minute", "hourly", "daily"]`
+
+- `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
+  is turned on. ex: `["five_minute", "hourly", "daily"]`
 
 ### Response
 
@@ -110,12 +126,14 @@ body:
 ```
 
 Possible status codes:
+
 - `200`
 - `400` body or url params are wrong.
 - `403` you don't have permissions.
 - `409` custom metric already exists.
 - `500` internal server error.
-- 
+-
+
 ### Get custom metrics
 
 ```bash
@@ -147,11 +165,13 @@ body:
 ```
 
 Possible status codes:
+
 - `200`
 - `400` url params are wrong
 - `403` you don't have permissions.
 - `500` internal server error.
-- 
+-
+
 ### Delete custom metrics
 
 ```bash
@@ -160,6 +180,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 ```
 
 Possible status codes:
+
 - `204`
 - `400` url params are wrong
 - `403` you don't have permissions.
