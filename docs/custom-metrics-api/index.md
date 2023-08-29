@@ -26,7 +26,7 @@ The following metrics are supported to create using the API.
 ## API Endpoints
 
 All the endpoints have the same authentication and authorization method, url and parameters.
-- `URL`: `https://api.embrace.io/custom-metrics/api/v1/app/{app_id}/custom-metrics`
+- `URL`: `https://api.embrace.io/custom-metrics`
 
 ### Request
 
