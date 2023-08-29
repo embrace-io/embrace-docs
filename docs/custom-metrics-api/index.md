@@ -67,7 +67,7 @@ Body:
 Status code:
 - `200`: request was successful and we return a body with new information.
 - `204`: request was successful and we don't return a body.
-- `400`: the url params and body are not correct. ex: name of the metric doesn't exist, app_id is empty, etc.
+- `400`: the url params and body were not correct.
 - `403`: you don't have access to this app id.
 - `404`: metric that you are trying to consume doesn't exist.
 - `409`: metric that you are trying to create already exists with that app id and custom metric name.
@@ -121,7 +121,7 @@ body:
 
 Possible status codes:
 - `200`
-- `400` body or url params are wrong.
+- `400` body or url params were wrong.
 - `403` you don't have permissions.
 - `409` custom metric already exists.
 - `500` internal server error.
@@ -158,7 +158,7 @@ body:
 
 Possible status codes:
 - `200`
-- `400` url params are wrong
+- `400` url params were wrong
 - `403` you don't have permissions.
 - `500` internal server error.
 
