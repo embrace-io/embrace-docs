@@ -10,6 +10,6 @@ docs/react-native @embrace-io/team-react-native
 docs/unity @embrace-io/sdk-unity
 
 # docs/best-practices
-docs/embrace-metrics-api @embrace-io/team-data-metrics-api
-docs/embrace-custom-metrics-api @embrace-io/team-data-metrics-api
+docs/metrics-api @embrace-io/team-data-metrics-api
+docs/custom-metrics-api @embrace-io/team-data-metrics-api
 # docs/product
