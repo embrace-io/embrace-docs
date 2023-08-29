@@ -28,14 +28,14 @@ All the endpoints have the same authentication and authorization method, url and
 
 ### Request
 
-Headers
+Headers:
 - `Authorization`: token that we created on the dashboard api to authorize our requests. ex: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
 
-URL Params
+URL Params:
 - `app_id`: application id in which we are going to manage the custom metrics. ex: `appID1`
 - `custom_metric_name`: custom metric name that we use to identify it. ex: `my_custom_metric_name`
 
-Body
+Body:
 - `name`: custom metric name that we use to identify it. ex: `my_custom_metric_name`
 - `metric`: metric name. ex: `sessions_total`.
 - `group_by`: list of group by that we are going to use to group the metric. It can be empty. ex: `["os_version", "app_version"]`.
@@ -69,7 +69,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc' \
 --data '{
-    "name": "sessions_total_v3",
+    "name": "sessions_total_v1",
     "metric": "sessions_total",
     "group_by": ["app_version"],
     "filters": {
@@ -86,7 +86,7 @@ body:
 {
   "custom_metric_id": "y8vayvn",
   "app_id": "appID1",
-  "name": "sessions_total_v3",
+  "name": "sessions_total_v1",
   "metric": "sessions_total",
   "filters": {
     "op": "and",
