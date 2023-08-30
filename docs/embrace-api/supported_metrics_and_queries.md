@@ -22,6 +22,17 @@ All metrics are available in daily, hourly, and five-minute increments.  To quer
 | sessions_total | Number of sessions | app_version, os_version |
 | users | Number of unique users | app_version, os_version |
 
+### Dimension reduction - "Other"
+
+To reduce storage costs with various observability platforms (eg Datadog), Embrace Metrics examine high cardinality dimensions for consolidation.
+
+#### Device Models
+There are over 40,000 unique device models on the Android operating system.  The bottom 39,000 models account for ~30% of data typically.  Aside from being expensive to store this many unique values, it is also unwieldy to visualize or review!
+
+<img src={require('@site/static/images/embrace-api/device_other.png').default} alt="Chart showing data by device ranking" />
+
+Currently, we roll together these long-tail device models into an "other" value.
+
 ### Sample Queries
 
 #### Sessions Grouped by App Version
