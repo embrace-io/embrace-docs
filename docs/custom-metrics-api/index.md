@@ -9,7 +9,7 @@ sidebar_position: 0
 The Embrace Custom Metrics API allows you to manage (create, get and delete) the custom metrics of you organization.
 These will be available via the Metrics API and can also be forwarded to your
 organization's [observability platform of choice](/data-destinations).
-You can follow [this](/metrics-api/code_samples) guide to see how queries custom metrics.
+You can follow [this](/embrace-api/code_samples) guide to see how queries custom metrics.
 
 ## Prerequisites
 
