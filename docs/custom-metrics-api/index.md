@@ -6,9 +6,10 @@ sidebar_position: 0
 
 # Embrace Custom Metrics API
 
-The Embrace Custom Metrics API allows you to manage (create, get and delete) the custom metrics of you organization.
+The Embrace Custom Metrics API allows you to manage (create, get and delete) the custom metrics of your organization.
 These will be available via the Metrics API and can also be forwarded to your
 organization's [observability platform of choice](/data-destinations).
+
 You can follow [this](/embrace-api/code_samples) guide to see how queries custom metrics.
 
 ## Prerequisites
@@ -68,9 +69,9 @@ Status codes:
 - `200`: request was successful and we return a body with new information.
 - `204`: request was successful and we don't return a body.
 - `400`: the url params and body were not correct.
-- `403`: you don't have access to this app id.
+- `403`: you don't have access to execute that operation.
 - `404`: metric that you are trying to consume doesn't exist.
-- `409`: metric that you are trying to create already exists with that app id and custom metric name.
+- `409`: metric that you are trying to create already exists.
 - `500`: there was an internal error and you should retry later.
 
 ### Create custom metric
@@ -127,7 +128,7 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
 #### Error (500)
 ```json
 {
-  "message": "internal server error"
+  "message": "we had an internal error, please try again later"
 }
 ```
 
