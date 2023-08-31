@@ -40,8 +40,8 @@ URL Params:
 - `custom_metric_name`: custom metric name that we use to identify it. i.e.: `my_custom_metric_name`
 
 Body Params:
-- `name`: custom metric name that we use to identify it. i.e.: `my_custom_metric_name`
-- `metric`: metric name. i.e.: `sessions_total`.
+- `name`: name you want to provide this new metric i.e.: `my_custom_metric_name`
+- `metric`: base Embrace metric this new metric will be built from. i.e.: `sessions_total`.
 - `group_by`: list of group by that we are going to use to group the metric. It can be empty.
   i.e.: `["os_version", "app_version"]`.
 - `filters` list of filters that we are going to apply on the metric. It can be empty. i.e.:
