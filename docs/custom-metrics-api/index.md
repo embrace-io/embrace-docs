@@ -20,9 +20,35 @@ You can follow [this](/embrace-api/code_samples) guide to see how queries custom
 
 The following metrics are supported to create using the API.
 
-| Metric         | Description        | Group By                | Filters                 | Time granularity           |           
-|----------------|--------------------|-------------------------|-------------------------|----------------------------|
-| sessions_total | Number of sessions | app_version, os_version | app_version, os_version | five_minute, hourly, daily |
+| Metric                 | Description                | Group By                                           | Filters                                            | Time granularity       |
+|------------------------|----------------------------|----------------------------------------------------|----------------------------------------------------|------------------------|
+| sessions_total         | Number of sessions         | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country | five_minute, hourly, daily |
+| crash_total            | Number of crashes          | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, tag_name, tag_value, msg | five_minute, hourly, daily |
+| network_requests_total | Number of network requests | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, domain, path, method, status_code | five_minute, hourly, daily |
+| anr_total              | Number of ANR Samples      | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, method, sample_type | five_minute, hourly, daily |
+| moment_total           | Number of Moments          | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, name | five_minute, hourly, daily |
+| log_total              | Number of Logs             | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, msg, type | five_minute, hourly, daily |
+
+### Supported Parameters for Filters
+
+| Filter           | Metrics                | Type   |  Operators                    | Example      |
+|------------------|------------------------|--------|-------------------------------|--------------|
+| app_version      | all                    | string | eq, neq, in                   | `{"key": "app_version", "field_op": "eq", "val": "3.2.0"}` |
+| os_version       | all                    | string | eq, neq, in                   | `{"key": "os_version", "field_op": "eq", "val": "12.0"}` |
+| os_major_version | all                    | int    | eq, neq, gt, gte, lt, lte, in | `{"key": "os_major_version", "field_op": "gt", "val": 9}` |
+| country          | all                    | string | eq, neq, in                   | `{"key": "country", "field_op": "eq", "val": "US"}` |
+| tag_name         | crash_total            | string | eq, neq                       | `{"key": "tag_name", "field_op": "eq", "val": "crash_tag_name"}` |
+| tag_value        | crash_total            | string | eq, neq                       | `{"key": "tag_value", "field_op": "eq", "val": "crash_tag_value"}` |
+| msg              | crash_total, log_total | string | like                          | `{"key": "msg", "field_op": "like", "val": "substring"}` |
+| domain           | network_requests_total | string | eq, neq, like, nlike, in      | `{"key": "domain", "field_op": "like", "val": "example.com"}` |
+| path             | network_requests_total | string | eq, like                      | `{"key": "path", "field_op": "like", "val": "foo/bar"}` |
+| method           | network_requests_total | string | eq                            | `{"key": "method", "field_op": "eq", "val": "post"}` |
+| status_code      | network_requests_total | range  | eq                            | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}` |
+| method           | anr_total              | string | eq, like, in                  | `{"key": "method", "field_op": "like", "val": "com.foo.method"}` |
+| sample_type      | anr_total              | string | eq, neq, in                   | `{"key": "sample_type", "field_op": "eq", "val": "first"}` |
+| name             | moment_total           | string | eq, neq, like, nlike, in      | `{"key": "name", "field_op": "eq", "val": "moment1"}` |
+| type             | log_total              | string | eq                            | `{"key": "type", "field_op": "eq", "val": "error"}` |
+
 
 ## API Endpoints
 
@@ -176,7 +202,7 @@ Status codes: `200`, `400`, `409` and `500`.
 
 #### Request
 ```bash
-curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/sessions_total_v1' \
+curl -X DELETE --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/sessions_total_v1' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
 ```
 
