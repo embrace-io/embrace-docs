@@ -1,5 +1,5 @@
 ---
-title: Embrace Metrics API Code Samples
+title: Code Samples
 description: Learn how to integrate the Metrics API using code
 sidebar_position: 2
 ---
@@ -74,7 +74,7 @@ from prometheus_api_client.utils import parse_datetime
 
 # Constants
 # Embrace prometheus public URL
-embrace_public_url  = 'https://api.embrace.io/metrics'
+metrics_api_endpoint = 'https://api.embrace.io/metrics'
 
 # API-Token
 token = '<your token>'
@@ -83,7 +83,7 @@ token = '<your token>'
 app_id = '<your app id>'
 
 # Connect library to Embrace prometheus host
-prom = PrometheusConnect(url =embrace_public_url, headers={'Authorization': 'Bearer ' + token})
+prom = PrometheusConnect(url=metrics_api_endpoint, headers={'Authorization': 'Bearer ' + token})
 
 # Get the list of all available metrics
 metrics = prom.all_metrics()

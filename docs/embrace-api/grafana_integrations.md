@@ -28,11 +28,11 @@ Use the [provided JSON file](https://github.com/embrace-io/grafana-metric-plugin
 
 Add a new panel and set the visualization to "Time series".
 
-<img src={require('@site/static/images/embrace-api/timeseries_visualization.png').default} alt="Image showing Grafana timeseries visualization" />
+<img src={require('@site/static/images/metrics-api/timeseries_visualization.png').default} alt="Image showing Grafana timeseries visualization" />
 
 Set the data source to "embrace-metrics-api:.  In the "Query options" section set the "Min interval". Currently only the following intervals are supported: 1m, 5m, 10m, 15m, 30m, 1hr, and 1d. **Keep in mind that Prometheus only supports 11,000 points per time series.**
 
-<img src={require('@site/static/images/embrace-api/query_options.jpg').default} alt="Grafana timeseries visualization" />
+<img src={require('@site/static/images/metrics-api/query_options.jpg').default} alt="Grafana timeseries visualization" />
 
 The following PromQL query will provide a time series graph for total sessions for your app.
 
@@ -55,13 +55,13 @@ hourly_sessions_total{app_id="<app ID>", app_version="1.2.3"}
 
 You can visualize multiple app versions in the same graph by creating multiple queries and filtering by each desired app version.
 
-<img src={require('@site/static/images/embrace-api/two_timeseries_panel.png').default} alt="Multiple PromQL queries can be visualized on the same panel" />
+<img src={require('@site/static/images/metrics-api/two_timeseries_panel.png').default} alt="Multiple PromQL queries can be visualized on the same panel" />
 
 ## Creating Tables
 
 Add a new panel and select the Table visualization. 
 
-<img src={require('@site/static/images/embrace-api/table_visualization.png').default} alt="Image showing Grafana timeseries visualization" />
+<img src={require('@site/static/images/metrics-api/table_visualization.png').default} alt="Image showing Grafana timeseries visualization" />
 
 Add a query. For our example, we’ll see the session counts grouped by app version and OS version in descending order.
 
@@ -71,14 +71,14 @@ sum(hourly_sessions_total{app_id="<app ID>"}) by (app_version, os_version)
 
 Select the Transform tab and add the Reduce transform. Set Mode to "Series to rows", Calculations to "Total", and turn "Labels to fields" on.
 
-<img src={require('@site/static/images/embrace-api/transform_series_to_rows.png').default} alt="Image showing Grafana timeseries visualization" />
+<img src={require('@site/static/images/metrics-api/transform_series_to_rows.png').default} alt="Image showing Grafana timeseries visualization" />
 
 The table should now have the columns Field, app_version, os_version, and Total. Let’s get rid of that "Field" column. 
 
 Add a new transformation, "Organize fields". You’ll see that each column can be renamed or hidden. Click the eye icon to hide the "Field" column.
 
-<img src={require('@site/static/images/embrace-api/organize_fields.png').default} alt="Image showing Grafana timeseries visualization" />
+<img src={require('@site/static/images/metrics-api/organize_fields.png').default} alt="Image showing Grafana timeseries visualization" />
 
 Finally, you can sort the rows in descending order by clicking on the label for the Total order.
 
-<img src={require('@site/static/images/embrace-api/table_panel_preview.png').default} alt="Image showing Grafana table visualization with data" caption="View session counts grouped by app version and OS version" />
+<img src={require('@site/static/images/metrics-api/table_panel_preview.png').default} alt="Image showing Grafana table visualization with data" caption="View session counts grouped by app version and OS version" />
