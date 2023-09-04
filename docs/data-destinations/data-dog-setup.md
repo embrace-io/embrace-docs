@@ -12,7 +12,7 @@ sidebar_position: 1
 
 To initiate the integration, you'll need to share your Datadog API Key and your Datadog Site URL with an Embrace onboarding specialist.
 
-## Pulling your Datadog API Key
+## Pulling your Datadog API Key ([Datadog Documentation](https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token))
 
 1. Log into your Datadog account
 2. Navigate to your [organization settings](https://app.datadoghq.com/organization-settings/api-keys)
