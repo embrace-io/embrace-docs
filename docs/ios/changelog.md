@@ -6,6 +6,42 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.22.0
+*Aug 14, 2023*
+* Enhancements in Data Persistence related to Sessions.
+* Improved support for `WKNavigationDelegate` APIs.
+
+## 5.21.1
+*July 10, 2023*
+* Updates to interface when adding exceptions from Unity, Flutter, and React Native
+* Updates API payload to match interface changes for exceptions
+
+## 5.21.0
+*June 28, 2023*
+* Added API for querying the end state of the last run
+* Fixed Unity unhandled exception logging behavior
+* Updated Web Vitals feature defaults
+* Migrated storage location of some SDK data
+
+## 5.20.1
+*June 16, 2023*
+* Fixes a problem that would cause a deadlock when using the logging interface
+
+## 5.20.0
+*June 14, 2023*
+
+:::warning Important
+This version has been pulled as an issue was discovered that would cause the app to lock up when using any logging interface. Please use 5.20.1 instead.
+:::
+
+* Fixed a bug that prevented view appearance breadcrumbs from spanning across sessions
+* Fixes concurrency issue that could occur when using moments
+* Fixes deadlock that could occur when querying the applicationState on UIApplication
+* Fixes bug that could occur when writing session metadata to disk, causing corrupt session data
+* Adds API to manually log push notifications from Unity
+* Updates the dsym upload tool to leverage the CI_ARCHIVE_PATH envvar in the framework search paths if set. This is common in Xcode Cloud CI.
+* Improvements to the upload subsystem to better handle the transfer of data to the Embrace backend. This includes optimizing how payloads are created to prevent unnecessary work, and an updated retry system to better handle network failures.
+
 ## 5.19.4
 *May 29, 2023*
 * Fixed logHandledException missing the "reason" property.

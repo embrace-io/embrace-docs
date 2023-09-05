@@ -6,6 +6,20 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+## 1.4.0
+*Jul 20, 2023*
+- Added logHandledDartError() method to record exceptions that have been handled.
+- Updated Embrace Android SDK to 5.22.0
+- Updated Embrace iOS SDK to 5.21.1
+
+## 1.3.0
+*Jul 5, 2023*
+- Added getLastRunEndState() method to retrieve an enum indicating a crash or clean exit on the previous run of the app.
+- Export the expected Embrace Android SDK version as a gradle property.
+- Fix for some dart errors not showing on iOS when reported through logDartError().
+- Updated Embrace Android SDK to 5.21.0
+- Updated Embrace iOS SDK to 5.21.0
+
 ## 1.2.1
 *May 5, 2023*
 - Make the internal dependencies between Embrace packages fixed.

@@ -4,7 +4,7 @@ sidebar_position: 7
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
 
-# Adding Alerts
+# Adding Logs
 
 Typically the Embrace SDK uploads data at the end of a session. However, some situations 
 might require instant feedback, such as hunting an especially difficult bug, troubleshooting 

@@ -5,6 +5,34 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+## 5.23.0
+*August 09, 2023*
+- Bug fix on retryLock function. Now the ANR monitoring is Serialized to work on a single background executor.
+- Fixed missing Unity ANR
+- Added Plugins DSL support. Please note that embrace-swazzler plugin name changed to "io.embrace.swazzler" when declared through Plugins DSL. Legacy buildscript block declaration remains as "embrace-swazzler".
+- Fixed custom breadcrumbs limit
+- Fixed an issue when capturing network content for OkHttp3 in calls with gzip content.
+
+## 5.22.0
+*July 12, 2023*
+- Implemented CPU and EGL device information for devices with NDK enabled.
+- Fixed a bug that caused coordinates on Jetpack Compose view to be incorrectly set at 0,0.
+- Fixed an issue in the network capture feature for customers using OkHttp3 where the empty request body was not being handled correctly.
+
+
+## 5.21.0
+*June 27, 2023*
+- Added the method getLastRunEndState() to check whether the last execution crashed or was a clean exit.
+- Fixed a duplicate resources error that failed the build in some scenarios.
+- Fixed a build-time issue reported when using Gradle 8 and configuration cache.
+
+## 5.20.0
+*June 16, 2023*
+- Fixed false positive ANR
+- Improvements in AppExitInfo capture logic
+- Fixed bug for network bodies using gzip compression 
+- Added additional logging for unwinding native crashes 
+- Fixed get obj folder swazzler issue, we changed our way of getting .so files
 
 ## 5.19.0
 *May 24, 2023*
@@ -20,7 +48,7 @@ sidebar_position: 4
 
 ## 5.18.0
 *May 4, 2023*
-- Core Web vitals caputure from web views
+- Core Web vitals capture from web views
 - The encoding for extracted file names is enabled for builds that use Android Gradle Plugin 4.2.1 and below. This handles build issues caused by 3rd party plugins that minify classes during the build phase.
 
 ## 5.17.1

@@ -9,7 +9,7 @@ const embraceSdkVersion = require("./src/remark/embrace-sdk-version");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Embrace Documentation",
-  tagline: "Learn how to set up comprehensive mobile app performance monitoring.",
+  tagline: "Take the guesswork out of building next-level mobile experiences.",
   favicon: "/images/favicon.png",
   trailingSlash: true,
   noIndex: false,
@@ -76,7 +76,7 @@ const config = {
 
       navbar: {
         logo: {
-          alt: "Embrace Mobile",
+          alt: "Embrace",
           src: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
           srcDark: "images/embrace_logo_white-text_transparent-bg_400x200.svg",
         },
@@ -85,7 +85,7 @@ const config = {
           {
             type: "html",
             value:
-              'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://join.slack.com/t/embraceio-community/shared_invite/zt-ywr4jhzp-DLROX0ndN9a0soHMf6Ksow">Slack</a>',
+              'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjx2cc1CVetJ956WoeWlLL65HoyXMb-cyje0xwppOASD5DAg/viewform">Slack</a>',
             position: "right",
           },
         ],
@@ -110,16 +110,24 @@ const config = {
                 to: "https://embrace.io/product/",
               },
               {
+                label: "User Session Insights",
+                to: "https://embrace.io/product/user-session-insights/",
+              },
+              {
                 label: "Crash Reporting",
                 to: "https://embrace.io/product/crash-reporting/",
               },
               {
-                label: "Session Replay",
-                to: "https://embrace.io/product/session-replay/",
+                label: "Network Monitoring",
+                to: "https://embrace.io/product/network-monitoring/",
               },
               {
-                label: "App Health and Stability",
-                to: "https://embrace.io/product/app-health-and-stability/",
+                label: "ANR Reporting",
+                to: "https://embrace.io/product/anr-reporting/",
+              },
+              {
+                label: "Error Tracking",
+                to: "https://embrace.io/product/error-tracking/",
               },
             ],
           },
@@ -127,20 +135,28 @@ const config = {
             title: " ",
             items: [
               {
-                label: "Network Monitoring",
-                to: "https://embrace.io/product/network-monitoring/",
+                label: "App Exits",
+                to: "https://embrace.io/product/app-exits/",
               },
               {
-                label: "Error Log Management",
-                to: "https://embrace.io/product/error-log-management/",
+                label: "Custom Dashboards",
+                to: "https://embrace.io/product/custom-dashboards/",
               },
               {
-                label: "Real-Time Dashboards",
-                to: "https://embrace.io/product/real-time-dashboards/",
+                label: "Alerting",
+                to: "https://embrace.io/product/alerting/",
               },
               {
-                label: "Unity",
-                to: "https://embrace.io/unity/",
+                label: "App Performance",
+                to: "https://embrace.io/product/app-performance/",
+              },
+              {
+                label: "Integrations",
+                to: "https://embrace.io/product/integrations/",
+              },
+              {
+                label: "API",
+                to: "https://embrace.io/product/api/",
               },
             ],
           },
@@ -163,7 +179,7 @@ const config = {
           },
         ],
 
-        copyright: `Copyright © ${new Date().getFullYear()} Embrace Mobile, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Embrace`,
       },
       prism: {
         theme: lightCodeTheme,

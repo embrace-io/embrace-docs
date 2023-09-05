@@ -5,6 +5,22 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.14.0
+_Aug 8, 2023_
+* Reduce severity from Warn to Info (log) in the success message in the React Navigation Tracker (v0.2.14).
+* Fix a bug in React Navigation Tracker (v0.2.14) if the plugin was started with a null Navigation reference. 
+_Jul 26, 2023_
+* Fixed Android install script. Now it supports new projects created with RN 0.71+.
+* Changed the way we add swazzler dependency, now it will grab the swazzler version from a file. 
+**You need to update it manually. Please visit [add embrace sdk](/react-native/integration/add-embrace-sdk/?rn-platform=android&platform=android#manually) for more information**
+* Fix Redux Action Tracker, it was catching any error produced in reducers
+* Updated Android native Embrace SDK dependency to 5.22.0.
+* Updated iOS native Embrace SDK dependency to 5.21.1.
+## 3.13.1
+_Jun 21, 2023_
+* Fixed iOS install script. Now it supports new projects created with RN 0.71+.
+* Updated Android native Embrace SDK dependency to 5.20.0.
+* Updated iOS native Embrace SDK dependency to 5.20.1.
 ## 3.13.0
 _May 30, 2023_
 * Fix a bug when the app crash with a Javascript error.

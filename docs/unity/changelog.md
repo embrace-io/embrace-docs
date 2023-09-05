@@ -6,6 +6,42 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.17.0
+*August 10, 2023*
+
+* Added methods for recording iOS and Android push notification data.
+* Updated exceptions API to allow logging of handled exceptions as well as unhandled exceptions.
+* Fixed an issue that caused Embrace to clean the Unity build cache unnecessarily when the weaver assembly was recompiled in projects not using automatic network capture.
+* Fixed a potential null reference exception when calling `GetSessionProperties` on Android before initializing the SDK.
+* Updated Android SDK to version 5.23.0
+
+## 1.16.0
+*July 13, 2023*
+
+* Fixed an issue that could cause the Unity package manager manifest to be refreshed when a recompile is triggered in the editor
+* Fixed an issue that could lead to unhandled exceptions being lost or misidentified if no valid stack trace was available
+* Updated Android SDK to version 5.22.0
+* Updated iOS SDK to version 5.21.1
+
+## 1.15.0
+*June 27, 2023*
+
+* Added `GetLastRunEndState` method to retrieve enum indicating a crash or clean exit on the previous app launch
+* Updated Android SDK to version 5.21.0
+* Updated iOS SDK to version 5.21.0
+
+## 1.14.1
+*June 16, 2023* 
+
+* Updated iOS SDK to version 5.20.1
+
+## 1.14.0
+*June 14, 2023*
+
+* Fixed a potential compatibility issue with other packages using Mono.Cecil
+* Updated Android SDK to version 5.19.0
+* Updated iOS SDK to version 5.20.0
+
 ## 1.13.0
 *May 4, 2023*
 
