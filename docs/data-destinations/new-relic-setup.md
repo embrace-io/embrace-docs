@@ -12,7 +12,8 @@ sidebar_position: 2
 
 To initiate the integration, you'll need to share your New Relic API Key with an Embrace onboarding specialist.
 
-## Pulling your New Relic API Key
+
+## Pulling your New Relic API Key ([New Relic documentation](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#license-key))
 
 1. Log into your New Relic account
 2. Navigate to your [API Keys](https://one.newrelic.com/admin-portal/api-keys/home)
