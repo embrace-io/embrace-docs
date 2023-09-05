@@ -39,6 +39,7 @@ The following metrics are supported to create using the API.
 | os_major_version | all                       | int      | eq, neq, gt, gte, lt, lte, in | `{"key": "os_major_version", "field_op": "gt", "val": 9}` |
 | country          | all                       | string   | eq, neq, in                   | `{"key": "country", "field_op": "eq", "val": "US"}` |
 | model            | all                       | string   | eq, neq, like, nlike, in      | `{"key": "model", "field_op": "eq", "val": "model1"}` |
+| has_anr          | sessions_total            | boolean  | eq                            | `{"key": "has_anr", "field_op": "eq", "val": true}` |
 | tag_name         | crashes_total             | string   | eq, neq                       | `{"key": "tag_name", "field_op": "eq", "val": "crash_tag_name"}` |
 | tag_value        | crashes_total             | string   | eq, neq                       | `{"key": "tag_value", "field_op": "eq", "val": "crash_tag_value"}` |
 | msg              | crashes_total, logs_total | string   | like                          | `{"key": "msg", "field_op": "like", "val": "substring"}` |
