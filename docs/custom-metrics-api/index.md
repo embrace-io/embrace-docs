@@ -49,9 +49,8 @@ The following metrics are supported to create using the API.
 | status_code      | network_requests_total    | range    | eq                            | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}` |
 | method           | anrs_total                | string   | eq, like, in                  | `{"key": "method", "field_op": "like", "val": "com.foo.method"}` |
 | sample_type      | anrs_total                | string   | eq, neq, in                   | `{"key": "sample_type", "field_op": "eq", "val": "first"}` |
-| name             | moments_total             | string   | eq, neq, like, nlike, in      | `{"key": "name", "field_op": "eq", "val": "moment1"}` |
+| name             | moments_total, spans_total| string   | eq, neq, like, nlike, in      | `{"key": "name", "field_op": "eq", "val": "my_name"}` |
 | type             | logs_total                | string   | eq                            | `{"key": "type", "field_op": "eq", "val": "error"}` |
-| name             | spans_total               | string   | eq, neq, like, nlike, in      | `{"key": "name", "field_op": "eq", "val": "span1"}` |
 | outcome          | spans_total               | string   | eq                            | `{"key": "type", "field_op": "eq", "val": "successful"}` |
 | span_attribute   | spans_total               | property | eq, neq                       | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
 
