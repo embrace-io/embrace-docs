@@ -5,6 +5,7 @@ Embrace SDK’s API enables customers to programmatically obtain the current Emb
 If you call the method before the SDK has started, it will return null. So, you need to call it once the SDK has been started. 
 
 **Can I call this method in the background?**
+
 You can also call this method when the app is in the background. If **Background Activity** is enabled for your app, you’ll get the Session ID for that background activity; if it’s disabled, you’ll get `null/nil`.
 
 :::warning Important
