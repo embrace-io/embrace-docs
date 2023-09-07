@@ -1,7 +1,7 @@
 ---
 title: Tracking Views
 description: Track custom views for your Unity application using the Embrace SDK
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Tracking Views

@@ -1,7 +1,7 @@
 ---
 title: Unhandled Exceptions
 description: Automatic Unhandled Exception Logging
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Unhandled Exception Logging

@@ -1,7 +1,7 @@
 ---
 title: Log Network Requests
 description: Log network requests made by your application
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Log Network Requests
