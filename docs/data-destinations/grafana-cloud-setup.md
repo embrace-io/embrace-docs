@@ -1,7 +1,7 @@
 ---
 title: Grafana Cloud Integration
 description: Learn about the Embrace <> Grafana Cloud integration
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Data Destinations Grafana Cloud Integration
