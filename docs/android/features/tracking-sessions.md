@@ -29,6 +29,10 @@ Embrace.getInstance().getCurrentSessionId()
 Embrace.getInstance().currentSessionId
 ```
 
+:::warning Important
+If you call `Embrace.getInstance().getCurrentSessionId()` within the `onForeground()` or `onBackground()` events of your `LifecycleObserver`; keep in mind that this is the moment when the session is ending, and a new one is starting. Therefore, there is a high chance that you will get the session ID of the session that is still ending. You might need to delay the call or obtain the session ID at any other point of the app lifecycle to make sure the session ID you get is the one you are looking for.
+:::
+
 import CallSupport from '@site/shared/call-support.md';
 
 <CallSupport />
