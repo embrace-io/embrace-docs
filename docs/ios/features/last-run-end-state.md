@@ -39,77 +39,6 @@ In order to use this feature, you will need to follow two steps:
 
 </aside>
 
-## Android (Java & Kotlin)
-
----
-
-### Version
-
-This feature is included in Embrace SDK version 5.21.0 and above.
-
-### Implementation
-
-Java
-
-```java
-switch (Embrace.getInstance().getLastRunEndState()) {
-            case CRASH: {
-                Log.e("Embrace", "Last run ended in a crash.");
-                break;
-            }
-            case CLEAN_EXIT: {
-								Log.i("Embrace", "Last run ended without a crash.");
-                break;
-            }
-            case INVALID: {
-                Log.e("Embrace", "Invalid usage of getLastRunEndState(). Please call it after Embrace.getInstance().start()");
-                break;
-            }
-        }
-```
-
-Kotlin
-
-```kotlin
-
-when (Embrace.getInstance().lastRunEndState) {
-            Embrace.LastRunEndState.CRASH -> {
-                Log.e("Embrace", "Last run ended in a crash.");
-            }
-            Embrace.LastRunEndState.CLEAN_EXIT -> {
-                Log.i("Embrace", "Last run ended without a crash.")
-            }
-            Embrace.LastRunEndState.INVALID -> {
-                Log.e("Embrace", "Invalid usage of getLastRunEndState(). Please call it after Embrace.getInstance().start()")
-            }
-        }
-```
-
-### Possible Values
-
-```kotlin
-Enum class LastRunEndState {
-        /**
-         * The SDK has not been started yet.
-         */
-        INVALID(0),
-
-        /**
-         * Last run ended in a crash.
-         */
-        CRASH(1),
-
-        /**
-         * Last run ended without a crash.
-         */
-        CLEAN_EXIT(2)
-}
-```
-
-## iOS (Objective-C & Swift)
-
----
-
 ### Version
 
 **This feature is included in Embrace SDK version 5.21.0 and above.**
@@ -176,20 +105,6 @@ typedef NS_ENUM(NSInteger, EMBLastRunEndState) {
 ⚠️ If the last run resulted in a sigkill, then `EMBLastRunEndStateCleanExit` will be returned anyway. This is because Embrace, and basically anybody except apple, is unable to catch sigkill crashes.
 
 </aside>
-
-## Unity (C# )
-
----
-
-### Version
-
-This feature is included in Embrace Unity SDK version 1.15.0 and above.
-
-```csharp
-// The SDK must be started before checking the last run end state
-Embrace.Instance.StartSDK();
-bool didCrashLastRun = Embrace.Instance.GetLastRunEndState() == LastRunEndState.Crash;
-```
 
 ## Support
 
