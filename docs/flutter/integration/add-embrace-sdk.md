@@ -29,17 +29,23 @@ dart pub global activate embrace_cli
 Run the following command to configure your project:
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
+
 ```shell-session
 embrace_cli installIos YOUR_APP_ID YOUR_APP_TOKEN
 ```
+
 </TabItem>
 <TabItem value="android" label="Android">
+
 ```shell-session
 embrace_cli installAndroid YOUR_APP_ID YOUR_APP_TOKEN
 ```
+
 </TabItem>
 </Tabs>
+
 You can use git to see the changes that the script made.
+
 ```shell-session
 git diff
 ```
