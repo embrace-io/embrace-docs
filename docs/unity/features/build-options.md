@@ -1,7 +1,7 @@
 ---
 title: Build Options
 description: Build Options for the Embrace Unity SDK
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Build Options
