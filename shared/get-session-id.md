@@ -1,3 +1,5 @@
+## Current Session ID
+
 Embrace SDK’s API enables customers to programmatically obtain the current Embrace Session ID. Depending on your use case, having the ability to obtain the Embrace Session ID will enable you to share that ID with other observability tools in order to build a URL to that specific session in the Embrace dashboard and make that link available on those third-party tools.
 
 **When should I call the Current Session ID method?** 

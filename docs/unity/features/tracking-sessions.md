@@ -6,8 +6,6 @@ sidebar_position: 3
 
 # Tracking Sessions
 
-## Current Session ID
-
 import GetSessionId from '@site/shared/get-session-id.md';
 
 <GetSessionId />

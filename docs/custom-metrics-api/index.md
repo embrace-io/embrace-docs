@@ -24,11 +24,11 @@ The following metrics are supported to create using the API.
 |------------------------|----------------------------|----------------------------------------------------|-----------------------------------------------------------|------------------------|
 | sessions_total         | Number of sessions         | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model | five_minute, hourly, daily |
 | crashes_total          | Number of crashes          | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, tag_name, tag_value, msg | five_minute, hourly, daily |
-| network_requests_total | Number of network requests | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, model, domain, path, method, status_code | five_minute, hourly, daily |
-| anrs_total             | Number of ANR Samples      | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, model, method, sample_type | five_minute, hourly, daily |
+| network_requests_total | Number of network requests | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, domain, path, method, status_code | five_minute, hourly, daily |
+| anrs_total             | Number of ANR Samples      | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, method, sample_type | five_minute, hourly, daily |
 | moments_total          | Number of Moments          | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, name | five_minute, hourly, daily |
-| logs_total             | Number of Logs             | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, model, msg, type | five_minute, hourly, daily |
-| spans_total            | Number of Spans            | app_version, os_version, os_major_version, country | app_version, os_version, os_major_version, country, model, name, outcome, span_attribute | five_minute, hourly, daily |
+| logs_total             | Number of Logs             | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, msg, type | five_minute, hourly, daily |
+| spans_total            | Number of Spans            | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, name, outcome, span_attribute | five_minute, hourly, daily |
 
 ### Supported Parameters for Filters
 
