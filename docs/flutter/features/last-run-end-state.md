@@ -58,7 +58,8 @@ enum LastRunEndState {
 
   /// The last run did not result in a crash
   cleanExit
-}```
+}
+```
 
 ## Support
 
