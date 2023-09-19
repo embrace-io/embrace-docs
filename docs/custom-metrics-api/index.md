@@ -14,7 +14,7 @@ You can follow [this](/embrace-api/code_samples) guide to see how queries custom
 
 ## Prerequisites
 
-- Embrace Custom Metrics API Token. You need to contact an Embrace onboarding specialist to get this token.
+- Embrace Custom Metrics API Token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently with creating custom metrics.
 
 ## Supported Metrics
 
