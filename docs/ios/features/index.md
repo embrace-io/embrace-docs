@@ -17,4 +17,4 @@ how your application is performing in production.
 1. [**Capture Background Sessions**](/ios/features/background-sessions) Embrace can capture background sessions so you can see events that happened in the background. Learn how to enable this feature.
 1. [**Push Notifications**](/ios/features/push-notifications) Embrace automatically captures push notifications received. Learn how to disable this feature.
 1. [**Configuration File**](/ios/features/configuration-file) Embrace supports a number of configuration options. This reference guide will help you understand them all.
-1. [**Current Session ID API**](/ios/features/current-sessioni-id-api) This API lets you know what the current Session Id is in case you need to track it separately.
+1. [**Current Session ID API**](/ios/features/current-session-id-api) This API lets you know what the current Session Id is in case you need to track it separately.
