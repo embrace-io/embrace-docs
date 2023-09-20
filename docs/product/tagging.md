@@ -17,4 +17,8 @@ POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  
 
 ## Consume tagged crashes via Metrics API
 
+New crashes will be automatically tagged as they happen.  Tags will show up on the Crash Summary page (as "Owners") and the Crash Details page (as header and in the stack frames).
+
+<img src={require('@site/static/images/Screenshot 2023-09-20 at 1.26.34 PM.png').default} alt="screenshot of Owners column" />
+
 Query for `hourly_crashes_by_tag` at [Metrics API](/embrace-api/code_samples)
