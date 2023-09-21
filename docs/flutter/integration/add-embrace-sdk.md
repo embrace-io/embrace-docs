@@ -50,10 +50,11 @@ You can use git to see the changes that the script made.
 git diff
 ```
 
-## Manual integration
+## iOS setup
 
-<Tabs groupId="platform" queryString="platform">
-<TabItem value="ios" label="iOS">
+:::info
+These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
+:::
 
 ### Add the Embrace App ID
 
@@ -85,8 +86,13 @@ On the Xcode Build Phase tab, add a new run script. You can find your 5-characte
 ```
 EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
-</TabItem>
-<TabItem value="android" label="Android">
+
+## Android setup
+
+:::info
+These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
+:::
+
 In the root-level `build.gradle` file, add the `embrace-swazzler` dependency:
 
 ```gradle
@@ -117,8 +123,7 @@ In `app/src/main`, add a config file named `embrace-config.json`. You can find y
   "ndk_enabled": true
 }
 ```
-</TabItem>
-</Tabs>
+
 ---
 
 Next, you'll be creating your first session.
