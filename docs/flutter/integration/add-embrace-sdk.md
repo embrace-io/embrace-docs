@@ -53,7 +53,7 @@ git diff
 ## iOS setup
 
 :::info
-These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
+These steps can be performed automatically with the `installIos` command when using the [Embrace CLI.](#using-the-embrace-cli)
 :::
 
 ### Add the Embrace App ID
@@ -90,7 +90,7 @@ EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${PODS_ROOT}/EmbraceIO/
 ## Android setup
 
 :::info
-These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
+These steps can be performed automatically with the `installAndroid` command when using the [Embrace CLI.](#using-the-embrace-cli)
 :::
 
 In the root-level `build.gradle` file, add the `embrace-swazzler` dependency:
