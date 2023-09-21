@@ -48,6 +48,10 @@ If you have configured the Android and iOS projects using the Embrace CLI, you c
 
 ## Manually add start calls for the native SDKs
 
+:::info
+These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
+:::
+
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 Add a call to start the iOS SDK from within your `AppDelegate`:
