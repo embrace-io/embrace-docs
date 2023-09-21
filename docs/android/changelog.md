@@ -5,6 +5,14 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+## 5.24.0
+*September 19, 2023*
+- Renamed several API interfaces to standardize naming between our SDKs to better reflect what each API does.
+- Added new API method to get the current session ID.
+- Set custom folders for native symbols to upload during build process.
+- Added Dexguard support.
+- Exposed beta API for Performacing Tracing.
+
 ## 5.23.0
 *August 09, 2023*
 - Bug fix on retryLock function. Now the ANR monitoring is Serialized to work on a single background executor.
