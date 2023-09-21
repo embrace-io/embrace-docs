@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.23.0
+*Sept 20, 2023*
+* Introduces Embrace performance tracing beta
+* Updates public interface for consistency across platforms. Adds deprecation messages for outdated methods
+* Begins signing SDK for Xcode 15
+* Adds privacy manifest for Xcode 15
+* Changes the default log level for SDK console logs to "none"
+* Fixes warning that occurs when building for iOS extension
+
 ## 5.22.0
 *Aug 14, 2023*
 * Enhancements in Data Persistence related to Sessions.

@@ -15,4 +15,5 @@ how your application is performing in production.
 1. [**Tracking Views.**](/unity/features/tracking-views/) Track custom views using the Embrace SDK.
 1. [**Log Network Requests.**](/unity/features/log-network-requests/) Log network requests made by your application.
 1. [**Log Unhandled Exceptions.**](/unity/features/exception-logging/) Automatically log unhandled exceptions thrown by your application.
+1. [**Last Run End State.**](/unity/features/last-run-end-state/) Understand if your last app instance ended in a crash.
 1. [**Build Options.**](/unity/features/build-options/) The Embrace Unity Editor Windows have options that can modify the build process.
