@@ -97,6 +97,8 @@ override func application(
 }
 @end
 ```
+</TabItem>
+</Tabs>
 
 ### Add the Android SDK start call
 
