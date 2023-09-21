@@ -52,8 +52,7 @@ If you have configured the Android and iOS projects using the Embrace CLI, you c
 These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
 :::
 
-<Tabs groupId="platform" queryString="platform">
-<TabItem value="ios" label="iOS">
+### Add the iOS SDK start call
 Add a call to start the iOS SDK from within your `AppDelegate`:
 
 <Tabs groupId="ios-language" queryString="ios-language">
@@ -99,11 +98,7 @@ override func application(
 @end
 ```
 
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="android" label="Android">
+### Add the Android SDK start call
 
 The call to start the Embrace Android SDK can be placed in either:
 1. A custom Application class, or
@@ -143,9 +138,6 @@ class MyApplication : Application() {
     }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 ### Adding to `MainActivity`
 
