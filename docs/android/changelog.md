@@ -8,12 +8,14 @@ sidebar_position: 4
 
 :::info Important
 ## 6.0.0
-*Late October, 2023*
+*Late October, 2023* a major version will be released. Please consider upgrading to the following versions or above:
+
 - Remove of deprecated methods in Embrace.java
 - Increase our minimum android API to 21
 - Increase our minimum AGP to 4.0.0
 - Increase our minimum Gradle version to 6.1.1
-- Increase Kotlin to x.y.z
+- Upgrade Kotlin to 1.4
+- Upgrade NDK to 25.1
 :::
 
 ## 5.24.0
