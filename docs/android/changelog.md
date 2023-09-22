@@ -8,7 +8,7 @@ sidebar_position: 4
 
 :::info Important
 ## 6.0.0
-*Late October, 2023* a major version will be released. Please consider upgrading to the following versions or above:
+The next major release is scheduled for *late October 2023*. Kindly upgrade to the recommended version or higher.
 
 - Removal of deprecated methods
 - Increase our minSdkVersion to API 21
