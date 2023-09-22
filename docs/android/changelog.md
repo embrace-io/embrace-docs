@@ -11,7 +11,7 @@ sidebar_position: 4
 The next major release is scheduled for *late October 2023*. This will introduce some breaking changes:
 
 - Removal of deprecated methods
-    - Check our [upgrading guide](/android/upgrading)
+    - Check our [upgrading guide](/android/upgrading/)
 - Increase our minSdkVersion to API 21
 - Increase our minimum AGP to 4.0.0
 - Increase our minimum Gradle version to 6.1.1
