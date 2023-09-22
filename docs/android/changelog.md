@@ -5,6 +5,21 @@ sidebar_position: 4
 ---
 
 # Android SDK Changelog
+
+:::info Important
+## 6.0.0
+The next major release is scheduled for *late October 2023*. This will introduce some breaking changes:
+
+- Removal of deprecated methods
+    - Check our [upgrading guide](/android/upgrading/)
+- Increase our minSdkVersion to API 21
+- Increase our minimum AGP to 4.0.0
+- Increase our minimum Gradle version to 6.1.1
+- Upgrade NDK to 25.2
+
+We strongly recommend that Embrace customers ensure their apps meet the criteria above.
+:::
+
 ## 5.24.0
 *September 21, 2023*
 - Renamed several API interfaces to standardize naming between our SDKs to better reflect what each API does.
