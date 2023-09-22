@@ -14,7 +14,7 @@ The next major release is scheduled for *late October 2023*. Kindly upgrade to t
 - Increase our minSdkVersion to API 21
 - Increase our minimum AGP to 4.0.0
 - Increase our minimum Gradle version to 6.1.1
-- Upgrade NDK to 25.1
+- Upgrade NDK to 25.2
 :::
 
 ## 5.24.0
