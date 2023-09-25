@@ -16,13 +16,34 @@ or `five_minute_sessions_total`.
 
 | Metric                            | Description                                               | Filters                               | Time granularity           |           
 |-----------------------------------|-----------------------------------------------------------|---------------------------------------|----------------------------|
-| crash_free_session_by_device_rate | Percentage of crash free sessions grouped by device model | app_version, device_model, os_version | hourly, daily              |
-| crash_free_session_rate           | Percentage of crash free sessions                         | app_version, os_version               | hourly, daily              |
-| crashed_users                     | Number of unique users with crashes                       | app_version, os_version               | hourly, daily              |
-| crashes_total                     | Number of crashes                                         | app_version, os_version               | five_minute, hourly, daily |
-| sessions_by_device_total          | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
-| sessions_total                    | Number of sessions                                        | app_version, os_version               | five_minute, hourly, daily |
-| users                             | Number of unique users                                    | app_version, os_version               | hourly, daily              |
+| crashed_users                     | Number of unique users with crashes                       | app_version, os_version, device_model | five_minute, hourly, daily |
+| crashes_total                     | Number of crashes                                         | app_version, os_version, device_model | five_minute, hourly, daily |
+| sessions_total                    | Number of sessions                                        | app_version, os_version, device_model | five_minute, hourly, daily |
+| users                             | Number of unique users                                    | app_version, os_version, device_model | five_minute, hourly, daily |
+
+Note: 
+`users` and `crashed_users` are metrics computed for a given time granularity.
+We don't recommend summing the results of by a bigger time granularity that the one requested
+in order to avoid double counting unique users.
+
+### Deprecated metrics after 2023-10-02:
+We have deprecated the following metrics in favor of the new metrics mentioned above.
+All the information provided by these metrics can now be obtained using the new metrics (refer to the Sample Queries section below).
+These deprecated metrics will remain available for retrieving historical data prior to October 2, 2023.
+However, we strongly recommend transitioning to the new metrics to ensure a consistent experience.
+
+| Metric                                       | Description                                               | Filters                               | Time granularity           |           
+|----------------------------------------------|-----------------------------------------------------------|---------------------------------------|----------------------------|
+| crash_free_session_by_device_rate_deprecated | Percentage of crash free sessions grouped by device model | app_version, device_model, os_version | hourly, daily              |
+| crash_session_pct_deprecated                 | Percentage of crash sessions                              | app_version, os_version               | hourly, daily              |
+| crash_free_session_rate_deprecated           | Percentage of crash free sessions                         | app_version, os_version               | hourly, daily              |
+| crashed_users_deprecated                     | Number of unique users with crashes                       | app_version, os_version               | hourly, daily              |
+| crashes_total_deprecated                     | Number of crashes                                         | app_version, os_version               | five_minute, hourly, daily |
+| sessions_by_device_total_deprecated          | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
+| sessions_total_deprecated                    | Number of sessions                                        | app_version, os_version               | five_minute, hourly, daily |
+| users_deprecated                             | Number of unique users                                    | app_version, os_version               | hourly, daily              |
+
+
 
 ### Dimension reduction - "Other"
 
@@ -40,21 +61,38 @@ Currently, we roll together these long-tail device models into an "other" value.
 #### Sessions Grouped by App Version
 
 ```promql
-sum(daily_sessions_by_device_total{app_id="<app ID>"}) by (app_version)
+sum(daily_sessions_total{app_id="<app ID>"}) by (app_version)
 ```
 
 #### Sessions Grouped by Devices
 
 ```promql
-sum(daily_sessions_by_device_total{app_id="<app ID>"}) by (device_model)
+sum(daily_sessions_total{app_id="<app ID>"}) by (device_model)
 ```
 
 #### Sessions Grouped by Devices for a Given App Version
 
 ```promql
-sum(daily_sessions_by_device_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
+sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
 ```
 
+#### Percentage of crash free sessions
+
+```promql
+(1 - (sum(hourly_crashes_total{app_id="$app_id"}) / sum(hourly_sessions_total{app_id="$app_id"}) )) * 100
+```
+
+#### Percentage of crash free sessions by Devices
+
+```promql
+1 - sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessions_total{app_id="$app_id"}) by (device_model) * 100
+```
+
+#### Percentage of crash sessions by Devices
+
+```promql
+sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessions_total{app_id="$app_id"}) by (device_model) * 100
+```
 ## Custom Metrics
 
 Users may request Custom Metrics via their Customer Success Manager. These will be available via the Metrics API and can
