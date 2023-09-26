@@ -15,6 +15,7 @@ sidebar_position: 4
 *Sept 20, 2023*
 * Introduces Embrace performance tracing beta
 * Updates public interface for consistency across platforms. Adds deprecation messages for outdated methods
+* Adds method to retrieve the current sessionId
 * Begins signing SDK for Xcode 15
 * Adds privacy manifest for Xcode 15
 * Changes the default log level for SDK console logs to "none"
