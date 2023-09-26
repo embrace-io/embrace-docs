@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.23.1
+*Sept 26, 2023*
+* Fixes memory issue when generating a session payload with numerous (1000+) network requests. Introduced in 5.22.0.
+* Fix crash in `fileForClosedSpansNamed:`. Introduced in 5.19.4
+
 ## 5.23.0
 *Sept 20, 2023*
 * Introduces Embrace performance tracing beta
