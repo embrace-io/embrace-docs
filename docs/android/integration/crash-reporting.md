@@ -33,10 +33,6 @@ Once the crash and session messages are uploaded, you should notice that your se
 
 If you have obfuscated your application with ProGuard, R8, or another obfuscation tool, the captured crashes will contain obfuscated method names. ProGuard and R8 files will be uploaded automatically at build time. If you don't see symbolicated crashes while using ProGuard or R8, reach out to us on Slack and we'll work with you directly.
 
-:::note
-Please contact us if you need Dexguard support.
-:::
-
 ---
 
 In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions.
