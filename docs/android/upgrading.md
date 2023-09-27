@@ -2,6 +2,24 @@
 
 # Upgrading from 5.x to 6.x
 
+## Remove deprecated properties from your build.grade
+
+These 5 deprecated properties have been removed from our Gradle plugin. Please remove them from your `app/build.gradle` file.
+
+```groovy
+swazzler {
+    ...
+    forceOkHttpWrapperInjection = true/false
+    forceFcmWrapperInjection = true/false
+    useNewDependencyInstaller = true/false
+    forceVolleyWrapperInjection = true/false
+    instrumentVolley = true/false
+    ...
+}
+```
+
+## Replace usage of deprecated methods with new ones
+
 Version X of the Embrace Android SDK renames some functions. This has been done to reduce
 confusion & increase consistency across our SDKs.
 
@@ -27,8 +45,8 @@ use-case that isn’t supported by the new API.
 | `PurchaseFlow`                                        | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
 | `RegistrationFlow`                                    | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
 | `SubscriptionFlow`                                    | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
-| `Embrace.getInstance().logNetworkCall()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest)` | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().logNetworkClientError()`       | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest)` | Renamed function to better describe functionality.                    |
+| `Embrace.getInstance().logNetworkCall()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))` | Renamed function to better describe functionality.                    |
+| `Embrace.getInstance().logNetworkClientError()`       | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromIncompleteRequest(...))` | Renamed function to better describe functionality.                    |
 
 ### Previously deprecated APIs that have been removed
 
