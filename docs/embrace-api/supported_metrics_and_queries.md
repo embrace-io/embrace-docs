@@ -23,7 +23,7 @@ or `five_minute_sessions_total`.
 
 Note: 
 `users` and `crashed_users` are metrics computed for a given time granularity.
-We don't recommend summing the results of by a bigger time granularity that the one requested
+We don't recommend summing their results by a bigger time granularity than the one requested
 in order to avoid double counting unique users.
 
 ### Deprecated metrics after 2023-10-02:
