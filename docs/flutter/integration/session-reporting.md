@@ -44,8 +44,15 @@ Future<void> main() async {
 }
 ```
 
-## Add the iOS SDK start call
+If you have configured the Android and iOS projects using the Embrace CLI, you can now proceed to the [build and run your application](#build-and-run-the-application)
 
+## Manually add start calls for the native SDKs
+
+:::info
+These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
+:::
+
+### Add the iOS SDK start call
 Add a call to start the iOS SDK from within your `AppDelegate`:
 
 <Tabs groupId="ios-language" queryString="ios-language">
@@ -90,11 +97,10 @@ override func application(
 }
 @end
 ```
-
 </TabItem>
 </Tabs>
 
-## Add the Android SDK start call
+### Add the Android SDK start call
 
 The call to start the Embrace Android SDK can be placed in either:
 1. A custom Application class, or
@@ -135,9 +141,6 @@ class MyApplication : Application() {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Adding to `MainActivity`
 
 If you don't want to create a custom application class, you can start the Embrace Android SDK from the `MainActivity`:
@@ -154,6 +157,8 @@ class MainActivity : FlutterActivity() {
   }
 }
 ```
+</TabItem>
+</Tabs>
 
 ## End the startup moment
 

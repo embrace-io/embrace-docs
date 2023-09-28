@@ -1,7 +1,7 @@
 ---
 title: Build Options
 description: Build Options for the Embrace Android Gradle Plugin
-sidebar_position: 10
+sidebar_position: 12
 ---
 
 # Build Options

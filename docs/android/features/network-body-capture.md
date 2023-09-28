@@ -1,8 +1,7 @@
 ---
 title: Network Body Capture
 description: Embrace can capture network body requests and responses
-sidebar_position: 8
-
+sidebar_position: 9
 ---
 # Network Body Capture
 
