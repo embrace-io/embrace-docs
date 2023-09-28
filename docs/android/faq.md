@@ -29,10 +29,6 @@ For NDK exceptions, we replace any existing signal handlers, which are used to c
 Similarly, other NDK crash capture tools would be likely to replace our signal handlers if they are initialized after
 our SDK.
 
-### **Do you support Dexguard?**
-
-Yes. We support dexguard symbolication out of the box.
-
 ## Integrating
 
 ### **The SDK should support API level 16 but, I get an error saying API level 24 is needed. What's wrong?**
