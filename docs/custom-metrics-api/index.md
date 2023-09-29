@@ -16,32 +16,6 @@ You can follow [this](/embrace-api/code_samples) guide to see how queries custom
 
 - Embrace Custom Metrics API Token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently with creating custom metrics.
 
-## Supported Metrics
-
-The following metrics are supported to create using the API.
-
-| Metric                 | Description                | Group By                                           | Filters                                                   | Time granularity       |
-|------------------------|----------------------------|----------------------------------------------------|-----------------------------------------------------------|------------------------|
-| sessions_total         | Number of sessions         | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model | five_minute, hourly, daily |
-| crashes_total          | Number of crashes          | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, tag_name, tag_value, msg | five_minute, hourly, daily |
-| network_requests_total | Number of network requests | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, domain, path, method, status_code | five_minute, hourly, daily |
-| anrs_total             | Number of ANR Samples      | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, method, sample_type | five_minute, hourly, daily |
-| moments_total          | Number of Moments          | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, name | five_minute, hourly, daily |
-| logs_total             | Number of Logs             | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, msg, type | five_minute, hourly, daily |
-| spans_total            | Number of Spans            | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, name, outcome, span_attribute | five_minute, hourly, daily |
-
-### Filter Parameter Examples
-
-| Type     | Example                                                                                             |
-|----------|-----------------------------------------------------------------------------------------------------|
-| string   | `{"key": "app_version", "field_op": "eq", "val": "3.2.0"}`                                          |
-| int      | `{"key": "os_major_version", "field_op": "gt", "val": 9}`                                           |
-| boolean  | `{"key": "has_anr", "field_op": "eq", "val": true}`                                                 |
-| range    | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}`                      |
-| property | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
-
-
-
 ## API Endpoints
 
 All the endpoints have the same authentication and authorization method, url and parameters.
@@ -199,6 +173,18 @@ Status codes: `200` and `500`.
   "message": "we had an internal error, please try again later"
 }
 ```
+
+### Filter Parameter Examples
+
+| Type     | Example                                                                                             |
+|----------|-----------------------------------------------------------------------------------------------------|
+| string   | `{"key": "app_version", "field_op": "eq", "val": "3.2.0"}`                                          |
+| int      | `{"key": "os_major_version", "field_op": "gt", "val": 9}`                                           |
+| boolean  | `{"key": "has_anr", "field_op": "eq", "val": true}`                                                 |
+| range    | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}`                      |
+| property | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
+
+
 
 ### Create custom metric
 
