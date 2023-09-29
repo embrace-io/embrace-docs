@@ -30,7 +30,7 @@ The following metrics are supported to create using the API.
 | logs_total             | Number of Logs             | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, msg, type | five_minute, hourly, daily |
 | spans_total            | Number of Spans            | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, name, outcome, span_attribute | five_minute, hourly, daily |
 
-### Supported Parameters for Filters examples
+### Filter Parameter Examples
 
 | Type     | Example                                                                                             |
 |----------|-----------------------------------------------------------------------------------------------------|
