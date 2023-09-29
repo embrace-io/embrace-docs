@@ -14,11 +14,11 @@ You can follow [this](/embrace-api/code_samples) guide to see how queries custom
 
 ## Prerequisites
 
-- Embrace Custom Metrics API Token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently with creating custom metrics.
+- Embrace Custom Metrics API Token. This is a different token than the Metrics API token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently with creating custom metrics.
 
 ## Supported Metrics
 
-The following metrics are supported to create using the API.
+The following metrics are supported to create using the API. Use the Custom Metrics API token provided by an Embrace onboarding specialist to create custom metrics.
 
 | Metric                 | Description                | Group By                                           | Filters                                                   | Time granularity       |
 |------------------------|----------------------------|----------------------------------------------------|-----------------------------------------------------------|------------------------|
