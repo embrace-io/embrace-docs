@@ -67,7 +67,7 @@ Status codes:
 - `500`: there was an internal error and you should retry later.
 
 ### Get metrics and parameters supported
-To determine which metrics and parameters are supported for creation using the API, you can utilize the following endpoint
+To determine which metrics and parameters are supported for creation using the API, you can utilize the following endpoint:
 #### Request
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
