@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+## 1.5.0
+*Oct 2, 2023*
+- Added getCurrentSessionId() method to get the ID of the current session.
+- Renamed some functions to improve consistency between the Embrace SDKs (old names have been deprecated).
+- Updated Embrace Android SDK to 5.24.0
+- Updated Embrace iOS SDK to 5.23.1
+
 ## 1.4.0
 *Jul 20, 2023*
 - Added logHandledDartError() method to record exceptions that have been handled.
