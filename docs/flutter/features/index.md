@@ -14,3 +14,4 @@ how your application is performing in production.
 1. [**Capture network requests.**](/flutter/features/network-requests/) Automatically capture network requests made by your application.
 1. [**Push Notifications**](/flutter/features/push-notifications) Embrace can automatically capture push notifications received. Learn how to configure this feature.
 1. [**Last Run End State.**](/flutter/features/last-run-end-state/) Understand if your last app instance ended in a crash.
+1. [**Tracking Sessions.**](/flutter/features/tracking-sessions.md) Track the current Embrace session by getting its ID.
