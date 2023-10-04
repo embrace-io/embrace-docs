@@ -46,6 +46,7 @@ use-case that isn’t supported by the new API.
 | `RegistrationFlow`                                    | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
 | `SubscriptionFlow`                                    | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
 | `Embrace.getInstance().logNetworkCall()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))` | Renamed function to better describe functionality.                    |
+| `Embrace.getInstance().logNetworkRequest()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))` | Renamed function to better describe functionality.                    |
 | `Embrace.getInstance().logNetworkClientError()`       | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromIncompleteRequest(...))` | Renamed function to better describe functionality.                    |
 
 ### Previously deprecated APIs that have been removed
