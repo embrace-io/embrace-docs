@@ -51,6 +51,8 @@ Body Params:
 ```
 - `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
   is turned on. i.e.: `["five_minute", "hourly", "daily"]`
+- `data_destination`: list of data destination to which we are going to send this metric. If it is empty, by default metrics_api
+    is turned on. i.e.: `["metrics_api", "newrelic", "datadog", "grafana_cloud"]`
 
 ### Response
 
@@ -162,6 +164,12 @@ Status codes: `200` and `500`.
       "five_minute",
       "hourly",
       "daily"
+    ],
+    "data_destination": [
+      "metrics_api",
+      "newrelic",
+      "datadog",
+      "grafana_cloud"
     ]
   }
 ]
@@ -202,7 +210,8 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
         "op":"and",
         "children":[{"field_op":"eq","key":"os_version","val":"12"}]
     },
-    "time_granularity": ["five_minute", "hourly"]
+    "time_granularity": ["five_minute", "hourly"],
+    "data_destination": ["metrics_api", "newrelic"]
 }'
 ```
 
@@ -233,6 +242,10 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
   "time_granularity": [
     "five_minute",
     "hourly"
+  ],
+  "data_destination": [
+    "metrics_api",
+    "newrelic"
   ]
 }
 ```
@@ -271,6 +284,11 @@ Status codes: `200`, `400`, `409` and `500`.
       "time_granularity": [
         "five_minute",
         "hourly"
+      ],
+      "data_destination": [
+        "metrics_api",
+        "datadog",
+        "grafana_cloud"
       ]
     }
   ]
