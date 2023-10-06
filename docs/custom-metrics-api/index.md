@@ -228,7 +228,7 @@ We suggest using operators such as `gte` (greater than or equal), `lte` (less th
   "children": [
     {
       "key": "duration_bucket",
-      "val": 500,
+      "val": 1000,
       "field_op": "lte"
     }
   ]
