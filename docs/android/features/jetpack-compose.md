@@ -1,6 +1,6 @@
 ---
 title: Jetpack Compose
-description: Enable our Jetpack Compose capture feature
+description: Enable our Jetpack Compose
 sidebar_position: 13
 ---
 
@@ -8,9 +8,9 @@ sidebar_position: 13
 
 The Embrace SDK injects code into your APK using a process we call “swazzling” to automatically capture taps on composables.
 
-## Enabling Jetpack Compose capture
+## Enabling Jetpack Compose instrumentation
 
-Out Jetpack Compose feature is in beta now. You will need to modify your `embrace-config.json` [file](/android/features/configuration-file.md)
+Our Jetpack Compose intrumentator is in beta now. You will need to modify your `embrace-config.json` [file](/android/features/configuration-file.md)
 ```json
 {
     "sdk_config": {
