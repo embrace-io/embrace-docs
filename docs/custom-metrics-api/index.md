@@ -217,7 +217,8 @@ For some custom metrics the API allows you to filter data based on the `duration
 | Greater than 15000ms            | 15000           |
 
 
-**Caution:** When filtering with conditions such as `duration_bucket` < 11000, please be aware that the behavior is based on the order of conditions and the first condition that matches. In this case, if `duration_bucket` is less than 11000, it will match the condition `duration` < 2000, and the `duration_bucket` used will be 2000. Ensure that your conditions are structured to achieve your intended filtering accurately.
+**Caution:** When filtering with conditions such as `duration_bucket` < 1100, please be aware that the behavior is based on the order of conditions and the first condition that matches.
+In this case, if `duration_bucket` is less than 1100, it will match the condition `duration_bucket` < 1000, and the `duration` filter will be < 2000. Ensure that your conditions are structured to achieve your intended filtering accurately.
 
 We suggest using operators such as `gte` (greater than or equal), `lte` (less than or equal), or `eq` (equal) with a `duration_bucket` boundary, for example:
 
