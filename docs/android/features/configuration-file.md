@@ -8,12 +8,6 @@ sidebar_position: 11
 
 ## SDK Config File
 
-:::warning Important
-The configuration file format and required configuration file location changed with the release of the 4.x series of SDKs.
-The following section describes the format and location used for versions 4.0.0 and later.
-We encourage everybody to upgrade to a 4.x SDK, but if you are not able to upgrade and you need help with the 3.x configuration file format, please contact <support@embrace.io>.
-:::
-
 Certain SDK configs are only settable in a custom `embrace-config.json` file.
 This file should be located in app/src/main.
 The following is an example `embrace-config.json` file.

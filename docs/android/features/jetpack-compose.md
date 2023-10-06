@@ -21,5 +21,5 @@ Our Jetpack Compose intrumentator is in beta now. You will need to modify your `
 }
 ```
 :::warning Important
-If you are facing issues at runtime, we can turn off Jetpack Compose instrumentation remotely. Please, contact us: 
+If you are facing issues at runtime, we can turn off Jetpack Compose instrumentation remotely. Please, contact us: <support@embrace.io>
 :::
