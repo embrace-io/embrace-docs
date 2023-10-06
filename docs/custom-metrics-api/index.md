@@ -192,6 +192,47 @@ Status codes: `200` and `500`.
 | range    | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}`                      |
 | property | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
 
+### Using `duration_bucket` filters
+
+For some custom metrics the API allows you to filter data based on the `duration_bucket` parameter, which categorizes data according to specific `duration` ranges. Each `duration_bucket` value corresponds to a specific range of `duration` values. Here's how it works:
+
+| Duration Range                  | Duration Bucket |
+|---------------------------------|-----------------|
+| 0ms to 100ms                    | 0               |
+| 100ms to 200ms                  | 100             |
+| 200ms to 300ms                  | 200             |
+| 300ms to 400ms                  | 300             |
+| 400ms to 500ms                  | 400             |
+| 500ms to 600ms                  | 500             |
+| 600ms to 700ms                  | 600             |
+| 700ms to 800ms                  | 700             |
+| 800ms to 900ms                  | 800             |
+| 900ms to 1000ms                 | 900             |
+| 1000ms to 2000ms                | 1000            |
+| 2000ms to 3000ms                | 2000            |
+| 3000ms to 4000ms                | 3000            |
+| 4000ms to 5000ms                | 4000            |
+| 5000ms to 10000ms               | 5000            |
+| 10000ms to 15000ms              | 10000           |
+| Greater than 15000ms            | 15000           |
+
+
+**Caution:** When filtering with conditions such as `duration_bucket` < 11000, please be aware that the behavior is based on the order of conditions and the first condition that matches. In this case, if `duration_bucket` is less than 11000, it will match the condition `duration` < 2000, and the `duration_bucket` used will be 2000. Ensure that your conditions are structured to achieve your intended filtering accurately.
+
+We suggest using operators such as `gte` (greater than or equal), `lte` (less than or equal), or `eq` (equal) with a `duration_bucket` boundary, for example:
+
+```json
+{
+  "op": "and",
+  "children": [
+    {
+      "key": "duration_bucket",
+      "val": 500,
+      "field_op": "lte"
+    }
+  ]
+}
+```
 
 
 ### Create custom metric
