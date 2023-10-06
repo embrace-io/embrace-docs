@@ -52,6 +52,9 @@ Explanations for each of the fields are provided below.
     "webview": {
       "capture_query_params": true,
       "enable": true
+    },
+    "compose": {
+      "capture_compose_onclick": true
     }
   }  
 }
