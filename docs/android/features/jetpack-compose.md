@@ -14,9 +14,9 @@ The Embrace SDK injects code into your APK using a process we call â€œswazzlingâ
 Requires Jetpack Compose dependency at build time and run time
 :::
 
-### Enabling with local configuration file
+### Set Local config
 
-Our Jetpack Compose intrumentator is in beta now. You will need to modify your `embrace-config.json` [file](/android/features/configuration-file.md)
+To enable onClick instrumentation, You will need to modify your `embrace-config.json` [file](/android/features/configuration-file.md)
 
 ```json
 {
