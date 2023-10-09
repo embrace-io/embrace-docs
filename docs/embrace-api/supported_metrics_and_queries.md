@@ -8,28 +8,20 @@ sidebar_position: 3
 
 ## Standard Metrics
 
-The following metrics are supported as Standard Metrics. Metrics with the suffix "_total" are counters. All other
-metrics are gauges.
+The following metrics are supported as Standard Metrics. Metrics with the suffix "_total" are counters.
 
-To query your desired unit, simply prefix the metric name with the unit, eg: `daily_crashed_users`
+To query your desired unit, simply prefix the metric name with the unit, eg: `daily_crashes_total`
 or `five_minute_sessions_total`.
 
 | Metric                            | Description                                               | Filters                               | Time granularity           |           
 |-----------------------------------|-----------------------------------------------------------|---------------------------------------|----------------------------|
-| crashed_users                     | Number of unique users with crashes                       | app_version, os_version, device_model | five_minute, hourly, daily |
 | crashes_total                     | Number of crashes                                         | app_version, os_version, device_model | five_minute, hourly, daily |
 | sessions_total                    | Number of sessions                                        | app_version, os_version, device_model | five_minute, hourly, daily |
-| users                             | Number of unique users                                    | app_version, os_version, device_model | five_minute, hourly, daily |
 
-Note: 
-`users` and `crashed_users` are metrics computed for a given time granularity.
-We don't recommend summing their results by a bigger time granularity than the one requested
-in order to avoid double counting unique users.
-
-### Deprecated metrics after 2023-10-02:
+### Deprecated metrics after 2023-10-17:
 We have deprecated the following metrics in favor of the new metrics mentioned above.
 All the information provided by these metrics can now be obtained using the new metrics (refer to the Sample Queries section below).
-These deprecated metrics will remain available for retrieving historical data prior to October 2, 2023.
+These deprecated metrics will remain available for retrieving historical data prior to October 30, 2023.
 However, we strongly recommend transitioning to the new metrics to ensure a consistent experience.
 
 | Metric                                       | Description                                               | Filters                               | Time granularity           |           
