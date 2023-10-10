@@ -20,6 +20,15 @@ The next major release is scheduled for *late October 2023*. This will introduce
 We strongly recommend that Embrace customers ensure their apps meet the criteria above.
 :::
 
+## 5.25.0
+*October 10, 2023*
+- Added support for tracking taps on Jetpack Compose elements.
+- Add support for the Network Span Forwarding feature that enables the propagate of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers. 
+- Fix propagation of error type and message when recording incomplete network requests.
+- The SDK now captures ANR data using the ApplicationExitInfo API for Android 11+.
+- Fixed rare issue when network logging was being done on a URLConnection whose Response is no longer accessible.
+- Fixed bug where calling bytes() on a gzipped OkHttp response throws an exception.
+
 ## 5.24.0
 *September 21, 2023*
 - Renamed several API interfaces to standardize naming between our SDKs to better reflect what each API does.
