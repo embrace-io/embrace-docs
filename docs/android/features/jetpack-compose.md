@@ -14,7 +14,7 @@ The Embrace SDK injects code into your APK using a process we call â€œswazzlingâ
 Requires Jetpack Compose dependency at build time and run time
 :::
 
-### Set Local config
+### Set Local config and swazzler block
 
 To enable onClick instrumentation, You will need to modify your `embrace-config.json` [file](/android/features/configuration-file.md)
 
@@ -27,6 +27,21 @@ To enable onClick instrumentation, You will need to modify your `embrace-config.
   }
 }
 ```
+
+It's also required to modify your `app/build.gradle` or `app/build.gradle.kts` file:
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="KTS">
+```kotlin
+ swazzler { disableComposeDependencyInjection.set(false) }
+```
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+```groovy
+swazzler { disableComposeDependencyInjection = false }
+```
+</TabItem>
+</Tabs>
 
 ### Set ProGuard rule
 
