@@ -33,16 +33,16 @@ It's also required to modify your `app/build.gradle` or `app/build.gradle.kts` f
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="KTS">
 ```kotlin
- swazzler {{
+ swazzler {
     disableComposeDependencyInjection.set(false) 
-    }}
+    }
 ```
 </TabItem>
 <TabItem value="groovy" label="Groovy">
 ```groovy
-swazzler {{
+swazzler {
     disableComposeDependencyInjection = false 
-    }}
+    }
 ```
 </TabItem>
 </Tabs>
