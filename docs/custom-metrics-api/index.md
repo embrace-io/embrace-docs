@@ -14,50 +14,11 @@ You can follow [this](/embrace-api/code_samples) guide to see how queries custom
 
 ## Prerequisites
 
-- Embrace Custom Metrics API Token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently with creating custom metrics.
-
-## Supported Metrics
-
-The following metrics are supported to create using the API.
-
-| Metric                 | Description                | Group By                                           | Filters                                                   | Time granularity       |
-|------------------------|----------------------------|----------------------------------------------------|-----------------------------------------------------------|------------------------|
-| sessions_total         | Number of sessions         | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model | five_minute, hourly, daily |
-| crashes_total          | Number of crashes          | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, tag_name, tag_value, msg | five_minute, hourly, daily |
-| network_requests_total | Number of network requests | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, domain, path, method, status_code | five_minute, hourly, daily |
-| anrs_total             | Number of ANR Samples      | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, method, sample_type | five_minute, hourly, daily |
-| moments_total          | Number of Moments          | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, name | five_minute, hourly, daily |
-| logs_total             | Number of Logs             | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, msg, type | five_minute, hourly, daily |
-| spans_total            | Number of Spans            | app_version, os_version, os_major_version, country, top_n_market_name | app_version, os_version, os_major_version, country, model, name, outcome, span_attribute | five_minute, hourly, daily |
-
-### Supported Parameters for Filters
-
-| Filter           | Metrics                | Type   |  Operators                    | Example      |
-|------------------|------------------------|--------|-------------------------------|--------------|
-| app_version      | all                       | string   | eq, neq, in                   | `{"key": "app_version", "field_op": "eq", "val": "3.2.0"}` |
-| os_version       | all                       | string   | eq, neq, in                   | `{"key": "os_version", "field_op": "eq", "val": "12.0"}` |
-| os_major_version | all                       | int      | eq, neq, gt, gte, lt, lte, in | `{"key": "os_major_version", "field_op": "gt", "val": 9}` |
-| country          | all                       | string   | eq, neq, in                   | `{"key": "country", "field_op": "eq", "val": "US"}` |
-| model            | all                       | string   | eq, neq, like, nlike, in      | `{"key": "model", "field_op": "eq", "val": "model1"}` |
-| has_anr          | sessions_total            | boolean  | eq                            | `{"key": "has_anr", "field_op": "eq", "val": true}` |
-| tag_name         | crashes_total             | string   | eq, neq                       | `{"key": "tag_name", "field_op": "eq", "val": "crash_tag_name"}` |
-| tag_value        | crashes_total             | string   | eq, neq                       | `{"key": "tag_value", "field_op": "eq", "val": "crash_tag_value"}` |
-| msg              | crashes_total, logs_total | string   | like                          | `{"key": "msg", "field_op": "like", "val": "substring"}` |
-| domain           | network_requests_total    | string   | eq, neq, like, nlike, in      | `{"key": "domain", "field_op": "like", "val": "example.com"}` |
-| path             | network_requests_total    | string   | eq, like                      | `{"key": "path", "field_op": "like", "val": "foo/bar"}` |
-| method           | network_requests_total    | string   | eq                            | `{"key": "method", "field_op": "eq", "val": "post"}` |
-| status_code      | network_requests_total    | range    | eq                            | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}` |
-| method           | anrs_total                | string   | eq, like, in                  | `{"key": "method", "field_op": "like", "val": "com.foo.method"}` |
-| sample_type      | anrs_total                | string   | eq, neq, in                   | `{"key": "sample_type", "field_op": "eq", "val": "first"}` |
-| name             | moments_total, spans_total| string   | eq, neq, like, nlike, in      | `{"key": "name", "field_op": "eq", "val": "my_name"}` |
-| type             | logs_total                | string   | eq                            | `{"key": "type", "field_op": "eq", "val": "error"}` |
-| outcome          | spans_total               | string   | eq                            | `{"key": "type", "field_op": "eq", "val": "successful"}` |
-| span_attribute   | spans_total               | property | eq, neq                       | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
-
+- Embrace Custom Metrics API Token. This is a different token than the Metrics API token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently with creating custom metrics.
 
 ## API Endpoints
 
-All the endpoints have the same authentication and authorization method, url and parameters.
+All the endpoints have the same authentication and authorization method, url and parameters. Use the Custom Metrics API token provided by an Embrace onboarding specialist to create custom metrics.
 - `URL`: `https://api.embrace.io/custom-metrics`
 
 ### Request
@@ -90,6 +51,8 @@ Body Params:
 ```
 - `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
   is turned on. i.e.: `["five_minute", "hourly", "daily"]`
+- `data_destination`: list of data destination to which we are going to send this metric. If it is empty, by default metrics_api
+    is turned on. i.e.: `["metrics_api", "newrelic", "datadog", "grafana_cloud"]`
 
 ### Response
 
@@ -104,6 +67,174 @@ Status codes:
 - `404`: metric that you are trying to consume doesn't exist.
 - `409`: metric that you are trying to create already exists.
 - `500`: there was an internal error and you should retry later.
+
+### Get metrics and parameters supported
+To determine which metrics and parameters are supported for creation using the API, you can utilize the following endpoint:
+#### Request
+```bash
+curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
+--header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
+```
+
+#### Query Parameter
+ `name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
+
+Example URL: 
+```
+https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters?name=sessions_total
+```
+If the name is not provided or the metric is not supported, the endpoint will return all the supported metrics and parameters.
+
+#### Response
+Status codes: `200` and `500`.
+
+#### OK (200)
+```json
+[
+  {
+    "metric": "sessions_total",
+    "filters": [
+      {
+        "name": "has_anr",
+        "supported_ops": [
+          "eq"
+        ],
+        "type": "boolean"
+      },
+      {
+        "name": "app_version",
+        "supported_ops": [
+          "eq",
+          "neq",
+          "in"
+        ],
+        "type": "string"
+      },
+      {
+        "name": "os_version",
+        "supported_ops": [
+          "eq",
+          "neq",
+          "in"
+        ],
+        "type": "string"
+      },
+      {
+        "name": "os_major_version",
+        "supported_ops": [
+          "eq",
+          "neq",
+          "gt",
+          "gte",
+          "lt",
+          "lte",
+          "in"
+        ],
+        "type": "int"
+      },
+      {
+        "name": "country",
+        "supported_ops": [
+          "eq",
+          "neq",
+          "in"
+        ],
+        "type": "string"
+      },
+      {
+        "name": "model",
+        "supported_ops": [
+          "eq",
+          "neq",
+          "like",
+          "nlike",
+          "in"
+        ],
+        "type": "string"
+      }
+    ],
+    "group_by": [
+      "app_version",
+      "os_version",
+      "os_major_version",
+      "country",
+      "top_n_market_name"
+    ],
+    "time_granularity": [
+      "five_minute",
+      "hourly",
+      "daily"
+    ],
+    "data_destination": [
+      "metrics_api",
+      "newrelic",
+      "datadog",
+      "grafana_cloud"
+    ]
+  }
+]
+```
+
+#### Error (500)
+```json
+{
+  "message": "we had an internal error, please try again later"
+}
+```
+
+### Filter Parameter Examples
+
+| Type     | Example                                                                                             |
+|----------|-----------------------------------------------------------------------------------------------------|
+| string   | `{"key": "app_version", "field_op": "eq", "val": "3.2.0"}`                                          |
+| int      | `{"key": "os_major_version", "field_op": "gt", "val": 9}`                                           |
+| boolean  | `{"key": "has_anr", "field_op": "eq", "val": true}`                                                 |
+| range    | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}`                      |
+| property | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
+
+### Using `duration_bucket` filters
+
+For some custom metrics the API allows you to filter data based on the `duration_bucket` parameter, which categorizes data according to specific `duration` ranges. Each `duration_bucket` value corresponds to a specific range of `duration` values. Here's how it works:
+
+| Duration Range                  | Duration Bucket |
+|---------------------------------|-----------------|
+| 0ms to 100ms                    | 0               |
+| 100ms to 200ms                  | 100             |
+| 200ms to 300ms                  | 200             |
+| 300ms to 400ms                  | 300             |
+| 400ms to 500ms                  | 400             |
+| 500ms to 600ms                  | 500             |
+| 600ms to 700ms                  | 600             |
+| 700ms to 800ms                  | 700             |
+| 800ms to 900ms                  | 800             |
+| 900ms to 1000ms                 | 900             |
+| 1000ms to 2000ms                | 1000            |
+| 2000ms to 3000ms                | 2000            |
+| 3000ms to 4000ms                | 3000            |
+| 4000ms to 5000ms                | 4000            |
+| 5000ms to 10000ms               | 5000            |
+| 10000ms to 15000ms              | 10000           |
+| Greater than 15000ms            | 15000           |
+
+
+**Caution:** When filtering with conditions such as `duration_bucket` < 1100, please be aware that the behavior is based on the order of conditions and the first condition that matches.
+In this case, if `duration_bucket` is less than 1100, it will match the condition `duration_bucket` < 1000, and the `duration` filter will be < 2000. Ensure that your conditions are structured to achieve your intended filtering accurately.
+
+If you want to filter all durations less or equal than 999 you should create this filter:
+
+```json
+{
+  "op": "and",
+  "children": [
+    {
+      "key": "duration_bucket",
+      "val": 999,
+      "field_op": "lte"
+    }
+  ]
+}
+```
+
 
 ### Create custom metric
 
@@ -121,7 +252,8 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
         "op":"and",
         "children":[{"field_op":"eq","key":"os_version","val":"12"}]
     },
-    "time_granularity": ["five_minute", "hourly"]
+    "time_granularity": ["five_minute", "hourly"],
+    "data_destination": ["metrics_api", "newrelic"]
 }'
 ```
 
@@ -152,6 +284,10 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
   "time_granularity": [
     "five_minute",
     "hourly"
+  ],
+  "data_destination": [
+    "metrics_api",
+    "newrelic"
   ]
 }
 ```
@@ -190,6 +326,11 @@ Status codes: `200`, `400`, `409` and `500`.
       "time_granularity": [
         "five_minute",
         "hourly"
+      ],
+      "data_destination": [
+        "metrics_api",
+        "datadog",
+        "grafana_cloud"
       ]
     }
   ]

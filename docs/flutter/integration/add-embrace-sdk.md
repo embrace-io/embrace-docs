@@ -6,7 +6,7 @@ sidebar_position: 3
 
 # Adding the Flutter Embrace SDK
 
-## Add the Dart Library
+## Add the Embrace Flutter SDK to the project
 
 Add the Embrace package to `pubspec.yaml` with the following command:
 
@@ -14,7 +14,53 @@ Add the Embrace package to `pubspec.yaml` with the following command:
 flutter pub add embrace
 ```
 
-## iOS Setup
+## Automated integration
+
+You can use the `embrace-cli` Dart package to configure your Android and iOS projects to use the Embrace SDK. Alternatively, you can perform the configuration manually.
+
+To install the Embrace CLI, run the following command from any directory:
+
+```shell-session
+dart pub global activate embrace_cli
+```
+
+## Using the Embrace CLI
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+Run the following command to configure your project:
+
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
+
+```shell-session
+embrace_cli installIos YOUR_APP_ID YOUR_API_TOKEN
+```
+
+</TabItem>
+<TabItem value="android" label="Android">
+
+```shell-session
+embrace_cli installAndroid YOUR_APP_ID YOUR_API_TOKEN
+```
+
+</TabItem>
+</Tabs>
+
+You can use git to see the changes that the script made.
+
+```shell-session
+git diff
+```
+
+## iOS setup
+
+:::info
+These steps can be performed automatically with the `installIos` command when using the [Embrace CLI.](#using-the-embrace-cli)
+:::
 
 ### Add the Embrace App ID
 
@@ -47,7 +93,11 @@ On the Xcode Build Phase tab, add a new run script. You can find your 5-characte
 EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 
-## Android Setup
+## Android setup
+
+:::info
+These steps can be performed automatically with the `installAndroid` command when using the [Embrace CLI.](#using-the-embrace-cli)
+:::
 
 In the root-level `build.gradle` file, add the `embrace-swazzler` dependency:
 

@@ -143,10 +143,6 @@ dSYM's are complicated, but ensuring that Embrace has them will make the data yo
 Proguard files will be uploaded automatically.
 If you don’t see symbolicated crashes while using Proguard, reach out to us on Slack and we’ll work with you directly.
 
-:::note
-We do not officially support Dexguard.
-:::
-
 </TabItem>
 
 </Tabs>
