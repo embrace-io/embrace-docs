@@ -1,10 +1,10 @@
 ---
-title: Tracking Sessions
+title: Current Session ID API
 description: Track the current Embrace session by getting its ID.
 sidebar_position: 3
 ---
 
-# Tracking Sessions
+# Current Session ID API
 
 import GetSessionId from '@site/shared/get-session-id.md';
 
