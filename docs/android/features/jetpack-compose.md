@@ -30,20 +30,29 @@ To enable onClick instrumentation, You will need to modify your `embrace-config.
 
 It's also required to modify your `app/build.gradle` or `app/build.gradle.kts` file:
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="KTS">
+
 ```kotlin
- swazzler {
+swazzler {
     disableComposeDependencyInjection.set(false) 
-    }
+}
 ```
+
 </TabItem>
 <TabItem value="groovy" label="Groovy">
+
 ```groovy
 swazzler {
     disableComposeDependencyInjection = false 
-    }
+}
 ```
+
 </TabItem>
 </Tabs>
 
