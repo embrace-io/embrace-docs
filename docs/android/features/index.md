@@ -21,3 +21,4 @@ how your application is performing in production.
 10. [**Last Run End State.**](/android/features/last-run-end-state.md/) Understand if your last app instance ended in a crash.
 11. [**Configuration File.**](/android/features/configuration-file.md) The SDK has many configuration options available.
 12. [**Build Options.**](/android/features/build-options.md) The Embrace Gradle plugin has options that can modify the build process.
+13. [**Jetpack Compose.**](/android/features/jetpack-compose.md) Enable Jetpack Compose (beta) to track taps on composables.
