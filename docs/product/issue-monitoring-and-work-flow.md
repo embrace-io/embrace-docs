@@ -39,17 +39,14 @@ Log messages are powerful tools when it comes to debugging issues. When we detec
 
 The log workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**. 
 
-## Bad Endpoints
+## ANRs
+ANRs that negatively impact user experience can be investigated and triaged directly through the Issues page alognside other issues. ANRs are grouped by the most representative sample and include ANR durations of 5 seconds or greater.
 
-There are network endpoints that generally receive a certain level of errors (404’s when users miss-input  login credentials, constant 400s to dev endpoints). However, endpoints that have 100% error rates, with rare exceptions, serve no purpose and can create stability issues within the app. 
+The ANRs workflow follows the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**. 
 
-We surface endpoints in the Bad Endpoints tab when we detect one of two behaviors: 
-1. A network endpoint generates 100% of 4xx or 5xx errors  
-2. An endpoint has a 100% connection error rate (even if that request generates a 200)
+## Exceptions
+Unity exceptions are also represented on the Issues page for Unity applications and can be investigated and triaged alonside other issues. The exceptions workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**. 
 
-Connection errors and status codes are not always mutually exclusive. It is possible to generate a 200 from the server while a device reports a NSURL issue. Thus when 100% of requests generate connection errors, even if they come with a 200 response, we will still surface the endpoint for your dev teams to look into.  
-
-The network workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**. 
 
 ---
 

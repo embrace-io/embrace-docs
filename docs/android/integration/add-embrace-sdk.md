@@ -31,7 +31,7 @@ pluginManagement {
     }
 
     plugins {
-        id ‘io.embrace.swazzler’ version “${swazzler_version}” apply false
+        id 'io.embrace.swazzler' version "${swazzler_version}" apply false
     }
 }
 ```
@@ -47,7 +47,7 @@ pluginManagement {
     }
     val swazzler_version: String by settings
     plugins {
-        id(“io.embrace.swazzler”) version "${swazzlerVersion}" apply false
+        id("io.embrace.swazzler") version "${swazzlerVersion}" apply false
     }
 }
 ```
@@ -80,7 +80,7 @@ plugins {
 
 ```kotlin
 plugins {
-    id(“io.embrace.swazzler”)
+    id("io.embrace.swazzler")
 }
 ```
 
@@ -157,7 +157,7 @@ android {
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-apply(plugin = “embrace-“swazzler)
+apply(plugin = "embrace-swazzler")
 ```
 
 </TabItem>
