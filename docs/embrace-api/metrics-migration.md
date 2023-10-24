@@ -1,6 +1,6 @@
 ---
 title: Metrics migration (2023-10-23)
-description: How-to: update your queries to the latest Metrics
+description: How-to update your queries to the latest Metrics
 sidebar_position: 5
 ---
 
