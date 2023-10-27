@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.23.2
+*Oct 27, 2023*
+* Fixes bug that could cause wrong timestamp to appear in crash reports
+
 ## 5.23.1
 *Sept 26, 2023*
 * Fixes memory issue when generating a session payload with numerous (1000+) network requests. Introduced in 5.22.0.
