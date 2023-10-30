@@ -6,6 +6,19 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.18.0
+*October 30, 2023*
+
+* Embrace.Instance.SetUserPersona, .LogBreadcrumb, .LogNetworkRequest have been deprecated and replaced by the following functions respectively: .AddUserPersona, .AddBreadcrumb, .RecordNetworkRequest
+* iOS users can now specify their Crash Report Provider in via the iOS configuration of the Embrace SDK
+* Embrace.Instance now has a .IsStarted boolean property that reports if the Embrace SDK has finished starting/initializing.
+* Support for uploading il2cpp metadata for symbolication Unity C# code
+* Added more obvious in-window reports indicating incomplete integration of Embrace Unity SDK
+* Fixed: XCode Symbol Upload Build Phase now uses unix newline character instead of current environment line ending
+* Fixed: Automatic Network Capture reporting connection error when result was protocol error.
+* Updated internal iOS Embrace SDK to 5.23.2
+* Updated internal Android Embrace SDK to 5.25.0
+
 ## 1.17.0
 *August 10, 2023*
 
