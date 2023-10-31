@@ -1,22 +1,5 @@
 name: CI
 
-env:
-  AWS_DEFAULT_REGION: 'us-west-2'
-
-  # https://embrace.io/docs/
-  # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:ENILO2YUDEJ88
-  PROD_AWS_S3_BUCKET: prod.embrace.io-docs
-  PROD_AWS_CLOUDFRONT_ID: EMBBYTO7JVZ55
-
-  # https://dev.embrace.io/docs/
-  # https://console.aws.amazon.com/cloudfront/home?region=us-west-2#distribution-settings:E20WGO1Z361L37
-  STG_AWS_S3_BUCKET: dev.embrace.io-docs
-  STG_AWS_CLOUDFRONT_ID: E20WGO1Z361L37
-
-  # https://<url>/docs-prNNN/
-  DEV_AWS_S3_BUCKET: dev.embrace.io-docs
-  DEV_AWS_CLOUDFRONT_ID: E20WGO1Z361L37 # NOTE: we aren't actually using a CDN for dev
-
 on:
   pull_request:
   push:
@@ -31,10 +14,48 @@ permissions:
   contents: read
   pull-requests: write
 
-jobs:
-  docusaurus-build:
-    runs-on: ubuntu-latest
+env:
+  AWS_DEFAULT_REGION: 'us-west-2'
 
+jobs:
+  environment:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.choose_environment.outputs.name }}
+      AWS_S3_BUCKET: ${{ steps.choose_environment.outputs.AWS_S3_BUCKET }}
+      AWS_CLOUDFRONT_ID: ${{ steps.choose_environment.outputs.AWS_CLOUDFRONT_ID }}
+      URL: ${{ steps.choose_environment.outputs.URL }}
+      URL_PATH: ${{ steps.choose_environment.outputs.URL_PATH }}
+    steps:
+      - name: Choose environment
+        id: choose_environment
+        run: |
+          if [ '${{ github.event_name }}/${{ github.event.action }}' == 'release/released' ] || [ '${{ github.event_name }}' == 'workflow_dispatch' ]; then
+              echo 'name=production' >> $GITHUB_OUTPUT
+              echo 'AWS_S3_BUCKET=prod.embrace.io-docs' >> $GITHUB_OUTPUT
+              echo 'AWS_CLOUDFRONT_ID=EMBBYTO7JVZ55' >> $GITHUB_OUTPUT
+              echo 'URL=https://embrace.io' >> $GITHUB_OUTPUT
+              echo 'URL_PATH=/docs' >> $GITHUB_OUTPUT
+          elif [ "${{ github.ref }}" == "refs/heads/master" ]; then
+              echo 'name=staging' >> $GITHUB_OUTPUT
+              echo 'AWS_S3_BUCKET=dev.embrace.io-docs' >> $GITHUB_OUTPUT
+              echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT
+              echo 'URL=https://dev.embrace.io' >> $GITHUB_OUTPUT
+              echo 'URL_PATH=/docs' >> $GITHUB_OUTPUT
+          else
+              echo 'name=development' >> $GITHUB_OUTPUT
+              echo 'AWS_S3_BUCKET=dev.embrace.io-docs' >> $GITHUB_OUTPUT
+              echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT # NOTE: we aren't actually using a CDN for dev, we link directly to https://bucket.s3/url/
+              echo 'URL=http://dev.embrace.io-docs.s3-website-us-west-2.amazonaws.com' >> $GITHUB_OUTPUT # NOTE: Yes, it is http://
+              echo 'URL_PATH=/docs-pr${{ github.event.number }}' >> $GITHUB_OUTPUT
+          fi
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: environment
+    environment:
+      name: ${{ needs.environment.outputs.name }}
+      url: ${{ needs.environment.outputs.URL }}${{ needs.environment.outputs.URL_PATH }}/
     steps:
       - uses: actions/checkout@v4
 
@@ -47,33 +68,7 @@ jobs:
         run: |
           npm install
 
-      - name: Destination Development
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          echo "AWS_S3_BUCKET=${{ env.DEV_AWS_S3_BUCKET }}" >> $GITHUB_ENV
-          echo "AWS_CLOUDFRONT_ID=${{ env.DEV_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
-
-          # See docusaurus.config.js
-          echo "URL=http://${{ env.DEV_AWS_S3_BUCKET }}.s3-website-${{ env.AWS_DEFAULT_REGION }}.amazonaws.com" >> $GITHUB_ENV
-          echo "BASE_URL=/docs-pr${{ github.event.number }}" >> $GITHUB_ENV
-
-      - name: Destination Staging
-        if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-        run: |
-          echo "AWS_S3_BUCKET=${{ env.STG_AWS_S3_BUCKET }}" >> $GITHUB_ENV
-          echo "AWS_CLOUDFRONT_ID=${{ env.STG_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
-          echo "URL=https://dev.embrace.io" >> $GITHUB_ENV
-          echo "BASE_URL=/docs" >> $GITHUB_ENV
-
-      - name: Destination Production
-        if: ${{ github.event_name == 'release' && github.event.action == 'released' }}
-        run: |
-          echo "AWS_S3_BUCKET=${{ env.PROD_AWS_S3_BUCKET }}" >> $GITHUB_ENV
-          echo "AWS_CLOUDFRONT_ID=${{ env.PROD_AWS_CLOUDFRONT_ID }}" >> $GITHUB_ENV
-          echo "URL=https://embrace.io" >> $GITHUB_ENV
-          echo "BASE_URL=/docs" >> $GITHUB_ENV
-
-      - name: Docusaurus Build
+      - name: Run Docusaurus build to generate HTML
         run: |
           npm run docusaurus build
 
@@ -83,8 +78,8 @@ jobs:
           role-to-assume: ${{ secrets.AWS_LOGIN_ROLE }}
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
 
-      - name: Assume AWS role Development
-        if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
+      - name: Assume AWS role
+        if: ${{ github.actor != 'dependabot[bot]' }}
         run: |
             pip install --upgrade awscli
             credentials=$( aws sts assume-role --role-arn "${{ secrets.AWS_ASSUME_ROLE }}" --role-session-name "`echo $GITHUB_REPOSITORY | tr "/" "-"`" )
@@ -93,12 +88,12 @@ jobs:
             echo "AWS_SESSION_TOKEN=`echo $credentials | jq -r .Credentials.SessionToken`" >> $GITHUB_ENV
 
       - name: Sync to S3 bucket
-        if: ${{ github.event_name == 'push' || github.event_name == 'release' || github.event_name == 'pull_request' }}
+        if: ${{ github.actor != 'dependabot[bot]' }}
         run: |
-          aws s3 sync --acl public-read --delete build/ s3://${{ env.AWS_S3_BUCKET }}${{ env.BASE_URL }}/
+          aws s3 sync --acl public-read --delete build/ s3://${{ needs.environment.outputs.AWS_S3_BUCKET }}${{ needs.environment.outputs.URL_PATH }}/
 
-      - name: Add Pull Request Comment
-        if: ${{ github.event_name == 'pull_request' }}
+      - name: Add pull request comment
+        if: ${{ github.event_name == 'pull_request' && github.actor != 'dependabot[bot]' }}
         uses: actions/github-script@v6
         with:
           script: |
@@ -106,10 +101,10 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Preview of ${{ github.sha }} deployed to: ${{ env.URL }}${{ env.BASE_URL }}/'
+              body: 'Preview of ${{ github.sha }} deployed to: ${{ needs.environment.outputs.URL }}${{ needs.environment.outputs.URL_PATH }}/'
             })
 
       - name: Invalidate CloudFront cache
         if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_ID }} --paths '/docs*'
+          aws cloudfront create-invalidation --distribution-id ${{ needs.environment.outputs.AWS_CLOUDFRONT_ID }} --paths '/docs*'
