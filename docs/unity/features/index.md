@@ -15,4 +15,5 @@ how your application is performing in production.
 1. [**Log Network Requests.**](/unity/features/log-network-requests/) Log network requests made by your application.
 1. [**Log Unhandled Exceptions.**](/unity/features/exception-logging/) Automatically log unhandled exceptions thrown by your application.
 1. [**Last Run End State.**](/unity/features/last-run-end-state/) Understand if your last app instance ended in a crash.
+1. [**C# Symbolication.**](/unity/features/csharp-symbolication/) Translate C++ stack frames from il2cpp builds back to the C# source.
 1. [**Build Options.**](/unity/features/build-options/) The Embrace Unity Editor Windows have options that can modify the build process.
