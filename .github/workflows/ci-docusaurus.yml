@@ -72,6 +72,7 @@ jobs:
       - name: Run Docusaurus build to generate HTML
         run: |
           npm run docusaurus build
+          git log -1 > build/version.txt
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
