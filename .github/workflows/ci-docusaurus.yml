@@ -24,7 +24,6 @@ jobs:
       name: ${{ steps.choose_environment.outputs.name }}
       AWS_S3_BUCKET: ${{ steps.choose_environment.outputs.AWS_S3_BUCKET }}
       AWS_CLOUDFRONT_ID: ${{ steps.choose_environment.outputs.AWS_CLOUDFRONT_ID }}
-      # These are also read by docusaurus.config.js
       URL: ${{ steps.choose_environment.outputs.URL }}
       BASE_URL: ${{ steps.choose_environment.outputs.BASE_URL }}
     steps:
@@ -70,6 +69,10 @@ jobs:
           npm install
 
       - name: Run Docusaurus build to generate HTML
+        env:
+          # These are read by docusaurus.config.js
+          URL: ${{ needs.environment.outputs.URL }}
+          BASE_URL: ${{ needs.environment.outputs.BASE_URL }}
         run: |
           npm run docusaurus build
           git log -1 > build/version.txt
