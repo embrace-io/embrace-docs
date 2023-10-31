@@ -25,7 +25,7 @@ jobs:
       AWS_S3_BUCKET: ${{ steps.choose_environment.outputs.AWS_S3_BUCKET }}
       AWS_CLOUDFRONT_ID: ${{ steps.choose_environment.outputs.AWS_CLOUDFRONT_ID }}
       URL: ${{ steps.choose_environment.outputs.URL }}
-      URL_PATH: ${{ steps.choose_environment.outputs.URL_PATH }}
+      BASE_URL: ${{ steps.choose_environment.outputs.BASE_URL }}
     steps:
       - name: Choose environment
         id: choose_environment
@@ -35,19 +35,19 @@ jobs:
               echo 'AWS_S3_BUCKET=prod.embrace.io-docs' >> $GITHUB_OUTPUT
               echo 'AWS_CLOUDFRONT_ID=EMBBYTO7JVZ55' >> $GITHUB_OUTPUT
               echo 'URL=https://embrace.io' >> $GITHUB_OUTPUT
-              echo 'URL_PATH=/docs' >> $GITHUB_OUTPUT
+              echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
           elif [ "${{ github.ref }}" == "refs/heads/master" ]; then
               echo 'name=staging' >> $GITHUB_OUTPUT
               echo 'AWS_S3_BUCKET=dev.embrace.io-docs' >> $GITHUB_OUTPUT
               echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT
               echo 'URL=https://dev.embrace.io' >> $GITHUB_OUTPUT
-              echo 'URL_PATH=/docs' >> $GITHUB_OUTPUT
+              echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
           else
               echo 'name=development' >> $GITHUB_OUTPUT
               echo 'AWS_S3_BUCKET=dev.embrace.io-docs' >> $GITHUB_OUTPUT
               echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT # NOTE: we aren't actually using a CDN for dev, we link directly to https://bucket.s3/url/
               echo 'URL=http://dev.embrace.io-docs.s3-website-us-west-2.amazonaws.com' >> $GITHUB_OUTPUT # NOTE: Yes, it is http://
-              echo 'URL_PATH=/docs-pr${{ github.event.number }}' >> $GITHUB_OUTPUT
+              echo 'BASE_URL=/docs-pr${{ github.event.number }}' >> $GITHUB_OUTPUT
           fi
 
   deploy:
@@ -55,7 +55,7 @@ jobs:
     needs: environment
     environment:
       name: ${{ needs.environment.outputs.name }}
-      url: ${{ needs.environment.outputs.URL }}${{ needs.environment.outputs.URL_PATH }}/
+      url: ${{ needs.environment.outputs.URL }}${{ needs.environment.outputs.BASE_URL }}/
     steps:
       - uses: actions/checkout@v4
 
@@ -69,8 +69,13 @@ jobs:
           npm install
 
       - name: Run Docusaurus build to generate HTML
+        env:
+          # These are read by docusaurus.config.js
+          URL: ${{ needs.environment.outputs.URL }}
+          BASE_URL: ${{ needs.environment.outputs.BASE_URL }}
         run: |
           npm run docusaurus build
+          git log -1 > build/version.txt
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -90,7 +95,7 @@ jobs:
       - name: Sync to S3 bucket
         if: ${{ github.actor != 'dependabot[bot]' }}
         run: |
-          aws s3 sync --acl public-read --delete build/ s3://${{ needs.environment.outputs.AWS_S3_BUCKET }}${{ needs.environment.outputs.URL_PATH }}/
+          aws s3 sync --acl public-read --delete build/ s3://${{ needs.environment.outputs.AWS_S3_BUCKET }}${{ needs.environment.outputs.BASE_URL }}/
 
       - name: Add pull request comment
         if: ${{ github.event_name == 'pull_request' && github.actor != 'dependabot[bot]' }}
@@ -101,7 +106,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Preview of ${{ github.sha }} deployed to: ${{ needs.environment.outputs.URL }}${{ needs.environment.outputs.URL_PATH }}/'
+              body: 'Preview of ${{ github.sha }} deployed to: ${{ needs.environment.outputs.URL }}${{ needs.environment.outputs.BASE_URL }}/'
             })
 
       - name: Invalidate CloudFront cache
