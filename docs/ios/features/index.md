@@ -9,7 +9,7 @@ sidebar_position: 2
 Embrace's SDK includes many advanced features that you can enable to help you understand more about
 how your application is performing in production.
 
-1. [**Measure Performance.**](/ios/features/performance-monitoring) In this section you will learn how you can use Embrace to go beyond logging and crashes and start to examine critical user flows within your application. Measure performance, completion and abandonment easily and consistently.
+1. [**Moments.**](/ios/features/moments) In this section you will learn how you can use Embrace to go beyond logging and crashes and start to examine critical user flows within your application. Measure performance, completion and abandonment easily and consistently.
 1. [**Know your users.**](/ios/features/identify-users) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
     <!---1. [**Augment Sessions using OS Log**](/ios/features/augment-sessions) Embrace can use your OS Log stream to help you understand complex problems with your application.-->
 1. [**Web Thread Monitoring.**](/ios/features/web-thread-monitoring) If you use WKWebView in your application, Embrace can monitor the JavaScript threads behind the view. You can log these events to your sessions or even have Embrace automatically reload the views for you.

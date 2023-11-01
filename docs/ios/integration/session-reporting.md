@@ -200,7 +200,7 @@ may see false abandonment data.
 :::
 
 You can learn more about moments and measuring performance yourself in the
-[Measure Performance](/ios/features/performance-monitoring) section.
+[Moments](/ios/features/moments) section.
 
 ## Build and Run Your Application
 

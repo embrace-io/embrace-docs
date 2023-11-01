@@ -1,12 +1,12 @@
 ---
-title: Performance Monitoring
+title: Moments
 description: Measure the performance of your Android application using Embrace
 sidebar_position: 1
 ---
 
-# Measure Performance
+# Moments
 
-## Moments
+## Overview
 
 Embrace contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
 This mechanism is the same one used to measure application launch performance, which we covered in the [Session Reporting](/android/integration/session-reporting) section.

@@ -15,7 +15,7 @@ or email us at <support@embrace.io>.
 ### **Can I turn on screenshots for specific areas of my app?**
 
 Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-To turn on screenshots, please refer to the sections for [Logs](/android/integration/log-message-api) and [Moments](/android/features/performance-monitoring), or see the [API docs](/api/android/).
+To turn on screenshots, please refer to the sections for [Logs](/android/integration/log-message-api) and [Moments](/android/features/moments), or see the [API docs](/api/android/).
 If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
 
 ## Crash Capture
@@ -191,12 +191,12 @@ This could be due to one of the following reasons:
   * Cloudflare
   * PacketZoom
 
-## Performance Monitoring
+## Monitoring Performance
 
 ### **Why do I have super low rates of incomplete for startup; e.g. 99.5% to 100%?**
 
 The most common scenario is that we are auto-detecting an early activity for which you should skip.
-Please refer to the  [Performance Monitoring guide](/android/features/performance-monitoring) for how to correctly track startup completion rates and durations.
+Please refer to the [Moments feature guide](/android/features/moments) for how to correctly track startup completion rates and durations.
 
 ### **How do I measure activities running in parallel?**
 

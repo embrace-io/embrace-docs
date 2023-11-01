@@ -163,7 +163,7 @@ class MainActivity : FlutterActivity() {
 ## End the startup moment
 
 Embrace automatically starts the **startup** moment when your application launches.
-You'll learn more about moments in [Performance Monitoring](/flutter/features/performance-monitoring/) guide.
+You'll learn more about moments in [here](/flutter/features/moments/).
 For now, you can think of the startup moment as a timer that measures how long it took your application to launch.
 Although in both Android and iOS the moment is started automatically, ending it is platform specific.
 
