@@ -66,7 +66,7 @@ const sidebars = {
       items: [
         {
           type: "link",
-          href: "https://embrace-io.github.io/embrace-android-sdk3/",
+          href: "https://embrace-io.github.io/embrace-android-sdk/",
           label: "Android",
         },
         {
