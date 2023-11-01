@@ -22,4 +22,4 @@ how your application is performing in production.
 11. [**Configuration File.**](/android/features/configuration-file.md) The SDK has many configuration options available.
 12. [**Build Options.**](/android/features/build-options.md) The Embrace Gradle plugin has options that can modify the build process.
 13. [**Jetpack Compose.**](/android/features/jetpack-compose.md) Enable Jetpack Compose (beta) to track taps on composables.
-14. [**Performance Tracing (Beta.**](/android/features/tracing.md) Record traces to monitor the production performance and success rates of operations within in application.
+14. [**Performance Tracing (Beta).**](/android/features/tracing.md) Record traces to monitor the production performance and success rates of operations within your application.

@@ -1,6 +1,6 @@
 ---
 title: Performance Tracing (Beta)
-description: Record traces to monitor the production performance and success rates of operations within in application.
+description: Record traces to monitor the production performance and success rates of operations within in your application.
 sidebar_position: 14
 ---
 
