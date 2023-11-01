@@ -1,3 +1,9 @@
+---
+title: Current Session ID API
+description: Retrieve the current session ID
+sidebar_position: 11
+---
+
 # Current Session ID API
 
 ## Overview
