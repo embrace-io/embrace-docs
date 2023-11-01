@@ -1,7 +1,7 @@
 ---
 title: Performance Tracing (Beta)
 description: Record traces to monitor the production performance and success rates of operations within in your application.
-sidebar_position: 14
+sidebar_position: 12
 ---
 
 # Performance Tracing (Beta)
@@ -48,7 +48,7 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 - Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alpha-numeric**
 
 :::warning Internal Prefixes
-The `emb-` and `emb.` prefixes are reserved for internal Embrace attributes and span names. You should never create a name with `emb-` and `emb.` prefixes
+The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with `emb-` and `emb.` prefixes
 :::
 
 ## Integration Steps
