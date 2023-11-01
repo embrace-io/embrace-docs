@@ -11,6 +11,6 @@ Be sure to follow these guidelines, as this will help you get the most out of Em
 
 * [**Breadcrumbs**](/best-practices/breadcrumbs/)
 * [**Log Message API**](/best-practices/log-message-api/)
-* [**Performance Monitoring**](/best-practices/app-performance/)
+* [**Monitoring Performance**](/best-practices/app-performance/)
 * [**Webhooks**](/best-practices/webhooks/)
 * [**Monitoring GraphQL Requests**](/best-practices/graphql/)

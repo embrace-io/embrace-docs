@@ -188,7 +188,7 @@ It will increase if header and body capture is enabled.
 WebSocket requests are not captured automatically. Please contact us if you are using WebSockets.
 Please verify that the Embrace SDK is initialized before the app initializes any network-related functions e.g. any Alamofire SessionManager instances you create should be created after you start the Embrace SDK.
 
-## Performance Monitoring
+## Monitoring Performance
 
 ### **Why do I have high rates of incomplete even though I implemented the startup?**
 

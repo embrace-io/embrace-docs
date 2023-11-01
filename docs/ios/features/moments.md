@@ -1,12 +1,12 @@
 ---
-title: Performance Monitoring
+title: Moments
 description: Measure the performance of your iOS application using Embrace
 sidebar_position: 1
 ---
 
-# Measure Performance
+# Moments
 
-## Moments
+## Overview
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature.
 Embrace uses this mechanism to measure your application launch performance. This is why you must call `endAppStartup` somewhere in your application, as mentioned in the [Session Reporting](/ios/integration/session-reporting) section.
