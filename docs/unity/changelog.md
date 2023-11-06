@@ -12,6 +12,10 @@ sidebar_position: 4
 
 ## 1.18.0
 *October 30, 2023*
+:::warning Important
+This version of the Unity SDK introduced a bug between the Unity and internal Android SDK resulting in dropped exceptions when communicating between the two SDKs.
+Please update to the latest version.
+:::
 
 * Embrace.Instance.SetUserPersona, .LogBreadcrumb, .LogNetworkRequest have been deprecated and replaced by the following functions respectively: .AddUserPersona, .AddBreadcrumb, .RecordNetworkRequest
 * iOS users can now specify their Crash Report Provider in via the iOS configuration of the Embrace SDK
