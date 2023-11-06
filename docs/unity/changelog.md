@@ -5,6 +5,10 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.18.1
+*November 6th 2023*
+
+* Hotfix patch for bug for SDK where Android SDK and Unity SDK misalignment resulted in multiple dropped exceptions.
 
 ## 1.18.0
 *October 30, 2023*
