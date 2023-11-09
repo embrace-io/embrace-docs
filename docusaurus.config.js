@@ -54,6 +54,10 @@ const config = {
             to: '/ios/features/tracing/',
             from: '/ios/features/performance-monitoring/',
           },
+          {
+            to: '/android/features/tracing/',
+            from: '/android/features/performance-monitoring/',
+          },
         ],
       },
     ],
