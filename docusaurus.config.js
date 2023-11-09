@@ -92,6 +92,12 @@ const config = {
     ({
       image: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
 
+      // https://docusaurus.io/docs/api/themes/configuration#color-mode---dark-mode
+      colorMode: {
+        // defaultMode: 'dark',
+        respectPrefersColorScheme: true,
+      },
+
       navbar: {
         logo: {
           alt: "Embrace",
