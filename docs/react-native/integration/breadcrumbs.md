@@ -13,9 +13,9 @@ Embrace can also collect your logging data and include it as context within your
 Here's how you add a Breadcrumb to the session.
 
 ```javascript
-import {logBreadcrumb} from 'react-native-embrace';
+import {addBreadcrumb} from 'react-native-embrace';
 
-logBreadcrumb("component updated -- 'show' prop changed from true to false");
+addBreadcrumb("component updated -- 'show' prop changed from true to false");
 ```
 
 In the above example, a Breadcrumb is being logged when a prop named "show" changed and triggered a component update.
