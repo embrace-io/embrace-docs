@@ -45,6 +45,20 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/ios/features/tracing/',
+            from: '/ios/features/performance-monitoring/',
+          },
+        ],
+      },
+    ],
+  ],
+
   presets: [
     [
       "classic",
