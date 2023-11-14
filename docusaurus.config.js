@@ -45,6 +45,24 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/ios/features/tracing/',
+            from: '/ios/features/performance-monitoring/',
+          },
+          {
+            to: '/android/features/tracing/',
+            from: '/android/features/performance-monitoring/',
+          },
+        ],
+      },
+    ],
+  ],
+
   presets: [
     [
       "classic",
@@ -73,6 +91,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
+
+      // https://docusaurus.io/docs/api/themes/configuration#color-mode---dark-mode
+      colorMode: {
+        // defaultMode: 'dark',
+        respectPrefersColorScheme: true,
+      },
 
       navbar: {
         logo: {

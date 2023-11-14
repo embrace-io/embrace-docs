@@ -16,4 +16,8 @@ As part of our Metrics Forwarding package, Embrace offers a number of Data Desti
 All destinations receive a set of Standard metrics in daily, hourly, and five-minutely granularities:
 * crash total
 * sessions total
-* crash free user total
+
+To get started head to Settings -> Integrations in the dashboard and setup your first destination:
+
+<img src={require('@site/static/images/data-destinations/settings_page_example.png').default} alt="Image showing the settings page for data destinations" />
+
