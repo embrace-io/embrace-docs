@@ -93,7 +93,39 @@ correctly.
 <TabItem value="ios" label="iOS">
 
 You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
-Please see the [Session Reporting](/ios/integration/session-reporting#import-embrace) page from the iOS integration guide page on how to add this file in Xcode. 
+
+1. Create a file called `Embrace-Info.plist` with the following content.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>API_KEY</key>
+    <string>{API_KEY}</string>
+    <key>CRASH_REPORT_ENABLED</key>
+    <true/>
+  </dict>
+</plist>
+```
+:::info Note for iOS
+If you'd like to use Embrace's internal crash reporter,
+set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
+described in the [Adding the Embrace SDK](/flutter/integration/add-embrace-sdk) page).
+If you're using Crashlytics, set this value to false.
+:::
+
+2. Identify your root iOS Project.
+<img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
+
+3. Right click on that project and select `Add Files to YOUR_PROJECT`.
+<img src={require('@site/static/images/addEmbraceInfo-2.png').default} />
+
+4. Select `Embrace-Info.plist` and click on `Add`. Do not forget to select which `Targets` you are using.
+<img src={require('@site/static/images/addEmbraceInfo-3.png').default} />
+
+5. Check if the file appears inside YOUR_PROJECT.
+<img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
+
 
 </TabItem>
 <TabItem value="android" label="Android">
