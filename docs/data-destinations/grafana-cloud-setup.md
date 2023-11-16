@@ -28,7 +28,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 1. Log into your [Grafana Cloud account](https://grafana.com/auth/sign-in) to access the **Cloud Portal**.
 2. Select the organization that you want to add an Access Policy Token to, by selecting from the dropdown in top left.
 3. Click **Access Policies** from the SECURITY section on the left.
-4. Click **+Create Access Policy**.
+4. Click **Create Access Policy**.
 <img src={require('@site/static/images/data-destinations/grafana_cloud_access_policy.png').default} alt="Image showing Grafana cloud access policy tab" />
 5. In **Display Name** and **Name**, enter a name for your Access Policy.
 6. In **Realms**, choose the organization in which you want the metrics.
