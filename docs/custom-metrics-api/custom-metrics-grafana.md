@@ -17,7 +17,7 @@ Then every Custom Metric you make will automatically be available when you use G
       <p>Embrace Custom Metrics in Grafana - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/13877a04b6bb47409ea87bd702815da9">
-      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/13877a04b6bb47409ea87bd702815da9-with-play.gif">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/13877a04b6bb47409ea87bd702815da9-with-play.gif"/>
     </a>
   </div>
 
