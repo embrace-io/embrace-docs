@@ -14,11 +14,12 @@ you are free to skip around.
 
 ## Requirements
 
-Embrace requires the following:
+Starting with version 6.0.0, Embrace has the following minimum requirements on Android:
 
-* Android 4.1 (API 16) or newer
-* Gradle 5.1 or newer
-* Android Gradle Build Tools Plugin 3.4.0+
-* Java 8 (with most recent updates) or newer
+* Android 5.0 (API 21)
+* Java 8
+* Kotlin 1.4
+* Gradle 6.1.1
+* Android Gradle Build Tools Plugin 4.0.0
 
 If you use a version older than any of those listed above, please contact us via email at [support@embrace.io](mailto:support@embrace.io) or reach out to us on Slack.
