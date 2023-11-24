@@ -23,13 +23,13 @@ In the left navigation bar under the Honeycomb logo, select the Environments ban
 <img src={require('@site/static/images/data-destinations/honeycomb_manage_environments_2.png').default} alt="Image showing list of existing Environments and details about each one of them" />
 4. In the row of the Environment you want to use to receive the metrics, select **View API Keys**. 
 5. Click on **Create API Key**:
+<img src={require('@site/static/images/data-destinations/honeycomb_create_api_key.png').default} alt="Image showing create api key button" />
     - At least you must enable the following permissions:
         - Visit to team members
         - Enable
         - Send events
         - Create datasets
-          <img src={require('@site/static/images/data-destinations/honeycomb_create_api_key.png').default} alt="Image showing create api key button" />
-        - <img src={require('@site/static/images/data-destinations/honeycomb_api_key_modal.png').default} alt="Image showing api key modal" />
-5. The next screen lists the API Keys associated with the Environment (and the one you already created).
-6. Click on the **Copy key** button (adjacent to the key value).
-7. Share the api key with an Embrace onboarding specialist.
+<img src={require('@site/static/images/data-destinations/honeycomb_api_key_modal.png').default} alt="Image showing api key modal" />
+6. The next screen lists the API Keys associated with the Environment (and the one you already created).
+7. Click on the **Copy key** button (adjacent to the key value).
+8. Share the api key with an Embrace onboarding specialist.
