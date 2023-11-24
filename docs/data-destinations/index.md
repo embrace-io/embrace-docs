@@ -11,7 +11,8 @@ As part of our Metrics Forwarding package, Embrace offers a number of Data Desti
 * [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
 * [Datadog integration guide](/data-destinations/data-dog-setup.md)
 * [New Relic integration guide](/data-destinations/new-relic-setup.md)
-* [Grafana Cloud Integration guide](/data-destinations/grafana-cloud-setup.md)
+* [Grafana Cloud integration guide](/data-destinations/grafana-cloud-setup.md)
+* [Honeycomb integration guide](/data-destinations/honeycomb.md)
 
 All destinations receive a set of Standard metrics in daily, hourly, and five-minutely granularities:
 * crash total
