@@ -7,6 +7,14 @@ sidebar_position: 4
 # Android SDK Changelog
 
 ## 6.0.0
+*November 24, 2023*
+- Enabled [Performance Tracing](/android/features/tracing/) by default
+- Improved build performance of the Gradle plugin
+- Improved session data delivery retries
+- Enforce network call per session limits properly
+- Fixed premature clearing of breadcrumbs on background activities
+
+## 6.0.0
 *October 26, 2023*
 - Removal of deprecated methods
     - Check our [upgrading guide](/android/upgrading/)
