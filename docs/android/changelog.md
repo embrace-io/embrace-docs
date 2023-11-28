@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
-## 6.0.0
+## 6.1.0
 *November 24, 2023*
 - Enabled [Performance Tracing](/android/features/tracing/) by default
 - Improved build performance of the Gradle plugin
