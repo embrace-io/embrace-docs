@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.24.0
+*Nov 30, 2023*
+* Updates logic when writing to disk to better catch exceptions that can occur
+* Updates performance tracing to be enabled by default
+* Updates `upload` tool to distribute a universal binary
+* Fixes crash in `EMBSessionMetadataFile`
+* Fixes crash `fileForClosedSpansNamed:`. Introduced in 5.19.4, partly addressed in 5.23.1
+
 ## 5.23.2
 *Oct 27, 2023*
 * Fixes bug that could cause wrong timestamp to appear in crash reports
@@ -180,13 +188,13 @@ This version has known issues and should not be used
 * Fix potential loss of logs in edge case
 * Potential infinite loop fix when using AFNetworking
 * Potential infinite loop fixed when for rare edge case with logging
-* Potential undefined behavior fix 
+* Potential undefined behavior fix
 
 ## 5.12.3
 *November 15th, 2022*
 
 * Ensured remote config fetch does not impact main thread
-* setBackgroundMode API Deprecation 
+* setBackgroundMode API Deprecation
 
 ## 5.12.2
 *November 8th, 2022*
@@ -267,7 +275,7 @@ This version has known issues and should not be used
 ## 5.7.6
 *March 14th, 2022*
 
-* Fixed for missing some network requests metrics. 
+* Fixed for missing some network requests metrics.
 * Fix potential ANR on launch that could cause a crash in some situations
 * Added Log Message variants that allow for logging caught exceptions
 
@@ -340,7 +348,7 @@ This version has known issues and should not be used
 ## 5.5.3
 *July 13th, 2021*
 
-* Fix disabled SDK in a scene-based app 
+* Fix disabled SDK in a scene-based app
 * Fix micro sessions in a scene-baed app
 
 ## 5.5.2
@@ -674,36 +682,36 @@ This version has known issues and should not be used
 *March 3, 2020*
 - Added support for React Native handled exceptions
 
-**Note: Please update to the latest SDK version if you're on v4.1.8. There is a known bitcode error that is resolved in v4.1.10 and all subsequent updates** 
+**Note: Please update to the latest SDK version if you're on v4.1.8. There is a known bitcode error that is resolved in v4.1.10 and all subsequent updates**
 
 ## 4.1.7
 *February 26, 2020*
-- Added swizzling around the `NSURLSession:SharedSession` object to ensure we capture that traffic in all cases 
+- Added swizzling around the `NSURLSession:SharedSession` object to ensure we capture that traffic in all cases
 
 ## 4.1.6
 *February 11, 2020*
 - Disabled KSCrash tracking to work around a iOS 13.4-beta crash
-- Added a custom view API (`startViewWithName`, `endViewWithName`) to allow tracking of custom view hierarchies 
-- Added session properties API (`addSessionProperty`, `removeSessionPropertyWithKey`) to allow annotating the session with customized properties 
-- Restored ability to automatically track `DataTaskWithURL` and `DownloadTaskWithURL` network requests in iOS 13 
+- Added a custom view API (`startViewWithName`, `endViewWithName`) to allow tracking of custom view hierarchies
+- Added session properties API (`addSessionProperty`, `removeSessionPropertyWithKey`) to allow annotating the session with customized properties
+- Restored ability to automatically track `DataTaskWithURL` and `DownloadTaskWithURL` network requests in iOS 13
 
 ## 4.1.5
 *January 15, 2020*
 - Temporarily reverted Carthage support in order to ensure AppStore compatibilities
 
 ## 4.1.4
-*January 14, 2020* 
+*January 14, 2020*
 
-- Improved SDK startup time 
-- Fixed crash when utilizing New Relic alongside Embrace for webkit tracking 
-- When using Crashlytics alongside Embrace, duplicate reports are no longer reported to Embrace when upload to Crashlytics fails 
-- Trimmed custom event property keys and values to 4096 characters 
-- Added ability to encrypt network body capture using a public key 
+- Improved SDK startup time
+- Fixed crash when utilizing New Relic alongside Embrace for webkit tracking
+- When using Crashlytics alongside Embrace, duplicate reports are no longer reported to Embrace when upload to Crashlytics fails
+- Trimmed custom event property keys and values to 4096 characters
+- Added ability to encrypt network body capture using a public key
 
 ## 4.1.3
 *November 20, 2019*
 
-- Fixed issue with capture of delegate-based NSURLSession calls and WKWebViews where a crash could occur if the instantiation of the network call or web view was short-lived. 
+- Fixed issue with capture of delegate-based NSURLSession calls and WKWebViews where a crash could occur if the instantiation of the network call or web view was short-lived.
 
 ## 4.1.2
 *November 19, 2019*
@@ -714,7 +722,7 @@ This version has known issues and should not be used
 *November 13, 2019*
 
 - Fixed compatibility issue with Firebase App Performance that caused a crash when the SDK is started before Firebase.
-- Improved RN crash reporting capabilities. 
+- Improved RN crash reporting capabilities.
 
 ## 4.1.0
 *October 24, 2019*
@@ -725,15 +733,15 @@ This version has known issues and should not be used
 
 ## 4.0.0
 *October 14, 2019*
- 
-- Removed `UIWebView` support. 
- - Apple started issuing warnings that apps using `UIWebView` would be rejected in the future. If your team has not yet migrated to `WKWebViews`, do not update past 3.7.0. We will support `UIWebViews` in SDK versions prior to 3.7.0.  
+
+- Removed `UIWebView` support.
+ - Apple started issuing warnings that apps using `UIWebView` would be rejected in the future. If your team has not yet migrated to `WKWebViews`, do not update past 3.7.0. We will support `UIWebViews` in SDK versions prior to 3.7.0.
 - Fixed issue where delegate-based network calls could fail when the Firebase Performance SDK was installed and initialized before the Embrace SDK.
 - Added support for custom view names. Instead of having the default view controller names specified in timelines, you can now define custom names.
 - Added support to skip capture of views. If certain views are not of interest, they can now be ignored.
 - Added support for React Native crashes.
 - Added support for improved React Native log stack traces.
-- Added support for upload of React Native source maps to the upload script. 
+- Added support for upload of React Native source maps to the upload script.
 
 ##  3.7.0
 *August 2, 2019*
@@ -745,23 +753,23 @@ This version has known issues and should not be used
  - User ids and info are 'sticky' to a session even if cleared at the end of the session.
 - Added optional argument to `endSession` method to clear user info when ending the session.
 
-##  3.6.1 
-*July 22, 2019* 
+##  3.6.1
+*July 22, 2019*
 
 - Allow developers to pass and capture trace IDs from network request headers and have them be displayed in the session timeline for the network request.
 - Added additional timing-related data to network body capture payload.
 - Fixed potential race condition for ending moments.
 - Renamed manual network capture class initializers to be more in line with Swift conventions.
 
-##  3.6.0 
-*July 15, 2019* 
+##  3.6.0
+*July 15, 2019*
 
 - Added `logNetworkRequest` method and `EmbraceNetworkRequest` class to allow manual capture of network requests. The SDK is capable of automatically capturing the majority of REST network calls made by applications, but this new method allows recording of network requests that are not automatically captured, such as gRPC requests.
 - Removed the restriction that the SDK must be initialized before user identity is set.
 - Eliminated redundant network call to Embrace that contained data that is now provided to us as part of other network calls.
 - Gracefully handle multiple calls to start the SDK. We now ignore all except for the first one.
 
-##  3.5.0 
+##  3.5.0
 *July 10, 2019*
 
 - Added option for developers to track app launch methods (ex. background states) which we will later make visible on our dashboard.
