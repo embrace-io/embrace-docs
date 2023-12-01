@@ -13,6 +13,7 @@ sidebar_position: 4
 * Updates `upload` tool to distribute a universal binary
 * Fixes crash in `EMBSessionMetadataFile`
 * Fixes crash `fileForClosedSpansNamed:`. Introduced in 5.19.4, partly addressed in 5.23.1
+* Fixes crash in `-[NSInvocation getArgument:atIndex:]`. Introduced in 5.23.1
 
 ## 5.23.2
 *Oct 27, 2023*
