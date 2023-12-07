@@ -26,6 +26,10 @@ sidebar_position: 4
 We strongly recommend that Embrace customers ensure their apps meet the criteria above.
 :::
 
+## 5.25.1
+*December 7, 2023*
+- Fixed a validation issue when calling deprecated method logNetworkRequest. 
+
 ## 5.25.0
 *October 10, 2023*
 - Added support for tap tracking on Jetpack Compose elements.
