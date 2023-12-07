@@ -5,8 +5,15 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.18.2
+*December 7th 2023*
+* Hotfix patch for bug where the Unity SDK throws an exception when capturing network requests that are null or contain null parameters.
+
 ## 1.18.1
 *November 6th 2023*
+:::warning Important
+This version of the Unity SDK causes an exception when the Unity SDK tries to capture network requests that are null or that contain null parameters.
+:::
 
 * Hotfix patch for bug for SDK where Android SDK and Unity SDK misalignment resulted in multiple dropped exceptions.
 
