@@ -28,24 +28,34 @@ In the case of logError, you may also send an Exception to be shown on the dashb
 
 Here is an example of how to use the Log Message API for errors:
 
-```java
-Map<String, Object> props = new HashMap<>();
-props.put("propertyA", "valueA");
-props.put("propertyB", "valueB");
+```kotlin
+Embrace.getInstance().logError("Loading not finished in time.")
+```
 
-Embrace.getInstance().logError("Loading not finished in time.", props, false);
+Or you can call `logMessage` if you want to add properties to your logs.
+
+```kotlin
+val props = mutableMapOf<String, Any>()
+props["propertyA"] = "valueA"
+props["propertyB"] = "valueB"
+
+Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props)
 ```
 
 ### Log Handled Exception
 
-If there is a need to log an exception, but the severity level is something other than an error, the **`logHandledException`** method can be used.
+If there is a need to log an exception, but the severity level is something other than an error, the **`logException`** method can be used.
 
 ```kotlin
+val props = mutableMapOf<String, Any>()
+props["propertyA"] = "valueA"
+props["propertyB"] = "valueB"
+
 try {
     val exception = NullPointerException("this is my handled exception")
     throw exception
 } catch (e: Exception) {
-    Embrace.getInstance().logHandledException(e, LogType.INFO)
+    Embrace.getInstance().logException(e, Severity.WARNING, props)
 }
 ```
 
@@ -56,7 +66,7 @@ LogType could be ERROR,  WARNING or INFO.
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
 ```java
-Embrace.getInstance().logWarning("User attempted expired credit card", props);
+Embrace.getInstance().logWarning("User attempted expired credit card");
 Embrace.getInstance().logInfo("User has entered checkout flow");
 ```
 

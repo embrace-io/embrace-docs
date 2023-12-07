@@ -12,7 +12,7 @@ Embrace can also collect your logging data and include it as relevant informatio
 Here's how you add a Breadcrumb to the session.
 
 ```java
-Embrace.getInstance().logBreadcrumb("onDragEvent called, starting drag");
+Embrace.getInstance().addBreadcrumb("onDragEvent called, starting drag");
 ```
 
 In the above example, a Breadcrumb is being logged when a drag event listener is called.

@@ -16,7 +16,7 @@ sessions for an unhappy user.
 Embrace offers a set of methods to pass information about your users.
 
 ```java
-Embrace.getInstance().setUserIdentifier("internal_user_id_123");
+Embrace.getInstance().addUserPersona("internal_user_id_123");
 ```
 
 :::warning Important
@@ -30,7 +30,7 @@ For more methods on setting user values, see the [API docs](/api/android/).
 You can also set customized values for specific use cases or segments of users.
 
 ```java
-Embrace.getInstance().setUserPersona("high_value_cart");
+Embrace.getInstance().addUserPersona("high_value_cart");
 ```
 
 In the above example, the session is annotated with `"high_value_cart"`.

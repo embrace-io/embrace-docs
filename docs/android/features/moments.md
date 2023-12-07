@@ -28,7 +28,7 @@ import KeepItShort from '@site/shared/keep-it-short.md';
 Here's how you start a moment.
 
 ```java
-Embrace.getInstance().startEvent("addItem");
+Embrace.getInstance().startMoment("addItem");
 ```
 
 In a sample scenario, this is a moment we're using to measure how quickly an item is added to a `ListView` after a user selects the plus button.
@@ -45,7 +45,7 @@ import PropertyLimit from '@site/shared/property-limit.md';
 Next, here's how you end a moment.
 
 ```java
-Embrace.getInstance().endEvent("addItem");
+Embrace.getInstance().endMoment("addItem");
 ```
 
 A timer is started once you make a call to start a moment.
