@@ -85,13 +85,13 @@ Embrace.sharedInstance().start(launchOptions: launchOptions);
 Alternatively, if you do not want to keep your API_KEY in the plist file you can send it in programmatically using:
 
 ```swift
-Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions)
+Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions);
 ```
 
 :::info
 If your have a **React Native project** you have to add the framework
 ``` React Native
-Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions, framework:EMBAppFrameworkReactNative)
+Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions, framework:.reactNative);
 ```
 :::
 
