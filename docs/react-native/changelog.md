@@ -5,6 +5,9 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 3.16.0
+* Updated Android native Embrace SDK dependency to 5.25.1.
+* Updated iOS native Embrace SDK dependency to 5.24.0.
 ## 3.15.0
 * New method to [get the current session id](/react-native/features/current-session-id-api/)
 * New method to [get the last run end state](/react-native/features/last-run-end-state/) of a session
