@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.2.0
+*December 13, 2023*
+- Removed the capture of unused beta features: strict mode violation, activity lifecycle,
+- Improved the delivery of session messages with changes in the DeliveryService class
+- Removed unused ANR process errors
+- Gzip encode HTTP requests via stream
+- Prioritize most recent api calls when limit is reached.
+- Avoid dropping session when endSession called
+
 ## 6.1.0
 *November 24, 2023*
 - Enabled [Performance Tracing](/android/features/tracing/) by default
