@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.24.2
+*Dec 19, 2023*
+* Fixed an issue in the URL normalization process to ensure thread safety and prevent crashes due to synchronization conflicts.
+* Fixes linker problem for Embrace Unity iOS SDK.
+
+## 5.24.1
+*Dec 19, 2023*
+* all changes rolled into 5.24.2
+
 ## 5.24.0
 *Nov 30, 2023*
 * Updates logic when writing to disk to better catch exceptions that can occur
