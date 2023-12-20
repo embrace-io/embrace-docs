@@ -5,8 +5,21 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.19.0
+*December 20th, 2023*
+* Added support on Unity Android for the Embrace Android Bug Shake feature! Available for users who have Embrace Bug Shake accounts.
+* Updated iOS SDK to 5.24.2
+* Updated Android SDK to 6.1.0 (Bug Shake uses the Bug Shake Plugin version 0.9.0)
+* Patched iOS SDK specific issue involving Current Session ID API
+* Patched code signature issue on iOS for XCode 15
+
 ## 1.18.2
 *December 7th 2023*
+:::warning Important
+This version of the Unity SDK has two issues:
+- Build blocking issue on iOS around the current session ID API
+- Build blocking issue on iOS regarding code signature issues with XCode 15
+:::
 * Hotfix patch for bug where the Unity SDK throws an exception when capturing network requests that are null or contain null parameters.
 
 ## 1.18.1
