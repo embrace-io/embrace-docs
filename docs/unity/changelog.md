@@ -14,9 +14,11 @@ sidebar_position: 4
 * Patched code signature issue on iOS for XCode 15
 
 ## 1.18.2
+:::warning Important
+This version blocks the build on iOS due to a missing call involving Current Session ID API and has code signature issues with XCode 15. Please update to the latest version.
+:::
 *December 7th 2023*
 * Hotfix patch for bug where the Unity SDK throws an exception when capturing network requests that are null or contain null parameters.
-* This version blocks the build on iOS due to a missing call involving Current Session ID API and has code signature issues with XCode 15. Please update to the latest version.
 
 ## 1.18.1
 *November 6th 2023*
