@@ -15,28 +15,16 @@ sidebar_position: 4
 
 ## 1.18.2
 *December 7th 2023*
-:::warning Important
-This version of the Unity SDK has two issues:
-- Build blocking issue on iOS around the current session ID API
-- Build blocking issue on iOS regarding code signature issues with XCode 15
-:::
 * Hotfix patch for bug where the Unity SDK throws an exception when capturing network requests that are null or contain null parameters.
+* This version blocks the build on iOS due to a missing call involving Current Session ID API and has code signature issues with XCode 15. Please update to the latest version.
 
 ## 1.18.1
 *November 6th 2023*
-:::warning Important
-This version of the Unity SDK causes an exception when the Unity SDK tries to capture network requests that are null or that contain null parameters.
-:::
-
 * Hotfix patch for bug for SDK where Android SDK and Unity SDK misalignment resulted in multiple dropped exceptions.
+* This version of the Unity SDK causes an exception when the Unity SDK tries to capture network requests that are null or that contain null parameters. Please update to the latest version.
 
 ## 1.18.0
 *October 30, 2023*
-:::warning Important
-This version of the Unity SDK introduced a bug between the Unity and internal Android SDK resulting in dropped exceptions when communicating between the two SDKs.
-Please update to the latest version.
-:::
-
 * Embrace.Instance.SetUserPersona, .LogBreadcrumb, .LogNetworkRequest have been deprecated and replaced by the following functions respectively: .AddUserPersona, .AddBreadcrumb, .RecordNetworkRequest
 * iOS users can now specify their Crash Report Provider in via the iOS configuration of the Embrace SDK
 * Embrace.Instance now has a .IsStarted boolean property that reports if the Embrace SDK has finished starting/initializing.
@@ -46,6 +34,7 @@ Please update to the latest version.
 * Fixed: Automatic Network Capture reporting connection error when result was protocol error.
 * Updated internal iOS Embrace SDK to 5.23.2
 * Updated internal Android Embrace SDK to 5.25.0
+* This version of the Unity SDK introduced a bug between the Unity and internal Android SDK resulting in dropped exceptions when communicating between the two SDKs. Please update to the latest version.
 
 ## 1.17.0
 *August 10, 2023*
