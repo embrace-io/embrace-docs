@@ -7,7 +7,7 @@ sidebar_position: 9
 
 Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers. 
 
-This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you. Plase make sure you have the following property set as `true` in your `embrace-config.json` file:
+This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you. Please make sure you have the following property set as `true` in your `embrace-config.json` file:
 
 ```json
 {
