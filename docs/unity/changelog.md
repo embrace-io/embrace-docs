@@ -5,8 +5,15 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.19.1
+*December 21st, 2023*
+
+* Patched issue affecting Unity Android EDM customers where a change in dependencies blocked builds.
+
+
 ## 1.19.0
 *December 20th, 2023*
+* This version of the SDK had a build blocking issue for customers using EDM. Please update to the latest version.
 * Added support on Unity Android for the Embrace Android Bug Shake feature! Available for users who have Embrace Bug Shake accounts.
 * Updated iOS SDK to 5.24.2
 * Updated Android SDK to 6.1.0 (Bug Shake uses the Bug Shake Plugin version 0.9.0)
@@ -14,19 +21,26 @@ sidebar_position: 4
 * Patched code signature issue on iOS for XCode 15
 
 ## 1.18.2
-:::warning Important
-This version blocks the build on iOS due to a missing call involving Current Session ID API and has code signature issues with XCode 15. Please update to the latest version.
-:::
 *December 7th 2023*
+:::warning Important
+This version of the Unity SDK has two issues:
+- Build blocking issue on iOS around the current session ID API
+- Build blocking issue on iOS regarding code signature issues with XCode 15
+Please update to the latest version.
+:::
+
 * Hotfix patch for bug where the Unity SDK throws an exception when capturing network requests that are null or contain null parameters.
 
 ## 1.18.1
 *November 6th 2023*
-* Hotfix patch for bug for SDK where Android SDK and Unity SDK misalignment resulted in multiple dropped exceptions.
+
 * This version of the Unity SDK causes an exception when the Unity SDK tries to capture network requests that are null or that contain null parameters. Please update to the latest version.
+* Hotfix patch for bug for SDK where Android SDK and Unity SDK misalignment resulted in multiple dropped exceptions.
 
 ## 1.18.0
 *October 30, 2023*
+
+* This version of the Unity SDK introduced a bug between the Unity and internal Android SDK resulting in dropped exceptions when communicating between the two SDKs.
 * Embrace.Instance.SetUserPersona, .LogBreadcrumb, .LogNetworkRequest have been deprecated and replaced by the following functions respectively: .AddUserPersona, .AddBreadcrumb, .RecordNetworkRequest
 * iOS users can now specify their Crash Report Provider in via the iOS configuration of the Embrace SDK
 * Embrace.Instance now has a .IsStarted boolean property that reports if the Embrace SDK has finished starting/initializing.
@@ -36,7 +50,6 @@ This version blocks the build on iOS due to a missing call involving Current Ses
 * Fixed: Automatic Network Capture reporting connection error when result was protocol error.
 * Updated internal iOS Embrace SDK to 5.23.2
 * Updated internal Android Embrace SDK to 5.25.0
-* This version of the Unity SDK introduced a bug between the Unity and internal Android SDK resulting in dropped exceptions when communicating between the two SDKs. Please update to the latest version.
 
 ## 1.17.0
 *August 10, 2023*
