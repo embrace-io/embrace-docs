@@ -64,9 +64,10 @@ These steps can be performed automatically with the `installIos` command when us
 
 ### Add the Embrace App ID
 
-From XCode, create a new file in the root of your iOS project called `Embrace-Info.plist` and ensure that it is included in your target (to verify that it is, you can right-click on the file and choose "Show File Inspector"; at the bottom of the File Inspector window "Target Membership" for the Runner project must be checked). 
+You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 
-The contents of the file will look like this (you can find your 5-character app ID and API token in the Embrace dashboard):
+1. Create a file called `Embrace-Info.plist` with the following content (you can find your 5-character app ID and API token in the Embrace dashboard):
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -82,6 +83,19 @@ The contents of the file will look like this (you can find your 5-character app 
 </dict>
 </plist>
 ```
+
+2. Identify your root iOS Project.
+<img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
+
+3. Right click on that project and select `Add Files to YOUR_PROJECT`.
+<img src={require('@site/static/images/addEmbraceInfo-2.png').default} />
+
+4. Select `Embrace-Info.plist` and click on `Add`. Do not forget to select which `Targets` you are using.
+<img src={require('@site/static/images/addEmbraceInfo-3.png').default} />
+
+5. Check if the file appears inside YOUR_PROJECT.
+<img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
+
 
 ### Uploading Symbol Files
 
