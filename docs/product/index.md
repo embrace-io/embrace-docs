@@ -10,3 +10,4 @@ sidebar_position: 0
 * [SSO Configuration](/product/sso/)
 * [Video Recording and Apple's Policy](/product/video-recording-and-apples-policy/)
 * [User Permissions on Organizations and Projects](/product/permissions/)
+* [Custom Dashboards](/product/custom-dashboards/)
