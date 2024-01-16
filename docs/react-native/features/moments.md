@@ -16,7 +16,7 @@ This mechanism is the same one used to measure application launch performance, w
 Here's how you start a moment.
 
 ```javascript
-import {startMoment} from 'react-native-embrace';
+import {startMoment} from '@embrace-io/react-native';
 
 startMoment('addItem');
 ```
@@ -35,7 +35,7 @@ import PropertyLimit from '@site/shared/property-limit.md';
 Next, here's how you end a moment.
 
 ```javascript
-import {endMoment} from 'react-native-embrace';
+import {endMoment} from '@embrace-io/react-native';
 
 endMoment('addItem');
 ```

@@ -13,7 +13,7 @@ These methods are flexible, so it's up to you as a developer to define when a vi
 Perhaps it's when a component is mounted and unmounted, or maybe it's when a style is applied that makes the component visible or not visible to the user.
 
 ```javascript
-import {startView, endView} from 'react-native-embrace';
+import {startView, endView} from '@embrace-io/react-native';
 
 startView('MyView');
 
@@ -25,7 +25,7 @@ This could be helpful as a lightweight option to breadcrumb which components wer
 In most cases it's recommended to use `startView` and `endView`.
 
 ```javascript
-import {logScreen} from 'react-native-embrace';
+import {logScreen} from '@embrace-io/react-native';
 
 // This will add a breadcrumb to the session with the following format: "Opening screen [MyView]".
 logScreen('MyComponent'); 

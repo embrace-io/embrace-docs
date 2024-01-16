@@ -21,11 +21,11 @@ Embrace has a separate module for tracking Screens, to use it you will need to a
 #### Install the component
 
 ```shell-session
-yarn add @react-native-embrace/react-navigation
+yarn add @embrace-io/react-navigation
 ```
 
 ```shell-session
-npm install @react-native-embrace/react-navigation
+npm install @embrace-io/react-navigation
 ```
 
 #### Adding the component to your code
@@ -34,7 +34,7 @@ Add an useRef for the NavigationContainer and pass it to Embrace's hook
 
 ```javascript
 import {useRef} from 'react'
-import {useEmbraceNavigationTracker} from '@react-native-embrace/react-navigation';
+import {useEmbraceNavigationTracker} from '@embrace-io/react-navigation';
 
 function App() {
   // Create the reference
@@ -60,11 +60,11 @@ Embrace has a separate module for tracking Screens, to use it you will need to a
 #### Install the component
 
 ```shell-session
-yarn add @react-native-embrace/react-native-navigation
+yarn add @embrace-io/react-native-navigation
 ```
 
 ```shell-session
-npm install @react-native-embrace/react-native-navigation
+npm install @embrace-io/react-native-navigation
 ```
 
 #### Adding the component to your code
@@ -79,7 +79,7 @@ If you have more than one navigation instance, you can pass a second parameter t
 import {Navigation} from 'react-native-navigation';
 
 // Start - Add those lines
-import EmbraceNavigationTracker from '@react-native-embrace/react-native-navigation'; 
+import EmbraceNavigationTracker from '@embrace-io/react-native-navigation'; 
 EmbraceNavigationTracker.build(Navigation);
 // End - Add those lines
 

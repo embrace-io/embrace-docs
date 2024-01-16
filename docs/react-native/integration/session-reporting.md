@@ -95,10 +95,12 @@ Initialize method applies the necessary listener to your application. This allow
 <TabItem value="ios" label="Component">
 
 ```javascript
-import {initialize} from 'react-native-embrace';
+import {initialize} from '@embrace-io/react-native';
 
 export default class App extends Component {
   componentDidMount() {
+    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish    getLastRunEndState().then(resp => {
+
     initialize();
   }
 }
@@ -109,11 +111,13 @@ export default class App extends Component {
 
 ```javascript
 import React, {useEffect, useState} from 'react'
-import {initialize} from 'react-native-embrace';
+import {initialize} from '@embrace-io/react-native';
 
 const App = ()=> {
 
   useEffect(()=>{
+    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish    getLastRunEndState().then(resp => {
+
     initialize();
   },[])
 
@@ -142,7 +146,7 @@ In either platform, you can end the startup moment when your application mounts.
 <TabItem value="ios" label="Component">
 
 ```javascript
-import {endAppStartup} from 'react-native-embrace';
+import {endAppStartup} from '@embrace-io/react-native';
 
 export default class App extends Component {
   componentDidMount() {
@@ -156,7 +160,7 @@ export default class App extends Component {
 
 ```javascript
 import React, {useEffect, useState} from 'react'
-import {endAppStartup} from 'react-native-embrace';
+import {endAppStartup} from '@embrace-io/react-native';
 
 const App = ()=> {
 

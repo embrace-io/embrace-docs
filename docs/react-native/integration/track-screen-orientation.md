@@ -19,11 +19,11 @@ Embrace has a separate module to track Screen Orientation, to use it you will ne
 ### Install the component
 
 ```sh
-yarn add @react-native-embrace/orientation-change-tracker
+yarn add @embrace-io/react-native-orientation-change-tracker
 ```
 
 ```sh
-npm install @react-native-embrace/orientation-change-tracker
+npm install @embrace-io/react-native-orientation-change-tracker
 ```
 
 ### Adding the method to your code
@@ -32,7 +32,7 @@ Add the useEmbraceOrientationLogger to your component
 
 ```javascript
 // Import the Embrace log method
-import { useEmbraceOrientationLogger } from "@react-native-embrace/orientation-change-tracker";
+import { useEmbraceOrientationLogger } from "@embrace-io/react-native-orientation-change-tracker";
 
 const App = () => {
   useEmbraceOrientationLogger()

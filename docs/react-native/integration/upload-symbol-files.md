@@ -191,7 +191,7 @@ Note that this step is unnecessary if you use CodePush since the Embrace SDK wil
 <TabItem value="javascript" label="JavaScript">
 
 ```javascript
-import {setJavaScriptBundlePath} from 'react-native-embrace';
+import {setJavaScriptBundlePath} from '@embrace-io/react-native';
 
 setJavaScriptBundlePath(pathToBundle)
 ```

@@ -11,11 +11,11 @@ sidebar_position: 3
 Use Yarn or NPM to install the NPM module.
 
 ```shell-session
-yarn add react-native-embrace
+yarn add @embrace-io/react-native
 ```
 
 ```shell-session
-npm install react-native-embrace --save
+npm install @embrace-io/react-native --save
 ```
 
 :::info
@@ -42,7 +42,7 @@ target 'MyApp' do
   # ...
 
   pod 'EmbraceIO'
-  pod 'RNEmbrace', :path => '../node_modules/react-native-embrace'
+  pod 'RNEmbrace', :path => '../node_modules/@embrace-io/react-native'
 end
 ```
 Then, install the pod.
@@ -67,15 +67,15 @@ Follow the steps in the **Setup Script** section or the [Manual](/android/integr
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
-`node_modules` folder at `node_modules/react-native-embrace/dist/scripts/setup`
+`node_modules` folder at `node_modules/@embrace-io/dist/scripts/setup`
 
 **Run the setup script**
 ```shell-session
-node node_modules/react-native-embrace/dist/scripts/setup/installAndroid.js
+node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
 ```
 
 ```shell-session
-node node_modules/react-native-embrace/dist/scripts/setup/installIos.js
+node node_modules/@embrace-io/react-native/lib/scripts/setup/installIos.js
 ```
 
 You can use git to see the changes that the script made.
@@ -139,7 +139,7 @@ buildscript {
     google()
   }
   dependencies {
-    classpath "io.embrace:embrace-swazzler:${findProject(':react-native-embrace').properties['emb_android_sdk']}"
+    classpath "io.embrace:embrace-swazzler:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
   }
 }
 ```

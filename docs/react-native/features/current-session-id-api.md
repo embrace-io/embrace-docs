@@ -19,7 +19,7 @@ In order to use this feature, you will need to follow two steps:
 
 
 ```javascript
-import {getCurrentSessionId} from 'react-native-embrace';
+import {getCurrentSessionId} from '@embrace-io/react-native';
 
 const myMethod = () =>{
     getCurrentSessionId().then(sessionId=>{
