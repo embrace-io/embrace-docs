@@ -25,6 +25,7 @@ sidebar_position: 4
 * Updated Android SDK to 6.1.0 (Bug Shake uses the Bug Shake Plugin version 0.9.0)
 * Patched iOS SDK specific issue involving Current Session ID API
 * Patched code signature issue on iOS for XCode 15
+* Removed the EnableDebugLogging API from the Embrace Unity SDK.
 
 ## 1.18.2
 *December 7th 2023*
