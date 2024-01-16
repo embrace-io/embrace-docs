@@ -5,8 +5,8 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
-##1.20.0
-*January 12th, 2024
+## 1.20.0
+*January 12th, 2024*
 
 * Updated Android SDK to 6.2.0
 * Added screenshot capture for Unity Android Bugshake
