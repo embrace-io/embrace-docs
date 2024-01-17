@@ -13,7 +13,7 @@ To upload crash reports from unhandled JavaScript exceptions, add the following 
 
 ```javascript
 import {initialize} from '@embrace-io/react-native'
-   // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish    getLastRunEndState().then(resp => {
+   // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
 initialize();
 ```
@@ -22,7 +22,7 @@ This will setup a hook that gets called and uploads a crash report when the appl
 You can also pass in a patch number to the `initialize` function to use along side the version of the app to pinpoint which JavaScript bundle the user was running when the app crashed.
 
 ```javascript
-// Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish    getLastRunEndState().then(resp => {
+// Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
 initialize({patch: 'v1'});
 ```

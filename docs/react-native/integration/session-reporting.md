@@ -99,7 +99,7 @@ import {initialize} from '@embrace-io/react-native';
 
 export default class App extends Component {
   componentDidMount() {
-    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish    getLastRunEndState().then(resp => {
+    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
     initialize();
   }
@@ -116,7 +116,7 @@ import {initialize} from '@embrace-io/react-native';
 const App = ()=> {
 
   useEffect(()=>{
-    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish    getLastRunEndState().then(resp => {
+    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
     initialize();
   },[])

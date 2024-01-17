@@ -31,7 +31,7 @@ In order to use this feature, you will need to follow two steps:
 
 ```javascript
   useEffect(() => {
-     // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish    getLastRunEndState().then(resp => {
+     // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
     initialize();
    
       console.log('LastRunEndState', resp);
