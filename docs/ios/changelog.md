@@ -6,6 +6,20 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.24.5
+*Jan 22, 2024*
+* Fix retain cycle that can occur if using `[NSURLSession sessionWithConfiguration:delegate:delegateQueue:]` and passing a delegate object with a strong reference to that `NSURLSession`.
+
+## 5.24.4
+*Jan 18, 2024*
+* Fixes issue that would prevent permanent session properties from being stored correctly.
+* Fixes extremely rare circumstance that would cause extension crash reports from being removed before being uploaded.
+
+## 5.24.3
+*Jan 3, 2024*
+* Potential fix for crash related to network request capture.
+* Fixes taps being captured when both CAPTURE_TAPPED_ELEMENTS and CAPTURE_COORDINATES are disabled.
+
 ## 5.24.2
 *Dec 19, 2023*
 * Fixed an issue in the URL normalization process to ensure thread safety and prevent crashes due to synchronization conflicts.
