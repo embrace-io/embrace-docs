@@ -9,7 +9,7 @@ Embrace offers SSO support using SAML 2.0. This documentation goes over how to c
 
 If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or Slack us.
 
-In IdP-initiated flow, your users will navigate to your organization's SSO portal and select our app from the portal. For SP-initiated login, users need to click "Continue with SSO" on the bottom of dash.embrace.io and enter their email and they will be redirected to your SSO provider for authentication.
+For IdP-initiated flow, your users will navigate to your organization's SSO portal and select our app from the portal. For SP-initiated login, users need to click "Continue with SSO" on the bottom of dash.embrace.io and enter their email and they will be redirected to your SSO provider for authentication.
 
 ## Configuring SSO for OneLogin
 
