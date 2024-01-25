@@ -13,7 +13,7 @@ To upload crash reports from unhandled JavaScript exceptions, add the following 
 
 ```javascript
 import {initialize} from '@embrace-io/react-native'
-   // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
+// Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
 initialize();
 ```
@@ -67,7 +67,7 @@ setJavaScriptBundlePath('/path/to/bundle');
 <TabItem value="java" label="Java">
 
 ```java
-Embrace.getInstance().setJavaScriptBundleURL(pathToBundle);
+Embrace.getInstance().getReactNativeInternalInterface().setJavaScriptBundleUrl(pathToBundle);
 ```
 
 </TabItem>

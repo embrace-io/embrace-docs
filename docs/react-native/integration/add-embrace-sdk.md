@@ -22,45 +22,6 @@ npm install @embrace-io/react-native --save
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
 
-## Native Modules
-
-If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking/)
-to set up the native modules. 
-
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-<Tabs groupId="rn-platform" queryString="rn-platform">
-<TabItem value="ios" label="iOS">
-
-Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
-
-```ruby
-target 'MyApp' do
-  # ...
-
-  pod 'EmbraceIO'
-  pod 'RNEmbrace', :path => '../node_modules/@embrace-io/react-native'
-end
-```
-Then, install the pod.
-
-```shell-session
-cd ios && pod install --repo-update
-```
-
-</TabItem>
-<TabItem value="android" label="Android">
-
-<!-- This is wrong because the manual instalation is related to the SDK not the native modules 
-We have to check how is the integration for RN project without autolinking -->
-Follow the steps in the **Setup Script** section or the [Manual](/android/integration/add-embrace-sdk#adding-the-sdk-manually) section to add the Android native dependencies.
-
-</TabItem>
-</Tabs>
-
 # Adding the SDK 
 
 ## Setup Script
@@ -126,7 +87,38 @@ If you're using Crashlytics, set this value to false.
 5. Check if the file appears inside YOUR_PROJECT.
 <img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
 
+## React Native Version < 0.60
 
+If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking/)
+to set up the native modules. 
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="rn-platform" queryString="rn-platform">
+<TabItem value="ios" label="iOS">
+
+Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
+
+```ruby
+target 'MyApp' do
+  # ...
+
+  pod 'EmbraceIO'
+  pod 'RNEmbrace', :path => '../node_modules/@embrace-io/react-native'
+end
+```
+Then, install the pod.
+
+```shell-session
+cd ios && pod install --repo-update
+```
+
+</TabItem>
+
+</Tabs>
 </TabItem>
 <TabItem value="android" label="Android">
 

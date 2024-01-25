@@ -15,78 +15,6 @@ Here are the steps you’ll be taking to create your first session.
 1. [Build and run the application](/react-native/integration/session-reporting#build-and-run-the-application)
 1. [Trigger a session upload](/react-native/integration/session-reporting#trigger-a-session-upload)
 
-## Import Embrace 
-
-Start by importing the Embrace native SDK in the file that applies for each platform.
-
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-<Tabs groupId="platform" queryString="platform">
-<TabItem value="ios" label="iOS">
-
-Open the `AppDelegate.m` file (usually located at `<project root>/ios/<MyApp>/AppDelegate.m`) and import Embrace.
-```objectivec
-#import <Embrace/Embrace.h>
-```
-
-</TabItem>
-<TabItem value="android" label="Android">
-
-Open the `MainApplication.java` file (usually located at `<project root>/android/app/src/main/java/com/<MyApp>/MainApplication.java`) and import Embrace.
-
-```java
-import io.embrace.android.embracesdk.Embrace;
-```
-
-</TabItem>
-</Tabs>
-
-:::info
-If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page, this change has already been made for you.
-:::
-
-## Add the Start Call
-
-After importing Embrace, update the same files that you edited in the previous step to make a call to the Embrace SDK to start capturing data.
-
-<Tabs groupId="platform" queryString="platform">
-<TabItem value="ios" label="iOS">
-
-```objectivec
-@implementation AppDelegate
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions
-{
-    // Replace with your APP_ID, which is a 5-character value, e.g. "aBc45"
-    [[Embrace sharedInstance] startWithKey:@"APP_ID" launchOptions: launchOptions framework:EMBAppFrameworkReactNative];
-    return YES;
-}
-```
-
-:::info
-If you are using Swift, follow the steps in the [iOS Linking Embrace](/ios/integration/session-reporting) section.
-:::
-
-</TabItem>
-<TabItem value="android" label="Android">
-
-```java
-public class MainApplication extends Application implements ReactApplication {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        // Add this line right after the super.onCreate();
-        Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE);
-    }
-}
-```
-
-</TabItem>
-</Tabs>
-
 ## Initialize Embrace SDK
 
 Initialize method applies the necessary listener to your application. This allow Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
@@ -125,6 +53,86 @@ const App = ()=> {
 }
 export default App
 ```
+</TabItem>
+</Tabs>
+
+## Starting Embrace SDK from Android / iOS
+
+:::info
+Initializing the Embrace SDK from React Native (Javascript) will initialize the native Embrace SDKs (Android / iOS). This means that the network, crash, and metrics interceptors will be initialized once JavaScript is loaded and has called initialize method mentioned in the previous step. This is useful only if you perform some function/have custom code before initializing the application. If you want to start applying the interceptors as soon as Android / iOS has started, you can proceed with the Native integration.
+
+:::
+
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+Start by importing the Embrace native SDK in the file that applies for each platform.
+
+<Tabs groupId="platform" queryString="platform">
+
+
+<TabItem value="ios" label="iOS">
+
+Open the `AppDelegate.m` file (usually located at `<project root>/ios/<MyApp>/AppDelegate.m`) and import Embrace.
+```objectivec
+#import <Embrace/Embrace.h>
+```
+
+</TabItem>
+<TabItem value="android" label="Android">
+
+Open the `MainApplication.java` file (usually located at `<project root>/android/app/src/main/java/com/<MyApp>/MainApplication.java`) and import Embrace.
+
+```java
+import io.embrace.android.embracesdk.Embrace;
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page, this change has already been made for you.
+:::
+
+## Add the Start Call
+
+After importing Embrace, update the same files that you edited in the previous step to make a call to the Embrace SDK to start capturing data.
+
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
+
+```objectivec
+@implementation AppDelegate
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions
+{
+    // Replace with your APP_ID, which is a 5-character value, e.g. "aBc45"
+    [[Embrace sharedInstance] startWithLaunchOptions:launchOptions framework:EMBAppFrameworkReactNative];
+
+    return YES;
+}
+```
+
+:::info
+If you are using Swift, follow the steps in the [iOS Linking Embrace](/ios/integration/session-reporting) section.
+:::
+
+</TabItem>
+<TabItem value="android" label="Android">
+
+```java
+public class MainApplication extends Application implements ReactApplication {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        // Add this line right after the super.onCreate();
+        Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE);
+    }
+}
+```
+
 </TabItem>
 </Tabs>
 
