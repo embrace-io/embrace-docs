@@ -7,13 +7,13 @@ sidebar_position: 4
 # Unity SDK Changelog
 
 ## 1.21.0
-*January 25th, 2024
+*January 25th, 2024*
 
 * Updated iOS SDK version to 5.24.5
 * Updated Embrace Unity API signatures for Embrace Android 6.x API
 
 ## 1.20.0
-*January 12th, 2024
+*January 12th, 2024*
 
 * Updated Android SDK to 6.2.0
 * Added screenshot capture for Unity Android Bugshake
