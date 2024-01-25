@@ -5,6 +5,12 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 4.0.0
+* [The React Native SDK is now open source! Check it out and let us know what you think!](https://github.com/embrace-io/embrace-react-native-sdk)
+* Before updating please make sure you review the [upgrade guide](/react-native/upgrading-to-4/)
+  - Please note we've changed the package so you will need to re-install the Embrace SDK - [see details here](/react-native/integration/add-embrace-sdk/) 
+* Updated Android native Embrace SDK dependency to 6.2.1.
+* Updated iOS native Embrace SDK dependency to 5.24.3.
 ## 3.16.0
 * Updated Android native Embrace SDK dependency to 5.25.1.
 * Updated iOS native Embrace SDK dependency to 5.24.0.

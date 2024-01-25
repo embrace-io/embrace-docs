@@ -2,6 +2,9 @@
 
 # Upgrading to 4.x
 
+## Updated Embrace Package
+Please note we've changed the package so you will need to install the new Embrace SDK - [see details here](/react-native/integration/add-embrace-sdk/)
+
 ## Asyncronous methods (Promises)
 Since version 4.0, all our methods promises. Therefore, if you need to retrieve a value, such as the session ID, you should use await/then to wait for the response.
 
