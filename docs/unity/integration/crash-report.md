@@ -14,14 +14,14 @@ It is important when testing crashes to not be connected to any debugger, includ
 
 ## Triggering a Crash
 
-Now we're ready to trigger a crash. You can trigger a crash organically, or you can use Embrace's test crash function that you can call from anywhere in your application.
+Now we're ready to trigger a crash. You can trigger a crash organically, or you can use Embrace's test crash function that you can call from anywhere in your application (iOS only).
 
 ```cs
 Embrace.Instance.Crash();
 ```
 
 :::warning Important
-This function will crash your app so only use it for testing purposes.
+This function will crash your app so only use it for testing purposes (iOS only).
 :::
 
 Remember that Embrace sessions only upload on subsequent launches after crashes have occurred.
