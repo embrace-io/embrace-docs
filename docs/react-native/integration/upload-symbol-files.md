@@ -67,7 +67,7 @@ Automatically uploading dSYM files is a good option for you if you are not using
 
 To enable automatic dSYM uploads, we will need to locate a number of items first:
 
-1. **Your API key.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
+1. **Your App ID.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
 1. **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the Tokens section.
 
 Now, open the "Build Phases" tab in Xcode. We will be adding a new phase.
@@ -84,7 +84,7 @@ See the section relevant for your integration for how to call the run script.
 Use this command format for CocoaPods integrations.
 
 ```shell-session
-EMBRACE_ID=USE_YOUR_KEY EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
+EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 
 Notice how the script's location is a reference to the CocoaPods installation folder.
@@ -103,16 +103,16 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
  
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your API key and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 
 ```shell-session
 # Upload a single file
-/EmbraceIO/upload --app $APP_KEY --token $API_TOKEN dsyms.zip
+/EmbraceIO/upload --app $APP_ID --token $API_TOKEN dsyms.zip
 
 # Upload multiple files
-/EmbraceIO/upload --app $APP_KEY --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
+/EmbraceIO/upload --app $APP_ID --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
 ```
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
@@ -191,7 +191,7 @@ Note that this step is unnecessary if you use CodePush since the Embrace SDK wil
 <TabItem value="javascript" label="JavaScript">
 
 ```javascript
-import {setJavaScriptBundlePath} from 'react-native-embrace';
+import {setJavaScriptBundlePath} from '@embrace-io/react-native';
 
 setJavaScriptBundlePath(pathToBundle)
 ```
@@ -207,7 +207,7 @@ setJavaScriptBundlePath(pathToBundle)
 <TabItem value="java" label="Java">
 
 ```java
-Embrace.getInstance().setJavaScriptBundleURL(pathToBundle)
+Embrace.getInstance().getReactNativeInternalInterface().setJavaScriptBundleUrl(pathToBundle)
 ```
 
 </TabItem>

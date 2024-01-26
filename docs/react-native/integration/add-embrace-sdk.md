@@ -11,55 +11,16 @@ sidebar_position: 3
 Use Yarn or NPM to install the NPM module.
 
 ```shell-session
-yarn add react-native-embrace
+yarn add @embrace-io/react-native
 ```
 
 ```shell-session
-npm install react-native-embrace --save
+npm install @embrace-io/react-native --save
 ```
 
 :::info
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
-
-## Native Modules
-
-If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking/)
-to set up the native modules. 
-
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-<Tabs groupId="rn-platform" queryString="rn-platform">
-<TabItem value="ios" label="iOS">
-
-Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
-
-```ruby
-target 'MyApp' do
-  # ...
-
-  pod 'EmbraceIO'
-  pod 'RNEmbrace', :path => '../node_modules/react-native-embrace'
-end
-```
-Then, install the pod.
-
-```shell-session
-cd ios && pod install --repo-update
-```
-
-</TabItem>
-<TabItem value="android" label="Android">
-
-<!-- This is wrong because the manual instalation is related to the SDK not the native modules 
-We have to check how is the integration for RN project without autolinking -->
-Follow the steps in the **Setup Script** section or the [Manual](/android/integration/add-embrace-sdk#adding-the-sdk-manually) section to add the Android native dependencies.
-
-</TabItem>
-</Tabs>
 
 # Adding the SDK 
 
@@ -67,15 +28,15 @@ Follow the steps in the **Setup Script** section or the [Manual](/android/integr
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
-`node_modules` folder at `node_modules/react-native-embrace/dist/scripts/setup`
+`node_modules` folder at `node_modules/@embrace-io/dist/scripts/setup`
 
 **Run the setup script**
 ```shell-session
-node node_modules/react-native-embrace/dist/scripts/setup/installAndroid.js
+node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
 ```
 
 ```shell-session
-node node_modules/react-native-embrace/dist/scripts/setup/installIos.js
+node node_modules/@embrace-io/react-native/lib/scripts/setup/installIos.js
 ```
 
 You can use git to see the changes that the script made.
@@ -126,7 +87,38 @@ If you're using Crashlytics, set this value to false.
 5. Check if the file appears inside YOUR_PROJECT.
 <img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
 
+## React Native Version < 0.60
 
+If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking/)
+to set up the native modules. 
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="rn-platform" queryString="rn-platform">
+<TabItem value="ios" label="iOS">
+
+Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
+
+```ruby
+target 'MyApp' do
+  # ...
+
+  pod 'EmbraceIO'
+  pod 'RNEmbrace', :path => '../node_modules/@embrace-io/react-native'
+end
+```
+Then, install the pod.
+
+```shell-session
+cd ios && pod install --repo-update
+```
+
+</TabItem>
+
+</Tabs>
 </TabItem>
 <TabItem value="android" label="Android">
 
@@ -139,7 +131,7 @@ buildscript {
     google()
   }
   dependencies {
-    classpath "io.embrace:embrace-swazzler:${findProject(':react-native-embrace').properties['emb_android_sdk']}"
+    classpath "io.embrace:embrace-swazzler:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
   }
 }
 ```

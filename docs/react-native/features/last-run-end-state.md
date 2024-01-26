@@ -31,10 +31,11 @@ In order to use this feature, you will need to follow two steps:
 
 ```javascript
   useEffect(() => {
-    initialize();
     getLastRunEndState().then(resp => {
+  
       console.log('LastRunEndState', resp);
     });
+   
   }, []);
 ```
 

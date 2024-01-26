@@ -13,7 +13,7 @@ Embrace can also collect your logging data and include it as context within your
 Here's how you add a Breadcrumb to the session.
 
 ```javascript
-import {addBreadcrumb} from 'react-native-embrace';
+import {addBreadcrumb} from '@embrace-io/react-native';
 
 addBreadcrumb("component updated -- 'show' prop changed from true to false");
 ```

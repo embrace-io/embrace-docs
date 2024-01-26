@@ -23,11 +23,11 @@ Embrace has a separate module for tracking Redux's Actions, to use it you will n
 ### Install the component
 
 ```shell-session
-yarn add @react-native-embrace/action-tracker
+yarn add @embrace-io/react-native-action-tracker
 ```
 
 ```shell-session
-npm install @react-native-embrace/action-tracker
+npm install @embrace-io/react-native-action-tracker
 ```
 
 ### Adding the component to your code
@@ -36,7 +36,7 @@ Add the Embrace's Middleware to your middleware's list
 
 ```javascript
 import {applyMiddleware, compose, configureStore} from '@reduxjs/toolkit';
-import {buildEmbraceMiddleware} from '@react-native-embrace/action-tracker';
+import {buildEmbraceMiddleware} from '@embrace-io/react-native-action-tracker';
 import myReducer from './reducers/MyReducer';
 import otherMiddleware from './middlewares/OtherMiddleware';
 

@@ -18,7 +18,7 @@ You can leverage the log message API for this.
 You can log a message immediately by calling the `logMessage` function.
 
 ```javascript
-import {logMessage, ERROR} from 'react-native-embrace';
+import {logMessage, ERROR} from '@embrace-io/react-native';
 
 logMessage(
 	'Loading not finished in time.',

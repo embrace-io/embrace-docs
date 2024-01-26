@@ -15,16 +15,64 @@ Here are the steps you’ll be taking to create your first session.
 1. [Build and run the application](/react-native/integration/session-reporting#build-and-run-the-application)
 1. [Trigger a session upload](/react-native/integration/session-reporting#trigger-a-session-upload)
 
-## Import Embrace 
+## Initialize Embrace SDK
 
-Start by importing the Embrace native SDK in the file that applies for each platform.
+Initialize method applies the necessary listener to your application. This allow Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
+
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="Component">
+
+```javascript
+import {initialize} from '@embrace-io/react-native';
+
+export default class App extends Component {
+  componentDidMount() {
+    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
+
+    initialize();
+  }
+}
+```
+
+</TabItem>
+<TabItem value="hooks" label="Hooks">
+
+```javascript
+import React, {useEffect, useState} from 'react'
+import {initialize} from '@embrace-io/react-native';
+
+const App = ()=> {
+
+  useEffect(()=>{
+    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
+
+    initialize();
+  },[])
+
+ return ...
+}
+export default App
+```
+</TabItem>
+</Tabs>
+
+## Starting Embrace SDK from Android / iOS
+
+:::info
+Initializing the Embrace SDK from React Native (Javascript) will initialize the native Embrace SDKs (Android / iOS). This means that the network, crash, and metrics interceptors will be initialized once JavaScript is loaded and has called initialize method mentioned in the previous step. This is useful only if you perform some function/have custom code before initializing the application. If you want to start applying the interceptors as soon as Android / iOS has started, you can proceed with the Native integration.
+
+:::
+
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
+Start by importing the Embrace native SDK in the file that applies for each platform.
 
 <Tabs groupId="platform" queryString="platform">
+
+
 <TabItem value="ios" label="iOS">
 
 Open the `AppDelegate.m` file (usually located at `<project root>/ios/<MyApp>/AppDelegate.m`) and import Embrace.
@@ -60,7 +108,8 @@ After importing Embrace, update the same files that you edited in the previous s
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *) launchOptions
 {
     // Replace with your APP_ID, which is a 5-character value, e.g. "aBc45"
-    [[Embrace sharedInstance] startWithKey:@"APP_ID" launchOptions: launchOptions framework:EMBAppFrameworkReactNative];
+    [[Embrace sharedInstance] startWithLaunchOptions:launchOptions framework:EMBAppFrameworkReactNative];
+
     return YES;
 }
 ```
@@ -87,43 +136,6 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 </Tabs>
 
-## Initialize Embrace SDK
-
-Initialize method applies the necessary listener to your application. This allow Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
-
-<Tabs groupId="platform" queryString="platform">
-<TabItem value="ios" label="Component">
-
-```javascript
-import {initialize} from 'react-native-embrace';
-
-export default class App extends Component {
-  componentDidMount() {
-    initialize();
-  }
-}
-```
-
-</TabItem>
-<TabItem value="hooks" label="Hooks">
-
-```javascript
-import React, {useEffect, useState} from 'react'
-import {initialize} from 'react-native-embrace';
-
-const App = ()=> {
-
-  useEffect(()=>{
-    initialize();
-  },[])
-
- return ...
-}
-export default App
-```
-</TabItem>
-</Tabs>
-
 ## End the Startup Moment
 
 Embrace automatically starts the **startup** moment when your application launches.
@@ -142,7 +154,7 @@ In either platform, you can end the startup moment when your application mounts.
 <TabItem value="ios" label="Component">
 
 ```javascript
-import {endAppStartup} from 'react-native-embrace';
+import {endAppStartup} from '@embrace-io/react-native';
 
 export default class App extends Component {
   componentDidMount() {
@@ -156,7 +168,7 @@ export default class App extends Component {
 
 ```javascript
 import React, {useEffect, useState} from 'react'
-import {endAppStartup} from 'react-native-embrace';
+import {endAppStartup} from '@embrace-io/react-native';
 
 const App = ()=> {
 

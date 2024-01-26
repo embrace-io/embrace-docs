@@ -12,12 +12,6 @@ or email us at <support@embrace.io>.
 
 ## Common Questions
 
-### **Can I turn on screenshots for specific areas of my app?**
-
-Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-To turn on screenshots, please refer to the sections for [Logs](/react-native/integration/log-message-api) and [Moments](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html#startmoment), or see the [API docs](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html). 
-If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
-
 ### **Does Embrace work with Buck / OKBuck?**
 
 Not currently. Please contact us at <support@embrace.io> or on Slack if you would like to request support.
@@ -31,7 +25,7 @@ Yes. We link all sessions to that user from the past and in the future. Search b
 
 ### **Do I have access to the Embrace ID at runtime?**
 
-Yes, we make the Embrace ID available to you via our SDK. See the [API docs](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html#getdeviceid).
+Yes, we make the Embrace ID available to you via our SDK. See the [API docs](https://embrace-io.github.io/embrace-react-native-sdk/modules/_embrace_.html#getdeviceid).
 
 ## Network Requests
 
@@ -59,4 +53,4 @@ This could be due to one of the following reasons:
   * Akamai
   * Cloudflare
   * PacketZoom
-* You are using an Axios version that is not compatible with us or you have a custom integration that block us. You can force log the Axios request appying our [interceptor](https://embrace-io.github.io/react-native-embrace/modules/_embrace_.html#applynetworkinterceptors).  
+* You are using an Axios version that is not compatible with us or you have a custom integration that block us. You can force log the Axios request appying our [interceptor](https://embrace-io.github.io/embrace-react-native/modules/_embrace_.html#applynetworkinterceptors).  

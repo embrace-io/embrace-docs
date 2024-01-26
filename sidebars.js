@@ -81,7 +81,7 @@ const sidebars = {
         },
         {
           type: "link",
-          href: "https://embrace-io.github.io/react-native-embrace/",
+          href: "https://github.com/embrace-io/embrace-react-native-sdk/",
           label: "React Native",
         },
       ],
