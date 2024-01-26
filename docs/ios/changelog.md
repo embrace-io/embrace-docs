@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.24.6
+*Jan 26, 2024*
+* Fix potential lost data for network body capture
+
 ## 5.24.5
 *Jan 22, 2024*
 * Fix retain cycle that can occur if using `[NSURLSession sessionWithConfiguration:delegate:delegateQueue:]` and passing a delegate object with a strong reference to that `NSURLSession`.
