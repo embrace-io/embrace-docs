@@ -12,7 +12,7 @@ Embrace can automatically add a unique identifier to **every** network request y
 
 <img src={require('@site/static/images/nsf-example.png').default} alt="traceparent example" />
 
-We use [w3c traceparents](www.add-a-link.com](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propage through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others.
+We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propage through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others.
 
 
 ## Analyze metadata
