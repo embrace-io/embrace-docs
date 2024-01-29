@@ -10,7 +10,7 @@ Diagnosing network errors doesn't need to be an opaque process with finger-point
 ## ID every network requests
 Embrace can automatically add a unique identifier to **every** network request your app makes.  This makes it possible to trace the same request in our User Timeline *and* the backend monitoring service you already use.
 
-nsf-example.png
+<img src={require('@site/static/images/nsf-example.png').default} alt="traceparent example" />
 
 We use [w3c traceparents](www.add-a-link.com](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propage through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others.
 
