@@ -12,12 +12,12 @@ Embrace can automatically add a unique identifier to **every** network request y
 
 <add an image>
 
-We use [w3c traceparents](www.add-a-link.com) to create unique identifiers, which means they will automatically propage through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others.
+We use [w3c traceparents](www.add-a-link.com](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propage through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others.
 
 
 ## Analyze metadata
 
 Additionally, Embrace can forward metadata associated with each call.  Device, app version, and OS version will be properties for each traceparent-tagged call, forwarded as an OTel Span.  Your backend team can use their observability tools to set up analyses and monitoring.
 
-Embrace currently supports Network Span Forwarding for Datadog, and is adding support for Grafana Cloud Traces.  See our guide to enabling [Data Destinations](/some/path/) to get started.
+Embrace currently supports Network Span Forwarding for Datadog, and is adding support for Grafana Cloud Traces.  See our guide to enabling [Data Destinations](/docs/data-destinations/) to get started.
 
