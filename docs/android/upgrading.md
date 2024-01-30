@@ -20,7 +20,7 @@ swazzler {
 
 ## Replace usage of deprecated methods with new ones
 
-Version X of the Embrace Android SDK renames some functions. This has been done to reduce
+Version 6.0.0 of the Embrace Android SDK renames some functions. This has been done to reduce
 confusion & increase consistency across our SDKs.
 
 Functions that have been marked as deprecated will still work as before, but will be removed in
@@ -125,3 +125,7 @@ supported with the new API.
 - `ThreadUtils`
 - `Unchecked`
 - `Uuid`
+
+## Migrate away from using OkHttp versions earlier than 4.0.0
+
+With the minimum API version being 21 (Android 5.0), versions 4.0.0 or newer of OkHttp is now required at runtime for apps that use that library. Using older versions of OkHttp may lead to runtime errors. See the [changelog for 6.0.0](android/changelog/#600) for details about the new minimum requirements.
