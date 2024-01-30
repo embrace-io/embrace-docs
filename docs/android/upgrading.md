@@ -128,4 +128,4 @@ supported with the new API.
 
 ## Migrate away from using OkHttp versions earlier than 4.0.0
 
-With the minimum API version being 21 (Android 5.0), versions 4.0.0 or newer of OkHttp is now required at runtime for apps that use that library. Using older versions of OkHttp may lead to runtime errors. See the [changelog for 6.0.0](android/changelog/#600) for details about the new minimum requirements.
+With the minimum API version being 21 (Android 5.0), versions 4.0.0 or newer of OkHttp is now required at runtime for apps that use that library. Using older versions of OkHttp may lead to runtime errors. See the [changelog for 6.0.0](/android/changelog/#600) for details about the new minimum requirements.
