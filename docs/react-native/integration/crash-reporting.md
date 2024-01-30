@@ -15,7 +15,16 @@ To upload crash reports from unhandled JavaScript exceptions, add the following 
 import {initialize} from '@embrace-io/react-native'
 // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
-initialize();
+initialize().then(hasStarted=>{
+    if(hasStarted){
+        //doSomething
+    }
+});
+:::info Note for initialize method
+The initialize method will apply the interceptors needed to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
+:::
+
+
 ```
 
 This will setup a hook that gets called and uploads a crash report when the application crashes because of an unhandled JavaScript exception.
