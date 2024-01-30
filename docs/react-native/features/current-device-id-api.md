@@ -1,5 +1,5 @@
 ---
-title: Current Session ID API
+title: Current Device ID API
 sidebar_position: 9
 description: Get the Device ID.
 ---

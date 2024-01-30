@@ -17,7 +17,7 @@ Here are the steps you’ll be taking to create your first session.
 
 ## Initialize Embrace SDK
 
-Initialize method applies the necessary listener to your application. This allow Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
+Initialize method applies the necessary listener to your application. This allows Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="Component">
@@ -29,11 +29,14 @@ export default class App extends Component {
   componentDidMount() {
     // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
-    initialize();
+    initialize().then(hasStarted=>{
+      if(hasStarted){
+          //doSomething
+      }
+    });
   }
 }
 ```
-
 </TabItem>
 <TabItem value="hooks" label="Hooks">
 
@@ -46,16 +49,24 @@ const App = ()=> {
   useEffect(()=>{
     // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
-    initialize();
+    initialize().then(hasStarted=>{
+      if(hasStarted){
+         //doSomething
+      }
+    });
   },[])
 
  return ...
 }
 export default App
 ```
+
 </TabItem>
 </Tabs>
 
+:::info Note for initialize method
+The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
+:::
 ## Starting Embrace SDK from Android / iOS
 
 :::info
