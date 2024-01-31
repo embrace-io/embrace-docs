@@ -14,10 +14,10 @@ sidebar_position: 4
     - Optimized thread usage for background work
     - Eliminated network requests sent when starting new sessions
     - Improved handling of network retries when the backend is too busy
-    - Prioritize session delivery over other payloads
+    - Prioritized session delivery over other payloads
 - Capture thermal status change events by default
 - Capture CPU and GPU info by default
-- Enable all tracing functionality when the SDK startup is complete - isTracingApiAvailable() is deprecated.
+- Enable all tracing functionality when SDK startup is complete
 
 ## 6.2.0
 *December 13, 2023*
