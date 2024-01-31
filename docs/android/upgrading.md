@@ -2,7 +2,14 @@
 
 # Upgrading from 5.x to 6.x
 
-## Remove deprecated properties from your build.grade
+:::info Summary
+- Remove deprecated properties from Gradle file
+- Replace usage of deprecated methods
+- Remove references to internal symbols that were previously exposed
+- Only use OkHttp versions that are at least 4.0.0
+:::
+
+## Remove deprecated properties from your build.gradle
 
 These 5 deprecated properties have been removed from our Gradle plugin. Please remove them from your `app/build.gradle` file.
 
@@ -20,7 +27,7 @@ swazzler {
 
 ## Replace usage of deprecated methods with new ones
 
-Version X of the Embrace Android SDK renames some functions. This has been done to reduce
+Version 6.0.0 of the Embrace Android SDK renames some functions. This has been done to reduce
 confusion & increase consistency across our SDKs.
 
 Functions that have been marked as deprecated will still work as before, but will be removed in
@@ -125,3 +132,7 @@ supported with the new API.
 - `ThreadUtils`
 - `Unchecked`
 - `Uuid`
+
+## Only use OkHttp versions that are at least 4.0.0
+
+With the minimum API version being 21 (Android 5.0), versions 4.0.0 or newer of OkHttp is now required at runtime for apps that use that library. Using older versions of OkHttp may lead to runtime errors. See the [changelog for 6.0.0](/android/changelog/#600) for details about the new minimum requirements.

@@ -30,6 +30,7 @@ sidebar_position: 4
 - Increase our minSdkVersion to API 21
 - Increase our minimum AGP to 4.0.0
 - Increase our minimum Gradle version to 6.1.1
+- Set the minimum OkHttp version to 4.0.0
 
 :::info Important
 We strongly recommend that Embrace customers ensure their apps meet the criteria above.
