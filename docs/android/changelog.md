@@ -6,6 +6,19 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.3.0
+*January 31, 2024*
+- A plethora of performance and reliability improvements!
+    - Increased speed and efficiency of data serialization and persistence
+    - Reduced amount of disk space used to save data not-yet delivered
+    - Optimized thread usage for background work
+    - Eliminated network requests sent when starting new sessions
+    - Improved handling of network retries when the backend is too busy
+    - Prioritize session delivery over other payloads
+- Capture thermal status change events by default
+- Capture CPU and GPU info by default
+- Enable all tracing functionality when the SDK startup is complete - isTracingApiAvailable() is deprecated.
+
 ## 6.2.0
 *December 13, 2023*
 - Removed the capture of unused beta features: strict mode violation, activity lifecycle,
