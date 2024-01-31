@@ -2,7 +2,14 @@
 
 # Upgrading from 5.x to 6.x
 
-## Remove deprecated properties from your build.grade
+:::info Summary
+- Remove deprecated properties from Gradle file
+- Replace usage of deprecated methods
+- Remove references to internal symbols that were previously exposed
+- Only use OkHttp versions that are at least 4.0.0
+:::
+
+## Remove deprecated properties from your build.gradle
 
 These 5 deprecated properties have been removed from our Gradle plugin. Please remove them from your `app/build.gradle` file.
 
@@ -126,6 +133,6 @@ supported with the new API.
 - `Unchecked`
 - `Uuid`
 
-## Migrate away from using OkHttp versions earlier than 4.0.0
+## Only use OkHttp versions that are at least 4.0.0
 
 With the minimum API version being 21 (Android 5.0), versions 4.0.0 or newer of OkHttp is now required at runtime for apps that use that library. Using older versions of OkHttp may lead to runtime errors. See the [changelog for 6.0.0](/android/changelog/#600) for details about the new minimum requirements.
