@@ -27,12 +27,7 @@ swazzler {
 
 ## Replace usage of deprecated methods with new ones
 
-Version 6.0.0 of the Embrace Android SDK renames some functions. This has been done to reduce
-confusion & increase consistency across our SDKs.
-
-Functions that have been marked as deprecated will still work as before, but will be removed in
-the next major version release. Please upgrade when convenient, and get in touch if you have a
-use-case that isn’t supported by the new API.
+Version 6.0.0 of the Embrace Android SDK removed some methods that had been deprecated in 5.x. The renamed methods were removed to reduce confusion and increase consistency across the Embrace SDKs on various platforms, and their replacements behave the same way as the old ones. The methods removed entirely are for functionality that we no longer support. If you were using them for a specific use-case, please speak to us about how you can use the existing APIs instead.
 
 | Old API                                               | New API                                                             | Comments                                                              |
 |-------------------------------------------------------|---------------------------------------------------------------------|:----------------------------------------------------------------------|
@@ -87,9 +82,7 @@ use-case that isn’t supported by the new API.
 
 ## Hidden symbols
 
-The following symbols have been hidden in version 6 of the Embrace Android SDK. These were
-unintentionally
-exposed in previous versions. Please get in touch if you had a use-case for these symbols that isn't
+The following internal symbols have been hidden. These were unintentionally exposed in 5.x. Please get in touch if you had a use-case for these symbols that isn't
 supported with the new API.
 
 - `Absent`
