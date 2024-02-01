@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## Standard Metrics
 
-The following metrics are supported as Standard Metrics. Metrics with the suffix "_total" are counters.
+The following metrics are supported as Standard Metrics. Metrics with the suffix "_total" are gauges.
 
 To query your desired unit, simply prefix the metric name with the unit, eg: `daily_crashes_total`
 or `five_minute_sessions_total`.
@@ -17,10 +17,10 @@ or `five_minute_sessions_total`.
 |----------------|------------------------|---------------------------------------|----------------------------|
 | crashes_total  | Number of crashes      | app_version, os_version, device_model | five_minute, hourly, daily |
 | sessions_total | Number of sessions     | app_version, os_version, device_model | five_minute, hourly, daily |
-| users          | Number of unique users | app_version, os_version, device_model | daily                      |    
+| users_total    | Number of unique users | app_version, os_version, device_model | daily                      |    
 
 :::info
-The `users` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day. 
+The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day. 
 It is important to note that this metric is not designed for cumulative aggregation across days, as doing so would result in double-counting users.
 
 Summing the users metric across various dimensions within the same day does not yield the overall count of unique users per day. 
