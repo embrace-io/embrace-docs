@@ -20,13 +20,13 @@ or `five_minute_sessions_total`.
 | users          | Number of unique users | app_version, os_version, device_model | daily                      |    
 
 :::info
-The `users` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific day. 
+The `daily_users` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific day. 
 It is important to note that this metric is not designed for cumulative aggregation across days, as doing so would result in double-counting users.
 
-Summing the users metric across various dimensions does not yield the overall count of unique users per day. 
+Summing the users metric across various dimensions within the same day does not yield the overall count of unique users per day. 
 This discrepancy arises from the potential overlap of users across different dimensions; for instance, users who update the app version on the same day may be present in multiple dimensions.
 
-Nevertheless, despite this limitation, the disparity observed when summing the users metric across diverse dimensions can still provide a valuable estimate of the total user count.
+Nevertheless, the disparity observed when summing the users metric across dimensions can still provide a valuable estimate of the total user count.
 :::
 
 ### Deprecated metrics after 2023-10-17:
