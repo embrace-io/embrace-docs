@@ -10,7 +10,7 @@ sidebar_position: 4
 *January 31, 2024*
 
 :::info Important
-Using Gradle 8.4+ with the NDK crash capture feature is not supported by this version.
+Using Gradle 8.4+ is not supported in this version.
 :::
 
 - A plethora of performance and reliability improvements!
