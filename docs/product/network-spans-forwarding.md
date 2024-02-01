@@ -19,5 +19,5 @@ We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-hea
 
 Additionally, Embrace can forward metadata associated with each call.  Device, app version, and OS version will be properties for each traceparent-tagged call, forwarded as an OTel Span.  Your backend team can use their observability tools to set up analyses and monitoring.
 
-Embrace currently supports Network Span Forwarding for Datadog, and is adding support for Grafana Cloud Traces.  See our guide to enabling [Data Destinations](/data-destinations/) to get started.
+Embrace currently supports Network Span Forwarding for Grafana Cloud Traces, New Relic, and Datadog.  See our guide to enabling [Data Destinations](/data-destinations/) to get started.
 
