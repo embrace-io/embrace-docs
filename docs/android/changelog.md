@@ -6,11 +6,17 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.3.1
+*Feubrary 2, 2024*
+
+- Full support for Gradle 8.4+
+- Plus all the performance enhancements of 6.3.0!
+
 ## 6.3.0
 *January 31, 2024*
 
 :::info Important
-Using Gradle 8.4+ is not supported in this version.
+Gradle 8.4+ is not supported by this version when the NDK crash capture feature is off. Please use 6.3.1 to ensure all expected Gradle versions are supported.
 :::
 
 - A plethora of performance and reliability improvements!
