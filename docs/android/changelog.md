@@ -16,7 +16,7 @@ sidebar_position: 4
 *January 31, 2024*
 
 :::info Important
-Gradle 8.4+ is not supported by this version when the NDK crash capture feature is off. Please use 6.3.1 to ensure all Gradle expected versions are supported.
+Gradle 8.4+ is not supported by this version when the NDK crash capture feature is off. Please use 6.3.1 to ensure all expected Gradle versions are supported.
 :::
 
 - A plethora of performance and reliability improvements!
