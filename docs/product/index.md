@@ -11,3 +11,4 @@ sidebar_position: 0
 * [Video Recording and Apple's Policy](/product/video-recording-and-apples-policy/)
 * [User Permissions on Organizations and Projects](/product/permissions/)
 * [Custom Dashboards](/product/custom-dashboards/)
+* [Network Spans Forwarding](/product/network-spans-forwarding/)
