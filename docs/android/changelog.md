@@ -13,7 +13,7 @@ sidebar_position: 4
 The [Configuration Cache](https://docs.gradle.org/current/userguide/configuration_cache.html) feature for Gradle 8.4+ is not compatible with this release due to an [issue in Gradle tooling](https://github.com/gradle/gradle/issues/19252). Please disable this in developer builds when used with this release or use an older version of Gradle.
 :::
 
-- Full support for Gradle 8.4+
+- Support for Gradle 8.4+
 - Plus all the performance enhancements of 6.3.0!
 
 ## 6.3.0
