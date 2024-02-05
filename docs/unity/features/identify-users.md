@@ -31,7 +31,7 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 You can also set customized values for specific use cases or segments of users.
 
 ```cs
-Embrace.Instance.SetUserPersona("high_value_cart");
+Embrace.Instance.AddUserPersona("high_value_cart");
 ```
 
 In the above example, the session is annotated with `"high_value_cart"`.
