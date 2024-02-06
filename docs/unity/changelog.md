@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 1.22.0
+*February 5th, 2024*
+
+* Updated changes for Unity Verified Solutions Partnership. Excited to see everyone in the Asset Store!
+
 ## 1.21.0
 *January 25th, 2024*
 
