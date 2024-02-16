@@ -47,7 +47,7 @@ pluginManagement {
     }
     val swazzler_version: String by settings
     plugins {
-        id("io.embrace.swazzler") version "${swazzlerVersion}" apply false
+        id("io.embrace.swazzler") version "${swazzler_version}" apply false
     }
 }
 ```
