@@ -37,6 +37,11 @@ sidebar_position: 4
 * Updated Android SDK to 6.1.0 (Bug Shake uses the Bug Shake Plugin version 0.9.0)
 * Patched iOS SDK specific issue involving Current Session ID API
 * Patched code signature issue on iOS for XCode 15
+* Increase our minSdkVersion to API 21
+* Increase our minimum AGP to 4.0.0
+* Increase our minimum Gradle version to 6.1.1
+* Set our minimum Unity version to 2020.3.15f1
+* Set the minimum OkHttp version to 4.0.0
 
 ## 1.18.2
 *December 7th 2023*
