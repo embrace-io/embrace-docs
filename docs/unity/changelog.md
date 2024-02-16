@@ -43,6 +43,10 @@ sidebar_position: 4
 * Set our minimum Unity version to 2020.3.15f1
 * Set the minimum OkHttp version to 4.0.0
 
+:::info Important
+We strongly recommend that Embrace customers ensure their apps meet the criteria above.
+:::
+
 ## 1.18.2
 *December 7th 2023*
 :::warning Important
