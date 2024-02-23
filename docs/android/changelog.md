@@ -6,8 +6,13 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.3.2
+*February 23, 2024*
+- Improved performance and stability of NDK serialization while the app is under memory pressure
+- Added back support of OkHttp 3.13.0+, which was initially removed in this major version
+
 ## 6.3.1
-*Feubrary 2, 2024*
+*February 2, 2024*
 
 :::info Important
 The [Configuration Cache](https://docs.gradle.org/current/userguide/configuration_cache.html) feature for Gradle 8.4+ is not compatible with this release due to an [issue in Gradle tooling](https://github.com/gradle/gradle/issues/19252). Please disable this in developer builds when used with this release or use an older version of Gradle.

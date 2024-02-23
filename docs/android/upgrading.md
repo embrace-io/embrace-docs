@@ -6,7 +6,7 @@
 - Remove deprecated properties from Gradle file
 - Replace usage of deprecated methods
 - Remove references to internal symbols that were previously exposed
-- Only use OkHttp versions that are at least 4.0.0
+- Only use OkHttp versions that are at least 4.0.0 (3.13.0+ supported as of 6.3.2)
 :::
 
 ## Remove deprecated properties from your build.gradle
@@ -128,4 +128,4 @@ supported with the new API.
 
 ## Only use OkHttp versions that are at least 4.0.0
 
-With the minimum API version being 21 (Android 5.0), versions 4.0.0 or newer of OkHttp is now required at runtime for apps that use that library. Using older versions of OkHttp may lead to runtime errors. See the [changelog for 6.0.0](/android/changelog/#600) for details about the new minimum requirements.
+With the minimum API version being 21 (Android 5.0), version 4.0.0 of OkHttp is now the recommended minimum for use at runtime. While support for OkHttp 3.13.0+ was added in SDK version 6.3.2, it is not recommended, as newer versions are more performant. See the [changelog for 6.0.0](/android/changelog/#600) for details about the other new minimum requirements.
