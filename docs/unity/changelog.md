@@ -5,6 +5,12 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.23.0
+*February 23, 2024*
+
+* Updated to Embrace Android SDK to 6.3.2
+  - Improved performance and stability of NDK serialization while the app is under memory pressure
+  - Added back support of OkHttp 3.13.0+, which was initially removed in this major version
 
 ## 1.22.0
 *February 5th, 2024*
