@@ -296,6 +296,48 @@ Embrace.getInstance().recordCompletedSpan(
 </TabItem>
 </Tabs>
 
+## Export your telemetry
+
+A [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) can be easily injected, to also export your data to any Open Telemetry Collector.
+
+### Local testing
+
+Injecting a [LoggingSpanExporter](https://opentelemetry.io/docs/languages/java/exporters/#otlp-dependencies) will allow you to see your telemetry in the logcat.
+
+### Adding a SpanExporter for a custom OTel Collector
+
+You can send your data to a custom ([OTel Collector](https://opentelemetry.io/docs/languages/java/exporters/#collector-setup)) 
+
+```java
+ //grpc through an otel collector in a local docker image
+val customDockerExporter = OtlpGrpcSpanExporter.builder()
+    .setEndpoint("http://10.0.2.2:4317")
+    .build()
+```
+
+### Exporting data to Grafana Cloud
+
+Embrace Performance tracing can be exported to [Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/setup/collector/) using an OTel Collector.
+
+```java
+//... or directly to grafana cloud
+val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
+    .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
+    .addHeader("Authorization", "YourToken")
+    .build()
+```
+
+:::info
+**Every exporter should be added before starting the SDK**
+:::
+
+```java
+Embrace.getInstance().addSpanExporter(LoggingSpanExporter.create())
+Embrace.getInstance().addSpanExporter(grpcExporter)
+Embrace.getInstance().addSpanExporter(protoExporter)
+
+Embrace.getInstance().start(this)        
+```
 
 ## Support
 
