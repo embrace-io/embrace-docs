@@ -298,28 +298,50 @@ Embrace.getInstance().recordCompletedSpan(
 
 ## Export your telemetry
 
-A [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) can be easily injected, to also export your data to any Open Telemetry Collector.
+A [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) can be easily injected, to directly export your data to any OpenTelemetry Collector.
 
 ### Local testing
 
 Injecting a [LoggingSpanExporter](https://opentelemetry.io/docs/languages/java/exporters/#otlp-dependencies) will allow you to see your telemetry in the logcat.
 
+```
+2024-03-05 14:15:15.342 29672-29756 LoggingSpanExporter     io.embrace.mysampleapp          I  'emb-startup-moment' : d38b4ac26baf1a862ed4a028af7d08ac e3e82dd0f86c0eed INTERNAL [tracer: io.embrace.android.embracesdk:={{ embrace_sdk_version platform="android" }}] AttributesMap{data={emb.sequence_id=4, emb.type=PERFORMANCE, emb.key=true}, capacity=128, totalAddedValues=3}
+```
+
 ### Adding a SpanExporter for a custom OTel Collector
 
 You can send your data to a custom ([OTel Collector](https://opentelemetry.io/docs/languages/java/exporters/#collector-setup)) 
 
-```java
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
  //grpc through an otel collector in a local docker image
 val customDockerExporter = OtlpGrpcSpanExporter.builder()
     .setEndpoint("http://10.0.2.2:4317")
     .build()
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+ //grpc through an otel collector in a local docker image
+OtlpGrpcSpanExporter customDockerExporter = OtlpGrpcSpanExporter.builder()
+    .setEndpoint("http://10.0.2.2:4317")
+    .build();
+```
+
+</TabItem>
+</Tabs>
 ### Exporting data to Grafana Cloud
 
 Embrace Performance tracing can be exported to [Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/setup/collector/) using an OTel Collector.
 
-```java
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
 //... or directly to grafana cloud
 val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
@@ -327,17 +349,48 @@ val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .build()
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+ //grpc through an otel collector in a local docker image
+OtlpHttpSpanExporter grafanaCloudExporter = OtlpHttpSpanExporter.builder()
+    .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
+    .addHeader("Authorization", "YourToken")
+    .build();
+```
+
+</TabItem>
+</Tabs>
+
 :::info
 **Every exporter should be added before starting the SDK**
 :::
 
-```java
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
 Embrace.getInstance().addSpanExporter(LoggingSpanExporter.create())
 Embrace.getInstance().addSpanExporter(grpcExporter)
 Embrace.getInstance().addSpanExporter(protoExporter)
 
 Embrace.getInstance().start(this)        
 ```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Embrace.getInstance().addSpanExporter(LoggingSpanExporter.create());
+Embrace.getInstance().addSpanExporter(grpcExporter);
+Embrace.getInstance().addSpanExporter(protoExporter);
+
+Embrace.getInstance().start(this);
+```
+
+</TabItem>
+</Tabs>
 
 ## Support
 
