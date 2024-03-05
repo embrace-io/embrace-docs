@@ -12,12 +12,6 @@ or email us at <support@embrace.io>.
 
 ## Common Questions
 
-### **Can I turn on screenshots for specific areas of my app?**
-
-Being able to see exactly what the user experienced often helps identify or solve an issue faster than looking through log messages or stack traces.
-To turn on screenshots, please refer to the sections for [Logs](/android/integration/log-message-api) and [Moments](/android/features/moments), or see the [API docs](/api/android/).
-If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
-
 ## Crash Capture
 
 ### **Can I use other crash reporters in addition to the Embrace one?**
@@ -31,7 +25,7 @@ our SDK.
 
 ## Integrating
 
-### **The SDK should support API level 16 but, I get an error saying API level 24 is needed. What's wrong?**
+### **The SDK should support API level 21 but, I get an error saying API level 24 is needed. What's wrong?**
 
 Please verify that the following Gradle options are set. Additionally, please check if you're using the [seancfoley/IPAddress](https://github.com/seancfoley/IPAddress) library.
 You may be using a newer version of it which has a higher API level requirement.

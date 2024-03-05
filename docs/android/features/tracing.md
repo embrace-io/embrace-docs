@@ -334,6 +334,7 @@ OtlpGrpcSpanExporter customDockerExporter = OtlpGrpcSpanExporter.builder()
 
 </TabItem>
 </Tabs>
+
 ### Exporting data to Grafana Cloud
 
 Embrace Performance tracing can be exported to [Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/setup/collector/) using an OTel Collector.
