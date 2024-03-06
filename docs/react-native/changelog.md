@@ -5,7 +5,11 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
-## 4.0.0
+## 4.0.3
+_March 6, 2024_
+* Improve performance.
+* Updated Android native Embrace SDK dependency to 6.4.0.
+## 4.0.1
 _January 25, 2024_
 * [The React Native SDK is now open source! Check it out and let us know what you think!](https://github.com/embrace-io/embrace-react-native-sdk)
 * Before updating please make sure you review the [upgrade guide](/react-native/upgrading-to-4/)
