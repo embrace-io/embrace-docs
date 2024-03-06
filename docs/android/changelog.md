@@ -6,6 +6,25 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.4.0
+*March 6, 2024*
+- Performance Tracing improvements
+    - Support configuration of OpenTelemetry Exporters to export Performance Tracing data as OpenTelemetry Spans (beta).
+    - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations. 
+        - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
+    - Increase per-session limit of spans to 500 in total.
+    - New methods added:
+        - "getSpan" that returns a reference to an active or recently ended EmbraceSpan.
+        - "startSpan" that creates and starts a span directly.
+    - New functionality for existing methods:
+        - Allow custom timestamps to be specified when starting and stopping a span.
+        - Support adding attributes and span events to "recordSpan".
+- Increase transparency of SDK startup by adding custom sections to traces recorded using Android system tracing libraries like androidx.tracing.
+    - Note: only run Android system tracing on release builds running on real devices. Debug builds and emulators will not yield accurate data.
+- Optimize React Native JavaScript bundleId retrieval to better support CodePush (React Native only)
+- Allow configuration cache to be used for Gradle 8.3+
+    - Note: for Gradle 8.3+, the Embrace Gradle plugin does not take advantage of the cache at this time
+
 ## 6.3.2
 *February 23, 2024*
 - Improved performance and stability of NDK serialization while the app is under memory pressure
