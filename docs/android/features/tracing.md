@@ -12,9 +12,11 @@ Embrace’s Performance Tracing solution gives you visibility into any app opera
 
 ## Feature Support
 
-:::info Update
-This documented was updated for feature set supported by Android SDK version 6.4.0
+:::info Minimum Requirements
+- **We recommend using the latest Android SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
+- If your app supports Android versions below 7.0, you need to enable Java 8 API desugaring so that some language features that were not part of those earlier Android releases are added at build time. Please refer to the [Google documentation on how to enable desugaring for your app](https://developer.android.com/studio/write/java8-support#library-desugaring).
 :::
+
 
 The Embrace Performance Tracing API allows you to:
 
@@ -58,11 +60,6 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attrib
 :::
 
 ## Adding Performance Traces To Your App
-
-:::info Minimum Requirements
-- **We recommend using the latest Android SDK version for the most up-to-date API**, but 6.1.0 will have this feature enabled out of the box.
-- If your app supports Android versions below 7.0, you need to enable Java 8 API desugaring so that some language features that were not part of those earlier Android releases are added at build time. Please refer to the [Google documentation on how to enable desugaring for your app](https://developer.android.com/studio/write/java8-support#library-desugaring).
-:::
 
 To use this feature:
 
