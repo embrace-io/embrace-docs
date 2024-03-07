@@ -5,6 +5,9 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 4.0.4
+_March 6, 2024_
+* Fix a bug that prevent we loggin Screens
 ## 4.0.3
 _March 6, 2024_
 * Improve performance.
