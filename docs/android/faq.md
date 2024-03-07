@@ -150,16 +150,6 @@ Please make sure that Embrace is initialized after any 3rd party networking libr
 We are consistently discovering new APIs and libraries for which we need to add support.
 Please contact us via email or Slack with the information.
 
-If you are using `OkHttp3`, make sure to get an instance of `OkHttpClient` by calling the builder:
-```kotlin
-    val myOkHttpClient = OkHttpClient.Builder().build()
-```
-instead of getting a new instance by calling the constructor:
-```kotlin
-    val myOkHttpClient = OkHttpClient()
-```
-Our SDK instruments the `build()` method, so it will only track network requests with the first approach. 
-
 ### **Do you support GRPC?**
 
 Yes. Please contact us for the steps to track GRPC.
@@ -194,6 +184,18 @@ This could be due to one of the following reasons:
   * Akamai
   * Cloudflare
   * PacketZoom
+* If you are using `OkHttp3`, make sure to get an instance of `OkHttpClient` by calling the builder:
+
+    ```kotlin
+        val myOkHttpClient = OkHttpClient.Builder().build()
+    ```
+
+    instead of getting a new instance by calling the constructor:
+
+    ```kotlin
+        val myOkHttpClient = OkHttpClient()
+    ```
+    Our SDK instruments the `build()` method, so it will only track network requests with the first approach. 
 
 ## Monitoring Performance
 
