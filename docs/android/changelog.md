@@ -22,8 +22,8 @@ sidebar_position: 4
 - Increase transparency of SDK startup by adding custom sections to traces recorded using Android system tracing libraries like androidx.tracing.
     - Note: only run Android system tracing on release builds running on real devices. Debug builds and emulators will not yield accurate data.
 - Optimize React Native JavaScript bundleId retrieval to better support CodePush (React Native only)
-- Allow configuration cache to be used for Gradle 8.3+
-    - Note: for Gradle 8.3+, the Embrace Gradle plugin does not take advantage of the cache at this time
+- Allow configuration cache to be enabled for Gradle 8.3+
+    - Note: for Gradle 8.3+, running Embrace Gradle plugin will invalidate the configuration cache 
 
 ## 6.3.2
 *February 23, 2024*
