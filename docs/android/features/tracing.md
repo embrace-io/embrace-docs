@@ -1,6 +1,6 @@
 ---
 title: Performance Tracing (Beta)
-description: Record traces to monitor the production performance and success rates of operations within in your application.
+description: Record traces to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---
 
@@ -8,28 +8,36 @@ sidebar_position: 14
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you complete visibility into any customized operation you’d like to track, enabling you to identify, prioritize, and resolve any performance issue. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Feature Support
 
+:::info Minimum Requirements
+- **We recommend using the latest Android SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
+- If your app supports Android versions below 7.0, you need to enable Java 8 API desugaring so that some language features that were not part of those earlier Android releases are added at build time. Please refer to the [Google documentation on how to enable desugaring for your app](https://developer.android.com/studio/write/java8-support#library-desugaring).
+:::
+
+
 The Embrace Performance Tracing API allows you to:
 
-- Create real-time performance timers or record past operations.
-    - For real-time tracing, we use a “Stopwatch” concept that lets you start and stop a span's timing manually.
-    - To record a past operation, you can pass in start and end times during span creation.
-- Create child spans that can be attached to a parent.
-- Add attributes and events to each span.
-    - Attributes have String keys and String values.
-    - Events also have a set of attributes that have String keys and values.
+- Create real-time performance timers or record data for past operations.
+    - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
+    - To record past operations, you can specify the start and end times of your spans that you might have captured already.
+    - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
+- Add child spans to a parent span to track sub-operations within an operation.
+- Attach attributes and span events to each span to give them further context
+    - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics
+    - Span events represent a point in time of the execution of the span and they can also have attributes
 
-There is no limit on the duration of a span, but **if a JVM exception occurs before a span ends, the span will auto-close.**
+There are no limits on the duration of a span as long as the app is running.
+
+There are also no limits to the number of child spans you can have per trace, provided the total number of spans do not exceed the per-session maximum.
 
 ### Limits
 
 | Type  | Limit |
 | --- | --- |
-| Max number of traces per session  | 100 |
-| Max number of spans per trace | 10 |
+| Max number of spans per session  | 500 |
 | Max number of attributes per span | 50  |
 | Max number of events per span | 10 |
 | Max number of attributes per event  | 10 |
@@ -39,32 +47,30 @@ There is no limit on the duration of a span, but **if a JVM exception occurs bef
 | Length of Event names | 100 characters |
 
 :::warning Exceeding Limits
-If you exceed the listed limits, the operation with the limit-exceeding call will fail and return a value indicating that. See the API documentation for details.
+If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.
 :::
 
 ### Naming Conventions
 
 - Span Names are **case-sensitive** and are a **max of 50 characters.**
-- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alpha-numeric**
+- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric ASCII characters**
 
 :::warning Internal Prefixes
-The `emb-` and `emb.` prefixes are reserved for internal Embrace attributes and span names. You should never create a name with `emb-` and `emb.` prefixes
+The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes
 :::
 
-## Integration Steps
-
-:::info Minimum SDK Version
-**We recommend using at least Android SDK v5.25.0** and updating to new versions as they come out to ensure you get the latest updates for this developing feature.
-:::
+## Adding Performance Traces To Your App
 
 To use this feature:
 
-1. Contact your Embrace Customer Success Manager to enrol your apps in the Peformance Tracing Beta (done on a per-app basis).
-2. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
-3. Instrument your app using the reference guide in this sections to start adding traces to your operations.
+1. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
+2. (Optional) Enable API desugaring for your app if you want users running Android 5.x and 6.x to report traces.
+3. Instrument your app using the reference guide in this section to start adding traces to your operations, or refer to the [API docs](https://embrace-io.github.io/embrace-android-sdk/) for a more comprehensive description of the public API.
 4. See the traces in the Traces section of the Embrace dashboard.
 
-### Create Span
+## API Usage Examples
+
+### Create a Span
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -75,7 +81,8 @@ import TabItem from '@theme/TabItem';
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// Create a trace by creating its root span
+// create a trace by creating its root span
+// recording will not behind until the span has been started
 val activityLoad = Embrace.getInstance().createSpan("load-activity"))
 ```
 
@@ -83,80 +90,78 @@ val activityLoad = Embrace.getInstance().createSpan("load-activity"))
 <TabItem value="java" label="Java">
 
 ```java
-// Create a trace by creating its root span
+// create a trace by creating its root span
+// recording will not behind until the span has been started
 EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
 ```
 
 </TabItem>
 </Tabs>
 
-### Start Span
+### Create and Start Span Atomically
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-val activityLoad = Embrace.getInstance().createSpan("load-activity"))
-
-// Starting a trace by starting its root span
-activityLoad?.start()
+// activityLoad will either be a span that has already started or null if 
+// the creation or start attempt was unsuccessful
+val activityLoad = Embrace.getInstance().startSpan("load-activity")
 ```
 
 </TabItem>
 <TabItem value="java" label="Java">
 
 ```java
-EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
-
-// Starting a trace by starting its root span
-if (activityLoad != null) {
-  activityLoad.start();
-}
+// activityLoad will either be a span that has already started or null if 
+// the creation or start attempt was unsuccessful
+EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
 ```
 
 </TabItem>
 </Tabs>
 
-### Adding a Child Span
+
+### Start Span That Tracks an Operation That Started at an Earlier Time
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-val activityLoad = Embrace.getInstance().createSpan("load-activity")
-activityLoad?.start()
+val appStartTimeMillis = getAppStartTime()
+val appLaunchTrace = Embrace.getInstance().createSpan("app-launch"))
 
-// Create a child span - if activityLoad's creation fails, imageLoad will be the root span
-val imageLoad = Embrace.getInstance().createSpan("load-image", activityLoad))
+// begin recording a trace that has a different start time than 
+// the current time by starting its root span with a specific timestamp
+appLaunchTrace?.start(startTimeMs = appStartTimeMillis)
 ```
 
 </TabItem>
 <TabItem value="java" label="Java">
 
 ```java
+long appStartTimeMillis = getAppStartTime();
 EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
-if (activityLoad != null) {
-  activityLoad.start();
-}
 
-// Create a child span - if activityLoad's creation fails, imageLoad will be the root span
-EmbraceSpan imageLoad = Embrace.getInstance().createSpan("load-image", activityLoad);
+// begin recording a trace that has a different start time than 
+// the current time by starting its root span with a specific timestamp
+if (activityLoad != null) {
+  activityLoad.start(appStartTimeMillis);
+}
 ```
 
 </TabItem>
 </Tabs>
 
-### Adding Events and Attributes
+### Add Attributes and Span Events
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-val activityLoad = Embrace.getInstance().createSpan("load-activity")
-activityLoad?.start()
-
-val imageLoad = Embrace.getInstance().createSpan("load-image", activityLoad)
-imageLoad?.start()
+val embrace = Embrace.getInstance()
+val activityLoad = embrace.startSpan("load-activity")
+val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this)) }
 
 val image = fetchImage()
 
@@ -171,14 +176,12 @@ imageLoad?.addAttribute("image-name", image.name)
 <TabItem value="java" label="Java">
 
 ```java
-EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
-if (activityLoad != null) {
-  activityLoad.start();
-}
+Embrace embrace = Embrace.getInstance();
+EmbraceSpan activityLoad = embrace.startSpan("load-activity");
+EmbraceSpan imageLoad = null;
 
-EmbraceSpan imageLoad = Embrace.getInstance().createSpan("load-image", activityLoad);
-if (imageLoad != null) {
-  imageLoad.start();
+if (activityLoad != null) {
+  imageLoad = embrace.startSpan("load-image", activityLoad);
 }
 
 FancyImage image = fetchImage();
@@ -195,87 +198,116 @@ if (imageLoad != null) {
 </TabItem>
 </Tabs>
 
-
-### End Span
+### Stop Span For Operation That Ended Earlier
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-val activityLoad = Embrace.getInstance().createSpan("load-activity")
-activityLoad?.start()
+val activityLoad = Embrace.getInstance().startSpan("load-activity")
 
-val imageLoad = Embrace.getInstance().createSpan("load-image", activityLoad)
-imageLoad?.start()
+// some time passes after the operation being time has finished
 
-val image = fetchImage()
-imageLoad?.addEvent("network-request-finished")
-imageLoad?.addAttribute("image-name", image.name)
-
-/* process image */
-
-// Stop the span, record it as being successful
-imageLoad?.stop()
-
-/* User navigates away before the activity is loaded */
-
-// Stop the trace, record the span as having failed due to user abandonment
-activityLoad?.stop(ErrorCode.USER_ABANDON)
+activityLoad?.stop(endTimeMs = getActualEndTimeMilllis())
 ```
 
 </TabItem>
 <TabItem value="java" label="Java">
 
 ```java
-EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
-if (activityLoad != null) {
-  activityLoad.start();
-}
+EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
+
+// some time passes after the operation being time has finished
 
 if (activityLoad != null) {
-  EmbraceSpan imageLoad = Embrace.getInstance().createSpan("load-image", activityLoad);
-  if (imageLoad != null) {
-    imageLoad.start();
-  }
-}
-
-FancyImage image = fetchImage();
-if (imageLoad != null) {
-  imageLoad.addEvent("network-request-finished");
-  imageLoad.addAttribute("image-name", image.name);
-}
-
-/* process image */
-
-// Stop the span, record it as being successful
-if (imageLoad != null) {
-  imageLoad.stop();
-}
-
-/* User navigates away before the activity is loaded */
-
-// Stop the trace, record the span as having failed due to user abandonment
-if (activityLoad != null) {
-  activityLoad.stop(ErrorCode.USER_ABANDON)
+  activityLoad.stop(getActualEndTime());
 }
 ```
 
 </TabItem>
 </Tabs>
 
-### Recording a Completed Span
+### Stop Span For an Operation That Failed
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// Record completed span
+val activityLoad = Embrace.getInstance().startSpan("load-activity")
+
+try {
+  loadActivity()
+} catch (e: IllegalStateException) {
+  activityLoad.addAttribute("error-message", getErrorMessage(e))
+  activityLoad?.stop(ErrorCode.FAILURE)
+} finally {
+  // calling stop on an already-stopped span will not change its state
+  activityLoad?.stop()
+}
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
+
+if (activityLoad != null) {
+  try {
+    loadActivity();
+  } catch (IllegalStateException e) {
+    activityLoad.addAttribute("error-message", getErrorMessage(e));
+    activityLoad.stop(ErrorCode.FAILURE);
+  } finally {
+    // calling stop on an already-stopped span will not change its state
+    activityLoad.stop();
+}
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Add a Child Span If the Parent Started Properly
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val embrace = Embrace.getInstance()
+val activityLoad = embrace.startSpan("load-activity")
+
+// create and start a child span if activityLoad is created and started successfully
+val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this)) }
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Embrace embrace = Embrace.getInstance();
+EmbraceSpan activityLoad = embrace.startSpan("load-activity");
+
+// create and start a child span if activityLoad is created and started successfully
+if (activityLoad != null) {
+  EmbraceSpan imageLoad = embrace.startSpan("load-image", activityLoad);
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Record a Trace Before the Embrace SDK Has Started
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+// record a span based on start and end times that are in the past
 Embrace.getInstance().recordCompletedSpan(
-  "activity-create", 
-  startTimeNanos, 
-  endTimeNanos,
-  mapOf(Pair("activity-name", "Main Activity")),
-  null
+  name = "activity-create", 
+  startTimeMs = startTimeMillis, 
+  endTimeMs = endTimeMillis
 )
 ```
 
@@ -283,14 +315,49 @@ Embrace.getInstance().recordCompletedSpan(
 <TabItem value="java" label="Java">
 
 ```java
-// Record completed span
+// record a span based on start and end times that are in the past
 Embrace.getInstance().recordCompletedSpan(
   "activity-create", 
-  startTimeNanos, 
-  endTimeNanos,
-  Collections.singletonMap("activity-name", "Main Activity"),
-  null
+  startTimeMillis, 
+  endTimeMillis
 );
+```
+
+</TabItem>
+</Tabs>
+
+### Get a Reference to an In-Progress Span
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val embrace = Embrace.getInstance()
+val activityLoad = embrace.startSpan("load-activity")
+val activityLoadSpanId = activityLoad?.spanId
+
+/* some other part of the code without access to activityLoad */
+
+embrace.getSpan(activityLoadSpanId)?.stop()
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Embrace embrace = Embrace.getInstance();
+EmbraceSpan activityLoad = embrace.startSpan("load-activity");
+String activityLoadSpanId = null;
+
+if (activityLoad != null) {
+  activityLoadSpanId = activityLoad.spanId;
+}
+
+/* some other part of the code without access to activityLoad */
+
+if (activityLoadSpanId != null) {
+  embrace.getSpan(activityLoadSpanId).stop();
+}
 ```
 
 </TabItem>
