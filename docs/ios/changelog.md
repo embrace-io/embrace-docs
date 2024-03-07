@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.25.0
+*March 6, 2024*
+* Add interface for hosted SDKs to use updated performance tracing
+* Fixed missing network body capture data in some scenerios
+* Fixed race condition with uploading extension data
+* improved sdk startup time
+
 ## 5.24.6
 *Jan 26, 2024*
 * Fix potential lost data for network body capture
