@@ -192,16 +192,10 @@ This could be due to one of the following reasons:
 The most common scenario is that we are auto-detecting an early activity for which you should skip.
 Please refer to the [Moments feature guide](/android/features/moments) for how to correctly track startup completion rates and durations.
 
-### **How do I measure activities running in parallel?**
+### **How do I measure operations running in parallel?**
 
-You can use an ID for a moment to prevent naming collisions.
-The moment IDs differentiate between separate parallel instances of moments with the same name.
-For aggregation purposes, the moment identifier will be ignored and only the moment name will be considered.
+Please refer to [Performance Tracing feature guide](/android/features/tracing) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
 
-```java
-Embrace.getInstance().startEvent("load_photos", "<MOMENT_IDENTIFIER>");
-Embrace.getInstance().endEvent("load_photos", "<MOMENT_IDENTIFIER>");
-```
 
 ## Tap Coordinates
 
