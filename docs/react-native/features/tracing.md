@@ -59,7 +59,7 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attrib
 
 To use this feature:
 
-1. Ensure you're using Embrace React Native version 4.1.0 or greater.
+1. **Ensure you're using Embrace React Native version 4.1.0 or greater**.
 3. Instrument your app using the reference guide in this section to start adding traces to your operations.
 4. See the traces in the Traces section of the Embrace dashboard.
 
