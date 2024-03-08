@@ -13,7 +13,7 @@ Embrace’s Performance Tracing solution gives you visibility into any app opera
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in versions 4.1.0 and above.
+- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/integration/add-embrace-sdk/).
 :::
 
 The Embrace Performance Tracing API allows you to:
@@ -63,6 +63,20 @@ To use this feature:
 3. Instrument your app using the reference guide in this section to start adding traces to your operations.
 4. See the traces in the Traces section of the Embrace dashboard.
 
+### Install the component
+
+```shell-session
+yarn add @embrace-io/react-native-spans
+```
+
+```shell-session
+npm install @embrace-io/react-native-spans
+```
+
+:::info Minimum Requirements
+- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/integration/add-embrace-sdk/).
+:::
+
 ## API Usage Examples
 
 ### Create a Span
@@ -71,6 +85,9 @@ To use this feature:
 ```javascript
 // create a trace by creating its root span
 // recording will not behind until the span has been started
+
+import { startSpan } from '@embrace-io/react-native-spans';
+
 // startSpan: (name: string, parentSpanId?: string) => Promise<boolean | string>;
 
 const spanId = await startSpan("parentname")
@@ -81,20 +98,17 @@ const spanId = await startSpan("parentname")
 
 ```javascript
 // add an attribute to a specific span
-// addSpanAttributeToSpan: (spanId: string, key: string, value: string) => Promise<boolean>;
 
+import { startSpan, stopSpan, addSpanAttributeToSpan } from '@embrace-io/react-native-spans';
+
+// addSpanAttributeToSpan: (spanId: string, key: string, value: string) => Promise<boolean>;
 // Starting a span
 const spanId = await startSpan("parentname")
 
 // Adding an attribute to a specific span
 addSpanAttributeToSpan(spanId, "myKey", "value")
 
-const attributes = {
-  "key1":"value1",
-  "key2":"value2",
-  "key3":"value3",
-}
-addSpanEventToSpan(spanId, "eventName", new Date().getTime(), attributes)
+stopSpan(spanId)
 
 ```
 
@@ -102,6 +116,9 @@ addSpanEventToSpan(spanId, "eventName", new Date().getTime(), attributes)
 
 ```javascript
 // add an event to a specific span
+
+import { startSpan, stopSpan, addSpanEventToSpan } from '@embrace-io/react-native-spans';
+
 // addSpanEventToSpan: (spanId: string, name: string, timeStampMs?: number, 
 //    attributes?: Attributes) => Promise<boolean>;
 
@@ -117,6 +134,8 @@ const attributes = {
 }
 addSpanEventToSpan(spanId, "eventName", new Date().getTime(), attributes)
 
+stopSpan(spanId)
+
 ```
 
 ### Stop Span For Operation That Ended Earlier
@@ -124,6 +143,9 @@ addSpanEventToSpan(spanId, "eventName", new Date().getTime(), attributes)
 
 ```javascript
 // Stopping a specific span
+
+import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
+
 // stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
 
 // Starting a span
@@ -141,6 +163,9 @@ stopSpan(spanId)
 
 ```javascript
 // Stopping a specific span
+
+import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
+
 // stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
 // type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
@@ -160,6 +185,8 @@ try{
 
 
 ```javascript
+import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
+
 // Starting Spans
 const parentSpanId = startSpan("parentname")
 
@@ -178,6 +205,8 @@ stopSpan(parentSpanId)
 
 ```javascript
 // This method will start a span, add attributes / events (optional) to it, execute the function and stop to the span
+
+import { recordSpan } from '@embrace-io/react-native-spans';
 
 // recordSpan: (name: string, callback: () => void | Promise<void>, attributes?: Attributes,
 //    events?: Events[], parentSpanId?: string) => Promise<boolean>;
@@ -215,6 +244,8 @@ const spanResult = await recordSpan("parentname", trackMe, attributes, events)
 ```javascript
 // This method will create a span, add attributes / events (optional) to it, for a specific time
 
+import { recordCompletedSpan } from '@embrace-io/react-native-spans';
+
 // recordCompletedSpan: (name: string, startTimeMS: number, endTimeMS: number, 
 //    errorCode?: SPAN_ERROR_CODES, parentSpanId?: string, attributes?: Attributes, 
 //    events?: Events[]) => Promise<boolean>;
@@ -228,6 +259,7 @@ const spanResult = await recordSpan("parentname", trackMe, attributes, events)
 //   timeStampMs?: number;
 //   attributes?: Attributes;
 // }
+
 
 const attributes = {
   "key1":"value1",
