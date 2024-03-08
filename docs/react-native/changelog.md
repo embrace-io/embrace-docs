@@ -8,7 +8,6 @@ sidebar_position: 4
 ## 4.1.0
 _March 8, 2024_
 * [New Feature Spans](/react-native/features/tracing/)
-* Updated Android native Embrace SDK dependency to 6.4.0.
 * Updated iOS native Embrace SDK dependency to 5.25.0.
 ## 4.0.4
 _March 7, 2024_
