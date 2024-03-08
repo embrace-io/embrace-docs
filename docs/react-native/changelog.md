@@ -5,8 +5,13 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 4.1.0
+_March 8, 2024_
+* [New Feature Spans](/react-native/features/tracing/)
+* Updated Android native Embrace SDK dependency to 6.4.0.
+* Updated iOS native Embrace SDK dependency to 5.25.0.
 ## 4.0.4
-_March 6, 2024_
+_March 7, 2024_
 * Fix a bug that prevent we loggin Screens
 ## 4.0.3
 _March 6, 2024_
