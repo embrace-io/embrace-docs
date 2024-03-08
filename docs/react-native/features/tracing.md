@@ -71,9 +71,9 @@ To use this feature:
 ```javascript
 // create a trace by creating its root span
 // recording will not behind until the span has been started
-// startSpanWithName: (name: string, parentSpanId?: string) => Promise<boolean | string>;
+// startSpan: (name: string, parentSpanId?: string) => Promise<boolean | string>;
 
-const spanId = await startSpanWithName("parentname")
+const spanId = await startSpan("parentname")
 
 ```
 
@@ -81,20 +81,20 @@ const spanId = await startSpanWithName("parentname")
 
 ```javascript
 // add an attribute to a specific span
-// addSpanAttributesToSpanId: (spanId: string, key: string, value: string) => Promise<boolean>;
+// addSpanAttributeToSpan: (spanId: string, key: string, value: string) => Promise<boolean>;
 
 // Starting a span
-const spanId = await startSpanWithName("parentname")
+const spanId = await startSpan("parentname")
 
 // Adding an attribute to a specific span
-addSpanAttributesToSpanId(spanId, "myKey", "value")
+addSpanAttributeToSpan(spanId, "myKey", "value")
 
 const attributes = {
   "key1":"value1",
   "key2":"value2",
   "key3":"value3",
 }
-addSpanEventToSpanId(spanId, "eventName", new Date().getTime(), attributes)
+addSpanEventToSpan(spanId, "eventName", new Date().getTime(), attributes)
 
 ```
 
@@ -102,11 +102,11 @@ addSpanEventToSpanId(spanId, "eventName", new Date().getTime(), attributes)
 
 ```javascript
 // add an event to a specific span
-// addSpanEventToSpanId: (spanId: string, name: string, timestamp?: number, 
+// addSpanEventToSpan: (spanId: string, name: string, timeStampMs?: number, 
 //    attributes?: Attributes) => Promise<boolean>;
 
 // Starting a span
-const spanId = await startSpanWithName("parentname")
+const spanId = await startSpan("parentname")
 
 // Adding an event to a specific span
 
@@ -115,7 +115,7 @@ const attributes = {
   "key2":"value2",
   "key3":"value3",
 }
-addSpanEventToSpanId(spanId, "eventName", new Date().getTime(), attributes)
+addSpanEventToSpan(spanId, "eventName", new Date().getTime(), attributes)
 
 ```
 
@@ -124,15 +124,15 @@ addSpanEventToSpanId(spanId, "eventName", new Date().getTime(), attributes)
 
 ```javascript
 // Stopping a specific span
-// stopSpanWithId: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
+// stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
 
 // Starting a span
-const spanId = await startSpanWithName("parentname")
+const spanId = await startSpan("parentname")
 
 // Do something
 
 // Stopping the span
-stopSpanWithId(spanId)
+stopSpan(spanId)
 
 ```
 
@@ -141,17 +141,17 @@ stopSpanWithId(spanId)
 
 ```javascript
 // Stopping a specific span
-// stopSpanWithId: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
+// stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
 // type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
 // Starting a span
-const spanId = await startSpanWithName("parentname")
+const spanId = await startSpan("parentname")
 
 try{
   // Do something that throw an error
 }catch(e){
   // Stopping the span with an Error Code
-  stopSpanWithId(spanId, "Failure")
+  stopSpan(spanId, "Failure")
 }
 
 ```
@@ -161,16 +161,16 @@ try{
 
 ```javascript
 // Starting Spans
-const parentSpanId = startSpanWithName("parentname")
+const parentSpanId = startSpan("parentname")
 
-const firstChildSpanId = startSpanWithName("firstchildname", parentSpanId)
+const firstChildSpanId = startSpan("firstchildname", parentSpanId)
 
-const secondChildSpanId = startSpanWithName("secondchildname", firstChildSpanId)
+const secondChildSpanId = startSpan("secondchildname", firstChildSpanId)
 
 // Stopping Spans
-stopSpanWithId(firstChildSpanId)
-stopSpanWithId(secondChildSpanId)
-stopSpanWithId(parentSpanId)
+stopSpan(firstChildSpanId)
+stopSpan(secondChildSpanId)
+stopSpan(parentSpanId)
 
 ```
 
@@ -179,14 +179,14 @@ stopSpanWithId(parentSpanId)
 ```javascript
 // This method will start a span, add attributes / events (optional) to it, execute the function and stop to the span
 
-// recordSpanWithName: (name: string, callback: () => void | Promise<void>, attributes?: Attributes,
+// recordSpan: (name: string, callback: () => void | Promise<void>, attributes?: Attributes,
 //    events?: Events[], parentSpanId?: string) => Promise<boolean>;
 // interface Attributes {
 //  [key: string]: string;
 // }
 // interface Events {
 //   name: string;
-//   timestamp?: number;
+//   timeStampMs?: number;
 //   attributes?: Attributes;
 // }
 
@@ -201,12 +201,12 @@ const attributes = {
  const events = [
   {
     name: 'eventName',
-    timestampNanos: new Date().getTime(),
+    timeStampMs: new Date().getTime(),
     attributes: {"eventKey": 'value'},
   },
 ];
 // Starting Spans
-const spanResult = await recordSpanWithName("parentname", trackMe, attributes, events)
+const spanResult = await recordSpan("parentname", trackMe, attributes, events)
 
 ```
 
@@ -215,7 +215,7 @@ const spanResult = await recordSpanWithName("parentname", trackMe, attributes, e
 ```javascript
 // This method will create a span, add attributes / events (optional) to it, for a specific time
 
-// recordCompletedSpanWithName: (name: string, startTimestamp: number, endTimestamp: number, 
+// recordCompletedSpan: (name: string, startTimeMS: number, endTimeMS: number, 
 //    errorCode?: SPAN_ERROR_CODES, parentSpanId?: string, attributes?: Attributes, 
 //    events?: Events[]) => Promise<boolean>;
 
@@ -225,7 +225,7 @@ const spanResult = await recordSpanWithName("parentname", trackMe, attributes, e
 // }
 // interface Events {
 //   name: string;
-//   timestamp?: number;
+//   timeStampMs?: number;
 //   attributes?: Attributes;
 // }
 
@@ -237,7 +237,7 @@ const attributes = {
  const events = [
   {
     name: 'eventName',
-    timestampNanos: new Date().getTime(),
+    timeStampMs: new Date().getTime(),
     attributes: {"eventKey": 'value'},
   },
 ];
@@ -245,7 +245,7 @@ const attributes = {
 const startTime = new Date().getTime()
 const endTime = new Date().getTime() + 1
 
-const spanResult = await recordCompletedSpanWithName: ("parentname", startTime, 
+const spanResult = await recordCompletedSpan: ("parentname", startTime, 
                             endTime, "None", undefined, attributes, events)
 
 ```
