@@ -10,8 +10,8 @@ sidebar_position: 4
 *March 6, 2024*
 * Add interface for hosted SDKs to use updated performance tracing
 * Fixed missing network body capture data in some scenerios
-* Fixed race condition with uploading extension data
-* improved sdk startup time
+* Adds ability for EmbraceExtensions to disable Embrace data uploads. Data will be deferred to the host app for the upload.
+* Improvements to SDK startup time
 
 ## 5.24.6
 *Jan 26, 2024*
