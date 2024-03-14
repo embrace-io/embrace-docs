@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.5.0
+*March 14, 2024*
+- Fully support configuration cache on all Gradle versions.
+- Fix issue with active Moments being lost when a new session starts.
+
 ## 6.4.0
 *March 6, 2024*
 - Performance Tracing improvements
