@@ -5,18 +5,12 @@ sidebar_position: 7
 
 # Performance Tracing
 
-In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards.  In these dashboards, you can create new analyses.  Visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
+Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
-## Table of Issues
-
-Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) .  You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/tagging)
-
-To get started, click on the Issues category when making a new Widget:
-<img src={require('@site/static/images/issues in dashboard.png').default} alt="Issues as a Widget option" />
-
-Adjust the columns you want to display and how to filter the Issues
-<img src={require('@site/static/images/issues widget filter.png').default} alt="customize your Issues list" />
-
-Then once you save, you'll see this table on your dashboard!  Issues are sorted by percentage of users impacted:
-<img src={require('@site/static/images/issues widget dashboard.png').default} alt="final table" />
+## Trace Roots view
+## Trace Summary view
+## Trace Instance view
+## User Timeline view
+## Sessions filter
+## Boards, Alerts, and Custom Metrics
 
