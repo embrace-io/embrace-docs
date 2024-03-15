@@ -15,7 +15,7 @@ buildscript {
 }
 ```
 
-Please refer to the [Android setup guide](http://https://embrace.io/docs/flutter/integration/add-embrace-sdk/#android-setup) for further information.
+Please refer to the [Android setup guide](/flutter/integration/add-embrace-sdk/#android-setup) for further information.
 
 # Upgrading from 1.4.0 to 1.5.0
 
