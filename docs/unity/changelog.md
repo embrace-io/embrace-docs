@@ -7,7 +7,7 @@ sidebar_position: 4
 # Unity SDK Changelog
 ## 1.24.0
 *March 17, 2024*
-:::warning Important
+:::Info Important
 This version of Unity has a number of changes to internal namespaces to streamline internal APIs and alignment. We have endeavored to avoid breaking changes. However, if you have subscribed to any existing APIs they may have changed. Please be aware of this when upgrading.
 :::
 
