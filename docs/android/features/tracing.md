@@ -83,7 +83,7 @@ import TabItem from '@theme/TabItem';
 ```kotlin
 // create a trace by creating its root span
 // recording will not behind until the span has been started
-val activityLoad = Embrace.getInstance().createSpan("load-activity"))
+val activityLoad = Embrace.getInstance().createSpan("load-activity")
 ```
 
 </TabItem>
@@ -129,7 +129,7 @@ EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
 
 ```kotlin
 val appStartTimeMillis = getAppStartTime()
-val appLaunchTrace = Embrace.getInstance().createSpan("app-launch"))
+val appLaunchTrace = Embrace.getInstance().createSpan("app-launch")
 
 // begin recording a trace that has a different start time than 
 // the current time by starting its root span with a specific timestamp
@@ -161,7 +161,7 @@ if (activityLoad != null) {
 ```kotlin
 val embrace = Embrace.getInstance()
 val activityLoad = embrace.startSpan("load-activity")
-val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this)) }
+val imageLoad = activityLoad?.let { embrace.startSpan("load-image", this) }
 
 val image = fetchImage()
 
@@ -238,7 +238,7 @@ val activityLoad = Embrace.getInstance().startSpan("load-activity")
 try {
   loadActivity()
 } catch (e: IllegalStateException) {
-  activityLoad.addAttribute("error-message", getErrorMessage(e))
+  activityLoad?.addAttribute("error-message", getErrorMessage(e))
   activityLoad?.stop(ErrorCode.FAILURE)
 } finally {
   // calling stop on an already-stopped span will not change its state
@@ -278,7 +278,7 @@ val embrace = Embrace.getInstance()
 val activityLoad = embrace.startSpan("load-activity")
 
 // create and start a child span if activityLoad is created and started successfully
-val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this)) }
+val imageLoad = activityLoad?.let { embrace.startSpan("load-image", it) }
 ```
 
 </TabItem>
