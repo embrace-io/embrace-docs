@@ -16,6 +16,8 @@ To find specific Traces, the filter can consider:
 * Outcome
 * Attributes (Key, then Value)
 
+
+<img src="https://github.com/embrace-io/embrace-docs/assets/4923780/ee64b386-ed8f-4832-b0d3-9efcb55a039e" alt="trace-filter" width="200"/>
 ![image](https://github.com/embrace-io/embrace-docs/assets/4923780/ee64b386-ed8f-4832-b0d3-9efcb55a039e)
 
 
