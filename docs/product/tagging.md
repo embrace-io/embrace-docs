@@ -14,13 +14,13 @@ Embrace tags each stack frame by the most specific matching condition in your Co
 ### directly in the dashboard
 On any Crash, you can directly create a rule in the stack frame.  Click on the edit icon and fill out the modal with any RE2 regex rule and your desired tag.
 
-<img src="https://github.com/embrace-io/embrace-docs/assets/4923780/dae75c84-1cd9-4233-933d-fbabb6877594" alt="edit-in-stack" width="500px">
+<img src="https://github.com/embrace-io/embrace-docs/assets/4923780/dae75c84-1cd9-4233-933d-fbabb6877594" alt="edit-in-stack" width="500px"/>
 
-<img src="https://github.com/embrace-io/embrace-docs/assets/4923780/b4e51364-eec3-4800-ae8c-43e8f2201384" alt="rule-modal" width="500px">
+<img src="https://github.com/embrace-io/embrace-docs/assets/4923780/b4e51364-eec3-4800-ae8c-43e8f2201384" alt="rule-modal" width="500px"/>
 
 
 You can also see, create, and modify rules in the Settings view.
-<img src="https://github.com/embrace-io/embrace-docs/assets/4923780/7206f399-2519-4c6d-8fc2-156fa710f2c5" alt="rules-in-settings" width="500px">
+<img src="https://github.com/embrace-io/embrace-docs/assets/4923780/7206f399-2519-4c6d-8fc2-156fa710f2c5" alt="rules-in-settings" width="500px"/>
 
 
 ### with a Codeowners file
