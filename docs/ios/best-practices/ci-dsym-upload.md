@@ -120,7 +120,7 @@ steps:
       find ~/Library/Developer/Xcode/DerivedData/MyProject*/Build/Products -iname "*.dsym" | xargs -n 1 -J % cp -r % ./dsym_output
       zip -r dsym_output.zip ./dsym_output
 
-  - name: Store dSYM Archvie
+  - name: Store dSYM Archive
     uses: actions/upload-artifact@v3
     with:
       name: dSYM Archive
