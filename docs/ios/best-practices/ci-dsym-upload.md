@@ -18,7 +18,7 @@ Here are quick links to documentation for storing artifacts in common mobile CI 
 1. [Buildkite](https://buildkite.com/docs/pipelines/artifacts)
 1. [CircleCI](https://circleci.com/docs/artifacts/)
 1. [Github Actions](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#about-workflow-artifacts)
-
+1. **Xcode Cloud** - As of writing, does not support storing custom artifacts. If using Xcode Cloud [see this section below](#working-with-xcode-cloud) for more specific instructions.
 
 # Summary
 
@@ -118,7 +118,7 @@ steps:
       find ~/Library/Developer/Xcode/DerivedData/MyProject*/Build/Products -iname "*.dsym" | xargs -n 1 -J % cp -r % ./dsym_output
       zip -r dsym_output.zip ./dsym_output
 
-  - name: Store dSYM Archvie
+  - name: Store dSYM Archive
     uses: actions/upload-artifact@v3
     with:
       name: dSYM Archive
@@ -143,6 +143,45 @@ If the Embrace `upload` utility is in a known location you should use the existi
 curl -o ./embrace_support.zip https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip
 unzip ./embrace_support.zip
 ./upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
+```
+
+
+## Working with Xcode Cloud
+
+Xcode Cloud is Apple's CI system and works seamlessly with Xcode projects. This means you have less access to the build machine than other
+CI providers. Above, we recommend storing dSYM files in a zip archive as a custom artifact, but in Xcode Cloud storing custom artifacts that
+ isn't possible. Luckily, it also isn't necessary.
+
+### Xcode Run Script Phase
+
+The first option is to use the custom "Run Script Phase" as outlined by our [integration guide](../integration/dsym-upload.md). This will run as part
+of the build and upload the dSYMs as part of the build. The same logic will execute locally on a developer's machine so if ad hoc builds do occur, this is a good approach to make sure dSYMs are uploaded in those situations.
+
+```sh
+# Custom Run Script Phase in Xcode
+EMBRACE_ID='USE_YOUR_KEY' EMBRACE_TOKEN='USE_YOUR_TOKEN' "path/to/EmbraceIO/run.sh"
+```
+
+### Custom Build Script in Xcode Cloud
+
+If you would prefer to keep this specific to CI builds, its possible to add a [custom build script for Xcode Cloud](https://developer.apple.com/documentation/xcode/writing-custom-build-scripts). When running `xcodebuild archive` Xcode Cloud will automatically store an xcarchive bundle as part of the Build's Artifacts. Your `ci_post_xcodebuild.sh` script can then read dSYMs from this archive and upload them manually.
+
+Here's a basic shell script that you can use as an example:
+```sh
+# ci_scripts/ci_post_xcodebuild.sh
+
+if [[ -n $CI_ARCHIVE_PATH ]];  # only run after `xcodebuild archive`
+then
+  # collect dSYMs into a zip archive
+  cd $CI_ARCHIVE_PATH/dSYMs && zip -r ~/dsym_output.zip . && cd -
+
+  # download/unzip Embrace support package
+  curl -o ./embrace_support.zip https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip
+  unzip ./embrace_support.zip
+
+  # call Embrace upload tool
+  ./upload -app $APP_ID -token $EMBRACE_TOKEN ~/dsym_output.zip
+fi
 ```
 
 # dSYM Upload

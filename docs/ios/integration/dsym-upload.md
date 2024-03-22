@@ -30,6 +30,11 @@ Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "
 
 This phase is going to be calling Embrace's `run.sh` upload script. You can configure the phase to only run on builds you want symbols uploaded to Embrace for, and skip the step on internal only builds to save time.
 
+**Xcode 15 Note** You may run into an issue in Xcode 15 and above as Run Script phases now run in a sandbox by default.
+Our Run Script needs to use the network to upload dSYM files, so in order to disable this sandboxing, update the `User Script Sandboxing` Build Setting to `NO`.
+
+<img src={require('@site/static/images/user-script-sandboxing.png').default} />
+
 The run.sh script is distributed alongside the `Embrace.framework` file. Depending on how you linked Embrace, this file will be in a different location.
 See the section relevant for your integration for how to call the run script.
 
@@ -102,15 +107,15 @@ If your crashes are not being symbolicated due to dSYM files being missing, see 
 If your app is using bitcode or a CI system that makes accessing or modifying the build phases impossible, you can still upload your dSYM files manually.
 
 :::info
-Apple is [deprecating Bitcode Enabled submissions](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes#Deprecations) starting with Xcode 14, no longer accepts submissions with bitcode enabled and will remove the ability to build apps with bitcode enabled altogether on future Xcode releases. If your app still has bitcode enabled, it might be a good idea to disable it. 
+Apple is [deprecating Bitcode Enabled submissions](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes#Deprecations) starting with Xcode 14, no longer accepts submissions with bitcode enabled and will remove the ability to build apps with bitcode enabled altogether on future Xcode releases. If your app still has bitcode enabled, it might be a good idea to disable it.
 :::
 
 When applications are built with bitcode, it means the final binary and symbols only exist on Apple servers post-submission. As such you must download those symbols manually from Apple. You can do this from the Organizer window in Xcode.
 
 <img src={require('@site/static/images/ios-xcode-organizer.png').default} />
 
-Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
- 
+Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility.
+
 The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your API key and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
@@ -125,7 +130,8 @@ Run the upload tool and your dSYM will be sent to Embrace.
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
 
---- 
+---
+
 
 dSYM's are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
 
