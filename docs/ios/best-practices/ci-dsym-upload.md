@@ -145,10 +145,6 @@ unzip ./embrace_support.zip
 ./upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
 ```
 
-# dSYM Upload
-
-If you haven't already, check out our [dSYM Upload Integration Document](/ios/integration/dsym-upload). This document walks through the Xcode project configuration that allows for the automatic upload of dSYM files to the Embrace dashboard.
-
 
 ## Working with Xcode Cloud
 
@@ -156,21 +152,38 @@ Xcode Cloud is Apple's CI system and works seamlessly with Xcode projects. This 
 CI providers. Above, we recommend storing dSYM files in a zip archive as a custom artifact, but in Xcode Cloud storing custom artifacts that
  isn't possible. Luckily, it also isn't necessary.
 
-The first option is to use a custom "Run Script Phase" as outlined by our [integration guide](../integration/dsym-upload.md). This will run as part
-of the build and upload the dSYMs as part of the build.
+### Xcode Run Script Phase
+
+The first option is to use the custom "Run Script Phase" as outlined by our [integration guide](../integration/dsym-upload.md). This will run as part
+of the build and upload the dSYMs as part of the build. The same logic will execute locally on a developer's machine so if ad hoc builds do occur, this is a good approach to make sure dSYMs are uploaded in those situations.
+
+```sh
+# Custom Run Script Phase in Xcode
+EMBRACE_ID='USE_YOUR_KEY' EMBRACE_TOKEN='USE_YOUR_TOKEN' "path/to/EmbraceIO/run.sh"
+```
+
+### Custom Build Script in Xcode Cloud
 
 If you would prefer to keep this specific to CI builds, its possible to add a [custom build script for Xcode Cloud](https://developer.apple.com/documentation/xcode/writing-custom-build-scripts). When running `xcodebuild archive` Xcode Cloud will automatically store an xcarchive bundle as part of the Build's Artifacts. Your `ci_post_xcodebuild.sh` script can then read dSYMs from this archive and upload them manually.
 
+Here's a basic shell script that you can use as an example:
 ```sh
-# ci_post_xcodebuild.sh
+# ci_scripts/ci_post_xcodebuild.sh
 
 if [[ -n $CI_ARCHIVE_PATH ]];  # only run after `xcodebuild archive`
 then
+  # collect dSYMs into a zip archive
   cd $CI_ARCHIVE_PATH/dSYMs && zip -r ~/dsym_output.zip . && cd -
 
+  # download/unzip Embrace support package
   curl -o ./embrace_support.zip https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip
   unzip ./embrace_support.zip
 
+  # call Embrace upload tool
   ./upload -app $APP_ID -token $EMBRACE_TOKEN ~/dsym_output.zip
 fi
 ```
+
+# dSYM Upload
+
+If you haven't already, check out our [dSYM Upload Integration Document](/ios/integration/dsym-upload). This document walks through the Xcode project configuration that allows for the automatic upload of dSYM files to the Embrace dashboard.
