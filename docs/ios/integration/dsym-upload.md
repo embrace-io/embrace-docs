@@ -30,8 +30,14 @@ Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "
 
 This phase is going to be calling Embrace's `run.sh` upload script. You can configure the phase to only run on builds you want symbols uploaded to Embrace for, and skip the step on internal only builds to save time.
 
+:::warning
 **Xcode 15 Note** You may run into an issue in Xcode 15 and above as Run Script phases now run in a sandbox by default.
 Our Run Script needs to use the network to upload dSYM files, so in order to disable this sandboxing, update the `User Script Sandboxing` Build Setting to `NO`.
+:::
+
+:::warning
+**Xcode 15 Note** Please ensure that the upload script is the last step in the build phase. Placing it last ensures all necessary build artifacts are generated before the upload begins.
+:::
 
 <img src={require('@site/static/images/user-script-sandboxing.png').default} />
 
