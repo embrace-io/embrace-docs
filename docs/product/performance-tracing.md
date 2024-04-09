@@ -23,7 +23,7 @@ To find specific Traces, the filter can consider:
 ## Trace Summary view
 Investigate a specific Trace by clicking on the root.  In this Trace Summary view, you'll see a list of all Trace Instances based on your filter conditions.
 
-To find specific Instances, the filter provides the following dimensions:
+You can filter off the Root properties to find specific Instances. The filter provides the following dimensions:
 * Duration
 * Outcome
 * Attributes (Key, then Value)
