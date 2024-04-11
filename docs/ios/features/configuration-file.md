@@ -1,7 +1,7 @@
 ---
 title: Configuration File
 description: A reference guide to configuration options available in the iOS SDK
-sidebar_position: 8
+sidebar_position: 7
 ---
 
 # Configuration File
