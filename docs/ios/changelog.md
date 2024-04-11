@@ -6,6 +6,16 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 5.25.1
+*April 11, 2024*
+* Adds coordinated file access in upload cache. Will better handle file contention between host app and extension processes
+* Adds logic to prevent rare instances of session payloads from being sent with empty app and device metadata
+* Removes logic that took screenshots. This has been deprecated since 5.23.0
+* Improvements to upload retry logic to prevent immediate retries if an error occurs that is likely to repeat
+* Improvements to persistence logic when rotating data storage. Will now rotate files less frequently
+* Improvements to startup logic to defer operations that require file IO
+* Increases default log message length from 128 to 4000 characters
+
 ## 5.25.0
 *March 6, 2024*
 * Add interface for hosted SDKs to use updated performance tracing
