@@ -14,7 +14,6 @@ sidebar_position: 4
 * Improvements to upload retry logic to prevent immediate retries if an error occurs that is likely to repeat
 * Improvements to persistence logic when rotating data storage. Will now rotate files less frequently
 * Improvements to startup logic to defer operations that require file IO
-* Increases default log message length from 128 to 4000 characters
 
 ## 5.25.0
 *March 6, 2024*
