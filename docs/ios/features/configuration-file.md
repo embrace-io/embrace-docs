@@ -64,10 +64,6 @@ If enabled, Embrace will capture detailed performance statistics about network r
 
 Controls Embrace's automatic view capture service. When enabled Embrace will automatically capture all displayed view controllers. This can help give you useful timeline data for your sessions. Some apps have a single-view UI, such has media or gaming applications. In those cases it makes sense to disable this feature and record the data manually instead. Default is on.
 
-<!---#### ENABLE_OS_LOG *boolean, optional*
-
-Enables Embrace's OS_LOG tracking features. You can read more about those here: [**Augment Sessions using OS Log**](/ios/features/augment-sessions) This feature is off by default.-->
-
 #### ENABLE_WK_AUTO_RELOAD *boolean, optional*
 
 Embrace can perform some automatic webkit management for you. This is off by default as not all apps can safely use it. You can read more about this feature here: [**Web Thread Monitoring**](/ios/features/web-thread-monitoring)
