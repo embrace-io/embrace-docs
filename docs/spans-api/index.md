@@ -34,12 +34,12 @@ Parameters supported for all searches
 
 Parameters for TraceQL Search
 
-q = (TraceQL query): Url encoded TraceQL query.
+`q = (TraceQL query)`: Url encoded TraceQL query.
 Parameters for Tag Based Search
 
-tags = (logfmt): logfmt encoding of any span-level or process-level attributes to filter on. The value is matched as a case-insensitive substring. Key-value pairs are separated by spaces. If a value contains a space, it should be enclosed within double quotes.
-minDuration = (go duration value) Optional. Find traces with at least this duration. Duration values are of the form 10s for 10 seconds, 100ms, 30m, etc.
-maxDuration = (go duration value) Optional. Find traces with no greater than this duration. Uses the same form as minDuration.
+`tags = (logfmt)`: logfmt encoding of any span-level or process-level attributes to filter on. The value is matched as a case-insensitive substring. Key-value pairs are separated by spaces. If a value contains a space, it should be enclosed within double quotes.
+`minDuration = (go duration value)` Optional. Find traces with at least this duration. Duration values are of the form 10s for 10 seconds, 100ms, 30m, etc.
+`maxDuration = (go duration value)` Optional. Find traces with no greater than this duration. Uses the same form as minDuration.
 
 [//]: # (## Response status codes:)
 
