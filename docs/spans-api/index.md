@@ -39,6 +39,7 @@ Parameters:
 - `spss` = (integer) Optional. Limit the number of spans on the results. Default value is 3.
 To speed up the search, you can filter using the `span.emb.app_id` attribute.
 
+#### Search for spans using TraceQL
 ```bash
 curl -G 'https://api.embrace.io/spans/api/search?start=1712861280&end=1712861400&spss=5&limit=1' \
 --header 'Authorization: Bearer TOKEN' \
@@ -103,7 +104,7 @@ Response:
 }
 ```
 
-#### Search specific span
+#### Search a specific span using the span id
 To search for a specific span you need to add in the query parameter the span id you want to search for
 using `span.emb.span_id` attribute.
 
