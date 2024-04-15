@@ -34,7 +34,7 @@ This endpoint allows you to search for spans based on a TraceQL query.
 Parameters:
 - `q = (TraceQL query)`: Url encoded [TraceQL query](https://grafana.com/docs/tempo/latest/traceql/#query-with-traceql).
 - `limit` = (integer) Optional. Limit the number of search results. Default is 20
-- `start` = (unix epoch seconds) Optional. Along with `end` define a time range from which spann should be returned.
+- `start` = (unix epoch seconds) Optional. Along with `end` define a time range from which span should be returned.
 - `end` = (unix epoch seconds) Optional. Along with `start`, define a time range from which spans should be returned. Providing both start and end will change the way that Tempo searches. If the parameters are not provided, then it will search the most recent spans.
 - `spss` = (integer) Optional. Limit the number of spans on the results. Default value is 3.
 To speed up the search, you can filter using the `span.emb.app_id` attribute.
