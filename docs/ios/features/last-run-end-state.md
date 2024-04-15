@@ -1,7 +1,7 @@
 ---
 title: Last Run End State
 description: Learn about the advanced ways Embrace can help your application
-sidebar_position: 10
+sidebar_position: 8
 ---
 
 # Last Run End State API

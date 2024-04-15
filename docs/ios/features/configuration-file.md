@@ -1,7 +1,7 @@
 ---
 title: Configuration File
 description: A reference guide to configuration options available in the iOS SDK
-sidebar_position: 8
+sidebar_position: 7
 ---
 
 # Configuration File
@@ -63,10 +63,6 @@ If enabled, Embrace will capture detailed performance statistics about network r
 #### ENABLE_AUTOMATIC_VIEW_CAPTURE *boolean, optional*
 
 Controls Embrace's automatic view capture service. When enabled Embrace will automatically capture all displayed view controllers. This can help give you useful timeline data for your sessions. Some apps have a single-view UI, such has media or gaming applications. In those cases it makes sense to disable this feature and record the data manually instead. Default is on.
-
-<!---#### ENABLE_OS_LOG *boolean, optional*
-
-Enables Embrace's OS_LOG tracking features. You can read more about those here: [**Augment Sessions using OS Log**](/ios/features/augment-sessions) This feature is off by default.-->
 
 #### ENABLE_WK_AUTO_RELOAD *boolean, optional*
 

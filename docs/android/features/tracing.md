@@ -421,7 +421,7 @@ val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
 <TabItem value="java" label="Java">
 
 ```java
- //grpc through an otel collector in a local docker image
+ //http to an otel collector in Grafana cloud
 OtlpHttpSpanExporter grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
     .addHeader("Authorization", "YourToken")
