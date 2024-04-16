@@ -106,7 +106,7 @@ Response:
 
 #### Search a specific span using the span id
 To search for a specific span you need to add in the query parameter the span id you want to search for
-using `span.emb.span_id` attribute.
+using the `span.emb.span_id` attribute.
 
 ```bash
 
@@ -331,13 +331,7 @@ curl 'https://api.embrace.io/spans/api/traces/4d67df900d474c740eb302939b596c3d' 
                   }
                 },
                 {
-                  "key": "emb.session_prop_experiment_remove_phone_number_google_signup_android",
-                  "value": {
-                    "stringValue": "off"
-                  }
-                },
-                {
-                  "key": "emb.session_prop_simCountryIso",
+                  "key": "emb.session_prop_CountryIso",
                   "value": {
                     "stringValue": "gr"
                   }
