@@ -30,10 +30,15 @@ Here you can use the status dropdown to search for successful or error spans.
 You can also search using the tags, for example, using the `statusMessage` tag. 
 On the `Tags` dropdown you will be able to select any attribute that is present in your spans data
 (see the [Embrace attributes section](/spans-api/index.md#embrace-attributes)).
+
 <img src={require('@site/static/images/spans-api/search.png').default} alt="Grafana search mode" />
-One thing to note is that if you select an existing tag you will be able to see the tag values that are present in your data:
+
+One thing to note is that if you select an existing tag, you will be able to see the tag values that are present in your data:
+
 <img src={require('@site/static/images/spans-api/tag_values.png').default} alt="Grafana search mode, searching at tag values" />
+
 Another filter you can use is the `Span name`:
+
 <img src={require('@site/static/images/spans-api/span_name.png').default} alt="Grafana search mode, searching with span name" />
 
 ### TraceQL Mode
