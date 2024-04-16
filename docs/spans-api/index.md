@@ -13,7 +13,7 @@ The API implements the Tempo HTTP API, for more information you can read [here](
 - Embrace Spans API Token. This is a different token than the Metrics API token and from the Custom Metrics token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently retrieving spans information.
 
 :::info
-If you want to get a feel of the API, you can use the Sandbox token: ``
+If you want to get a feel of the API, you can use the Sandbox token: `dc8b04fb11874ee19a6ac1ced98da486`
 This token will get artificial data for you to test the API and see how it works.
 :::
 
