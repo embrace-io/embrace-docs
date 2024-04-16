@@ -21,7 +21,10 @@ To find specific Traces, the filter can consider:
 
 
 ## Trace Summary view
-Investigate a specific Trace by clicking on the root.  In this Trace Summary view, you'll see a list of all Trace Instances based on your filter conditions.
+Investigate a specific Trace by clicking on the root.  In this Trace Summary view, you'll see a list of all Trace Instances based on your filter conditions.  Individual rows can be expanded to preview all the spans in the Trace.
+
+<img src={require('@site/static/images/PerfTraces > Trace Summary previews.png').default} alt="trace-filter" width="400"/>
+
 
 You can filter off the Root properties to find specific Instances. The filter provides the following dimensions:
 * Duration
@@ -33,6 +36,12 @@ You can filter off the Root properties to find specific Instances. The filter pr
 
 ## Trace Instance view
 ## User Timeline view
+Traces appear in both the Timeline View and Timeline Details.
+
+Clicking on "See Details" for any Trace will take you directly the the Trace Instance page, exploring all the spans, events, and attributes for that Trace.
+
+<img src={require('@site/static/images/PerfTraces > User Timeline.png').default} alt="trace-filter" width="400"/>
+
 ## Sessions filter
 ## Boards, Alerts, and Custom Metrics
 
