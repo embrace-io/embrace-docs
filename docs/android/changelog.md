@@ -8,8 +8,8 @@ sidebar_position: 4
 
 ## 6.6.0
 *April 19, 2024*
-THE OpenTelemetry Release!
 
+- THE [OpenTelemetry](https://opentelemetry.io/) Release!
 - We migrated the internals of the Embrace Android SDK to use the OpenTelemetry Java SDK at its core.
 - This means the bulk of the telemetry are recorded as OTel signals, so they can be sent directly to OTel Collectors from the app using any Java OTLP Exporter that is compatible with Android.
 - Telemetry types modeled by Embrace like sessions, crashes, ANRs, and logs have canonical representations as OTel signals using a combination of OTel and in-house semantic conventions 
