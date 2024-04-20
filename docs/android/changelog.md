@@ -6,6 +6,20 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.6.0
+*April 19, 2024*
+
+- THE [OpenTelemetry](https://opentelemetry.io/) Release!
+- We migrated the internals of the Embrace Android SDK to use the OpenTelemetry Java SDK at its core.
+- This means the bulk of the telemetry are recorded as OTel signals, so they can be sent directly to OTel Collectors from the app using any Java OTLP Exporter that is compatible with Android.
+- Telemetry types modeled by Embrace like sessions, crashes, ANRs, and logs have canonical representations as OTel signals using a combination of OTel and in-house semantic conventions 
+- The number of Embrace conventions will hopefully shrink going forward as the community comes together around a set of shared semantic conventions to standardize the world of mobile telemetry.
+- We will build upon this new foundation in the coming releases to bring together the worlds of OpenTelemetry, mobile client performance observability, and RUM!
+
+:::info Important
+API Desugaring is now a requirement for apps that support Android 5 and 6. This is a simple, well-supported process done by Android build tooling that backports certain Java 8 language features onto older Android versions that didn't have support. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring)
+:::
+
 ## 6.5.0
 *March 14, 2024*
 - Fully support configuration cache on all Gradle versions.
