@@ -5,6 +5,10 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 4.1.1
+_April 15, 2024_
+* Fix a minor bug related to matching bundle.js with its corresponding source map.
+* Updated iOS native Embrace SDK dependency to 5.25.1.
 ## 4.1.0
 _March 8, 2024_
 * [New Feature Spans](/react-native/features/tracing/)
