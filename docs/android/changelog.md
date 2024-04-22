@@ -6,19 +6,20 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.7.0
+*April 22, 2024*
+ - Support configuration of OpenTelemetry Exporters to export [Logs](/android/features/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
+
 ## 6.6.0
 *April 19, 2024*
-
-- THE [OpenTelemetry](https://opentelemetry.io/) Release!
-- We migrated the internals of the Embrace Android SDK to use the OpenTelemetry Java SDK at its core.
-- This means the bulk of the telemetry are recorded as OTel signals, so they can be sent directly to OTel Collectors from the app using any Java OTLP Exporter that is compatible with Android.
-- Telemetry types modeled by Embrace like sessions, crashes, ANRs, and logs have canonical representations as OTel signals using a combination of OTel and in-house semantic conventions 
-- The number of Embrace conventions will hopefully shrink going forward as the community comes together around a set of shared semantic conventions to standardize the world of mobile telemetry.
-- We will build upon this new foundation in the coming releases to bring together the worlds of OpenTelemetry, mobile client performance observability, and RUM!
 
 :::info Important
 API Desugaring is now a requirement for apps that support Android 5 and 6. This is a simple, well-supported process done by Android build tooling that backports certain Java 8 language features onto older Android versions that didn't have support. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring)
 :::
+
+- THE [OpenTelemetry](https://opentelemetry.io/) Release! The Embrace Android SDK now uses the OpenTelemetry Java SDK at its core.
+- This means the bulk of the telemetry is recorded as OTel signals, so they can be sent directly to OTel Collectors from the app using any Java OTLP Exporter that is compatible with Android. Telemetry types modeled by Embrace like sessions, crashes, ANRs, and logs have canonical representations as OTel signals using a combination of OTel and in-house semantic conventions.
+- The number of Embrace conventions will hopefully shrink going forward as the community comes together around a set of shared semantic conventions to standardize the world of mobile telemetry. We will build upon this new foundation in the coming releases to bring together the worlds of OpenTelemetry, mobile client performance observability, and RUM!
 
 ## 6.5.0
 *March 14, 2024*
@@ -28,7 +29,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 ## 6.4.0
 *March 6, 2024*
 - Performance Tracing improvements
-    - Support configuration of OpenTelemetry Exporters to export Performance Tracing data as OpenTelemetry Spans (beta).
+    - Support configuration of OpenTelemetry Exporters to export [Performance Tracing](/android/features/tracing/#export-your-telemetry) data as OpenTelemetry Spans (beta).
     - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations. 
         - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
     - Increase per-session limit of spans to 500 in total.

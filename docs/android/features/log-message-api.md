@@ -4,6 +4,11 @@ sidebar_position: 5
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 # Adding Logs
 
 Typically the Embrace SDK uploads data at the end of a session. However, some situations 
@@ -82,6 +87,103 @@ Once you start using our alerting feature you can also configure how these are h
 Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with log events.
 For example, let's say you have a steady rate of 1% for a given log event. You could set that as a threshold and receive an email if the rate rises beyond that in a sustained way.
 
+## Export your telemetry
+
+A [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) can be easily injected, to directly export your data to any OpenTelemetry Collector.
+
+### Local testing
+
+Injecting a [SystemOutLogRecordExporter](https://opentelemetry.io/docs/languages/java/exporters/#otlp-dependencies) will allow you to see your telemetry in the logcat.
+
+```
+2024-03-05 14:15:15.342 29672-29756 System.out     io.embrace.mysampleapp          I  1970-01-01T00:00:00Z INFO 'Default log'
+```
+
+### Adding a LogRecordExporter for a custom OTel Collector
+
+You can send your data to a custom ([OTel Collector](https://opentelemetry.io/docs/languages/java/exporters/#collector-setup)) 
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+ //grpc through an otel collector in a local docker image
+val customDockerLogRecordExporter = OtlpGrpcLogRecordExporter.builder()
+    .setEndpoint("http://10.0.2.2:4317")
+    .build()
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+ //grpc through an otel collector in a local docker image
+OtlpGrpcLogRecordExporter customDockerLogRecordExporter = OtlpGrpcLogRecordExporter.builder()
+    .setEndpoint("http://10.0.2.2:4317")
+    .build();
+```
+
+</TabItem>
+</Tabs>
+
+### Exporting data to Grafana Cloud
+
+Embrace Logs can be exported to [Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/setup/collector/) using an OTel Collector.
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+//... or directly to grafana cloud
+val grafanaCloudLogRecordExporter = OtlpHttpLogRecordExporter.builder()
+    .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
+    .addHeader("Authorization", "YourToken")
+    .build()
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+ //http to an otel collector in Grafana cloud
+OtlpHttpLogRecordExporter grafanaCloudLogRecordExporter = OtlpHttpLogRecordExporter.builder()
+    .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
+    .addHeader("Authorization", "YourToken")
+    .build();
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+**Every exporter should be added before starting the SDK**
+:::
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+Embrace.getInstance().addLogRecordExporter(SystemOutLogRecordExporter.create())
+Embrace.getInstance().addLogRecordExporter(customDockerLogRecordExporter)
+Embrace.getInstance().addLogRecordExporter(grafanaCloudLogRecordExporter)
+
+Embrace.getInstance().start(this)        
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Embrace.getInstance().addSpanExporter(SystemOutLogRecordExporter.create());
+Embrace.getInstance().addSpanExporter(customDockerLogRecordExporter);
+Embrace.getInstance().addSpanExporter(grafanaCloudLogRecordExporter);
+
+Embrace.getInstance().start(this);
+```
+
+</TabItem>
+</Tabs>
+
 ## Best Practices
 
 Logging a message using the Log Message API makes a network request immediately.
@@ -92,5 +194,3 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 :::
 
 ---
-
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/android/integration/next-steps) page to wrap up your integration.
