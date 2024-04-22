@@ -6,6 +6,28 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.0.0
+*April 22nd, 2024*
+
+* Initial release of the 6.0.0 SDK.
+* This major version introduces a new core architecture focusing on:
+    * OpenTelemetry Tracing and Logging at its core.
+    * Persistence in SQLite using GRDB
+    * Swift-first interface for developers of Apple platforms
+* Automatic Instrumentation of:
+    * Application Crash Reports
+    * Network Requests
+    * Device Low Power Mode
+    * Application Memory Warnings
+    * UIViewController appearance
+    * User Tap Gestures
+* Manual instrumentation using:
+    * Spans for Performance Tracing
+    * Log messages
+    * Breadcrumbs
+* Allows for generic export of Traces and Logs via the protocols in the OpenTelemetrySdk.
+* Allows for custom Automatic Instrumentation via CaptureService subclasses
+
 ## 5.25.1
 *April 11, 2024*
 * Adds coordinated file access in upload cache. Will better handle file contention between host app and extension processes
