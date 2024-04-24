@@ -1,5 +1,5 @@
 ---
-title: Integration Guide
+title: 5.x Integration Guide
 description: Get started with integrating Embrace into your iOS application
 sidebar_position: 1
 ---

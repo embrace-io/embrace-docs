@@ -24,7 +24,6 @@ logMessage(
 	'Loading not finished in time.',
 	ERROR,
 	{propertyA: 'valueA', propertyB: 'valueB'},
-	false,
 );
 ```
 
@@ -33,7 +32,6 @@ Here's a breakdown of the arguments being passed to the `logMessage` function.
 1. **The message.** The string of the log message. Make this short yet informative.
 1. **Severity.** Other options include `WARNING` and `INFO`.
 1. **Properties.** A map of key-value pairs you can use to categorize and filter log messages with. 
-1. **Screenshot capture enables.** Boolean value indicating whether you'd like a screenshot captured or not.
 
 import LogLimit from '@site/shared/log-limit.md';
 

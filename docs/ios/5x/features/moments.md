@@ -9,9 +9,9 @@ sidebar_position: 1
 ## Overview
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature.
-Embrace uses this mechanism to measure your application launch performance. This is why you must call `endAppStartup` somewhere in your application, as mentioned in the [Session Reporting](/ios/integration/session-reporting) section.
+Embrace uses this mechanism to measure your application launch performance. This is why you must call `endAppStartup` somewhere in your application, as mentioned in the [Session Reporting](/ios/5x/integration/session-reporting) section.
 
-You can use that same mechanism yourself to measure any portion of your application. We call this concept **moments**. This API is also immediate mode (like [logs](/ios/integration/log-message-api)), meaning your users will incur a networking call whenever you start and stop a moment.
+You can use that same mechanism yourself to measure any portion of your application. We call this concept **moments**. This API is also immediate mode (like [logs](/ios/5x/integration/log-message-api)), meaning your users will incur a networking call whenever you start and stop a moment.
 
 :::info
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.

@@ -1,7 +1,7 @@
 ---
 title: Best Practices
 description: Become an Embrace super user on the iOS platform
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # iOS/tvOS Best Practices

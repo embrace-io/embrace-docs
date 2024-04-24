@@ -10,10 +10,10 @@ Embrace is distributed as a framework.
 You will be dynamically linking that framework with your application.
 We support four methods for accomplishing that:
 
-1. [**CocoaPods.**](/ios/integration/linking-embrace/#cocoapods) You can easily add Embrace to your Podfile and have most of this work done for you.
-1. [**Carthage.**](/ios/integration/linking-embrace/#carthage) Carthage will help you keep track of Embrace versions and upgrades, you will still perform much of the linking process manually.
-1. [**Swift Package Manager.**](/ios/integration/linking-embrace/#swift-package-manager) Use Xcode to manage the Embrace dependency for you.
-1. [**Manual.**](/ios/integration/linking-embrace/#manual) You will download the framework directly and manually link it with your project.
+1. [**CocoaPods.**](/ios/5x/integration/linking-embrace/#cocoapods) You can easily add Embrace to your Podfile and have most of this work done for you.
+1. [**Carthage.**](/ios/5x/integration/linking-embrace/#carthage) Carthage will help you keep track of Embrace versions and upgrades, you will still perform much of the linking process manually.
+1. [**Swift Package Manager.**](/ios/5x/integration/linking-embrace/#swift-package-manager) Use Xcode to manage the Embrace dependency for you.
+1. [**Manual.**](/ios/5x/integration/linking-embrace/#manual) You will download the framework directly and manually link it with your project.
 
 We’ve broken out the integration for each method individually below.
 You only need to look at the section relevant to your application and can safely skip the other 3.  
@@ -28,7 +28,7 @@ following our instructions, please reach out to us on Slack and we’d love to
 help you out.
 
 Additionally we will be referencing our publicly available sample application
-and project throughout. You can find that project on [GitHub](https://github.com/embrace-io/embrace-demo-apps/tree/master/sample_integration).
+and project throughout. You can find that project on [GitHub](https://github.com/embrace-io/embrace-demo-apps/tree/master/ios/sample_integration).
 :::
 
 ## CocoaPods
@@ -51,7 +51,7 @@ following steps:
 1. Open your `PodFile` in a text editor and add this entry to your target: `"pod 'EmbraceIO'"`. Make sure to include Embrace in any other variants, such as QA or Dev builds.
 1. Save and close your `PodFile`.
 1. Run the command `pod update` and your new dependency will be automatically integrated.
-1. From now on your will open the xcworkspace associated with your project and not the older xcproject file.
+1. From now on you will open the xcworkspace associated with your project and not the older xcproject file.
 
 <img src={require('@site/static/images/sample-podfile.png').default} />
 
@@ -61,7 +61,7 @@ following steps:
 
 ## Carthage
 
-Carthage is a dependency manager for iOS applications, you can learn more about
+Carthage is a dependency manager for iOS applications; You can learn more about
 it [here](https://github.com/Carthage/Carthage). Carthage handles less of the
 integration for you so there will be more manual steps. However, you get to
 retain more control over how your project is built and linked. Note that
@@ -98,7 +98,7 @@ Carthage update
 At this point Carthage has downloaded the Embrace binary artifact and placed it
 in a folder at the root of your project.  
 
-To continue with your integration, find that framework and have it's location
+To continue with your integration, find that framework and have its location
 open in a finder window. Also, open your project or workspace in xcode. From
 here you should follow the Carthage integration documentation for adding
 frameworks to a project, which you can find [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
@@ -193,4 +193,4 @@ sure this all worked.
 
 ---
 
-Next, let's make sure we upload dSYMs correctly so stack traces get symbolicated.
+Next, let's look at how sessions are sent to Embrace.

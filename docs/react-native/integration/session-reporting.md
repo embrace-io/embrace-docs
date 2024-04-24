@@ -126,7 +126,7 @@ After importing Embrace, update the same files that you edited in the previous s
 ```
 
 :::info
-If you are using Swift, follow the steps in the [iOS Linking Embrace](/ios/integration/session-reporting) section.
+If you are using Swift, follow the steps in the [iOS Linking Embrace](/ios/5x/integration/session-reporting) section.
 :::
 
 </TabItem>

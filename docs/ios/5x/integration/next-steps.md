@@ -17,7 +17,7 @@ please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
 
 Embrace includes many optional advanced features that can help you figure out some of 
 the most challenging issues. Learn about these features, and how to enable them, in
-our [Feature Reference](/ios/features/).
+our [Feature Reference](/ios/5x/features/).
 
 ## API Docs
 

@@ -1,7 +1,7 @@
 ---
 title: iOS Privacy Disclosure
 description: Privacy disclosure information
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # iOS Privacy Disclosure

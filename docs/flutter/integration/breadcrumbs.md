@@ -15,7 +15,7 @@ Here's how you add a Breadcrumb to the session.
 ```dart
 import 'package:embrace/embrace.dart';
 
-Embrace.instance.logBreadcrumb('a test breadcrumb message');
+Embrace.instance.addBreadcrumb('a test breadcrumb message');
 ```
 
 Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, [Embrace can already track that](/flutter/features/network-requests/), so you do not need to also make a breadcrumb for that event.

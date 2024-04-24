@@ -20,7 +20,7 @@ the most challenging issues.
 
 Depending on the platform you are targeting you may want to read one or both of these sections:
 
-1. [iOS Feature Reference](/ios/features/)
+1. [iOS Feature Reference](/ios/5x/features/)
 1. [Android Feature Reference](/android/features/)
 
 ## Best Practices

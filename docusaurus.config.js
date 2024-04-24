@@ -52,8 +52,100 @@ const config = {
       {
         redirects: [
           {
-            to: '/ios/features/tracing/',
+            to: '/ios/5x/features/tracing/',
             from: '/ios/features/performance-monitoring/',
+          },
+          {
+            to: '/ios/5x/features/',
+            from: '/ios/features/',
+          },
+          {
+            to: '/ios/5x/features/background-sessions/',
+            from: '/ios/features/background-sessions/',
+          },
+          {
+            to: '/ios/5x/features/configuration-file/',
+            from: '/ios/features/configuration-file/',
+          },
+          {
+            to: '/ios/5x/features/current-session-id-api/',
+            from: '/ios/features/current-session-id-api/',
+          },
+          {
+            to: '/ios/5x/features/identify-users/',
+            from: '/ios/features/identify-users/',
+          },
+          {
+            to: '/ios/5x/features/last-run-end-state/',
+            from: '/ios/features/last-run-end-state/',
+          },
+          {
+            to: '/ios/5x/features/moments/',
+            from: '/ios/features/moments/',
+          },
+          {
+            to: '/ios/5x/features/network-body-capture/',
+            from: '/ios/features/network-body-capture/',
+          },
+          {
+            to: '/ios/5x/features/push-notifications/',
+            from: '/ios/features/push-notifications/',
+          },
+          {
+            to: '/ios/5x/features/tracing/',
+            from: '/ios/features/tracing/',
+          },
+          {
+            to: '/ios/5x/features/web-thread-monitoring/',
+            from: '/ios/features/web-thread-monitoring/',
+          },
+          {
+            to: '/ios/5x/integration/',
+            from: '/ios/integration/',
+          },
+          {
+            to: '/ios/5x/integration/breadcrumbs/',
+            from: '/ios/integration/breadcrumbs/',
+          },
+          {
+            to: '/ios/5x/integration/cli-tool/',
+            from: '/ios/integration/cli-tool/',
+          },
+          {
+            to: '/ios/5x/integration/crash-report/',
+            from: '/ios/integration/crash-report/',
+          },
+          {
+            to: '/ios/5x/integration/dsym-upload/',
+            from: '/ios/integration/dsym-upload/',
+          },
+          {
+            to: '/ios/5x/integration/integration-steps/',
+            from: '/ios/integration/integration-steps/',
+          },
+          {
+            to: '/ios/5x/integration/linking-embrace/',
+            from: '/ios/integration/linking-embrace/',
+          },
+          {
+            to: '/ios/5x/integration/log-message-api/',
+            from: '/ios/integration/log-message-api/',
+          },
+          {
+            to: '/ios/5x/integration/login-embrace-dashboard/',
+            from: '/ios/integration/login-embrace-dashboard/',
+          },
+          {
+            to: '/ios/5x/integration/next-steps/',
+            from: '/ios/integration/next-steps/',
+          },
+          {
+            to: '/ios/5x/integration/session-reporting/',
+            from: '/ios/integration/session-reporting/',
+          },
+          {
+            to: '/ios/5x/integration/update-embrace/',
+            from: '/ios/integration/update-embrace/',
           },
           {
             to: '/android/features/tracing/',

@@ -1,13 +1,13 @@
 ---
 title: iOS/tvOS FAQ
 description: Frequently asked questions about the iOS Embrace SDK
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # iOS/tvOS FAQ
 
 Here are a list of questions we commonly receive along with their answers.
-If you don't see your question here, or would like more clarification on one please reach out to use on Slack
+If you don't see your question here, or would like more clarification on one please reach out to us on Slack
 or email us at <support@embrace.io>.
 
 ## Common Questions

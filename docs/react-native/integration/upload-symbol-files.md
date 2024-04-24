@@ -90,7 +90,7 @@ EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/
 Notice how the script's location is a reference to the CocoaPods installation folder.
 
 :::info
-If you do not use Cocoapods please see the [Uploading dSYMs](/ios/integration/dsym-upload) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
+If you do not use Cocoapods please see the [Uploading dSYMs](/ios/5x/integration/dsym-upload) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
 :::
 
 ## Native Manual Uploads
@@ -103,7 +103,7 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
  
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 

@@ -69,7 +69,7 @@ Alternatively, to specify by the name "Staging":
 
 ## Configuration Output
 
-Users will notice that both default and custom configurations already have some fields defined upon creation.  These fields correspond to the defaults specified for [Android](/android/features/configuration-file/) and [iOS](/ios/features/configuration-file/). At build time, configuration files are loaded and scanned for **non-default** settings, which are then output to an override configuration file for their specific platforms.
+Users will notice that both default and custom configurations already have some fields defined upon creation.  These fields correspond to the defaults specified for [Android](/android/features/configuration-file/) and [iOS](/ios/5x/features/configuration-file/). At build time, configuration files are loaded and scanned for **non-default** settings, which are then output to an override configuration file for their specific platforms.
 
 <img src={require('@site/static/images/unity-configuration-defaults.png').default} />
 

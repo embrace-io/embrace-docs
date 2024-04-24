@@ -24,7 +24,7 @@ Here are quick links to documentation for storing artifacts in common mobile CI 
 
 Most CI systems operate via a build "job", where that job consists of multiple "steps". These jobs run on an "agent" - an environment to host this process. These build jobs become very customizable and very different but for the sake of this document we will focus on the following example workflow:
 
-The following is a psuedo job declaration syntax:
+The following is a pseudo job declaration syntax:
 ```
 Build Job
   1. Checkout Repository
@@ -129,7 +129,7 @@ It is recommended that this `dsym_output.zip` archive is saved as a build artifa
 
 ### Upload
 
-Its also possible to manually run the Embrace upload tool directly from a CI step. Here is our reference guide for a [manual upload](/ios/integration/dsym-upload#manual-uploads) to the Embrace dashboard.
+Its also possible to manually run the Embrace upload tool directly from a CI step. Here is our reference guide for a [manual upload](/ios/5x/integration/dsym-upload#manual-uploads) to the Embrace dashboard.
 
 The `APP_KEY` and `API_TOKEN` envvars should be retrieved from the Embrace dashboard.
 
@@ -154,7 +154,7 @@ CI providers. Above, we recommend storing dSYM files in a zip archive as a custo
 
 ### Xcode Run Script Phase
 
-The first option is to use the custom "Run Script Phase" as outlined by our [integration guide](../integration/dsym-upload.md). This will run as part
+The first option is to use the custom "Run Script Phase" as outlined by our [integration guide](/ios/5x/integration/dsym-upload.md). This will run as part
 of the build and upload the dSYMs as part of the build. The same logic will execute locally on a developer's machine so if ad hoc builds do occur, this is a good approach to make sure dSYMs are uploaded in those situations.
 
 ```sh
@@ -186,4 +186,4 @@ fi
 
 # dSYM Upload
 
-If you haven't already, check out our [dSYM Upload Integration Document](/ios/integration/dsym-upload). This document walks through the Xcode project configuration that allows for the automatic upload of dSYM files to the Embrace dashboard.
+If you haven't already, check out our [dSYM Upload Integration Document](/ios/5x/integration/dsym-upload). This document walks through the Xcode project configuration that allows for the automatic upload of dSYM files to the Embrace dashboard.
