@@ -5,10 +5,21 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.25.0
+*April 19, 2024*
+:::warning Important
+This version of the Unity SDK requires a later version than 2021.3.16f1. It is tested working on 2021.3.37f1 (the latest LTS version at time of writing). If you receive a "transformer returned null" error of some kind during your build process, please upgrade your LTS engine version.
+:::
+
+* Upgrade Embrace Android Plugin to Android 6.5.0
+* Patch of issue on newer versions of Unity iOS that involved double injecting into the linker phase
+
 ## 1.24.0
 *March 17, 2024*
 :::info Important
 This version of Unity has a number of changes to internal namespaces to streamline internal APIs and alignment. We have endeavored to avoid breaking changes. However, if you have subscribed to any existing APIs they may have changed. Please be aware of this when upgrading.
+
+This version also has an issue on newer versions of Unity iOS where the linker phase has the SDK injected twice. Please upgrade to 1.25.0 if this occurs.
 :::
 
 * Upgrade Embrace iOS Plugin to 5.25.0
