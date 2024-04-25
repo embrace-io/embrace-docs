@@ -32,13 +32,8 @@ Explanations for each of the fields are provided below.
       "enable_native_monitoring": true,
       "trace_id_header": "x-emb-trace-id"
     },
-    "session": {
-      "async_end": false,
-      "max_session_seconds": null
-    },
     "startup_moment": {
-      "automatically_end": true,
-      "take_screenshot": false
+      "automatically_end": true
     },
     "taps": {
       "capture_coordinates": true
@@ -103,16 +98,6 @@ Enable capture of network requests made using the native Java network API. Defau
 #### trace_id_header *string*
 
 Set the name of the header used for the trace ID. Defaults to `"x-emb-trace-id"`.
-
-### session
-
-#### async_end *bool*
-
-Send the session end message asynchronously. Defaults to `false`.
-
-#### max_session_seconds *int*
-
-Enable automatic ending of sessions every N seconds. This is only recommended for applications, such as kiosks, where the app is never expected to go to the background. This value must be 60 seconds or greater if set.
 
 ### startup_moment
 

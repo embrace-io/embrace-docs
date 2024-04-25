@@ -197,11 +197,6 @@ This could be due to one of the following reasons:
 
 ## Monitoring Performance
 
-### **Why do I have super low rates of incomplete for startup; e.g. 99.5% to 100%?**
-
-The most common scenario is that we are auto-detecting an early activity for which you should skip.
-Please refer to the [Moments feature guide](/android/features/moments) for how to correctly track startup completion rates and durations.
-
 ### **How do I measure operations running in parallel?**
 
 Please refer to [Performance Tracing feature guide](/android/features/tracing) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
