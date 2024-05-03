@@ -24,7 +24,7 @@ You can also see, create, and modify rules in the Settings view.
 
 ### with a Codeowners file
 
-POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, `token`, and `file`.
+POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, `default token` (the token used to upload symbols) , and `file`.
 
 <img src={require('@site/static/images/Postman-Codeowners example.png').default} alt="screenshot of Codeowners upload" />
 
