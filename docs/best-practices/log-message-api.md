@@ -28,11 +28,6 @@ import PropertyLimit from '@site/shared/property-limit.md';
 
 <PropertyLimit />
 
-## Screenshots
-
-Take care not to send your users' private information to Embrace.
-When in doubt skip the screenshot.
-
 ## Using Breadcrumbs Instead
 
 If you're looking to add context around sessions and don't need the immediacy that Log Events provide, we recommend using [Breadcrumbs](/best-practices/breadcrumbs/) instead as they have a lower overhead cost.
