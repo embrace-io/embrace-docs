@@ -1,10 +1,10 @@
 ---
-title: Performance Tracing (Beta)
+title: Performance Tracing
 description: Record traces to monitor the production performance and success rates of operations within in your application.
 sidebar_position: 10
 ---
 
-# Performance Tracing (Beta)
+# Performance Tracing
 
 ## Overview
 
@@ -59,10 +59,9 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and 
 
 To use this feature:
 
-1. Contact your Embrace Customer Success Manager to enroll your apps in the Peformance Tracing Beta (done on a per-app basis).
-2. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
-3. Instrument your app using the reference guide in this sections to start adding traces to your operations.
-4. See the traces in the Traces section of the Embrace dashboard.
+1. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
+1. Instrument your app using the reference guide in this sections to start adding traces to your operations.
+1. See the traces in the Traces section of the Embrace dashboard.
 
 ### Create Span
 
