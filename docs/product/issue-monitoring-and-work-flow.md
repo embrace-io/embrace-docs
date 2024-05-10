@@ -47,6 +47,12 @@ The ANRs workflow follows the same logic when **Resolving**, **Snoozing**, **Ign
 ## Exceptions
 Unity exceptions are also represented on the Issues page for Unity applications and can be investigated and triaged alonside other issues. The exceptions workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**. 
 
+## Slow Traces
+Slow Traces serve as a valuable tool for pinpointing performance bottlenecks swiftly. 
+
+They're grouped by trace name and comprise instances with both significant occurrences (100 over the last two days)
+and durations surpassing the 95th percentile of successful traces bearing the same name.
+You can see slow trace instances on the [performance traces tab](/product/performance-tracing/#slow-traces).
 
 ---
 

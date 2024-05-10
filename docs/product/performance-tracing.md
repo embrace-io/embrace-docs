@@ -45,3 +45,19 @@ Clicking on "See Details" for any Trace will take you directly the the Trace Ins
 ## Sessions filter
 ## Boards, Alerts, and Custom Metrics
 
+## Slow Traces
+With the Slow Traces feature, you can identify performance bottlenecks and prioritize your optimization efforts.
+Slow Traces are trace instances with both significant occurrences (100 over the last two days) and durations surpassing the 95th percentile of successful traces bearing the same name. 
+You can get the slow traces on the issues page.
+
+
+<img src={require('@site/static/images/slow_traces_issues_page.png').default} alt="trace-filter" width="800"/>
+
+Once you click on a slow trace, you can see specific instances of that trace.
+
+<img src={require('@site/static/images/slow_trace_instances.png').default} alt="trace-filter" width="800"/>
+
+:::info
+You can also see those instances if you add the filter `type = slow` to see the on the performance traces tab.
+:::
+
