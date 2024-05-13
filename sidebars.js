@@ -68,27 +68,32 @@ const sidebars = {
       type: "category",
       collapsible: true,
       collapsed: true,
-      label: "SDK APIs",
+      label: "SDK Repositories",
       items: [
         {
           type: "link",
-          href: "https://embrace-io.github.io/embrace-android-sdk/",
+          href: "https://github.com/embrace-io/embrace-android-sdk",
           label: "Android",
         },
         {
           type: "link",
-          href: "https://embrace-io.github.io/embrace-ios-sdk/",
+          href: "https://github.com/embrace-io/embrace-apple-sdk/",
           label: "iOS",
         },
         {
           type: "link",
-          href: "https://embrace-io.github.io/embrace-unity-sdk/api",
+          href: "https://github.com/embrace-io/embrace-unity-sdk/",
           label: "Unity",
         },
         {
           type: "link",
           href: "https://github.com/embrace-io/embrace-react-native-sdk/",
           label: "React Native",
+        },
+        {
+          type: "link",
+          href: "https://github.com/embrace-io/embrace-flutter-sdk/",
+          label: "Flutter",
         },
       ],
     },
