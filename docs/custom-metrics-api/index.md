@@ -40,13 +40,7 @@ Body Params:
 ```json
 {
   "op": "and",
-  "children": [
-    {
-      "field_op": "eq",
-      "key": "os_version",
-      "val": "12"
-    }
-  ]
+  "children": [{"field_op": "eq", "key": "os_version", "val": "12"}]
 }
 ```
 - `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
@@ -68,121 +62,25 @@ Status codes:
 - `409`: metric that you are trying to create already exists.
 - `500`: there was an internal error and you should retry later.
 
-### Get metrics and parameters supported
-To determine which metrics and parameters are supported for creation using the API, you can utilize the following endpoint:
+### Create custom metric
+
 #### Request
+
 ```bash
-curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
---header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
-```
-
-#### Query Parameter
- `name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
-
-Example URL: 
-```
-https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters?name=sessions_total
-```
-If the name is not provided or the metric is not supported, the endpoint will return all the supported metrics and parameters.
-
-#### Response
-Status codes: `200` and `500`.
-
-#### OK (200)
-```json
-[
-  {
+curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc' \
+--data '{
+    "name": "sessions_total_v1",
     "metric": "sessions_total",
-    "filters": [
-      {
-        "name": "has_anr",
-        "supported_ops": [
-          "eq"
-        ],
-        "type": "boolean"
-      },
-      {
-        "name": "app_version",
-        "supported_ops": [
-          "eq",
-          "neq",
-          "in"
-        ],
-        "type": "string"
-      },
-      {
-        "name": "os_version",
-        "supported_ops": [
-          "eq",
-          "neq",
-          "in"
-        ],
-        "type": "string"
-      },
-      {
-        "name": "os_major_version",
-        "supported_ops": [
-          "eq",
-          "neq",
-          "gt",
-          "gte",
-          "lt",
-          "lte",
-          "in"
-        ],
-        "type": "int"
-      },
-      {
-        "name": "country",
-        "supported_ops": [
-          "eq",
-          "neq",
-          "in"
-        ],
-        "type": "string"
-      },
-      {
-        "name": "model",
-        "supported_ops": [
-          "eq",
-          "neq",
-          "like",
-          "nlike",
-          "in"
-        ],
-        "type": "string"
-      }
-    ],
-    "group_by": [
-      "app_version",
-      "os_version",
-      "os_major_version",
-      "country",
-      "top_n_market_name"
-    ],
-    "time_granularity": [
-      "five_minute",
-      "hourly",
-      "daily"
-    ],
-    "data_destination": [
-      "metrics_api",
-      "newrelic",
-      "datadog",
-      "grafana_cloud"
-    ]
-  }
-]
+    "group_by": ["app_version"],
+    "filters": {"op":"and", "children":[{"field_op":"eq","key":"os_version","val":"12"}]},
+    "time_granularity": ["five_minute", "hourly"],
+    "data_destination": ["metrics_api", "newrelic"]
+}'
 ```
 
-#### Error (500)
-```json
-{
-  "message": "we had an internal error, please try again later"
-}
-```
-
-### Filter Parameter Examples
+#### Filter Parameter Examples
 
 | Type     | Example                                                                                             |
 |----------|-----------------------------------------------------------------------------------------------------|
@@ -192,7 +90,7 @@ Status codes: `200` and `500`.
 | range    | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}`                      |
 | property | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
 
-### Using `duration_bucket` filters
+#### Using `duration_bucket` filters
 
 For some custom metrics the API allows you to filter data based on the `duration_bucket` parameter, which categorizes data according to specific `duration` ranges. Each `duration_bucket` value corresponds to a specific range of `duration` values. Here's how it works:
 
@@ -225,36 +123,8 @@ If you want to filter all durations less or equal than 999 you should create thi
 ```json
 {
   "op": "and",
-  "children": [
-    {
-      "key": "duration_bucket",
-      "val": 999,
-      "field_op": "lte"
-    }
-  ]
+  "children": [{"key": "duration_bucket", "val": 999, "field_op": "lte"}]
 }
-```
-
-
-### Create custom metric
-
-#### Request
-
-```bash
-curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc' \
---data '{
-    "name": "sessions_total_v1",
-    "metric": "sessions_total",
-    "group_by": ["app_version"],
-    "filters": {
-        "op":"and",
-        "children":[{"field_op":"eq","key":"os_version","val":"12"}]
-    },
-    "time_granularity": ["five_minute", "hourly"],
-    "data_destination": ["metrics_api", "newrelic"]
-}'
 ```
 
 #### Response
@@ -270,33 +140,17 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
   "metric": "sessions_total",
   "filters": {
     "op": "and",
-    "children": [
-      {
-        "field_op": "eq",
-        "key": "os_version",
-        "val": "12"
-      }
-    ]
+    "children": [{"field_op": "eq", "key": "os_version", "val": "12"}]
   },
-  "group_by": [
-    "app_version"
-  ],
-  "time_granularity": [
-    "five_minute",
-    "hourly"
-  ],
-  "data_destination": [
-    "metrics_api",
-    "newrelic"
-  ]
+  "group_by": ["app_version"],
+  "time_granularity": ["five_minute", "hourly"],
+  "data_destination": ["metrics_api", "newrelic"]
 }
 ```
 
 #### Error (500)
 ```json
-{
-  "message": "we had an internal error, please try again later"
-}
+{"message": "we had an internal error, please try again later"}
 ```
 
 ### Get custom metrics
@@ -320,18 +174,9 @@ Status codes: `200`, `400`, `409` and `500`.
       "name": "sessions_total_v1",
       "metric": "sessions_total",
       "filters": {},
-      "group_by": [
-        "app_version"
-      ],
-      "time_granularity": [
-        "five_minute",
-        "hourly"
-      ],
-      "data_destination": [
-        "metrics_api",
-        "datadog",
-        "grafana_cloud"
-      ]
+      "group_by": ["app_version"],
+      "time_granularity": ["five_minute", "hourly"],
+      "data_destination": ["metrics_api", "datadog", "grafana_cloud"]
     }
   ]
 }
@@ -339,9 +184,7 @@ Status codes: `200`, `400`, `409` and `500`.
 
 #### Error (400)
 ```json
-{
-  "message": "app id can't be empty"
-}
+{"message": "app id can't be empty"}
 ```
 
 ### Delete custom metrics
@@ -359,10 +202,43 @@ Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 
 #### Error (404)
 ```json
-{
-  "message": "metric sessions_total_v1 doesn't exist"
-}
+{"message": "metric sessions_total_v1 doesn't exist"}
 ```
 
+### Get metrics and parameters supported
+To determine which metrics and parameters are supported for creation using the API, you can utilize the following endpoint:
+#### Request
+```bash
+curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
+--header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
+```
 
+#### Query Parameter
+`name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
 
+Example URL:
+```
+https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters?name=sessions_total
+```
+If the name is not provided or the metric is not supported, the endpoint will return all the supported metrics and parameters.
+
+#### Response
+Status codes: `200` and `500`.
+
+#### OK (200)
+```json
+[
+  {
+    "metric": "sessions_total",
+    "filters": [{"name": "has_anr", "supported_ops": ["eq"], "type": "boolean"}],
+    "group_by": ["app_version"],
+    "time_granularity": ["five_minute"],
+    "data_destination": ["metrics_api"]
+  }
+]
+```
+
+#### Error (500)
+```json
+{"message": "we had an internal error, please try again later"}
+```
