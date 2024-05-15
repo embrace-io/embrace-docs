@@ -36,7 +36,7 @@ Global filters and global group bys are available to use on all the metrics.
 
 :::info
 
-1. [Document explaining](https://embrace.io/docs/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
-   how `top_n` dimensions works.
-2. Check the [API](https://embrace.io/docs/custom-metrics-api/#get-metrics-and-parameters-supported) as we're alwats
-   adding in more!.
+1. Check the [document](https://embrace.io/docs/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
+   to understand how `top_n` dimensions work.
+2. Check the [API](https://embrace.io/docs/custom-metrics-api/#get-metrics-and-parameters-supported) to have the latest
+   news as we're always adding in more!.
