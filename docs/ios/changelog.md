@@ -34,6 +34,7 @@ sidebar_position: 4
 * Fixed a crash that could occur when attempting to serialize spans.
 * Improved network instrumentation to reduce slowness during startup requests.
 * Removed stack traces from informational logs.
+* Made improvements to the startup performance of the SDK.
 
 ## 5.25.1
 *April 11, 2024*
