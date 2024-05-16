@@ -46,5 +46,4 @@ The following metrics are supported as Custom Metrics. Metrics with the suffix "
 
 1. Refer to this [documentation](https://embrace.io/docs/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
    to understand how `top_n` dimensions work.
-2. Check the [API](https://embrace.io/docs/custom-metrics-api/#get-metrics-and-parameters-supported) to have the latest
-   news as we're always adding in more!.
+2. You can also pull the latest set of supported metrics directly from the [API](https://embrace.io/docs/custom-metrics-api/#get-metrics-and-parameters-supported).
