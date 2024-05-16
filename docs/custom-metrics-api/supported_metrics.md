@@ -8,21 +8,8 @@ sidebar_position: 1
 
 Global filters  and global group bys are available to use on all the metrics.
 
-| Global filters   |            
-|------------------|
-| app_version      |
-| country          |
-| model            |
-| os_major_version |
-| os_version       |
-
-| Global group bys  |           
-|-------------------|
-| app_version       |
-| country           |
-| os_major_version  |
-| os_version        |
-| top_n_market_name |
+- Global filters: app_version, country, model, os_major_version and os_version.
+- Global group bys: app_version, country, os_major_version, os_version and top_n_market_name.
 
 The following metrics are supported as Custom Metrics. Metrics with the suffix "_total" are gauges.
 
