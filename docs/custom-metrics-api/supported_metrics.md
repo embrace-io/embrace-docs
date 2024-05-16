@@ -44,6 +44,6 @@ The following metrics are supported as Custom Metrics. Metrics with the suffix "
 
 :::info
 
-1. Refer to this [documentation](https://embrace.io/docs/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
+1. Refer to this [documentation](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
    to understand how `top_n` dimensions work.
-2. You can also pull the latest set of supported metrics directly from the [API](https://embrace.io/docs/custom-metrics-api/#get-metrics-and-parameters-supported).
+2. You can also pull the latest set of supported metrics directly from the [API](/custom-metrics-api/#get-metrics-and-parameters-supported).

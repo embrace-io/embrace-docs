@@ -206,12 +206,17 @@ Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 ```
 
 ### Get metrics and parameters supported
-To determine which metrics and parameters are supported for creation using the API, you can utilize the following endpoint:
+To determine which metrics and parameters are supported for creation using the API, you can utilize the following request:
 #### Request
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
 ```
+
+:::info
+
+1. Refer to this [page](/custom-metrics-api/supported_metrics)
+   if you want to see supported metrics.
 
 #### Query Parameter
 `name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
