@@ -214,9 +214,8 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 ```
 
 :::info
-
-1. Refer to this [page](/custom-metrics-api/supported_metrics)
-   if you want to see supported metrics.
+1. Refer to this [page](/custom-metrics-api/supported_metrics) if you want to see supported metrics without using the API.
+:::
 
 #### Query Parameter
 `name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
