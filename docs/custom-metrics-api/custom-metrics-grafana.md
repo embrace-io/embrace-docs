@@ -1,7 +1,7 @@
 ---
 title: Custom Metrics in Grafana
 description: Access your Custom Metrics via your Grafana dashboards
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Embrace Custom Metrics 
