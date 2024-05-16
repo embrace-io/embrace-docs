@@ -6,17 +6,25 @@ sidebar_position: 1
 
 # Custom Metrics API Supported Metrics
 
+Global filters  and global group bys are available to use on all the metrics.
+
+| Global filters   |            
+|------------------|
+| app_version      |
+| country          |
+| model            |
+| os_major_version |
+| os_version       |
+
+| Global group bys  |           
+|-------------------|
+| app_version       |
+| country           |
+| os_major_version  |
+| os_version        |
+| top_n_market_name |
+
 The following metrics are supported as Custom Metrics. Metrics with the suffix "_total" are gauges.
-
-Global filters and global group bys are available to use on all the metrics.
-
-| Global filters   | Global group bys  |           
-|------------------|-------------------|
-| app_version      | app_version       |
-| country          | country           |
-| model            | os_major_version  |
-| os_major_version | os_version        |
-| os_version       | top_n_market_name |
 
 | Metric                                          | Description                                  | Filters                                                                                      | Group by granularity                                                    | Time granularity           |           
 |-------------------------------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------|
@@ -36,7 +44,7 @@ Global filters and global group bys are available to use on all the metrics.
 
 :::info
 
-1. Check the [document](https://embrace.io/docs/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
+1. Refer to this [documentation](https://embrace.io/docs/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
    to understand how `top_n` dimensions work.
 2. Check the [API](https://embrace.io/docs/custom-metrics-api/#get-metrics-and-parameters-supported) to have the latest
    news as we're always adding in more!.
