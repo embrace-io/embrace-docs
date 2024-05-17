@@ -44,10 +44,6 @@ the values are case insensitive.
 
 If omitted, Embrace attempts to guess the right configuration by looking at the runtime classes.
 
-#### STARTUP_MOMENT_SCREENSHOT_ENABLED *boolean, optional*
-
-Controls whether the Embrace startup moment will take a screenshot on completion or not. The default is off.
-
 #### CAPTURE_COORDINATES *boolean, optional*
 
 Controls Embrace's capture of tap coordinates within the app. When disabled, Embrace still captures taps but not the exact coordinates of the tap. The default is on.

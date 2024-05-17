@@ -73,7 +73,7 @@ Users will notice that both default and custom configurations already have some 
 
 <img src={require('@site/static/images/unity-configuration-defaults.png').default} />
 
-For example, in the `sdk_config.session` sub-element of the Android configuration, if the `async_end` flag is set to `true` and `max_session_seconds` is set to `120` the output `embrace-config.json` file will only feature those fields as overrides since they are overriding default settings. Likewise, in the iOS configuration the `CRASH_REPORT_ENABLED` `ENABLE_AUTOMATIC_VIEW_CAPTURE` and `STARTUP_MOMENT_SCREENSHOT_ENABLED` fields were modified with non-default values, and are therefore the only settings included in the `Embrace-Info.plist` output.
+For example, in the `sdk_config.session` sub-element of the Android configuration, if the `async_end` flag is set to `true` and `max_session_seconds` is set to `120` the output `embrace-config.json` file will only feature those fields as overrides since they are overriding default settings. Likewise, in the iOS configuration the `CRASH_REPORT_ENABLED` and `ENABLE_AUTOMATIC_VIEW_CAPTURE` fields were modified with non-default values, and are therefore the only settings included in the `Embrace-Info.plist` output.
 
 *NOTE: The `app_id` and `api_token` fields are always included.*
 

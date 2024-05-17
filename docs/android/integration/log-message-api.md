@@ -34,7 +34,6 @@ Here's a breakdown of the arguments being passed to the `logError` method.
 
 1. **The message.** The string is the message itself. Try to make this short yet informative.
 1. **Properties.** This is a map of key-value pairs you can use to categorize and filter log messages with.
-1. **Screenshot capture enabled.** The final boolean indicates whether you'd like a screenshot captured or not.
 
 :::info Adjusting Severity
 

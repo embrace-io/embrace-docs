@@ -21,7 +21,7 @@ Embrace.Instance.StartMoment("addItem");
 
 In a sample scenario, this is a moment we're using to measure how quickly an item is added to a list after a user selects the plus button.
 
-You can also start a moment with **properties**, an **identifier**, and **screenshots**. You can filter moments by properties in the dashboard.
+You can also start a moment with **properties** and **identifier**. You can filter moments by properties in the dashboard.
 For more on this, check out the [API docs](/api/unity/).
 
 import PropertyLimit from '@site/shared/property-limit.md';

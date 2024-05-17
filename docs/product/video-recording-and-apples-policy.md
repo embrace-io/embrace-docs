@@ -21,4 +21,4 @@ Embrace has a no personally identifiable information (PII) policy.  We take prec
 
 ## Recommendations
 
-Apple has cracked down on poor behaviors in the past.  For example, Tapjoy in 2011 for incentivized downloads and AppGratis in 2013 for manipulating store rankings. The crackdowns are rare but very firm and should not be taken casually.  If you are concerned, we recommend that you remove any video recording SDK before submitting to the Apple app store. (UX focused SDKs like these are great for limited testing, like beta groups.)  If you'd like to turn on screenshots, please reach out to us and we will change the app configuration for you.
+Apple has cracked down on poor behaviors in the past.  For example, Tapjoy in 2011 for incentivized downloads and AppGratis in 2013 for manipulating store rankings. The crackdowns are rare but very firm and should not be taken casually.  If you are concerned, we recommend that you remove any video recording SDK before submitting to the Apple app store. (UX focused SDKs like these are great for limited testing, like beta groups).

@@ -105,10 +105,6 @@ Set the name of the header used for the trace ID. Defaults to `"x-emb-trace-id"`
 
 Control whether the startup moment is automatically ended. Defaults to `true`.
 
-#### take_screenshot *bool*
-
-Control whether screenshots are taken during the startup moment. Defaults to `false`.
-
 ### taps
 
 #### capture_coordinates *bool*

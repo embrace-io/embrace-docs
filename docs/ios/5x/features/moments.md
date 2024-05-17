@@ -53,7 +53,7 @@ We start the moment when we add the item, and we'll end it when the animation fi
 Our UX designers have been experimenting with different animation styles, and we've read in our reviews that some users get annoyed by the animation and quit the app over it.
 We wanted to verify that for ourselves.
 
-You can also start a moment with **properties**, an **identifier**, and **screenshots**.
+You can also start a moment with **properties** and **identifier**.
 For more on this, check out the [API docs](/api/ios/).
 
 import PropertyLimit from '@site/shared/property-limit.md';

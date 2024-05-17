@@ -26,7 +26,7 @@ import TabItem from '@theme/TabItem';
 
 ```swift
 let properties = ["property_a": "value_a", "property_b": "value_b"]
-Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .error, properties: properties, takeScreenshot: false)
+Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .error, properties: properties)
 ```
 
 </TabItem>
@@ -35,7 +35,7 @@ Embrace.sharedInstance().logMessage("Loading not finished in time.", with: .erro
 
 ```objectivec
 NSDictionary *properties = @{@"property_a": @"value_a", @"property_b": @"value_b"};
-[[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity:EMBSeverityError properties:properties takeScreenshot:NO];
+[[Embrace sharedInstance] logMessage:@"Loading not finished in time." withSeverity:EMBSeverityError properties:properties];
 ```
 
 </TabItem>
@@ -46,7 +46,6 @@ Let's examine the method call from above to understand the arguments involved:
 1. **logMessage**: The first argument is a string and represents the message itself. 
 2. **with**: This is the severity of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs](/ios/5x/integration/breadcrumbs).
 3. **properties**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
-4. **takeScreenshot**: A boolean indicating whether or not we should include a screenshot with this alert.
 
 import LogLimit from '@site/shared/log-limit.md';
 
