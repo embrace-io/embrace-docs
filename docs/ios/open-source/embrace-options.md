@@ -39,7 +39,9 @@ The configuration arguments here are:
 - `logLevel`: the level of severity for console logs.
 - `export`: an [`OpenTelemetryExport`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/OpenTelemetryExport.swift) object that can export logs and traces to the backend of your choice.
 
-:::info If you are not an existing Embrace customer, you can still start the SDK by using `NOEMB` as your appId :::
+:::info 
+If you are not an existing Embrace customer, you can still start the SDK by using `NOEMB` as your appId.
+:::
 
 Additional arguments from the [core Embrace.Options initializer](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BOptions.swift#L37) may add flexibility with additional configuration for:
 - `captureServices`: out-of-the-box [`CaptureServices`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/CaptureServices.swift) that automatically capture the mobile events that Embrace's SDK sends to the backend, like networking and memory warnings. You can extend the base `CaptureService` for new services that fit your use-case.
