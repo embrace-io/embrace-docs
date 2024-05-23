@@ -4,7 +4,7 @@ description: Learn about the Embrace Spans API to pull spans data
 sidebar_position: 1
 ---
 
-# Metrics API Grafana Integration
+# Spans API Grafana Integration
 
 ## Prerequisites
 
