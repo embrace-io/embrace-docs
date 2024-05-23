@@ -1,4 +1,4 @@
-// @ts-check
+import {Config} from "@docusaurus/types";
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
@@ -6,8 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 // Embrace Remark Plugins
 const embraceSdkVersion = require("./src/remark/embrace-sdk-version");
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: "Embrace Documentation",
   tagline: "Take the guesswork out of building next-level mobile experiences.",
   favicon: "/images/favicon.png",
@@ -33,7 +32,6 @@ const config = {
   themes: [
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
-      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
         explicitSearchResultPath: true,
         hashed: true,
@@ -181,7 +179,6 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       hotjar: {
         applicationId: 3734357,
