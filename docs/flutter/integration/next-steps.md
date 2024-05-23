@@ -10,7 +10,7 @@ sidebar_position: 11
 
 Congratulations on completing the Flutter integration guide! 
 
-If you found anything confusing or have suggestions on improving the docs, please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
+If you found anything confusing or have suggestions on improving the docs, please don't hesitate to reach out to us at [support@embrace.com](support@embrace.com) or on Slack.
 
 ## Feature Reference
 

@@ -19,6 +19,11 @@ Here are the steps you’ll be taking to create your first session.
 
 Initialize method applies the necessary listener to your application. This allows Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="Component">
 
@@ -75,10 +80,6 @@ Initializing the Embrace SDK from React Native (Javascript) will initialize the 
 :::
 
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
 Start by importing the Embrace native SDK in the file that applies for each platform.
 
 <Tabs groupId="platform" queryString="platform">

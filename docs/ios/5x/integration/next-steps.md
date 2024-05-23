@@ -11,7 +11,7 @@ sidebar_position: 10
 Congratulations on completing the iOS integration guide!
 
 If you found anything confusing or have suggestions on improving the docs,
-please don't hesitate to reach out to us at <support@embrace.io> or on Slack.
+please don't hesitate to reach out to us at [support@embrace.com](support@embrace.com) or on Slack.
 
 ## Feature Reference
 

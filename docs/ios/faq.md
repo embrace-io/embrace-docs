@@ -8,7 +8,7 @@ sidebar_position: 5
 
 Here are a list of questions we commonly receive along with their answers.
 If you don't see your question here, or would like more clarification on one please reach out to us on Slack
-or email us at <support@embrace.io>.
+or email us at [support@embrace.com](support@embrace.com).
 
 ## Common Questions
 

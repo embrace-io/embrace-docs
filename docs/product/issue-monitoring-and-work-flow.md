@@ -56,4 +56,4 @@ You can see slow trace instances on the [performance traces tab](/product/perfor
 
 ---
 
-*We are continually iterating on this feature by adding more functionality in the coming weeks for different issue types (i.e. session events, rage taps). In the meantime, we'd love to know what you think! Your partnership got us this far so please don't hesitate to reach out via Slack or <support@embrace.io> for any questions or feedback.*
+*We are continually iterating on this feature by adding more functionality in the coming weeks for different issue types (i.e. session events, rage taps). In the meantime, we'd love to know what you think! Your partnership got us this far so please don't hesitate to reach out via Slack or [support@embrace.com](support@embrace.com) for any questions or feedback.*
