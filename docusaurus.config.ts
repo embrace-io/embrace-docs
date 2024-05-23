@@ -13,7 +13,7 @@ const config: Config = {
   trailingSlash: true,
   noIndex: false,
   url: process.env.URL ?? "https://embrace.io",
-  baseUrl: process.env.BASE_URL ?? "/docs",
+  baseUrl: process.env.BASE_URL ?? "/docs/",
   staticDirectories: ["static"],
 
   // GitHub pages deployment config.

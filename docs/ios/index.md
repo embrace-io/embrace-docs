@@ -45,6 +45,6 @@ Current documentation for the 6.x SDK can be found in our [**6.x Apple SDK**](/i
 
 ## Any questions
 
-If you would like clarification on which SDK to use, please reach out to us on Slack or email us at [support@embrace.com](support@embrace.com).
+If you would like clarification on which SDK to use, please reach out to us on Slack or email us at [support@embrace.com](mailto:support@embrace.com).
 
 You can also view our [FAQ](/ios/faq/) and [Changelog](/ios/changelog/)

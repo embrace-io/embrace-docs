@@ -8,13 +8,13 @@ sidebar_position: 3
 
 Here are a list of questions we commonly receive along with their answers.
 If you don't see your question here, or would like more clarification on one please reach out to use on Slack
-or email us at [support@embrace.com](support@embrace.com).
+or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
 
 ### **Does Embrace work with Buck / OKBuck?**
 
-Not currently. Please contact us at [support@embrace.com](support@embrace.com) or on Slack if you would like to request support.
+Not currently. Please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
 
 
 ## Users

@@ -13,7 +13,7 @@ Embrace can also collect the redux's actions that are being dispatched and inclu
 Here's how you add the action tracker to the session.
 
 :::info
-Currently we are only supporting the Redux SDK and others libraries that supports middleware as Saga, if you are using another library please contact us at [support@embrace.com](support@embrace.com) or on Slack if you would like to request support.
+Currently we are only supporting the Redux SDK and others libraries that supports middleware as Saga, if you are using another library please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
 :::
 
 ## Adding the component
