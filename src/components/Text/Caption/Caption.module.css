@@ -1,0 +1,37 @@
+/* see full spec / use cases in https://www.figma.com/file/QvJDt4Suf2CRXk1B3OVYOx/%5BDS%5D-Design-system-library-V2?node-id=801%3A52803&mode=dev */
+
+/* Caption/Caption 1 */
+.caption1 {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.06px;
+  line-height: 16px; /* 133.333% */
+}
+
+/* Caption/Caption 2 */
+.caption2 {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.048px;
+  line-height: 16px; /* 133.333% */
+}
+
+/* Caption/Caption 3 */
+.caption3 {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.05px;
+  line-height: 14px; /* 140% */
+}
+
+/* Caption/Caption 4 */
+.caption4 {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.05px;
+  line-height: 14px; /* 140% */
+}

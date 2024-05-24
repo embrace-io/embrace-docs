@@ -250,6 +250,47 @@
   --weight-350: 600;
   --weight-400: 700;
   --body-font: 'Roboto', sans-serif;
+
+  /* Embrace utils */
+  --popover-content-z-index: 6;
+  --filter-builder-field-selector-z-index: 8;
+  --floating-label-z-index: 8;
+  --sticky-summary-aei-correlated-z-index: 8;
+  --header-z-index: 9;
+  --modal-background-z-index: 11;
+  --modal-z-index: 12;
+  --option-z-index: 13;
+  --dismiss-tooltip-z-index: 13;
+  --tooltip-z-index: 14;
+  --flash-banner-z-index: 15;
+  --tour-steps-z-index: 108;
+  --default-background-transition: background-color 360ms ease-out;
+  --default-box-shadow: 0 4px 8px rgb(23 23 23 / 3%);
+  --floating-card-box-shadow: 0 2px 6px 2px rgb(16 4 43 / 15%),
+  0 1px 2px rgb(14 6 64 / 15%);
+  --entering-animation-curve: cubic-bezier(0.4, 0, 0.3, 0.95);
+  --leaving-animation-curve: cubic-bezier(0.2, 0, 1, 0.9);
+  --default-timeline-transition: left 0.3s, width 0.3s;
+  --sticky-header-primary-shadow: 12px 12px 32px 2px rgb(0 0 0 / 50%);
+  --sticky-header-secondary-shadow: 12px 12px 32px 2px rgb(0 0 0 / 20%);
+  --default-container-margin: 0px var(--space-40px);
+  --red-dot-badge-size: var(--space-10px);
+  --global-header-height: var(--space-56px);
+  --global-menu-width-expanded: 210px;
+  --global-menu-width-collapsed: 48px;
+  --global-menu-width: 48px;
+  --global-menu-item-height-expanded: 40px;
+  --global-menu-item-height-collapsed: 48px;
+  --global-menu-item-height: 48px;
+  --global-menu-z-index: calc(var(--header-z-index) + 1);
+  --auth-content-min-width: 600px;
+  --auth-container-max-width: 1300px;
+  --content-max-width: 1040px;
+  --tour-active-banner-height: 66px;
+  --card-main-spacing: var(--space-32px);
+  --card-sub-spacing: var(--space-24px);
+  --card-sub2-spacing: var(--space-16px);
+  --card-min-spacing: var(--space-8px);
 }
 
 .footer--dark {

@@ -1,0 +1,26 @@
+.wrapper {
+    background: var(--background-primary);
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    padding: var(--space-80px) 0;
+}
+
+.container {
+    width: 1025px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-56px);
+}
+
+.platformLogo {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 1025px) {
+    .container {
+        width: 100%;
+        padding: 0 var(--space-24px);
+    }
+}

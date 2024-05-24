@@ -1,0 +1,22 @@
+.header {
+    padding: var(--space-60px) 0;
+    text-align: center;
+    background: url("../../../../../static/images/banner-background.png") center center / cover no-repeat;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 37px;
+    color: var(--brand-primary);
+    margin: 0 0 var(--space-12px) 0;
+}
+
+.subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+    color: var(--text-primary);
+    margin: 0;
+}
