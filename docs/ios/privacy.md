@@ -15,7 +15,7 @@ Starting on version 5.23.0 Embrace provides the required xcprivacy file detailin
 Please take a few minutes to read through this section and determine if you need to do so. 
 
 If you have any questions or would like more clarification please reach out to us on Slack
-or email us at <support@embrace.io>.
+or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## What do we collect and why?
 

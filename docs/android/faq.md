@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Here are a list of questions we commonly receive along with their answers.
 If you don't see your question here, or would like more clarification on one please reach out to use on Slack
-or email us at <support@embrace.io>.
+or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
 
@@ -75,7 +75,7 @@ See [this section](/android/features/configuration-file#custom-settings-for-buil
 
 ### **Does Embrace work with Buck / OKBuck?**
 
-Not currently. Please contact us at <support@embrace.io> or on Slack if you would like to request support.
+Not currently. Please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
 
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
@@ -164,7 +164,7 @@ All network calls are automatically tracked without any code changes. Network ca
 * Volley
 * Http(s)URLConnection
 
-If you use a library not listed or do not see expected network calls, please contact us at <support@embrace.io> or via Slack.
+If you use a library not listed or do not see expected network calls, please contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
 
 ### **Compatibility with Akamai, Cloudflare, PacketZoom and Other Networking Services**
 
