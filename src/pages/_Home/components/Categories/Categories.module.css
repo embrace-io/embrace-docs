@@ -1,0 +1,12 @@
+.platformLogo {
+    width: 24px;
+    height: 24px;
+}
+
+[data-theme="dark"] .svgIcon path {
+    fill: var(--brand-primary);
+}
+
+[data-theme="light"] .svgIcon path {
+    fill: var(--brand-lead);
+}

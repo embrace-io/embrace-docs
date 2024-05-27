@@ -6,6 +6,15 @@
   border-radius: 4px;
 }
 
-[data-theme='light'] .card {
-  /*box-shadow: var(--default-box-shadow);*/
+[data-theme="light"] .card {
+  background-color: var(--background-primary);
+  border-color: transparent;
+}
+
+.card:hover {
+  border: 1px solid var(--border-primary);
+}
+
+[data-theme="light"] .card:hover {
+  border: 1px solid var(--border-content);
 }

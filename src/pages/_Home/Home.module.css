@@ -6,16 +6,15 @@
     padding: var(--space-80px) 0;
 }
 
+[data-theme="light"] .wrapper {
+    background: var(--background-tertiary);
+}
+
 .container {
     width: 1025px;
     display: flex;
     flex-direction: column;
     gap: var(--space-56px);
-}
-
-.platformLogo {
-    width: 24px;
-    height: 24px;
 }
 
 @media (max-width: 1025px) {
