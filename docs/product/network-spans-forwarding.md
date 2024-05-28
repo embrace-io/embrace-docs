@@ -16,8 +16,13 @@ Embrace can automatically add a unique identifier to **every** network request y
 
 <img src={require('@site/static/images/nsf-example.png').default} alt="traceparent example" />
 
-We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propagate through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others.
+We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propagate through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others. According to the w3c convention, you can use the [`trace-id`](https://www.w3.org/TR/trace-context-1/#examples-of-http-traceparent-headers) portion of the traceparent to find your forwarded traces in the destination product.
 
+You can also specify the domains that Embrace should forward network spans for. Speak to [support](mailto:support@embrace.com) to find out more.
+
+To request Network Span Forwarding be turned on, simply click the "enable" button next to any Network Requests on a User Timeline or Network Path Details page.
+
+<img src={require('@site/static/images/NSF > Timeline button.png').default} alt="big button" />
 
 ## Analyze metadata
 
