@@ -1,6 +1,7 @@
 import { type FC } from "react";
 import { type HomeCardProps } from "@site/src/pages/_Home/components/HomeCard/HomeCard";
 import HomeCard from "@site/src/pages/_Home/components/HomeCard";
+import classes from "@site/src/helpers/classes";
 import Display from "@site/src/components/Text/Display";
 
 import styles from "./Category.module.css";
@@ -8,11 +9,12 @@ import styles from "./Category.module.css";
 type CategoryProps = {
   title: string;
   items: HomeCardProps[];
+  className?: string;
 };
 
-const Category: FC<CategoryProps> = ({ title, items }) => {
+const Category: FC<CategoryProps> = ({ title, items, className }) => {
   return (
-    <section className={styles.container}>
+    <section className={classes(styles.container, className)}>
       <Display variant="display3">{title}</Display>
       <div className={styles.items}>
         {items.map((item) => (
