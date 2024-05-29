@@ -10,10 +10,6 @@ sidebar_position: 3
 
 - Have an active Grafana Cloud account
 
-## What you will need to share
-
-To initiate the integration, you'll need to share your Grafana Cloud API Key or Access Policy / Token, instance ID, and zone with an Embrace onboarding specialist.
-
 ## Pulling your Grafana Cloud API Key or Access Policy / Token
 
 Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies). 
