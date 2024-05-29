@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.8.0
+*May 28, 2024*
+- Complete migration to OpenTelemetry, which means all app data recorded by the SDK can be sent directly to OpenTelemetry Collectors from the app.
+- Allow the SDK to be used without being an Embrace customer, so data is only sent to OpenTelemetry Collectors and not to Embrace.
+- Verify as part of the build that desugaring is enabled for apps supporting Android versions less than 7.0 (i.e. `minSdkVerion` < 24).
+- Fix the location we look for flavor-specific Embrace configuration files during the build.
+- Remove excessive SDK logging.
+
+
 ## 6.7.0
 *April 22, 2024*
  - Support configuration of OpenTelemetry Exporters to export [Logs](/android/features/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
