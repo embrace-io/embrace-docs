@@ -5,6 +5,9 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.25.2
+* Defensive patch of null case provider issue.
+
 ## 1.25.1
 
 * Patch of issue on newer versions of Unity iOS that involved double injecting into the linker phase

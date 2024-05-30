@@ -198,6 +198,10 @@ Add a config file to configure the Embrace SDK. This file must be named `embrace
 }
 ```
 
+:::warning
+It's not recommended to directly hardcode access tokens into your source code. Instead, you can add it as an environment variable like `EMBRACE_API_TOKEN` and reference that.
+:::
+
 :::info
 Your app ID and API token are available on the Embrace dashboard.
 :::
