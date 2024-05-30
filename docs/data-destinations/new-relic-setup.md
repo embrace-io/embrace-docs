@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## Prerequisites
 
-- active New Relic account
+- Active New Relic account
 
 To initiate the integration, you'll need to share your New Relic API Key and your New Relic Region with an Embrace onboarding specialist.
 
