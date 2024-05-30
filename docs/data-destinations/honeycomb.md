@@ -10,8 +10,6 @@ sidebar_position: 4
 
 - Have an active Honeycomb account and an environment created.
 
-To initiate the integration, you'll need to share your Honeycomb API Key with an Embrace onboarding specialist.
-
 
 ## Pulling your Honeycomb API Key ([Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/settings/api-keys/))
 
