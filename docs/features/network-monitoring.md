@@ -10,7 +10,7 @@ We provide a comprehensive view of your network requests, allowing you to assess
 
 :::info Network Spans Forwarding
 
-Embrace can help you diagnose network errors by forwarding network spans to your backend monitoring service. Read more about [Network Spans Forwarding](/docs/product/network-spans-forwarding).
+Embrace can help you diagnose network errors by forwarding network spans to your backend monitoring service. Read more about [Network Spans Forwarding](/product/network-spans-forwarding/).
 
 :::
 
