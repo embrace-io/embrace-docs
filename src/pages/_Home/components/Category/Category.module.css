@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16px);
+    flex-direction: column;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-24px);
+    width: 100%;
+}
+
+@media (max-width: 1025px) {
+    .items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .items {
+        grid-template-columns: 1fr;
+    }
+}

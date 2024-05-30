@@ -1,0 +1,170 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-curly-brace-presence": [
+      1,
+      {
+        "props": "never",
+        "children": "ignore"
+      }
+    ],
+    "no-useless-rename": "error",
+    "import/prefer-default-export": "error",
+    "import/no-useless-path-segments": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-props-no-spreading": "error",
+    "react/jsx-fragments": [
+      2,
+      "syntax"
+    ],
+    "react/prop-types": "off",
+    "no-control-regex": "off",
+    "eqeqeq": [
+      "warn",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "desc"
+        },
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "patternOptions": {
+              "partial": false
+            },
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "**/*.css",
+            "group": "sibling",
+            "position": "after"
+          }
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "varsIgnorePattern": "_"
+      }
+    ],
+    "no-console": "warn",
+    // Configure this properly
+    "import/no-unresolved": [
+      "off"
+    ],
+    "import/extensions": [
+      "off"
+    ],
+    "import/no-named-as-default": [
+      "off"
+    ],
+    "import/named": [
+      "off"
+    ],
+    "import/namespace": [
+      "off"
+    ]
+    // Configure this properly
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.jsx"
+      ],
+      "rules": {
+        "react/prop-types": 1
+      }
+    },
+    {
+      "files": [
+        "**/*.tsx",
+        "**/*.ts"
+      ],
+      "extends": [
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "eslint:recommended",
+        "plugin:import/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "parserOptions": {
+        "project": [
+          "./tsconfig.json"
+        ]
+      },
+      "rules": {
+        "react/prop-types": "off",
+        "import/no-named-as-default": "off",
+        "@typescript-eslint/consistent-type-definitions": [
+          "error",
+          "type"
+        ],
+        "@typescript-eslint/no-empty-function": "off",
+        // Configure this properly
+        "import/no-unresolved": [
+          "off"
+        ],
+        "@typescript-eslint/consistent-type-assertions": "error",
+        "@typescript-eslint/consistent-type-exports": "error",
+        "@typescript-eslint/consistent-indexed-object-style": "error",
+        "@typescript-eslint/consistent-generic-constructors": "error",
+        "@typescript-eslint/array-type": "error",
+        "@typescript-eslint/consistent-type-imports": [
+          "error",
+          {
+            "fixStyle": "inline-type-imports"
+          }
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "varsIgnorePattern": "^_",
+            "argsIgnorePattern": "^_"
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
