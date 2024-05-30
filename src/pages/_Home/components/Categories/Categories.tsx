@@ -38,7 +38,7 @@ import styles from "./Categories.module.css";
 
 type Categories =
   | "Essentials"
-  | "Open Telemetry"
+  | "OpenTelemetry"
   | "Data Forwarding"
   | "Features"
   | "Partner Solutions"
@@ -71,7 +71,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "https://www.youtube.com/channel/UC8EjpY1ol3QGdp2qk1uZARQ",
     },
   ],
-  "Open Telemetry": [
+  "OpenTelemetry": [
     {
       title: "Performance Tracing",
       description:
