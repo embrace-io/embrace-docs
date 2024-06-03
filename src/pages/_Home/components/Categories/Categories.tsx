@@ -88,7 +88,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     {
       title: "SDK Repositories",
       description:
-        "All the Embrace Android, iOS, React Native, Unity and Flutter SDKs.",
+        "The Embrace OSS Android, iOS, React Native, Unity and Flutter SDKs.",
       icon: <IconSdk {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/open-telemetry/sdk-repositories",
     },
