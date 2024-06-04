@@ -201,7 +201,7 @@ const config: Config = {
         {
           type: "html",
           value:
-            'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://join.slack.com/t/embraceio-community/shared_invite/zt-ywr4jhzp-DLROX0ndN9a0soHMf6Ksow">Slack</a>',
+            'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://community.embrace.io/">Slack</a>',
           position: "right",
         },
       ],
