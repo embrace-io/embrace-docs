@@ -165,6 +165,10 @@ const config: Config = {
           remarkPlugins: [embraceSdkVersion],
           showLastUpdateTime: false,
         },
+        gtag: {
+          trackingID: 'G-38TSBDNVVD',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
