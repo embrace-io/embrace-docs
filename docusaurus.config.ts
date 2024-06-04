@@ -44,7 +44,7 @@ const config: Config = {
   ],
 
   plugins: [
-    "docusaurus-plugin-hotjar",
+    // "docusaurus-plugin-hotjar",
     [
       "@docusaurus/plugin-client-redirects",
       {
@@ -183,9 +183,9 @@ const config: Config = {
   ],
 
   themeConfig: {
-    hotjar: {
-      applicationId: 3734357,
-    },
+    // hotjar: {
+    //   applicationId: 3734357,
+    // },
     image: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
 
     // https://docusaurus.io/docs/api/themes/configuration#color-mode---dark-mode
