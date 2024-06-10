@@ -192,7 +192,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     {
       title: "Grafana",
       icon: <LogoGrafana />,
-      linkTo: "/data-destinations/grafana-cloud-setup",
+      linkTo: "/partners/grafana",
     },
     {
       title: "Honeycomb",
