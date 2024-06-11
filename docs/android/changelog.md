@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.8.1
+*Jun 4, 2024*
+- Fix a build error while reading the api_token from an environment variable.
+
 ## 6.8.0
 *May 28, 2024*
 - Complete migration to OpenTelemetry, which means all app data recorded by the SDK can be sent directly to OpenTelemetry Collectors from the app.
