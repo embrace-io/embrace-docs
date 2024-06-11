@@ -8,7 +8,7 @@ sidebar_position: 4
 ## 4.1.2
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.
-* Updated iOS script to upload sourcemap. Please [update your implementation](react-native/integration/upload-symbol-files/#uploading-source-maps)
+* Updated iOS script to upload sourcemap. Please [update your implementation](/react-native/integration/upload-symbol-files/#uploading-source-maps)
 * Updated Android native Embrace SDK dependency to 6.8.2.
 ## 4.1.1
 _April 15, 2024_
