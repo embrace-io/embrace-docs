@@ -44,7 +44,7 @@ const config: Config = {
   ],
 
   plugins: [
-    "docusaurus-plugin-hotjar",
+    // "docusaurus-plugin-hotjar",
     [
       "@docusaurus/plugin-client-redirects",
       {
@@ -165,6 +165,10 @@ const config: Config = {
           remarkPlugins: [embraceSdkVersion],
           showLastUpdateTime: false,
         },
+        gtag: {
+          trackingID: 'G-38TSBDNVVD',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -179,9 +183,9 @@ const config: Config = {
   ],
 
   themeConfig: {
-    hotjar: {
-      applicationId: 3734357,
-    },
+    // hotjar: {
+    //   applicationId: 3734357,
+    // },
     image: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
 
     // https://docusaurus.io/docs/api/themes/configuration#color-mode---dark-mode
@@ -201,7 +205,7 @@ const config: Config = {
         {
           type: "html",
           value:
-            'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://join.slack.com/t/embraceio-community/shared_invite/zt-ywr4jhzp-DLROX0ndN9a0soHMf6Ksow">Slack</a>',
+            'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://community.embrace.io/">Slack</a>',
           position: "right",
         },
       ],
