@@ -32,3 +32,5 @@ Additionally, Embrace can forward metadata associated with each call.  Device, a
 
 Embrace currently supports Network Span Forwarding for Grafana Cloud Traces, New Relic, Honeycomb and Datadog.  See our guide to enabling [Data Destinations](/data-destinations/) to get started.
 
+
+<img src={require('@site/static/images/NSF > Honeycomb example.png').default} alt="NSF in honeycomb" />
