@@ -37,6 +37,12 @@ compileOptions {
 }
 ```
 
+### **The SDK should support API level 21 but, I get an error saying I need to set android.useFullClasspathForDexingTransformAPI.**
+
+A [desugaring bug](https://issuetracker.google.com/issues/230454566#comment18) in old AGP versions results in runtime crashes on old devices when using Embrace.
+Therefore it's necessary to use AGP 8.3+ and add `android.useFullClasspathForDexingTransform=true` to your `gradle.properties` if your minSdk is below 24.
+Alternatively you can set your `minSdk` to 24 to avoid the problem.
+
 ### **How do I use Embrace functions in modules or libraries?**
 
 In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file
