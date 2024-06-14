@@ -100,13 +100,13 @@ project's `build.gradle` file to add the Embrace SDK to your app.
 
 ```groovy
 buildscript {
-  repositories {
-    mavenCentral()
-    google()
-  }
-  dependencies {
-    classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}'
-  }
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}'
+    }
 }
 ```
 
@@ -118,6 +118,7 @@ buildscript {
 buildscript {
     repositories {
         mavenCentral()
+        google()
     }
     dependencies {
         classpath("io.embrace:embrace-swazzler:$swazzler_version")
@@ -138,17 +139,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'embrace-swazzler'
 
 repositories {
-  mavenCentral()
-  google()
+    mavenCentral()
+    google()
 }
 
 android {
-  ...
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-  ...
+    ...
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    ...
 }
 ```
 
@@ -158,6 +159,13 @@ android {
 
 ```kotlin
 apply(plugin = "embrace-swazzler")
+
+android {
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
 ```
 
 </TabItem>
@@ -181,9 +189,25 @@ You'll need to set the following permissions so the Embrace SDK can send events 
 
 If you have an app that uses internal modules or libraries, you must specify the Embrace SDK dependency directly in your module's Gradle file
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="groovy" label="Groovy">
+
 ```groovy
 implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'
 ```
+
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+implementation("io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}")
+```
+
+</TabItem>
+</Tabs>
+
+
 
 You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
 

@@ -32,24 +32,46 @@ In the case of logError, you may also send an Exception to be shown on the dashb
 
 Here is an example of how to use the Log Message API for errors:
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 Embrace.getInstance().logError("Loading not finished in time.")
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+Embrace.getInstance().logError("Loading not finished in time.");
+```
+</TabItem>
+</Tabs>
 
 Or you can call `logMessage` if you want to add properties to your logs.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 val props = mutableMapOf<String, Any>()
 props["propertyA"] = "valueA"
 props["propertyB"] = "valueB"
-
 Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props)
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+Map<String, Object> map = new HashMap<String, String>();
+map.put("propertyA", "valueA");
+map.put("propertyB", "valueB");
+Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props);
+```
+</TabItem>
+</Tabs>
 
 ### Log Handled Exception
 
 If there is a need to log an exception, but the severity level is something other than an error, the **`logException`** method can be used.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 val props = mutableMapOf<String, Any>()
 props["propertyA"] = "valueA"
@@ -62,6 +84,23 @@ try {
     Embrace.getInstance().logException(e, Severity.WARNING, props)
 }
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+Map<String, Object> map = new HashMap<String, String>();
+map.put("propertyA", "valueA");
+map.put("propertyB", "valueB");
+
+try {
+    Throwable exception = new NullPointerException("this is my handled exception");
+    throw exception;
+} catch (Exception e) {
+    Embrace.getInstance().logException(e, Severity.WARNING, props);
+}
+```
+</TabItem>
+</Tabs>
+
 
 LogType could be ERROR,  WARNING or INFO.
 
@@ -69,10 +108,20 @@ LogType could be ERROR,  WARNING or INFO.
 
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().logWarning("User attempted expired credit card")
+Embrace.getInstance().logInfo("User has entered checkout flow")
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().logWarning("User attempted expired credit card");
 Embrace.getInstance().logInfo("User has entered checkout flow");
 ```
+</TabItem>
+</Tabs>
 
 :::
 

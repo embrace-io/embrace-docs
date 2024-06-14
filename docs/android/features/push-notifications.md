@@ -32,26 +32,42 @@ If your configuration is correct, you don't need to do anything else, you are al
 
 If you don't want the notifications to get captured automatically, then you can avoid the setup from the previous section and when you receive a notification in your code, make the following call manually:
 
-```java
-/*
-    Params:
-    title – the title of the notification as a string (or null) 
-    body – the body of the notification as a string (or null) 
-    topic – the notification topic (if a user subscribed to one), or null 
-    id – A unique ID identifying the message 
-    notificationPriority – the notificationPriority of the message (as resolved on the device)
-    messageDeliveredPriority – the priority of the message (as resolved on the server)
-    isNotification - a boolean indicating if it is a notification message.
-    hasData - a boolean indicating if the message contains payload data.
-*/
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+val isNotification = true
+val hasData = true
 Embrace.getInstance().logPushNotification(
-    @Nullable String title,
-    @Nullable String body,
-    @Nullable String topic,
-    @Nullable String id,
-    @Nullable Integer notificationPriority,
-    @NotNull Integer messageDeliveredPriority,
-    @NotNull Boolean isNotification,
-    @NotNull Boolean hasData
+    "my-notification-title",
+    "my-notification-body",
+    "my-notification-topic",
+    "my-notification-id",
+    5,
+    2,
+    isNotification,
+    hasData
 )
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+boolean isNotification = true
+boolean hasData = true
+Embrace.getInstance().logPushNotification(
+    "my-notification-title",
+    "my-notification-body",
+    "my-notification-topic",
+    "my-notification-id",
+    5,
+    2,
+    isNotification,
+    hasData
+);
+```
+</TabItem>
+</Tabs>

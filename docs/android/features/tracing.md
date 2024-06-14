@@ -146,7 +146,7 @@ EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
 // begin recording a trace that has a different start time than 
 // the current time by starting its root span with a specific timestamp
 if (activityLoad != null) {
-  activityLoad.start(appStartTimeMillis);
+    activityLoad.start(appStartTimeMillis);
 }
 ```
 
@@ -181,17 +181,17 @@ EmbraceSpan activityLoad = embrace.startSpan("load-activity");
 EmbraceSpan imageLoad = null;
 
 if (activityLoad != null) {
-  imageLoad = embrace.startSpan("load-image", activityLoad);
+    imageLoad = embrace.startSpan("load-image", activityLoad);
 }
 
 FancyImage image = fetchImage();
 
 if (imageLoad != null) {
-  // record important event at point in time
-  imageLoad.addEvent("network-request-finished");
+    // record important event at point in time
+    imageLoad.addEvent("network-request-finished");
 
-  // record attribute particular to this span instance
-  imageLoad.addAttribute("image-name", image.name);
+    // record attribute particular to this span instance
+    imageLoad.addAttribute("image-name", image.name);
 }
 ```
 
@@ -220,7 +220,7 @@ EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
 // some time passes after the operation being time has finished
 
 if (activityLoad != null) {
-  activityLoad.stop(getActualEndTime());
+    activityLoad.stop(getActualEndTime());
 }
 ```
 
@@ -236,13 +236,13 @@ if (activityLoad != null) {
 val activityLoad = Embrace.getInstance().startSpan("load-activity")
 
 try {
-  loadActivity()
+    loadActivity()
 } catch (e: IllegalStateException) {
-  activityLoad?.addAttribute("error-message", getErrorMessage(e))
-  activityLoad?.stop(ErrorCode.FAILURE)
+    activityLoad?.addAttribute("error-message", getErrorMessage(e))
+    activityLoad?.stop(ErrorCode.FAILURE)
 } finally {
-  // calling stop on an already-stopped span will not change its state
-  activityLoad?.stop()
+    // calling stop on an already-stopped span will not change its state
+    activityLoad?.stop()
 }
 ```
 
@@ -253,15 +253,15 @@ try {
 EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
 
 if (activityLoad != null) {
-  try {
-    loadActivity();
-  } catch (IllegalStateException e) {
-    activityLoad.addAttribute("error-message", getErrorMessage(e));
-    activityLoad.stop(ErrorCode.FAILURE);
-  } finally {
-    // calling stop on an already-stopped span will not change its state
-    activityLoad.stop();
-}
+    try {
+        loadActivity();
+    } catch (IllegalStateException e) {
+        activityLoad.addAttribute("error-message", getErrorMessage(e));
+        activityLoad.stop(ErrorCode.FAILURE);
+    } finally {
+        // calling stop on an already-stopped span will not change its state
+        activityLoad.stop();
+    }
 }
 ```
 
@@ -290,7 +290,7 @@ EmbraceSpan activityLoad = embrace.startSpan("load-activity");
 
 // create and start a child span if activityLoad is created and started successfully
 if (activityLoad != null) {
-  EmbraceSpan imageLoad = embrace.startSpan("load-image", activityLoad);
+    EmbraceSpan imageLoad = embrace.startSpan("load-image", activityLoad);
 }
 ```
 
@@ -305,9 +305,9 @@ if (activityLoad != null) {
 ```kotlin
 // record a span based on start and end times that are in the past
 Embrace.getInstance().recordCompletedSpan(
-  name = "activity-create", 
-  startTimeMs = startTimeMillis, 
-  endTimeMs = endTimeMillis
+    name = "activity-create", 
+    startTimeMs = startTimeMillis, 
+    endTimeMs = endTimeMillis
 )
 ```
 
@@ -317,9 +317,9 @@ Embrace.getInstance().recordCompletedSpan(
 ```java
 // record a span based on start and end times that are in the past
 Embrace.getInstance().recordCompletedSpan(
-  "activity-create", 
-  startTimeMillis, 
-  endTimeMillis
+    "activity-create", 
+    startTimeMillis, 
+    endTimeMillis
 );
 ```
 
@@ -350,13 +350,13 @@ EmbraceSpan activityLoad = embrace.startSpan("load-activity");
 String activityLoadSpanId = null;
 
 if (activityLoad != null) {
-  activityLoadSpanId = activityLoad.spanId;
+    activityLoadSpanId = activityLoad.spanId;
 }
 
 /* some other part of the code without access to activityLoad */
 
 if (activityLoadSpanId != null) {
-  embrace.getSpan(activityLoadSpanId).stop();
+    embrace.getSpan(activityLoadSpanId).stop();
 }
 ```
 

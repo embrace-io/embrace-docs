@@ -6,9 +6,23 @@ Embrace can collect basic session data and crashes as you've already seen in the
 Embrace can also collect your logging data and include it as relevant information and details to enrich your sessions.
 Here's how you add a Breadcrumb to the session.
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().addBreadcrumb("onDragEvent called, starting drag")
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().addBreadcrumb("onDragEvent called, starting drag");
 ```
+</TabItem>
+</Tabs>
 
 In the above example, a Breadcrumb is being logged when a drag event listener is called.
 This event is not otherwise shown in the session and can be important depending on what the user does next.
