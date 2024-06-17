@@ -26,6 +26,8 @@ The logs section gives you access to all logs emitted by your application. Embra
 
 ## Aggregated Logs
 
+<img src={require('@site/static/images/features/logs-aggregated-image.png').default} alt="logs-aggregated" width="400"/>
+
 For each log group, this page displays:
 
 - **Severity level** : explained above.
@@ -71,6 +73,8 @@ Each statistics group shows:
 - **Difference**: The difference between the 2 above, is to highlight logs occurring more or less than expected.
 
 ## Raw Logs
+
+<img src={require('@site/static/images/features/logs-raw-image.png').default} alt="logs-raw" width="400"/>
 
 For each log, this page displays:
 
