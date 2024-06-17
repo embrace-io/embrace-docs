@@ -82,7 +82,7 @@ import TabItem from '@theme/TabItem';
 
 ```kotlin
 // create a trace by creating its root span
-// recording will not behind until the span has been started
+// recording will not begin until the span has been started
 val activityLoad = Embrace.getInstance().createSpan("load-activity")
 ```
 
@@ -91,7 +91,7 @@ val activityLoad = Embrace.getInstance().createSpan("load-activity")
 
 ```java
 // create a trace by creating its root span
-// recording will not behind until the span has been started
+// recording will not begin until the span has been started
 EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
 ```
 
