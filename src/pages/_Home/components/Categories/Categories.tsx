@@ -106,13 +106,13 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Manage (create, get and delete) all the custom metrics of your organization.",
       icon: <IconChartLine {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/data-destinations",
+      linkTo: "/custom-metrics-api",
     },
     {
       title: "Metrics API",
       description: "Query your metrics from Embrace using PromQL.",
       icon: <IconChartBar {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/custom-metrics-api",
+      linkTo: "/metrics-api",
     },
     {
       title: "Spans API",
