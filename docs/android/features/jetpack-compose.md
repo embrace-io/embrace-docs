@@ -24,7 +24,7 @@ To enable onClick instrumentation, You will need to modify your `embrace-config.
         "compose": {
             "capture_compose_onclick": true
         }
-  }
+    }
 }
 ```
 
@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
 ```
 
 <Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="KTS">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
 swazzler {

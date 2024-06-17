@@ -20,14 +20,40 @@ Here are the steps you'll be taking to create your first session.
 
 Start by importing Embrace in the file where your `Application` class exists.
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+import io.embrace.android.embracesdk.Embrace
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 import io.embrace.android.embracesdk.Embrace;
 ```
+</TabItem>
+</Tabs>
 
 ## Add the Start Call
 
 Next, add the following code to your `Application` class at the start of the `onCreate` method to initialize the Embrace SDK.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+class MyApplication : Application {
+  override fun onCreate() {
+      super.onCreate()
+      Embrace.getInstance().start(this)
+  }
+}
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 public final class MyApplication extends Application {
   @Override
@@ -37,6 +63,9 @@ public final class MyApplication extends Application {
   }
 }
 ```
+</TabItem>
+</Tabs>
+
 
 ## End the startup moment
 
@@ -46,18 +75,38 @@ However, if `onResume()` is not a good indication of when the app launch has end
 you can use the `@StartupActivity` annotation to indicate that you don't want the startup moment to end when the `onResume` method returns.
 Add the `@StartupActivity` annotation to any Activity class where this applies.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+@StartupActivity
+class MainActivity : Activity
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 @StartupActivity
 public class MainActivity extends Activity {
-  ...
 }
 ```
+</TabItem>
+</Tabs>
+
 
 Then, end the startup moment manually by making the following method call.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().endAppStartup()
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().endAppStartup();
 ```
+</TabItem>
+</Tabs>
+
 
 You should end the startup moment before the user has a chance to interact with the application.
 Add this method call to every location where the startup moment can end. You can call this method as many times as you like.

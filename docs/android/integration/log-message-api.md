@@ -16,19 +16,44 @@ You can leverage the log message API for this.
 
 You can log a message immediately by calling the `logError` method.
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 Embrace.getInstance().logError("Loading not finished in time.")
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+Embrace.getInstance().logError("Loading not finished in time.");
+```
+</TabItem>
+</Tabs>
 
 Or you can call `logMessage` if you want to add properties to your logs.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 val props = mutableMapOf<String, Any>()
 props["propertyA"] = "valueA"
 props["propertyB"] = "valueB"
-
 Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props)
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+Map<String, Object> map = new HashMap<>();
+map.put("propertyA", "valueA");
+map.put("propertyB", "valueB");
+Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props);
+```
+</TabItem>
+</Tabs>
 
 Here's a breakdown of the arguments being passed to the `logError` method.
 
@@ -39,10 +64,20 @@ Here's a breakdown of the arguments being passed to the `logError` method.
 
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().logWarning("User attempted expired credit card")
+Embrace.getInstance().logInfo("User has entered checkout flow")
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().logWarning("User attempted expired credit card");
 Embrace.getInstance().logInfo("User has entered checkout flow");
 ```
+</TabItem>
+</Tabs>
 
 :::
 
