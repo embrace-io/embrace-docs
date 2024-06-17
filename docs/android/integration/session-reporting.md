@@ -18,7 +18,7 @@ Here are the steps you'll be taking to create your first session.
 
 ## Import Embrace
 
-Start by importing Embrace in the file where your `Application` class exists.
+First, import Embrace in your `Application` subclass.
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -40,7 +40,7 @@ import io.embrace.android.embracesdk.Embrace;
 
 ## Add the Start Call
 
-Next, add the following code to your `Application` class at the start of the `onCreate` method to initialize the Embrace SDK.
+Next, initialize the Embrace SDK in the `onCreate` method of your `Application` subclass.
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
@@ -69,7 +69,7 @@ public final class MyApplication extends Application {
 
 ## End the startup moment
 
-The Embrace SDK automatically records the special "startup" moment that's used to track app launch performance.
+The Embrace SDK automatically records a special "startup" moment that's used to track app launch performance.
 The end of the startup moment is recorded when the `Activity.onResume()` method returns.
 However, if `onResume()` is not a good indication of when the app launch has ended (apps that have a splash screen, for example),
 you can use the `@StartupActivity` annotation to indicate that you don't want the startup moment to end when the `onResume` method returns.
@@ -121,7 +121,7 @@ Add this method call to every location where the startup moment can end. You can
 ## Build and Run the Application
 
 Now you're ready to build and run the application. Assuming the app launches correctly,
-pay attention to the system logging and look for Embrace to print its version number.
+pay attention to the system logging and confirm Embrace prints its version number.
 
 ```
 Embrace SDK started. API key: xxxxx Version: {{ embrace_sdk_version platform="android" }}

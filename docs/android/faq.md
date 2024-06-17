@@ -21,7 +21,7 @@ registered when we registered ours so that both listeners will receive the uncau
 
 For NDK exceptions, we replace any existing signal handlers, which are used to capture C and C++ exceptions.
 Similarly, other NDK crash capture tools would be likely to replace our signal handlers if they are initialized after
-our SDK.
+our SDK. It is therefore not recommended to enable more than one NDK crash reporting solution in your app as it will interfere with crash report quality.
 
 ## Integrating
 
@@ -65,7 +65,8 @@ buildscript {
 
 ### **Is there a way that I can speed up build times?**
 
-Yes, the swazzling cache can help with this. An in-depth description of this feature can be found [here](/android/features/build-options#improving-build-speed).
+Yes, update to the latest version of the swazzler gradle plugin & ensure your AGP version exceeds 4.2.2.
+Newer AGP versions provide a more performant API for bytecode instrumentation.
 
 
 ### **What determines if a session is classified as prod or dev?**
