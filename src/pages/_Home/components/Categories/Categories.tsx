@@ -112,7 +112,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "Metrics API",
       description: "Query your metrics from Embrace using PromQL.",
       icon: <IconChartBar {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/metrics-api",
+      linkTo: "/embrace-api",
     },
     {
       title: "Spans API",
