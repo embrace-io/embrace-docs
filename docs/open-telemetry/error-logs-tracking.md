@@ -26,7 +26,8 @@ The logs section gives you access to all logs emitted by your application. Embra
 
 ## Aggregated Logs
 
-<img src={require('@site/static/images/features/logs-aggregated-image.png').default} alt="logs-aggregated" width="400"/>
+<img src={require('@site/static/images/features/logs-aggegated-image.png').default} alt="logs-aggregated" width="400"/>
+
 
 For each log group, this page displays:
 
