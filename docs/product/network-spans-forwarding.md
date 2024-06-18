@@ -28,7 +28,7 @@ To request Network Span Forwarding be turned on, simply click the "enable" butto
 <img src={require('@site/static/images/NSF > Timeline button.png').default} alt="big button" />
 
 ### requirements
-NSF is only supported on SDK versions 6.x for Android and iOS.
+NSF is supported on SDK versions 6.x for Android and iOS.
 Accounts must have a [Data Destination](/data-destinations/) set up.
 
 Accounts not matching either condition will see a checklist pop up when trying to enable.
