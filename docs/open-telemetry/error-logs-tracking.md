@@ -26,7 +26,7 @@ The logs section gives you access to all logs emitted by your application. Embra
 
 ## Aggregated Logs
 
-<img src={require('@site/static/images/features/logs-aggegated-image.png').default} alt="logs-aggregated" width="400"/>
+<img src={require('@site/static/images/features/logs-aggegated-image.png').default} alt="logs-aggregated" width="700"/>
 
 
 For each log group, this page displays:
@@ -75,7 +75,7 @@ Each statistics group shows:
 
 ## Raw Logs
 
-<img src={require('@site/static/images/features/logs-raw-image.png').default} alt="logs-raw" width="400"/>
+<img src={require('@site/static/images/features/logs-raw-image.png').default} alt="logs-raw" width="700"/>
 
 For each log, this page displays:
 
