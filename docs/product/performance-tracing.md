@@ -8,7 +8,9 @@ sidebar_position: 7
 Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Trace Roots View
-The primary page shows all Trace Roots in your app, as well as summary metrics like count, error rate, percentiles of duration, and change from previous version
+The primary page shows all trace roots in your app, as well as summary metrics like count, error rate, percentiles of duration, and change from previous version.
+
+<img src={require('@site/static/images/trace-roots.png').default} alt="Trace roots"/>
 
 To narrow down the instances that are summarized in this view, you can apply the following filters on the root span as well as the child spans:
 * Name
@@ -17,42 +19,40 @@ To narrow down the instances that are summarized in this view, you can apply the
 * Attributes keys and values
 * Span event names
 
-<img src={require('@site/static/images/trace-roots.png').default} alt="Trace roots"/>
-
 ## Trace Summary View
-By clicking on the name of a Trace Root in the Trace Roots view, you can see a partial listing of all the instances of that Trace.
+By clicking on the name of a Trace Root in the Trace Roots view, you can see a partial listing of all the instances of that trace.
 
-Each row represents a specific instance of that trace being recorded. You can see its status, unique Span ID, duration, in addition to start and end times. All of these columns beside the Span ID is sortable. 
+Each row represents a specific instance of that trace being recorded. You can see its status, unique Span ID, duration, in addition to start and end times. All of these columns other than the Span ID is sortable. 
 
 Clicking on the instance will open up an in-line preview of the details of that instance, including the child spans that it has, their duration, and whether they completed successfully.
 
-Beside the icon that takes you to the User Timeline, there is another icon that takes you to the full Trace Instance view, which gives you even more details about the Trace and the spans that comprise it. There is also an icon that will take you to the specific session in the User Timeline view that this trace instance ended in.
+On the right side each row that shows a trace instance, there are two icons. The first one takes you to the Trace Instance View, where you can see all the details about that instance, including attributes and events on each child span. The second one takes you to the specific session in the User Timeline view that this instance ended in so you can see the full context of what happened before and after this trace was recorded.
 
 <img src={require('@site/static/images/trace-summary.png').default} alt="Trace summary"/>
 
-You can filter by the same properties as in the Trace Roots view. In fact, the filters that you had set on the Trace Roots view will apply if you navigate here from there directly.
+You can filter by the same properties as in the Trace Roots View. In fact, the filters that you had set on the Trace Roots View will apply if you navigate here from there directly.
 
 <img src={require('@site/static/images/trace-summary-filters.png').default} alt="Trace summary filters"/>
 
 ## Trace Instance View
-This view show a Trace in its entirety. Not only can you see all the information in trace instance preview in the Trace Summary and go directly to the User Timeline, you can also look at the individual Events and Attributes recorded as part of on a Span, along with metadata about the device and app on which the Trace was recorded.
+This view show a trace in its entirety. Not only can you see all the information in trace instance preview, you can also see at the individual events and attributes recorded as part of on a each child span, along with metadata about the device and app.
 
 <img src={require('@site/static/images/trace-instance.png').default} alt="Trace instance"/>
 
 ## User Timeline view
 Traces appear in both the Timeline View and Timeline Details.
 
-Clicking on "See Details" for any Trace will take you directly the the Trace Instance page, exploring all the spans, events, and attributes for that Trace.
+Clicking on "See Details" for any trace within the timeline will take you directly the the Trace Instance View.
 
 <img src={require('@site/static/images/trace-user-timeline.png').default} alt="User timeline"/>
 
 ## Sessions Filters
-Not only can you filter Traces in the various pages dedicated to Performance Tracing, you can filter Sessions in the Sessions view by whether or not they contain specific Spans with certain Attributes and Events.
+Not only can you filter traces in the various pages dedicated to Performance Tracing, you can filter sessions in the Sessions View by whether or not they contain specific spans with certain attributes and events.
 
 <img src={require('@site/static/images/trace-session-filters.png').default} alt="Session filters"/>
 
 ## Boards, Alerts, and Custom Metrics
-You can create Boards, Alerts, and Custom Metrics based on Trace data.
+You can create Boards, Alerts, and Custom Metrics based on trace data.
 
 <img src={require('@site/static/images/trace-widgets.png').default} alt="Trace widgets"/>
 <img src={require('@site/static/images/trace-alerts.png').default} alt="Trace alerts"/>
