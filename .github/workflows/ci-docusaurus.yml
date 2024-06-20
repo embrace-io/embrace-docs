@@ -78,6 +78,7 @@ jobs:
           git log -1 > build/version.txt
 
       - name: Configure AWS credentials
+        if: ${{ github.actor != 'dependabot[bot]' }}
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_LOGIN_ROLE }}
