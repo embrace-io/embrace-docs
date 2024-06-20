@@ -3,15 +3,15 @@ title: Crash Tagging with Codeowners
 sidebar_position: 1
 ---
 
-# Tagging automatically highlights the most relevant person, team, or company to fix a Crash
+# Tagging Automatically Highlights the Most Relevant Person, Team, or Company to Fix a Crash
 
-Embrace tags each stack frame by the most specific matching condition in your Codeowners file.  This is then rolled up to the Crash, and Crash Group levels.
+Embrace tags each stack frame by the most specific matching condition in your CODEOWNERS file.  This is then rolled up to the Crash, and Crash Group levels.
 
 <img src={require('@site/static/images/Crash Tag example.png').default} alt="cartoon of crash tags" />
 
-## Create tag rules
+## Create Tag Rules
 
-### directly in the dashboard
+### Directly in the Dashboard
 On any Crash, you can directly create a rule in the stack frame.  Click on the edit icon and fill out the modal with any RE2 regex rule and your desired tag.
 
 <img src={require('@site/static/images/tagging-ui-1.png').default} alt="edit-in-stack" width="500px"/>
@@ -22,11 +22,14 @@ On any Crash, you can directly create a rule in the stack frame.  Click on the e
 You can also see, create, and modify rules in the Settings view.
 <img src={require('@site/static/images/tagging-ui-3.png').default} alt="rules-in-settings" width="500px"/>
 
-### with a Codeowners file
-
+### With a CODEOWNERS File
 POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, `token` (the symbol upload token used to upload symbols files) , and `file`.
 
 <img src={require('@site/static/images/Postman-Codeowners example.png').default} alt="screenshot of Codeowners upload" />
+
+**NOTE: Automatically tagging owners using a CODEOWNERS file is most useful in crashes where the stack trace information
+matches your source code layout. Matching will not work in cases where the crash frame does not match your source code.
+For example, a native Android crash in a React Native app will not match the JavaScript source code for the app.**
 
 ## Consume tagged crashes via Metrics API
 
