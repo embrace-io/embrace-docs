@@ -2,6 +2,9 @@
 .github @embrace-io/team-devops
 scripts @embrace-io/team-devops
 
+# JavaScript
+package*.json **/*.js **/*.ts @embrace-io/guild-ui
+
 # SDK Teams
 docs/android @embrace-io/sdk-android
 docs/flutter @embrace-io/sdk-flutter
