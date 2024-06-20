@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.8.2
+*Jun 7, 2024*
+- Remove dependency on the configuration attribute `enable_automatic_activity_capture` for manually capturing views
+
 ## 6.8.1
 *Jun 4, 2024*
 - Fix a build error while reading the api_token from an environment variable.
