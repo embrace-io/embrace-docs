@@ -27,9 +27,23 @@ import KeepItShort from '@site/shared/keep-it-short.md';
 
 Here's how you start a moment.
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().startMoment("addItem")
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().startMoment("addItem");
 ```
+</TabItem>
+</Tabs>
 
 In a sample scenario, this is a moment we're using to measure how quickly an item is added to a `ListView` after a user selects the plus button.
 
@@ -44,9 +58,18 @@ import PropertyLimit from '@site/shared/property-limit.md';
 
 Next, here's how you end a moment.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().endMoment("addItem")
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().endMoment("addItem");
 ```
+</TabItem>
+</Tabs>
 
 A timer is started once you make a call to start a moment.
 If you end the moment within a configurable threshold, then the timer ends and the client's measurement is used to report performance.

@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Here are a list of questions we commonly receive along with their answers.
 If you don't see your question here, or would like more clarification on one please reach out to use on Slack
-or email us at <support@embrace.io>.
+or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
 
@@ -21,7 +21,7 @@ registered when we registered ours so that both listeners will receive the uncau
 
 For NDK exceptions, we replace any existing signal handlers, which are used to capture C and C++ exceptions.
 Similarly, other NDK crash capture tools would be likely to replace our signal handlers if they are initialized after
-our SDK.
+our SDK. It is therefore not recommended to enable more than one NDK crash reporting solution in your app as it will interfere with crash report quality.
 
 ## Integrating
 
@@ -36,6 +36,12 @@ compileOptions {
     targetCompatibility JavaVersion.VERSION_1_8
 }
 ```
+
+### **The SDK should support API level 21 but, I get an error saying I need to set android.useFullClasspathForDexingTransformAPI.**
+
+A [desugaring bug](https://issuetracker.google.com/issues/230454566#comment18) in old AGP versions results in runtime crashes on old devices when using Embrace.
+Therefore it's necessary to use AGP 8.3+ and add `android.useFullClasspathForDexingTransform=true` to your `gradle.properties` if your minSdk is below 24.
+Alternatively you can set your `minSdk` to 24 to avoid the problem.
 
 ### **How do I use Embrace functions in modules or libraries?**
 
@@ -59,7 +65,8 @@ buildscript {
 
 ### **Is there a way that I can speed up build times?**
 
-Yes, the swazzling cache can help with this. An in-depth description of this feature can be found [here](/android/features/build-options#improving-build-speed).
+Yes, update to the latest version of the swazzler gradle plugin & ensure your AGP version exceeds 4.2.2.
+Newer AGP versions provide a more performant API for bytecode instrumentation.
 
 
 ### **What determines if a session is classified as prod or dev?**
@@ -75,7 +82,7 @@ See [this section](/android/features/configuration-file#custom-settings-for-buil
 
 ### **Does Embrace work with Buck / OKBuck?**
 
-Not currently. Please contact us at <support@embrace.io> or on Slack if you would like to request support.
+Not currently. Please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
 
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
@@ -164,7 +171,7 @@ All network calls are automatically tracked without any code changes. Network ca
 * Volley
 * Http(s)URLConnection
 
-If you use a library not listed or do not see expected network calls, please contact us at <support@embrace.io> or via Slack.
+If you use a library not listed or do not see expected network calls, please contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
 
 ### **Compatibility with Akamai, Cloudflare, PacketZoom and Other Networking Services**
 

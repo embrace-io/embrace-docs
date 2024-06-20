@@ -11,9 +11,23 @@ However, you are free to use both mechanisms interchangeably.
 
 Here is an example of setting a session property:
 
-```java
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false)
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false);
+```
+</TabItem>
+</Tabs>
 
 import PropertyLimit from '@site/shared/property-limit.md';
 

@@ -4,6 +4,11 @@ description: Configuring the Embrace Unity Android SDK for mobile platforms
 sidebar_position: 4
 ---
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 # Configure Embrace
 
 The Embrace Unity SDK includes an editor script to assist with properly linking the SDK, and collecting and uploading debug information for symbolication. That component requires configuration prior to building. If your project ships on both Android and iOS make sure to configure both platforms using the Embrace editor window.
@@ -72,18 +77,13 @@ If your project already modifies these files, then apply the changes below to yo
 
 After creating or finding these template files in your project, make the following changes:
 
-1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below. 
-
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
+1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below.
 
 <Tabs groupId="gradle_version" queryString="gradle_version">
 <TabItem value="agp_below_7_1" label="2022.1 or earlier or AGP below 7.1.2">
 
 If using Unity 2022.1 or earlier, update your `baseProjectTemplate.gradle` file as shown below. Note that the `mavenCentral()` repository must be added in two places.
-
+```groovy
     allprojects {
         buildscript {
             repositories {
@@ -97,20 +97,20 @@ If using Unity 2022.1 or earlier, update your `baseProjectTemplate.gradle` file 
             mavenCentral()
         }
     }
-
+```
 </TabItem>
 <TabItem value="agp_above_7_1" label="Unity 2022.2 or later or AGP 7.1.2 or later">
 
 If using Unity 2022.2 or later, add the following block to the top of your `baseProjectTemplate.gradle` file.
-
+```groovy
     buildscript {
         dependencies {
             classpath "io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}"
         }
     }
-
+```
 Example:
-
+```groovy
     buildscript {
         dependencies {
             classpath "io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="unity_android" }}"
@@ -130,11 +130,11 @@ Example:
     task clean(type: Delete) {
         delete rootProject.buildDir
     }
-
+```
 Then, under `settingsTemplate.gradle` file, check if the `mavenCentral()` repositories exists.
 
 Example:
-
+```groovy
     pluginManagement {
         repositories {
             **ARTIFACTORYREPOSITORY**
@@ -158,6 +158,7 @@ Example:
             }
         }
     }
+```
 </TabItem>
 </Tabs>
 

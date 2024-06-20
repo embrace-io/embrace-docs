@@ -1,0 +1,20 @@
+.platformLogo {
+    width: 24px;
+    height: 24px;
+}
+
+[data-theme="dark"] .category {
+    --icon-color: var(--brand-primary);
+}
+
+[data-theme="light"] .category {
+    --icon-color: var(--brand-lead);
+}
+
+[data-theme="dark"] .svgIcon path {
+    fill: var(--icon-color);
+}
+
+[data-theme="light"] .svgIcon path {
+    fill: var(--icon-color);
+}

@@ -2,6 +2,14 @@
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static documentation generator written using React Native.
 
+## Updating these docs
+
+You can make edits to these docs from within GitHub or by pulling down the repo to make edits. It's easy!
+
+For quick edits that don't require adding or reorganizing pages, you can edit the specific Markdown file from within the [docs](./docs/) folder. Edit the file, commit your changes and make a PR, then follow the Release Workflow below.
+
+For larger reorganization, you should follow the structure of the [docs](./docs) folder to see where your new pages will go. Any change to the landing page organization will be in the [Categories.tsx](./src/pages/_Home/Categories/Categories.tsx) file. Any change to the outer-most level of organization will be in the [sidebars.ts](./sidebars.ts) file.
+
 ## Installation
 
 ```
@@ -31,7 +39,7 @@ We are following our normal release process:
 
 - Create a PR with your changes - a preview site will be generated and a link to it will be added as a comment in your PR
 - Merge to master and the site will be deployed to https://dev.embrace.io/docs/
-- A `draft` release is created when changes are merged to master. You can `publish` the draft release to deploy to https://embrace.io/docs/
+- A `draft` release is created when changes are merged to master. You can `publish` the draft release to deploy to https://embrace.io/docs/. Changes are NOT published until your release is live.
 
 ## Embrace Customizations
 

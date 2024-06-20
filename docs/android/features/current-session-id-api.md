@@ -17,17 +17,23 @@ In order to use this feature, you will need to follow two steps:
 2. Implement the API call to obtain the current Session ID.
 3. The method will return a String with the SessionId or null if there is no active session.
 
-#### Java
-
-```java
-Embrace.getInstance().getCurrentSessionId()
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 ```
 
-#### Kotlin
-
-```kt
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
 Embrace.getInstance().currentSessionId
 ```
+</TabItem>
+<TabItem value="java" label="Java">
+```java
+Embrace.getInstance().getCurrentSessionId();
+```
+</TabItem>
+</Tabs>
 
 :::warning Important
 If you call `Embrace.getInstance().getCurrentSessionId()` within the `onForeground()` or `onBackground()` events of your `LifecycleObserver`; keep in mind that this is the moment when the session is ending, and a new one is starting. Therefore, there is a high chance that you will get the session ID of the session that is still ending. You might need to delay the call or obtain the session ID at any other point of the app lifecycle to make sure the session ID you get is the one you are looking for.

@@ -10,8 +10,6 @@ sidebar_position: 4
 
 - Have an active Splunk account.
 
-To initiate the integration, you'll need to share your Splunk Access Token and realm with an Embrace onboarding specialist or use Embrace's UI to add Splunk as Data Destination.
-
 
 ## Pulling your Splunk Access Token ([Splunk documentation](https://docs.splunk.com/observability/en/admin/authentication/authentication-tokens/org-tokens.html#admin-org-tokens))
 

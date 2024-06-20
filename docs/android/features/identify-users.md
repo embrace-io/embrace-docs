@@ -15,9 +15,23 @@ sessions for an unhappy user.
 
 Embrace offers a set of methods to pass information about your users.
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().addUserPersona("internal_user_id_123")
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().addUserPersona("internal_user_id_123");
 ```
+</TabItem>
+</Tabs>
 
 :::warning Important
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
@@ -29,9 +43,18 @@ For more methods on setting user values, see the [API docs](/api/android/).
 
 You can also set customized values for specific use cases or segments of users.
 
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+```kotlin
+Embrace.getInstance().addUserPersona("high_value_cart")
+```
+</TabItem>
+<TabItem value="java" label="Java">
 ```java
 Embrace.getInstance().addUserPersona("high_value_cart");
 ```
+</TabItem>
+</Tabs>
 
 In the above example, the session is annotated with `"high_value_cart"`.
 This will help you identify users who have a certain dollar value in their shopping cart so you can prioritize fixing bugs that affect such users.

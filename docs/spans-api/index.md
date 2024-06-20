@@ -365,4 +365,4 @@ These are the attributes that you can use to filter your spans:
 - emb.span_id
 - emb.parent_span_id
 - emb.dashboard_session
-- emb.session_prop_{key} for every key on session properties
+- emb.session_prop_\{key\} for every key on session properties
