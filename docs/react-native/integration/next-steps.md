@@ -22,7 +22,7 @@ our [Feature Reference](/react-native/features/).
 ## API Docs
 
 To see the full list of methods that the Android Embrace SDK exposes, please see
-the [React Native API docs](/api/react-native/).
+the [source repository](/api/react-native/).
 
 ## Best Practices
 

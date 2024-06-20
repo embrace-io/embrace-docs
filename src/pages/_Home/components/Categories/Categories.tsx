@@ -180,6 +180,21 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
   ],
   "Partner Solutions": [
     {
+      title: "Grafana",
+      icon: <LogoGrafana />,
+      linkTo: "/partners/grafana",
+    },
+    {
+      title: "Chronosphere",
+      icon: <LogoChronosphere />,
+      linkTo: "/data-destinations/chronosphere-setup",
+    },
+    {
+      title: "Honeycomb",
+      icon: <LogoHoneycomb />,
+      linkTo: "/data-destinations/honeycomb",
+    },
+    {
       title: "Datadog",
       icon: <LogoDataDog />,
       linkTo: "/data-destinations/data-dog-setup",
@@ -190,24 +205,9 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "/data-destinations/new-relic-setup",
     },
     {
-      title: "Grafana",
-      icon: <LogoGrafana />,
-      linkTo: "/partners/grafana",
-    },
-    {
-      title: "Honeycomb",
-      icon: <LogoHoneycomb />,
-      linkTo: "/data-destinations/honeycomb",
-    },
-    {
       title: "Splunk",
       icon: <LogoSplunk />,
       linkTo: "/data-destinations/splunk",
-    },
-    {
-      title: "Chronosphere",
-      icon: <LogoChronosphere />,
-      linkTo: "/data-destinations/chronosphere-setup",
     },
   ],
   Platforms: [

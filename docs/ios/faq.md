@@ -56,7 +56,7 @@ Find the Embrace ID and use it to search for all of the user's sessions.
 
 ### **Do I have access to the Embrace ID at runtime?**
 
-Yes. The Embrace ID is accessible from the SDK. See the [API Docs](/api/ios/)
+Yes. The Embrace ID is accessible from the SDK and, starting with version 6.0.0, show be used in-code.
 
 ### **What do you use the keychain for? Can I delete what is stored there?**
 

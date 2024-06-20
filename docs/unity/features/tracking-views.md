@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # Tracking Views
 
-Instead of tracking screens, Embrace uses views. Use the Custom View API to start and end views manually. See the documentation [here](/api/unity/).
+Instead of tracking screens, Embrace uses views. Use the Custom View API to start and end views manually. See the source code [here](/api/unity/).
 
 ```csharp
 Embrace.Instance.StartView("MyView");

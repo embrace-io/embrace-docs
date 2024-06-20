@@ -6,7 +6,7 @@ sidebar_position: 2
 
 # Know Your Users
 
-Months after your app has been released and you user base is growing, you are going to want to start triaging issues you find in your app based on segments of your user base.
+Months after your app has been released and your user base is growing, you are going to want to start triaging issues you find in your app based on segments of your user base.
 Setting the stage for that activity now means you will be well positioned to do that work when the time comes.
 
 It is important that you annotate your sessions with enough information so that developers and other agents can find problem sessions when required.
@@ -17,10 +17,6 @@ Embrace offers two mechanisms for annotating sessions in a searchable way:
 1. [**Session Properties**](/ios/5x/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.  
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
-
-:::info
-For a full set of APIs related to user identification, see the `Embrace` class in the [iOS API](/api/ios/) documentation.
-:::
 
 ## User Personas
 

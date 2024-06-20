@@ -19,11 +19,6 @@ Embrace includes many optional advanced features that can help you figure out so
 the most challenging issues. Learn about these features, and how to enable them, in
 our [Feature Reference](/ios/5x/features/).
 
-## API Docs
-
-To see the full list of methods that the iOS Embrace SDK exposes, please see
-the [iOS API docs](/api/ios/).
-
 ## Check Out the FAQ
 
 See a list of frequently asked questions on the [FAQ](/ios/faq/) page. 
