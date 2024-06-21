@@ -1,7 +1,7 @@
 import { type Config } from "@docusaurus/types";
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+const darkCodeTheme = require("prism-react-renderer").themes.dracula;
 
 // Embrace Remark Plugins
 const embraceSdkVersion = require("./src/remark/embrace-sdk-version");
