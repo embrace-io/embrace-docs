@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       name: ${{ steps.choose_environment.outputs.name }}
+      env: ${{ steps.choose_environment.outputs.env }}
       AWS_S3_BUCKET: ${{ steps.choose_environment.outputs.AWS_S3_BUCKET }}
       AWS_CLOUDFRONT_ID: ${{ steps.choose_environment.outputs.AWS_CLOUDFRONT_ID }}
       URL: ${{ steps.choose_environment.outputs.URL }}
@@ -32,21 +33,24 @@ jobs:
         run: |
           if [ '${{ github.event_name }}/${{ github.event.action }}' == 'release/released' ] || [ '${{ github.event_name }}' == 'workflow_dispatch' ]; then
               echo 'name=production' >> $GITHUB_OUTPUT
+              echo 'env=production' >> $GITHUB_OUTPUT
               echo 'AWS_S3_BUCKET=prod.embrace.io-docs' >> $GITHUB_OUTPUT
               echo 'AWS_CLOUDFRONT_ID=EMBBYTO7JVZ55' >> $GITHUB_OUTPUT
               echo 'URL=https://embrace.io' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
           elif [ "${{ github.ref }}" == "refs/heads/master" ]; then
               echo 'name=staging' >> $GITHUB_OUTPUT
+              echo 'env=staging' >> $GITHUB_OUTPUT
               echo 'AWS_S3_BUCKET=dev.embrace.io-docs' >> $GITHUB_OUTPUT
               echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT
               echo 'URL=https://dev.embrace.io' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
           else
               echo 'name=development' >> $GITHUB_OUTPUT
+              echo 'env=dev' >> $GITHUB_OUTPUT
               echo 'AWS_S3_BUCKET=dev.embrace.io-docs' >> $GITHUB_OUTPUT
               echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT # NOTE: we aren't actually using a CDN for dev, we link directly to https://bucket.s3/url/
-              echo 'URL=http://dev.embrace.io-docs.s3-website-us-west-2.amazonaws.com' >> $GITHUB_OUTPUT # NOTE: Yes, it is http://
+              echo 'URL=http://embrace-dev-website.s3-website-us-west-2.amazonaws.com' >> $GITHUB_OUTPUT # NOTE: Yes, it is http:// not https://
               echo 'BASE_URL=/docs-pr${{ github.event.number }}' >> $GITHUB_OUTPUT
           fi
 
@@ -76,6 +80,10 @@ jobs:
         run: |
           npm run docusaurus build
           git log -1 > build/version.txt
+
+#
+# Old Bucket
+#
 
       - name: Configure AWS credentials
         if: ${{ github.actor != 'dependabot[bot]' }}
@@ -114,3 +122,31 @@ jobs:
         if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
         run: |
           aws cloudfront create-invalidation --distribution-id ${{ needs.environment.outputs.AWS_CLOUDFRONT_ID }} --paths '/docs*'
+
+#
+# New Bucket
+#
+
+      # See https://github.com/organizations/embrace-io/settings/variables/actions/AWS_ACCOUNT_IDS
+      - name: NEW-BUCKET - Set AWS identifiers
+        run: |
+          echo AWS_LOGIN_ROLE=arn:aws:iam::$(echo '${{ vars.AWS_ACCOUNT_IDS }}' | jq .login):role/login-embrace-docs >> $GITHUB_ENV
+          echo AWS_ASSUME_ROLE=arn:aws:iam::$(echo '${{ vars.AWS_ACCOUNT_IDS }}' | jq .${{ needs.environment.outputs.name }}):role/${{ needs.environment.outputs.env }}-embrace-docs >> $GITHUB_ENV
+
+      - name: NEW-BUCKET - Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_LOGIN_ROLE }}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
+
+      - name: NEW-BUCKET - Assume AWS role
+        run: |
+            pip install --upgrade awscli
+            credentials=$( aws sts assume-role --role-arn "${{ env.AWS_ASSUME_ROLE }}" --role-session-name "`echo $GITHUB_REPOSITORY | tr "/" "-"`" )
+            echo "AWS_ACCESS_KEY_ID=`echo $credentials | jq -r .Credentials.AccessKeyId`" >> $GITHUB_ENV
+            echo "AWS_SECRET_ACCESS_KEY=`echo $credentials | jq -r .Credentials.SecretAccessKey`" >> $GITHUB_ENV
+            echo "AWS_SESSION_TOKEN=`echo $credentials | jq -r .Credentials.SessionToken`" >> $GITHUB_ENV
+
+      - name: NEW-BUCKET - Sync to S3 bucket
+        run: |
+          aws s3 sync --acl public-read --delete build/ s3://embrace-${{ needs.environment.outputs.env }}-website${{ needs.environment.outputs.BASE_URL }}/ || exit 0 # TODO: Remove "exit 0"
