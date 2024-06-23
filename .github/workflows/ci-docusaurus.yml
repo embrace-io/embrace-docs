@@ -39,7 +39,7 @@ jobs:
           elif [ "${{ github.ref }}" == "refs/heads/master" ]; then
               echo 'name=staging' >> $GITHUB_OUTPUT
               echo 'env=staging' >> $GITHUB_OUTPUT
-              echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT # TODO: get from GH environment variable
+              echo 'AWS_CLOUDFRONT_ID=EVNTHHWWIX9BF' >> $GITHUB_OUTPUT # TODO: get from GH environment variable
               echo 'URL=https://dev.embrace.io' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
           else
