@@ -38,7 +38,7 @@ You can serve contents of that static directory using `npm run serve`
 We are following our normal release process:
 
 - Create a PR with your changes - a preview site will be generated and a link to it will be added as a comment in your PR
-- Merge to master and the site will be deployed to https://dev.embrace.io/docs/
+- Merge to master and the site will be deployed to [staging](https://stg.emb-eng.com/docs/)
 - A `draft` release is created when changes are merged to master. You can `publish` the draft release to deploy to https://embrace.io/docs/. Changes are NOT published until your release is live.
 
 ## Embrace Customizations
