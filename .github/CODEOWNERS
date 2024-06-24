@@ -3,7 +3,9 @@
 scripts @embrace-io/team-devops
 
 # JavaScript
-package*.json **/*.js **/*.ts @embrace-io/guild-ui
+package*.json @embrace-io/guild-ui
+**/*.js @embrace-io/guild-ui
+**/*.ts @embrace-io/guild-ui
 
 # SDK Teams
 docs/android @embrace-io/sdk-android
