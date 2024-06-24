@@ -107,6 +107,7 @@ jobs:
           aws cloudfront create-invalidation --distribution-id ${{ needs.environment.outputs.AWS_CLOUDFRONT_ID }} --paths '${{ needs.environment.outputs.BASE_URL }}*'
 
       - name: Add pull request comment
+        if: ${{ github.event_name == 'pull_request' }}
         uses: actions/github-script@v7
         with:
           script: |
