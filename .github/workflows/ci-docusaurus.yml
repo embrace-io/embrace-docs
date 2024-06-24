@@ -33,20 +33,20 @@ jobs:
           if [ '${{ github.event_name }}/${{ github.event.action }}' == 'release/released' ] || [ '${{ github.event_name }}' == 'workflow_dispatch' ]; then
               echo 'name=production' >> $GITHUB_OUTPUT
               echo 'env=production' >> $GITHUB_OUTPUT
-              echo 'AWS_CLOUDFRONT_ID=EMBBYTO7JVZ55' >> $GITHUB_OUTPUT # TODO: get from GH environment variable
+              echo 'AWS_CLOUDFRONT_ID=EMBBYTO7JVZ55' >> $GITHUB_OUTPUT
               echo 'URL=https://embrace.io' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
           elif [ "${{ github.ref }}" == "refs/heads/master" ]; then
               echo 'name=staging' >> $GITHUB_OUTPUT
               echo 'env=staging' >> $GITHUB_OUTPUT
-              echo 'AWS_CLOUDFRONT_ID=EVNTHHWWIX9BF' >> $GITHUB_OUTPUT # TODO: get from GH environment variable
-              echo 'URL=https://dev.embrace.io' >> $GITHUB_OUTPUT
+              echo 'AWS_CLOUDFRONT_ID=E4A8IBR0CE998' >> $GITHUB_OUTPUT
+              echo 'URL=https://stg.emb-eng.com' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
           else
               echo 'name=development' >> $GITHUB_OUTPUT
               echo 'env=dev' >> $GITHUB_OUTPUT
-              echo 'AWS_CLOUDFRONT_ID=E20WGO1Z361L37' >> $GITHUB_OUTPUT # NOTE: we aren't actually using a CDN for dev, we link directly to https://bucket.s3/url/
-              echo 'URL=http://embrace-dev-website.s3-website-us-west-2.amazonaws.com' >> $GITHUB_OUTPUT # NOTE: Yes, it is http:// not https://
+              echo 'AWS_CLOUDFRONT_ID=E2WHYGE4IOWA0Y' >> $GITHUB_OUTPUT
+              echo 'URL=https://dev.emb-eng.com' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs-pr${{ github.event.number }}' >> $GITHUB_OUTPUT
           fi
 
@@ -99,11 +99,14 @@ jobs:
 
       - name: Sync to S3 bucket
         run: |
-          # Automagically uses embrace-production-website, embrace-staging-website or embrace-dev-website
           aws s3 sync --acl public-read --delete build/ s3://embrace-${{ needs.environment.outputs.env }}-website${{ needs.environment.outputs.BASE_URL }}/
+          # The above automagically uses embrace-production-website, embrace-staging-website or embrace-dev-website
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ needs.environment.outputs.AWS_CLOUDFRONT_ID }} --paths '${{ needs.environment.outputs.BASE_URL }}*'
 
       - name: Add pull request comment
-        if: ${{ github.event_name == 'pull_request' && github.actor != 'dependabot[bot]' }}
         uses: actions/github-script@v7
         with:
           script: |
@@ -113,8 +116,3 @@ jobs:
               repo: context.repo.repo,
               body: 'Preview of ${{ github.sha }} deployed to: ${{ needs.environment.outputs.URL }}${{ needs.environment.outputs.BASE_URL }}/'
             })
-
-      - name: Invalidate CloudFront cache
-        if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ needs.environment.outputs.AWS_CLOUDFRONT_ID }} --paths '/docs*'
