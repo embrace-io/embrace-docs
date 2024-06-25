@@ -28,6 +28,10 @@ sidebar_position: 4
 * Allows for generic export of Traces and Logs via the protocols in the OpenTelemetrySdk.
 * Allows for custom Automatic Instrumentation via CaptureService subclasses
 
+## 5.25.3
+*June 25, 2024*
+* Made improvements to the startup performance of the SDK.
+
 ## 5.25.2
 *May 10, 2024*
 * Fixed a bug that prevented setting up Username and Email.
