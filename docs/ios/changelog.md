@@ -29,7 +29,7 @@ sidebar_position: 4
 * Allows for custom Automatic Instrumentation via CaptureService subclasses
 
 ## 5.25.3
-*June 24, 2024*
+*June 25, 2024*
 * Made improvements to the startup performance of the SDK.
 
 ## 5.25.2
