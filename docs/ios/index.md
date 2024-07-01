@@ -16,10 +16,6 @@ Presently there are __two__ major versions of the Apple SDK available: 5.x and 6
 
 5.x is our stable, closed-source SDK that has been generally available since the year 2020. 6.x is our open-source SDK that is approaching general availability, but may currently lack some features that Embrace customers use today.
 
-:::warning Important
-Current Embrace customers should not upgrade their production SDKs from 5.x versions at this time.
-:::
-
 Versions 5.x and 6.x are not compatible nor are they interoperable. The 6.x SDK is built on [OpenTelemetry](https://opentelemetry.io), and the features and signals that it provides have different semantics than previous versions. 6.x is also a rewrite of the SDK in the Swift programming language, so it does not include features that we won't support in the future, like Moments. 
 
 Most of the feature discussion in these docs applies to both versions, as the Embrace dashboard works for both versions. However, when in doubt the features will reflect features from the 5.x SDK.
