@@ -27,7 +27,14 @@ If your application handles sensitive or private data of any kind, you can prote
 In your `embrace-config.json` file, first create a new property entry titled:
 
 ```
-capture_public_key
+  ...
+  "sdk_config": {
+    "networking": {
+      "capture_request_content_length": true
+    },
+    "capture_public_key": "[Your Public Key]"
+  }
+  ... 
 ```
 
 RSA encryption uses two keys: a private and a public key. You may already be familiar with this protocol and the security team in your organization may already have public keys available for you to use. Before generating new keys, check with your organization.  
