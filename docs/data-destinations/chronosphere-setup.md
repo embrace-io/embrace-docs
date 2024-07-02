@@ -15,8 +15,8 @@ sidebar_position: 5
 1. Log into your Chronosphere account.
 2. Navigate to your [service accounts](https://partner-threec.chronosphere.io/service-accounts?column=name&order=asc)
 3. Create a new service account called "embrace-integration".
-   4. Service account type must be "unrestricted".
-3. Copy the service account token's (**not service account ID**).
+4. Service account type must be "unrestricted".
+5. Copy the service account token's (**not service account ID**).
 
 <img src={require('@site/static/images/data-destinations/chronosphere_token.png').default} alt="Image showing Chronosphere field needed" />
 
