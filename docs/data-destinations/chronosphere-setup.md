@@ -23,6 +23,6 @@ sidebar_position: 5
 ## Pulling your Tenant ID
 
 1. Navigate to your Chronosphere account.
-2. Share the "tenant ID" that you access on (it is on the top of the page). For example, in this case it is "embrace-integration".
+2. Share the "tenant ID" that you access on (it is on the URL of the page). For example, in this case it is "embrace-integration".
 
 <img src={require('@site/static/images/data-destinations/chronosphere_tenant_id.png').default} alt="Image showing Chronosphere field needed" />
