@@ -16,7 +16,8 @@ Embrace can automatically add a unique identifier to **every** network request y
 
 <img src={require('@site/static/images/nsf-example.png').default} alt="traceparent example" />
 
-We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propagate through the traces products of Grafana Cloud Traces, Honeycomb, Datadog, New Relic, and others. According to the w3c convention, you can use the [`trace-id`](https://www.w3.org/TR/trace-context-1/#examples-of-http-traceparent-headers) portion of the traceparent to find your forwarded traces in the destination product.
+We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propagate through the traces products of Grafana Cloud, Honeycomb, Datadog, New Relic, Chronosphere, and others. 
+According to the w3c convention, you can use the [`trace-id`](https://www.w3.org/TR/trace-context-1/#examples-of-http-traceparent-headers) portion of the traceparent to find your forwarded traces in the destination product.
 
 You can also specify the domains that Embrace should forward network spans for. Speak to [support](mailto:support@embrace.com) to find out more.
 
@@ -43,7 +44,7 @@ Once all requirements are met, Network Spans Forwarding will be set up by an int
 
 Additionally, Embrace can forward metadata associated with each call.  Device, app version, and OS version will be properties for each traceparent-tagged call, forwarded as an OTel Span.  Your backend team can use their observability tools to set up analyses and monitoring.
 
-Embrace currently supports Network Span Forwarding for Grafana Cloud Traces, New Relic, Honeycomb and Datadog.  See our guide to enabling [Data Destinations](/data-destinations/) to get started.
+Embrace currently supports Network Span Forwarding for Grafana Cloud, New Relic, Honeycomb, Datadog and Chronosphere.  See our guide to enabling [Data Destinations](/data-destinations/) to get started.
 
 
 <img src={require('@site/static/images/NSF > Honeycomb example.png').default} alt="NSF in honeycomb" />

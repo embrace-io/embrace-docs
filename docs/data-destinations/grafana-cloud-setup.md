@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## Prerequisites
 
-- Have an active Grafana Cloud account
+- Have an active Grafana Cloud account.
 
 ## Pulling your Grafana Cloud API Key or Access Policy / Token
 

@@ -14,6 +14,7 @@ As part of our Metrics Forwarding package, Embrace offers a number of Data Desti
 * [Grafana Cloud integration guide](/data-destinations/grafana-cloud-setup.md)
 * [Honeycomb integration guide](/data-destinations/honeycomb.md)
 * [Splunk integration guide](/data-destinations/splunk.md)
+* [Chronosphere integration guide](/data-destinations/chronosphere.md)
 
 All destinations receive a set of Standard metrics in daily, hourly, and five-minutely granularities:
 * crash total
