@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## Prerequisites
 
-- Active New Relic account
+- Have an active New Relic account.
 
 
 ## Pulling your New Relic API Key ([New Relic documentation](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#license-key))
