@@ -1,6 +1,6 @@
 # Embrace Docs
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static documentation generator written using React Native.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static documentation generator written using React Native.
 
 ## Updating these docs
 
