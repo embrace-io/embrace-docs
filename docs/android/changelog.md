@@ -6,12 +6,30 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.9.0
+*July 4, 2024*
+- OpenTelemetry compatibility improvements:
+    - Provide implementation of the [OpenTelemetry Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/). 
+        - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Performance Tracing API. 
+        - This can be obtained through the `getOpenTelemetry()` method, which will return working implementations for methods involving tracing. Methods involving Logs and Metrics are no-ops at the current time.
+    - Stopping spans through the Embrace Performance Tracing API no longer implicitly sets Status to `OK`.
+    - Add `telemetry.distro.*` resource attributes to exported signals.
+    - Update OpenTelemetry SDK dependency to version 1.38 of the [OpenTelemetry BOM](https://github.com/open-telemetry/opentelemetry-java?tab=readme-ov-file#bill-of-material).
+    - Consume semantic conventions from [OTel Semantic Conventions for Java](https://github.com/open-telemetry/semantic-conventions-java).
+- Enhance Performance Tracing API to support behavior exposed via the OpenTelemetry Tracing API.
+- Change internal endpoint to which session data is sent (no user-facing behavior changes).
+- Issue build warning for apps that have minSdk < 24 and are using AGP < 8.3.
+    - If minSdk is lower than 24 (i.e. Android 5 and/or 6 is supported by the app), AGP version 8.3+ must be used so the app can be desugared with the proper setting.
+    - See [this question](/android/faq/#the-sdk-should-support-api-level-21-but-i-get-an-error-saying-i-need-to-set-androidusefullclasspathfordexingtransformapi) in the FAQ for details.
+- Fix DexGuard support.
+
+
 ## 6.8.2
-*Jun 7, 2024*
+*June 7, 2024*
 - Remove dependency on the configuration attribute `enable_automatic_activity_capture` for manually capturing views
 
 ## 6.8.1
-*Jun 4, 2024*
+*June 4, 2024*
 - Fix a build error while reading the api_token from an environment variable.
 
 ## 6.8.0
