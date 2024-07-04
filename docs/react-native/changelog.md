@@ -5,6 +5,13 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
+## 4.2.0
+_July 04, 2024_
+* Made timeStampMS in addSpanEventToSpan mandatory
+* Added support for Kotlin and Swift to the install scripts
+* Added startTimeMs in startSpan
+* Added endTimeMs in stopSpan
+* Updated iOS native Embrace SDK dependency to 5.25.2.
 ## 4.1.2
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.
