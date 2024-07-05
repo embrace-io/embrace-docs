@@ -77,16 +77,28 @@ npm install @embrace-io/react-native-spans
 
 ### Create a Span
 
-
 ```javascript
 // create a trace by creating its root span
 // recording will not behind until the span has been started
 
 import { startSpan } from '@embrace-io/react-native-spans';
 
-// startSpan: (name: string, parentSpanId?: string) => Promise<boolean | string>;
+// startSpan: (name: string, parentSpanId?: string, startTimeMs?:number) => Promise<boolean | string>;
 
 const spanId = await startSpan("parentname")
+
+```
+
+### Create a Span that started in the past (or future)
+
+```javascript
+// create a trace by creating its root span
+
+import { startSpan } from '@embrace-io/react-native-spans';
+
+// startSpan: (name: string, parentSpanId?: string, startTimeMs?:number) => Promise<boolean | string>;
+const startTimeMs = new Date().getTime()
+const spanId = await startSpan("parentname", undefined, startTimeMs)
 
 ```
 
@@ -115,7 +127,7 @@ stopSpan(spanId)
 
 import { startSpan, stopSpan, addSpanEventToSpan } from '@embrace-io/react-native-spans';
 
-// addSpanEventToSpan: (spanId: string, name: string, timeStampMs?: number, 
+// addSpanEventToSpan: (spanId: string, name: string, timeStampMs: number, 
 //    attributes?: Attributes) => Promise<boolean>;
 
 // Starting a span
@@ -142,18 +154,19 @@ stopSpan(spanId)
 
 import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 
-// stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
+// stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES, endTimeMs?:number) => Promise<boolean>;
+// type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
 // Starting a span
 const spanId = await startSpan("parentname")
 
 // Do something
 
+const endTimeMs = new Date().getTime()
 // Stopping the span
-stopSpan(spanId)
+stopSpan(spanId, "Failure", endTimeMs)
 
 ```
-
 
 ### Stop Span For an Operation That Failed
 
@@ -162,7 +175,7 @@ stopSpan(spanId)
 
 import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 
-// stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES) => Promise<boolean>;
+// stopSpan: (spanId: string, errorCode?: SPAN_ERROR_CODES, endTimeMs?:number) => Promise<boolean>;
 // type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
 // Starting a span
@@ -196,6 +209,10 @@ stopSpan(secondChildSpanId)
 stopSpan(parentSpanId)
 
 ```
+
+:::info Minimum Requirements
+- In order for a child span to be recorded, you must stop it before stopping the parent span.
+:::
 
 ### Create a span around a function (It will stop after the function finish)
 
@@ -255,7 +272,6 @@ import { recordCompletedSpan } from '@embrace-io/react-native-spans';
 //   timeStampMs?: number;
 //   attributes?: Attributes;
 // }
-
 
 const attributes = {
   "key1":"value1",

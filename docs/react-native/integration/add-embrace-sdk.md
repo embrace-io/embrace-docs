@@ -39,6 +39,13 @@ node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
 node node_modules/@embrace-io/react-native/lib/scripts/setup/installIos.js
 ```
 
+:::info Clean Up Embrace implementation
+If you need to clean up an Embrace implementation added manually or by our scripts you can use our uninstall script
+```shell-session
+node node_modules/@embrace-io/react-native/lib/scripts/setup/uninstall.js
+```
+:::
+
 You can use git to see the changes that the script made.
 
 ```shell-session
