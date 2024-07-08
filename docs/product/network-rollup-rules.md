@@ -18,6 +18,51 @@ the first|last match wins.
 
 Custom rules are applied on the backend on a going forward basis.
 
+# Sample Use Cases
+
+### Collapsing High Cardinality Fields
+If you have an endpoint with a high cardinality field, such as a UUID, you may want to collapse all requests to that
+endpoint into a single group. You can achieve this by using the `«wildcard»` rule to collapse all the requests into a 
+single group.
+
+```shell
+my.api.domain/v1/users/«wildcard»/messages
+```
+
+This will collapse the following requests:
+
+```shell
+my.api.domain/v1/users/1234bcdd/messages
+my.api.domain/v1/users/user@mail.com/messages
+my.api.domain/v1/users/test-user/messages
+```
+
+### Preventing Collapsing of Specific Endpoints
+You may have a specific endpoint that you do not want to collapse at all. In our previous example we may not want to
+collapse the `test-user` endpoint since we use that for testing purposes. We can achieve this by adding a rule that
+exactly matches the endpoint and placing it after the wildcard rule.
+
+```
+my.api.domain/v1/users/«wildcard»/messages
+my.api.domain/v1/users/test-user/messages
+```
+
+Since the last rule wins, this setup will collapse all endpoints except for the `test-user` endpoint.
+
+
+### Collapse CDN Images
+You can collapse endpoints for third-party SDKs into a single groups. For example, CDNs will have a large number of
+path segments with a common prefix. You can collapse all the requests to the CDN into a single group by using the
+`«**»` rule and an extension rule `«ext:jpg»`.
+
+```shell
+my.cdn.domain/images/0x0/b/d/123x123/bd1234c-cb6f-4c9f-9df6-6787903c5442/file.jpg
+my.cdn.domain/images/0x0/b/d/123x123/bd1234c-cb6f-4c9f-9df6-6787903c5442/image.jpg
+my.cdn.domain/images/0x0/b/d/123x123/afcd333-4c9f-9df6-6787903c5442/splash.jpg
+my.cdn.domain/images/icons/badge.jpg
+```
+
+
 # Rules Reference
 
 We currently provide the following patterns:
