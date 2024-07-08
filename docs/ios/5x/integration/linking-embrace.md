@@ -72,12 +72,12 @@ artifact in this case.
 First edit or create a `Cartfile` at the root of your project, add a line to file
 as follows:
 ```
-binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
+binary "https://downloads.embrace.io/embrace-apple-sdk.json"
 ```
 
 If you also have an Apple TV target in your project, also add this to your `Cartfile`:
 ```
-binary "https://s3.amazonaws.com/embrace-downloads-prod/embrace-tvos.json"
+binary "https://downloads.embrace.io/embrace-apple-tvos-sdk.json"
 ```
 
 
@@ -87,9 +87,9 @@ the Embrace framework for integration:
 ```shell-session
 Carthage update
 
-*** Downloading binary-only framework embrace-ios at "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
+*** Downloading binary-only framework embrace-ios at "https://downloads.embrace.io/embrace-apple-sdk.json"
 *** xcodebuild output can be found in /var/folders/qp/gt8h3p297jb778655s3c4z4h0000gn/T/carthage-xcodebuild.e1oenh.log
-*** Downloading binary-only framework embrace-ios at "https://s3.amazonaws.com/embrace-downloads-prod/embrace-prod.json"
+*** Downloading binary-only framework embrace-ios at "https://downloads.embrace.io/embrace-apple-sdk.json"
 *** Downloading embrace-ios.framework binary at "4.1.18"
 ```
 
@@ -153,7 +153,7 @@ Here is the general process we will be following:
 
 First we must download the latest Embrace release which you can do using the following command:
 ```shell-session
-curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://embrace-downloads-prod.s3.amazonaws.com/embrace_{{ embrace_sdk_version platform="ios" }}.zip
+curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://downloads.embrace.io/embrace_{{ embrace_sdk_version platform="ios" }}.zip
 ```
 After downloading the zip, extract it into a location within your project. If you
 don't already have a spot for third party frameworks, we recommend following the

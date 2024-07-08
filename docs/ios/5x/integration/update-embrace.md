@@ -30,7 +30,7 @@ When a new version of the Embrace SDK is published we announce it in our Slack c
 If you’d like to upgrade, simply grab the latest version:
 
 ```shell-session
-curl -o embrace_{{ embrace_sdk_version platform="ios" }}.zip https://embrace-downloads-prod.s3.amazonaws.com/embrace_{{ embrace_sdk_version platform="ios" }}.zip
+curl -o embrace_{{ embrace_sdk_version platform="ios" }}.zip https://downloads.embrace.io/embrace_{{ embrace_sdk_version platform="ios" }}.zip
 ```
 
 Overwrite your downloaded copy in the `third_party` folder and Xcode should automatically pick it up the next time you build your application. This assumes you've followed the manual integration steps from the [Linking Embrace section](/ios/5x/integration/linking-embrace#manual).
