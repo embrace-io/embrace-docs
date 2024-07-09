@@ -5,7 +5,7 @@ sidebar_position: 1
 ---
 
 # Integration Setup
-The Embrace SDK can be configured to work broadly with the OpenTelemetry ecosystem. This means that captured telemetry can be sent directly from the SDK to any configured OTel Collectors, and additional OTel instrumentation can be included in the Embrace session as if they were instrumented by the SDK itself.
+The Embrace SDK can be configured to work with other components in the OpenTelemetry ecosystem. This includes any Exporters and instrumentation libraries that can run on the supported mobile platforms, so long as the underlying API is implementmented by Embrace. It means that telemetry captured by the SDK can be sent directly from the mobile app to any configured OTel Collector. As well, additional OTel signals recorded by instrumentation libraries external to Embrace will be included in the Embrace session, as if they were recorded by the SDK itself. Any OTel APIs implemented by Embrace can also be used directly by SDK users if they so choose.
 
 
 ## Export to OpenTelemetry Collectors
@@ -53,12 +53,6 @@ To see this working locally, [LoggingSpanExporter](https://github.com/open-telem
 
 You can send your data to any generic OpenTelemetry Collector by using any Android-compatible exporter. Note that not all Java SpanExporter or LogRecordExporter can be used on Android.
 
-:::warning
-**Network request to OpenTelemetry Collectors should not be logged**
-
-To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disable_url_patterns` setting in the Embrace Configuration file. See [this page](/android/features/configuration-file/#disabled_url_patterns-string-array) for details.
-:::
-
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
 
@@ -85,6 +79,12 @@ Embrace.getInstance().addSpanExporter(customDockerExporter);
 
 </TabItem>
 </Tabs>
+
+:::warning
+**Network requests to OpenTelemetry Collectors should not be logged**
+
+To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disable_url_patterns` setting in the Embrace Configuration file. See [this page](/android/features/configuration-file/#disabled_url_patterns-string-array) for details.
+:::
 
 #### Sending Telemetry to Grafana Cloud
 
@@ -119,7 +119,7 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
 </TabItem>
 </Tabs>
 
-## Use the Embrace Implementation of Tracing API
+## Use the OpenTelemetry Tracing API
 An Embrace-enhanced implementation of the [OTel Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/) can be obtained through the SDK. The resulting `OpenTelemetry` object will provide working implementations of interfaces and methods of said API, with proper attribution included in the resource of the exported spans. All other methods will be no-ops for the time being, as the other APIs have not been implemented.
 
 ### Limitions
@@ -127,7 +127,7 @@ The Embrace implementation of the Tracing API deviates from the official SDK imp
 
 * SpanLinks are not supported - `addLink()` in the `Span` implementation is a no-op.
 * Attribute values are persisted as Strings.
-* The resource attributes `service.name` and `service.version` refer to the Embrace SDK.
+* The resource attributes `service.name` and `service.version` refer to the Embrace SDK at this time. This will be changed shortly.
 
 
 ### Android
