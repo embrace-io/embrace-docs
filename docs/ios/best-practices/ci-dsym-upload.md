@@ -140,7 +140,7 @@ The `APP_KEY` and `API_TOKEN` envvars should be retrieved from the Embrace dashb
 If the Embrace `upload` utility is in a known location you should use the existing binary. If it is non-deterministic or not included alongside the Embrace package itself, then you can download the utility directly.
 
 ```shell-session
-curl -o ./embrace_support.zip https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip
+curl -o ./embrace_support.zip https://downloads.embrace.io/embrace_support.zip
 unzip ./embrace_support.zip
 ./upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
 ```
@@ -176,7 +176,7 @@ then
   cd $CI_ARCHIVE_PATH/dSYMs && zip -r ~/dsym_output.zip . && cd -
 
   # download/unzip Embrace support package
-  curl -o ./embrace_support.zip https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip
+  curl -o ./embrace_support.zip https://downloads.embrace.io/embrace_support.zip
   unzip ./embrace_support.zip
 
   # call Embrace upload tool
