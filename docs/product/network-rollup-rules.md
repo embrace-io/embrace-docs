@@ -52,14 +52,20 @@ Since the last rule wins, this setup will collapse all endpoints except for the 
 
 ### Collapse CDN Images
 You can collapse endpoints for third-party SDKs into a single groups. For example, CDNs will have a large number of
-path segments with a common prefix. You can collapse all the requests to the CDN into a single group by using the
-`«**»` rule and an extension rule `«ext:jpg»`.
+path segments with a common prefix. 
 
 ```shell
 my.cdn.domain/images/0x0/b/d/123x123/bd1234c-cb6f-4c9f-9df6-6787903c5442/file.jpg
 my.cdn.domain/images/0x0/b/d/123x123/bd1234c-cb6f-4c9f-9df6-6787903c5442/image.jpg
 my.cdn.domain/images/0x0/b/d/123x123/afcd333-4c9f-9df6-6787903c5442/splash.jpg
 my.cdn.domain/images/icons/badge.jpg
+```
+
+You can collapse all the requests to the CDN into a single group by using the
+`«**»` rule and an extension rule `«ext:jpg»`. Here's the new rule:
+
+```
+my.cdn.domain/images/«**»/«ext:jpg»
 ```
 
 
