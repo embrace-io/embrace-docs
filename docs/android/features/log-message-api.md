@@ -1,6 +1,6 @@
 ---
 title: Adding Logs
-sidebar_position: 5
+sidebar_position: 6
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
 

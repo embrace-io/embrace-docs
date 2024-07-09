@@ -50,6 +50,38 @@ const DEFAULT_TABLER_ICON_PROPS = {
   color: "var(--icon-color)",
 };
 const CATEGORIES: Record<Categories, HomeCardProps[]> = {
+  Platforms: [
+    {
+      title: "Android",
+      description: "Add Embrace to your Android project.",
+      icon: <LogoAndroid className={styles.platformLogo} />,
+      linkTo: "/android",
+    },
+    {
+      title: "iOS",
+      description: "Add Embrace to your iOS project.",
+      icon: <LogoIOS className={styles.platformLogo} />,
+      linkTo: "/ios",
+    },
+    {
+      title: "React Native",
+      description: "Add Embrace to your React Native project.",
+      icon: <LogoReactNative className={styles.platformLogo} />,
+      linkTo: "/react-native",
+    },
+    {
+      title: "Unity",
+      description: "Add Embrace to your Unity project.",
+      icon: <LogoUnity className={styles.platformLogo} />,
+      linkTo: "/unity",
+    },
+    {
+      title: "Flutter",
+      description: "Add Embrace to your Flutter project.",
+      icon: <LogoFlutter className={styles.platformLogo} />,
+      linkTo: "/flutter",
+    },
+  ],
   Essentials: [
     {
       title: "Product Overview",
@@ -73,22 +105,23 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
   ],
   "OpenTelemetry": [
     {
-      title: "Performance Tracing",
+      title: "Overview",
       description:
-        "Complete visibility into any customized operation you’d like to track.",
-      icon: <PerformanceTraces className={styles.svgIcon} />,
-      linkTo: "/product/performance-tracing",
+        "See how Embrace builds on top of OpenTelemetry to provide a seamless integration into the ecosystem.",
+      icon: <IconSdk {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/open-telemetry/",
     },
     {
-      title: "Error Logs Tracking",
-      description: "Identify issues faster with Error Tracking.",
-      icon: <IconTimelineEventExclamation {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/open-telemetry/error-logs-tracking",
+      title: "Integration Setup",
+      description:
+        "Learn how to use the Embrace SDK to send data to and retrieve data from OpenTelemetry components.",
+      icon: <IconSdk {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/open-telemetry/integration/",
     },
     {
       title: "SDK Repositories",
       description:
-        "The Embrace OSS Android, iOS, React Native, Unity and Flutter SDKs.",
+        "The Embrace OSS Android, Apple, React Native, Unity, and Flutter SDKs.",
       icon: <IconSdk {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/open-telemetry/sdk-repositories",
     },
@@ -137,6 +170,19 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     },
   ],
   Features: [
+    {
+      title: "Performance Tracing",
+      description:
+        "Complete visibility into any customized operation you’d like to track.",
+      icon: <PerformanceTraces className={styles.svgIcon} />,
+      linkTo: "/features/performance-tracing",
+    },
+    {
+      title: "Error Logs Tracking",
+      description: "Identify issues faster with Error Tracking.",
+      icon: <IconTimelineEventExclamation {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/features/error-logs-tracking",
+    },
     {
       title: "User Session Insights",
       description:
@@ -208,38 +254,6 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "Splunk",
       icon: <LogoSplunk />,
       linkTo: "/data-destinations/splunk",
-    },
-  ],
-  Platforms: [
-    {
-      title: "Android",
-      description: "Add Embrace to your Android project.",
-      icon: <LogoAndroid className={styles.platformLogo} />,
-      linkTo: "/android",
-    },
-    {
-      title: "iOS",
-      description: "Add Embrace to your iOS project.",
-      icon: <LogoIOS className={styles.platformLogo} />,
-      linkTo: "/ios",
-    },
-    {
-      title: "React Native",
-      description: "Add Embrace to your React Native project.",
-      icon: <LogoReactNative className={styles.platformLogo} />,
-      linkTo: "/react-native",
-    },
-    {
-      title: "Unity",
-      description: "Add Embrace to your Unity project.",
-      icon: <LogoUnity className={styles.platformLogo} />,
-      linkTo: "/unity",
-    },
-    {
-      title: "Flutter",
-      description: "Add Embrace to your Flutter project.",
-      icon: <LogoFlutter className={styles.platformLogo} />,
-      linkTo: "/flutter",
     },
   ],
 };

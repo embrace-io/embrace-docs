@@ -149,6 +149,14 @@ const config: Config = {
             to: "/android/features/tracing/",
             from: "/android/features/performance-monitoring/",
           },
+          {
+            to: "/features/error-logs-tracking",
+            from: "/open-telemetry/error-logs-tracking",
+          },
+          {
+            to: "/features/performance-tracing",
+            from: "/product/performance-tracing",
+          },
         ],
       },
     ],
