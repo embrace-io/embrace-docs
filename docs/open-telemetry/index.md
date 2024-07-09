@@ -10,4 +10,3 @@ sidebar_position: 0
 Embrace SDKs record app behavior and user interactions as OpenTelemetry Spans and Logs, which can be directly sent to OTel Collectors from the app. Similarly, OTel signals can be exported from the Embrace backend to any OTel Collector, allowing for a more curated set of telemetry to be sent that isn't necessarily just a subset of what the SDK records. This isn't sampling - it's value-adding.
 
 The APIs offered by the Embrace SDK are idiomatic to the supported mobile platforms and are tailored to developers in those ecosystems. Additionally, we are working to offer implementations of the standard OTel APIs so that existing OTel instrumentations for the various mobile platforms can be directly plugged into the Embrace data ingestion pipeline. Our goal is to extend the SDK's capability as far as OTel and the community will take it.
-

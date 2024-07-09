@@ -5,7 +5,7 @@ sidebar_position: 1
 ---
 
 # Integration Setup
-The Embrace SDK can be configured to work with other components in the OpenTelemetry ecosystem. This includes any Exporters and instrumentation libraries that can run on the supported mobile platforms, so long as the underlying API is implementmented by Embrace. It means that telemetry captured by the SDK can be sent directly from the mobile app to any configured OTel Collector. As well, additional OTel signals recorded by instrumentation libraries external to Embrace will be included in the Embrace session, as if they were recorded by the SDK itself. Any OTel APIs implemented by Embrace can also be used directly by SDK users if they so choose.
+The Embrace SDK can be configured to work with other components in the OpenTelemetry ecosystem. This includes any Exporters and instrumentation libraries that can run on the supported mobile platforms, so long as the underlying API is implemented by Embrace. It means that telemetry captured by the SDK can be sent directly from the mobile app to any configured OTel Collector. As well, additional OTel signals recorded by instrumentation libraries external to Embrace will be included in the Embrace session, as if they were recorded by the SDK itself. Any OTel APIs implemented by Embrace can also be used directly by SDK users if they so choose.
 
 
 ## Export to OpenTelemetry Collectors
@@ -122,7 +122,7 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
 ## Use the OpenTelemetry Tracing API
 An Embrace-enhanced implementation of the [OTel Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/) can be obtained through the SDK. The resulting `OpenTelemetry` object will provide working implementations of interfaces and methods of said API, with proper attribution included in the resource of the exported spans. All other methods will be no-ops for the time being, as the other APIs have not been implemented.
 
-### Limitions
+### Limitations
 The Embrace implementation of the Tracing API deviates from the official SDK implementations in the following ways:
 
 * SpanLinks are not supported - `addLink()` in the `Span` implementation is a no-op.
