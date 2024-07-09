@@ -66,6 +66,8 @@ public final class MyApplication extends Application {
 </TabItem>
 </Tabs>
 
+We currently recommend that you start the SDK on the main thread to ensure you're capturing mobile telemetry and crashes as soon as possible.
+
 
 ## End the startup moment
 
