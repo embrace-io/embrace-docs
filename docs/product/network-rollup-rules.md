@@ -18,6 +18,14 @@ the first|last match wins.
 
 Custom rules are applied on the backend on a going forward basis.
 
+# Rules Reference
+
+We currently provide the following patterns:
+
+* `«wildcard»` - Matches any single path segment
+* `«**»` - Matches any number of path segments
+* `«ext:file_extension»` - Matches a string ending with a period and a 2 to 5 character extension.
+
 # Sample Use Cases
 
 ### Collapsing High Cardinality Fields
@@ -68,28 +76,3 @@ You can collapse all the requests to the CDN into a single group by using the
 my.cdn.domain/images/«**»/«ext:jpg»
 ```
 
-
-# Rules Reference
-
-We currently provide the following patterns:
-
-* «wildcard» - Matches any single path segment
-* «**» - Matches any number of path segments
-* «ext:file_extension» - Matches a string ending with a period and a 2 to 5 character extension.
-
-Here are some examples for custom rules:
-
-api.domain.com/«wildcard»/login
-api.domain.com/images/«**»/«ext:jpg»
-
-The `api.domain.com/«wildcard»/login` will match the following paths:
-- api.domain.com/v1/login
-- api.domain.com/v2/login
-- api.domain.com/extern/login
-
-It will not match `api.domain.com/login`, since the wildcard needs something between the domain and login path segment.
-
-The rule `api.domain.com/images/«**»/«ext:jpg»` will match any endpoint with the prefix `api.domain.com/images` that
-ends with a JPG file. It will match the following:
-- api.domain.com/images/icon.jpg
-- api.domain.com/images/0x0/bin/a/d/adb4108c-cb6f-4c9f-9df6-6787903c5442/file.jpg
