@@ -1,6 +1,6 @@
 ---
 title: Performance Tracing
-sidebar_position: 7
+sidebar_position: 1
 ---
 
 # Performance Tracing

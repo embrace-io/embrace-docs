@@ -1,7 +1,7 @@
 ---
 title: Moments
 description: Measure the performance of your Android application using Embrace
-sidebar_position: 1
+sidebar_position: 15
 ---
 
 # Moments

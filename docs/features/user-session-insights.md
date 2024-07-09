@@ -1,7 +1,7 @@
 ---
 title: User Session Insights
 description: User Session Insights
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # User Session Insights

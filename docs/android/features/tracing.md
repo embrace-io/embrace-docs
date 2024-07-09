@@ -1,7 +1,7 @@
 ---
 title: Performance Tracing
 description: Record traces to monitor the production performance and success rates of operations within your mobile app.
-sidebar_position: 14
+sidebar_position: 2
 ---
 
 # Performance Tracing
@@ -13,10 +13,8 @@ Embrace’s Performance Tracing solution gives you visibility into any app opera
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Android SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
-- If your app supports Android versions below 7.0, you need to enable Java 8 API desugaring so that some language features that were not part of those earlier Android releases are added at build time. Please refer to the [Google documentation on how to enable desugaring for your app](https://developer.android.com/studio/write/java8-support#library-desugaring).
+**We recommend using the latest Android SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
 :::
-
 
 The Embrace Performance Tracing API allows you to:
 

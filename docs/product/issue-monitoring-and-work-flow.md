@@ -52,7 +52,7 @@ Slow Traces serve as a valuable tool for pinpointing performance bottlenecks swi
 
 They're grouped by trace name and comprise instances with both significant occurrences (100 over the last two days)
 and durations surpassing the 95th percentile of successful traces bearing the same name.
-You can see slow trace instances on the [performance traces tab](/product/performance-tracing/#slow-traces).
+You can see slow trace instances on the [performance traces tab](/features/performance-tracing/#slow-traces).
 
 ---
 
