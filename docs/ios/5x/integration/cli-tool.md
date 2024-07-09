@@ -9,7 +9,7 @@ In order to ease the process of configuring the Xcode project for use with the
 Embrace SDK. We provide a CLI tool that you can use to help validate your 
 project. 
 
-Feel free to [download the tool](https://embrace-downloads-prod.s3.amazonaws.com/embtool/embtool-latest.pkg).
+Feel free to [download the tool](https://downloads.embrace.io/embtool/embtool-latest.pkg).
 
 By default, the package installer will install the binary into your
 `/usr/local/bin` path. This is a default location in your `$PATH`, so you can

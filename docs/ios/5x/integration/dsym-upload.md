@@ -63,7 +63,7 @@ Notice how the script's location is a reference to the CocoaPods installation fo
 </TabItem>
 <TabItem value="carthage" label="Carthage">
 
-Carthage linking requires a download of a Carthage Support zip file from [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip).
+Carthage linking requires a download of a Carthage Support zip file from [this location](https://downloads.embrace.io/embrace_support.zip).
 
 Place those files in your project where you can easily find and reference them later.
 The path you put these files in will be the path used by the dSYM upload phase.
@@ -87,7 +87,7 @@ In this version we're referencing the Embrace folder inside our `third_party` fo
 </TabItem>
 <TabItem value="spm" label="SPM">
 
-SPM linking requires a download of our support utility, which we publish at [this location](https://s3.amazonaws.com/embrace-downloads-prod/embrace_support.zip). SPM uses the same utility as Carthage for uploads.
+SPM linking requires a download of our support utility, which we publish at [this location](https://downloads.embrace.io/embrace_support.zip). SPM uses the same utility as Carthage for uploads.
 
 Place those files in your project where you can easily find and reference them later.
 The path you put these files in will be the path used by the dSYM upload phase.
