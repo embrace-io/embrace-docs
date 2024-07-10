@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.9.1
+*July 10, 2024*
+- Fix the SDK version sent in session payloads
+
 ## 6.9.0
 *July 4, 2024*
 - OpenTelemetry compatibility improvements:
