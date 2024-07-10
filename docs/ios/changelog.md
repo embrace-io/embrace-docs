@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.1.0
+*July 3rd, 2024*
+
+* Added automatic instrumentation for Web Views.
+* Enabled manual re-export of an open span.
+* Added support for Network Span Forwarding.
+* Support for Firebase.
+
 ## 6.0.0
 *April 22nd, 2024*
 
