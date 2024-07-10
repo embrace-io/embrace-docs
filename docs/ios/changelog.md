@@ -12,7 +12,7 @@ sidebar_position: 4
 * Added automatic instrumentation for Web Views.
 * Enabled manual re-export of an open span.
 * Added support for Network Span Forwarding.
-* Support for Firebase.
+* Support for receiving Firebase Crashlytics crash reports in the Embrace dashboard as well as the Firebase dashboard.
 
 ## 6.0.0
 *April 22nd, 2024*
