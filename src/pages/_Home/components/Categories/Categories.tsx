@@ -14,6 +14,8 @@ import {
   IconLayoutGridAdd,
   IconPuzzle,
   IconSdk,
+  IconSettings,
+  IconTelescope,
   IconTimelineEventExclamation,
   IconUsersGroup,
   IconWifi,
@@ -108,14 +110,14 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "Overview",
       description:
         "See how Embrace builds on top of OpenTelemetry to provide a seamless integration into the ecosystem.",
-      icon: <IconSdk {...DEFAULT_TABLER_ICON_PROPS} />,
+      icon: <IconTelescope {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/open-telemetry/",
     },
     {
       title: "Integration Setup",
       description:
         "Learn how to use the Embrace SDK to send data to and retrieve data from OpenTelemetry components.",
-      icon: <IconSdk {...DEFAULT_TABLER_ICON_PROPS} />,
+      icon: <IconSettings {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/open-telemetry/integration/",
     },
     {
