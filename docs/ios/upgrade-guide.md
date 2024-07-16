@@ -69,7 +69,6 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.getLastRunEndState` | Not yet available | |
 | `.addSessionProperty` | `.metadata.addProperty(key:value:lifespan:)` | Adding a property to a session.|
 | `.removeSessionProperty` | `.metadata.removeProperty(key:lifespan:)` | Remove a property to a session.|
-| `.getSessionProperties` | Not yet available | |
 | `.endSession` | `.endSession` | | 
 | `.getCurrentSessionId` | `.currentSessionId()`| |
 | `.logBreadcrumbWithMessage` | `.add(event)` or `.add(events)` | Breadcrumbs are SpanEvents |
@@ -78,8 +77,6 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.addSpanEventToSpanId` | `.addEvent(name:)` on existing Span | |
 | `.addSpanAttributesToSpanId` | `.setAttribute(key:value:)` on existing Span | | 
 | `.recordCompletedSpanWithName` | `.recordSpan<T>(name:type:attributes:, spanOperation)` | | 
-| `.logRNA` | Not yet available | | 
-| `.trackWebViewPerformance` | Not yet available | | 
 | `.logMessage` | `.log(_ message:severity:timestamp:attributes:)` | |
 | `.logNetworkRequest` | Not yet available | | 
 | `.setUserIdentifier` | `.metadata.userIdentifier = "jk12345lol"` | | 
@@ -99,18 +96,16 @@ As noted above, Moments have been deprecated and are not available in Embrace Ap
 - NSURLConnection capture
 - Screenshots
 - App disk usage (including free disk space and CPU "spike")
-- Set user as "payer"
 
 ## Features still to be migrated 
 
 In upcoming minor versions, you can expect to see familiar features from the iOS 5 SDK. While these are useful and will remain in use, we chose to prioritize migration of important paradigms like Performance Tracing and Auto-instrumentation while building on OpenTelemetry signals. Some upcoming features include:
 - User Personas
-- WebView Capture
 - Push Notification Info
 - Remote config to disable network capture based on URL regexes
 - Local config to disable URLs to capture
 - Local config to disable webview capture
 - Local config to enable stripping of webview query params
-- Last Run End State
 - Manually instrumenting network requests
 - Network body capture
+- Set user as "payer"

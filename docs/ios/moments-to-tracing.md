@@ -26,26 +26,28 @@ Embrace.sharedInstance().startMoment(withName: "add-cart-item")
 Embrace.sharedInstance().endMoment(withName: "add-cart-item")
 
 // Using Traces in Embrace Apple 6
-let addCartParentSpan = Embrace
-            .client?
+// First, unwrap the Embrace instance
+guard let embraceInstance = Embrace.client else { return }
+            
+
+//Add a root span
+let addCartParentSpan = embraceInstance
             .buildSpan(name: "add-to-cart")
             .markAsKeySpan() //makes the parent trace
             .startSpan()
 
-let addCartTapSpan = Embrace
-            .client?
+// Add child spans
+let addCartTapSpan = embraceInstance
             .buildSpan(name: "add-cart-tapped")
             .setParent(addCartParentSpan)
             .startSpan()
 
-let addCartRequestSpan = Embrace
-            .client?
+let addCartRequestSpan = embraceInstance
             .buildSpan(name: "add-cart-request")
             .setParent(addCartParentSpan)
             .startSpan()
 
-let addCartUpdateUISpan = Embrace
-            .client?
+let addCartUpdateUISpan = embraceInstance
             .buildSpan(name: "add-cart-update-ui")
             .setParent(addCartParentSpan)
             .startSpan()
