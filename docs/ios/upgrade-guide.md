@@ -13,7 +13,7 @@ sidebar_position: 7
 - Moments have been replaced by Traces
 - Replace deprecated method calls with new ones
 - Some features have been deprecated and removed
-- Deprioritized features still have to be migrated 
+- Some features still have to be migrated 
 :::
 
 ## SDK initialization and configuration is triggered in-code
@@ -48,11 +48,11 @@ struct NewEmbraceApp: App {
 }
 ```
 
-For more information about starting the SDK in-code, please read [The Embrace Client](/docs/ios/open-source/embrace-client.md). For more information on configuration options, please read [Configurating the SDK](/docs/ios/open-source/embrace-options.md).
+For more information about starting the SDK in-code, please read [The Embrace Client](/docs/ios/open-source/embrace-client.md). For more information on configuration options, please read [Configuring the SDK](/docs/ios/open-source/embrace-options.md).
 
 ## Moments have been replaced by Traces
 
-[Moments](/docs/ios/5x/features/moments.md) have not been added to the Embrace Apple SDK, and will not be available when upgrading from version 5 to version 6. We made this decision as part of our migration to build on top of OpenTelemetry APIs and to standardize the telemetry coming from our SDKs.
+[Moments](/docs/ios/5x/features/moments.md) have not been added to the Embrace Apple 6 SDK, and will not be available when upgrading from version 5 to version 6. We made this decision as part of our migration to build on top of OpenTelemetry APIs and to standardize the telemetry coming from our SDKs.
 
 Luckily, [Performance Traces](/docs/ios/open-source/tracing.md) serve the same purposes as Moments, with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Performance Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that off flexibility on the client and numerous aggregation options on the backend. This allows you trace an entire process by breaking it down into smaller units of work.
 
@@ -93,17 +93,16 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.clearAllUserPersonas` | `.metadata.removeAllPersonaTags(lifespans:)` ||
 | `.getDeviceId` | `.currentDeviceId()` | | 
 
-## Some features have been deprecated and removed
+## Features that have been deprecated and removed
 
 As noted above, Moments have been deprecated and are not available in Embrace Apple 6. Other deprecated features include:
-- Battery charging
-- Screenshots
 - Battery level/charging
 - NSURLConnection capture
+- Screenshots
 - App disk usage (including free disk space and CPU "spike")
 - Set user as "payer"
 
-## Deprioritized features still have to be migrated 
+## Features still to be migrated 
 
 In upcoming minor versions, you can expect to see familiar features from the iOS 5 SDK. While these are useful and will remain in use, we chose to prioritize migration of important paradigms like Performance Tracing and Auto-instrumentation while building on OpenTelemetry signals. Some upcoming features include:
 - User Personas
