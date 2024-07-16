@@ -102,12 +102,13 @@ As noted above, Moments have been deprecated and are not available in Embrace Ap
 In upcoming minor versions, you can expect to see familiar features from the iOS 5 SDK. While these are useful and will remain in use, we chose to prioritize migration of important paradigms like Performance Tracing and Auto-instrumentation while building on OpenTelemetry signals. Some upcoming features include:
 - User Personas
 - Push Notification Info
+- Last Run End State API
+- Set user as 'Payer'
 - Config Capabilities 
     - Remote config to disable network capture based on URL regexes
     - Local config to disable URLs to capture
     - Local config to disable webview capture
     - Local config to enable stripping of webview query params
-- Set user as 'Payer'
 - Manually instrumenting network requests
 - Network body capture
 - Extension Insights
