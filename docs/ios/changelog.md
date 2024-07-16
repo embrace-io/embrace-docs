@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.1.0
+*July 3rd, 2024*
+
+* Adds automatic instrumentation for `WKWebView` Web Views.
+* Adds `Embrace.flush(_ span: Span)` method to manual persist changes that occur to a long running Span.
+* Adds support for [Network Span Forwarding](https://embrace.io/docs/product/network-spans-forwarding/).
+* Support for receiving Firebase Crashlytics crash reports in the Embrace dashboard as well as the Firebase dashboard.
+
 ## 6.0.0
 *April 22nd, 2024*
 
