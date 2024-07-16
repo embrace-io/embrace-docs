@@ -96,7 +96,6 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 ## Features that have been deprecated and removed
 
 As noted above, Moments have been deprecated and are not available in Embrace Apple 6. Other deprecated features include:
-- Battery level/charging
 - NSURLConnection capture
 - Screenshots
 - App disk usage (including free disk space and CPU "spike")
@@ -106,8 +105,12 @@ As noted above, Moments have been deprecated and are not available in Embrace Ap
 
 In upcoming minor versions, you can expect to see familiar features from the iOS 5 SDK. While these are useful and will remain in use, we chose to prioritize migration of important paradigms like Performance Tracing and Auto-instrumentation while building on OpenTelemetry signals. Some upcoming features include:
 - User Personas
-- WebView Performance
+- WebView Capture
+- Push Notification Info
+- Remote config to disable network capture based on URL regexes
+- Local config to disable URLs to capture
+- Local config to disable webview capture
+- Local config to enable stripping of webview query params
+- Last Run End State
 - Manually instrumenting network requests
 - Network body capture
-- Remote config to disable network capture based on URL regexes
-- Last Run End State
