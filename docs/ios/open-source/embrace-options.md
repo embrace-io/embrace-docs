@@ -3,7 +3,7 @@ title: Configuration using Embrace Options
 sidebar_position: 2
 ---
 
-# Configuration using Embrace Options
+# Configurating the SDK
 
 The `Embrace.Options` object used to initialize your Embrace client is the configuration object for the SDK. It allows you to customize Embrace's behavior in the SDK. Many of these arguments are optional and are not required to get your app up and running.
 
@@ -35,8 +35,8 @@ The configuration arguments here are:
 - `appId`: the App ID for your Embrace application. This is the only required field. This can be found in your [dashboard.](/ios/5x/integration/login-embrace-dashboard)
 - `appGroudId`: the ID for the [Apple App Group](https://developer.apple.com/documentation/xcode/configuring-app-groups) that your app belongs to, if any.
 - `platform`: the mobile platform that the current application is running in. `.default` points to iOS, but there are also options for Unity, ReactNative, and Flutter.
-- `endpoints`: the [`Embrace.Endpoints](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BEndpoints.swift) object that configure the endpoints the SDK can use to upload data and fetch remote configurations.
-- `logLevel`: the level of severity for console logs.
+- `endpoints`: the [`Embrace.Endpoints`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BEndpoints.swift) object that configure the endpoints the SDK can use to upload data and fetch remote configurations.
+- `logLevel`: the level of severity for Xcode console logs. Set to `.none` to turn off console logging.
 - `export`: an [`OpenTelemetryExport`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/OpenTelemetryExport.swift) object that can export logs and traces to the backend of your choice.
 
 :::info 

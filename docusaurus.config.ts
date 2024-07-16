@@ -231,16 +231,35 @@ const config: Config = {
 
       links: [
         {
-          label: "Privacy Policy",
-          to: "/privacy-policy/",
+          title: "Can't find what you were looking for?",
+          items: [        
+            {
+              label: "Community Slack",
+              href: "https://community.embrace.io",
+            },
+            {
+              label: "Reddit",
+              href: "https://www.reddit.com/r/embrace_observability/",
+            },
+
+          ]
         },
         {
-          label: "Terms of Service",
-          to: "/terms-of-service/",
-        },
-        {
-          label: "Data Processing Agreement",
-          to: "/dpa/",
+          title: "Company Information",
+          items: [        
+            {
+              label: "Privacy Policy",
+              to: "/privacy-policy/",
+            },
+            {
+              label: "Terms of Service",
+              to: "/terms-of-service/",
+            },
+            {
+              label: "Data Processing Agreement",
+              to: "/dpa/",
+            },
+          ]
         },
       ],
 
