@@ -50,6 +50,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/ios/open-source/upgrade-guide/",
+            from: "/ios/upgrade-guide/",
+          },
+          {
             to: "/ios/5x/features/tracing/",
             from: "/ios/features/performance-monitoring/",
           },
