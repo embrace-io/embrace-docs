@@ -20,10 +20,11 @@ you are free to skip around.
 
 ### Android
 
-* Android 4.1 (API 16) or later
-* Gradle 5.1 or later
-* Android Gradle Build Tools Plugin 3.4.0+
-* Java 8
+* Android 5.0 (API 21)
+* Java 1.8
+* Kotlin 1.4
+* Gradle 6.5.1
+* AGP (Android Gradle Build Tools Plugin) 4.0.0
 
 ### iOS
 
