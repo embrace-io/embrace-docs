@@ -1,9 +1,9 @@
 ---
-title: Working with User Metadata
+title: Adding User Metadata
 sidebar_position: 9
 ---
 
-# Working with User Metadata in Embrace
+# Adding User Metadata
 
 This tutorial covers the `MetadataHandler` for managing user metadata in your application. The provides a simple yet powerful interface for setting and clearing user-specific properties such as name, email, and identifier. This guide will walk you through how to use these properties effectively in your projects.
 

@@ -1,5 +1,5 @@
 ---
-title: Working with User Personas
+title: Making use of User Personas
 sidebar_position: 10
 ---
 
