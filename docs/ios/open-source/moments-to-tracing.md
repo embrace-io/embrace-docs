@@ -1,3 +1,8 @@
+---
+title: Migrating from Moments to Traces
+sidebar_position: 8
+---
+
 # Migrating from Moments to Traces
 
 ## Moments have been replaced by Traces

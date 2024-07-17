@@ -1,7 +1,7 @@
 ---
 title: 5.x iOS SDK
 description: Using the Embrace 5.x SDK
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Getting Started

@@ -1,7 +1,7 @@
 ---
 title: 6.x Apple SDK
 description: Using the Embrace Open Source SDK
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 # Using the Embrace 6.x SDK

@@ -1,6 +1,6 @@
 ---
 title: Built on OpenTelemetry
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Built on OpenTelemetry

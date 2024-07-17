@@ -1,6 +1,6 @@
 ---
 title: OpenTelemetry Exporter
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # OpenTelemetry Exporter

@@ -1,10 +1,10 @@
 ---
-title: Upgrade guide
+title: Upgrade Guide
 description: Upgrading from iOS 5x SDK to Apple 6x SDK
-sidebar_position: 7
+sidebar_position: 0
 ---
 
-# Upgrade guide
+# Upgrade Guide
 
 ## Upgrading from iOS 5x SDK to Apple 6x SDK
 
@@ -56,7 +56,7 @@ For more information about starting the SDK in-code, please read [The Embrace Cl
 
 Luckily, [Performance Traces](/docs/ios/open-source/tracing.md) serve the same purposes as Moments, with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Performance Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that off flexibility on the client and numerous aggregation options on the backend. This allows you trace an entire process by breaking it down into smaller units of work.
 
-Traces can be instrumented in the same places as your Moments. For more information on the interface and options, please read [Migrating from Moments to Traces](/docs/ios//moments-to-tracing.md) guide.
+Traces can be instrumented in the same places as your Moments. For more information on the interface and options, please read [Migrating from Moments to Traces](/docs/ios/open-source/moments-to-tracing.md) guide.
 
 ## Replace deprecated method calls with new ones
 
