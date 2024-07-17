@@ -18,7 +18,7 @@ Presently there are __two__ major versions of the Apple SDK available: 5 and 6.
 
 Versions 5.x and 6.x are not compatible nor are they interoperable. The 6.x SDK is built on [OpenTelemetry](https://opentelemetry.io), and the features and signals that it provides have different semantics than previous versions. 6.x is also a rewrite of the SDK in the Swift programming language, so it does not include features that we won't support in the future, like Moments. 
 
-A [migration guide](/docs//ios/upgrade-guide.md) is available to implement the new features and interface in the 6.x SDK. We recommend that customers consider migrating to version 6, as it contains OTel primitives and better support for modern Swift features like async/await.
+A [migration guide](/docs/ios/open-source/upgrade-guide.md) is available to implement the new features and interface in the 6.x SDK. We recommend that customers consider migrating to version 6, as it contains OTel primitives and better support for modern Swift features like async/await.
 
 ## 6.x SDK Documentation
 
