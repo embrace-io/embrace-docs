@@ -13,7 +13,7 @@ Embrace’s Performance Tracing solution gives you visibility into any app opera
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 1.26.0 and above](/unity/integration/linking-embrace/).
+- **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
 :::
 
 The Embrace Performance Tracing API allows you to:
