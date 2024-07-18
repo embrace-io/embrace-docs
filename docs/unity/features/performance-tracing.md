@@ -68,21 +68,17 @@ To use this feature:
 ### Create a Span
 
 ```csharp
-
 // Create a trace by creating a span with a given span name. 
 // It is important to note that the millisecond time is given 
 // in Unix Epoch/POSIX time rather than in .NET ticks.
 Embrace.Instance.StartSpan("SpanName", startTimeMillisPosix);
-
 ```
 
 ### Add an Attribute to a Span
 
 ```csharp
-
 var spanId = Embrace.Instance.StartSpan("SpanId", startTimeMillisPosix);
 Embrace.Instance.AddSpanAttribute(spanId, "key", "value");
-
 ```
 
 ### Add an Event to a Span
@@ -105,31 +101,24 @@ Embrace.Instance.AddSpanEvent(
 ### Stop Span For Operation That Ended Earlier
 
 ```csharp
-
 Embrace.Instance.StopSpan(spanId, endTimeMillisPosix);
-
 ```
 
 ### Stop Span For an Operation That Failed
 
 ```csharp
-
 Embrace.Instance.StopSpan(spanId, stopTimeMillisPosix, EmbraceSpanErrorCode.FAILURE);
-
 ```
 
 ### Add a Child Span If the Parent Started Properly
 
 ```csharp
-
 Embrace.Instance.StartSpan("childSpanName", startTimeMillisPosix, parentSpanId)
-
 ```
 
 ### Record a completed span
 
 ```csharp
-
 Embrace.Instance.RecordCompletedSpan(
     "spanName",
     startTimeMillisPosix,
@@ -138,8 +127,6 @@ Embrace.Instance.RecordCompletedSpan(
     attributesMap,
     parentSpanId
 );
-
-
 ```
 
 :::info Minimum Requirements
