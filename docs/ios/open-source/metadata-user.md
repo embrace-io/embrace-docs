@@ -43,7 +43,7 @@ Additionally, it provides a method to clear all user properties:
 
 > **Important Note:** The values assigned to `userName`, `userEmail`, and `userIdentifier` are not validated by the Embrace SDK to follow a specific format. It's crucial to ensure that these values accurately represent the user without directly storing Personally Identifiable Information (PII). Consider using references, aliases, or hashed values for these properties to maintain user privacy and comply with data protection regulations.
 
-### Setting the User Name
+### User Name
 
 To set the user's name, you can directly assign a `String` value to the `userName` property. This value is stored permanently until explicitly cleared.
 
@@ -51,7 +51,7 @@ To set the user's name, you can directly assign a `String` value to the `userNam
 Embrace.client?.metadata.userName = "John Doe"
 ```
 
-### Setting the User Email
+### User Email
 
 Similarly, to set the user's email, assign a `String` value to the `userEmail` property. Ensure the email address is valid and can be mapped to a user record in your system.
 
@@ -59,7 +59,7 @@ Similarly, to set the user's email, assign a `String` value to the `userEmail` p
 Embrace.client?.metadata.userEmail = "john.doe@example.com"
 ```
 
-### Setting the User Identifier
+### User Identifier
 
 To set a unique identifier for the user, assign a `String` value to the `userIdentifier` property. This identifier should be unique and can be used to track the user across sessions.
 
