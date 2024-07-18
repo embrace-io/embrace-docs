@@ -1,19 +1,16 @@
 ---
-title: Making use of User Personas
+title: User Personas
 sidebar_position: 10
 ---
 
 
-# Making use of User Personas
+# User Personas
 
-The `MetadataHandler` extension for managing user personas allows for the dynamic tagging of sessions with persona information. This feature is crucial for understanding user behavior and segmenting users based on their interactions within your application.
+The `MetadataHandler` provides an [extension](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/MetadataHandler%2BPersonas.swift) for managing User Personas. User Personas allow you to dynamically segment app users and their sessions according to their behavior, characteristics, or other criteria that you create. This feature helps with analyzing user segments, understanding variations or poor performance in user behavior, and tailoring the application experience to meet the diverse of ways that users use your application.
 
-## Overview
+## Interface
 
-User personas are tags that you can assign to categorize the user them according to their behavior, characteristics, or any other criteria relevant to your application. These tags help in analyzing user segments and tailoring the application experience to meet diverse user needs.
-
-
-## Retrieving Current User Personas
+### Retrieving Current User Personas
 
 To retrieve the current set of persona tags, use the `currentPersonas` property. This property fetches persona tags from the storage that apply to the user at the current point in time.
 
@@ -21,17 +18,19 @@ To retrieve the current set of persona tags, use the `currentPersonas` property.
 let personas = Embrace.client?.metadata.currentPersonas
 ```
 
-## Adding User Personas in the Embrace SDK
+### Adding User Personas in the Embrace SDK
 
-User Personas in the Embrace SDK allow you to tag sessions with specific user traits or behaviors. This can help you prioritize fixing bugs that affect certain user segments. Here are some examples on how to add user personas:
+User Personas in the Embrace SDK allow you to tag sessions with specific user traits or behaviors. This can help you prioritize fixing bugs that affect certain user segments. 
+
+There is are [pre-defined tags](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/PersonaTag.swift#L8-L17) that we think are useful, and you can feel free to add your own. Here are some examples on how to add user personas:
 
 ```swift
-try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
-
 try? Embrace.client?.metadata.add(persona: PersonaTag.mvp, lifespan: .permanent)
+
+try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
 ```
 
-Its recommended to extend `PersonaTag` to define your own tags. This is a good practice to make sure these values stay consistent wherever they are used.
+It's recommended to extend `PersonaTag` when you define your own persona tags. This is a good practice to make sure these values stay consistent wherever they are used.
 
 ```swift
 extension PersonaTag {
@@ -43,9 +42,11 @@ extension PersonaTag {
 }
 ```
 
-### Overview of the MetadataLifespan
+## Overview of the Metadata Lifespan
 
-When you add metadata, you can apply a lifespan to that value. Sometimes it can be very useful to let this contextual data "auto-expire" when no longer relevant. There are three different lifespans:
+When you add Embrace metadata, you can apply a [lifespan](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/MetadataHandler.swift#L9-L17) to that value. Sometimes it can be very useful to let contextual data "auto-expire" when no longer relevant, and at other times you want that data to exist for the user's entire time in your app. 
+
+There are three metadata lifespans:
 
 1. **Session**: Metadata with a `session` lifespan is tied to a single user session. When the session ends, this metadata is automatically cleared. This option is ideal for temporary states or conditions that are only relevant to a specific interaction period. For instance, if a user completes a purchase, it can be useful to mark the session with a persona to mark the "`completed_purchase`" in order to identify behaviors across users that led to that purchase.
 
