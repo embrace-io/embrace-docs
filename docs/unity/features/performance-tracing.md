@@ -1,10 +1,10 @@
 ---
-title: Performance Tracing (Beta)
+title: Performance Tracing 
 description: Record traces to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---
 
-# Performance Tracing (Beta)
+# Performance Tracing 
 
 ## Overview
 
