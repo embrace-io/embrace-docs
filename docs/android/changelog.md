@@ -27,6 +27,9 @@ sidebar_position: 4
     - See [this question](/android/faq/#the-sdk-should-support-api-level-21-but-i-get-an-error-saying-i-need-to-set-androidusefullclasspathfordexingtransformapi) in the FAQ for details.
 - Fix DexGuard support.
 
+## 6.8.3
+*July 17, 2024*
+- No change to functionality. Remove error log integration verification explicitly for apps that don't use R8 to strip out unreferenced classes.
 
 ## 6.8.2
 *June 7, 2024*
