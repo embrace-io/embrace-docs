@@ -12,7 +12,7 @@ or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
 
-## Crash Capture
+## Crashes and ANRs
 
 ### **Can I use other crash reporters in addition to the Embrace one?**
 
@@ -22,6 +22,10 @@ registered when we registered ours so that both listeners will receive the uncau
 For NDK exceptions, we replace any existing signal handlers, which are used to capture C and C++ exceptions.
 Similarly, other NDK crash capture tools would be likely to replace our signal handlers if they are initialized after
 our SDK. It is therefore not recommended to enable more than one NDK crash reporting solution in your app as it will interfere with crash report quality.
+
+### **What does it mean if I see Embrace in my ANR reports?**
+
+The call stack that is reported for an ANR includes all processes running on the main thread at the time of an ANR. This way of classifying an ANR often misattributes the real culprit, as it tells you what is happening on the main thread at that moment, but doesn't point to the cause prior to the ANR. Embrace takes lightweight samples of the main thread up to 5 seconds before the occurrence of an ANR to show you what the thread was doing in that time. So, if you see Embrace in your ANR call stack, it's very likely the noise of the ANR reporter landing on the Embrace sampling methods.
 
 ## Integrating
 
