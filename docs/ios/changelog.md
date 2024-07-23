@@ -541,12 +541,6 @@ This version has known issues and should not be used
 * Improve recognition of special characters in module names for log message stack traces
 * Fix threading crash while recording network activity on 32 bit devices
 
-## 4.2.12
-*Oct 30, 2020*
-
-* Refactor binary image handling so it happens lazily instead of at start
-* Improve recognition of special characters in module names for log message stack traces
-
 ## 5.2.4
 *Oct 22, 2020*
 
