@@ -71,7 +71,7 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.removeSessionProperty` | `.metadata.removeProperty(key:lifespan:)` | Remove a property to a session.|
 | `.endSession` | `.endSession` | | 
 | `.getCurrentSessionId` | `.currentSessionId()`| |
-| `.logBreadcrumbWithMessage` | `.add(event)` or `.add(events)` | Breadcrumbs are SpanEvents |
+| `.logBreadcrumbWithMessage("this is a crumb")` | `add(event: .breadcrumb("this is a crumb"))` | Breadcrumbs are now SpanEvents on the Session Span |
 | `.startSpanWithName` | `.buildSpan(name:type:attributes:)` and `.startSpan()` | |
 | `.stopSpanWithId` | `.buildSpan(name:type:attributes:)` and `.endSpan()` | |
 | `.addSpanEventToSpanId` | `.addEvent(name:)` on existing Span | |
@@ -88,7 +88,7 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.setUserPersona` | `.metadata.addPersonaTag(_ value:lifespan:)` | | 
 | `.clearUserPersona` | `.metadata.removePersonaTag(value: lifespan:)` | | 
 | `.clearAllUserPersonas` | `.metadata.removeAllPersonaTags(lifespans:)` ||
-| `.getDeviceId` | `.currentDeviceId()` | | 
+| `.getDeviceId` | `.currentDeviceId()` | |
 
 ## Features that have been deprecated and removed
 
@@ -96,6 +96,7 @@ As noted above, Moments have been deprecated and are not available in Embrace Ap
 - NSURLConnection capture
 - Screenshots
 - App disk usage (including free disk space and CPU "spike")
+- `.startView` and `.endView` have been removed. Use spans with the SpanType `.ux` to record information about your view lifecycles
 
 ## Features still to be migrated 
 
