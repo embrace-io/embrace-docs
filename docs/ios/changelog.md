@@ -36,6 +36,11 @@ sidebar_position: 4
 * Allows for generic export of Traces and Logs via the protocols in the OpenTelemetrySdk.
 * Allows for custom Automatic Instrumentation via CaptureService subclasses
 
+## 5.25.4
+*July 23rd, 2024*
+* Fixes bug in interface for Unity when starting a Span where incorrect type was used.
+* Updates `EMBSpanSerializer serialize` to sanitize Span property dictionaries to ensure JSON validity
+
 ## 5.25.3
 *June 25, 2024*
 * Made improvements to the startup performance of the SDK.
