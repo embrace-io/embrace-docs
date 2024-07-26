@@ -15,7 +15,7 @@ permissions:
   pull-requests: write
 
 env:
-  AWS_DEFAULT_REGION: 'us-west-2'
+  AWS_DEFAULT_REGION: "${{ vars.AWS_DEFAULT_REGION }}"
 
 jobs:
   environment:
