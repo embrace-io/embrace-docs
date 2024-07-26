@@ -465,3 +465,11 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
 
 </TabItem>
 </Tabs>
+
+### Avoiding sending telemetry to Embrace
+
+If you prefer to send telemetry to another OpenTelemetry collector & don't want to send any to Embrace you should:
+
+1. Configure at least 1 span exporter & log exporter as described above
+2. Remove the `app_id` and `api_token` fields from `app/src/main/embrace-config.json`. You should still keep the file, even if it only contains `{}`
+3. Add `embrace.disableMappingFileUpload=true` to your `gradle.properties` file
