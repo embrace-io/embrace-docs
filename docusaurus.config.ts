@@ -245,7 +245,10 @@ const config: Config = {
               label: "Reddit",
               href: "https://www.reddit.com/r/embrace_observability/",
             },
-
+            {
+              label: "Get Started For Free",
+              href: "https://dash.embrace.io/signup/",
+            },
           ]
         },
         {
