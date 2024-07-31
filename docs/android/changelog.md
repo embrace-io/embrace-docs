@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+:::warning Important
+The 6.9.x versions have an issue recording sessions for apps that have disabled Background Activity or use manual session termination. 
+
+Do not upgrade to these versions if this is applicable to your app.
+:::
+
 ## 6.9.1
 *July 10, 2024*
 - Fix the SDK version sent in session payloads
@@ -65,6 +71,9 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 
 ## 6.5.0
 *March 14, 2024*
+:::info Important
+- Increase our minimum Gradle version to 6.5.1
+:::
 - Fully support configuration cache on all Gradle versions.
 - Fix issue with active Moments being lost when a new session starts.
 
