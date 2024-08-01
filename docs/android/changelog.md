@@ -6,10 +6,14 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
-:::warning Important
-The 6.9.x versions have an issue recording sessions for apps that have disabled Background Activity or use manual session termination. 
+## 6.9.2
+*August 1, 2024*
+- Fix session recording after app backgrounding if Background Activity is disabled.
 
-Do not upgrade to these versions if this is applicable to your app.
+:::warning Important
+Version 6.9.0 and 6.9.1 have an issue recording sessions after an app backgrounds if Background Activity is disabled. 
+
+Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 :::
 
 ## 6.9.1
