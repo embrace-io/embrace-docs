@@ -57,7 +57,7 @@ necessary configuration for use alongside the Embrace SDK. Some examples if
 edits it will make are:
 
 1) Configure the `DEBUG_INFORMATION_FORMAT` build setting to include dsym files
-1) Adding the Embrace Run Script phase used to upload dsyms
+1) Add the Embrace Run Script phase used to upload dSYMs
 
 It is recommended that you run this command with a clean state in your
 version control system. For instance in git, stash any changes you may have
