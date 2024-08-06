@@ -7,9 +7,16 @@ sidebar_position: 4
 # Unity SDK Changelog
 ## 1.26.0
 *July 18, 2024*
+:::warning Important
+This version of the Unity SDK requires desugaring if the required min Android API level is less than 24. 
+This is a simple, well-supported process by Android build tooling that backports certain Java 8 language features onto older Android versions that didn't have support. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring).
+
+Please be sure to match the appropriate desugaring library with your version of Unity LTS.
+For 2021, please see [this](https://docs.unity3d.com/2021.3/Documentation/Manual/android-gradle-overview.html).
+For 2022, please see [this](https://docs.unity3d.com/2022.3/Documentation/Manual/android-gradle-overview.html)
+:::
 * Addition of Performance Tracing Support
 * Update Embrace Android SDK dependency to 6.8.3
-* Update of min Android SDK dependency to 24
 * Patch reducing crash rate on SDK startup
 
 ## 1.25.3
