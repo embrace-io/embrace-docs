@@ -9,17 +9,16 @@ sidebar_position: 4
 ## 6.3.0
 *Aug 7th, 2024*
 * Features
-    * Added new public target: `EmbraceSemantics` to expose constants and attributes we use to extend OTel Semantic Conventions
+    * Added new public target: `EmbraceSemantics` to expose constants and attributes used to extend OTel Semantic Conventions
     * Added Cocoapods support
-    * Added logic to hook the an emitted `LogRecord` to the active span context
-    * Created new APIs regarding `W3C.traceparent` to be used to support manually instrumented network requests.
+    * Added logic to link an emitted `LogRecord` to the active span context
+    * Created new APIs for `W3C.traceparent` to be used to support manually instrumented network requests
 * Changes
-    * Update `Embrace` to expose `LogType` on the `log` method.
+    * Update `Embrace` to expose `LogType` on the `log` method
     * Renamed `LogType.default` to `LogType.message`
 * Fixes
-    * Fixed public `addPersona(persona: String, lifespan: MetadataLifespan)` as it wasn't forwarding properly the `lifespan`
-    * Fixed a bug that would cause a reentrancy issue with the database when persisting spans.
-
+    * Fixed the public `addPersona(persona: String, lifespan: MetadataLifespan)` method which wasn't properly forwarding the `lifespan`
+    * Fixed a bug that caused a reentrancy issue with the database when persisting spans.
 
 ## 6.2.0
 *July 30th, 2024*
