@@ -134,17 +134,16 @@ Its also possible to manually run the Embrace upload tool directly from a CI ste
 The `APP_KEY` and `API_TOKEN` envvars should be retrieved from the Embrace dashboard.
 
 ```shell-session
-/path/to/EmbraceIO/upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
+/path/to/EmbraceIO/embrace_symbol_upload.darwin -app $APP_KEY -token $API_TOKEN dsym_output.zip
 ```
 
-If the Embrace `upload` utility is in a known location you should use the existing binary. If it is non-deterministic or not included alongside the Embrace package itself, then you can download the utility directly.
+If the Embrace `embrace_symbol_upload.darwin` utility is in a known location you should use the existing binary. If it is non-deterministic or not included alongside the Embrace package itself, then you can download the utility directly.
 
 ```shell-session
 curl -o ./embrace_support.zip https://downloads.embrace.io/embrace_support.zip
 unzip ./embrace_support.zip
-./upload -app $APP_KEY -token $API_TOKEN dsym_output.zip
+./embrace_symbol_upload.darwin -app $APP_KEY -token $API_TOKEN dsym_output.zip
 ```
-
 
 ## Working with Xcode Cloud
 
@@ -180,7 +179,7 @@ then
   unzip ./embrace_support.zip
 
   # call Embrace upload tool
-  ./upload -app $APP_ID -token $EMBRACE_TOKEN ~/dsym_output.zip
+  ./embrace_symbol_upload.darwin -app $APP_ID -token $EMBRACE_TOKEN ~/dsym_output.zip
 fi
 ```
 

@@ -665,4 +665,4 @@ This version has known issues and should not be used
 *July 27, 2020*
 
 * Use dispatch-io channels to improve performance and improve session resolution
-* Update run.sh to support locally build framework dsyms
+* Update run.sh to support locally-built framework dSYMs

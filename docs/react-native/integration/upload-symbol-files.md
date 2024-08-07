@@ -111,15 +111,15 @@ Run the upload tool and your dSYM will be sent to Embrace.
 
 ```shell-session
 # Upload a single file
-/EmbraceIO/upload --app $APP_ID --token $API_TOKEN dsyms.zip
+/EmbraceIO/embrace_symbol_upload.darwin --app $APP_ID --token $API_TOKEN dsyms.zip
 
 # Upload multiple files
-/EmbraceIO/upload --app $APP_ID --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
+/EmbraceIO/embrace_symbol_upload.darwin --app $APP_ID --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
 ```
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
 
-## Javascript Manual Uploads
+## JavaScript Manual Uploads
 
 When you uplad the dSYM manually you also have to upload the javascript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
 
@@ -133,12 +133,12 @@ react-native bundle \
 ```
 
 ```shell-session
-ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/main.jsbundle --rn-map ./build/main.map
+ios/Pods/EmbraceIO/embrace_symbol_upload.darwin --app <your app ID> --token <your token> --rn-bundle ./build/main.jsbundle --rn-map ./build/main.map
 ```
 
 --- 
 
-dSYM's are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
+dSYMs are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
 </TabItem>
 <TabItem value="android" label="Android">
 
@@ -165,18 +165,18 @@ Then, use the Embrace upload script to upload the source map.
 <TabItem value="ios" label="iOS">
 
 ```shell-session
-ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/main.jsbundle --rn-map ./map
+ios/Pods/EmbraceIO/embrace_symbol_upload.darwin --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/main.jsbundle --rn-map ./map
 ```
 
 </TabItem>
 <TabItem value="android" label="Android">
 
 ```shell-session
-ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
+ios/Pods/EmbraceIO/embrace_symbol_upload.linux-amd64 --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
 ```
 
 :::info
-The android map is generated with a different name, but the tool to upload is the same as iOS
+The Android map is generated with a different name, but the tool to upload is the same as iOS
 :::
 
 </TabItem>
