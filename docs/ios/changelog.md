@@ -6,6 +6,42 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.3.0
+*Aug 7th, 2024*
+* Features
+    * Added new public target: `EmbraceSemantics` to expose constants and attributes we use to extend OTel Semantic Conventions
+    * Added Cocoapods support
+    * Added logic to hook the an emitted `LogRecord` to the active span context
+    * Created new APIs regarding `W3C.traceparent` to be used to support manually instrumented network requests.
+* Changes
+    * Update `Embrace` to expose `LogType` on the `log` method.
+    * Renamed `LogType.default` to `LogType.message`
+* Fixes
+    * Fixed public `addPersona(persona: String, lifespan: MetadataLifespan)` as it wasn't forwarding properly the `lifespan`
+    * Fixed a bug that would cause a reentrancy issue with the database when persisting spans.
+
+
+## 6.2.0
+*July 30th, 2024*
+
+* Features
+    * Adds `PushNotificationCaptureService` to instrument notifications received using Apple's `UserNotifications` framework
+    * Adds `Embrace.lastRunEndState` method to retrieve an indication of how the previous start of the SDK finished
+        * Provided values can be `unavailable`, `crash`, and `cleanExit`
+    * Adds `CaptureServiceBuilder` to provide easier interface to setup/configure `CaptureService` instances
+    * Adds `Embrace.tracer(instrumentationName: String)` method to retrieve OpenTelemetry `Tracer`
+        * This is useful for manual instrumentation using the `OpenTelemetryApi` directly
+    * Adds ability to set "User Personas" in the `MetadataHandler`
+        * User Personas are great ways to tag users and identify commonalities
+        * See `MetadataHandler+Personas` for interface definition
+* Changes
+    * Updates `TapCaptureService` with options to better control data capture
+        * Allows you to ignore specific views by class, or to prevent coordinate capture
+        * Optional `TapCaptureServiceDelegate` to have fine grained control over tap capture
+* Fixes
+    * Fixes bug that prevented user properties from being included on an Embrace session
+    * Cleanup of public interface and code level documentation
+
 ## 6.1.0
 *July 3rd, 2024*
 
