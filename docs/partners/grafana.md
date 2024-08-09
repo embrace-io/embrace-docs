@@ -12,7 +12,7 @@ Embrace delivers context-rich mobile data to Grafana Cloud in the form of metric
 
 To forward your Metrics to Grafana Cloud, Embrace offers a "push" method called [Data Destinations](/data-destinations). In a set time interval, Embrace will forward such "standard metrics" as `crash total` and `sessions total` to Grafana. Additionally, Embrace users can create [Custom Metrics](/custom-metrics-api/custom-metrics-grafana) according to their own criteria, and also forward these via Data Destinations.
 
-See the [setup docs](/data-destinations/grafana-cloud-setup/) for more information on Data Destinations for Grafana
+See the [setup docs](/data-destinations/grafana-cloud-setup/) for more information on Data Destinations to Grafana Cloud.
 
 ### Metrics API
 

@@ -6,11 +6,11 @@ sidebar_position: 2
 
 # Embrace Custom Metrics 
 
-Custom Metrics you create in Embrace are available for use in Grafana.
+Custom Metrics that you create in Embrace are available for use in Grafana.
 
 To set up: follow [our instructions](/embrace-api/grafana_integrations/) for integrating Embrace's Metrics API as a data source in Grafana.
 
-Then every Custom Metric you make will automatically be available when you use Grafana's "Metrics Explorer" in the Visualization builder.
+Thereafter, every Custom Metric you create will automatically be available when you use Grafana's "Explore Metrics" in the Visualization builder.
 
 <div>
     <a href="https://www.loom.com/share/13877a04b6bb47409ea87bd702815da9">
