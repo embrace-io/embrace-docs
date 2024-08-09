@@ -66,7 +66,7 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 |-|-|:-|
 | `.isStarted`| `.started` | |
 | `.startWithLaunchOptions` | `.setup(options)` and `.start()` | |
-| `.getLastRunEndState` | Not yet available | |
+| `.getLastRunEndState` | `.lastRunEndState()` | |
 | `.addSessionProperty` | `.metadata.addProperty(key:value:lifespan:)` | Adding a property to a session.|
 | `.removeSessionProperty` | `.metadata.removeProperty(key:lifespan:)` | Remove a property to a session.|
 | `.endSession` | `.endSession` | | 
@@ -85,8 +85,10 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.clearUsername` | `.metadata.userName = nil` | | 
 | `.setUserEmail` | `.metadata.userEmail = "embot@embrace.io"` | | 
 | `.clearUserEmail` | `.metadata.userEmail = nil` | | 
-| `.setUserPersona` | `.metadata.addPersonaTag(_ value:lifespan:)` | | 
+| `.setUserPersona` | `.metadata.add(persona:lifespan:)` | | 
+| `.setUserAsPayer` | `.metadata.add(persona:lifespan:)` | There're a set of already exposed `PersonaTag` like `.payer`| 
 | `.clearUserPersona` | `.metadata.removePersonaTag(value: lifespan:)` | | 
+| `.clearUserAsPayer` | `.metadata.removePersonaTag(value: lifespan:)` |There're a set of already exposed `PersonaTag` like `.payer`| 
 | `.clearAllUserPersonas` | `.metadata.removeAllPersonaTags(lifespans:)` ||
 | `.getDeviceId` | `.currentDeviceId()` | |
 
