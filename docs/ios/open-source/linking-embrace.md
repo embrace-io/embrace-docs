@@ -38,7 +38,7 @@ reporter but also want to leverage the Embrace Dashboard.
 5. **EmbraceSemantics** - This module contains constants and attributes used internally
 to extend OTel Semantic Conventions.
 
-::: info
+:::info
 We also distribute each product statically and dynamically. The `*-Dynamic` products should
 be used if you prefer dynamic libraries.
 :::
@@ -53,7 +53,7 @@ pod 'EmbraceIO', '~> 6.3.0'
 
 By default, this command installs all the necessary components to use the SDK.
 
-::: info 
+:::info 
 If you wish to continue using Crashlytics as your primary crash reporter while also
 having those crashes reported to the Embrace Dashboard and using all associated features,
 you will need to install an additional pod:
