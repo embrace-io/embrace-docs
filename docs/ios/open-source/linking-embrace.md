@@ -5,10 +5,10 @@ sidebar_position: 1
 
 # Linking Embrace
 
-Integrating the Embrace Apple SDK can be accomplished using either the Swift Package Manager or CocoaPods. The information below outlines the steps for both methods. Additionally, you can pull down the open-source repository and integrate it manually if your app requires a custom setup.
+Integrating the Embrace Apple SDK can be accomplished using either the Swift Package Manager or CocoaPods. The information below outlines the steps for both methods. Additionally, you can pull down the [open-source](https://github.com/embrace-io/embrace-apple-sdk) repository and integrate it manually if your app requires a custom setup.
 
 1. [Swift Package Manager](/ios/open-source/linking-embrace/#swift-package-manager): Use Xcode to manage the Embrace dependency for you.
-2. [CocoaPods](/ios/open-source/linking-embrace/#cocoapods): Simply add EmbraceIO to your Podfile to automate most of the integration process.
+2. [CocoaPods](/ios/open-source/linking-embrace/#cocoapods): Simply add `EmbraceIO` to your Podfile to automate most of the integration process.
 
 ## Swift Package Manager
 
@@ -18,6 +18,8 @@ and enter the repository URL `https://github.com/embrace-io/embrace-apple-sdk.gi
 Be sure to set the Dependency Rule to a recent release. When "Choose Package Products for embrace-apple-sdk" appears, Xcode will add all libraries to your application by default. For the most straightforward installation, select either `EmbraceIO` or `EmbraceIO-Dynamic` to add to your application target. For all other package products, do not add these to your target by selecting `None`.
 
 **Explanation of Package Products**
+
+<img src={require('@site/static/images/spm-products.png').default} />
 
 Here's a quick summary of the 5 products this package contains:
 
