@@ -5,10 +5,16 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 1.26.1
+*August 12th, 2024*
+* NPE patch for null EmbraceSpanEvents
+* Improvement of AndroidJavaObject memory disposal
+
 ## 1.26.0
 *July 18, 2024*
 :::warning Important
-This version of the Unity SDK requires desugaring if the required min Android API level is less than 24. 
+This version of the Unity SDK requires desugaring if the required min Android API level is less than 24 and AGP < 7.4.2
+Additionally, for built APKs directly out of Unity, AGP 4.0.1 may be required for desugaring to function correctly.
 This is a simple, well-supported process by Android build tooling that backports certain Java 8 language features onto older Android versions that didn't have support. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring).
 
 Please be sure to match the appropriate desugaring library with your version of Unity LTS.
