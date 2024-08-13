@@ -1,7 +1,7 @@
 ---
 title: Performance Tracing
 description: Record traces to monitor the production performance and success rates of operations.
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Performance Tracing

@@ -1,6 +1,6 @@
 ---
 title: Migrating from Moments to Traces
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 # Migrating from Moments to Traces

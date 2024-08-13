@@ -1,7 +1,7 @@
 ---
 title: Symbolicating Crash Reports
 description: Upload your app's desymbolicated files to Embrace for readable stack traces.
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Symbolicating Crash Reports
