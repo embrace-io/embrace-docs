@@ -43,4 +43,8 @@ You can end the moment from multiple locations in your app.
 ## Tracking Abandonment
 
 In addition to measuring performance, moments can also measure abandonment.
-For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance/) section.
+Moments measure abandonment by default. If the moment never completes, because:
+
+- the user exits the app before the moment ends
+- the app crashes
+- an unexpected code path is taken

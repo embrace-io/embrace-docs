@@ -18,7 +18,6 @@ The performance of the networking calls that moments make are unrelated to the p
 :::
 
 Moments are best used for tracking critical user flows that are generally short in nature.
-For more suggestions on what to measure with moments, see the [Best Practices](/best-practices/app-performance#keep-it-short) page.
 
 ## Starting a Moment
 
@@ -89,4 +88,9 @@ You can end the moment from multiple locations in your app, or from multiple thr
 ## Tracking Abandonment
 
 In addition to performance, moments also measure abandonment by default. 
-For more on tracking abandonment, see the [Best Practices](/best-practices/app-performance) section.
+Moments measure abandonment by default. If the moment never completes, because:
+
+- the user exits the app before the moment ends
+- the app crashes
+- an unexpected code path is taken
+
