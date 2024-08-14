@@ -6,6 +6,18 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.10.0
+*August 13, 2024*
+
+- Support Android 15 and devices that use 16KB native page size.
+- Updated minimum requirements to the following:
+    - JDK 11
+    - Gradle 7.5.1
+    - AGP 7.4.2
+    - Kotlin 1.8.22
+- Improve R8 ruleset to further reduce the size of the SDK binary.
+- Enable native crash capture if unspecified in `embrace-config.json`.
+
 ## 6.9.2
 *August 1, 2024*
 - Fix session recording after app backgrounding if Background Activity is disabled.

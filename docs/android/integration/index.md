@@ -17,9 +17,7 @@ you are free to skip around.
 Embrace has the following minimum requirements on Android:
 
 * Android 5.0 (API 21)
-* Java 1.8
-* Kotlin 1.4
-* Gradle 6.5.1
-* AGP (Android Gradle Build Tools Plugin) 4.0.0
-
-If you use a version older than any of those listed above, please reach out to us on Slack.
+* Java 11
+* Kotlin 1.8.22
+* Gradle 7.5.1
+* AGP (Android Gradle Build Tools Plugin) 7.4.2
