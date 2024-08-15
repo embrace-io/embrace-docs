@@ -19,6 +19,7 @@ sidebar_position: 4
 - Upload native symbols by default during the build process unless explicitly disabled.
 - Split main SDK module (`io.embrace.embrace-android-sdk`) into several modules.
     - This is an internal change and has no direct user impact. App dependencies on Embrace remain unchanged.
+- `Embrace.getDeviceId()` and `Embrace.getLastEndState()` only accessible as functions but not as properties in Kotlin.
 
 ## 6.9.2
 *August 1, 2024*
