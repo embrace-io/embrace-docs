@@ -23,13 +23,26 @@ You can also see, create, and modify rules in the Settings view.
 <img src={require('@site/static/images/tagging-ui-3.png').default} alt="rules-in-settings" width="500px"/>
 
 ### With a CODEOWNERS File
-POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, `token` (the symbol upload token used to upload symbols files) , and `file`.
+POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, 
+`token` (the symbol upload token used to upload symbols files) , `file` and `base_direcory`. The `base_directory` is the
+prefix that will be stripped from the stack frame file paths before matching.  This is useful for matching stack traces
+from React Native.
 
 <img src={require('@site/static/images/Postman-Codeowners example.png').default} alt="screenshot of Codeowners upload" />
 
 **NOTE: Automatically tagging owners using a CODEOWNERS file is most useful in crashes where the stack trace information
 matches your source code layout. Matching will not work in cases where the crash frame does not match your source code.
 For example, a native Android crash in a React Native app will not match the JavaScript source code for the app.**
+
+Use the following curl command to upload the CODEOWNERS file:
+
+```shell
+curl https://dsym-store.emb-api.com/v2/store/tagging/codeowner \
+  --form app=<app_id> \
+  --form token=<token> \
+  --form file=@./CODEOWNERS \
+  --form base_directory=<base_directory>
+```
 
 ## Consume tagged crashes via Metrics API
 
