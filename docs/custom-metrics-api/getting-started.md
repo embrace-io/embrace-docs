@@ -25,8 +25,20 @@ If a standard metric doesn’t suit your needs you can define a custom metric. F
 property to identify sessions associated with paying customers and filter for that session property to get app adoption
 amongst paying customers. You can then consume this metric in your datastore of choice.
 
-## Creating Custom Metrics in Embrace Dashboard
+## Creating Custom Metrics in Embrace 
 
+### via Boards
+Some Widgets on [custom Boards](/docs/product/custom-dashboards.md) can be directly converted to Custom Metrics.
+
+Open the menu on a Widget, and click "Create Custom Metric".  This will open up a Custom Metric creation form, pre-populated with the same parameters as the Widget.
+
+<img src={require('@site/static/images/UI CMs > onramp.png').default} alt="Screenshot of Widgets settings menu" />
+
+<img src={require('@site/static/images/UI CMs > pre-filled form.png').default} alt="Screenshot of custom metrics pre-filled form" />
+
+From there, follow the rest of the Custom Metric create flow by selecting a (optional) Data Destination and measurement time interval.
+
+### via Settings
 Go to the Settings page in the Embrace Dashboard and click on the Custom Metrics tab. Here you can create, view, and
 delete custom metrics. When you define a custom metric, you can specify:
 
