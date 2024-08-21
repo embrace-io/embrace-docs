@@ -1,9 +1,9 @@
 ---
 title: Configuration using Embrace Options
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# Configurating the SDK
+# Configuring the SDK
 
 The `Embrace.Options` object used to initialize your Embrace client is the configuration object for the SDK. It allows you to customize Embrace's behavior in the SDK. Many of these arguments are optional and are not required to get your app up and running.
 

@@ -1,6 +1,6 @@
 ---
 title: User Personas
-sidebar_position: 11
+sidebar_position: 10
 ---
 
 

@@ -50,6 +50,14 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/ios/open-source/upgrade-guide/#moments-have-been-replaced-by-traces",
+            from: "/ios/open-source/moments-to-tracing/",
+          },
+          {
+            to: "/ios/open-source/#built-on-opentelemetry/",
+            from: "/ios/upgrade-guide/built-on-otel/",
+          },
+          {
             to: "/ios/open-source/upgrade-guide/",
             from: "/ios/upgrade-guide/",
           },
