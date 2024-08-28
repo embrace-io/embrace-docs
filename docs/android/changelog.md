@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.11.0
+*August 27, 2024*
+
+- Update cached background activities when session properties are modified.
+- Apply configuration defined in `embrace-config.json` properly if appId is not specified (Fix for #1219).
+- Restore access via synthetic properties in Kotlin for `getDeviceId()` and `getLastRunEndState()` (Fix for #1253).
+- Update OpenTelemetry Java SDK and BoM to 1.41.0.
+
 ## 6.10.0
 *August 13, 2024*
 
