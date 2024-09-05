@@ -1,3 +1,5 @@
+import * as process from "node:process";
+
 import { type Config } from "@docusaurus/types";
 
 const lightCodeTheme = require("prism-react-renderer").themes.github;
@@ -28,6 +30,20 @@ const config: Config = {
     defaultLocale: "en",
     locales: ["en"],
   },
+
+  scripts: [
+    {
+      scr: "/scripts/init.ts",
+    },
+    ...(process.env.NODE_ENV === "production"
+      ? [
+          {
+            src: `https://js.qualified.com/qualified.js?token=${process.env.QUALIFIED_TOKEN}`,
+            async: true,
+          },
+        ]
+      : []),
+  ],
 
   themes: [
     [
