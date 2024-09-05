@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.12.0
+*September 5, 2024*
+
+- Improve SDK startup performance.
+- Increase resilience of telemetry delivery under poor network conditions.
+- Add configuration to redact values for custom property keys on a denylist.
+- Fix bug at build time that invalidated the Gradle configuration cache when the native crash capture feature was disabled.
+
 ## 6.11.0
 *August 27, 2024*
 
