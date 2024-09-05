@@ -26,7 +26,7 @@ jobs:
       AWS_CLOUDFRONT_ID: ${{ steps.choose_environment.outputs.AWS_CLOUDFRONT_ID }}
       URL: ${{ steps.choose_environment.outputs.URL }}
       BASE_URL: ${{ steps.choose_environment.outputs.BASE_URL }}
-      NODE_ENV: ${{ steps.choose_environment.outputs.NODE_ENV }}
+      ENV: ${{ steps.choose_environment.outputs.ENV }}
       QUALIFIED_TOKEN: ${{ steps.choose_environment.outputs.QUALIFIED_TOKEN }}
     steps:
       - name: Choose environment
@@ -38,7 +38,7 @@ jobs:
               echo 'AWS_CLOUDFRONT_ID=EMBBYTO7JVZ55' >> $GITHUB_OUTPUT
               echo 'URL=https://embrace.io' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
-              echo 'NODE_ENV=production' >> $GITHUB_OUTPUT
+              echo 'ENV=production' >> $GITHUB_OUTPUT
               echo 'QUALIFIED_TOKEN=bccpi8sAeZKRzDnQ' >> $GITHUB_OUTPUT
           elif [ "${{ github.ref }}" == "refs/heads/master" ]; then
               echo 'name=staging' >> $GITHUB_OUTPUT
@@ -46,7 +46,7 @@ jobs:
               echo 'AWS_CLOUDFRONT_ID=E4A8IBR0CE998' >> $GITHUB_OUTPUT
               echo 'URL=https://stg.emb-eng.com' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
-              echo 'NODE_ENV=staging' >> $GITHUB_OUTPUT
+              echo 'ENV=staging' >> $GITHUB_OUTPUT
               echo 'QUALIFIED_TOKEN=' >> $GITHUB_OUTPUT
           else
               echo 'name=development' >> $GITHUB_OUTPUT
@@ -54,7 +54,7 @@ jobs:
               echo 'AWS_CLOUDFRONT_ID=E2WHYGE4IOWA0Y' >> $GITHUB_OUTPUT
               echo 'URL=https://dev.emb-eng.com' >> $GITHUB_OUTPUT
               echo 'BASE_URL=/docs-pr${{ github.event.number }}' >> $GITHUB_OUTPUT
-              echo 'NODE_ENV=development' >> $GITHUB_OUTPUT
+              echo 'ENV=development' >> $GITHUB_OUTPUT
               echo 'QUALIFIED_TOKEN=' >> $GITHUB_OUTPUT
           fi
 
@@ -81,7 +81,7 @@ jobs:
           # These are read by docusaurus.config.js
           URL: ${{ needs.environment.outputs.URL }}
           BASE_URL: ${{ needs.environment.outputs.BASE_URL }}
-          NODE_ENV: ${{ needs.environment.outputs.NODE_ENV }}
+          ENV: ${{ needs.environment.outputs.NODE_ENV }}
           QUALIFIED_TOKEN: ${{ needs.environment.outputs.QUALIFIED_TOKEN }}
         run: |
           npm run docusaurus build
