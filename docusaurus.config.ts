@@ -35,7 +35,7 @@ const config: Config = {
     {
       src: "/scripts/init.js",
     },
-    ...(process.env.ENV === "production"
+    ...(process.env.EMBR_ENV === "production"
       ? [
           {
             src: `https://js.qualified.com/qualified.js?token=${process.env.QUALIFIED_TOKEN}`,
