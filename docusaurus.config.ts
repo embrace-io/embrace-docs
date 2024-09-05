@@ -33,7 +33,7 @@ const config: Config = {
 
   scripts: [
     {
-      src: "/scripts/init.js",
+      src: "scripts/init.js",
     },
     ...(process.env.EMBR_ENV === "production"
       ? [
