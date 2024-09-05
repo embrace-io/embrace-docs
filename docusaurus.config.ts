@@ -33,7 +33,7 @@ const config: Config = {
 
   scripts: [
     {
-      scr: "/scripts/init.ts",
+      src: "/scripts/init.ts",
     },
     ...(process.env.NODE_ENV === "production"
       ? [
@@ -202,7 +202,7 @@ const config: Config = {
           showLastUpdateTime: false,
         },
         gtag: {
-          trackingID: 'G-38TSBDNVVD',
+          trackingID: "G-38TSBDNVVD",
           anonymizeIP: true,
         },
         theme: {
@@ -260,7 +260,7 @@ const config: Config = {
       links: [
         {
           title: "Can't find what you were looking for?",
-          items: [        
+          items: [
             {
               label: "Community Slack",
               href: "https://community.embrace.io",
@@ -273,11 +273,11 @@ const config: Config = {
               label: "Get Started For Free",
               href: "https://dash.embrace.io/signup/",
             },
-          ]
+          ],
         },
         {
           title: "Company Information",
-          items: [        
+          items: [
             {
               label: "Privacy Policy",
               to: "/privacy-policy/",
@@ -290,7 +290,7 @@ const config: Config = {
               label: "Data Processing Agreement",
               to: "/dpa/",
             },
-          ]
+          ],
         },
       ],
 
