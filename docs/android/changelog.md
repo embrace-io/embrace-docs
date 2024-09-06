@@ -6,8 +6,22 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.12.1
+*September 6, 2024*
+
+- Fix JVM crash recording and Embrace API request retries when Embrace enums are obfuscated.
+- Improve delivery retry of sessions ended by a native crash or background process termination.
+
 ## 6.12.0
 *September 5, 2024*
+
+:::info Important
+This version contains a bug where obfuscating Embrace classes will lead to JVM crashes not being recorded and failed requests to Embrace not being retried.
+
+*This version should not be used*, but you can workaround this by adding the following keep rule to your Proguard file so R8 will bypass obfuscation for the matched code: 
+
+`-keep class io.embrace.android.embracesdk.** { *; }`
+:::
 
 - Improve SDK startup performance.
 - Increase resilience of telemetry delivery under poor network conditions.
