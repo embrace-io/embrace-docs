@@ -16,7 +16,7 @@ sidebar_position: 4
 *September 5, 2024*
 
 :::info Important
-This version contains a bug where obfuscating Embrace classes will lead to JVM crashes not being recorded and failed requests to Embrace not being retried.
+This version contains a bug where obfuscating Embrace classes will lead to JVM crashes not being recorded and failed requests to Embrace not being retried after that app process terminates.
 
 *This version should not be used*, but you can workaround this by adding the following keep rule to your Proguard file so R8 will bypass obfuscation for the matched code: 
 
