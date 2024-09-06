@@ -20,9 +20,7 @@ This version contains a bug where obfuscating Embrace classes will lead to JVM c
 
 *This version should not be used*, but you can workaround this by adding the following keep rule to your Proguard file so R8 will bypass obfuscation for the matched code: 
 
-`-keepclassmembers enum * {
-    public *;
-}`
+`-keep class io.embrace.android.embracesdk.** { *; }`
 :::
 
 - Improve SDK startup performance.
