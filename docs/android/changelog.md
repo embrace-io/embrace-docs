@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.12.2
+*September 11, 2024*
+
+- Fix race condition on app startup when native crash capture is enabled that could result in a crash when the native delegate is accessed before the library is loaded
+
 ## 6.12.1
 *September 6, 2024*
 
