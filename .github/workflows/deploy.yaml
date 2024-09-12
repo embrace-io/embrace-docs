@@ -6,9 +6,48 @@ on:
       event_name:
         required: true
 
+env:
+  REPOSITORY: 'embrace-docs-public'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Event: ${{ inputs.event_name }}"
+      - name: Choose environment
+        id: choose_environment
+        run: |
+          if [ '${{ inputs.event_name }}' == 'release' ]; then
+              echo 'name=production' >> $GITHUB_OUTPUT
+              echo 'env=production' >> $GITHUB_OUTPUT
+              echo 'AWS_CLOUDFRONT_ID=EMBBYTO7JVZ55' >> $GITHUB_OUTPUT
+              echo 'URL=https://embrace.io' >> $GITHUB_OUTPUT
+              echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
+              echo 'QUALIFIED_TOKEN=bccpi8sAeZKRzDnQ' >> $GITHUB_OUTPUT
+          elif [ '${{ inputs.event_name }}' == 'push' ]; then
+              echo 'name=staging' >> $GITHUB_OUTPUT
+              echo 'env=staging' >> $GITHUB_OUTPUT
+              echo 'AWS_CLOUDFRONT_ID=E4A8IBR0CE998' >> $GITHUB_OUTPUT
+              echo 'URL=https://stg.emb-eng.com' >> $GITHUB_OUTPUT
+              echo 'BASE_URL=/docs' >> $GITHUB_OUTPUT
+              echo 'QUALIFIED_TOKEN=' >> $GITHUB_OUTPUT
+           else
+              echo 'Unknown event_name' >> $GITHUB_STEP_SUMMARY
+              exit 1
+           fi
+
+      - uses: actions/checkout@v4
+        with:
+          repository: embrace-io/${{ env.REPOSITORY }}
+
+      - name: Switch to latest release tag
+        if: ${{ inputs.event_name == 'release' }}
+        run: |
+          cd ${{ env.REPOSITORY }} && git checkout $(gh release list --exclude-drafts --exclude-pre-releases --json=tagName --limit 1 | jq '.[0]["tagName"]' | tr -d '"')
+
+      - name: deploy
+        run: |
+          ls -l
+
+          cd ${{ env.REPOSITORY }}
+          ls -l
+          git status
