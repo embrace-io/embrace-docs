@@ -35,7 +35,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: embrace-io/embrace-docs-public
-          path: embrace-docs
           fetch-depth: 0
 
       - name: Switch to latest release tag
@@ -43,11 +42,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ls
-          cd embrace-docs && git checkout $(gh release list --repo embrace-io/embrace-docs-public --exclude-drafts --exclude-pre-releases --json=tagName --limit 1 | jq '.[0]["tagName"]' | tr -d '"')
+          ls -l
+          git checkout $(gh release list --repo embrace-io/embrace-docs-public --exclude-drafts --exclude-pre-releases --json=tagName --limit 1 | jq '.[0]["tagName"]' | tr -d '"')
 
       - name: deploy
         run: |
           ls -l
-          pwd
           git status
