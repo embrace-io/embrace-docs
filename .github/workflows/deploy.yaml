@@ -36,6 +36,7 @@ jobs:
         with:
           repository: embrace-io/embrace-docs-public
           path: embrace-docs
+          fetch-depth: 0
 
       - name: Switch to latest release tag
         if: ${{ inputs.event_name == 'release' }}
