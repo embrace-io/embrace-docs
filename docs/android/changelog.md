@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.13.0
+*September 12, 2024*
+
+- Improve SDK startup performance.
+- Fix issue with capturing details of network requests with long URLs.
+- Increase default ANR call stack depth to 200 frames.
+
 ## 6.12.2
 *September 11, 2024*
 
