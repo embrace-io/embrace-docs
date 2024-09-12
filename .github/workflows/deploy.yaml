@@ -1,0 +1,14 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      event_name:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Event: ${{ inputs.event_name }}"
