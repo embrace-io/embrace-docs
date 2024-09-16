@@ -1,0 +1,37 @@
+/* see full spec / use cases in https://www.figma.com/file/QvJDt4Suf2CRXk1B3OVYOx/%5BDS%5D-Design-system-library-V2?node-id=801%3A52803&mode=dev */
+
+/* Body/Body 1 */
+.body1 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.024px;
+  line-height: 24px; /* 150% */
+}
+
+/* Body/Body 2 */
+.body2 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.032px;
+  line-height: 24px; /* 150% */
+}
+
+/* Body/Body 3 */
+.body3 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.014px;
+  line-height: 20px; /* 142.857% */
+}
+
+/* Body/Body 4 */
+.body4 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.028px;
+  line-height: 20px; /* 142.857% */
+}

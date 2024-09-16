@@ -1,0 +1,28 @@
+name: CI - Docusaurus
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  docusaurus-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Docusaurus
+        run: |
+          npm install
+
+      - name: Run Docusaurus build to generate HTML
+        run: |
+          npm run docusaurus build

@@ -1,0 +1,26 @@
+/* see full spec / use cases in https://www.figma.com/file/QvJDt4Suf2CRXk1B3OVYOx/%5BDS%5D-Design-system-library-V2?node-id=801%3A52803&mode=dev */
+
+/* Title/Title 1 */
+.title1 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+}
+
+/* Title/Title 2 */
+.title2 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 130% */
+}
+
+/* Title/Title 3 */
+.title3 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.03px;
+  line-height: 26px; /* 130% */
+}

@@ -1,0 +1,24 @@
+name: CI - Deploy
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [ released ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch deployment event
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GH_EMBRACE_DOCS_INTERNAL_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: 'embrace-io',
+              repo: 'embrace-docs-internal',
+              workflow_id: 'ci-docusaurus.yml',
+              ref: 'master',
+              inputs: {event_name: '${{ github.event_name }}'}
+            })

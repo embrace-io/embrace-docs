@@ -1,0 +1,35 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 50
+    groups:
+      docusaurus:
+        patterns:
+          - "@docusaurus/*"
+          - "@easyops-cn/docusaurus-search-local"
+          - "docusaurus-plugin-hotjar"
+
+      dependencies:
+        patterns:
+          - "@mdx-js/react"
+          - "@tabler/icons-react"
+          - "clsx/*"
+          - "prism-react-renderer"
+          - "react"
+          - "react-dom"
+
+      dev-dependencies:
+        patterns:
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "prettier"
+          - "typescript"
+          - "unist-util-visit"

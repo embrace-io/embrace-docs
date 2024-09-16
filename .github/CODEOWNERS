@@ -1,0 +1,20 @@
+# DevOps
+.github @embrace-io/team-devops
+scripts @embrace-io/team-devops
+
+# JavaScript
+package*.json @embrace-io/opensource-backend
+**/*.js @embrace-io/opensource-backend
+**/*.ts @embrace-io/opensource-backend
+
+# SDK Teams
+docs/android @embrace-io/opensource-android
+docs/flutter @embrace-io/opensource-flutter
+docs/ios @embrace-io/opensource-ios
+docs/react-native @embrace-io/opensource-react-native
+docs/unity @embrace-io/opensource-unity
+
+# docs/best-practices
+docs/embrace-api @embrace-io/opensource-backend
+docs/custom-metrics-api @embrace-io/opensource-backend
+docs/data-destinations @embrace-io/opensource-backend
