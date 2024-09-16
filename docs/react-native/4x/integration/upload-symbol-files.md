@@ -10,10 +10,6 @@ The Embrace SDK allows you to view both native and JavaScript stack traces for c
 These stack traces, however, usually require symbol files to be able to make sense of them.
 For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android. 
 
-:::info
-If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page these changes has already been made for you.
-:::
-
 ## Uploading Source Maps
 
 ```mdx-code-block
@@ -42,6 +38,9 @@ export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/main.jsbundle.map"; <-- Add this
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
+:::info
+If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/4x/integration/add-embrace-sdk) page, this change has already been made for you.
+:::
 
 </TabItem>
 <TabItem value="android" label="Android">
@@ -71,7 +70,7 @@ Automatically uploading dSYM files is a good option for you if you are not using
 To enable automatic dSYM uploads, we will need to locate a number of items first:
 
 1. **Your App ID.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
-1. **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the API section.
+1. **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the Tokens section.
 
 Now, open the "Build Phases" tab in Xcode. We will be adding a new phase.
 
@@ -112,15 +111,15 @@ Run the upload tool and your dSYM will be sent to Embrace.
 
 ```shell-session
 # Upload a single file
-/EmbraceIO/embrace_symbol_upload.<arch> --app $APP_ID --token $API_TOKEN dsyms.zip
+/EmbraceIO/upload --app $APP_ID --token $API_TOKEN dsyms.zip
 
 # Upload multiple files
-/EmbraceIO/embrace_symbol_upload.<arch> --app $APP_ID --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
+/EmbraceIO/upload --app $APP_ID --token $API_TOKEN --dsym my_dsym --dsym my_file.zip
 ```
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
 
-## JavaScript Manual Uploads
+## Javascript Manual Uploads
 
 When you uplad the dSYM manually you also have to upload the javascript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
 
@@ -134,12 +133,12 @@ react-native bundle \
 ```
 
 ```shell-session
-ios/Pods/EmbraceIO/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle ./build/main.jsbundle --rn-map ./build/main.map
+ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/main.jsbundle --rn-map ./build/main.map
 ```
 
 --- 
 
-dSYMs are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
+dSYM's are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
 </TabItem>
 <TabItem value="android" label="Android">
 
@@ -166,18 +165,18 @@ Then, use the Embrace upload script to upload the source map.
 <TabItem value="ios" label="iOS">
 
 ```shell-session
-ios/Pods/EmbraceIO/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/main.jsbundle --rn-map ./map
+ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/main.jsbundle --rn-map ./map
 ```
 
 </TabItem>
 <TabItem value="android" label="Android">
 
 ```shell-session
-ios/Pods/EmbraceIO/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
+ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle ./build/CodePush/index.android.bundle --rn-map ./map
 ```
 
 :::info
-The Android map is generated with a different name, but the tool to upload is the same as iOS
+The android map is generated with a different name, but the tool to upload is the same as iOS
 :::
 
 </TabItem>
@@ -187,7 +186,11 @@ The Android map is generated with a different name, but the tool to upload is th
 
 If you distribute changes to the JavaScript code without submitting a new version to the App Store or Google Play Store (i.e. Expo OTA updates),
 you must point the Embrace SDK to where the updated JavaScript bundle will be downloaded on the device.
+You can do this in either the JavaScript part or native parts of your app with the code snippet provided below.
 Note that this step is unnecessary if you use CodePush since the Embrace SDK will leverage the CodePush SDK to find the location of the bundle.
+
+<Tabs groupId="rn-language" queryString="rn-language">
+<TabItem value="javascript" label="JavaScript">
 
 ```javascript
 import {setJavaScriptBundlePath} from '@embrace-io/react-native';
@@ -195,12 +198,29 @@ import {setJavaScriptBundlePath} from '@embrace-io/react-native';
 setJavaScriptBundlePath(pathToBundle)
 ```
 
+</TabItem>
+<TabItem value="objectivec" label="Objective-C">
+
+```objectivec
+[[RNEmbrace sharedIntance] setJavasScriptBundleURL: pathToBundle];
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Embrace.getInstance().getReactNativeInternalInterface().setJavaScriptBundleUrl(pathToBundle)
+```
+
+</TabItem>
+</Tabs>
+
 ## Expo Apps
 
 If your app is built using Expo and you leverage OTA to distribute updates to your users, you must manually upload source maps using the script distributed with the SDK
-as described in the [Symbolication with CodePush](/react-native/integration/upload-symbol-files#symbolication-with-codepush) section.
+as described in the [Symbolication with CodePush](/react-native/4x/integration/upload-symbol-files#symbolication-with-codepush) section.
 
-You must also point the Embrace SDK to the location the updated bundle will be downloaded to on the device, as described in the [Pointing the Embrace SDK to the JavaScript Bundle](/react-native/integration/upload-symbol-files#pointing-the-embrace-sdk-to-the-javascript-bundle).
+You must also point the Embrace SDK to the location the updated bundle will be downloaded to on the device, as described in the [Pointing the Embrace SDK to the JavaScript Bundle](/react-native/4x/integration/upload-symbol-files#pointing-the-embrace-sdk-to-the-javascript-bundle).
 
 ---
 

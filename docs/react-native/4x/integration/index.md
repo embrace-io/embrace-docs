@@ -22,11 +22,6 @@ This guide will walk you through integrating Embrace into your React Native appl
 * Gradle 7.5.1
 * AGP (Android Gradle Build Tools Plugin) 7.2.2
 
-### iOS
-
-* iOS 13.0
-* Swift 5
-
 ### Expo
 
 For Expo apps, the project must be ejected (use `expo eject` for older versions or `expo prebuild` for newer versions) to integrate the necessary native components.

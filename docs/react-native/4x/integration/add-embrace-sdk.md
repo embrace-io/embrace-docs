@@ -4,11 +4,6 @@ description: Add the Embrace SDK as a dependency to your React Native applicatio
 sidebar_position: 3
 ---
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 # Adding the React Native Embrace SDK
 
 ## Add the JavaScript library
@@ -20,18 +15,12 @@ yarn add @embrace-io/react-native
 ```
 
 ```shell-session
-npm install @embrace-io/react-native
+npm install @embrace-io/react-native --save
 ```
 
 :::info
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
-
-For iOS you will also need to install the pod:
-
-```shell
-cd ios && pod install --repo-update
-```
 
 # Adding the SDK 
 
@@ -71,11 +60,52 @@ correctly.
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
-Configuration for iOS is handled in code when initializing the SDK which we will cover in the next step. If you're on
-React Native version 0.60 and above you benefit from [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
-to set up the native module so you're good to go! Otherwise review the section below:
+You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 
-### React Native Version < 0.60
+1. Create a file called `Embrace-Info.plist` with the following content.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>API_KEY</key>
+    <string>{API_KEY}</string>
+    <key>CRASH_REPORT_ENABLED</key>
+    <true/>
+  </dict>
+</plist>
+```
+:::info Note for iOS
+If you'd like to use Embrace's internal crash reporter,
+set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
+described in the [Adding the Embrace SDK](/flutter/integration/add-embrace-sdk) page).
+If you're using Crashlytics, set this value to false.
+:::
+
+2. Identify your root iOS Project.
+<img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
+
+3. Right click on that project and select `Add Files to YOUR_PROJECT`.
+<img src={require('@site/static/images/addEmbraceInfo-2.png').default} />
+
+4. Select `Embrace-Info.plist` and click on `Add`. Do not forget to select which `Targets` you are using.
+<img src={require('@site/static/images/addEmbraceInfo-3.png').default} />
+
+5. Check if the file appears inside YOUR_PROJECT.
+<img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
+
+## React Native Version < 0.60
+
+If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking/)
+to set up the native modules. 
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="rn-platform" queryString="rn-platform">
+<TabItem value="ios" label="iOS">
 
 Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
 
@@ -92,8 +122,11 @@ Then, install the pod.
 ```shell-session
 cd ios && pod install --repo-update
 ```
+
 </TabItem>
 
+</Tabs>
+</TabItem>
 <TabItem value="android" label="Android">
 
 Update the `build.gradle` file (usually located at `<root>/android/build.gradle`) to include the Embrace Swazzler.
