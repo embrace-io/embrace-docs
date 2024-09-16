@@ -195,14 +195,15 @@ const config: Config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          editUrl: "https://github.com/embrace-io/embrace-docs/tree/main/",
           routeBasePath: "/",
           remarkPlugins: [embraceSdkVersion],
           showLastUpdateTime: false,
+          sidebarPath: require.resolve("./sidebars.js"),
         },
         gtag: {
-          trackingID: "G-38TSBDNVVD",
           anonymizeIP: true,
+          trackingID: "G-38TSBDNVVD",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
