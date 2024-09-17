@@ -2,6 +2,8 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static documentation generator written using React Native and is published to [https://embrace.io/docs/](https://embrace.io/docs/)
 
+Contributions are welcomed, no matter how small!
+
 ## Updating
 
 You can make edits to these docs from within GitHub UI or by forking/cloning the repo to make edits locally with an editor.
