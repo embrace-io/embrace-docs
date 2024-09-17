@@ -1,5 +1,6 @@
 .DS_Store
 .docusaurus
+.idea
+.lycheecache
 build
 node_modules
-.idea
