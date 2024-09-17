@@ -13,7 +13,7 @@ how your application is performing in production.
 * [**Breadcrumbs.**](/android/features/breadcrumbs.md) Enrich your sessions with Breadcrumb, a lightweight way to add logging to your session. 
 * [**Know your users.**](/android/features/identify-users.md) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 * [**Session Properties.**](/android/features/session-properties.md) Session Properties provide a way to annotate the session with additional information.
-* [**Adding Logs.**](android/features/log-message-api.md) Adding logs to your application is a way to get instant feedback on what is happening in your application.
+* [**Adding Logs.**](/android/features/log-message-api.md) Adding logs to your application is a way to get instant feedback on what is happening in your application.
 * [**Background Sessions.**](/android/features/background-sessions.md) Embrace can track sessions that occur in the background.
 * [**Push Notifications.**](/android/features/push-notifications.md) Embrace automatically captures push notifications received. Learn how to configure this feature.
 * [**Current Session ID API.**](/android/features/current-session-id-api.md) This API lets you know what the current Session Id is in case you need to track it separately.
