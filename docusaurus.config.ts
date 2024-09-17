@@ -60,7 +60,6 @@ const config: Config = {
   ],
 
   plugins: [
-    // "docusaurus-plugin-hotjar",
     [
       "@docusaurus/plugin-client-redirects",
       {
@@ -185,10 +184,6 @@ const config: Config = {
             to: "/features/performance-tracing",
             from: "/product/performance-tracing",
           },
-          {
-            to: "/flutter/features/tracing",
-            from: "/flutter/features/moments",
-          },
         ],
       },
     ],
@@ -200,14 +195,15 @@ const config: Config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          editUrl: "https://github.com/embrace-io/embrace-docs/tree/main/",
           routeBasePath: "/",
           remarkPlugins: [embraceSdkVersion],
           showLastUpdateTime: false,
+          sidebarPath: require.resolve("./sidebars.js"),
         },
         gtag: {
-          trackingID: "G-38TSBDNVVD",
           anonymizeIP: true,
+          trackingID: "G-38TSBDNVVD",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -223,9 +219,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // hotjar: {
-    //   applicationId: 3734357,
-    // },
     image: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
 
     // https://docusaurus.io/docs/api/themes/configuration#color-mode---dark-mode

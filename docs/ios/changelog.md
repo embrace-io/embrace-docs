@@ -6,6 +6,22 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.4.0
+*Sep 13th, 2024*
+* Features
+    * Added the option to use the SDK without an `appId` using `Embrace.Options`.
+    * Introduced a new parameter in the `log` API: `stackTraceBehavior` to specify the behavior for automatically capturing stack traces within a log.
+    * Added the capability to securely capture the body of network requests.
+* Changes
+    * Removed `-dynamic` targets from Swift Package Manager.
+    * Discontinued capturing the screen resolution of devices.
+* Fixes
+    * Updated `GRDB` to the current latest version (`6.29.1`) to support Xcode 16.
+    * Addressed issues related to our service for capturing Network Requests with the new concurrency system (aka. `async` / `await`).
+    * Fixed a crash associated with being with another player proxying `URLSession`.
+    * Resolved an issue that prevented proper forwarding of calls to the original delegate when swizzling `URLSession` due to a retention issue.
+    * Corrected the public API `recordCompletedSpan` to set `Span.Status` consistently with other `end` methods.
+
 ## 6.3.0
 *Aug 7th, 2024*
 * Features

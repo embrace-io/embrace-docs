@@ -24,23 +24,11 @@ If you want to capture data from inside the notifications then you can set the c
 
 ## iOS configuration
 
-Push notifications capture is controlled by supplying a `captureService` when initializing the iOS SDK. To enable this functionality, add the following to where Embrace is initialized in your `AppDelegate`:
+Push notifications capture is controlled by the local config `PUSH_NOTIFICATIONS_CAPTURE_MODE` in the `Embrace-Info.plist` file. To enable this functionality, this config must be set to `automatic` (to disable it again, the config can be set to the default `manual`).
 
-```swift
-let builder = CaptureServiceBuilder().addDefaults()
-builder.add(.pushNotification())
-let services = builder.build()
-
-try Embrace
-    .setup(
-        options: Embrace.Options(
-            appId: "", // Your app ID
-            captureServices: services,
-            crashReporter: EmbraceCrashReporter()
-        )
-    )
-    .start()
-```
+:::info
+If you want to prevent any data inside the notifications from being captured, you can set the local config `ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE` to `NO`.
+:::
 
 ## Manually logging push notifications
 

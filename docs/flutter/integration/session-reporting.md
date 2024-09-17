@@ -44,7 +44,61 @@ Future<void> main() async {
 }
 ```
 
+If you have configured the Android and iOS projects using the Embrace CLI, you can now proceed to the [build and run your application](#build-and-run-the-application)
+
 ## Manually add start calls for the native SDKs
+
+:::info
+These steps are performed automatically by the [Embrace CLI](#using-the-embrace-cli) when using the `installIos` or `installAndroid` commands. 
+:::
+
+### Add the iOS SDK start call
+Add a call to start the iOS SDK from within your `AppDelegate`:
+
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
+
+```swift title="AppDelegate.swift"
+import UIKit
+import Flutter
+import Embrace
+
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+override func application(
+  _ application: UIApplication,
+  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+) -> Bool {
+  Embrace.sharedInstance().start(launchOptions: launchOptions, framework: EMBAppFramework.flutter)
+  /*
+      Initialize additional crash reporters and
+      any other libraries to track *after* Embrace, including
+      network libraries, 3rd party SDKs
+  */
+  return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+}
+```
+
+</TabItem>
+<TabItem value="objective-c" label="Objectice-C">
+
+```objectivec title="AppDelegate.m"
+#import AppDelegate.h
+#import <Embrace/Embrace.h>
+@implementation AppDelegate
+- (BOOL)application:(UIApplication *) application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+[[Embrace sharedInstance] startWithLaunchOptions:launchOptions framework:EMBAppFrameworkFlutter];
+    /*
+    Initialize additional crash reporters and
+    any other libraries to track *after* Embrace, including
+    network libraries, 3rd party SDKs
+    */
+  return YES;
+}
+@end
+```
+</TabItem>
+</Tabs>
 
 ### Add the Android SDK start call
 
@@ -106,6 +160,44 @@ class MainActivity : FlutterActivity() {
 </TabItem>
 </Tabs>
 
+## End the startup moment
+
+Embrace automatically starts the **startup** moment when your application launches.
+You'll learn more about moments in [here](/flutter/features/moments/).
+For now, you can think of the startup moment as a timer that measures how long it took your application to launch.
+Although in both Android and iOS the moment is started automatically, ending it is platform specific.
+
+For Android, the SDK will end the moment automatically, for iOS it will not.
+
+In iOS, end the startup moment as close to the point that your UI is ready for use by adding the following to your `AppDelegate`:
+
+
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
+
+```swift
+Embrace.sharedInstance().endAppStartup()
+```
+
+</TabItem>
+<TabItem value="objective-c" label="Objective-C">
+
+```objectivec
+[[Embrace sharedInstance] endAppStartup];
+```
+
+</TabItem>
+</Tabs>
+
+You should end the startup moment before the user has a chance to interact with the application.
+Add this method call to every location where the startup moment can end. You can call this method as many times as you like.
+
+In either platform, you can also end the startup moment from your Dart code:
+
+```dart
+Embrace.instance.endStartupMoment();
+```
+
 ## Build and Run the Application
 
 Now you're ready to build and run the application. Assuming the app launches correctly,
@@ -114,6 +206,25 @@ pay attention to the system logging and look for Embrace to print its version nu
 ```
 Embrace Flutter SDK Version: {{ embrace_sdk_version platform="flutter" }}
 ```
+
+In addition to that message, you should also see an initialization message for the underlying native Embrace SDK:
+
+<Tabs groupId="platform" queryString="platform">
+<TabItem value="ios" label="iOS">
+
+```
+[Embrace] Embrace SDK enabled. Version: {{ embrace_sdk_version platform="ios" }}
+```
+
+</TabItem>
+<TabItem value="android" label="Android">
+
+```
+Embrace SDK started. API key: xxxxx Version: {{ embrace_sdk_version platform="android" }}
+```
+
+</TabItem>
+</Tabs>
 
 :::info
 If you encounter any errors, please get in touch on Slack and we can assist you.
