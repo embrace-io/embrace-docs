@@ -22,8 +22,8 @@ jobs:
 
       - uses: lycheeverse/lychee-action@v1
         with:
-          args: "--verbose --no-progress --cache --max-cache-age 1d './**/*.md'"
-          fail: false
+          args: "--verbose --no-progress --cache --max-cache-age 1d docs/"
+          fail: true
 
       - name: Add output as PR comment
         uses: embrace-io/actions-comment-pull-request@v2
