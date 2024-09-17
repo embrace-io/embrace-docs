@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+# 3.0.0
+*Sep 17, 2024*
+* Updated Embrace Android SDK to 6.13.0.
+* Updated Embrace iOS SDK to 6.4.0.
+* Added Tracing API for capturing spans/events
+
 ## 2.0.0
 *Mar 13, 2024*
 * Removed deprecated methods.

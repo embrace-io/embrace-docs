@@ -8,20 +8,20 @@ sidebar_position: 1
 
 ## Getting Started
 
-This guide will walk you through integrating Embrace into your React Native application with a series of articles. We recommend following them in order, although you are free to skip around.
+We'll be guiding you through integrating Embrace into your React Native application
+with a series of articles. We recommend going through them in order, although
+you are free to skip around. 
 
 ## Requirements
 
 ### Android
 
-* Android: Android 7.0 (API 24)
-* `minSdkVersion`: 24 or higher
-* `compileSdkVersion`: 34 or higher
+* Android 5.0 (API 21)
 * Java 1.8
 * Kotlin 1.4
-* Gradle 7.5.1
-* AGP (Android Gradle Build Tools Plugin) 7.2.2
+* Gradle 6.5.1
+* AGP (Android Gradle Build Tools Plugin) 4.0.0
 
 ### Expo
 
-For Expo apps, the project must be ejected (use `expo eject` for older versions or `expo prebuild` for newer versions) to integrate the necessary native components.
+Expo apps must be ejected to integrate the required native components.
