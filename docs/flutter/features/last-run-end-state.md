@@ -38,7 +38,7 @@ final didCrashLastRun = await Embrace.instance.getLastRunEndState() == LastRunEn
 
 - The API can only be called after the SDK has been started. If a call is made prior to starting the Embrace SDK you will get a response of `LastRunEndState.invalid`
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
-- This feature only works with the Embrace crash reporter on iOS. It is **not** compatible if you use Crashlytics for crash reporting.
+- On iOS, this feature only works when the Embrace crash reporter is enabled. It is **not** compatible if you use Crashlytics for crash reporting.
 
 ### Version
 

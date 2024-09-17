@@ -5,15 +5,6 @@ sidebar_position: 4
 
 ---
 # React Native SDK Changelog
-## 4.3.0
-_September 13, 2024_
-* Fixed Android sourcemap upload issue for RN 0.72+
-* Updated Android native Embrace SDK dependency to version 6.13.0
-* Breaking Change: Updated Android build requirements:
-  * minSdkVersion is now 24 or higher
-  * compileSdkVersion is now 34 or higher
-  * Android Gradle Plugin (AGP) version 7.2.2 or higher is required
-  * Gradle version 7.5.1 or higher is required
 ## 4.2.0
 _July 04, 2024_
 * Made timeStampMS in addSpanEventToSpan mandatory

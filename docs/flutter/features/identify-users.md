@@ -6,7 +6,7 @@ sidebar_position: 2
 
 # Know Your Users
 
-Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
+Embrace offers two methods of annotating sessions with information that will help developers and customer service agents find
 sessions for an unhappy user.
 
 1. [**User Personas**](/flutter/features/identify-users/#user-personas). This is data you can set and update about the user of a session.

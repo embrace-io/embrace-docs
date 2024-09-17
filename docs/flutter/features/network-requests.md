@@ -6,11 +6,11 @@ sidebar_position: 3
 
 # Network Requests
 
-If you are using the [http package](https://pub.dev/packages/http) or the [Dio package](https://pub.dev/packages/dio) to perform your network operations, Embrace can capture that information with minimal modification to your codebase. Also, if you are using other method, network requests can be manually logged through the Embrace SDK.
+If you use the [http package](https://pub.dev/packages/http) or the [Dio package](https://pub.dev/packages/dio) to perform network operations, Embrace can capture that information with minimal modification to your codebase. If you are using other solutions, network requests can be manually logged through the Embrace SDK.
 
 ## Using the http package
 
-If you are using the [http package](https://pub.dev/packages/http), you should use an instance of `EmbraceHttpClient` to perform 
+If you use the [http package](https://pub.dev/packages/http), you should use an instance of `EmbraceHttpClient` to perform
 network operations, like this:
 
 ```dart
@@ -46,7 +46,7 @@ var dio = Dio();
 dio.interceptors.add(EmbraceInterceptor());
 ```
 
-Keep in mind that you will need to add the `embrace_dio` package to your `pubspec.yaml` to be able to use `EmbraceInterceptor`.
+Keep in mind that you will need to add the `embrace_dio` package to your `pubspec.yaml` to use `EmbraceInterceptor`.
 
 ## Manually logging network requests
 
@@ -71,5 +71,6 @@ void logNetworkRequest({
     required int statusCode,
     String? error,
     String? traceId,
+    String? w3cTraceParent,
 });
 ```

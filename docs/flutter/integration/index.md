@@ -28,4 +28,5 @@ you are free to skip around.
 
 ### iOS
 
-* iOS 9.0
+* iOS 13.0
+* Swift 5
