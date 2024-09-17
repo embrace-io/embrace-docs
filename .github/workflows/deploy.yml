@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   release:
     types: [ released ]
+  pull_request:
 
 jobs:
   deploy:
@@ -20,5 +21,5 @@ jobs:
               repo: 'embrace-docs-internal',
               workflow_id: 'ci-docusaurus.yml',
               ref: 'master',
-              inputs: {event_name: '${{ github.event_name }}'}
+              inputs: {event_name: '${{ github.event_name }}', event_number: '${{ github.event.number }}'}
             })
