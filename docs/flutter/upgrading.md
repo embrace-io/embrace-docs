@@ -1,16 +1,8 @@
 # Upgrade guide
 
-# Upgrading from 2.0.0 to 3.0.0
-
-Replace the contents of your iOS `AppDelegate` with the [new approach](../integration/add-embrace-sdk/#ios-setup) of initializing the Embrace SDK. If you have custom configuration or have written Swift/Obj-C code that invokes Embrace, please also follow the [iOS upgrade guide](../../ios/open-source/upgrade-guide/).
-
-`Embrace.instance.startMoment`, `Embrace.instance.endMoment`, and `Embrace.instance.endAppStartup` are all removed. Please use the [Tracing API instead](../features/tracing) which provides superior insights into your application's performance.
-
-`Embrace.instance.getSessionProperties` is removed.
-
 # Upgrading from 1.5.0 to 2.0.0
 
-The methods marked as deprecated in 1.5.0 have been removed from this release.
+The methods mark as deprecated in 1.5.0 have been removed from this release.
 
 Please make sure not to have a hardcoded version of the Android SDK in the build.gradle file of your Android project. The correct way to include the Embrace Android SDK is using the `emb_android_sdk` like this:
 
