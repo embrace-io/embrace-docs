@@ -8,7 +8,7 @@ sidebar_position: 9
 
 ## Adding Context to Sessions
 
-Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](https://embrace.io/docs/react-native/4x/integration/crash-reporting) and [Session Reporting](https://embrace.io/docs/react-native/4x/integration/session-reporting) sections.
+Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/4x/integration/crash-reporting) and [Session Reporting](/react-native/4x/integration/session-reporting) sections.
 Embrace can also collect when your app changes its orientation
 Here's how you add the Orientation tracker to the session.
 
