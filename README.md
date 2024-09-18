@@ -2,8 +2,6 @@
 
 This repository hosts the source code for the [Embrace documentation site](https://embrace.io/docs/). 
 
-## Updating
-=======
 The docs site is automatically deployed from this repository on a regular daily interval. We welcome all contributors who would like to grow knowledge and clarity regarding the Embrace mobile SDKs, dashboard, and data forwarding features. Please feel free to make a pull request to make an addition, or open an issue to make a suggestion of what might be change.
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static documentation generator written using React. Some specific changes to Docusaurus are noted below in [Embrace Customizations](./#embrace-customizations).
