@@ -25,7 +25,7 @@ Yes. We link all sessions to that user from the past and in the future. Search b
 
 ### **Do I have access to the Embrace ID at runtime?**
 
-Yes, we make the Embrace ID available to you via our SDK. See the [API docs](https://embrace-io.github.io/embrace-react-native-sdk/modules/_embrace_.html#getdeviceid).
+Yes, we make the Embrace ID available to you via `getDeviceId()` call.
 
 ## Network Requests
 
@@ -53,4 +53,4 @@ This could be due to one of the following reasons:
   * Akamai
   * Cloudflare
   * PacketZoom
-* You are using an Axios version that is not compatible with us or you have a custom integration that block us. You can force log the Axios request appying our [interceptor](https://embrace-io.github.io/embrace-react-native/modules/_embrace_.html#applynetworkinterceptors).  
+* You are using an Axios version that is not compatible with us or you have a custom integration that block us. You can force log the Axios request appying our [interceptor](https://github.com/embrace-io/embrace-react-native-sdk/blob/main/packages/core/src/networkInterceptors/ApplyInterceptor.ts).

@@ -96,7 +96,7 @@ If you're using Crashlytics, set this value to false.
 
 ## React Native Version < 0.60
 
-If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking/)
+If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/main/docs/autolinking.md)
 to set up the native modules. 
 
 ```mdx-code-block

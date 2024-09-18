@@ -141,7 +141,7 @@ A [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logreco
 
 ### Local testing
 
-Injecting a [SystemOutLogRecordExporter](https://opentelemetry.io/docs/languages/java/exporters/#otlp-dependencies) will allow you to see your telemetry in the logcat.
+Injecting a [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) will allow you to see your telemetry in the logcat.
 
 ```
 2024-03-05 14:15:15.342 29672-29756 System.out     io.embrace.mysampleapp          I  1970-01-01T00:00:00Z INFO 'Default log'
@@ -149,7 +149,7 @@ Injecting a [SystemOutLogRecordExporter](https://opentelemetry.io/docs/languages
 
 ### Adding a LogRecordExporter for a custom OTel Collector
 
-You can send your data to a custom ([OTel Collector](https://opentelemetry.io/docs/languages/java/exporters/#collector-setup)) 
+You can send your data to a custom ([OTel Collector](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/otlp/all/src/main/java/io/opentelemetry/exporter/otlp/logs/OtlpGrpcLogRecordExporter.java)) 
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
