@@ -1,0 +1,4 @@
+# https://github.com/lycheeverse/lychee/blob/master/lychee.example.toml
+cache = true
+exclude = ['^https://webhook\.site']
+max_cache_age = "1d"

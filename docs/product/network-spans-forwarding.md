@@ -29,7 +29,11 @@ To request Network Span Forwarding be turned on, simply click the "enable" butto
 <img src={require('@site/static/images/NSF > Timeline button.png').default} alt="big button" />
 
 ### Requirements
-NSF is supported on SDK versions 6.x for Android and iOS.
+NSF is supported on the following SDK versions:
+* iOS 6.0+
+* Android 6.0+
+* Flutter 3.0+
+  
 Accounts must have a [Data Destination](/data-destinations/) set up.
 
 Accounts not matching either condition will see a checklist pop up when trying to enable.

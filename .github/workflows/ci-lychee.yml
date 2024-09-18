@@ -1,0 +1,32 @@
+name: CI - Check Links
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - uses: lycheeverse/lychee-action@v1
+        with:
+          args: "--verbose --no-progress --cache --max-cache-age 1d docs/"
+          fail: true
+
+      - name: Add output as PR comment
+        uses: embrace-io/actions-comment-pull-request@v2
+        with:
+          comment_tag: lychee
+          filePath: lychee/out.md

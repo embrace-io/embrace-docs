@@ -1,30 +1,41 @@
 # Embrace Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static documentation generator written using React Native and is published to [https://embrace.io/docs/](https://embrace.io/docs/)
-
-Contributions are welcomed, no matter how small!
+This repository hosts the source code for the [Embrace documentation site](https://embrace.io/docs/). 
 
 ## Updating
+=======
+The docs site is automatically deployed from this repository on a regular daily interval. We welcome all contributors who would like to grow knowledge and clarity regarding the Embrace mobile SDKs, dashboard, and data forwarding features. Please feel free to make a pull request to make an addition, or open an issue to make a suggestion of what might be change.
 
-You can make edits to these docs from within GitHub UI or by forking/cloning the repo to make edits locally with an editor.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static documentation generator written using React. Some specific changes to Docusaurus are noted below in [Embrace Customizations](./#embrace-customizations).
 
-For quick edits that don't require adding or reorganizing pages, you can edit the specific Markdown file from within the [docs](./docs/) folder. Edit the file, commit your changes and make a PR, then follow the Release Workflow below.
+## Updating These Docs
+
+You can make edits to these docs from within GitHub UI or by forking/cloning the repo to make edits locally.
+
+### Recommendations
+
+For quick edits that don't require adding or reorganizing pages, you can edit the specific Markdown file from within the [docs](./docs/) folder. Edit the file, commit your changes and make a PR.
 
 For larger reorganization, you should follow the structure of the [docs](./docs) folder to see where your new pages will go. Any change to the landing page organization will be in the [Categories.tsx](./src/pages/_Home/Categories/Categories.tsx) file. Any change to the outer-most level of organization will be in the [sidebars.ts](./sidebars.ts) file.
 
-## Installation
+## Local Development
+
+You can edit and build these docs on your local machine by pulling the repo and following the instructions below. We recommend using an integrated development environment like [VSCode](https://code.visualstudio.com/) to simultaneously edit the source files, note markdown or linking errors, and run the docs via Node.
+
+### Installation
 
 ```
 $ npm i
 ```
+This command will install all node packages and their dependencies. This command is usually optional, as the packages are prebuilt in this repository.
 
-## Local Development
+### Start 
 
 ```
 $ npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens up a browser window. Most changes are reflected live when a file is saved, without having to restart the server.
 
 ## Build
 
@@ -59,5 +70,5 @@ And we customized the following:
 
 ## Tips
 
-- If you make changes to docusaurus.config.js or some other site-wide .js files you typically need to fully restart `npm start` process and not rely on its hot-reloading
-- Search is only indexed for static `build` and is not available via local `npm start`
+- If you make changes to `docusaurus.config.js` or some other site-wide `.js` files you typically need to fully restart `npm start` process and not rely on its hot-reloading.
+- The searchbox on the site is only indexed for static `build` and is not available via local `npm start`.
