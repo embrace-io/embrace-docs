@@ -54,6 +54,7 @@ This version contains a bug where obfuscating Embrace classes will lead to JVM c
 - Support Android 15 and devices that use 16KB native page size.
 - Updated minimum requirements to the following:
     - JDK 11
+    - Android SDK Platform 34
     - Gradle 7.5.1
     - AGP 7.4.2
     - Kotlin 1.8.22
