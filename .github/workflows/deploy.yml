@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Dispatch deployment event
         uses: actions/github-script@v7
+        if: ${{ github.actor != 'dependabot[bot]' }}
         with:
           github-token: ${{ secrets.GH_EMBRACE_DOCS_INTERNAL_TOKEN }}
           script: |
