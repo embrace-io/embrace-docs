@@ -7,9 +7,9 @@ sidebar_position: 4
 # React Native SDK Changelog
 
 ## 5.0.0
-_TBD_
+_September 26, 2024_
 * This new major version includes several backwards incompatible change, before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
-* Updated iOS native Embrace SDK dependency to 6.3.0.
+* Updated iOS native Embrace SDK dependency to 6.4.1.
 * Deprecation of Moments in favor of Performance Tracing
 ## 4.3.0
 _September 13, 2024_
