@@ -1,10 +1,10 @@
 ---
-title: Performance Tracing
+title: Performance Tracing (Beta)
 description: Record traces to monitor the production performance and success rates of operations within your mobile app.
-sidebar_position: 3
+sidebar_position: 14
 ---
 
-# Performance Tracing
+# Performance Tracing (Beta)
 
 ## Overview
 
@@ -13,7 +13,7 @@ Embrace’s Performance Tracing solution gives you visibility into any app opera
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/integration/add-embrace-sdk/).
+- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/4x/integration/add-embrace-sdk/).
 :::
 
 The Embrace Performance Tracing API allows you to:
@@ -85,7 +85,7 @@ import { startSpan } from '@embrace-io/react-native-spans';
 
 // startSpan: (name: string, parentSpanId?: string, startTimeMs?:number) => Promise<boolean | string>;
 
-const spanId = await startSpan("span-name")
+const spanId = await startSpan("parentname")
 
 ```
 
@@ -98,7 +98,7 @@ import { startSpan } from '@embrace-io/react-native-spans';
 
 // startSpan: (name: string, parentSpanId?: string, startTimeMs?:number) => Promise<boolean | string>;
 const startTimeMs = new Date().getTime()
-const spanId = await startSpan("span-name", undefined, startTimeMs)
+const spanId = await startSpan("parentname", undefined, startTimeMs)
 
 ```
 
@@ -111,7 +111,7 @@ import { startSpan, stopSpan, addSpanAttributeToSpan } from '@embrace-io/react-n
 
 // addSpanAttributeToSpan: (spanId: string, key: string, value: string) => Promise<boolean>;
 // Starting a span
-const spanId = await startSpan("span-name")
+const spanId = await startSpan("parentname")
 
 // Adding an attribute to a specific span
 addSpanAttributeToSpan(spanId, "myKey", "value")
@@ -131,7 +131,7 @@ import { startSpan, stopSpan, addSpanEventToSpan } from '@embrace-io/react-nativ
 //    attributes?: Attributes) => Promise<boolean>;
 
 // Starting a span
-const spanId = await startSpan("span-name")
+const spanId = await startSpan("parentname")
 
 // Adding an event to a specific span
 
@@ -158,7 +158,7 @@ import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 // type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
 // Starting a span
-const spanId = await startSpan("span-name")
+const spanId = await startSpan("parentname")
 
 // Do something
 
@@ -179,7 +179,7 @@ import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 // type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
 // Starting a span
-const spanId = await startSpan("span-name")
+const spanId = await startSpan("parentname")
 
 try{
   // Do something that throw an error
@@ -197,11 +197,11 @@ try{
 import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 
 // Starting Spans
-const parentSpanId = await startSpan("parent-name")
+const parentSpanId = startSpan("parentname")
 
-const firstChildSpanId = await startSpan("firstchildname", parentSpanId)
+const firstChildSpanId = startSpan("firstchildname", parentSpanId)
 
-const secondChildSpanId = await startSpan("secondchildname", firstChildSpanId)
+const secondChildSpanId = startSpan("secondchildname", firstChildSpanId)
 
 // Stopping Spans
 stopSpan(firstChildSpanId)
@@ -248,7 +248,7 @@ const attributes = {
   },
 ];
 // Starting Spans
-const spanResult = await recordSpan("span-name", trackMe, attributes, events)
+const spanResult = await recordSpan("parentname", trackMe, attributes, events)
 
 ```
 
@@ -289,7 +289,7 @@ const attributes = {
 const startTime = new Date().getTime()
 const endTime = new Date().getTime() + 1
 
-const spanResult = await recordCompletedSpan("span-name", startTime, 
+const spanResult = await recordCompletedSpan: ("parentname", startTime, 
                             endTime, "None", undefined, attributes, events)
 
 ```

@@ -20,11 +20,12 @@ initialize().then(hasStarted=>{
         //doSomething
     }
 });
-```
-
 :::info Note for initialize method
 The initialize method will apply the interceptors needed to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
 :::
+
+
+```
 
 This will setup a hook that gets called and uploads a crash report when the application crashes because of an unhandled JavaScript exception.
 You can also pass in a patch number to the `initialize` function to use along side the version of the app to pinpoint which JavaScript bundle the user was running when the app crashed.
@@ -36,35 +37,10 @@ initialize({patch: 'v1'});
 ```
 
 :::info Note for iOS
-Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't want
-to interfere with you can disable this. If you used the automated installation script or followed the manual steps for
-setting up the iOS SDK then you can modify the setup in `EmbraceInitializer.swift` to remove the crash reporter:
-```swift
-try Embrace
-    .setup(
-        options: Embrace.Options(
-            appId: "YOUR-APP-ID",
-            platform: .reactNative,
-            captureServices: .automatic,
-            crashReporter: nil
-        )
-    )
-    .start()
-```
-
-If instead you only initialized the SDK through JS then the `disableCrashReporter` property can be set during the
-call to initialize the SDK:
-```javascript
-initialize({
-  sdkConfig: {
-    ios: {
-      appId: "YOUR-APP_ID",
-      disableCrashReporter: true,
-    }
-  }
-})
-```
-
+If you'd like to use Embrace's internal crash reporter,
+set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
+described in the [Adding the Embrace SDK](/react-native/4x/integration/add-embrace-sdk) page).
+If you're using Crashlytics, set this value to false.
 :::
 
 ```mdx-code-block

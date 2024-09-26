@@ -1,7 +1,7 @@
 ---
 title: Tracking Components
 description: Track the mounting and unmounting of React Components for your React Native application using the Embrace SDK
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Tracking Components

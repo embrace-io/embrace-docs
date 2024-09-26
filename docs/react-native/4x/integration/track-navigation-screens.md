@@ -8,7 +8,7 @@ sidebar_position: 8
 
 ## Adding Context to Sessions
 
-Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.
+Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/4x/integration/crash-reporting) and [Session Reporting](/react-native/4x/integration/session-reporting) sections.
 Embrace can also collect the screens that your app opened and include it as context within your sessions.
 Here's how you add the screen tracker to the session.
 
@@ -128,48 +128,20 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 
 #### iOS:
 
-If you used the automated installation script or followed the manual steps for setting up the iOS SDK then you can
-modify the setup in `EmbraceInitializer.swift` to remove the view capture service, see [Configurating the iOS SDK](/ios/open-source/embrace-options/)
-for more details:
+Go to your Embrace-info.plist inside ios/YOURAPPNAME and add ENABLE_AUTOMATIC_VIEW_CAPTURE as false, your file should be like this
 
-```swift
-import Foundation
-import EmbraceIO
-import EmbraceCrash
-
-@objcMembers class EmbraceInitializer: NSObject {
-    static func start() -> Void {
-        do {
-         
-            try Embrace
-                .setup(
-                    options: Embrace.Options(
-                        appId: "YOUR-APP-ID",
-                        platform: .reactNative,
-                        captureServices: CaptureServiceBuilder()
-                            .addDefaults()
-                            .remove(ofType: ViewCaptureService.self)
-                            .build(),
-                        crashReporter: EmbraceCrashReporter()
-                    )
-                )
-                .start()
-        } catch let e {
-            print("Error starting Embrace \(e.localizedDescription)")
-        }
-    }
-}
-```
-
-If instead you only initialized the SDK through JS then the `disableAutomaticViewCapture` property can be set during the
-call to initialize the SDK:
-```javascript
-initialize({
-  sdkConfig: {
-    ios: {
-      appId: "YOUR-APP-ID",
-      disableAutomaticViewCapture: true,
-    }
-  }
-})
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>{API_KEY}</string>
+	<key>CRASH_REPORT_ENABLED</key>
+	<true/>
+   <!-- Add this key and the value as false-->
+	<key>ENABLE_AUTOMATIC_VIEW_CAPTURE</key>
+	<false/>
+</dict>
+</plist>
 ```
