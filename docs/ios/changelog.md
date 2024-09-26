@@ -7,7 +7,7 @@ sidebar_position: 4
 # iOS/tvOS SDK Changelog
 
 ## 6.4.1
-*Sep 25th, 2024*
+*Sep 26th, 2024*
 * Features
     * Updated OpenTelemetry dependencies to v1.10.1.
 * Fixes
