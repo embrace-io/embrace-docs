@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.4.1
+*Sep 26th, 2024*
+* Features
+    * Updated OpenTelemetry dependencies to v1.10.1.
+* Fixes
+    * Fixed logs not having resources from the session when being recovered during the SDK startup.
+    * Fixed crash with the `gtm-session-fetcher` library.
+    * Fixed KSCrash dependency compilation issues in Xcode 16.
+
 ## 6.4.0
 *Sep 13th, 2024*
 * Features
