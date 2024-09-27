@@ -1,6 +1,6 @@
 ---
 title: Performance Tracing
-description: Record traces to monitor the production performance and success rates of operations within your mobile app.
+description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 2
 ---
 
@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## API Usage Examples
 
