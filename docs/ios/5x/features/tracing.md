@@ -28,7 +28,7 @@ There is no limit on the duration of spans, but **if a crash occurs during a spa
 
 | Type  | Limit |
 | --- | --- |
-| Max number of Root Spans per session  | 100 |
+| Max number of span per session  | 100 |
 | Max number of spans per Root Span | 10 |
 | Max number of attributes per span | 50  |
 | Max number of events per span | 10 |
