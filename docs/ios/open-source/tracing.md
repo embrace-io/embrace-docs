@@ -1,6 +1,6 @@
 ---
 title: Performance Tracing
-description: Record traces to monitor the production performance and success rates of operations.
+description: Record spans to monitor the production performance and success rates of operations.
 sidebar_position: 8
 ---
 
@@ -28,8 +28,8 @@ There is no limit on the duration of spans, but **if a crash occurs during a spa
 
 | Type  | Limit |
 | --- | --- |
-| Max number of traces per session  | 100 |
-| Max number of spans per trace | 10 |
+| Max number of Root Spans per session  | 100 |
+| Max number of spans per Root Span | 10 |
 | Max number of attributes per span | 50  |
 | Max number of events per span | 10 |
 | Max number of attributes per event  | 10 |
@@ -56,8 +56,8 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and 
 To use this feature:
 
 1. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
-2. Instrument your app using the reference guide in this sections to start adding traces to your operations.
-3. See the traces in the Traces section of the Embrace dashboard.
+2. Instrument your app using the reference guide in this sections to start adding spans to your operations.
+3. See the spans in the Traces section of the Embrace dashboard.
 
 ### Create SpanBuilder
 
@@ -66,7 +66,7 @@ To trace an in-progress operation, use the `Embrace.client` instance to create a
 Note: Until the span is started, the `.buildSpan` method below and any decorators return a `SpanBuilder` object.
 
 ```swift
-// Create a trace by building its root span
+// Create a span by building its root span
 let spanBuilder = Embrace
                 .client?
                 .buildSpan(
@@ -118,7 +118,7 @@ Note that in the spans above the decorator `.markAsKeySpan` was used. This **MUS
 A span can be indicated as the child of another span by setting its parent. This must be set on the `SpanBuilder` object, so you should set the parent before starting your span.
 
 ```swift
-// Create a trace root span with a custom name
+// Create a span root span with a custom name
 let parentSpan = Embrace
                 .client?
                 .buildSpan(name: "process-batch")
