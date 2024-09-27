@@ -1,6 +1,6 @@
 ---
 title: Performance Tracing 
-description: Record traces to monitor the production performance and success rates of operations within your mobile app.
+description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---
 
@@ -8,7 +8,7 @@ sidebar_position: 14
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Feature Support
 
@@ -27,7 +27,7 @@ The Embrace Performance Tracing API allows you to:
 
 There are no limits on the duration of a span as long as the app is running.
 
-There are also no limits to the number of child spans you can have per trace, provided the total number of spans do not exceed the per-session maximum.
+There are also no limits to the number of child spans you can have per Root Span, provided the total number of spans does not exceed the per-session maximum.
 
 ### Limits
 
@@ -60,15 +60,15 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attrib
 To use this feature:
 
 1. **Ensure you're using Embrace Unity SDK version 1.26.0 or greater**.
-3. Instrument your app using the reference guide in this section to start adding traces to your operations.
-4. See the traces in the Traces section of the Embrace dashboard.
+3. Instrument your app using the reference guide in this section to start adding spans to your operations.
+4. See the spans in the Traces section of the Embrace dashboard.
 
 ## API Usage Examples
 
 ### Create a Span
 
 ```csharp
-// Create a trace by creating a span with a given span name. 
+// Create a span by creating a span with a given span name. 
 // It is important to note that the millisecond time is given 
 // in Unix Epoch/POSIX time rather than in .NET ticks.
 Embrace.Instance.StartSpan("SpanName", startTimeMillisPosix);
