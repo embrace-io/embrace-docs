@@ -1,6 +1,6 @@
 ---
 title: Performance Tracing
-description: Record traces to monitor the production performance and success rates of operations within in your application.
+description: Record spans to monitor the production performance and success rates of operations within in your application.
 sidebar_position: 10
 ---
 
@@ -8,7 +8,7 @@ sidebar_position: 10
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you complete visibility into any customized operation you’d like to track, enabling you to identify, prioritize, and resolve any performance issue. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user
+Embrace’s Traces solution gives you complete visibility into any customized operation you’d like to track, enabling you to identify, prioritize, and resolve any performance issue. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user
 
 ## Feature Support
 
@@ -28,8 +28,8 @@ There is no limit on the duration of spans, but **if a crash occurs during a spa
 
 | Type  | Limit |
 | --- | --- |
-| Max number of traces per session  | 100 |
-| Max number of spans per trace | 10 |
+| Max number of Root Spans per session  | 100 |
+| Max number of spans per Root Span | 10 |
 | Max number of attributes per span | 50  |
 | Max number of events per span | 10 |
 | Max number of attributes per event  | 10 |
@@ -60,8 +60,8 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and 
 To use this feature:
 
 1. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
-1. Instrument your app using the reference guide in this sections to start adding traces to your operations.
-1. See the traces in the Traces section of the Embrace dashboard.
+1. Instrument your app using the reference guide in this sections to start adding spans to your operations.
+1. See the spans in the Traces section of the Embrace dashboard.
 
 ### Create Span
 
@@ -74,7 +74,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="swift" label="Swift">
 
 ```swift
-// Create a trace by creating its root span
+// Create a span by creating its root span
 let span = Embrace.sharedInstance().createSpanNamed("process-image")
 ```
 
@@ -82,7 +82,7 @@ let span = Embrace.sharedInstance().createSpanNamed("process-image")
 <TabItem value="objc" label="Objective-C">
 
 ```objc
-// Create a trace by creating its root span
+// Create a span by creating its root span
 id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"process-image" parent:nil];
 ```
 
@@ -120,7 +120,7 @@ id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"custom-na
 <TabItem value="swift" label="Swift">
 
 ```swift
-// Create a trace root span with a custom name
+// Create a span root span with a custom name
 let span = Embrace.sharedInstance().createSpanNamed("process-batch")
 
 // Create a child span by including the parent parameter
@@ -131,7 +131,7 @@ let childSpan = Embrace.sharedInstance().createSpanNamed("process-item", parent:
 <TabItem value="objc" label="Objective-C">
 
 ```objc
-// Create a trace root span with a custom name
+// Create a span root span with a custom name
 id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"process-batch" parent:nil];
 
 // Create a child span by including the parent parameter
