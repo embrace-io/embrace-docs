@@ -14,6 +14,13 @@ Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace 
 
 <img src={require('@site/static/images/unity-ios-configure-editor-window.png').default} />
 
+Additionally, when you start the SDK you will need to pass the `App ID` to the StartSDK call as below:
+
+```cs
+EmbraceStartupArgs args = new EmbraceStartupArgs("AppID");
+Embrace.Instance.StartSDK(args);
+```
+
 Now when you build and run your project, our editor script will use those values to correctly setup the final IPA to work with Embrace.
 
 ---
