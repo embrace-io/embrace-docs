@@ -3,9 +3,9 @@
 scripts @embrace-io/team-devops
 
 # JavaScript
-package*.json @embrace-io/opensource-backend
-**/*.js @embrace-io/opensource-backend
-**/*.ts @embrace-io/opensource-backend
+package*.json @embrace-io/opensource-frontend
+**/*.js @embrace-io/opensource-frontend
+**/*.ts @embrace-io/opensource-frontend
 
 # SDK Teams
 docs/android @embrace-io/opensource-android
