@@ -17,7 +17,12 @@ please don't hesitate to reach out to us at [support@embrace.com](mailto:support
 
 Embrace includes many optional advanced features that can help you figure out some of 
 the most challenging issues. Learn about these features, and how to enable them, in
-our [Feature Reference](/react-native/features/).
+our [Feature Reference](/react-native/4x/features/).
+
+## API Docs
+
+To see the full list of methods that the Android Embrace SDK exposes, please see
+the [source repository](/api/react-native/).
 
 ## Best Practices
 

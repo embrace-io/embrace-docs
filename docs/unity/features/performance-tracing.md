@@ -31,16 +31,7 @@ There are also no limits to the number of child spans you can have per Root Span
 
 ### Limits
 
-| Type  | Limit |
-| --- | --- |
-| Max number of spans per session  | 500 |
-| Max number of attributes per span | 50  |
-| Max number of events per span | 10 |
-| Max number of attributes per event  | 10 |
-| Length of attribute keys | 50 characters |
-| Length of attribute values | 200 characters |
-| Length of Span names | 50 characters |
-| Length of Event names | 100 characters |
+For limits pertaining to each platform, please see the Android limits [here](/android/features/tracing/#limits), and the iOS limits [here](/ios/open-source/tracing/#limits).
 
 :::warning Exceeding Limits
 If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.
