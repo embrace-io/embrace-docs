@@ -10,7 +10,7 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 ## Root Spans View
 The primary page shows all root spans in your app, as well as summary metrics like count, error rate, percentiles of duration, and changes from a previous version.
 
-<img src={require('@site/static/images/trace-page.png').default} alt="Traces"/>
+<img src={require('@site/static/images/traces-page.png').default} alt="Traces"/>
 
 To narrow down the spans that are summarized in this view, you can apply the following filters on the root span as well as the child spans:
 * Name
