@@ -74,7 +74,7 @@ import TabItem from '@theme/TabItem';
 /* ******************************* */
 // Using Moments in Embrace 5.X
 Embrace.sharedInstance().startMoment(withName: "add-cart-item")
-// perform add cart logic
+// Perform add cart logic
 Embrace.sharedInstance().endMoment(withName: "add-cart-item")
 
 /* ******************************* */
@@ -87,7 +87,7 @@ Embrace.recordSpan(name: "add-cart-item") { span in
 // Using Traces in Embrace 6.x (full)
 let span = Embrace.client?.buildSpan(name: "add-cart-item")
                 .startSpan()
-// perform add cart logic
+// Perform add cart logic
 span?.end()
 ```
 
@@ -112,17 +112,17 @@ let addCartSpan = Embrace.client?.buildSpan(name: "add-cart-item")
                 .startSpan()
 
 
-// add SpanEvent
+// Add SpanEvent
 addCartSpan?.addEvent(name: "quantity-changed")
 
-// add child Span
+// Add child Span
 let addCartUIUpdateSpan = Embrace.client?.buildSpan(name: "add-cart-ui-update")
                             .setParent(addCartSpan)
                             .startSpan()
-// perform UI update logic
+// Perform UI update logic
 addCartUIUpdateSpan.end()
 
-// perform other add-cart-item logic
+// Perform other add-cart-item logic
 addCartSpan?.end()
 ```
 
