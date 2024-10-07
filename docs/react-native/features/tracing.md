@@ -1,7 +1,8 @@
+---
 title: Performance Tracing 
 description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 3
-
+---
 # Performance Tracing
 
 ## Overview
