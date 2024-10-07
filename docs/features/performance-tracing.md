@@ -10,7 +10,7 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 ## Root Spans View
 The primary page shows all root spans in your app, as well as summary metrics like count, error rate, percentiles of duration, and changes from a previous version.
 
-<img src={require('@site/static/images/trace-roots.png').default} alt="Trace roots"/>
+<img src={require('@site/static/images/trace-page.png').default} alt="Traces"/>
 
 To narrow down the spans that are summarized in this view, you can apply the following filters on the root span as well as the child spans:
 * Name
@@ -28,7 +28,7 @@ Clicking on the instance will open up an in-line preview of the details of that 
 
 On the right side each row that shows a Root Span instance, there are two icons. The first one takes you to the Root Span Instance View, where you can see all the details about that instance, including attributes and events on each child span. The second one takes you to the specific session in the User Timeline view that this instance ended in so you can see the full context of what happened before and after this Root Span was recorded.
 
-<img src={require('@site/static/images/trace-summary.png').default} alt="Trace summary"/>
+<img src={require('@site/static/images/root-span-summary.png').default} alt="Root Span summary"/>
 
 You can filter by properties similar to those in the Root Span View.
 
@@ -37,14 +37,14 @@ You can filter by properties similar to those in the Root Span View.
 ## Root Span Instance View
 This view shows a Root Span in its entirety. Not only can you see all the information in trace instance preview, you can also see at the individual events and attributes recorded as part of on a each child span, along with metadata about the device and app.
 
-<img src={require('@site/static/images/trace-instance.png').default} alt="Trace instance"/>
+<img src={require('@site/static/images/root-span-instance-1.png').default} alt="Trace instance"/>
 
 ## User Timeline view
 Root Spans appear in both the Timeline View and Timeline Details.
 
 Clicking on "See Details" for any Root Span within the timeline will take you directly to the Root Span Instance View.
 
-<img src={require('@site/static/images/trace-user-timeline.png').default} alt="User timeline"/>
+<img src={require('@site/static/images/traces-timeline.png').default} alt="User timeline"/>
 
 ## Sessions Filters
 Not only can you filter spans in the various pages dedicated to Performance Tracing, you can filter sessions in the Sessions View by whether or not they contain specific spans with certain attributes and events.
