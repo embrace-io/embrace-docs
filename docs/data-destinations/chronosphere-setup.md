@@ -25,7 +25,7 @@ sidebar_position: 5
 1. Navigate to your Chronosphere account.
 2. Share the "tenant ID" that you access on (it is on the URL of the page). For example, in this case it is "embrace-integration".
 
-<img src={require('@site/static/images/data-destinations/chronosphere_tenant_id.png').default} alt="Image showing Chronosphere field needed" />
+<img src={require('@site/static/images/data-destinations/Chronosphere.png').default} alt="Image showing Chronosphere field needed" />
 
 ## Querying your Metrics
 <img src={require('@site/static/images/data-destinations/chronosphere-query.png').default} alt="Screenshot of Chronosphere UI" />
