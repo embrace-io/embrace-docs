@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+# 3.0.1
+*Oct 7, 2024*
+* Updated Embrace iOS SDK to 6.4.2.
+
 # 3.0.0
 *Sep 17, 2024*
 * Updated Embrace Android SDK to 6.13.0.
