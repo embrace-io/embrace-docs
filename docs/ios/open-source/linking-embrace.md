@@ -60,6 +60,6 @@ If you wish to continue using Crashlytics as your primary crash reporter while a
 having those crashes reported to the Embrace Dashboard and using all associated features,
 you will need to install an additional pod:
 ```
-pod 'EmbraceCrashlyticsSupport'
+pod 'Embrace/EmbraceCrashlyticsSupport'
 ```
 :::
