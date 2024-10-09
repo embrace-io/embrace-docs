@@ -65,7 +65,7 @@ pod 'EmbraceCrashlyticsSupport'
 :::
 
 
-### Known Issues
+## Known Issues
 
 * We rely on [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/) which as of today does not
 have official CocoaPods support. We are working with the community to provide this support but in the meantime we
