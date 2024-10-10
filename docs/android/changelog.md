@@ -142,7 +142,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 ## 6.4.0
 *March 6, 2024*
 - Performance Tracing improvements
-    - Support configuration of OpenTelemetry Exporters to export [Performance Tracing](/android/features/tracing/#export-your-telemetry) data as OpenTelemetry Spans (beta).
+    - Support configuration of OpenTelemetry Exporters to export [Performance Tracing](/android/features/tracing/#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
     - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations. 
         - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
     - Increase per-session limit of spans to 500 in total.
@@ -389,7 +389,7 @@ This version has a known issue with Gradle < 6.2
 ## 5.7.0
 *Oct 03, 2022*
 
-* New mechanism to auto-install Embrace dependencies. If you prefer to use the old mechanism, the new API can be disabled by setting the `useNewDependencyInstaller` property to false. You can check our documentation [**here**](/android/features/build-options#useNewDependencyInstaller-bool)
+* New mechanism to auto-install Embrace dependencies. If you prefer to use the old mechanism, the new API can be disabled by setting the `useNewDependencyInstaller` property to false.
 
 ## 5.6.2
 *Oct 03, 2022*
