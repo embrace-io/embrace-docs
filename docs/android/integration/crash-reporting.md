@@ -9,7 +9,7 @@ description: Upload crash reports from your Android application using the Embrac
 ##  Setting up the Crash Reporter
 
 :::info
-See our [FAQ](/android/faq#crashes-and-anrs/) for details on compatibility with other crash reporters.
+See our [FAQ](/android/faq#crashes-and-anrs) for details on compatibility with other crash reporters.
 :::
 
 The Embrace SDK will automatically capture crash reports, assuming you've initialized the Embrace SDK in the [Session Reporting](/android/integration/session-reporting/) guide.
