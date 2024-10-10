@@ -26,6 +26,8 @@ This guide will walk you through integrating Embrace into your React Native appl
 
 * iOS 13.0
 * Swift 5
+* Known incompatibilities
+  * `@datadog/mobile-react-native`. More details [here](/ios/open-source/linking-embrace/#known-issues).
 
 ### Expo
 

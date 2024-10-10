@@ -60,6 +60,14 @@ If you wish to continue using Crashlytics as your primary crash reporter while a
 having those crashes reported to the Embrace Dashboard and using all associated features,
 you will need to install an additional pod:
 ```
-pod 'EmbraceCrashlyticsSupport'
+pod 'Embrace/EmbraceCrashlyticsSupport'
 ```
 :::
+
+
+## Known Issues
+
+* We rely on [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/) which as of today does not
+have official CocoaPods support. We are working with the community to provide this support but in the meantime we
+work around this issue by wrapping the OpenTelemetry binary as part of our podspec. In practice this means that our SDK
+will not be compatible with other SDKs that do their own version of this work around.
