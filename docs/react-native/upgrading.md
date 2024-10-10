@@ -79,7 +79,7 @@ Replace these with the updated initialization code outlined in [Starting Embrace
 APIs related to moments should be removed from your code.
 
 Any place that you were previously instrumenting your app's performance using Moments can now be done using Performance
-Tracing, please refer to [this guide](/react-native/features/tracing/) for more information.
+Tracing, please refer to [this guide](/react-native/features/traces/) for more information.
 
 ## Removed APIs
 

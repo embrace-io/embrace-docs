@@ -1,22 +1,21 @@
 ---
-title: Performance Tracing
-description: Record traces to monitor the production performance and success rates of operations within your mobile app.
+title: Traces
+description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 3
 ---
-
-# Performance Tracing
+# Traces
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/integration/add-embrace-sdk/).
+- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/integration/add-embrace-sdk/).
 :::
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create record data for past operations.
     - To record past operations, you can specify the start and end times of your spans that you might have captured already.
@@ -27,7 +26,7 @@ The Embrace Performance Tracing API allows you to:
 
 There are no limits on the duration of a span as long as the app is running.
 
-There are also no limits to the number of child spans you can have per trace, provided the total number of spans do not exceed the per-session maximum.
+There are also no limits to the number of child spans you can have per Root Span, provided the total number of spans does not exceed the per-session maximum.
 
 ### Limits
 
@@ -60,8 +59,8 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attrib
 To use this feature:
 
 1. **Ensure you're using Embrace React Native version 4.1.0 or greater**.
-3. Instrument your app using the reference guide in this section to start adding traces to your operations.
-4. See the traces in the Traces section of the Embrace dashboard.
+3. Instrument your app using the reference guide in this section to start adding spans to your operations.
+4. See the spans in the Traces section of the Embrace dashboard.
 
 ### Install the component
 
@@ -78,7 +77,7 @@ npm install @embrace-io/react-native-spans
 ### Create a Span
 
 ```javascript
-// create a trace by creating its root span
+// create a span by creating its root span
 // recording will not behind until the span has been started
 
 import { startSpan } from '@embrace-io/react-native-spans';
@@ -92,7 +91,7 @@ const spanId = await startSpan("span-name")
 ### Create a Span that started in the past (or future)
 
 ```javascript
-// create a trace by creating its root span
+// create a span by creating its root span
 
 import { startSpan } from '@embrace-io/react-native-spans';
 

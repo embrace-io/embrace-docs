@@ -82,13 +82,13 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 *July 4, 2024*
 - OpenTelemetry compatibility improvements:
     - Provide implementation of the [OpenTelemetry Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/). 
-        - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Performance Tracing API. 
+        - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Traces API. 
         - This can be obtained through the `getOpenTelemetry()` method, which will return working implementations for methods involving tracing. Methods involving Logs and Metrics are no-ops at the current time.
-    - Stopping spans through the Embrace Performance Tracing API no longer implicitly sets Status to `OK`.
+    - Stopping spans through the Embrace Traces API no longer implicitly sets Status to `OK`.
     - Add `telemetry.distro.*` resource attributes to exported signals.
     - Update OpenTelemetry SDK dependency to version 1.38 of the [OpenTelemetry BOM](https://github.com/open-telemetry/opentelemetry-java?tab=readme-ov-file#bill-of-material).
     - Consume semantic conventions from [OTel Semantic Conventions for Java](https://github.com/open-telemetry/semantic-conventions-java).
-- Enhance Performance Tracing API to support behavior exposed via the OpenTelemetry Tracing API.
+- Enhance Traces API to support behavior exposed via the OpenTelemetry Tracing API.
 - Change internal endpoint to which session data is sent (no user-facing behavior changes).
 - Issue build warning for apps that have minSdk < 24 and are using AGP < 8.3.
     - If minSdk is lower than 24 (i.e. Android 5 and/or 6 is supported by the app), AGP version 8.3+ must be used so the app can be desugared with the proper setting.
@@ -141,8 +141,8 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 
 ## 6.4.0
 *March 6, 2024*
-- Performance Tracing improvements
-    - Support configuration of OpenTelemetry Exporters to export [Performance Tracing](/android/features/tracing/#export-your-telemetry) data as OpenTelemetry Spans (beta).
+- Traces improvements
+    - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-your-telemetry) data as OpenTelemetry Spans (beta).
     - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations. 
         - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
     - Increase per-session limit of spans to 500 in total.
@@ -202,7 +202,7 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 
 ## 6.1.0
 *November 24, 2023*
-- Enabled [Performance Tracing](/android/features/tracing/) by default
+- Enabled [Traces](/android/features/traces/) by default
 - Improved build performance of the Gradle plugin
 - Improved session data delivery retries
 - Enforce network call per session limits properly
