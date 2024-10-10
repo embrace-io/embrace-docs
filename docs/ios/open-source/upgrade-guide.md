@@ -4,6 +4,9 @@ description: Upgrading from iOS 5x SDK to Apple 6x SDK
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Upgrade Guide
 
 ## Upgrading from iOS 5x SDK to Apple 6x SDK
@@ -62,11 +65,6 @@ A span is simply an operation occurring over a period of time. Using spans, you 
 
 Here is an example of how spans and traces replace and enhance the existing Moment feature:
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
 
@@ -95,11 +93,6 @@ span?.end()
 </Tabs>
 
 Traces can be instrumented in the same places as your Moments. The benefit of Tracing is you can extend a Span by adding parent/child relationships or by adding specific point-in-time "SpanEvents".
-
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
