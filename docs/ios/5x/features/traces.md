@@ -1,10 +1,10 @@
 ---
-title: Performance Tracing
+title: Traces
 description: Record spans to monitor the production performance and success rates of operations within in your application.
 sidebar_position: 10
 ---
 
-# Performance Tracing
+# Traces
 
 ## Overview
 
@@ -12,7 +12,7 @@ Embrace’s Traces solution gives you complete visibility into any customized op
 
 ## Feature Support
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record past operations.
     - For real-time tracing, we use a “Stopwatch” concept that enables you to start and stop the timing of a span manually
@@ -59,7 +59,7 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and 
 
 To use this feature:
 
-1. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
+1. Ensure you’re using a version of the Embrace SDK that supports Traces.
 1. Instrument your app using the reference guide in this sections to start adding spans to your operations.
 1. See the spans in the Traces section of the Embrace dashboard.
 

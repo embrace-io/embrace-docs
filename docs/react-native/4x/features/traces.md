@@ -1,22 +1,22 @@
 ---
-title: Performance Tracing (Beta)
+title: Traces (Beta)
 description: Record traces to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---
 
-# Performance Tracing (Beta)
+# Traces (Beta)
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/4x/integration/add-embrace-sdk/).
+- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/4x/integration/add-embrace-sdk/).
 :::
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create record data for past operations.
     - To record past operations, you can specify the start and end times of your spans that you might have captured already.

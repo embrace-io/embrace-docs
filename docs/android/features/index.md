@@ -9,7 +9,7 @@ sidebar_position: 2
 Embrace's SDK includes many advanced features that you can enable to help you understand more about
 how your application is performing in production.
 
-* [**Performance Tracing.**](/android/features/tracing.md) Record traces to monitor the production performance and success rates of operations within your application.
+* [**Traces.**](/android/features/traces.md) Record traces to monitor the production performance and success rates of operations within your application.
 * [**Breadcrumbs.**](/android/features/breadcrumbs.md) Enrich your sessions with Breadcrumb, a lightweight way to add logging to your session. 
 * [**Know your users.**](/android/features/identify-users.md) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 * [**Session Properties.**](/android/features/session-properties.md) Session Properties provide a way to annotate the session with additional information.

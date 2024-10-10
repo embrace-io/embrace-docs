@@ -1,10 +1,10 @@
 ---
-title: Performance Tracing 
+title: Traces 
 description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---
 
-# Performance Tracing 
+# Traces
 
 ## Overview
 
@@ -13,10 +13,10 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
+- **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
 :::
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create record data for past operations.
     - To record past operations, you can specify the start and end times of your spans that you might have captured already.
@@ -31,7 +31,7 @@ There are also no limits to the number of child spans you can have per Root Span
 
 ### Limits
 
-For limits pertaining to each platform, please see the Android limits [here](/android/features/tracing/#limits), and the iOS limits [here](/ios/open-source/tracing/#limits).
+For limits pertaining to each platform, please see the Android limits [here](/android/features/traces/#limits), and the iOS limits [here](/ios/open-source/tracing/#limits).
 
 :::warning Exceeding Limits
 If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.

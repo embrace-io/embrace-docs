@@ -98,7 +98,7 @@ sidebar_position: 4
     * UIViewController appearance
     * User Tap Gestures
 * Manual instrumentation using:
-    * Spans for Performance Tracing
+    * Spans for Traces
     * Log messages
     * Breadcrumbs
 * Allows for generic export of Traces and Logs via the protocols in the OpenTelemetrySdk.
@@ -133,7 +133,7 @@ sidebar_position: 4
 
 ## 5.25.0
 *March 6, 2024*
-* Add interface for hosted SDKs to use updated performance tracing
+* Add interface for hosted SDKs to use updated traces
 * Fixed missing network body capture data in some scenerios
 * Adds ability for EmbraceExtensions to disable Embrace data uploads. Data will be deferred to the host app for the upload.
 * Improvements to SDK startup time
@@ -168,7 +168,7 @@ sidebar_position: 4
 ## 5.24.0
 *Nov 30, 2023*
 * Updates logic when writing to disk to better catch exceptions that can occur
-* Updates performance tracing to be enabled by default
+* Updates traces to be enabled by default
 * Updates `upload` tool to distribute a universal binary
 * Fixes crash in `EMBSessionMetadataFile`
 * Fixes crash `fileForClosedSpansNamed:`. Introduced in 5.19.4, partly addressed in 5.23.1
@@ -185,7 +185,7 @@ sidebar_position: 4
 
 ## 5.23.0
 *Sept 20, 2023*
-* Introduces Embrace performance tracing beta
+* Introduces Embrace traces beta
 * Updates public interface for consistency across platforms. Adds deprecation messages for outdated methods
 * Adds method to retrieve the current sessionId
 * Begins signing SDK for Xcode 15

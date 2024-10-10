@@ -10,7 +10,7 @@ sidebar_position: 4
 _September 26, 2024_
 * This new major version includes several backwards incompatible change, before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
 * Updated iOS native Embrace SDK dependency to 6.4.1.
-* Deprecation of Moments in favor of Performance Tracing
+* Deprecation of Moments in favor of Traces
 ## 4.3.0
 _September 13, 2024_
 * Fixed Android sourcemap upload issue for RN 0.72+
@@ -38,7 +38,7 @@ _April 15, 2024_
 * Updated iOS native Embrace SDK dependency to 5.25.1.
 ## 4.1.0
 _March 8, 2024_
-* [New Feature Spans](/react-native/features/tracing/)
+* [New Feature Traces](/react-native/features/traces/)
 * Updated iOS native Embrace SDK dependency to 5.25.0.
 ## 4.0.4
 _March 7, 2024_

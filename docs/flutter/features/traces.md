@@ -1,10 +1,10 @@
 ---
-title: Performance Tracing
+title: Traces
 description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 2
 ---
 
-# Performance Tracing
+# Traces
 
 ## Overview
 
@@ -91,7 +91,7 @@ All telemetry in Embrace's Flutter SDK is routed through Embrace's Android/iOS S
 :::
 
 ### Android OTel export
-Please follow [this guide](/android/features/tracing) to setup OpenTelemetry collectors on Android.
+Please follow [this guide](/android/features/traces) to setup OpenTelemetry collectors on Android.
 
 ### iOS OTel export
 Please follow [this guide](/ios/open-source/otel-exporter) to setup OpenTelemetry collectors on iOS.

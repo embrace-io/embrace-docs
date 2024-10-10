@@ -184,6 +184,42 @@ const config: Config = {
             to: "/features/performance-tracing",
             from: "/product/performance-tracing",
           },
+          {
+            to: "/android/features/traces",
+            from: "/android/features/tracing",
+          },
+          {
+            to: "/flutter/features/traces",
+            from: "/flutter/features/tracing",
+          },
+          {
+            to: "/ios/5x/features/traces",
+            from: "/ios/5x/features/tracing",
+          },
+          {
+            to: "/ios/open-source/traces",
+            from: "/ios/open-source/tracing",
+          },
+          {
+            to: "/react-native/4x/features/traces",
+            from: "/react-native/4x/features/tracing",
+          },
+          {
+            to: "/react-native/features/traces",
+            from: "/react-native/features/tracing",
+          },
+          {
+            to: "/traces",
+            from: "/tracing",
+          },
+          {
+            to: "/unity/feature/traces",
+            from: "/unity/feature/performance-tracing",
+          },
+          {
+            to: "/features/traces",
+            from: "/features/performance-tracing",
+          },
         ],
       },
     ],

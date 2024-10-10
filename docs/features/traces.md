@@ -1,5 +1,5 @@
 ---
-title: Performance Tracing
+title: Traces
 sidebar_position: 1
 ---
 
@@ -47,7 +47,7 @@ Clicking on "See Details" for any Root Span within the timeline will take you di
 <img src={require('@site/static/images/traces-timeline.png').default} alt="User timeline"/>
 
 ## Sessions Filters
-Not only can you filter spans in the various pages dedicated to Performance Tracing, you can filter sessions in the Sessions View by whether or not they contain specific spans with certain attributes and events.
+Not only can you filter spans in the various pages dedicated to Traces, you can filter sessions in the Sessions View by whether or not they contain specific spans with certain attributes and events.
 
 <img src={require('@site/static/images/trace-session-filters.png').default} alt="Session filters"/>
 

@@ -173,11 +173,11 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
   ],
   Features: [
     {
-      title: "Performance Tracing",
+      title: "Traces",
       description:
         "Complete visibility into any customized operation you’d like to track.",
       icon: <PerformanceTraces className={styles.svgIcon} />,
-      linkTo: "/features/performance-tracing",
+      linkTo: "/features/traces",
     },
     {
       title: "Error Logs Tracking",

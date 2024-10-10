@@ -210,7 +210,7 @@ This could be due to one of the following reasons:
 
 ### **How do I measure operations running in parallel?**
 
-Please refer to [Performance Tracing feature guide](/android/features/tracing) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
+Please refer to [Traces feature guide](/android/features/traces) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
 
 
 ## Tap Coordinates

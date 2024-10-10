@@ -1,10 +1,10 @@
 ---
-title: Performance Tracing
+title: Traces
 description: Record span to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 2
 ---
 
-# Performance Tracing
+# Traces
 
 ## Overview
 
@@ -13,10 +13,10 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 ## Feature Support
 
 :::info Minimum Requirements
-**We recommend using the latest Android SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
+**We recommend using the latest Android SDK version for the most up-to-date API**. Even though Traces is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
 :::
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record data for past operations.
     - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
@@ -61,7 +61,7 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attrib
 
 To use this feature:
 
-1. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
+1. Ensure you’re using a version of the Embrace SDK that supports Traces.
 2. (Optional) Enable API desugaring for your app if you want users running Android 5.x and 6.x to report traces.
 3. Instrument your app using the reference guide in this section to start adding spans to your operations, or refer to the [API docs](https://embrace-io.github.io/embrace-android-sdk/) for a more comprehensive description of the public API.
 4. See the spans in the Traces section of the Embrace dashboard.
