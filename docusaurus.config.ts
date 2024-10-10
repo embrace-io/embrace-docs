@@ -77,7 +77,7 @@ const config: Config = {
             from: "/ios/upgrade-guide/",
           },
           {
-            to: "/ios/5x/features/tracing/",
+            to: "/ios/5x/features/traces/",
             from: "/ios/features/performance-monitoring/",
           },
           {
@@ -117,7 +117,7 @@ const config: Config = {
             from: "/ios/features/push-notifications/",
           },
           {
-            to: "/ios/5x/features/tracing/",
+            to: "/ios/5x/features/traces/",
             from: "/ios/features/tracing/",
           },
           {
@@ -173,7 +173,7 @@ const config: Config = {
             from: "/ios/integration/update-embrace/",
           },
           {
-            to: "/android/features/tracing/",
+            to: "/android/features/traces/",
             from: "/android/features/performance-monitoring/",
           },
           {
@@ -181,7 +181,7 @@ const config: Config = {
             from: "/open-telemetry/error-logs-tracking",
           },
           {
-            to: "/features/performance-tracing",
+            to: "/features/traces",
             from: "/product/performance-tracing",
           },
           {
@@ -209,12 +209,8 @@ const config: Config = {
             from: "/react-native/features/tracing",
           },
           {
-            to: "/traces",
-            from: "/tracing",
-          },
-          {
-            to: "/unity/feature/traces",
-            from: "/unity/feature/performance-tracing",
+            to: "/unity/features/traces",
+            from: "/unity/features/performance-tracing",
           },
           {
             to: "/features/traces",

@@ -52,7 +52,7 @@ Slow Instances serve as a valuable tool for pinpointing performance bottlenecks 
 
 They're grouped by Root Span name and comprise instances with both significant occurrences (100 over the last two days)
 and durations surpassing the 95th percentile of successful root spans bearing the same name.
-You can see slow instances on the [performance traces tab](/features/performance-tracing/#slow-root-spans).
+You can see slow instances on the [traces tab](/features/traces/#slow-root-spans).
 
 ---
 
