@@ -67,5 +67,9 @@ You can get the slow Root Spans on the issues page.
 Once you click on a Slow Root Span, you can see specific instances of that span.
 
 ## Implementation Details
- [Android](/features/traces)
+ 1. [**Android**](/android/features/traces)
+ 2. [**iOS**](/ios/open-source/traces)
+ 3. [**Unity**](/unity/features/traces)
+ 4. [**React Native**](/react-native/features/traces)
+ 5. [**Flutter**](/flutter/features/traces)
 
