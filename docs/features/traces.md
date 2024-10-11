@@ -32,7 +32,7 @@ On the right side each row that shows a Root Span instance, there are two icons.
 
 You can filter by properties similar to those in the Root Span View.
 
-<img src={require('@site/static/images/trace-summary-filters.png').default} alt="Trace summary filters"/>
+<img src={require('@site/static/images/rootspans-filters.png').default} alt="Trace summary filters"/>
 
 ## Root Span Instance View
 This view shows a Root Span in its entirety. Not only can you see all the information in trace instance preview, you can also see at the individual events and attributes recorded as part of on a each child span, along with metadata about the device and app.
