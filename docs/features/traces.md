@@ -65,3 +65,7 @@ You can get the slow Root Spans on the issues page.
 <img src={require('@site/static/images/slow-root-spans.png').default} alt="Slow traces"/>
 
 Once you click on a Slow Root Span, you can see specific instances of that span.
+
+## Implementation Details
+ [Android](/features/traces)
+
