@@ -74,7 +74,6 @@ import TabItem from '@theme/TabItem';
 <TabItem value="swift" label="Swift">
 
 ```swift
-// Create a span by creating its root span
 let span = Embrace.sharedInstance().createSpanNamed("process-image")
 ```
 
@@ -82,7 +81,6 @@ let span = Embrace.sharedInstance().createSpanNamed("process-image")
 <TabItem value="objc" label="Objective-C">
 
 ```objc
-// Create a span by creating its root span
 id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"process-image" parent:nil];
 ```
 
@@ -120,7 +118,7 @@ id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"custom-na
 <TabItem value="swift" label="Swift">
 
 ```swift
-// Create a span root span with a custom name
+// Create a root span with a custom name
 let span = Embrace.sharedInstance().createSpanNamed("process-batch")
 
 // Create a child span by including the parent parameter
@@ -131,7 +129,7 @@ let childSpan = Embrace.sharedInstance().createSpanNamed("process-item", parent:
 <TabItem value="objc" label="Objective-C">
 
 ```objc
-// Create a span root span with a custom name
+// Create a root span with a custom name
 id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"process-batch" parent:nil];
 
 // Create a child span by including the parent parameter
