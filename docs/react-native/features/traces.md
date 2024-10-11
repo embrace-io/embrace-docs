@@ -77,7 +77,6 @@ npm install @embrace-io/react-native-spans
 ### Create a Span
 
 ```javascript
-// recording will not behind until the span has been started
 
 import { startSpan } from '@embrace-io/react-native-spans';
 
