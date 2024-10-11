@@ -28,7 +28,7 @@ Clicking on the instance will open up an in-line preview of the details of that 
 
 On the right side each row that shows a Root Span instance, there are two icons. The first one takes you to the Root Span Instance View, where you can see all the details about that instance, including attributes and events on each child span. The second one takes you to the specific session in the User Timeline view that this instance ended in so you can see the full context of what happened before and after this Root Span was recorded.
 
-<img src={require('@site/static/images/root-span-summary.png').default} alt="Root Span summary"/>
+<img src={require('@site/static/images/root-span-summary-1.png').default} alt="Root Span summary"/>
 
 You can filter by properties similar to those in the Root Span View.
 
@@ -54,8 +54,8 @@ Not only can you filter spans in the various pages dedicated to Traces, you can 
 ## Boards, Alerts, and Custom Metrics
 You can create Boards, Alerts, and Custom Metrics based on span data.
 
-<img src={require('@site/static/images/span-widgets.png').default} alt="Trace widgets"/>
-<img src={require('@site/static/images/span-alerts.png').default} alt="Trace alerts"/>
+<img src={require('@site/static/images/spans-widgets.png').default} alt="Trace widgets"/>
+<img src={require('@site/static/images/spans-alerts.png').default} alt="Trace alerts"/>
 
 ## Slow Root Spans
 With the Slow Root Spans feature, you can identify performance bottlenecks and prioritize your optimization efforts.
