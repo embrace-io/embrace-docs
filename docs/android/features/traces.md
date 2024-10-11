@@ -79,7 +79,6 @@ import TabItem from '@theme/TabItem';
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// create a span by creating its root span
 // recording will not begin until the span has been started
 val activityLoad = Embrace.getInstance().createSpan("load-activity")
 ```
@@ -88,7 +87,6 @@ val activityLoad = Embrace.getInstance().createSpan("load-activity")
 <TabItem value="java" label="Java">
 
 ```java
-// create a span by creating its root span
 // recording will not begin until the span has been started
 EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
 ```
