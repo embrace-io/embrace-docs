@@ -78,7 +78,6 @@ npm install @embrace-io/react-native-spans
 ### Create a Span
 
 ```javascript
-// create a root span
 // recording will not behind until the span has been started
 
 import { startSpan } from '@embrace-io/react-native-spans';
@@ -92,7 +91,6 @@ const spanId = await startSpan("parentname")
 ### Create a Span that started in the past (or future)
 
 ```javascript
-// create a root span
 
 import { startSpan } from '@embrace-io/react-native-spans';
 
