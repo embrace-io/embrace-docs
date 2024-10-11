@@ -57,7 +57,7 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes
 :::
 
-## Adding Performance Traces To Your App
+## Adding Traces To Your App
 
 To use this feature:
 
