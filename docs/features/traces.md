@@ -54,14 +54,14 @@ Not only can you filter spans in the various pages dedicated to Traces, you can 
 ## Boards, Alerts, and Custom Metrics
 You can create Boards, Alerts, and Custom Metrics based on span data.
 
-<img src={require('@site/static/images/trace-widgets.png').default} alt="Trace widgets"/>
-<img src={require('@site/static/images/trace-alerts.png').default} alt="Trace alerts"/>
+<img src={require('@site/static/images/span-widgets.png').default} alt="Trace widgets"/>
+<img src={require('@site/static/images/span-alerts.png').default} alt="Trace alerts"/>
 
 ## Slow Root Spans
 With the Slow Root Spans feature, you can identify performance bottlenecks and prioritize your optimization efforts.
 Slow Root Spans are instances with both significant occurrences (100 over the last two days) and durations surpassing the 95th percentile of successful spans bearing the same name. 
 You can get the slow Root Spans on the issues page.
 
-<img src={require('@site/static/images/trace-slow-traces.png').default} alt="Slow traces"/>
+<img src={require('@site/static/images/slow-root-spans.png').default} alt="Slow traces"/>
 
 Once you click on a Slow Root Span, you can see specific instances of that span.
