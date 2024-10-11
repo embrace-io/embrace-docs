@@ -66,7 +66,6 @@ To trace an in-progress operation, use the `Embrace.client` instance to create a
 Note: Until the span is started, the `.buildSpan` method below and any decorators return a `SpanBuilder` object.
 
 ```swift
-// Create a span by building its root span
 let spanBuilder = Embrace
                 .client?
                 .buildSpan(
@@ -118,7 +117,7 @@ Note that in the spans above the decorator `.markAsKeySpan` was used. This **MUS
 A span can be indicated as the child of another span by setting its parent. This must be set on the `SpanBuilder` object, so you should set the parent before starting your span.
 
 ```swift
-// Create a span root span with a custom name
+// Create a root span with a custom name
 let parentSpan = Embrace
                 .client?
                 .buildSpan(name: "process-batch")
