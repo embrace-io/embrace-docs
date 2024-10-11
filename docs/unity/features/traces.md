@@ -59,7 +59,7 @@ To use this feature:
 ### Create a Span
 
 ```csharp
-// Create a span by creating a span with a given span name. 
+// Create a span with a given name. 
 // It is important to note that the millisecond time is given 
 // in Unix Epoch/POSIX time rather than in .NET ticks.
 Embrace.Instance.StartSpan("SpanName", startTimeMillisPosix);
