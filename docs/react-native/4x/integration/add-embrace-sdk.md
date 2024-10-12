@@ -52,7 +52,7 @@ You can use git to see the changes that the script made.
 git diff
 ```
 
-Compare the changes to the [Manual Setup](/android/integration/add-embrace-sdk#adding-the-sdk-manually) step to verify the changes were made
+Compare the changes to the manual setup step to verify the changes were made
 correctly.
 
 ## Manually

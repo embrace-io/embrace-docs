@@ -4,6 +4,9 @@ description: Upgrading from iOS 5x SDK to Apple 6x SDK
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Upgrade Guide
 
 ## Upgrading from iOS 5x SDK to Apple 6x SDK
@@ -13,7 +16,7 @@ sidebar_position: 1
 - Moments have been replaced by Traces
 - Replace deprecated method calls with new ones
 - Some features have been deprecated and removed
-- Some features still have to be migrated 
+- Some features still have to be migrated
 :::
 
 ## SDK initialization and configuration is triggered in-code
@@ -62,62 +65,62 @@ A span is simply an operation occurring over a period of time. Using spans, you 
 
 Here is an example of how spans and traces replace and enhance the existing Moment feature:
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
 
 ```swift
-// Using Moments in Embrace iOS 5
+/* ******************************* */
+// Using Moments in Embrace 5.X
 Embrace.sharedInstance().startMoment(withName: "add-cart-item")
+// Perform add cart logic
 Embrace.sharedInstance().endMoment(withName: "add-cart-item")
 
-// Using Traces in Embrace Apple 6
-// First, unwrap the Embrace instance
-guard let embraceInstance = Embrace.client else { return }
-            
+/* ******************************* */
+// Using Traces in Embrace 6.X (shorthand)
+Embrace.recordSpan(name: "add-cart-item") { span in
+    // perform add cart logic
+}
 
-//Add a root span
-let addCartParentSpan = embraceInstance
-            .buildSpan(name: "add-to-cart")
-            .markAsKeySpan() //makes the parent trace
-            .startSpan()
-
-// Add child spans
-let addCartTapSpan = embraceInstance
-            .buildSpan(name: "add-cart-tapped")
-            .setParent(addCartParentSpan)
-            .startSpan()
-
-let addCartRequestSpan = embraceInstance
-            .buildSpan(name: "add-cart-request")
-            .setParent(addCartParentSpan)
-            .startSpan()
-
-let addCartUpdateUISpan = embraceInstance
-            .buildSpan(name: "add-cart-update-ui")
-            .setParent(addCartParentSpan)
-            .startSpan()
-
-//when tap event ends
-addCartTapSpan.end()
-
-//when network response is received
-addCartRequestSpan.end()
-
-//when the UI is updated and you've determined the add cart interaction is over
-addCartUpdateUISpan.end()
-addCartParentSpan.end()
+/* ******************************* */
+// Using Traces in Embrace 6.x (full)
+let span = Embrace.client?.buildSpan(name: "add-cart-item")
+                .startSpan()
+// Perform add cart logic
+span?.end()
 ```
 
 </TabItem>
 </Tabs>
 
+Traces can be instrumented in the same places as your Moments. The benefit of Tracing is you can extend a Span by adding parent/child relationships or by adding specific point-in-time "SpanEvents".
 
-Traces can be instrumented in the same places as your Moments, but provide much more.
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
+
+```swift
+/* ******************************* */
+// Tracing in Embrace 6.x
+// Create root span
+let addCartSpan = Embrace.client?.buildSpan(name: "add-cart-item")
+                .startSpan()
+
+
+// Add SpanEvent
+addCartSpan?.addEvent(name: "quantity-changed")
+
+// Add child Span
+let addCartUIUpdateSpan = Embrace.client?.buildSpan(name: "add-cart-ui-update")
+                            .setParent(addCartSpan)
+                            .startSpan()
+// Perform UI update logic
+addCartUIUpdateSpan.end()
+
+// Perform other add-cart-item logic
+addCartSpan?.end()
+```
+
+</TabItem>
+</Tabs>
 
 
 ## Replace deprecated method calls with new ones
@@ -131,26 +134,26 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.getLastRunEndState` | `.lastRunEndState()` | |
 | `.addSessionProperty` | `.metadata.addProperty(key:value:lifespan:)` | Adding a property to a session.|
 | `.removeSessionProperty` | `.metadata.removeProperty(key:lifespan:)` | Remove a property to a session.|
-| `.endSession` | `.endSession` | | 
+| `.endSession` | `.endSession` | |
 | `.getCurrentSessionId` | `.currentSessionId()`| |
 | `.logBreadcrumbWithMessage("this is a crumb")` | `add(event: .breadcrumb("this is a crumb"))` | Breadcrumbs are now SpanEvents on the Session Span |
 | `.startSpanWithName` | `.buildSpan(name:type:attributes:)` and `.startSpan()` | |
 | `.stopSpanWithId` | `.buildSpan(name:type:attributes:)` and `.endSpan()` | |
 | `.addSpanEventToSpanId` | `.addEvent(name:)` on existing Span | |
-| `.addSpanAttributesToSpanId` | `.setAttribute(key:value:)` on existing Span | | 
-| `.recordCompletedSpanWithName` | `.recordSpan<T>(name:type:attributes:, spanOperation)` | | 
+| `.addSpanAttributesToSpanId` | `.setAttribute(key:value:)` on existing Span | |
+| `.recordCompletedSpanWithName` | `.recordSpan<T>(name:type:attributes:, spanOperation)` | |
 | `.logMessage` | `.log(_ message:severity:timestamp:attributes:)` | |
-| `.logNetworkRequest` | Not yet available | | 
-| `.setUserIdentifier` | `.metadata.userIdentifier = "jk12345lol"` | | 
-| `.clearUserIdentifier` | `.metadata.userIdentifier = nil` | | 
-| `.setUsername` | `.metadata.userName = "EmBot"` | | 
-| `.clearUsername` | `.metadata.userName = nil` | | 
-| `.setUserEmail` | `.metadata.userEmail = "embot@embrace.io"` | | 
-| `.clearUserEmail` | `.metadata.userEmail = nil` | | 
-| `.setUserPersona` | `.metadata.add(persona:lifespan:)` | | 
-| `.setUserAsPayer` | `.metadata.add(persona:lifespan:)` | There're a set of already exposed `PersonaTag` like `.payer`| 
-| `.clearUserPersona` | `.metadata.removePersonaTag(value: lifespan:)` | | 
-| `.clearUserAsPayer` | `.metadata.removePersonaTag(value: lifespan:)` |There're a set of already exposed `PersonaTag` like `.payer`| 
+| `.logNetworkRequest` | Not yet available | |
+| `.setUserIdentifier` | `.metadata.userIdentifier = "jk12345lol"` | |
+| `.clearUserIdentifier` | `.metadata.userIdentifier = nil` | |
+| `.setUsername` | `.metadata.userName = "EmBot"` | |
+| `.clearUsername` | `.metadata.userName = nil` | |
+| `.setUserEmail` | `.metadata.userEmail = "embot@embrace.io"` | |
+| `.clearUserEmail` | `.metadata.userEmail = nil` | |
+| `.setUserPersona` | `.metadata.add(persona:lifespan:)` | |
+| `.setUserAsPayer` | `.metadata.add(persona:lifespan:)` | There're a set of already exposed `PersonaTag` like `.payer`|
+| `.clearUserPersona` | `.metadata.removePersonaTag(value: lifespan:)` | |
+| `.clearUserAsPayer` | `.metadata.removePersonaTag(value: lifespan:)` |There're a set of already exposed `PersonaTag` like `.payer`|
 | `.clearAllUserPersonas` | `.metadata.removeAllPersonaTags(lifespans:)` ||
 | `.getDeviceId` | `.currentDeviceId()` | |
 
@@ -162,11 +165,11 @@ As noted above, Moments have been deprecated and are not available in Embrace Ap
 - App disk usage (including free disk space and CPU "spike")
 - `.startView` and `.endView` have been removed. Use spans with the SpanType `.ux` to record information about your view lifecycles
 
-## Features still to be migrated 
+## Features still to be migrated
 
 In upcoming minor versions, you can expect to see familiar features from the iOS 5 SDK. While these are useful and will remain in use, we chose to prioritize migration of important paradigms like Traces and Auto-instrumentation while building on OpenTelemetry signals. Some upcoming features include:
 
-- Config Capabilities 
+- Config Capabilities
     - Remote config to disable network capture based on URL regexes
     - Local config to disable URLs to capture
     - Local config to disable webview capture

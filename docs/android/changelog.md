@@ -389,7 +389,7 @@ This version has a known issue with Gradle < 6.2
 ## 5.7.0
 *Oct 03, 2022*
 
-* New mechanism to auto-install Embrace dependencies. If you prefer to use the old mechanism, the new API can be disabled by setting the `useNewDependencyInstaller` property to false. You can check our documentation [**here**](/android/features/build-options#useNewDependencyInstaller-bool)
+* New mechanism to auto-install Embrace dependencies. If you prefer to use the old mechanism, the new API can be disabled by setting the `useNewDependencyInstaller` property to false.
 
 ## 5.6.2
 *Oct 03, 2022*
