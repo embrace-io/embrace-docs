@@ -34,7 +34,7 @@ Please be sure to match the appropriate desugaring library with your version of 
 For 2021, please see [this](https://docs.unity3d.com/2021.3/Documentation/Manual/android-gradle-overview.html).
 For 2022, please see [this](https://docs.unity3d.com/2022.3/Documentation/Manual/android-gradle-overview.html)
 :::
-* Addition of Performance Tracing Support
+* Addition of Traces Support
 * Upgrade of Embrace iOS SDK dependency to 5.25.3
 * Update Embrace Android SDK dependency to 6.8.3
 * Patch reducing crash rate on SDK startup

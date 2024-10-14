@@ -1,22 +1,22 @@
 ---
-title: Performance Tracing 
-description: Record traces to monitor the production performance and success rates of operations within your mobile app.
+title: Traces 
+description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---
 
-# Performance Tracing 
+# Traces
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
+- **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
 :::
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create record data for past operations.
     - To record past operations, you can specify the start and end times of your spans that you might have captured already.
@@ -27,11 +27,11 @@ The Embrace Performance Tracing API allows you to:
 
 There are no limits on the duration of a span as long as the app is running.
 
-There are also no limits to the number of child spans you can have per trace, provided the total number of spans do not exceed the per-session maximum.
+There are also no limits to the number of child spans you can have per Root Span, provided the total number of spans does not exceed the per-session maximum.
 
 ### Limits
 
-For limits pertaining to each platform, please see the Android limits [here](/android/features/tracing/#limits), and the iOS limits [here](/ios/open-source/tracing/#limits).
+For limits pertaining to each platform, please see the Android limits [here](/android/features/traces/#limits), and the iOS limits [here](/ios/open-source/traces/#limits).
 
 :::warning Exceeding Limits
 If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.
@@ -46,20 +46,20 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes
 :::
 
-## Adding Performance Traces To Your App
+## Adding Traces To Your App
 
 To use this feature:
 
 1. **Ensure you're using Embrace Unity SDK version 1.26.0 or greater**.
-3. Instrument your app using the reference guide in this section to start adding traces to your operations.
-4. See the traces in the Traces section of the Embrace dashboard.
+3. Instrument your app using the reference guide in this section to start adding spans to your operations.
+4. See the spans in the Traces section of the Embrace dashboard.
 
 ## API Usage Examples
 
 ### Create a Span
 
 ```csharp
-// Create a trace by creating a span with a given span name. 
+// Create a span with a given name. 
 // It is important to note that the millisecond time is given 
 // in Unix Epoch/POSIX time rather than in .NET ticks.
 Embrace.Instance.StartSpan("SpanName", startTimeMillisPosix);

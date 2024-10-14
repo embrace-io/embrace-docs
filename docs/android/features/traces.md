@@ -1,22 +1,22 @@
 ---
-title: Performance Tracing
-description: Record traces to monitor the production performance and success rates of operations within your mobile app.
+title: Traces
+description: Record span to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 2
 ---
 
-# Performance Tracing
+# Traces
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Feature Support
 
 :::info Minimum Requirements
-**We recommend using the latest Android SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
+**We recommend using the latest Android SDK version for the most up-to-date API**. Even though Traces is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
 :::
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record data for past operations.
     - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
@@ -29,7 +29,7 @@ The Embrace Performance Tracing API allows you to:
 
 There are no limits on the duration of a span as long as the app is running.
 
-There are also no limits to the number of child spans you can have per trace, provided the total number of spans do not exceed the per-session maximum.
+There are also no limits to the number of child spans you can have per Root Span, provided the total number of spans does not exceed the per-session maximum.
 
 ### Limits
 
@@ -57,14 +57,14 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes
 :::
 
-## Adding Performance Traces To Your App
+## Adding Traces To Your App
 
 To use this feature:
 
-1. Ensure you’re using a version of the Embrace SDK that supports Performance Tracing.
+1. Ensure you’re using a version of the Embrace SDK that supports Traces.
 2. (Optional) Enable API desugaring for your app if you want users running Android 5.x and 6.x to report traces.
-3. Instrument your app using the reference guide in this section to start adding traces to your operations, or refer to the [API docs](https://embrace-io.github.io/embrace-android-sdk/) for a more comprehensive description of the public API.
-4. See the traces in the Traces section of the Embrace dashboard.
+3. Instrument your app using the reference guide in this section to start adding spans to your operations, or refer to the [API docs](https://embrace-io.github.io/embrace-android-sdk/) for a more comprehensive description of the public API.
+4. See the spans in the Traces section of the Embrace dashboard.
 
 ## API Usage Examples
 
@@ -79,7 +79,6 @@ import TabItem from '@theme/TabItem';
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// create a trace by creating its root span
 // recording will not begin until the span has been started
 val activityLoad = Embrace.getInstance().createSpan("load-activity")
 ```
@@ -88,7 +87,6 @@ val activityLoad = Embrace.getInstance().createSpan("load-activity")
 <TabItem value="java" label="Java">
 
 ```java
-// create a trace by creating its root span
 // recording will not begin until the span has been started
 EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
 ```
@@ -127,11 +125,11 @@ EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
 
 ```kotlin
 val appStartTimeMillis = getAppStartTime()
-val appLaunchTrace = Embrace.getInstance().createSpan("app-launch")
+val appLaunchSpan = Embrace.getInstance().createSpan("app-launch")
 
-// begin recording a trace that has a different start time than 
+// begin recording a span that has a different start time than 
 // the current time by starting its root span with a specific timestamp
-appLaunchTrace?.start(startTimeMs = appStartTimeMillis)
+appLaunchSpan?.start(startTimeMs = appStartTimeMillis)
 ```
 
 </TabItem>
@@ -141,7 +139,7 @@ appLaunchTrace?.start(startTimeMs = appStartTimeMillis)
 long appStartTimeMillis = getAppStartTime();
 EmbraceSpan activityLoad = Embrace.getInstance().createSpan("load-activity");
 
-// begin recording a trace that has a different start time than 
+// begin recording a span that has a different start time than 
 // the current time by starting its root span with a specific timestamp
 if (activityLoad != null) {
     activityLoad.start(appStartTimeMillis);
@@ -295,7 +293,7 @@ if (activityLoad != null) {
 </TabItem>
 </Tabs>
 
-### Record a Trace Before the Embrace SDK Has Started
+### Record a Span Before the Embrace SDK Has Started
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">

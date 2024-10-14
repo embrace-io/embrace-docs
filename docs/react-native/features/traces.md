@@ -1,22 +1,21 @@
 ---
-title: Performance Tracing (Beta)
-description: Record traces to monitor the production performance and success rates of operations within your mobile app.
-sidebar_position: 14
+title: Traces
+description: Record spans to monitor the production performance and success rates of operations within your mobile app.
+sidebar_position: 3
 ---
-
-# Performance Tracing (Beta)
+# Traces
 
 ## Overview
 
-Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 ## Feature Support
 
 :::info Minimum Requirements
-- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Performance Tracing is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/4x/integration/add-embrace-sdk/).
+- **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/integration/add-embrace-sdk/).
 :::
 
-The Embrace Performance Tracing API allows you to:
+The Embrace Traces API allows you to:
 
 - Create record data for past operations.
     - To record past operations, you can specify the start and end times of your spans that you might have captured already.
@@ -27,7 +26,7 @@ The Embrace Performance Tracing API allows you to:
 
 There are no limits on the duration of a span as long as the app is running.
 
-There are also no limits to the number of child spans you can have per trace, provided the total number of spans do not exceed the per-session maximum.
+There are also no limits to the number of child spans you can have per Root Span, provided the total number of spans does not exceed the per-session maximum.
 
 ### Limits
 
@@ -55,13 +54,13 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes
 :::
 
-## Adding Performance Traces To Your App
+## Adding Traces To Your App
 
 To use this feature:
 
 1. **Ensure you're using Embrace React Native version 4.1.0 or greater**.
-3. Instrument your app using the reference guide in this section to start adding traces to your operations.
-4. See the traces in the Traces section of the Embrace dashboard.
+3. Instrument your app using the reference guide in this section to start adding spans to your operations.
+4. See the spans in the Traces section of the Embrace dashboard.
 
 ### Install the component
 
@@ -78,27 +77,24 @@ npm install @embrace-io/react-native-spans
 ### Create a Span
 
 ```javascript
-// create a trace by creating its root span
-// recording will not behind until the span has been started
 
 import { startSpan } from '@embrace-io/react-native-spans';
 
 // startSpan: (name: string, parentSpanId?: string, startTimeMs?:number) => Promise<boolean | string>;
 
-const spanId = await startSpan("parentname")
+const spanId = await startSpan("span-name")
 
 ```
 
 ### Create a Span that started in the past (or future)
 
 ```javascript
-// create a trace by creating its root span
 
 import { startSpan } from '@embrace-io/react-native-spans';
 
 // startSpan: (name: string, parentSpanId?: string, startTimeMs?:number) => Promise<boolean | string>;
 const startTimeMs = new Date().getTime()
-const spanId = await startSpan("parentname", undefined, startTimeMs)
+const spanId = await startSpan("span-name", undefined, startTimeMs)
 
 ```
 
@@ -111,7 +107,7 @@ import { startSpan, stopSpan, addSpanAttributeToSpan } from '@embrace-io/react-n
 
 // addSpanAttributeToSpan: (spanId: string, key: string, value: string) => Promise<boolean>;
 // Starting a span
-const spanId = await startSpan("parentname")
+const spanId = await startSpan("span-name")
 
 // Adding an attribute to a specific span
 addSpanAttributeToSpan(spanId, "myKey", "value")
@@ -131,7 +127,7 @@ import { startSpan, stopSpan, addSpanEventToSpan } from '@embrace-io/react-nativ
 //    attributes?: Attributes) => Promise<boolean>;
 
 // Starting a span
-const spanId = await startSpan("parentname")
+const spanId = await startSpan("span-name")
 
 // Adding an event to a specific span
 
@@ -158,7 +154,7 @@ import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 // type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
 // Starting a span
-const spanId = await startSpan("parentname")
+const spanId = await startSpan("span-name")
 
 // Do something
 
@@ -179,7 +175,7 @@ import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 // type SPAN_ERROR_CODES = 'None' | 'Failure' | 'UserAbandon' | 'Unknown';
 
 // Starting a span
-const spanId = await startSpan("parentname")
+const spanId = await startSpan("span-name")
 
 try{
   // Do something that throw an error
@@ -197,11 +193,11 @@ try{
 import { startSpan, stopSpan } from '@embrace-io/react-native-spans';
 
 // Starting Spans
-const parentSpanId = startSpan("parentname")
+const parentSpanId = await startSpan("parent-name")
 
-const firstChildSpanId = startSpan("firstchildname", parentSpanId)
+const firstChildSpanId = await startSpan("firstchildname", parentSpanId)
 
-const secondChildSpanId = startSpan("secondchildname", firstChildSpanId)
+const secondChildSpanId = await startSpan("secondchildname", firstChildSpanId)
 
 // Stopping Spans
 stopSpan(firstChildSpanId)
@@ -248,7 +244,7 @@ const attributes = {
   },
 ];
 // Starting Spans
-const spanResult = await recordSpan("parentname", trackMe, attributes, events)
+const spanResult = await recordSpan("span-name", trackMe, attributes, events)
 
 ```
 
@@ -289,7 +285,7 @@ const attributes = {
 const startTime = new Date().getTime()
 const endTime = new Date().getTime() + 1
 
-const spanResult = await recordCompletedSpan: ("parentname", startTime, 
+const spanResult = await recordCompletedSpan("span-name", startTime, 
                             endTime, "None", undefined, attributes, events)
 
 ```
