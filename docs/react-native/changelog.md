@@ -6,6 +6,9 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 
+## 5.0.1
+_October 9, 2024_
+* Updated iOS native Embrace SDK dependency to 6.4.2.
 ## 5.0.0
 _September 26, 2024_
 * This new major version includes several backwards incompatible change, before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
