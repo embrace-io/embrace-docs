@@ -17,9 +17,7 @@ Here are the steps you'll be taking to create your first session.
 
 1. [**Import Embrace**](#import-embrace)
 1. [**Add the Flutter SDK start call**](#add-the-flutter-sdk-start-call)
-1. [**Add the iOS SDK start call**](#add-the-ios-sdk-start-call)
 1. [**Add the Android SDK start call**](#add-the-android-sdk-start-call)
-1. [**End the startup moment**](#end-the-startup-moment)
 1. [**Build and run the application**](#build-and-run-the-application)
 1. [**Trigger a session upload**](#trigger-a-session-upload)
 
