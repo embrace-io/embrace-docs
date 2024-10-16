@@ -19,6 +19,10 @@ flutter pub add embrace
 Firstly alter the AppDelegate to initialize Embrace in the `init` function:
 
 ```swift
+import EmbraceIO
+import EmbraceCore
+import EmbraceCrash
+
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
     override init() {
