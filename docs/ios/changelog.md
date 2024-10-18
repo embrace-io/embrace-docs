@@ -26,6 +26,11 @@ sidebar_position: 4
 
 ## 6.4.1
 *Sep 26th, 2024*
+
+:::warning Important
+This version has known issues and should not be used
+:::
+
 * Features
     * Updated OpenTelemetry dependencies to v1.10.1.
 * Fixes
