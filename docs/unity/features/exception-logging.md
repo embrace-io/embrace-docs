@@ -26,3 +26,7 @@ Exceptions can be manually sent to Embrace via the `Embrace.Instance.LogUnhandle
 Each exception log can include a managed stack trace provided by the Unity runtime. To ensure that stack traces are available, confirm that the **Stack Trace** level for exceptions in your project's player settings is set to **ScriptOnly** or **Full** for each platform (**Edit > Project Settings > Player > Other Settings > Stack Trace**).
 
 <img src={require('@site/static/images/unity-stack-trace-level.png').default} />
+
+## Stack Trace limit
+
+Embrace User Timeline and Exception Details pages will only display the first 200 frames of a stack trace.  This limit is set to protect your users' network data transfer, as well as maintain high-performance session tooling.  For Exceptions with over 200 frames, we recommend reviewing your logging to prevent recursion.
