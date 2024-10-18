@@ -6,6 +6,16 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.5.0
+*Oct 18th, 2024*
+* Features
+    * Removed `SwiftLint` from `Package.swift` as a dependency, which reduces the download size of our SDK and prevents dependency resolution conflicts.
+    * For those consuming the SDK without an `appId`, `Embrace.Options` now includes the possibility to provide custom configuration (implementing `EmbraceConfigurable`).
+* Fixes
+    * Fixed a linking conflict issue affecting some users both with SPM and CocoaPods.
+    * Implemented a fix to expose user customization methods (`userName`, `userEmail`, `userIdentifier`, and `clearUserProperties`) to Objective-C.
+    * Fixed a bug that caused the `Span.Status` to be incorrect when exporting a session ended due to a crash.
+
 ## 6.4.2
 *Oct 2nd, 2024*
 * Fixes
@@ -16,6 +26,11 @@ sidebar_position: 4
 
 ## 6.4.1
 *Sep 26th, 2024*
+
+:::warning Important
+This version has known issues and should not be used
+:::
+
 * Features
     * Updated OpenTelemetry dependencies to v1.10.1.
 * Fixes
