@@ -24,7 +24,9 @@ const config: Config = {
   projectName: "embrace-docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenMarkdownLinks: "throw",
+  onDuplicateRoutes: "throw",
+  onBrokenAnchors: "throw",
 
   i18n: {
     defaultLocale: "en",
