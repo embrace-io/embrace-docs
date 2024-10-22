@@ -142,7 +142,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 ## 6.4.0
 *March 6, 2024*
 - Traces improvements
-    - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-your-telemetry) data as OpenTelemetry Spans (beta).
+    - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
     - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations. 
         - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
     - Increase per-session limit of spans to 500 in total.

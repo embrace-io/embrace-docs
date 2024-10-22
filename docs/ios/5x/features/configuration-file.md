@@ -94,7 +94,7 @@ Sets a default limit for how many instances of any given domain to capture in a 
 
 ##### NETWORK:DOMAINS *dictionary[string, int], optional*
 
-This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the [**DEFAULT_CAPTURE_LIMIT**](#networkdefault_capture_limit-int-optional).
+This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the [**DEFAULT_CAPTURE_LIMIT**](#network-int-optional).
 
 ##### NETWORK:CAPTURE_PUBLIC_KEY *string, optional*
 
