@@ -14,15 +14,16 @@ Thus, it can be difficult to monitor requests that may perform different
 actions.
 
 Here we will show you how to configure your integration so you see different
-GraphQL requests broken out by "path" in the Dashboard. 
+GraphQL requests broken out by "path" in the Dashboard.
 
 ## Override Paths of Requests
 
-It's possible to override the path of a network request that the Embrace SDK
-captures by setting the `x-emb-path` header.
+It's possible to override the path of a network request that the Embrace SDK. iOS 5.X and Android
+allows this override by setting the `x-emb-path` header on the request. For example, if your network request is made
+to `https://example.com/graphql`, and you set the `x-emb-path` header to `/graphql/friends_list`, the request will
+be reported as `https://example.com/graphql/friends_list`.
 
-For example, if your network request is made to `https://example.com/graphql`, and you set the `x-emb-path`
-header to `/graphql/friends_list`, the request will be reported as `https://example.com/graphql/friends_list`.
+In iOS 6.X, you can hook into a callback that lets you modify the captured request directly.
 
 :::warning Important
 **The x-emb-path value must meet the following requirements or it will be ignored.**
@@ -38,8 +39,40 @@ import TabItem from '@theme/TabItem';
 ```
 
 <Tabs groupId="ios-language" queryString="ios-language">
-<TabItem value="swift" label="Swift">
 
+<TabItem value="swift-ios-6" label="Swift (6.X)">
+```swift
+import EmbraceIO
+
+/* Create class to handle modifying captured requests */
+class ApolloDataSource: NSObject, URLSessionRequestsDataSource {
+    func modifiedRequest(for request: URLRequest) -> URLRequest {
+
+        if let header = request.value(forHTTPHeaderField: "X-APOLLO-OPERATION-NAME") {
+            var modified = request
+            modified.url = request.url?.appendingPathComponent(header)  // modify the URL that is recorded
+            return modified
+        }
+
+        return request
+    }
+}
+
+/* When initializing Embrace, pass this object to the URLSessionCaptureServce */
+let options = Embrace.Options(
+                // ...
+                captureServices:
+                    CaptureServiceBuilder()
+                        .addDefaults()
+                        .add( .urlSession(options: .init(requestsDataSource: ApolloDataSource())) )
+                        .build()
+                ,
+                // ...
+              )
+```
+</TabItem>
+
+<TabItem value="swift" label="Swift (5.X)">
 ```swift
 import Foundation
 import Apollo
@@ -47,38 +80,39 @@ import Apollo
 // MARK: - Singleton Wrapper
 
 class Network {
-  static let shared = Network() 
-  
-  // Configure the network transport to use the singleton as the delegate. 
+  static let shared = Network()
+
+  // Configure the network transport to use the singleton as the delegate.
   private lazy var networkTransport = HTTPNetworkTransport(
     url: URL(string: "http://localhost:8080/graphql")!,
     delegate: self
   )
-    
+
   // Use the configured network transport in your Apollo client.
   private(set) lazy var apollo = ApolloClient(networkTransport: self.networkTransport)
 }
 
-// MARK: - Pre-flight delegate 
+// MARK: - Pre-flight delegate
 
 extension Network: HTTPNetworkTransportPreflightDelegate {
 
-  func networkTransport(_ networkTransport: HTTPNetworkTransport, 
+  func networkTransport(_ networkTransport: HTTPNetworkTransport,
                         willSend request: inout URLRequest) {
-                        
+
     // Get the existing headers, or create new ones if they're nil
     var headers = request.allHTTPHeaderFields ?? [String: String]()
-    let gqlQueryNameOpt = headers["X-APOLLO-OPERATION-NAME"] 
+    let gqlQueryNameOpt = headers["X-APOLLO-OPERATION-NAME"]
     // Add any new headers you need
     if let gqlQueryName = gqlQueryNameOpt {
         headers["x-emb-path"] = "/graphql/" + gqlQueryName
-        
+
         // Re-assign the updated headers to the request.
         request.allHTTPHeaderFields = headers
     }
-  }
+}
 }
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
 
