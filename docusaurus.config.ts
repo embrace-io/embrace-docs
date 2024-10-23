@@ -199,7 +199,7 @@ const config: Config = {
             from: "/ios/5x/features/tracing",
           },
           {
-            to: "/ios/open-source/traces",
+            to: "/ios/open-source/features/traces",
             from: "/ios/open-source/tracing",
           },
           {
