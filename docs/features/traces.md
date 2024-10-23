@@ -68,7 +68,7 @@ Once you click on a Slow Root Span, you can see specific instances of that span.
 
 ## Implementation Details
  1. [**Android**](/android/features/traces)
- 2. [**iOS**](/ios/open-source/traces)
+ 2. [**iOS**](/ios/open-source/features/traces)
  3. [**Unity**](/unity/features/traces)
  4. [**React Native**](/react-native/features/traces)
  5. [**Flutter**](/flutter/features/traces)
