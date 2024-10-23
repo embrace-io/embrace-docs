@@ -1,7 +1,7 @@
 ---
 title: Get Started With Embrace
 description: Start integrating Embrace into your iOS application
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Get Started With Embrace

@@ -1,7 +1,7 @@
 ---
 title: Open Source Integration
 description: Add Embrace's Open Source Apple SDK to Your App
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Open Source Integration

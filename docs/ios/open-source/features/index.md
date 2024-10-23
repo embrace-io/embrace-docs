@@ -1,7 +1,7 @@
 ---
 title: 6x Feature Reference
 description: Learn about the advanced ways Embrace can help your application
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Apple SDK Reference
