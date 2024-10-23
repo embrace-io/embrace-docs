@@ -1,6 +1,6 @@
 ---
 title: Configuration using Embrace Options
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Configuring the SDK

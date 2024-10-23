@@ -1,6 +1,6 @@
 ---
 title: Linking Embrace
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Linking Embrace

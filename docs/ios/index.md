@@ -10,33 +10,31 @@ sidebar_position: 0
 
 The Embrace Apple SDK is designed to provide first class observability and diagnostic data collection to your mobile application. It supports multiple platforms including iOS, iPadOS, and tvOS.
 
-## Major Versions Available
+## Recommended Major Version - Apple 6.x
 
-Presently there are __two__ major versions of the Apple SDK available: 5 and 6. 
+Our Apple 6.x SDK is recommended for all current and new customers. The 6.x SDK is our [open-source](https://github.com/embrace-io/embrace-apple-sdk) superset of [OpenTelemetry](https://opentelemetry.io) instrumentation, built in Swift for modern language (such as async/await) and mobile observability (spans, logs) features. It has all the latest Embrace features and semantics, and will continue to grow as Embrace helps expand the OTel ecosystem for mobile.
 
-5.x is our stable, closed-source SDK that has been generally available since the year 2020. 6.x is our open-source SDK that features major enhancements to the previous SDK, and has most of the features that Embrace customers use today.
+We recommend that customers use our version 6 SDK, as it contains OTel primitives, open-source support, and better use of modern Swift features like async/await. If you are upgrading from our older 5x SDK, a [migration guide](/docs/ios/open-source/upgrade-guide.md) is available to implement the new features and interface in the 6.x SDK.
 
-Versions 5.x and 6.x are not compatible nor are they interoperable. The 6.x SDK is built on [OpenTelemetry](https://opentelemetry.io), and the features and signals that it provides have different semantics than previous versions. 6.x is also a rewrite of the SDK in the Swift programming language, so it does not include features that we won't support in the future, like Moments. 
+This documentation reflects information on the 6.x SDK. Current documentation for the 6.x SDK is split into three sections:
 
-A [migration guide](/docs/ios/open-source/upgrade-guide.md) is available to implement the new features and interface in the 6.x SDK. We recommend that customers consider migrating to version 6, as it contains OTel primitives and better support for modern Swift features like async/await.
-
-## 6.x SDK Documentation
-
-This documentation reflects information on the 6.x Open Source SDK. Current documentation for the 6.x SDK can be found in our [**6.x Apple SDK**](/ios/open-source) sections. You can begin your integration by [linking Embrace](/docs//ios/open-source/linking-embrace.md).
+1. [**Integration Guide**](./open-source/integration/) for open-source SDK developers.
+2. [**Getting Started**](./open-source/getting-started/) for users adding Embrace to your project.
+3. [**Feature Reference**](./open-source/features/) for more details about Embrace features.
 
 ## 5.x SDK Documentation
+
+Embrace iOS 5.x is the closed-source SDK that has been generally available since the year 2020. It is not available for open-source developers, and is not recommended for new users.
+
+Versions 5.x and 6.x are not compatible nor are they interoperable. The 6.x SDK is built on [OpenTelemetry](https://opentelemetry.io), and the features and signals that it provides have different semantics and syntax than previous versions. 6.x is also a rewrite of the SDK in the Swift programming language, so it does not include features that Embrace does not intend to support in the future, like Moments.
 
 This documentation reflects information on the 5.x SDK. It is split into two sections:
 
 1. [**Integration Guide**](./5x/integration/)
 2. [**Feature Reference**](./5x/features/)
 
-If you are just starting out with Embrace, follow the [**Integration Guide**](./5x/integration/) to learn the key steps to successfully using our product.
-
-Once you've completed that, browse through our [**Feature Reference**](./5x/features/) guides to learn how to use some of the advanced features our SDK provides.
-
 ## Any questions
 
-If you would like clarification on which SDK to use, please reach out to us on Slack or email us at [support@embrace.com](mailto:support@embrace.com).
+If you would like clarification on which SDK to use, please reach out to us on the [community slack](https://community.embrace.io) or email us at [support@embrace.com](mailto:support@embrace.com).
 
 You can also view our [FAQ](/ios/faq/) and [Changelog](/ios/changelog/)
