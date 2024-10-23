@@ -51,13 +51,13 @@ struct NewEmbraceApp: App {
 }
 ```
 
-For more information about starting the SDK in-code, please read [The Embrace Client](/docs/ios/open-source/embrace-client.md). For more information on configuration options, please read [Configuring the SDK](/docs/ios/open-source/embrace-options.md).
+For more information about starting the SDK in-code, please read [The Embrace Client](/ios/open-source/integration/embrace-client.md). For more information on configuration options, please read [Configuring the SDK](/docs/ios/open-source/integration/embrace-options.md).
 
 ## Moments have been replaced by Traces
 
 [Moments](/docs/ios/5x/features/moments.md) have not been added to the Embrace Apple 6 SDK, and will not be available when upgrading from version 5 to version 6. We made this decision as part of our migration to build on top of OpenTelemetry APIs and to standardize the telemetry coming from our SDKs.
 
-Luckily, [Traces](/docs/ios/open-source/traces.md) serve the same purposes as Moments, with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Performance Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
+Luckily, [Traces](/docs/ios/open-source/features/traces.md) serve the same purposes as Moments, with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Performance Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
 
 A span is simply an operation occurring over a period of time. Using spans, you can track how long operations within the app take, and more. Note that, in building on existing OTel APIs, the Embrace Apple SDK does not have instrumentation for an object called a "trace". Instead, a trace is the root span for a given workflow.
 

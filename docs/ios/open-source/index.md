@@ -8,17 +8,25 @@ sidebar_position: 0
 
 The Embrace 6.x Apple SDK is designed to provide first class observability and diagnostic data collection to your mobile application. It supports multiple platforms including iOS, iPadOS, and tvOS.
 
+## What is in the Embrace Apple SDK?
+
 Embrace's 6.x SDK is open-source and can be found on [GitHub](https://github.com/embrace-io/embrace-apple-sdk/). It has been designed so that any Apple developer can add the SDK to their app and transmit telemetry without using Embrace, or can use Embrace to gain the key mobile insights that we've cultivated in our [product](/docs/product/index.md).
 
-The Embrace Apple SDK is built on OpenTelemetry signals like logs and spans, which allow you to [export the telemetry](/docs/ios/open-source/otel-exporter.md) captured in your app to other sources. We encourage you to add the SDK to your app and view the logs and traces that the SDK automatically captures, with the caveat that we can't guarantee you'll quickly make sense of it all. Embrace 6.x SDK is also built in Swift, which allows us to provide more support for modern language features like async/await.
+The Embrace Apple SDK is built on OpenTelemetry signals like logs and spans, which allow you to [export the telemetry](/docs/ios/open-source/features/otel-exporter.md) captured in your app to other sources. We encourage you to add the SDK to your app and view the logs and traces that the SDK automatically captures, with the caveat that we can't guarantee you'll quickly make sense of it all. Embrace 6.x SDK is also built in Swift, which allows us to provide more support for modern language features like async/await.
+
+This documentation is split into three sections:
+
+1. [**Integration Guide**](./integration/) for open-source developers using the Embrace SDK.
+2. [**Getting Started**](./getting-started/) for users adding Embrace to your project.
+3. [**Feature Reference**](./features/) for more details about Embrace features.
 
 Please note that some prior functionality has been deprecated and that some method names or implementation details may differ. Further details are available in the [migration guide](/docs/ios/open-source/upgrade-guide.md). Please reach out to in the [Community Slack](https://community.embrace.io) if you have any questions. 
 
-# Built on OpenTelemetry
+## Built on OpenTelemetry
 
 The 6.x iOS SDK has been rearchitected from the foundations to support and extend [OpenTelemetry](https://opentelemetry.io) for mobile. The new modular approach builds the Embrace event-based observability paradigm directly on OpenTelemetry signals, namely, [Traces](https://opentelemetry.io/docs/concepts/signals/traces/) and [Logs](https://opentelemetry.io/docs/concepts/signals/logs/).
 
-## How we built it
+### How we built it
 
 As an example, [Sessions](https://embrace.io/product/user-session-insights/) are the core of Embrace's reproduce-and-fix approach to insights. Sessions capture everything that your app is doing while foregrounded or backgrounded, until the user starts or stops using the app. Given that Sessions take place in a given time period, with different related activities occurring in that time, it shouldn't surprise anyone OTel-aware that we model Sessions as a **trace**.
 
@@ -82,7 +90,7 @@ class SessionController {
 
 Our engineering and product teams have many ideas about Sessions and how they work within the OTel specification, or rather how they don't work presently. Despite this, we've created the tools to take this Embrace concept of Sessions and export it as opinion-free telemetry in the form of OpenTelemetry spans.
 
-## Events mapped to OTel signals
+### Events mapped to OTel signals
 
 If the prior section was too in-depth, here's a handy chart of the important Embrace SDK features and how they currently map to OpenTelemetry signals:
 

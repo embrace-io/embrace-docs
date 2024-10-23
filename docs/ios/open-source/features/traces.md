@@ -1,7 +1,7 @@
 ---
 title: Traces
 description: Record spans to monitor the production performance and success rates of operations.
-sidebar_position: 8
+sidebar_position: 1
 ---
 
 # Traces

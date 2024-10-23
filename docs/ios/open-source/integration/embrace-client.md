@@ -1,6 +1,6 @@
 ---
 title: The Embrace Client
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # The Embrace Client

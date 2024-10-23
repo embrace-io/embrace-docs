@@ -94,7 +94,7 @@ All telemetry in Embrace's Flutter SDK is routed through Embrace's Android/iOS S
 Please follow [this guide](/android/features/traces) to setup OpenTelemetry collectors on Android.
 
 ### iOS OTel export
-Please follow [this guide](/ios/open-source/otel-exporter) to setup OpenTelemetry collectors on iOS.
+Please follow [this guide](/ios/open-source/features/otel-exporter) to setup OpenTelemetry collectors on iOS.
 
 :::info
 Please note the OpenTelemetry-Swift repository does not support Cocoapods so you will be unable to import ready-made exporters directly. We recommend adding a new file that implements `SpanExporter` or `LogRecordExporter` directly, and using the ready-made exporters as reference implementations.
