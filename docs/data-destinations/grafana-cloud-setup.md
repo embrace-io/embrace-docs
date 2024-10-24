@@ -29,7 +29,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 5. In **Display Name** and **Name**, enter a name for your Access Policy.
 6. In **Realms**, choose the organization in which you want the metrics.
 7. In **Scopes**, select `write` for Metrics, Logs and Traces. (this only gives permission to send metric, log and trace data to Grafana Cloud).
-8. In **Add Scope**, choose `api-keys-metrics-publiser`.
+8. In **Add Scope**, choose `api-keys-metrics-publisher`.
 9. Click **Create** when finished.
 <img src={require('@site/static/images/data-destinations/grafana_cloud_token.png').default} alt="Image showing Grafana cloud token tab" />
 10. Click **Add token** to generate it associated with the access policy.
