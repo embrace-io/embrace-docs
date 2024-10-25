@@ -12,17 +12,10 @@ Breadcrumbs are a lightweight way to add logging to your session. They provide c
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/docs/ios/open-source/getting-started/crash-report.md) and [Session Reporting](/docs/ios/open-source/getting-started/session-reporting.md) sections. Embrace can also collect your logging data and include it as context within your sessions. Here's how you add a breadcrumb to the session:
 
-<Tabs groupId="ios-language" queryString="ios-language">
-
-<TabItem value="swift" label="Swift">
 ```swift
 Embrace.client?
         .add(event: .breadcrumb("something happened RIGHT NOW"))
 ```
-</TabItem>
-
-</Tabs>
-
 
 :::warning Important
 Breadcrumb messages must be 256 characters or less.
