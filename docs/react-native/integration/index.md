@@ -18,9 +18,9 @@ This guide will walk you through integrating Embrace into your React Native appl
 * `minSdkVersion`: 24 or higher
 * `compileSdkVersion`: 34 or higher
 * Java 1.8
-* Kotlin 1.4
+* Kotlin 1.8.22
 * Gradle 7.5.1
-* AGP (Android Gradle Build Tools Plugin) 7.2.2
+* AGP (Android Gradle Build Tools Plugin) 7.4.2
 
 ### iOS
 
