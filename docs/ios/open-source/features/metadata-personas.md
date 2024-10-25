@@ -1,8 +1,16 @@
 ---
-title: User Personas
+title: Identify Users
 sidebar_position: 4
 ---
 
+Months after your app has been released and your user base is growing, you are going to want to start triaging issues you find in your app based on segments of your user base. Setting the stage for that activity now means you will be well positioned to do that work when the time comes.
+
+It is important that you annotate your sessions with enough information so that developers and other agents can find problem sessions when required. You will also want to be able to answer questions about a session to help you understand the severity of an issue. Embrace offers two mechanisms for annotating sessions in a searchable way:
+
+- [User Personas](./#user-personas). This is data you can set and update about the user of a session.
+- [Session Properties](./#session-properties). This is data you use to track information about the device or the session itself.
+
+These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 
 # User Personas
 
@@ -42,7 +50,18 @@ extension PersonaTag {
 }
 ```
 
-## Overview of the Metadata Lifespan
+## Session Properties
+Session Properties are another way to annotate the session. The difference between session properties and user personas is that the former are for items relating to the session or the device, and not necessarily to the user. Although, you are free to use both mechanisms interchangeably.
+
+Here is an example of setting a session property:
+
+```swift
+Embrace.client?
+        .metadata
+        .addProperty(key: "launch type", value: "normal", lifespan: .session)
+```
+
+# Overview of the Metadata Lifespan
 
 When you add Embrace metadata, you can apply a [lifespan](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/MetadataHandler.swift#L9-L17) to that value. Sometimes it can be very useful to let contextual data "auto-expire" when no longer relevant, and at other times you want that data to exist for the user's entire time in your app. 
 
@@ -56,4 +75,4 @@ There are three metadata lifespans:
 
 ## Conclusion
 
-User Personas provide a flexible way to tag and categorize user sessions for better analysis and personalization. By leveraging this functionality, developers can gain insights into user behavior and improve the application experience based on user segments.
+User Personas and Session Properties provide a flexible way to tag and categorize user sessions for better analysis and personalization. By leveraging this functionality, developers can gain insights into user behavior and improve the application experience based on user segments.
