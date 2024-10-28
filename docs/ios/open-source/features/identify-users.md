@@ -1,16 +1,27 @@
 ---
-title: User Personas
+title: Identify Users
 sidebar_position: 4
 ---
 
 
-# User Personas
+# Identify your users
+
+Months after your app has been released and your user base is growing, you are going to want to start triaging issues you find in your app based on segments of your user base. Setting the stage for that activity now means you will be well positioned to do that work when the time comes.
+
+It is important that you annotate your sessions with enough information so that developers and other agents can find problem sessions when required. You will also want to be able to answer questions about a session to help you understand the severity of an issue. Embrace offers two mechanisms for annotating sessions in a searchable way:
+
+- [User Personas](./#user-personas). This is data you can set and update about the user of a session.
+- [Session Properties](./#session-properties). This is data you use to track information about the device or the session itself.
+
+These mechanisms annotate the session so that you can subsequently filter and sort on this data.
+
+## User Personas
 
 The `MetadataHandler` provides an [extension](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/MetadataHandler%2BPersonas.swift) for managing User Personas. User Personas allow you to dynamically segment app users and their sessions according to their behavior, characteristics, or other criteria that you create. This feature helps with analyzing user segments, understanding variations or poor performance in user behavior, and tailoring the application experience to meet the diverse of ways that users use your application.
 
-## Interface
+### Interface
 
-### Retrieving Current User Personas
+#### Retrieving Current User Personas
 
 To retrieve the current set of persona tags, use the `currentPersonas` property. This property fetches persona tags from the storage that apply to the user at the current point in time.
 
@@ -18,7 +29,7 @@ To retrieve the current set of persona tags, use the `currentPersonas` property.
 let personas = Embrace.client?.metadata.currentPersonas
 ```
 
-### Adding User Personas in the Embrace SDK
+#### Adding User Personas in the Embrace SDK
 
 User Personas in the Embrace SDK allow you to tag sessions with specific user traits or behaviors. This can help you prioritize fixing bugs that affect certain user segments. 
 
@@ -42,6 +53,17 @@ extension PersonaTag {
 }
 ```
 
+## Session Properties
+Session Properties are another way to annotate the session. The difference between session properties and user personas is that the former are for items relating to the session or the device, and not necessarily to the user. Although, you are free to use both mechanisms interchangeably.
+
+Here is an example of setting a session property:
+
+```swift
+Embrace.client?
+        .metadata
+        .addProperty(key: "launch type", value: "normal", lifespan: .session)
+```
+
 ## Overview of the Metadata Lifespan
 
 When you add Embrace metadata, you can apply a [lifespan](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/MetadataHandler.swift#L9-L17) to that value. Sometimes it can be very useful to let contextual data "auto-expire" when no longer relevant, and at other times you want that data to exist for the user's entire time in your app. 
@@ -56,4 +78,4 @@ There are three metadata lifespans:
 
 ## Conclusion
 
-User Personas provide a flexible way to tag and categorize user sessions for better analysis and personalization. By leveraging this functionality, developers can gain insights into user behavior and improve the application experience based on user segments.
+User Personas and Session Properties provide a flexible way to tag and categorize user sessions for better analysis and personalization. By leveraging this functionality, developers can gain insights into user behavior and improve the application experience based on user segments.

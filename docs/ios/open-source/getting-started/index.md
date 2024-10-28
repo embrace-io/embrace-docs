@@ -13,6 +13,9 @@ Read on to find out more about:
 - Adding [crash reporters](/ios/open-source/getting-started/crash-report.md) to your app.
 - Making sense of [sessions](/ios/open-source/getting-started/session-reporting.md) in your app.
 - Symbolicating [crash reports and dSYMs](/ios/open-source/getting-started/symbolicating-crash-reports.md) in your app.
+- Adding context to sessions with [breadcrumbs](/ios/open-source/getting-started/breadcrumbs.md).
+- Get immediate warning of any issues with the [Log Message API](/ios/open-source/getting-started/logs.md)
+- Learn what processes are still running when users [background](/ios/open-source/getting-started/background-sessions.md) your application
 
 ## Prerequisites
 
