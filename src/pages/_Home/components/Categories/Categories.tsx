@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useMemo } from "react";
 import {
   IconAlarmPlus,
   IconBrackets,
@@ -27,7 +26,7 @@ import Logo from "@site/static/images/logo.svg";
 import LogoSplunk from "@site/static/images/logo-splunk.svg";
 import LogoNewRelic from "@site/static/images/logo-new-relic.svg";
 import LogoHoneycomb from "@site/static/images/logo-honeycomb.svg";
-import LogoGrafana from "@site/static/images/logo-grafana.svg";
+import logoGrafana from "@site/static/images/logo-grafana.png";
 import LogoDataDog from "@site/static/images/logo-datadog.svg";
 import LogoChronosphere from "@site/static/images/logo-chronosphere.svg";
 import LogoIOS from "@site/static/images/ios.svg";
@@ -229,7 +228,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
   "Partner Solutions": [
     {
       title: "Grafana",
-      icon: <LogoGrafana />,
+      icon: <img src={logoGrafana} alt="Logo Grafana" />,
       linkTo: "/partners/grafana",
     },
     {
