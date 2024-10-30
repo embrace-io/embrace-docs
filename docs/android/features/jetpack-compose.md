@@ -58,7 +58,7 @@ swazzler {
 
 ### Set ProGuard rule
 
-In order to prevent code obfuscation, the following rule must be added into pro guard-rules :
+In order to prevent code obfuscation, the following rule must be added into your R8/ProGuard rules:
 
 ```
 -keep class androidx.compose.ui.platform.AndroidComposeView {

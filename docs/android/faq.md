@@ -69,8 +69,8 @@ buildscript {
 
 ### **Is there a way that I can speed up build times?**
 
-Yes, update to the latest version of the swazzler gradle plugin & ensure your AGP version exceeds 4.2.2.
-Newer AGP versions provide a more performant API for bytecode instrumentation.
+Yes, update to the latest version of the swazzler gradle plugin & ensure your AGP + Gradle version are on the latest stable version.
+Newer AGP versions provide a more performant API for bytecode instrumentation amongst other improvements that our plugin relies upon.
 
 
 ### **What determines if a session is classified as prod or dev?**
@@ -177,7 +177,6 @@ Yes, we have multiple customers that use GraphQL. See the [GraphQL guide](/best-
 All network calls are automatically tracked without any code changes. Network calls are tracked if you use one or more of the following network libraries:
 
 * OkHttp3 (including support for Retrofit)
-* Volley
 * Http(s)URLConnection
 
 If you use a library not listed or do not see expected network calls, please contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
@@ -216,7 +215,6 @@ This could be due to one of the following reasons:
 ### **How do I measure operations running in parallel?**
 
 Please refer to [Traces feature guide](/android/features/traces) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
-
 
 ## Tap Coordinates
 

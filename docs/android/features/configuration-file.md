@@ -33,9 +33,6 @@ Explanations for each of the fields are provided below.
       "enable_native_monitoring": true,
       "trace_id_header": "x-emb-trace-id"
     },
-    "startup_moment": {
-      "automatically_end": true
-    },
     "taps": {
       "capture_coordinates": true
     },
@@ -107,12 +104,6 @@ Enable capture of network requests made using the native Java network API. Defau
 #### trace_id_header *string*
 
 Set the name of the header used for the trace ID. Defaults to `"x-emb-trace-id"`.
-
-### startup_moment
-
-#### automatically_end *bool*
-
-Control whether the startup moment is automatically ended. Defaults to `true`.
 
 ### taps
 
