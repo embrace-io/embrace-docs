@@ -6,6 +6,15 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 6.14.0
+*October 31, 2024*
+
+- Extensive improvements to the resiliency and performance of telemetry persistence and delivery, especially under adverse device and network conditions.
+- Fixed issue where feature flags were not being cached and applied consistently.
+- New runtime dependency: OkHttp 4.12.
+    - See the FAQ [here](/android/faq/#how-do-i-override-the-version-of-okhttp-to-be-lower-than-the-one-embrace-specifies) if you want to use a lower version at runtime (not recommend or supported).
+
+
 ## 6.13.0
 *September 12, 2024*
 
