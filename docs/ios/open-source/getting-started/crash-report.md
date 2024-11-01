@@ -12,9 +12,17 @@ Embrace can either use its own internal crash reporting logic or work alongside 
 
 ## Setting up the Crash Reporter
 
-The first step in initializing crash reporting is configuring which mode you want Embrace to operate in. Embrace can be your primary crash reporter, or you can add Firebase Crashlytics as the crash reporter to send crashes to both Embrace ~and~ Firebase. If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytics so you will still have that data available in the Embrace Dashboard.
+The first step in initializing crash reporting is configuring which mode you want Embrace to operate in. Embrace can be your primary crash reporter, or you can add Firebase Crashlytics as the crash reporter to send crashes to both Embrace ~and~ Firebase. 
 
-The crash reporter is added in the [SDK configuration step](/docs/ios/open-source/integration/embrace-options.md). If you do not add another crash reporter, Embrace's will be used by default. If you wish to use Crashlytics, do the following:
+The crash reporter is added in the [SDK configuration step](/docs/ios/open-source/integration/embrace-options.md). If you do not add another crash reporter, Embrace's will be used by default. 
+Import the dependency with import EmbraceCrashlyticsSupport
+
+If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytics so you will still have that data available in the Embrace Dashboard. First, add the module:
+
+- import `EmbraceCrashlyticsSupport` when using Swift Package Manager 
+- pod `EmbraceIO/EmbraceCrashlyticsSupport` when using Cocoapods 
+
+Then, import the dependency when you initialize the SDK:
 
 ```swift
 //import Embrace support module so that Embrace dashboard mirrors Crashlytics data
