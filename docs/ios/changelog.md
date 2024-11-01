@@ -21,7 +21,7 @@ sidebar_position: 4
     * For those consuming the SDK without an `appId`, `Embrace.Options` now includes the possibility to provide custom configuration (implementing `EmbraceConfigurable`).
 * Fixes
     * Fixed a linking conflict issue affecting some users both with SPM and CocoaPods.
-    * Implemented a fix to expose user customization methods (`userName`, `userEmail`, `userIdentifier`, and `clearUserProperties`) to Objective-C.
+    * Implemented a fix to expose user customization methods to Objective-C.
     * Fixed a bug that caused the `Span.Status` to be incorrect when exporting a session ended due to a crash.
 
 ## 6.4.2
