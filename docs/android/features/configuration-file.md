@@ -20,8 +20,9 @@ Explanations for each of the fields are provided below.
   "ndk_enabled": false,
   "sdk_config": {
     "capture_fcm_pii_data": false,
+    "sensitive_keys_denylist": ["secret", "password"],
     "app": {
-      "report_disk_usage": true,
+      "report_disk_usage": true
     },
     "crash_handler": {
       "enabled": true
@@ -64,6 +65,14 @@ Enables NDK crash capture. Defaults to `false`.
 #### capture_fcm_pii_data *bool*
 
 Capture data from inside the notifications
+
+#### sensitive_keys_denylist *string array*
+
+List of keys that will be redacted from any key-value pair sent by the SDK, such as event attributes, span attributes, log attributes, and session properties. Values for keys present in this list will be replaced by a `<redacted>` string
+```
+Example: 
+"sensitive_keys_denylist": ["secret"] // Will change to <redacted> any value tied to a "secret" key
+```
 
 ### app
 
