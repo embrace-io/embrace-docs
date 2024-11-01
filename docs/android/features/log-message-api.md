@@ -129,6 +129,14 @@ import LogLimit from '@site/shared/log-limit.md';
 
 <LogLimit />
 
+### Log Batching
+
+In some cases, logs will be batch and sent at once, to reduce the device and network overhead. We batch logs according to the [following criteria](https://github.com/embrace-io/embrace-android-sdk/blob/15f3376641992c52e947869a018364fcfea857f6/embrace-android-sdk/src/main/java/io/embrace/android/embracesdk/internal/logs/LogOrchestrator.kt):
+
+`MAX_LOGS_PER_BATCH` = 50. Once we reach 50 logs, we send the batch (all in a single request)
+`MAX_BATCH_TIME` = 5000 (in milliseconds). We send the batch 5 seconds after the first log in the batch was received.
+`MAX_INACTIVITY_TIME` = 2000 (in milliseconds). If no new log appears after 2 seconds from the last log, we send the batch.
+
 ## Being Alerted on Logs
 
 Once you start using our alerting feature you can also configure how these are handled on the backend.
