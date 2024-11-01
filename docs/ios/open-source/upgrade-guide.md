@@ -122,6 +122,9 @@ addCartSpan?.end()
 </TabItem>
 </Tabs>
 
+### Startup Moment
+
+At the moment, our development team is working on a replacement for the `endAppStartup` Moment that will make better use of the device and system's signals. The prior implementation left much to be desired, and using OTel tracing will allow us to combine signals from libraries, both native and third-party, to more-accurately model the startup activity in apps.
 
 ## Replace deprecated method calls with new ones
 
