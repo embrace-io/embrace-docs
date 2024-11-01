@@ -146,10 +146,6 @@ Unless otherwise noted below, the Apple 6 SDK calls its methods on `Embrace.clie
 | `.logNetworkRequest` | Not yet available | |
 | `.setUserIdentifier` | `.metadata.userIdentifier = "jk12345lol"` | |
 | `.clearUserIdentifier` | `.metadata.userIdentifier = nil` | |
-| `.setUsername` | `.metadata.userName = "EmBot"` | |
-| `.clearUsername` | `.metadata.userName = nil` | |
-| `.setUserEmail` | `.metadata.userEmail = "embot@embrace.io"` | |
-| `.clearUserEmail` | `.metadata.userEmail = nil` | |
 | `.setUserPersona` | `.metadata.add(persona:lifespan:)` | |
 | `.setUserAsPayer` | `.metadata.add(persona:lifespan:)` | There're a set of already exposed `PersonaTag` like `.payer`|
 | `.clearUserPersona` | `.metadata.removePersonaTag(value: lifespan:)` | |
