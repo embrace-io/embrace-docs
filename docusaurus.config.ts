@@ -261,6 +261,14 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
 
+    announcementBar: {
+      id: 'open-sourced',
+      content:
+        'Embrace documentation is now open-source! Please open issues or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in Github!</a>',
+      backgroundColor: "#EEFF04",
+      isCloseable: false,
+    },
+
     navbar: {
       logo: {
         alt: "Embrace",
@@ -290,8 +298,12 @@ const config: Config = {
 
       links: [
         {
-          title: "Can't find what you were looking for?",
+          title: "Additional Resources",
           items: [
+            {
+              label: "Edit these docs",
+              href: "https://github.com/embrace-io/embrace-docs/",
+            },
             {
               label: "Community Slack",
               href: "https://community.embrace.io",
@@ -307,7 +319,7 @@ const config: Config = {
           ],
         },
         {
-          title: "Company Information",
+          title: "Embrace",
           items: [
             {
               label: "Privacy Policy",
