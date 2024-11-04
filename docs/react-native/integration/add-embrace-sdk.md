@@ -71,27 +71,9 @@ correctly.
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
-Configuration for iOS is handled in code when initializing the SDK which we will cover in the next step. If you're on
-React Native version 0.60 and above you benefit from [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
-to set up the native module so you're good to go! Otherwise review the section below:
-
-### React Native Version < 0.60
-
-Configure your `PodFile` to add Embrace. (RN Versions < 0.6)
-
-```ruby
-target 'MyApp' do
-  # ...
-
-  pod 'EmbraceIO'
-  pod 'RNEmbrace', :path => '../node_modules/@embrace-io/react-native'
-end
-```
-Then, install the pod.
-
-```shell-session
-cd ios && pod install --repo-update
-```
+Configuration for iOS is handled in code when initializing the SDK which we will cover in the next step. The native module
+should be setup using [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
+so you're good to go!
 </TabItem>
 
 <TabItem value="android" label="Android">
@@ -166,3 +148,21 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 
 There's a little more configuration we have to do to set up the uploading of symbol files.
 You'll be learning about that next.
+
+
+## Troubleshooting
+
+### ExpoModulesProvider error
+
+If you encounter the following build error on iOS after running through our setup using an expo app:
+
+> "Cannot find interface declaration for 'ModulesProvider', superclass of 'ExpoModulesProvider'"
+
+Update your `AppDelegate.m|mm` file to include the following import, making sure it is added before your
+`#import "ProjectName-Swift.h"` line:
+
+```objective-c
+#import "ExpoModulesCore-Swift.h"
+```
+
+See [this GitHub issue](https://github.com/expo/expo/issues/17705) for more details.
