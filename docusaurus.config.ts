@@ -262,11 +262,11 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: 'open-sourced',
+      id: 'open-sourced-1', // Increment this when contents change so that it becomes visible to users who previously [x] hidden it
       content:
         'Embrace documentation is now open-source! Please open issues or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in Github!</a>',
       backgroundColor: "#EEFF04",
-      isCloseable: false,
+      isCloseable: true,
     },
 
     navbar: {
@@ -285,13 +285,6 @@ const config: Config = {
         },
       ],
     },
-
-    /*
-      announcementBar: {
-        id: 'announcementBar-20230315', // Increment this when contents change so that it becomes visible to users who previously [x] hidden it
-        content: `Welcome to our new docs!`,
-      },
-*/
 
     footer: {
       style: "dark",
