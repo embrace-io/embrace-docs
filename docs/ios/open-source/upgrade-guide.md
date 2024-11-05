@@ -124,7 +124,11 @@ addCartSpan?.end()
 
 ### Startup Moment
 
-At the moment, our development team is working on a replacement for the `endAppStartup` Moment that will make better use of the device and system's signals. The prior implementation left much to be desired, and using OTel tracing will allow us to combine signals from libraries, both native and third-party, to more-accurately model the startup activity in apps.
+We are working on a replacement for the `endAppStartup` Moment from prior versions, creating a trace-based measurement that will make better use of the device and system's signals. The prior implementation left much to be desired, and using OTel tracing will allow us to combine signals from libraries, both native and third-party, to more-accurately model the startup activity in apps.
+
+If you wish to create your own version of the `endAppStartup` Moment, you can create a trace with child spans that measure various parts of the app's initialization.
+
+Measuring startup can be infinitely customizable, as you can add spans encapsulating native lifecycle events, any 3rd-party framework starts, and other factors that affect time prior to a user's ability to interact with the app. Using timestamps and a [span record](/ios/open-source/features/traces/#recording-a-completed-span), you can even measure events that occurred before the Embrace SDK. Additionally, Embrace's SDK creates a span `emb-setup` that measures the time for Embrace itself to launch.
 
 ## Replace deprecated method calls with new ones
 
