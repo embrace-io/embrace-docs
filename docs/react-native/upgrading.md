@@ -84,11 +84,9 @@ Tracing, please refer to [this guide](/react-native/features/traces/) for more i
 
 ## Troubleshooting
 
-The Embrace React Native SDK implements in the shadows the Native version of our product for Android and iOS, neeading at least a sort of minimum versions required to work as expected ([more details here](/react-native/integration/))
+### Android
 
-## Android
-
-The minimum version of AGP required for the Embrace Swazzler to work as expected is `7.4.2`. If an older version is used for building the React Native Android application it will end successfully but the SDK won't be able to initialize properly, getting the following error in runtime even when everything is configured as expected:
+The minimum version of AGP required for the Embrace Swazzler to work as expected is `7.4.2`. If an older version is used for building the React Native Android application it will still build successfully but the SDK won't be able to initialize properly, getting the following error in runtime even when everything is configured as expected:
 
 ```bash
 Error occurred while initializing the Embrace SDK. Instrumentation may be disabled.
@@ -121,7 +119,7 @@ Caused by: java.lang.IllegalArgumentException: No appId supplied in embrace-conf
 	at io.embrace.android.embracesdk.internal.config.LocalConfigParser.buildConfig(LocalConfigParser.kt:112)
 ```
 
-The application will still work but the Embrace SDK won't initialize, causing unexpected issues.
+The application will still work but the Embrace SDK won't initialize, causing unexpected issues. To resolve this please ensure you have the required minimum versions set in your Android build files ([more details here](/react-native/integration/))
 
 ## Removed APIs
 
