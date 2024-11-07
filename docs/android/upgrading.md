@@ -1,5 +1,25 @@
 # Upgrade Guide
 
+# Upgrading from 6.x to 7.x
+
+Version 7 of the Embrace Android SDK contains the following breaking changes:
+
+- The `startMoment/endMoment` API has been removed. Use `startSpan/recordSpan` instead.
+- `Embrace.AppFramework` is now its own top level class, `AppFramework`
+- `Embrace.LastRunEndState` is now its own top level class, `LastRunEndState`
+- Several public APIs are now implemented in Kotlin rather than Java. Generally this will not affect backwards compatibility but the following may have slight changes to their signatures:
+  - `EmbraceNetworkRequest` Java overloads replaced with default parameters
+- View taps do not capture coordinates by default. Set `sdk_config.taps.capture_coordinates` to `true` in your `embrace-config.json` to enable this feature
+- Several internally used classes and symbols have been hidden from the public API
+- Removed several obsolete remote config + local config properties. If you specify the below in your `embrace-config.json` they will be ignored:
+  - `sdk_config.beta_features_enabled`
+  - `sdk_config.anr.capture_google`
+  - `sdk_config.background_activity.manual_background_activity_limit`
+  - `sdk_config.background_activity.min_background_activity_duration`
+  - `sdk_config.background_activity.max_cached_activities`
+  - `sdk_config.base_urls.images`
+  - `sdk_config.startup_moment.automatically_end`
+
 # Upgrading from 5.x to 6.x
 
 :::info Summary
