@@ -226,9 +226,9 @@ Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordin
 
 ## Trace IDs
 
-### **Can trace IDs for network requests be captured?**
+### **I have a custom ID to represent each network request made to my server. Can I capture that in the network logging?**
 
-Yes, you can capture trace IDs by adding the `x-emb-trace-id` header with the trace ID value
+Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in the request.
 
 :::note
 Trace IDs longer than 64 characters will be truncated
