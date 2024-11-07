@@ -222,7 +222,7 @@ Please refer to [Traces feature guide](/android/features/traces) for a reference
 
 ### **Can I disable the capture of tap coordinates?**
 
-Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#capture_coordinates-bool) in the `embrace-config.json` file.
+Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#taps---capture_coordinates-bool) in the `embrace-config.json` file.
 
 ## Trace IDs
 
