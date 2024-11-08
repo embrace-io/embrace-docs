@@ -6,8 +6,6 @@ sidebar_position: 11
 
 # Android Configuration File
 
-## SDK Config File
-
 Certain SDK configs are only settable in a custom `embrace-config.json` file.
 This file should be located in app/src/main.
 The following is an example `embrace-config.json` file.
@@ -17,36 +15,72 @@ Explanations for each of the fields are provided below.
 {
   "app_id": "NNNNN",
   "api_token": "0123456789abcdef0123456789abcdef",
-  "ndk_enabled": false,
+  "ndk_enabled": true,
   "sdk_config": {
-    "capture_fcm_pii_data": false,
-    "sensitive_keys_denylist": ["secret", "password"],
-    "app": {
-      "report_disk_usage": true
-    },
-    "crash_handler": {
-      "enabled": true
-    },
-    "networking": {
-      "capture_request_content_length": true,
-      "disabled_url_patterns": [],
-      "enable_native_monitoring": true,
-      "trace_id_header": "x-emb-trace-id"
-    },
-    "startup_moment": {
-      "automatically_end": true
+    "automatic_data_capture": {
+      "memory_info": true,
+      "power_save_mode_info": true,
+      "network_connectivity_info": true,
+      "anr_info": true
     },
     "taps": {
       "capture_coordinates": true
     },
+    "view_config": {
+      "enable_automatic_activity_capture": false
+    },
     "webview": {
-      "capture_query_params": true,
+      "capture_query_params": false,
       "enable": true
+    },
+    "crash_handler": {
+      "enabled": true
     },
     "compose": {
       "capture_compose_onclick": true
-    }
-  }  
+    },
+    "capture_fcm_pii_data": true,
+    "networking": {
+      "default_capture_limit": 0,
+      "domains": [
+        {
+          "domain_name": "example.com",
+          "domain_limit": 0
+        }
+      ],
+      "capture_request_content_length": false,
+      "disabled_url_patterns": ["example.com"],
+      "enable_native_monitoring": false,
+      "enable_network_span_forwarding": false
+    },
+    "capture_public_key": "ABCDEFGH",
+    "sensitive_keys_denylist": ["secret", "password"],
+    "anr": {
+      "capture_unity_thread": false
+    },
+    "app": {
+      "report_disk_usage": false
+    },
+    "background_activity": {
+      "capture_enabled": true
+    },
+    "base_urls": {
+      "config": "ABCDEFGH",
+      "data": "ABCDEFGH"
+    },
+    "session": {
+      "components": ["ABCDEFGHIJKLMNOPQRSTUV"],
+      "send_full_for": ["ABCDEFGHIJKLMNOPQRST"]
+    },
+    "sig_handler_detection": false,
+    "app_exit_info": {
+      "aei_enabled": true
+    },
+    "app_framework": "native"
+  },
+  "unity": {
+    "symbols_archive_name": "ABCDEFG"
+  }
 }
 ```
 
@@ -54,7 +88,7 @@ Explanations for each of the fields are provided below.
 
 Your 5 character app ID.
 
-#### app_token *string, required*
+#### api_token *string, required*
 
 Your API 32-hexdigit token.
 
@@ -62,9 +96,89 @@ Your API 32-hexdigit token.
 
 Enables NDK crash capture. Defaults to `false`.
 
+#### automatic_data_capture - memory_info *bool*
+
+Enables memory warning capture. Defaults to `true`.
+
+#### automatic_data_capture - power_save_mode_info *bool*
+
+Enables power save mode capture. Defaults to `true`.
+
+#### automatic_data_capture - network_connectivity_info *bool*
+
+Enables network connectivity capture. Defaults to `true`.
+
+#### automatic_data_capture - anr_info *bool*
+
+Enables ANR capture. Defaults to `true`.
+
+#### taps - capture_coordinates *bool*
+
+Set to false to disable capturing tap coordinates. Defaults to `true`.
+
+#### view_config - enable_automatic_activity_capture *bool*
+
+Enables capturing activity lifecycle changes in breadcrumbs. Defaults to `true`.
+
+#### webview - capture_query_params *bool*
+
+Set to false to disable capturing of web view query parameters. Defaults to `true`.
+
+#### webview - enable *bool*
+
+Set to false to disable capturing of web views. Defaults to `true`.
+
+#### crash_handler - enabled *bool*
+
+Set to false to prevent the SDK from connecting to the uncaught exception handler. Defaults to `true`.
+
+#### compose - capture_compose_onclick *bool*
+
+Enables capture of Jetpack Compose click events. Defaults to `false`.
+
 #### capture_fcm_pii_data *bool*
 
-Capture data from inside the notifications
+Enables PII data within FCM capture. Defaults to `false`.
+
+#### networking - default_capture_limit *integer*
+
+Default capture limit for specified domains. Defaults to `1000`.
+
+#### networking - domains *object array*
+
+List of domain names and their respective limits.
+
+#### networking - domain_name *string*
+
+Domain URL.
+
+#### networking - domain_limit *integer*
+
+Limit for the number of requests to be tracked.
+
+#### networking - capture_request_content_length *bool*
+
+Disable capture of network length which can interfere with certain streaming network requests. Defaults to `true`.
+
+#### networking - disabled_url_patterns *string array*
+
+Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
+```
+Example: 
+"disabled_url_patterns": [".*"], // Will disable network calls for all URLs
+```
+
+#### networking - enable_native_monitoring *bool*
+
+Enable capture of network requests made using the native Java network API. Defaults to `true`.
+
+#### networking - enable_network_span_forwarding *bool*
+
+Enables network span forwarding. Defaults to `false`.
+
+#### capture_public_key *string*
+
+Declares the key that should be used to capture network request bodies, if any.
 
 #### sensitive_keys_denylist *string array*
 
@@ -74,61 +188,49 @@ Example:
 "sensitive_keys_denylist": ["secret"] // Will change to <redacted> any value tied to a "secret" key
 ```
 
-### app
+#### anr - capture_unity_thread *bool*
 
-#### report_disk_usage *bool*
+Enables Unity ANR capture. Defaults to `false`.
 
-The SDK collects the disk usage for the app. You can disable this if your app has a large number of local files to prevent excessive resource usage, especially on lower-end devices.
-Defaults to `true`.
+#### app - report_disk_usage *bool*
 
-### crash_handler
+The SDK collects the disk usage for the app. Defaults to `true`.
 
-#### enabled *bool*
-Set to `false` to prevent the SDK from connecting to the uncaught exception handler. Defaults to `true`.
+#### capture_enabled *bool*
 
-### networking
+Enables background activity capture. Defaults to `false`.
 
-#### capture_request_content_length *bool*
+#### base_urls - config *string*
 
-Disable capture of network length which can interfere with certain streaming network requests. Defaults to `false`. For network body capture feature this should be set to `true`. 
+Base config URL for the SDK.
 
-#### disabled_url_patterns *string array*
+#### base_urls - data *string*
 
-Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
-```
-Example: 
-"disabled_url_patterns": [".*"], // Will disable network calls for all URLs
-```
+Base data URL for the SDK.
 
-#### enable_native_monitoring *bool*
+#### session - components *string array*
 
-Enable capture of network requests made using the native Java network API. Defaults to `true`.
+Allowlist of session components that should be included in the session payload. The presence of this property denotes that the gating feature is enabled.
 
-#### trace_id_header *string*
+#### session - send_full_for *string array*
 
-Set the name of the header used for the trace ID. Defaults to `"x-emb-trace-id"`.
+List of events allowed to send a full session payload if the gating feature is enabled.
 
-### startup_moment
+#### sig_handler_detection *bool*
 
-#### automatically_end *bool*
+Enables 3rd party signal handler detection. Defaults to `true`.
 
-Control whether the startup moment is automatically ended. Defaults to `true`.
+#### app_exit_info - aei_enabled *bool*
 
-### taps
+Enables Application Exit Info capture. Defaults to `true`.
 
-#### capture_coordinates *bool*
+#### app_framework *string*
 
-Set to `false` to disable capturing tap coordinates. Defaults to `true`.
+Project's app framework, one of react\_native, unity, flutter or native.
 
-### webview
+#### unity - symbols_archive_name *string*
 
-#### capture_query_params *bool*
-
-Set to `false` to disable capturing of web view query parameters. Defaults to `true`. If `webview:enable` is set to 
-`false`, this setting has no effect since all capture of web view information is disabled. 
-
-#### enable *bool*
-Set to `false` to disable capturing of web views. Defaults to `true`.
+Custom file name for unity symbols.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 

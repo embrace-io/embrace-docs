@@ -222,15 +222,13 @@ Please refer to [Traces feature guide](/android/features/traces) for a reference
 
 ### **Can I disable the capture of tap coordinates?**
 
-Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#capture_coordinates-bool) in the `embrace-config.json` file.
+Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#taps---capture_coordinates-bool) in the `embrace-config.json` file.
 
 ## Trace IDs
 
-### **Can trace IDs for network requests be captured?**
+### **I have a custom ID to represent each network request made to my server. Can I capture that in the network logging?**
 
-Yes, you can capture trace IDs in two ways:
-1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value
-1. If the ID is already present in the request in a different header, set the name of the header in the `embrace-config.json` file with the [`networking[trace_id_header]` setting](/android/features/configuration-file/#trace_id_header-string)
+Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in the request.
 
 :::note
 Trace IDs longer than 64 characters will be truncated
