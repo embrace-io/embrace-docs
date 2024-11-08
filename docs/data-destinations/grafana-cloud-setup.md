@@ -59,3 +59,17 @@ It depends on your Grafana Cloud version the information that you need to share 
 4. Share the instance ID and zone with an Embrace onboarding specialist.
 
 <img src={require('@site/static/images/grafana_cloud_details.png').default} alt="Image showing Grafana Cloud fields needed" />
+
+## Selecting the Correct Data Source for Embrace Metrics
+
+Embrace provides two main options for sending metrics to your Grafana Cloud instance: using the **Embrace Metrics API** (pull method) or setting up a **Data Destination** (push method).
+
+### Embrace Metrics API vs. Data Destination
+
+- **Embrace Metrics API**: This method allows you to pull metrics directly from Embrace using PromQL queries. Grafana can be configured to use the Embrace Metrics API as a data source, making it easy to retrieve Embrace metrics on demand. This setup requires no additional Prometheus instance, as Grafana directly accesses Embrace's API.
+
+:::tip
+If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this <a href="/docs/embrace-api/grafana_integrations#setting-up-embrace-as-a-data-source" target="_blank">guide</a>.
+:::
+
+- **Data Destination (Recommended)**: Using a data destination allows Embrace to push metrics directly into Grafana Cloud, eliminating the need for users to manually pull data. Embrace handles the setup, forwarding the relevant metrics data directly to your Grafana Cloud instance, utilizing Grafana’s managed Prometheus services.
