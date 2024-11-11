@@ -1,20 +1,20 @@
 ---
-title: Custom Network Rollup Rules 
+title: Custom Network Grouping Rules 
 sidebar_position: 1
 ---
 
-# Custom Network Rollup Rules
+# Custom Network Grouping Rules
 
 Embrace provides automatic collapsing of network paths to group similar paths together for analytics purposes.
 We automatically collapse certain path elements if they match a common pattern, and we also group endpoints
 that have a similar prefix. This heuristic can be good enough for most cases, but sometimes it is necessary
 to override the behavior.
 
-On the network settings page you can specify a list of desired groupings (or network rollup rules) that you want to
-apply to your endpoints. When we process a network request, we apply all the network rollup rules in sequence, where
+On the network settings page you can specify a list of desired groupings (or network grouping rules) that you want to
+apply to your endpoints. When we process a network request, we apply all the network grouping rules in sequence, where
 the first|last match wins.
 
-<img src={require('@site/static/images/network-rollup-rules-example.png').default} alt="Screenshot of settings page with network rollup rules" />
+<img src={require('@site/static/images/network-rollup-rules-example.png').default} alt="Screenshot of settings page with network grouping rules" />
 
 Custom rules are applied on the backend on a going forward basis.
 
