@@ -6,17 +6,17 @@ sidebar_position: 5
 
 # To Sample Or Not To Sample
 
-Developers familiar with observability might wish to sample their telemetry from the Embrace SDKs. As a practice, sampling makes sense in traditional monitoring:
+Developers familiar with observability may wish to sample their telemetry from the Embrace SDKs. As a practice, sampling makes sense in traditional monitoring:
 
 * By grabbing a few elements from all available data, you can form conclusions about the whole set of data.
 * Sampling is configurable from a central dashboard on-demand.
 * It really keeps costs down!
 
-Telemetry sampling is usually a sampling of key signals like logs and traces. Embrace usage is billed at the level of the Session, each of which can contain tens or even hundreds of those signals. Therefore, in the mobile context, "sampling" might mean throwing away entire user experiences.
+Application sampling is usually a sampling of key signals like logs and traces. Embrace usage is billed at the level of the Session, each of which can contain tens or even hundreds of those signals. Therefore, in the mobile context, "sampling" might mean throwing away entire user experiences.
 
-Further, in mobile, sampling limits reproducibility of the user's experience. Mobile apps are not running in static environments with controlled technical factors like location, device capabilities, and internet access (and others). The ability to dive deep into the user data will allow you to know if any of these factors outside your app's code base affect the performance of your app.
+Further, in mobile, sampling limits reproducibility of the user's experience. Mobile apps are not running in static environments with controlled technical factors like location, device capabilities, and internet access (and others). The ability to dive deep into the app data will allow you to know what factors in your app's codebase, or outside it, affect the performance of your app. And the larger the dataset, the more clarity you'll have into exactly what affects the user experience.
 
-The considerations are between cost and loss of data fidelity, and Embrace strongly prefers that you keep the entire picture of your app experience. We prefer it so much that we've built per-Session cost savings into our [pricing model](https://embrace.io/pricing/) if your app gets more usage. Why be penalized for success?
+The considerations are between cost and loss of data fidelity, and Embrace strongly prefers that you keep the entire picture of your app experience. We prefer it so much that we've built per-Session cost savings into our [pricing model](https://embrace.io/pricing/) as your app gets more usage and volume. Why be penalized for success?
 
 ## How Does Sampling Work In Embrace?
 

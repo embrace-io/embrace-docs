@@ -13,4 +13,4 @@ Be sure to follow these guidelines, as this will help you get the most out of Em
 * [**Log Message API**](/best-practices/log-message-api/)
 * [**Webhooks**](/best-practices/webhooks/)
 * [**Monitoring GraphQL Requests**](/best-practices/graphql/)
-* [**To Sample Or Note To Sample**](/best-practices/sampling)
+* [**To Sample Or Not To Sample**](/best-practices/sampling)
