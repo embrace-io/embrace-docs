@@ -66,6 +66,16 @@ You can get the slow Root Spans on the issues page.
 
 Once you click on a Slow Root Span, you can see specific instances of that span.
 
+## Span Instances Filters
+Filter your instances by durantion or outcome with these filters:
+  * **All**: all instances displayed
+  * **Slowest**: instances completed successfully with duration > p95.
+  * **Fastest**: instances completed successfully and not slow (with duration < p95).
+  * **Unsuccessful**:
+    * **Erro**r: instances encountered an error.
+    * **Unknown**: insufficient data to determine instance outcome.
+    * **User Abandon**: user navigated away before instance completion.
+
 ## Implementation Details
  1. [**Android**](/android/features/traces)
  2. [**iOS**](/ios/open-source/features/traces)
