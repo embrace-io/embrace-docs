@@ -67,6 +67,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/dpa/",
+            from: "/gdpr-data-processing-addendum-dpa/",
+          },
+          {
             to: "/ios/open-source/upgrade-guide/#moments-have-been-replaced-by-traces",
             from: "/ios/open-source/moments-to-tracing/",
           },
