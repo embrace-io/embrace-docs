@@ -112,5 +112,6 @@ Individuals in the EEA, UK or Switzerland have the rights described above in the
 If you have any comments, concerns or questions about this Privacy Policy, please send us an email at support@embrace.io or send mail to:
 
 Embrace
-8569 Higuera Avenue
-Culver City, CA 90232
+1901 Avenue of the Stars
+Suite 200
+Los Angeles, CA 90067
