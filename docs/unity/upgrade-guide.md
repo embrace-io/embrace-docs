@@ -55,4 +55,4 @@ Please refer to the [list](/android/upgrading/#remove-deprecated-properties-from
 
 ## Some features still have yet to be migrated
 - Replacement for `EndAppStartup` planned for both Embrace Android and Embrace Apple SDKs
-- Please refer to the Embrace Apple SDK [Upgrade Guide](/ios/open-source/upgrade-guide/#features-still-to-be-migrated) for as of yet unsupported features on iOS
+- Please refer to the Embrace Apple SDK [Upgrade Guide](/ios/open-source/upgrade-guide/) for as of yet unsupported features on iOS
