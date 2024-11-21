@@ -122,7 +122,7 @@ addCartSpan?.end()
 </TabItem>
 </Tabs>
 
-Finally, note that when building our Apple 6x SDK, we had to balance our goal of build on the OpenTelemetry specification while also doing our due diligence to avoid tightly-coupling to the existing OTel frameworks. The `EmbraceIO` framework exposes *methods* that create `Span` and `SpanBuilder`, but does not pass through the object types for reference.
+Finally, note that when building our Apple 6x SDK, we had to balance our goal of building on the OpenTelemetry specification while also doing our due diligence to avoid tightly-coupling to the existing OTel frameworks. The `EmbraceIO` framework exposes *methods* that create `Span` and `SpanBuilder`, but does not pass through the object types for reference.
 
 To, for example, store a Span in object scope, you will need to import Span's source, namely the [OpenTelemetry API](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/OpenTelemetryApi):
 
