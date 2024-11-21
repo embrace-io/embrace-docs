@@ -11,7 +11,7 @@
 
 ## Moments have been superseded by Traces
 
-[Traces](/docs/android/features/traces.md) serve the same purposes as [Moments](/docs/android/features/moments.md), with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Performance Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
+[Traces](/docs/android/features/traces.md) serve the same purposes as [Moments](/docs/android/features/moments.md), with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
 
 A span is simply an operation occurring over a period of time. Using spans, you can track how long operations within the app take, and more. Note that, in building on existing OTel APIs, the Embrace Android SDK does not have instrumentation for an object called a "trace". Instead, a trace is the root span for a given workflow.
 
