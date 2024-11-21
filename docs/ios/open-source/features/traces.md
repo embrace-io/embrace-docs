@@ -191,8 +191,6 @@ let span = Embrace
 To, for example, store a Span in object scope, you will need to import `Span` from the [OpenTelemetry API](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/OpenTelemetryApi):
 
 
-<Tabs groupId="ios-language" queryString="ios-language">
-<TabItem value="swift" label="Swift">
 
 ```swift
 /* ******************************* */
@@ -235,6 +233,3 @@ class MyClass {
     }
 }
 ```
-
-</TabItem>
-</Tabs>
