@@ -185,3 +185,51 @@ let span = Embrace
                 errorCode: nil
 )
 ```
+
+### Spans as object properties
+
+To, for example, store a Span in object scope, you will need to import `Span` from the [OpenTelemetry API](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/OpenTelemetryApi):
+
+
+
+```swift
+/* ******************************* */
+// Imports for new object
+import Foundation
+import EmbraceIO
+import OpenTelemetryApi
+
+// New object definition
+class MyClass {
+    
+    // Create a Span property that will be available across the object
+    var activitySpan: Span? = nil // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
+
+    func activityStart() {
+        // Something starts
+        // ...
+        // And we want to trace it
+        activitySpan = Embrace.client?.buildSpan(name: "activity")
+                .startSpan()
+    }
+
+    func activityChanged() {
+        // Something changed
+        // ...
+        // And we want to note it
+        activitySpan?.addEvent(name: "activity-changed")
+    }
+
+    func activitySuccessfully() {
+        // Something ended
+        // ...
+        activitySpan?.end()
+    }
+
+    func activityEnded(with failure: EmbraceIO.ErrorCode) {
+        // Something ended unsuccessfully
+        // ...
+        activitySpan?.end(errorCode: failure)
+    }
+}
+```

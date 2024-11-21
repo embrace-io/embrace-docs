@@ -122,6 +122,60 @@ addCartSpan?.end()
 </TabItem>
 </Tabs>
 
+Finally, note that when building our Apple 6x SDK, we had to balance our goal of building on the OpenTelemetry specification while also doing our due diligence to avoid tightly-coupling to the existing OTel frameworks. The `EmbraceIO` framework exposes *methods* that create `Span` and `SpanBuilder`, but does not pass through the object types for reference.
+
+To, for example, store a Span in object scope, you will need to import Span's source, namely the [OpenTelemetry API](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/OpenTelemetryApi):
+
+
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
+
+```swift
+/* ******************************* */
+// Imports for new object
+import Foundation
+import EmbraceIO
+import OpenTelemetryApi
+
+// New object definition
+class MyClass {
+    
+    // Create a Span property that will be available across the object
+    var activitySpan: Span? = nil // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
+
+    func activityStart() {
+        // Something starts
+        // ...
+        // And we want to trace it
+        activitySpan = Embrace.client?.buildSpan(name: "activity")
+                .startSpan()
+    }
+
+    func activityChanged() {
+        // Something changed
+        // ...
+        // And we want to note it
+        activitySpan?.addEvent(name: "activity-changed")
+    }
+
+    func activitySuccessfully() {
+        // Something ended
+        // ...
+        activitySpan?.end()
+    }
+
+    func activityEnded(with failure: EmbraceIO.ErrorCode) {
+        // Something ended unsuccessfully
+        // ...
+        activitySpan?.end(errorCode: failure)
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+
 ### Startup Moment
 
 We are working on a replacement for the `endAppStartup` Moment from prior versions, creating a trace-based measurement that will make better use of the device and system's signals. The prior implementation left much to be desired, and using OTel tracing will allow us to combine signals from libraries, both native and third-party, to more-accurately model the startup activity in apps.
