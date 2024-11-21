@@ -1,10 +1,10 @@
 ---
-title: To Sample Or Not To Sample
+title: Limiting Traffic in Embrace
 description: Recommendations and best practices around Sampling in the Embrace SDK
 sidebar_position: 5
 ---
 
-# To Sample Or Not To Sample
+# Limiting Traffic in Embrace
 
 Developers familiar with observability may wish to sample their telemetry from the Embrace SDKs. As a practice, sampling makes sense in traditional monitoring:
 
@@ -18,12 +18,14 @@ Further, in mobile, sampling limits reproducibility of the user's experience. Mo
 
 The considerations are between cost and loss of data fidelity, and Embrace strongly prefers that you keep the entire picture of your app experience. We prefer it so much that we've built per-Session cost savings into our [pricing model](https://embrace.io/pricing/) as your app gets more usage and volume. Why be penalized for success?
 
-## How Does Sampling Work In Embrace?
+## How Is Traffic Configured In Embrace?
 
-If turned on, sampling is configured in the Embrace dashboard, not the individual SDKs. With thousands or even millions of app sessions running concurrently, the Embrace backend configures the active sessions of your app to stay as close as is reasonable to that sampling rate you've set.
+If turned on, "sampling" is configured in the Embrace dashboard, not the individual SDKs. With thousands or even millions of app sessions running concurrently, the Embrace backend configures the active sessions of your app to stay as close as is reasonable to that sampling rate you've set. This is not head-sampling or tail-sampling, and is basically deterministic rather than random.
 
-From the SDK level, your app will receive this determination at startup and at an hourly interval. The result will be applied at the next app cold start. Since sampling is per-session, if the active user's session is set to be sampled, you will not receive any activity from their session in the Embrace dashboard.
+From the SDK level, your app will receive this determination at startup and at an hourly interval. The result will be applied at the next app cold start. Since sampling is per-device, if the active user's session is set to be sampled, you will not receive any activity from their session in the Embrace dashboard.
 
 You can set the sampling rate in the "Data Usage" section of your "Settings" page:
 
 <img src={require('@site/static/images/settings-filtering.png').default} alt="Screenshot of Usage Filtering on Settings page" />
+
+It is important to note that, since billing occurs per-session, setting traffic to 0% will stop billing after any active Embrace sessions are reconfigured by the backend. If you have any questions, please [contact us](support@embrace.io)
