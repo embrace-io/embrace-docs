@@ -28,4 +28,4 @@ You can set the sampling rate in the "Data Usage" section of your "Settings" pag
 
 <img src={require('@site/static/images/settings-filtering.png').default} alt="Screenshot of Usage Filtering on Settings page" />
 
-It is important to note that, since billing occurs per-session, setting traffic to 0% will stop billing after any active Embrace sessions are reconfigured by the backend. If you have any questions, please [contact us](support@embrace.io)
+It is important to note that, since billing occurs per-session, setting traffic to 0% will stop billing after any active Embrace sessions are reconfigured by the backend. If you have any questions, please [contact us](mailto:support@embrace.io)
