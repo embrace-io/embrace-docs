@@ -78,7 +78,7 @@ Contact details shall be found in the Customer's Agreement, account, and/or Orde
 
 *Data importer:*
 
-Contact details: support@embrace.io, 8569 Higuera Avenue, Culver City, CA 90232
+Contact details: support@embrace.io, 1901 Avenue of the Stars, Suite 200, Los Angeles, CA 90067
 
 Signature and date: The signature and date shall be the date of the Agreement incorporating this DPA.
 
