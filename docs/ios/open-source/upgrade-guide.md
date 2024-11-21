@@ -141,7 +141,7 @@ import OpenTelemetryApi
 class MyClass {
     
     // Create a Span property that will be available across the object
-    var activitySpan: Span = nil? // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
+    var activitySpan: Span? = nil // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
 
     func activityStart() {
         // Something starts
@@ -155,19 +155,19 @@ class MyClass {
         // Something changed
         // ...
         // And we want to note it
-        activitySpan.addEvent(name: "activity-changed")
+        activitySpan?.addEvent(name: "activity-changed")
     }
 
     func activitySuccessfully() {
         // Something ended
         // ...
-        activitySpan.end()
+        activitySpan?.end()
     }
 
     func activityEnded(with failure: EmbraceIO.ErrorCode) {
         // Something ended unsuccessfully
         // ...
-        activitySpan.end(errorCode: failure)
+        activitySpan?.end(errorCode: failure)
     }
 }
 ```
