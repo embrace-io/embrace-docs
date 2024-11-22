@@ -5,6 +5,12 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 2.1
+*November 21, 2024*
+* Upgrade of Embrace Android dependency to 6.14.0
+* Upgrade of Embrace iOS dependency to 6.5.2
+* Removal of Scoped Registry functionality, as well as included automation to remove it from existing projects. This was causing immutability issues with the package in some cases.
+
 ## 2.0.2
 *October 22, 2024*
 * Patch regarding Unity interaction with disabled Android Native SDK and sampling rate
