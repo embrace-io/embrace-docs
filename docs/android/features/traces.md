@@ -401,7 +401,7 @@ You can send your data to any generic OpenTelemetry Collector by using any Andro
 :::warning
 **Network request to OpenTelemetry Collectors should not be logged**
 
-To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disable_url_patterns` setting in the Embrace Configuration file. See [this page](/android/features/configuration-file/#networking---disabled_url_patterns-string-array) for details.
+To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disabled_url_patterns` setting in the Embrace Configuration file. See [this page](/android/features/configuration-file/#networking---disabled_url_patterns-string-array) for details.
 :::
 
 <Tabs groupId="android-language" queryString="android-language">
