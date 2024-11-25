@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Custom Metrics API Supported Metrics
 
-Global filters  and global group bys are available to use on all the metrics.
+Global filters and global group bys are available to use on all the metrics.
 
 - Global filters: app_version, country, model, os_major_version and os_version.
 - Global group bys: app_version, country, os_major_version, os_version and top_n_market_name.
@@ -31,7 +31,6 @@ The following metrics are supported as Custom Metrics. Metrics with the suffix "
 
 :::info
 
-1. Refer to this [documentation](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)
-   to understand how `top_n` dimensions work.
+1. Refer to this [documentation](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) to understand how `top_n` dimensions work.
 2. You can also pull the latest set of supported metrics directly from the [API](/custom-metrics-api/#get-metrics-and-parameters-supported).
 :::
