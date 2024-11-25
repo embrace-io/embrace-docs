@@ -18,7 +18,7 @@ First, select the Spans category when making a new Widget:
 <img src={require('@site/static/images/Spans widgets > 02 pick Spans.png').default} alt="Spans as a Widget option" />
 
 Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both counts and sums of duration.
-<img src={require('@site/static/images/Spans widgets > 03 pick metric.png').default} alt="Span metric options" />
+<img src={require('@site/static/images/![Spans widgets   03 pick metric](https://github.com/user-attachments/assets/ba672abf-c035-4060-9bea-c206b4e56422)').default} alt="Span metric options" />
 
 
 Finally, add any filters and group-bys.  In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
