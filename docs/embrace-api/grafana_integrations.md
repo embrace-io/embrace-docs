@@ -22,7 +22,7 @@ Follow these steps to add Prometheus as a data source in the Grafana dashboard:
     - Under "Authentication" section, click the button "Add header":
       - Header: `Authorization`, Value: `Bearer <YOUR_API_TOKEN>` as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
 
-<img src={require('@site/static/images/metrics-api/grafana.jpg').default} alt="Grafana Data Source" />
+<img src={require('@site/static/images/metrics-api/grafana.png').default} alt="Grafana Data Source" />
 
 ## Importing Dashboard JSON
 
