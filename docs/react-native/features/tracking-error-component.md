@@ -63,16 +63,16 @@ Below is an example of how the `componentStack` appears with and without the Met
 
 ### With Metro Configuration:
 ```text
- * at undefined (in Screen2)
- * at undefined (in RCTView)
- * at undefined (in Screen1)
- * at undefined (in AppContainer)
+ * in Screen2
+ * in RCTView
+ * in Screen1
+ * in AppContainer
  ```
 
  ### Without Metro Configuration (Screen names appear as `Unknown`):
 ```text
- * at undefined (in Unknown)
- * at undefined (in RCTView)
- * at undefined (in Unknown)
- * at undefined (in AppContainer)
+ * in Unknown
+ * in RCTView
+ * in Unknown
+ * in AppContainer
  ```
