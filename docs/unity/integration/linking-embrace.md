@@ -8,7 +8,7 @@ description: Linking Embrace with your application is quick and easy.
 
 To install Embrace, download our latest SDK below.
 
-[Download Embrace 2.1.0 for Unity](https://downloads.embrace.io/EmbraceSDK_2.1.0.unitypackage)
+[Download Embrace 2.1.1 for Unity](https://downloads.embrace.io/EmbraceSDK_2.1.1.unitypackage)
 
 Once downloaded, import the Unity Package by selecting Assets -> Import Package -> Custom Package.
 
