@@ -31,12 +31,9 @@ const config = {
 module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 ```
 
-## Explanation
 
 - **`keep_classnames: true` and `keep_fnames: true`**: These options ensure that class names and function names are preserved during the minification process.  
 - **`mangle`**: Prevents the renaming of class and function names.  
-
-This configuration helps retain screen names in the `componentStack`, making it easier to debug rendering errors in release builds.
 
 ## Checking the Bundle Size
 
