@@ -38,13 +38,9 @@ module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 
 This configuration helps retain screen names in the `componentStack`, making it easier to debug rendering errors in release builds.
 
-## Important Note
-
-This configuration **could increase the size of your JavaScript bundle**. Although in our tests we did not notice any significant difference in the bundle size, we strongly recommend testing it in your project to confirm.
-
 ## Checking the Bundle Size
 
-To analyze the bundle size, run the following command:
+We strongly recommend testing your project to confirm that any added bundle size due to this configuration is acceptable. To analyze the bundle size, run the following command:
 
 ```bash
 npx react-native bundle \
