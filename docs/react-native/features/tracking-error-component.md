@@ -8,7 +8,7 @@ sidebar_position: 7
 
 To accurately track React Native rendering errors and include meaningful screen names in the `componentStack`, you need to configure your `metro.config.js` file. By default, in release builds, screen names may appear as `Unknown`. The following configuration ensures that class and function names are preserved during minification.
 
-## Implementation
+## Preserving screen names
 
 Add the following configuration to your `metro.config.js` file:
 
