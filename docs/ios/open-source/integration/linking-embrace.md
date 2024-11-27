@@ -50,7 +50,7 @@ be used if you prefer dynamic libraries.
 Installing through CocoaPods is straightforward. Add the main pod to your Podfile:
 
 ```
-pod 'EmbraceIO', '~> 6.3.0'
+pod 'EmbraceIO', '~> 6.5.2'
 ``` 
 
 By default, this command installs all the necessary components to use the SDK.
