@@ -47,9 +47,8 @@ Once your alert is set up, you'll find it listed under "Manage Alerts". Here, yo
 
 ### Why is my alert inactive?
 Your alert is inactive because one or more of the following conditions are met:
-- The email notification is using a disabled email
+- The email notification is using a disabled email.
 - No notification methods (email or Slack) are configured.
-- Both the threshold and percentage values are set to zero, meaning no conditions are being monitored.
 
 To activate the alert, ensure notification methods are enabled and thresholds/percentages are properly configured for monitoring.
 
