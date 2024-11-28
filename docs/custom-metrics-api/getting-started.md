@@ -4,7 +4,7 @@ description: Create custom metrics in Embrace Dashboard
 sidebar_position: 4
 ---
 
-# Embrace Custom Metrics
+# Custom Metrics
 
 Embrace captures your mobile data, and aggregates it into time series data. This data is useful for monitoring the
 health
