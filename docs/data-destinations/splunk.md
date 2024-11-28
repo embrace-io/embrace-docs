@@ -1,7 +1,7 @@
 ---
 title: Splunk Integration
 description: Learn about the Embrace <> Splunk integration
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # Splunk Integration
