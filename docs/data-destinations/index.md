@@ -23,14 +23,14 @@ Metric name follows the format `embrace.<metric_name>.<granularity>`.
 
 All data destinations receive the following Standard metrics: 
 
-| Data Destinations                                      | Metric Names                                                                                                             |                                                                                                                        
-|--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| Chronosphere, Datadog, Honeycomb, New Relic and Splunk | embrace.crash_total.five_minute, embrace.session_total.five_minute, embrace.crash_free_user_total.five_minute            |
-| Chronosphere, Datadog, Honeycomb, New Relic and Splunk | embrace.crash_total.hourly, embrace.session_total.hourly, embrace.crash_free_user_total.hourly                           |
-| Chronosphere, Datadog, Honeycomb, New Relic and Splunk | embrace.crash_total.daily, embrace.session_total.daily, embrace.crash_free_user_total.daily, , embrace.users_total.daily |
-| Grafana Cloud                                          | embrace_crash_total_five_minute, embrace_session_total_five_minute, embrace_crash_free_user_total_five_minute            |
-| Grafana Cloud                                          | embrace_crash_total_hourly, embrace_session_total_hourly, embrace.crash_free_user_total_hourly                           |
-| Grafana Cloud                                          | embrace_crash_total_daily, embrace_session_total_daily, embrace_crash_free_user_total_daily, embrace_users_total_daily   |
+| Data Destinations                                      | Metric Names                                                                                                           |                                                                                                                        
+|--------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Chronosphere, Datadog, Honeycomb, New Relic and Splunk | embrace.crash_total.five_minute, embrace.session_total.five_minute, embrace.crash_free_user_total.five_minute          |
+| Chronosphere, Datadog, Honeycomb, New Relic and Splunk | embrace.crash_total.hourly, embrace.session_total.hourly, embrace.crash_free_user_total.hourly                         |
+| Chronosphere, Datadog, Honeycomb, New Relic and Splunk | embrace.crash_total.daily, embrace.session_total.daily, embrace.crash_free_user_total.daily, embrace.users_total.daily |
+| Grafana Cloud                                          | embrace_crash_total_five_minute, embrace_session_total_five_minute, embrace_crash_free_user_total_five_minute          |
+| Grafana Cloud                                          | embrace_crash_total_hourly, embrace_session_total_hourly, embrace_crash_free_user_total_hourly                         |
+| Grafana Cloud                                          | embrace_crash_total_daily, embrace_session_total_daily, embrace_crash_free_user_total_daily, embrace_users_total_daily |
 
 ## Get Started 
 
