@@ -4,7 +4,7 @@ description: Learn about the Embrace <> Splunk integration
 sidebar_position: 4
 ---
 
-# Data Destinations Splunk Integration
+# Splunk Integration
 
 ## Prerequisites
 

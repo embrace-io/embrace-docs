@@ -4,7 +4,7 @@ description: Learn about the Embrace <> New Relic integration
 sidebar_position: 2
 ---
 
-# Data Destinations New Relic Integration
+# New Relic Integration
 
 ## Prerequisites
 
