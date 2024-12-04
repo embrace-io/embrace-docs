@@ -1,10 +1,10 @@
 ---
 title: New Relic Integration
 description: Learn about the Embrace <> New Relic integration
-sidebar_position: 2
+sidebar_position: 5
 ---
 
-# Data Destinations New Relic Integration
+# New Relic Integration
 
 ## Prerequisites
 

@@ -4,7 +4,7 @@ description: Learn about the metrics supported by the Custom Metrics API
 sidebar_position: 1
 ---
 
-# Custom Metrics API Supported Metrics
+# Supported Metrics
 
 Global filters  and global group bys are available to use on all the metrics.
 
