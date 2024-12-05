@@ -29,11 +29,11 @@ The call stack that is reported for an ANR includes all processes running on the
 
 ### **Why does Embrace's crash data look different compared to another crash reporting solution I use?**
 
-All crash reporting solutions capture crashes in subtly different ways. One of the main differences is in how individual stacktraces are grouped into a distinct report different vendors will take different views on how best to achieve this. When comparing the dashboards of two different vendors side-by-side, this can give the appearance that one vendor is 'missing' a specific crash report, or the crash count is lower/higher than expected. In reality, the vendors have chosen different approaches to aggregate individual events, and missing crash events have simply been aggregated in a different location.
+All crash reporting solutions capture crashes in subtly different ways. One of the main differences is in how individual stacktraces are grouped into a distinct report. Different vendors will take different views on how best to do this grouping. When comparing the dashboards of two different vendors side-by-side, this can give the appearance that one vendor is 'missing' a specific crash report, or the crash count is lower/higher than expected. In reality, the vendors have chosen different approaches to aggregate individual events, and missing crash events have simply been aggregated in a different location.
 
 Crash rate calculations also tend to differ between vendors, along with the definition of what forms a 'session'. These subtle differences can lead to disparities in metrics which means these values cannot be directly compared.
 
-Finally, SDKs use different approaches to capture & process crash data. For JVM exceptions captured stacktraces will usually be the same for all SDKs that have registered for a callback, that isn't necessarily the case for NDK crashes due to limitations of how signal handlers work. This can lead to the scenario where different stacktraces are captured for the same event by different vendors.
+Finally, SDKs use different approaches to capture and process crash data. For JVM exceptions, captured stacktraces will usually be the same for all SDKs that have registered for a callback. That isn't necessarily the case for NDK crashes due to limitations of how signal handlers work. This can lead to the scenario where different stacktraces are captured for the same event by different vendors.
 
 ### **Why does Embrace's ANR data look different compared to another ANR reporting solution I use?**
 
