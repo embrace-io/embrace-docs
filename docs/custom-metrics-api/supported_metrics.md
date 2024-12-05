@@ -31,6 +31,6 @@ The following metrics are supported as Custom Metrics. Metrics with the suffix "
 
 :::info
 
-1. Refer to this [documentation](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) to understand how `top_n` dimensions work.
+1. Refer to this [documentation](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) to understand how `top_n` dimensions work. We keep the top 50 for top_n_market_name, top_n_domain, and top_n_path. 
 2. You can also pull the latest set of supported metrics directly from the [API](/custom-metrics-api/#get-metrics-and-parameters-supported).
 :::
