@@ -4,7 +4,7 @@ description: Learn about the Embrace <> Datadog integration
 sidebar_position: 1
 ---
 
-# Data Destinations Datadog Integration
+# Datadog Integration
 
 ## Prerequisites
 

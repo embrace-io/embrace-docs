@@ -4,7 +4,7 @@ description: Learn about the Embrace <> Chronosphere integration
 sidebar_position: 5
 ---
 
-# Data Destinations Chronosphere Integration
+# Chronosphere Integration
 
 ## Prerequisites
 
