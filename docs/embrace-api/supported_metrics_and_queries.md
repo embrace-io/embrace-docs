@@ -94,7 +94,7 @@ There are over 40,000 unique device models on the Android operating system. The 
 
 <img src={require('@site/static/images/embrace-api/device_other.png').default} alt="Chart showing data by device ranking" />
 
-Currently, we roll together these long-tail device models into an "other" value. 
+Currently, we roll together these long-tail device models into an "other" value.
 
 ## Metrics Availability
 
