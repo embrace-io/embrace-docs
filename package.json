@@ -17,7 +17,7 @@
     "@docusaurus/core": "^3.6.3",
     "@docusaurus/plugin-client-redirects": "^3.6.3",
     "@docusaurus/preset-classic": "^3.6.3",
-    "@easyops-cn/docusaurus-search-local": "0.45.0",
+    "@easyops-cn/docusaurus-search-local": "0.46.1",
     "@mdx-js/react": "3.1.0",
     "@tabler/icons-react": "^3.22.0",
     "clsx": "2.1.1",
