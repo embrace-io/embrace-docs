@@ -41,7 +41,7 @@ try Embrace
         options: Embrace.Options(
             appId: "APPID",
             captureServices: services
-            //...other optiosn
+            //...other options
         )
     )
     .start()
