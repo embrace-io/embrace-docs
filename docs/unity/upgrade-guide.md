@@ -57,6 +57,8 @@ Please refer to the [list](/android/upgrading/#remove-deprecated-properties-from
 
 Unity has updated the internal android build tools, Gradle plugin, and Android Gradle plugin. We target those new values as our minimums on the Embrace Android SDK, and therefore also the Embrace Unity SDK on Android. For further information, please look at Unity's documentation [here](https://docs.unity3d.com/2021.3/Documentation/Manual/android-gradle-overview.html). Specific patch versions of Unity with this support differ by major Unity version; make sure to double check your version of Unity against the correct documentation.
 
+Please note that in upgrading, you may have to update values in the generated template files we require as they may still point to the older values. Please refer to the link to Unity's documentation above regarding supported Android Gradle versions for what these should be.
+
 ## Swift Library Workaround
 Currently the latest version of Xcode and Unity's iOS build pipeline have an issue where including a swift library (such as the Embrace Apple SDK) does not result in Xcode invoking its linker toolchain correctly. This can block builds and will generally involve messages mentioning such as `swift_FORCE_LOAD_$_swiftCompatibility`. The issue is rather recent, and listed [here](https://forums.developer.apple.com/forums/thread/762854).
 
