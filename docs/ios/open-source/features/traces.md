@@ -105,10 +105,6 @@ let span = Embrace
             .startSpan()
 ```
 
-:::warning Important
-Note that in the spans above the decorator `.markAsKeySpan` was used. This **MUST** be added to any root spans. It is not needed for child spans.
-:::
-
 ### Parent-Child Span Relationship
 
 A span can be indicated as the child of another span by setting its parent. This must be set on the `SpanBuilder` object, so you should set the parent before starting your span.
@@ -229,3 +225,19 @@ class MyClass {
     }
 }
 ```
+
+### Span auto termination
+
+You can flag a span to be auto terminated if it's still open when the Embrace session ends.
+When building a span, you'll have to pass the `SpanErrorCode` to be used when terminating the span.
+
+```swift
+let span = Embrace
+            .client?
+            .buildSpan(name: "process-image", autoTerminationCode: .failure)
+            .startSpan()
+```
+
+:::info
+Child spans of a span flagged for auto termination will be terminated along with their parent.
+:::

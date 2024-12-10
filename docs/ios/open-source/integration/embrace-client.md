@@ -53,7 +53,6 @@ let embrace = try Embrace
 
 // later on
 embrace.buildSpan(name: "my-operation")
-  .markAsKeySpan()
   .startSpan()
 ```
 
@@ -66,7 +65,6 @@ try Embrace
 
 // later on. Same functionality as above
 Embrace.client?.buildSpan(name: "my-operation")
-  .markAsKeySpan()
   .startSpan()
 ```
 
