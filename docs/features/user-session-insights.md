@@ -28,3 +28,8 @@ Clicking on any event directs you to the Timeline Details.
 The timeline details table presents an ordered list of every event within the timeline. Expandable rows provide additional information about each event. Clicking "See Impact" navigates you to the details page for that specific event.
 
 <img src={require('@site/static/images/features/user-session-insights/user-session-insights-3.png').default} alt="Timeline Details" />
+
+#### Search for Timeline events
+Timeline details can be quickly searched using the search bar in the upper right.  This searches on top-level text across all events, eg: network calls, breadcrumbs, taps, traces, etc.  Each search will highlight all found events, which can be navigated using the arrows in the search bar.
+
+<img src={require('@site/static/images/features/user-session-insights/timeline-search.png').default} alt="Timeline Search" />
