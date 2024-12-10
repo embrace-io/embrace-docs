@@ -25,7 +25,7 @@ Now when you build and run your project, our editor script will use those values
 
 ## Known Issues
 
-Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the current Unity build pipeline. To handle this issue, after creating your XCode project, add a Dummy Swift file to the UnityFramework target by right clicking the `Unity-iPhone` xcode project in the Project Navigator and selecting the `New File from Template` option. This will adjust the linker pipeline to invoke Swift appropriately.
+Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the current Unity build pipeline. To handle this issue, after creating your XCode project, add a Dummy Swift file to the UnityFramework target by right clicking the `Unity-iPhone` xcode project in the Project Navigator and selecting the `New File from Template` option. Make sure to add the file to BOTH the game target AND the UnityFramework target. Then, make sure to create the bridging heading. There's no need to write add any code. This will adjust the linker pipeline to invoke Swift appropriately.
 
 For further information, please refer to this discussion: https://github.com/CocoaPods/CocoaPods/issues/11960
 
