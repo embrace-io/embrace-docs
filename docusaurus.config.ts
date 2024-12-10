@@ -67,6 +67,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/dpa/",
+            from: "/gdpr-data-processing-addendum-dpa/",
+          },
+          {
             to: "/ios/open-source/upgrade-guide/#moments-have-been-replaced-by-traces",
             from: "/ios/open-source/moments-to-tracing/",
           },
@@ -261,6 +265,14 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
 
+    announcementBar: {
+      id: 'open-sourced-1', // Increment this when contents change so that it becomes visible to users who previously [x] hidden it
+      content:
+        'Embrace documentation is now open-source! Please open issues or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in Github!</a>',
+      backgroundColor: "#EEFF04",
+      isCloseable: true,
+    },
+
     navbar: {
       logo: {
         alt: "Embrace",
@@ -278,20 +290,17 @@ const config: Config = {
       ],
     },
 
-    /*
-      announcementBar: {
-        id: 'announcementBar-20230315', // Increment this when contents change so that it becomes visible to users who previously [x] hidden it
-        content: `Welcome to our new docs!`,
-      },
-*/
-
     footer: {
       style: "dark",
 
       links: [
         {
-          title: "Can't find what you were looking for?",
+          title: "Additional Resources",
           items: [
+            {
+              label: "Edit these docs",
+              href: "https://github.com/embrace-io/embrace-docs/",
+            },
             {
               label: "Community Slack",
               href: "https://community.embrace.io",
@@ -307,7 +316,7 @@ const config: Config = {
           ],
         },
         {
-          title: "Company Information",
+          title: "Embrace",
           items: [
             {
               label: "Privacy Policy",

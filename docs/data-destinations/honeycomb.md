@@ -4,7 +4,7 @@ description: Learn about the Embrace <> Honeycomb integration
 sidebar_position: 4
 ---
 
-# Data Destinations Honeycomb Integration
+# Honeycomb Integration
 
 ## Prerequisites
 

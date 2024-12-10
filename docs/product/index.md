@@ -13,4 +13,4 @@ sidebar_position: 0
 * [User Permissions on Organizations and Projects](/product/permissions/)
 * [Custom Dashboards](/product/custom-dashboards/)
 * [Network Spans Forwarding](/product/network-spans-forwarding/)
-* [Network Rollup Rules](/product/network-rollup-rules/)
+* [Network Grouping Rules](/product/network-grouping-rules/)

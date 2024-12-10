@@ -12,6 +12,10 @@ This guide will walk you through integrating Embrace into your React Native appl
 
 ## Requirements
 
+:::info
+Note that our minimum requirements on the native side tend to be a bit higher than those set by react-native init or @react-native-community/cli init by default for a fresh React Native project, please double-check that your project is configured correctly for the SDK to run
+:::
+
 ### Android
 
 * Android: Android 7.0 (API 24)

@@ -4,7 +4,7 @@ description: Learn about the Embrace API to pull data
 sidebar_position: 1
 ---
 
-# Metrics API Grafana Integration
+# Grafana Integration
 
 ## Prerequisites
 
@@ -14,11 +14,15 @@ sidebar_position: 1
 ## Setting Up Embrace as a Data Source
 
 Follow these steps to add Prometheus as a data source in the Grafana dashboard:
-1. Click the gear icon to go to the Configurations page.
-2. Click on "Add data source" and select Prometheus.
-3. Name your source "embrace-metrics-api" and set the following fields:
-    - `URL`: `https://api.embrace.io/metrics`
-    - Under `Custom HTTP Headers`, add a header with a name `Authorization` and use `Bearer <YOUR_API_TOKEN>` as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
+1. Click the "Open Menu" icon to go to the "Connections -> Data sources" page. 
+1. Click the "Add new data source" button on the top right page and select "Prometheus".
+3. Configure it with the following fields:
+    - Name: `embrace-metrics-api`.
+    - Under "Connection" section, set "Prometheus server URL": `https://api.embrace.io/metrics`.
+    - Under "Authentication" section, click the button "Add header":
+      - Header: `Authorization`, Value: `Bearer <YOUR_API_TOKEN>` as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
+
+<img src={require('@site/static/images/metrics-api/grafana.png').default} alt="Grafana Data Source" />
 
 ## Importing Dashboard JSON
 
@@ -30,7 +34,7 @@ Add a new panel and set the visualization to "Time series".
 
 <img src={require('@site/static/images/metrics-api/timeseries_visualization.png').default} alt="Image showing Grafana timeseries visualization" />
 
-Set the data source to "embrace-metrics-api:.  In the "Query options" section set the "Min interval". Currently only the following intervals are supported: 1m, 5m, 10m, 15m, 30m, 1hr, and 1d. **Keep in mind that Prometheus only supports 11,000 points per time series.**
+Set the data source to "embrace-metrics-api": In the "Query options" section set the "Min interval". Currently only the following intervals are supported: 1m, 5m, 10m, 15m, 30m, 1hr, and 1d. **Keep in mind that Prometheus only supports 11,000 points per time series.**
 
 <img src={require('@site/static/images/metrics-api/query_options.jpg').default} alt="Grafana timeseries visualization" />
 

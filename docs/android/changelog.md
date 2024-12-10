@@ -127,7 +127,7 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 
 ## 6.7.0
 *April 22, 2024*
- - Support configuration of OpenTelemetry Exporters to export [Logs](/android/features/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
+ - Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
 
 ## 6.6.0
 *April 19, 2024*

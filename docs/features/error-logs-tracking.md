@@ -8,7 +8,7 @@ sidebar_position: 2
 
 The logs section gives you access to all logs emitted by your application. Embrace provides two ways to explore your logs
 
-- **Aggregated logs**: View logs grouped by wildcarding rules. Typically you would use this visualization for monitoring app performance, identifying trends, and understanding overall user behavior.
+- **Aggregated logs**: View logs grouped by grouping rules. Typically you would use this visualization for monitoring app performance, identifying trends, and understanding overall user behavior.
 - **Raw Logs**: View every single log. Similar to other logging tools, this is a raw list of every log in real time.
 
 ## Filtering options
@@ -37,7 +37,7 @@ For each log group, this page displays:
 - **Devices**: Total number of affected devices in the given time period.
 - **Users**: Percentage of users affected by the log in the given time period.
 - **Versions**: Displays all versions where this log was seen (ignoring filters).
-- **Message**: Wildcarded Log message.
+- **Message**: Grouped Log message.
 
 ### Actions
 

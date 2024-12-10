@@ -1,10 +1,10 @@
 ---
 title: Datadog Integration
 description: Learn about the Embrace <> Datadog integration
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Data Destinations Datadog Integration
+# Datadog Integration
 
 ## Prerequisites
 

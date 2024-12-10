@@ -27,6 +27,19 @@ our SDK. It is therefore not recommended to enable more than one NDK crash repor
 
 The call stack that is reported for an ANR includes all processes running on the main thread at the time of an ANR. This way of classifying an ANR often misattributes the real culprit, as it tells you what is happening on the main thread at that moment, but doesn't point to the cause prior to the ANR. Embrace takes lightweight samples of the main thread up to 5 seconds before the occurrence of an ANR to show you what the thread was doing in that time. So, if you see Embrace in your ANR call stack, it's very likely the noise of the ANR reporter landing on the Embrace sampling methods.
 
+### **Why does Embrace's crash data look different compared to another crash reporting solution I use?**
+
+All crash reporting solutions capture crashes in subtly different ways. One of the main differences is in how individual stacktraces are grouped into a distinct report. Different vendors will take different views on how best to do this grouping. When comparing the dashboards of two different vendors side-by-side, this can give the appearance that one vendor is 'missing' a specific crash report, or the crash count is lower/higher than expected. In reality, the vendors have chosen different approaches to aggregate individual events, and missing crash events have simply been aggregated in a different location.
+
+Crash rate calculations also tend to differ between vendors, along with the definition of what forms a 'session'. These subtle differences can lead to disparities in metrics which means these values cannot be directly compared.
+
+Finally, SDKs use different approaches to capture and process crash data. For JVM exceptions, captured stacktraces will usually be the same for all SDKs that have registered for a callback. That isn't necessarily the case for NDK crashes due to limitations of how signal handlers work. This can lead to the scenario where different stacktraces are captured for the same event by different vendors.
+
+### **Why does Embrace's ANR data look different compared to another ANR reporting solution I use?**
+
+All the reasons in this [crashes FAQ](#why-does-embraces-crash-data-look-different-compared-to-another-crash-reporting-solution-i-use) also applies to ANR data.
+
+
 ## Integrating
 
 ### **The SDK should support API level 21 but, I get an error saying API level 24 is needed. What's wrong?**
@@ -220,15 +233,13 @@ Please refer to [Traces feature guide](/android/features/traces) for a reference
 
 ### **Can I disable the capture of tap coordinates?**
 
-Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#capture_coordinates-bool) in the `embrace-config.json` file.
+Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#taps---capture_coordinates-bool) in the `embrace-config.json` file.
 
 ## Trace IDs
 
-### **Can trace IDs for network requests be captured?**
+### **I have a custom ID to represent each network request made to my server. Can I capture that in the network logging?**
 
-Yes, you can capture trace IDs in two ways:
-1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value
-1. If the ID is already present in the request in a different header, set the name of the header in the `embrace-config.json` file with the [`networking[trace_id_header]` setting](/android/features/configuration-file/#trace_id_header-string)
+Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in the request.
 
 :::note
 Trace IDs longer than 64 characters will be truncated

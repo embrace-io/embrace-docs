@@ -4,7 +4,7 @@ description: Learn about the Embrace <> Grafana Cloud integration
 sidebar_position: 3
 ---
 
-# Data Destinations Grafana Cloud Integration
+# Grafana Cloud Integration
 
 ## Prerequisites
 
@@ -59,3 +59,23 @@ It depends on your Grafana Cloud version the information that you need to share 
 4. Share the instance ID and zone with an Embrace onboarding specialist.
 
 <img src={require('@site/static/images/grafana_cloud_details.png').default} alt="Image showing Grafana Cloud fields needed" />
+
+## Selecting the Correct Data Source for Embrace Metrics
+
+:::tip
+If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this <a href="/docs/embrace-api/grafana_integrations#setting-up-embrace-as-a-data-source" target="_blank">guide</a>.
+:::
+
+Embrace provides two main options for viwing metrics within Grafana: using the **Embrace Metrics API** (pull method) or setting up a **Data Destination** (push method).
+
+For Data Distination ensure that you are selecting the correct prometheus datasource. Ex: 
+
+<img src={require('@site/static/images/data-destinations/grafana_cloud_prometheus_data_source.png').default} alt="Image showing Grafana Cloud datasource" />
+
+<img src={require('@site/static/images/data-destinations/grafana_cloud_prometheus_data_source_selection.png').default} alt="Image showing the Prometheus data source selection" />
+
+### Embrace Metrics API vs. Data Destination
+
+- **Embrace Metrics API**: Alternatively, you can configure Grafana to pull metrics from Embrace using PromQL queries via the Embrace Metrics API. However, this method requires Grafana to be set up with the Embrace API as a data source and is typically only used if you have specific requirements for on-demand metrics retrieval.
+
+- **Data Destination**: Embrace can push metrics directly to your Grafana Cloud instance as a data destination. This setup leverages Grafana Cloud's managed Prometheus services, enabling seamless integration without the need for an additional Prometheus instance. This method is ideal for most users who prefer a simple, automated approach to access Embrace metrics within Grafana Cloud.

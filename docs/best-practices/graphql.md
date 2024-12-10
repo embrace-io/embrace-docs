@@ -1,6 +1,7 @@
 ---
 title: Monitoring GraphQL Requests
 description: Best practices for monitoring GraphQL network requests with the Embrace SDK
+sidebar_position: 4
 ---
 
 # Monitoring GraphQL Requests

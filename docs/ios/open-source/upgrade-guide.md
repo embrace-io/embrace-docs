@@ -57,7 +57,7 @@ For more information about starting the SDK in-code, please read [The Embrace Cl
 
 [Moments](/docs/ios/5x/features/moments.md) have not been added to the Embrace Apple 6 SDK, and will not be available when upgrading from version 5 to version 6. We made this decision as part of our migration to build on top of OpenTelemetry APIs and to standardize the telemetry coming from our SDKs.
 
-Luckily, [Traces](/docs/ios/open-source/features/traces.md) serve the same purposes as Moments, with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Performance Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
+Luckily, [Traces](/docs/ios/open-source/features/traces.md) serve the same purposes as Moments, with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
 
 A span is simply an operation occurring over a period of time. Using spans, you can track how long operations within the app take, and more. Note that, in building on existing OTel APIs, the Embrace Apple SDK does not have instrumentation for an object called a "trace". Instead, a trace is the root span for a given workflow.
 
@@ -122,9 +122,67 @@ addCartSpan?.end()
 </TabItem>
 </Tabs>
 
+Finally, note that when building our Apple 6x SDK, we had to balance our goal of building on the OpenTelemetry specification while also doing our due diligence to avoid tightly-coupling to the existing OTel frameworks. The `EmbraceIO` framework exposes *methods* that create `Span` and `SpanBuilder`, but does not pass through the object types for reference.
+
+To, for example, store a Span in object scope, you will need to import Span's source, namely the [OpenTelemetry API](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/OpenTelemetryApi):
+
+
+<Tabs groupId="ios-language" queryString="ios-language">
+<TabItem value="swift" label="Swift">
+
+```swift
+/* ******************************* */
+// Imports for new object
+import Foundation
+import EmbraceIO
+import OpenTelemetryApi
+
+// New object definition
+class MyClass {
+    
+    // Create a Span property that will be available across the object
+    var activitySpan: Span? = nil // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
+
+    func activityStart() {
+        // Something starts
+        // ...
+        // And we want to trace it
+        activitySpan = Embrace.client?.buildSpan(name: "activity")
+                .startSpan()
+    }
+
+    func activityChanged() {
+        // Something changed
+        // ...
+        // And we want to note it
+        activitySpan?.addEvent(name: "activity-changed")
+    }
+
+    func activitySuccessfully() {
+        // Something ended
+        // ...
+        activitySpan?.end()
+    }
+
+    func activityEnded(with failure: EmbraceIO.ErrorCode) {
+        // Something ended unsuccessfully
+        // ...
+        activitySpan?.end(errorCode: failure)
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+
 ### Startup Moment
 
-At the moment, our development team is working on a replacement for the `endAppStartup` Moment that will make better use of the device and system's signals. The prior implementation left much to be desired, and using OTel tracing will allow us to combine signals from libraries, both native and third-party, to more-accurately model the startup activity in apps.
+We are working on a replacement for the `endAppStartup` Moment from prior versions, creating a trace-based measurement that will make better use of the device and system's signals. The prior implementation left much to be desired, and using OTel tracing will allow us to combine signals from libraries, both native and third-party, to more-accurately model the startup activity in apps.
+
+If you wish to create your own version of the `endAppStartup` Moment, you can create a trace with child spans that measure various parts of the app's initialization.
+
+Measuring startup can be infinitely customizable, as you can add spans encapsulating native lifecycle events, any 3rd-party framework starts, and other factors that affect time prior to a user's ability to interact with the app. Using timestamps and a [span record](/ios/open-source/features/traces/#recording-a-completed-span), you can even measure events that occurred before the Embrace SDK. Additionally, Embrace's SDK creates a span `emb-setup` that measures the time for Embrace itself to launch.
 
 ## Replace deprecated method calls with new ones
 
@@ -163,17 +221,4 @@ As noted above, Moments have been deprecated and are not available in Embrace Ap
 - Screenshots
 - App disk usage (including free disk space and CPU "spike")
 - `.startView` and `.endView` have been removed. Use spans with the SpanType `.ux` to record information about your view lifecycles
-
-## Features still to be migrated
-
-In upcoming minor versions, you can expect to see familiar features from the iOS 5 SDK. While these are useful and will remain in use, we chose to prioritize migration of important paradigms like Traces and Auto-instrumentation while building on OpenTelemetry signals. Some upcoming features include:
-
-- Config Capabilities
-    - Remote config to disable network capture based on URL regexes
-    - Local config to disable URLs to capture
-    - Local config to disable webview capture
-    - Local config to enable stripping of webview query params
-- Manually instrumenting network requests
-- Network body capture
 - Extension Insights
-
