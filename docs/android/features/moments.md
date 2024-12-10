@@ -6,6 +6,10 @@ sidebar_position: 15
 
 # Moments
 
+:::warning Important
+The moments feature is only available in version 6 and below of the Android SDK. You should use the [Traces API](/android/features/traces) instead.
+:::
+
 ## Overview
 
 Embrace contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
