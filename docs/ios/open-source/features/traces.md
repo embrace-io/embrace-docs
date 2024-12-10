@@ -157,24 +157,24 @@ span3.end(errorCode: .userAbandon)
 
 ### Recording a Completed Span
 
-You can also create a completed span after the fact. 
+You can also create a completed span after the fact. This function returns `Void`
 
 ```swift
 let startTime = Date()
 let endTime = startTime.addingTimeInterval(4.0)
 
 // manually record operation timing after it occurs
-let span = Embrace
-            .client?.
-            .recordCompletedSpan(
-                name: "deserialize-data-blob",
-                type: .performance,
-                parent: nil,
-                startTime: startTime,
-                endTime: endTime,
-                attributes: [:],
-                events: [],
-                errorCode: nil
+Embrace
+    .client?.
+    .recordCompletedSpan(
+        name: "deserialize-data-blob",
+        type: .performance,
+        parent: nil,
+        startTime: startTime,
+        endTime: endTime,
+        attributes: [:],
+        events: [],
+        errorCode: nil
 )
 ```
 
