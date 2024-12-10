@@ -53,6 +53,15 @@ For usage, please refer to our documentation on [Traces](/unity/features/traces.
 
 Please refer to the [list](/android/upgrading/#remove-deprecated-properties-from-your-buildgradle) on the Embrace Android SDK Upgrade Guide for now deprecated `build.gradle` properties.
 
+## AGP Version dependency has been bumped
+
+Unity has updated the internal android build tools, Gradle plugin, and Android Gradle plugin. We target those new values as our minimums on the Embrace Android SDK, and therefore also the Embrace Unity SDK on Android. For further information, please look at Unity's documentation [here](https://docs.unity3d.com/2021.3/Documentation/Manual/android-gradle-overview.html). Specific patch versions of Unity with this support differ by major Unity version; make sure to double check your version of Unity against the correct documentation.
+
+## Swift Library Workaround
+Currently the latest version of Xcode and Unity's iOS build pipeline have an issue where including a swift library (such as the Embrace Apple SDK) does not result in Xcode invoking its linker toolchain correctly. This can block builds and will generally involve messages mentioning such as `swift_FORCE_LOAD_$_swiftCompatibility`. The issue is rather recent, and listed [here](https://forums.developer.apple.com/forums/thread/762854).
+
+The easiest solution to this is to add a Dummy Swift file in the exported Xcode project out of Unity. When doing this make sure to add the Swift file to BOTH the game target and the UnityFramework in Xcode. Then make sure to allow the creation of the bridging header. There's no need to write any code inside. The sole purpose of the file is to provide Xcode the necessary hints so that it invokves its toolchain correctly.
+
 ## Some features still have yet to be migrated
 - Replacement for `EndAppStartup` planned for both Embrace Android and Embrace Apple SDKs
 - Please refer to the Embrace Apple SDK [Upgrade Guide](/ios/open-source/upgrade-guide/) for as of yet unsupported features on iOS
