@@ -13,9 +13,11 @@ Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the 
 For further information, please refer to this discussion: https://github.com/CocoaPods/CocoaPods/issues/11960
 :::
 * Upgrade of Embrace iOS dependency to 6.6.0
+* Removal of automated scoped registry functionality
+* Removal of integration guide steps in lieu of documentation
+* Patch of extraneous embedding of iOS framework elements
 * Restoration of meta files and patch to local asset path issues
 * Patch of StopSpan error code handling
-* Removal of Integration Guide in Getting Started Window
 
 
 ## 2.1.0
