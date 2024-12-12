@@ -60,18 +60,6 @@ It is important that this call be made as early as possible in the lifecycle of 
 
 :::
 
-## End the Startup Moment
-
-Finally, make sure to end the special "startup" moment that Embrace uses to track app launch performance. You can end this moment anywhere you choose. We recommend placing the call as close to the point that your UI is ready for use as possible, as doing so will give you the most accurate picture of the performance your users are experiencing with app launch.
-
-```cs
-Embrace.Instance.EndAppStartup();
-```
-
-:::info A Note On Ensuring the Startup Moment Ends
-This moment is used to track both launch performance and launch abandonment. The latter is the number of users who close the app before the launch finishes. To correctly track this, it is critical that all code paths end the startup moment eventually. For example, if your app can launch via a push notification, ensure that path also ends the startup moment or you may see inaccurate abandonment data.
-:::
-
 ## Build and Run Your Application
 
 You're now ready to build and run your application. Assuming the app launches correctly, pay attention to the system logging and look for Embrace to print out its version number.
