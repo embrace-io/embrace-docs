@@ -4,7 +4,7 @@ description: Learn about the advanced ways Embrace can help your application
 sidebar_position: 2
 ---
 
-# React Native Feature Referenceaewfawef
+# React Native Feature Reference
 
 Embrace's SDK includes many advanced features that you can enable to help you understand more about
 how your application is performing in production.
