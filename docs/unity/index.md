@@ -10,7 +10,7 @@ sidebar_position: 0
 
 Embrace's Unity SDK lets you bring the deep, introspective and native debugging power of Embrace into your Unity game or application.
 
-We test our SDK on all Unity LTS versions 2020.3.15f1 and newer. Each Unity release varies and all Unity projects are a little different, so don't hesitate to reach out to us for support during the integration process.
+We test our SDK on Unity LTS versions 2021.3.41f1 and newer. Each Unity release varies and all Unity projects are a little different, so don't hesitate to reach out to us for support during the integration process.
 
 This documentation is split into two sections:
 
