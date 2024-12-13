@@ -15,7 +15,6 @@ process we're going to follow to collect our first session is:
 
 1. [**Import the Embrace module**](/unity/integration/session-reporting#import-embrace)
 1. [**Add a start call to the Embrace SDK**](/unity/integration/session-reporting#add-a-start-call)
-1. [**End the Startup Moment**](/unity/integration/session-reporting#end-the-startup-moment)
 1. [**Build and run our application**](/unity/integration/session-reporting#build-and-run-your-application)
     1. Verify Embrace started via the logs
 1. [**Trigger a session upload**](/unity/integration/session-reporting#trigger-a-session-upload)
