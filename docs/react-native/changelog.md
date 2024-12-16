@@ -12,6 +12,7 @@ _December 16, 2024_
 * Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
 * Guard against possible unhandled exceptions
 * Provide a default bundle path on iOS
+* Internal refactor and dependency updates to make packages that deal with native code more consistent
 ## 5.0.2
 _October 31, 2024_
 * Updated iOS native Embrace SDK dependency to 6.5.1.
