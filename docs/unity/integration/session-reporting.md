@@ -15,7 +15,6 @@ process we're going to follow to collect our first session is:
 
 1. [**Import the Embrace module**](/unity/integration/session-reporting#import-embrace)
 1. [**Add a start call to the Embrace SDK**](/unity/integration/session-reporting#add-a-start-call)
-1. [**End the Startup Moment**](/unity/integration/session-reporting#end-the-startup-moment)
 1. [**Build and run our application**](/unity/integration/session-reporting#build-and-run-your-application)
     1. Verify Embrace started via the logs
 1. [**Trigger a session upload**](/unity/integration/session-reporting#trigger-a-session-upload)
@@ -58,18 +57,6 @@ Embrace.Instance.StartSDK();
 
 It is important that this call be made as early as possible in the lifecycle of your application to ensure we can collect as much relevant data as possible. Additionally, Embrace has taken great care to ensure we can operate alongside any other third party SDKs. If Embrace is initialized first, then our code can set things up to ensure that everyone can interoperate successfully in your application.
 
-:::
-
-## End the Startup Moment
-
-Finally, make sure to end the special "startup" moment that Embrace uses to track app launch performance. You can end this moment anywhere you choose. We recommend placing the call as close to the point that your UI is ready for use as possible, as doing so will give you the most accurate picture of the performance your users are experiencing with app launch.
-
-```cs
-Embrace.Instance.EndAppStartup();
-```
-
-:::info A Note On Ensuring the Startup Moment Ends
-This moment is used to track both launch performance and launch abandonment. The latter is the number of users who close the app before the launch finishes. To correctly track this, it is critical that all code paths end the startup moment eventually. For example, if your app can launch via a push notification, ensure that path also ends the startup moment or you may see inaccurate abandonment data.
 :::
 
 ## Build and Run Your Application

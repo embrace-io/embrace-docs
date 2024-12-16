@@ -85,7 +85,6 @@ Spans must be started and ended to ultimately be recorded. Use `.startSpan` to b
 let spanBuilder = Embrace
             .client?
             .buildSpan(name: "process-image")
-            .markAsKeySpan()
 
 let span = spanBuilder.startSpan()
 
@@ -93,7 +92,6 @@ let span = spanBuilder.startSpan()
 let span = Embrace
             .client?
             .buildSpan(name: "process-image")
-            .markAsKeySpan()
             .startSpan()
 ```
 
@@ -103,14 +101,9 @@ Using `.startSpan` sets the startTime of the span as the present time (`Date.now
 let span = Embrace
             .client?
             .buildSpan(name: "process-image")
-            .markAsKeySpan()
             .setStartTime(time: Date().advanced(by: -6.0))
             .startSpan()
 ```
-
-:::warning Important
-Note that in the spans above the decorator `.markAsKeySpan` was used. This **MUST** be added to any root spans. It is not needed for child spans.
-:::
 
 ### Parent-Child Span Relationship
 
@@ -121,7 +114,6 @@ A span can be indicated as the child of another span by setting its parent. This
 let parentSpan = Embrace
                 .client?
                 .buildSpan(name: "process-batch")
-                .markAsKeySpan()
                 .startSpan()
 
 // Create a child span by setting the parent span prior to start
@@ -165,24 +157,24 @@ span3.end(errorCode: .userAbandon)
 
 ### Recording a Completed Span
 
-You can also create a completed span after the fact. 
+You can also create a completed span after the fact. This function returns `Void`
 
 ```swift
 let startTime = Date()
 let endTime = startTime.addingTimeInterval(4.0)
 
 // manually record operation timing after it occurs
-let span = Embrace
-            .client?.
-            .recordCompletedSpan(
-                name: "deserialize-data-blob",
-                type: .performance,
-                parent: nil,
-                startTime: startTime,
-                endTime: endTime,
-                attributes: [:],
-                events: [],
-                errorCode: nil
+Embrace
+    .client?.
+    .recordCompletedSpan(
+        name: "deserialize-data-blob",
+        type: .performance,
+        parent: nil,
+        startTime: startTime,
+        endTime: endTime,
+        attributes: [:],
+        events: [],
+        errorCode: nil
 )
 ```
 
@@ -233,3 +225,19 @@ class MyClass {
     }
 }
 ```
+
+### Span auto termination
+
+You can flag a span to be auto terminated if it's still open when the Embrace session ends.
+When building a span, you'll have to pass the `SpanErrorCode` to be used when terminating the span.
+
+```swift
+let span = Embrace
+            .client?
+            .buildSpan(name: "process-image", autoTerminationCode: .failure)
+            .startSpan()
+```
+
+:::info
+Child spans of a span flagged for auto termination will be terminated along with their parent.
+:::

@@ -5,13 +5,22 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
-## 2.1.1
-*November 26, 2024*
+## 2.1.2
+*December 12, 2024*
 :::warning Info
 Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the current Unity build pipeline. To handle this issue, after creating your XCode project, add a Dummy Swift file to the UnityFramework target. This will adjust the linker pipeline to invoke Swift appropriately.
 
 For further information, please refer to this discussion: https://github.com/CocoaPods/CocoaPods/issues/11960
 :::
+* Upgrade of Embrace iOS dependency to 6.6.0
+* Removal of automated scoped registry functionality
+* Removal of integration guide steps in lieu of documentation
+* Patch of extraneous embedding of iOS framework elements
+* Patch of StopSpan error code handling
+* Patch of Android Crash Handling when dealing with default `config.json` values
+
+## 2.1.1
+*November 26, 2024*
 * Restoration of meta files and patch to local asset path issues
 
 ## 2.1.0

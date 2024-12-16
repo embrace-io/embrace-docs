@@ -56,11 +56,11 @@ The current [possible values](https://github.com/embrace-io/embrace-apple-sdk/bl
 
 ```swift
 // Last end state can't be determined
-    case unavailable
+case unavailable
 
 // Last app run ended in a crash
-    case crash
+case crash
 
 // Last app run ended cleanly
-    case cleanExit 
+case cleanExit 
 ```
