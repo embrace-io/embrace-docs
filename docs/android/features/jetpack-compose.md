@@ -39,8 +39,8 @@ import TabItem from '@theme/TabItem';
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-swazzler {
-    disableComposeDependencyInjection.set(false) 
+dependencies {
+    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
@@ -48,8 +48,8 @@ swazzler {
 <TabItem value="groovy" label="Groovy">
 
 ```groovy
-swazzler {
-    disableComposeDependencyInjection = false 
+dependencies {
+    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
