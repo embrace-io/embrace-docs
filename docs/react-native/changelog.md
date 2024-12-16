@@ -6,6 +6,12 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 
+## 5.1.0
+_December 16, 2024_
+* Updated Android native Embrace SDK dependency to version 6.14.0
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
+* Guard against possible unhandled exceptions
+* Provide a default bundle path on iOS
 ## 5.0.2
 _October 31, 2024_
 * Updated iOS native Embrace SDK dependency to 6.5.1.
