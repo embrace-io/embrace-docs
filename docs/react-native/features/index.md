@@ -15,3 +15,4 @@ how your application is performing in production.
 4. [**Current Device ID API.**](/react-native/features/current-device-id-api) This API lets you know what the current Session ID is in case you need to track it separately.
 5. [**Current Session ID API.**](/react-native/features/current-session-id-api) This API lets you know what the current Embrace ID is in case you need to track it separately.
 6. [**Last Run End State.**](/react-native/features/last-run-end-state) This API lets you know if the previous app instance ended in a crash.
+7. [**Tracking Render Errors.**](/react-native/features/tracking-render-errors) Automatic logging of React Native rendering errors.
