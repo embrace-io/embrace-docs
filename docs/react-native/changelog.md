@@ -43,6 +43,9 @@ _July 04, 2024_
 * Added startTimeMs in startSpan
 * Added endTimeMs in stopSpan
 * Updated iOS native Embrace SDK dependency to 5.25.2.
+## 4.1.3
+_December 17, 2024_
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
 ## 4.1.2
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.
