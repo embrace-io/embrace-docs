@@ -25,4 +25,5 @@ We recommend following these steps in order.
 
 - First, [link the Embrace SDK](/ios//open-source/integration/linking-embrace.md) to your Xcode project.
 - Then, initialize the [Embrace Client](/ios/open-source/integration/embrace-client.md) as close to launch of your application code as possible. 
-- For configuration options in the SDK, read about the [`Embrace.Options`](/ios/open-source/integration/embrace-options.md) object that is used to initialize it. Also consider [customizing the signals](/ios/open-source/integration/customizing-signals.md) that the Embrace SDK automatically captures.
+- For configuration options in the SDK, read about the [`Embrace.Options`](/ios/open-source/integration/embrace-options.md) object that is used to initialize it. Also consider which signals you would like to [customizing the signals](/ios/open-source/integration/customizing-signals.md) that the Embrace SDK automatically captures.
+- For configuration options in the SDK, read about the [`Embrace.Options`](/ios/open-source/integration/embrace-options.md) object that is used to initialize it. Also consider which signals you would like to [autoinstrument with the Embrace SDK](/ios/open-source/integration/customizing-signals.md).
