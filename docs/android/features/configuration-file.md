@@ -198,7 +198,7 @@ The SDK collects the disk usage for the app. Defaults to `true`.
 
 #### capture_enabled *bool*
 
-Enables background activity capture. Defaults to `false`.
+This is a failsafe. If the remote config is not set, this value will be used. Enable and Disable background activity capture. Defaults to `false`.
 
 #### base_urls - config *string*
 
