@@ -12,6 +12,5 @@ The Embrace Apple SDK includes many advanced features that you can enable to hel
 1. Measure and prioritize performance in your app using [Tracing](/ios/open-source/features/traces.md).
 1. Dynamically segment users to understand variations and tailor diverse app experiences using [User Personas](/ios/open-source/features/identify-users.md).
 1. Capture the vitals of any troublesome networking using [Network Body Capture](/ios/open-source/features/network-body-capture.md).
-1. Get insight into [Push Notifications](/ios/open-source/features/push-notifications.md) the user received on the native OS.
 1. Find the source of a previous session's termination with the [Last Run End State API](/ios/open-source/features/last-run-end-state.md).
-1. Instrument your app's `UIViewControllers` with the [ViewCaptureService](/ios/open-source/features/view-capture-service.md).
+1. Get automatic instrumentation for different parts of your app with [Capture Services](/ios/open-source/features/capture-services/index.md).
