@@ -1,10 +1,10 @@
 ---
-title: Choose Autoinstrumentation
-description: Choose the Autoinstrumented Signals You Receive From Embrace
+title: Autoinstrumentation
+description: Choose Your Autoinstrumentation
 sidebar_position: 4
 ---
 
-# Choose the Autoinstrumented Signals You Receive From Embrace
+# Choose Your Autoinstrumentation
 
 The Embrace Apple SDK is built to provide automatic instrumentation for the most important mobile signals, right out of the box. However, it is possible to customize the signals that you receive when you [set up](/ios/open-source/integration/embrace-options.md) the SDK.
 
@@ -16,7 +16,7 @@ The services pre-configured by default in the [CaptureServiceBuilder](https://gi
 
 - `URLSessionCaptureService`: generates OpenTelemetry spans for network requests that use `URLSession`.
 - `TapCaptureService`: generates OpenTelemetry span events for taps on the screen.
-- `ViewCaptureService`: generates OpenTelemtry spans for `UIViewControllers`.
+- `ViewCaptureService`: generates OpenTelemetry spans for `UIViewControllers`.
 - `WebViewCaptureService`: generates OpenTelemetry span events when a `WKWebView` loads an URL or throws an error.
 - `LowMemoryWarningCaptureService`: generates OpenTelemetry span events when the application receives a low memory warning.
 - `LowPowerModeCaptureService`: generates OpenTelemetry spans when the phone is running in low power mode.
