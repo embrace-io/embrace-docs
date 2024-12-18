@@ -228,8 +228,7 @@ class MyClass {
 
 ### Span auto termination
 
-You can flag a span to be auto terminated if it's still open when the Embrace session ends.
-When building a span, you'll have to pass the `SpanErrorCode` to be used when terminating the span.
+In accordance with the OTel specification, spans in the Embrace SDK do not end by default when the session span (technically their parent) ends. You can flag a span to be auto terminated if it's still open when the Embrace session ends. When building a span, you'll have to pass the `SpanErrorCode` to be used when terminating the span.
 
 ```swift
 let span = Embrace
