@@ -1,16 +1,16 @@
 ---
-title: Customizing Signals
-description: Customize the Signals You Receive From Embrace
+title: Choose Autoinstrumentation
+description: Choose the Autoinstrumented Signals You Receive From Embrace
 sidebar_position: 4
 ---
 
-# Customize the Signals You Receive From Embrace
+# Choose the Autoinstrumented Signals You Receive From Embrace
 
 The Embrace Apple SDK is built to provide automatic instrumentation for the most important mobile signals, right out of the box. However, it is possible to customize the signals that you receive when you [set up](/ios/open-source/integration/embrace-options.md) the SDK.
 
 ## Automatic Signals
 
-With the [convenience initializer](/ios/open-source/integration/embrace-options/#configuration-options) provided for initial setup, the SDK adds a default set of [CaptureServices](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift) objects that instrument the app automatically. Each service is an extension of that base class, and so each service is instrumented to capture its signals and map them to OpenTelemetry spans.
+With the [convenience initializer](/ios/open-source/integration/embrace-options/#setup-options) provided for initial setup, the SDK adds a default set of [CaptureServices](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift) objects that instrument the app automatically. Each service is an extension of that base class, and so each service is instrumented to capture its signals and map them to OpenTelemetry spans.
 
 The services pre-configured by default in the [CaptureServiceBuilder](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceIO/Capture/CaptureServiceBuilder.swift#L42) are:
 
@@ -95,4 +95,4 @@ public class ScreenshotCaptureService: CaptureService {
 
 Additional configuration, especially to the [session span](/ios/open-source/#how-we-built-it), would be necessary to make this CaptureService useful, but you can see here how intuitive it is to add your own automatic instrumentation. 
 
-Consider opening a pull request on the SDK's [GitHub repository](https://github.com/embrace-io/embrace-apple-sdk/) with any instrumentation you've found useful!
+Consider opening a pull request on the Apple SDK's [GitHub repository](https://github.com/embrace-io/embrace-apple-sdk/) with any instrumentation you've found useful!
