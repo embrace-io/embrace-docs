@@ -1,14 +1,10 @@
 ---
-title: View Capture Service
+title: ViewCaptureService
 description: Learn about how to instrument your app's `UIViewControllers` with Embrace.
-sidebar_position: 7
+sidebar_position: 3
 ---
 
 # View Capture Service
-
-## Overview
-
----
 
 The `ViewCaptureService` is in charge of automatically instrumenting `UIViewController` load and render times.
 You can customize the service behavior by passing a custom `ViewCaptureService` when setting up the Embrace SDK:
@@ -29,6 +25,14 @@ try Embrace
     )
     .start()
 ```
+
+### Customization
+
+The `EmbraceViewControllerCustomization` protocol allows you to customize `UIViewControllers` for Embrace capture at an individual level.
+
+The `shouldCaptureViewInEmbrace` variable allows you to prevent the Embrace SDK from generating data for that `UIViewController`.
+
+The `nameForViewControllerInEmbrace` variable allows you to customize the name for the screen (the class name is used by default).
 
 ### Screen visibility
 
