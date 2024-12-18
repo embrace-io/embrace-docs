@@ -50,6 +50,12 @@ The service will also generate child spans measuring several steps in the proces
 If the `UIViewController` disappears before it finishes loading, the spans status will be set to `.error` with the `.userAbandon` code.
 :::
 
+:::warning
+If you're using the Embrace Dashboard with your app, you might need to contact and Embrace representative to enable this feature through the remote configuration.
+
+If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/docs/ios/open-source/integration/embrace-options/).
+:::
+
 ### Time to Interactive
 
 This feature is enabled by setting `instrumentFirstRender` to `true` in the `ViewCaptureService.Options`, and making a `UIViewController` implement the `InteractableViewController` protocol.
@@ -75,6 +81,12 @@ class MyViewController: UIViewController, InteractableViewController {
 
 :::info
 If the `UIViewController` disappears before it is flagged as ready for interaction, the spans status will be set to `.error` with the `.userAbandon` code.
+:::
+
+:::warning
+If you're using the Embrace Dashboard with your app, you might need to contact and Embrace representative to enable this feature through the remote configuration.
+
+If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/docs/ios/open-source/integration/embrace-options/).
 :::
 
 ### Custom child spans
