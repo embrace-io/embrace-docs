@@ -20,6 +20,10 @@ If you want to enable the Push Notifications feature, you can set `instrumentFir
 swazzler {
     instrumentFirebaseMessaging = true
 }
+
+dependencies {
+    implementation("io.embrace:embrace-android-fcm:{{ embrace_sdk_version platform="android" }}")
+}
 ```
 
 :::info Note
