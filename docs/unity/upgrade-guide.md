@@ -77,12 +77,16 @@ First, remove the Embrace Unity SDK from your project:
 2. Find the `Embrace SDK` entry in the list
 3. Click the `Remove` button on the right
 
+<img src={require('@site/static/images/unity-package-manager.png').default} />
+
 Then, remove the Embrace scoped registry:
 
 1. Open Project Settings
 2. Go to the Package Manager tab
 3. Select the `io.embrace.sdk` entry in the Scoped Registries list
 4. Click the `-` button to remove the entry
+
+<img src={require('@site/static/images/unity-package-manager-settings.png').default} />
 
 After this is complete, you can re-install the [Embrace SDK from the unitypackage](/unity/integration/session-reporting/).
 
