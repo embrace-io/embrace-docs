@@ -7,6 +7,7 @@
 - Moments have been replaced by Traces
 - Some deprecated features have been removed
 - Remove deprecated properties from Gradle file
+- Remove scoped registry
 - Some features still have yet to be migrated
 :::
 
@@ -38,6 +39,7 @@ A span is simply an operation occurring over a period of time. Using spans, you 
 For usage, please refer to our documentation on [Traces](/unity/features/traces.md).
 
 ## Some deprecated features have been removed
+
 - Embrace Android Bug Shake API removed
 - `logUnhandledUnityException`
     - Use `LogUnhandledUnityException` instead
@@ -60,10 +62,31 @@ Unity has updated the internal android build tools, Gradle plugin, and Android G
 Please note that in upgrading, you may have to update values in the generated template files we require as they may still point to the older values. Please refer to the link to Unity's documentation above regarding supported Android Gradle versions for what these should be.
 
 ## Swift Library Workaround
+
 Currently the latest version of Xcode and Unity's iOS build pipeline have an issue where including a Swift library (such as the Embrace Apple SDK) does not result in Xcode invoking its linker toolchain correctly. This can block builds and will generally involve messages mentioning symbols such as `swift_FORCE_LOAD_$_swiftCompatibility`. The issue is rather recent, and listed [here](https://forums.developer.apple.com/forums/thread/762854).
 
 The easiest solution to this is to add a Dummy Swift file in the exported Xcode project out of Unity by right clicking the `Unity-iPhone` xcode project in the Project Navigator and selecting the `New File from Template` option. When doing this make sure to add the Swift file to the UnityFramework in Xcode. Make sure to add the file to BOTH the game target AND the UnityFramework target. Then, make sure to create the bridging heading. There's no need to add any code. The sole purpose of the file is to provide Xcode the necessary hints so that it invokes its toolchain correctly.
 
+## Remove scoped registry
+
+We no longer recommend using the scoped registry as a way to install the Embrace Unity SDK, due to issues with file permissions. If the Embrace scoped registry was previously added to your project during installation of the Embrace Unity SDK, you can remove it by following these steps.
+
+First, remove the Embrace Unity SDK from your project:
+
+1. Open the Package Manager
+2. Find the `Embrace SDK` entry in the list
+3. Click the `Remove` button on the right
+
+Then, remove the Embrace scoped registry:
+
+1. Open Project Settings
+2. Go to the Package Manager tab
+3. Select the `io.embrace.sdk` entry in the Scoped Registries list
+4. Click the `-` button to remove the entry
+
+After this is complete, you can re-install the [Embrace SDK from the unitypackage](/unity/integration/session-reporting/).
+
 ## Some features still have yet to be migrated
+
 - Replacement for `EndAppStartup` planned for both Embrace Android and Embrace Apple SDKs
 - Please refer to the Embrace Apple SDK [Upgrade Guide](/ios/open-source/upgrade-guide/) for as of yet unsupported features on iOS
