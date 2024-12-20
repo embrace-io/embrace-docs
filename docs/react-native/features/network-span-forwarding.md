@@ -5,7 +5,7 @@ sidebar_position: 7
 
 # Network Span Forwarding
 
-For a full explanation of this feature please refer to [Essentials / Product Overview / Network Span Forwarding](/product/network-spans-forwarding/) section.
+For a full explanation of this feature please refer to the [Essentials / Product Overview / Network Span Forwarding](/product/network-spans-forwarding/) section.
 
 ## Enablement
 
