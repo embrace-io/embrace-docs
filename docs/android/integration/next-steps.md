@@ -32,8 +32,7 @@ To see the full list of methods that the Android Embrace SDK exposes, please see
 ## Configuration and Build Options
 
 The SDK and associated Gradle plugin have configuration options that we have not explored as we get you onboarded.
-Explore the options available on the [SDK Configuration](/android/features/configuration-file/)
-and [Build Options](/android/features/build-options) pages to see if any are of use to you in your
+Explore the options available on the [SDK Configuration](/android/features/configuration-file/) page to see if any are useful to you in your
 application.
 
 ## Check Out the FAQ
