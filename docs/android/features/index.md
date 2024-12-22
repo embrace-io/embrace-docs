@@ -18,7 +18,6 @@ how your application is performing in production.
 * [**Current Session ID API.**](/android/features/current-session-id-api.md) This API lets you know what the current Session Id is in case you need to track it separately.
 * [**Last Run End State.**](/android/features/last-run-end-state.md) Understand if your last app instance ended in a crash.
 * [**Configuration File.**](/android/features/configuration-file.md) The SDK has many configuration options available.
-* [**Build Options.**](/android/features/build-options.md) The Embrace Gradle plugin has options that can modify the build process.
 * [**Jetpack Compose.**](/android/features/jetpack-compose.md) Enable Jetpack Compose (beta) to track taps on composables.
 * [**Network Body Capture.**](/android/features/network-body-capture.md) Embrace can upload bodies from your network requests to help you troubleshoot. Learn how to enable this feature securely.
 * [**Moments.**](/android/features/moments.md) In this section you will learn how you can use Embrace to go beyond logging and crashes and start to examine critical user flows within your application. Measure performance, completion and abandonment easily and consistently.
