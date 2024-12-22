@@ -29,7 +29,7 @@ and Java apps in the <a href="https://github.com/embrace-io/embrace-demo-apps/tr
 
 To see the full list of methods that the Android Embrace SDK exposes, please see the [Android API docs](/api/android/).
 
-## Configuration and Build Options
+## Configuration
 
 The SDK and associated Gradle plugin have configuration options that we have not explored as we get you onboarded.
 Explore the options available on the [SDK Configuration](/android/features/configuration-file/) page to see if any are useful to you in your
