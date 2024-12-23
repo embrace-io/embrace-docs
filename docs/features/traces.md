@@ -14,10 +14,12 @@ The primary page shows all root spans in your app, as well as summary metrics li
 
 To narrow down the spans that are summarized in this view, you can apply the following filters on the root span as well as the child spans:
 * Name
-* Duration
+* Duration*
 * Outcome
 * Attributes keys and values
 * Span event names
+
+*failed Spans are not included for duration aggregates, they are displayed as `0`
 
 ## Root Span Summary View
 By clicking on the name of a Root Span in the Root Spans View, you can see a partial listing of all the instances of that Root Span.
