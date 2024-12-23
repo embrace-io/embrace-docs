@@ -20,4 +20,4 @@ Here's the list of services the Embrace Apple SDK provides:
 * [`WebViewCaptureService`](/ios/open-source/features/capture-services/web-view.md): generates OpenTelemetry span events when a `WKWebView` loads an URL or throws an error.
 - [`LowMemoryWarningCaptureService`](/ios/open-source/features/capture-services/low-memory.md): generates OpenTelemetry span events when the application receives a low memory warning.
 - [`LowPowerModeCaptureService`](/ios/open-source/features/capture-services/low-power.md): generates OpenTelemetry spans when the phone is running in low power mode.
-* [`PushNotificationCaptureService`](/ios/open-source/features/capture-services/push-notifications.md): Instrumentation for push notifications received by the app.
+* [`PushNotificationCaptureService`](/ios/open-source/features/capture-services/push-notifications.md): Instrumentation for push notifications received by the app. This generates OpenTelemetry span events with certain push notification data attached.
