@@ -8,9 +8,9 @@ sidebar_position: 1
 
 The Embrace Apple SDK provides several Capture Services that automatically capture data from your mobile application and transform it into OpenTelemetry signals. Depending on the specific activity being tracked, the automatic instrumentation might create OTel spans for the event, or might create OTel span events that attach to the [session span](/ios/open-source/#how-we-built-it).
 
-These services are configured when initializing the Embrace Apple SDK and you can also add your own custom services.
+These services are configured when initializing the Embrace Apple SDK, and you can also create your own custom services to add new automatic instrumentation.
 
-See more [here](/ios/open-source/integration/customizing-signals.md).
+See more [here](/ios/open-source/integration/customizing-signals/#extending-captureservices-to-add-your-own-instrumentation).
 
 Here's the list of services the Embrace Apple SDK provides:
 
