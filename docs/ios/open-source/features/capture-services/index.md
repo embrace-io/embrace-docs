@@ -14,7 +14,7 @@ See more [here](/ios/open-source/integration/customizing-signals/#extending-capt
 
 Here's the list of services the Embrace Apple SDK provides:
 
-* [`URLSessionCaptureService`](/ios/open-source/features/capture-services/url-session.md): generates OpenTelementry spans for network requests made through `URLSession`.
+* [`URLSessionCaptureService`](/ios/open-source/features/capture-services/url-session.md): generates OpenTelemetry spans for network requests made through `URLSession`.
 * [`TapCaptureService`](/ios/open-source/features/capture-services/tap.md): generates OpenTelemetry span events for taps on the screen.
 * [`ViewCaptureService`](/ios/open-source/features/capture-services/ui-view-controller.md): generates OpenTelemetry spans that measure `UIViewControllers` load and render times.
 * [`WebViewCaptureService`](/ios/open-source/features/capture-services/web-view.md): generates OpenTelemetry span events when a `WKWebView` loads an URL or throws an error.
