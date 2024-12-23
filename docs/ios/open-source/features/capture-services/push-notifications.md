@@ -37,6 +37,6 @@ try Embrace
 
 ### Obfuscate sensitive data
 
-By default, the generated span events will contain the push notification data: title, subtitle, body, category and badge.
+By default, the generated span events will contain certain [push notification data](https://developer.apple.com/documentation/usernotifications/unnotificationcontent): title, subtitle, body, category and badge.
 
 You can prevent the Embrace Apple SDK from capturing this data by setting `PushNotificationCaptureService.Options.captureData` to false.
