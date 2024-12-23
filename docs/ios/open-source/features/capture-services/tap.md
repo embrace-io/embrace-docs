@@ -30,7 +30,7 @@ You can disable this by setting `TapCaptureService.Options.captureTapCoordinates
 
 You can set a custom `TapCaptureServiceDelegate` to `TapCaptureService.Options.delegate`.
 
-This protocol allows you to define if a tap should be captured (or if it's coordinates should be captured) on demand.
+This protocol allows you to define if a tap should be captured (or if its coordinates should be captured) on demand.
 
 Example:
 
