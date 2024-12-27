@@ -103,7 +103,7 @@ try Embrace
                 .setup(
                     options: Embrace.Options(
                         appId: "", // Your App ID from Embrace Dash
-                        platform: .flutter
+                        platform: .flutter,
                         export: OpenTelemetryExport(
                             spanExporter: OtlpHttpTraceExporter(
                                 endpoint: URL(string: "https://otelcollector-gateway.mydomain.com/v1/traces")!,
