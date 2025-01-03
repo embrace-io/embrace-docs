@@ -1,5 +1,5 @@
 ---
-title: Network Span Forwarding
+title: Network Spans Forwarding
 sidebar_position: 7
 ---
 
