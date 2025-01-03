@@ -9,11 +9,9 @@ For a full explanation of this feature please refer to the [Essentials / Product
 
 ## Enablement
 
-Once all requirements described in [Network Span Forwarding](/product/network-spans-forwarding/) are met, the feature will be set up by an integrations specialist who will reach out to confirm details.
+Once all requirements described in [Network Span Forwarding](/product/network-spans-forwarding/) are met (*local configuration*), the feature will be set up by an integrations specialist who will reach out to confirm details (*remote configuration*).
+At this point everything should be working on iOS. For Android one additional configuration is required in `android/app/src/main/embrace-config.json` placed in the android folder. This feature **is not** enabled by default for this Platform but you can turn this ON by adding the `enable_network_span_forwarding` attribute:
 
-## Android
-
-You may enable the feature by adding the proper configuration through the `app/src/main/embrace-config.json` placed in the `android` folder that is supposed to be part of your React Native project. NSF is not enabled by default for Android platform for React Native projects. For more information about this file, please refer to the [Configuration File section](/android/features/configuration-file/).
 
 ```json
 {
@@ -27,14 +25,19 @@ You may enable the feature by adding the proper configuration through the `app/s
 }
 ```
 
-## iOS
+For more information about this file please refer to the [Android / Configuration File section](/android/features/configuration-file/).
 
-Differently than Android, the Embrace React Native SDK enables by default the Network Span Forwarding feature for iOS.
-Only if you want to disable the feature you can pass a `true` value for the `disableNetworkSpanForwarding` property since the configuration for this platform is done through the code.
+## Turning off the feature
+
+If you want to disable this feature you would need to reach out to us to remove the *remote configuration* turned on previously. As final step you would need to tweak your *local configuration* disabling completely this feature.
+
+### iOS
+
+You should tweak the SDK Initialization and add a `true` value for the `disableNetworkSpanForwarding` property since the configuration for this platform is done through the code.
 You may then pass the proper object into the `initialize` method for starting the SDK as usual.
 
 ```javascript
-// at the root of the application
+// App.tsx, or the root of the application
 import {initialize} from "@embrace-io/react-native";
 
 export const App = () => {
@@ -69,4 +72,20 @@ export const App = () => {
   // the rest of your app goes here
   return <AppContent />;
 };
+```
+
+### Android
+
+Remove the parameter that was added or set to `false`.
+
+```json
+{
+  "app_id": "xxxxx",
+  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sdk_config": {
+      "networking": {
+          "enable_network_span_forwarding": false
+      }
+  }
+}
 ```
