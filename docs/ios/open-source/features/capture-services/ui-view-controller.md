@@ -1,14 +1,10 @@
 ---
-title: View Capture Service
+title: ViewCaptureService
 description: Learn about how to instrument your app's `UIViewControllers` with Embrace.
-sidebar_position: 7
+sidebar_position: 3
 ---
 
 # View Capture Service
-
-## Overview
-
----
 
 The `ViewCaptureService` is in charge of automatically instrumenting `UIViewController` load and render times.
 You can customize the service behavior by passing a custom `ViewCaptureService` when setting up the Embrace SDK:
@@ -30,6 +26,14 @@ try Embrace
     .start()
 ```
 
+### Customization
+
+The `EmbraceViewControllerCustomization` protocol allows you to customize `UIViewControllers` for Embrace capture at an individual level.
+
+The `shouldCaptureViewInEmbrace` variable allows you to prevent the Embrace SDK from generating data for that `UIViewController`.
+
+The `nameForViewControllerInEmbrace` variable allows you to customize the name for the screen (the class name is used by default).
+
 ### Screen visibility
 
 This feature is enabled by setting `instrumentVisibility` to `true` in the `ViewCaptureService.Options`.
@@ -44,6 +48,12 @@ The service will also generate child spans measuring several steps in the proces
 
 :::info
 If the `UIViewController` disappears before it finishes loading, the spans status will be set to `.error` with the `.userAbandon` code.
+:::
+
+:::warning
+If you're using the Embrace Dashboard with your app, you might need to contact an Embrace representative to enable this feature through the remote configuration.
+
+If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/docs/ios/open-source/integration/embrace-options/).
 :::
 
 ### Time to Interactive
@@ -71,6 +81,12 @@ class MyViewController: UIViewController, InteractableViewController {
 
 :::info
 If the `UIViewController` disappears before it is flagged as ready for interaction, the spans status will be set to `.error` with the `.userAbandon` code.
+:::
+
+:::warning
+If you're using the Embrace Dashboard with your app, you might need to contact and Embrace representative to enable this feature through the remote configuration.
+
+If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/docs/ios/open-source/integration/embrace-options/).
 :::
 
 ### Custom child spans
