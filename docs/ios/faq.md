@@ -7,7 +7,7 @@ sidebar_position: 5
 # iOS/tvOS FAQ
 
 Here are a list of questions we commonly receive along with their answers.
-If you don't see your question here, or would like more clarification on one please reach out to us on Slack
+If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](http://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
@@ -186,7 +186,7 @@ It will increase if header and body capture is enabled.
 ### **My network calls are not being captured. What could be going wrong?**
 
 WebSocket requests are not captured automatically. Please contact us if you are using WebSockets.
-Please verify that the Embrace SDK is initialized before the app initializes any network-related functions e.g. any Alamofire SessionManager instances you create should be created after you start the Embrace SDK.
+Please verify that the Embrace SDK is initialized before the app initializes any network-related frameworks e.g. any Alamofire SessionManager instances you create should be created after you start the Embrace SDK. URLSession requests will also not be captured until the Embrace SDK is started.
 
 ## Monitoring Performance
 

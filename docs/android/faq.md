@@ -7,7 +7,7 @@ sidebar_position: 3
 # Android FAQ
 
 Here are a list of questions we commonly receive along with their answers.
-If you don't see your question here, or would like more clarification on one please reach out to use on Slack
+If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](http://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
@@ -85,6 +85,9 @@ buildscript {
 Yes, update to the latest version of the swazzler gradle plugin & ensure your AGP version exceeds 4.2.2.
 Newer AGP versions provide a more performant API for bytecode instrumentation.
 
+### **Does adding the Embrace SDK impact launch performance?**
+
+We have benchmarked the Embrace SDK's performance during app launch between 10 and 50 milliseconds. In practice, this is between 1-3% of typical app launch time.
 
 ### **What determines if a session is classified as prod or dev?**
 
