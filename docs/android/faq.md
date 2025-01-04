@@ -7,7 +7,7 @@ sidebar_position: 3
 # Android FAQ
 
 Here are a list of questions we commonly receive along with their answers.
-If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](community.embrace.io)
+If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](http://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
