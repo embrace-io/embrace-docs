@@ -87,7 +87,7 @@ Newer AGP versions provide a more performant API for bytecode instrumentation.
 
 ### **Does adding the Embrace SDK impact launch performance?**
 
-We have benchmarked the performance of starting the Embrace SDK during app launched between 10 and 50 milliseconds. In practice, this is between 1-3% of typical app launch time.
+We have benchmarked the Embrace SDK's performance during app launch between 10 and 50 milliseconds. In practice, this is between 1-3% of typical app launch time.
 
 ### **What determines if a session is classified as prod or dev?**
 
