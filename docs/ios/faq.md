@@ -186,7 +186,7 @@ It will increase if header and body capture is enabled.
 ### **My network calls are not being captured. What could be going wrong?**
 
 WebSocket requests are not captured automatically. Please contact us if you are using WebSockets.
-Please verify that the Embrace SDK is initialized before the app initializes any network-related functions e.g. any Alamofire SessionManager instances you create should be created after you start the Embrace SDK.
+Please verify that the Embrace SDK is initialized before the app initializes any network-related frameworks e.g. any Alamofire SessionManager instances you create should be created after you start the Embrace SDK. URLSession requests will also not be captured until the Embrace SDK is started.
 
 ## Monitoring Performance
 
