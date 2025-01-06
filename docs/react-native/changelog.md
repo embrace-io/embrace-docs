@@ -6,6 +6,11 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 
+## 5.2.0
+_January 06, 2025_
+* Published new `@embrace-io/react-native-otlp` package that allows sending data to a Backend of preference (besides Embrace) following the OTLP-http protocols.
+* `@embrace-io/react-native` supporting [Network Span Forwarding](/react-native/features/network-spans-forwarding.md) feature
+* Updated iOS native Embrace SDK dependency to version v6.6.0
 ## 5.1.0
 _December 16, 2024_
 * Updated Android native Embrace SDK dependency to version 6.14.0
