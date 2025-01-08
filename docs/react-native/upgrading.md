@@ -6,6 +6,78 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 # Upgrade guide
 
+# Upgrading from 5.x to 6.x
+
+:::info Summary
+- Removal of various packages and methods, see sections below for details on specific migrations
+- Automatic support for CodePush has been removed
+:::
+
+Upgrade to the latest 6.x versions of the Embrace React Native SDK packages by either bumping to the latest version
+manually in your package.json and running `yarn install` or `npm install` Or remove the existing packages entirely and
+re-installing.
+
+Then install the latest Cocoapods with:
+
+```shell
+cd ios && pod install --repo-update
+```
+
+## Using the new bundled package
+
+By default, the feature sets for our SDK are kept in separate packages. This allows users to include just the
+dependencies for features they wish to use and keep their overall bundle size smaller. If you prefer the simplicity of
+including just a single package to expose all available SDK features you can instead include just
+`@embrace-io/react-native-bundled`as a dependency in your application. All exports from other packages will be available
+from that library.
+
+## Moving from `@embrace-io/react-native-spans` to `@embrace-io/react-native-tracer-provider`
+
+The `@embrace-io/react-native-spans` package has been removed, however the same methods it exposed are now available
+in the `@embrace-io/react-native-tracer-provider`. To update simply update your dependency to the new package and
+rename any imports from the old one.
+
+## Moving to the new navigation package
+
+Navigation instrumentation was previously split into two separate packages (`@embrace-io/react-navigation` + `@embrace-io/react-native-navigation`)
+depending on which style of navigation was being instrumented. Now all navigation instrumentations resides in `@embrace-io/react-native-navigation`.
+
+### Moving from `@embrace-io/react-navigation`
+
+TODO
+
+### Updating `@embrace-io/react-native-navigation`
+
+TODO
+
+## Removal of automated CodePush support  
+
+Previously our SDK would check if CodePush was integrated in the app and track OTA JS bundle updates for the purposes of
+keeping symbolication of stack traces consistent. Given the [retirement of CodePush](https://learn.microsoft.com/en-us/appcenter/retirement)
+this functionality has been removed. 
+
+If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)` whenever a new bundle is available
+in order to have properly symbolicated stack traces. See TODO for more details on symbolication.
+
+## Deprecated Packages
+
+| Package                                              | Comments                                                                    |
+|------------------------------------------------------|-----------------------------------------------------------------------------|
+| `@embrace-io/react-native-orientation-change-tracer` | Use `useOrientationListener` from `@embrace-io/react-native` instead.       |
+| `@embrace-io/react-native-web-tracker`               | No longer supported.                                                        |
+| `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
+| `@embrace-io/react-navigation`                       | Functionality has been moved to `@embrace-io/react-native-navigation`.      |
+| `@embrace-io/react-native-apollo-graphql`            | TODO                                                                        |
+
+
+## Removed APIs
+
+| Old API            | Comments                                      |
+|--------------------|-----------------------------------------------|
+| `logScreen`        | Use `addBreadcrumb(message: string)` instead. |
+| `setUserAsPayer`   | Use `addUserPersona("payer") instead.         |
+| `clearUserAsPayer` | Use `clearUserPersona("payer") instead.       |
+
 # Upgrading from 4.x to 5.x
 
 :::info Summary
