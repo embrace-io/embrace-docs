@@ -53,7 +53,7 @@ If the `UIViewController` disappears before it finishes loading, the spans statu
 :::warning
 If you're using the Embrace Dashboard with your app, you might need to contact an Embrace representative to enable this feature through the remote configuration.
 
-If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/docs/ios/open-source/integration/embrace-options/).
+If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/ios/open-source/integration/embrace-options/).
 :::
 
 ### Time to Interactive
@@ -86,7 +86,7 @@ If the `UIViewController` disappears before it is flagged as ready for interacti
 :::warning
 If you're using the Embrace Dashboard with your app, you might need to contact and Embrace representative to enable this feature through the remote configuration.
 
-If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/docs/ios/open-source/integration/embrace-options/).
+If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when [initializing the SDK](/ios/open-source/integration/embrace-options/).
 :::
 
 ### Custom child spans
