@@ -23,7 +23,7 @@ By enabling `URLSessionCaptureService.Options.injectTracingHeader` the SDK will 
 :::warning
 If you're using the Embrace Dashboard with your app, you might need to contact an Embrace representative to enable this feature through the remote configuration.
 
-If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isNetworkSpansForwardingEnabled` set to true when [initializing the SDK](/docs/ios/open-source/integration/embrace-options/).
+If you're not using the Embrace Dashboard, you can enable this feature by passing a custom `EmbraceConfigurable` with `isNetworkSpansForwardingEnabled` set to true when [initializing the SDK](/ios/open-source/integration/embrace-options/).
 :::
 
 ### Obfuscate sensitive data
