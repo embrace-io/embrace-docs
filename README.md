@@ -70,4 +70,4 @@ And we customized the following:
 
 - If you make changes to `docusaurus.config.js` or some other site-wide `.js` files you typically need to fully restart `npm start` process and not rely on its hot-reloading.
 - The searchbox on the site is only indexed for static `build` and is not available via local `npm start`.
-- Docusaurus will navigate *relative links* for you. When linking within these docs, use a path from the section's folder rather than the absolute path of the page. Also, you can leave off the markdown file extension in a link. For example, linking to iOS trace instrumentation should be in /ios/open-source/tracing, not /docs/ios/open-source/tracing.md.
+- Docusaurus will navigate *relative links* for you. When linking within these docs, use a path from the section's folder rather than the absolute path of the page. Also, you can leave off the markdown file extension in a link. For example, linking to iOS trace instrumentation should be in `/ios/open-source/tracing`, not `/docs/ios/open-source/tracing.md`.
