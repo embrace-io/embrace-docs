@@ -53,8 +53,4 @@ This could be due to one of the following reasons:
   * Akamai
   * Cloudflare
   * PacketZoom
-<<<<<<< HEAD
 * You are using an Axios version that is not compatible with us or you have a custom integration that block us. You can force log the Axios request appying our [interceptor](https://github.com/embrace-io/embrace-react-native-sdk/blob/v5.2.0/packages/core/src/networkInterceptors/ApplyInterceptor.ts).
-=======
-* You are using an Axios version that is not compatible with us or you have a custom integration that block us. You can force log the Axios request appying our [interceptor](https://github.com/embrace-io/embrace-react-native-sdk/blob/v5.2.0/packages/core/src/networkInterceptors/ApplyInterceptor.ts).
->>>>>>> main
