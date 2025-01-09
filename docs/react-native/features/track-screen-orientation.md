@@ -1,10 +1,9 @@
 ---
 title: Track Screen Orientation
-description: Add logging to your React Native application to track actions dispatched using the Embrace SDK
-sidebar_position: 9
+sidebar_position: 6
 ---
 
-# Add React Native Screen tracker
+# Track Screen Orientation
 
 ## Adding Context to Sessions
 

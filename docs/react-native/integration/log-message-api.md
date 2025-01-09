@@ -1,7 +1,7 @@
 ---
 title: Log Message API
 description: Trigger alerts for your React Native application using logs with the Embrace SDK
-sidebar_position: 10
+sidebar_position: 8
 ---
 
 # Adding Logs
@@ -20,17 +20,16 @@ You can log a message immediately by calling the `logMessage` function.
 ```javascript
 import {logMessage, ERROR} from '@embrace-io/react-native';
 
-logMessage(
-	'Loading not finished in time.',
-	ERROR,
-	{propertyA: 'valueA', propertyB: 'valueB'},
-);
+logMessage('Loading not finished in time.', 'error', {
+  propertyA: 'valueA',
+  propertyB: 'valueB'
+});
 ```
 
 Here's a breakdown of the arguments being passed to the `logMessage` function.
 
 1. **The message.** The string of the log message. Make this short yet informative.
-1. **Severity.** Other options include `WARNING` and `INFO`.
+1. **Severity.** Other options include 'warning' and 'info'.
 1. **Properties.** A map of key-value pairs you can use to categorize and filter log messages with. 
 
 import LogLimit from '@site/shared/log-limit.md';

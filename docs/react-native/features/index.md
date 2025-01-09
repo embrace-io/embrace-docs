@@ -9,10 +9,13 @@ sidebar_position: 2
 Embrace's SDK includes many advanced features that you can enable to help you understand more about
 how your application is performing in production.
 
-1. [**Know your users.**](/react-native/features/identify-users/) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
-2. [**Tracking Components.**](/react-native/features/tracking-components/) Track the mounting and unmounting of React Components for your React Native application using the Embrace SDK.
-3. [**Traces.**](/react-native/features/traces/) Gain visibility into app operations to help debug the root cause of your mobile app's performance issues.
-4. [**Current Device ID API.**](/react-native/features/current-device-id-api) This API lets you know what the current Session ID is in case you need to track it separately.
-5. [**Current Session ID API.**](/react-native/features/current-session-id-api) This API lets you know what the current Embrace ID is in case you need to track it separately.
-6. [**Last Run End State.**](/react-native/features/last-run-end-state) This API lets you know if the previous app instance ended in a crash.
-7. [**Tracking Render Errors.**](/react-native/features/tracking-render-errors) Automatic logging of React Native rendering errors.
+- [**Know your users.**](/react-native/features/identify-users/) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
+- [**Traces.**](/react-native/features/traces/) Gain visibility into app operations to help debug the root cause of your mobile app's performance issues.
+- [**Track Navigation.**](/react-native/features/navigation/) Track screen changes as users navigate through your app.
+- [**Track Components.**](/react-native/features/tracking-components/) Track the mounting and unmounting of React Components within your app.
+- [**Track Redux Actions.**](/react-native/features/track-redux-actions/) Add instrumentation for dispatching of Redux actions.
+- [**Track Screen Orientation.**](/react-native/features/track-screen-orientation/) Track when the screen orientation switches.
+- [**Report Render Errors.**](/react-native/features/tracking-render-errors) Automatic logging of React Native rendering errors.
+- [**OTLP Export.**](/react-native/features/otlp) Export data to OTLP endpoints beyond Embrace.
+- [**Network Spans Forwarding.**](/react-native/features/network-spans-forwarding) Correlate network spans between Embrace and your backend monitoring.
+- [**Retrieve Session Metadata.**](/react-native/features/session-metadata) Various APIs that programmatically provide information about the user's session.

@@ -4,7 +4,7 @@ description: Get to know the users of your React Native application with the Emb
 sidebar_position: 1
 ---
 
-# Know Your Users
+# Identify Users
 
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
 sessions for an unhappy user.

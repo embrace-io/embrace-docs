@@ -1,10 +1,9 @@
 ---
-title: Tracking Render Errors
-description: Ensure meaningful screen names in render errors by configuring Metro bundler.
+title: Report Render Errors
 sidebar_position: 7
 ---
 
-# Tracking Render Errors
+# Report Render Errors
 
 If the Embrace SDK detects a component stack trace in a React Native rendering error it will log it automatically. The
 resulting log will have a stack trace similar to:

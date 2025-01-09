@@ -1,10 +1,34 @@
 ---
-title: Last Run End State
-description: Understand if the previous app instance ended in a crash
-sidebar_position: 6
+title: Retrieve Session Metadata
+sidebar_position: 10
 ---
 
-# Last Run End State API
+# Retrieve Session Metadata
+TODO
+
+## Current Session ID API
+
+```javascript
+import {getCurrentSessionId} from '@embrace-io/react-native';
+
+const myMethod = () =>{
+    getCurrentSessionId().then(sessionId=>{
+        console.log("Embrace Session Id", sessionId)
+    })
+}
+```  
+
+
+import GetSessionId from '@site/shared/get-session-id.md';
+
+<GetSessionId />
+
+:::warning Important
+If you call `getCurrentSessionId()` inside the `AppState change` listener; keep in mind that this is the moment when the session is ending, and a new one is starting. Therefore, there is a high chance that you will get the session ID of the session that is still ending. You might need to delay the call or obtain the session ID at any other point of the app lifecycle to make sure the session ID you get is the one you are looking for.
+:::
+
+
+## Last Run End State API
 
 ```javascript
   useEffect(() => {
@@ -44,3 +68,24 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 /// Used to represent the end state of the last run of the application.
 export type SessionStatus = 'INVALID' | 'CRASH' | 'CLEAN_EXIT';
 ```
+
+
+## Current Device ID API
+
+```javascript
+import {getDeviceId} from '@embrace-io/react-native';
+
+const myMethod = () =>{
+    getDeviceId().then(deviceId=>{
+        console.log("Embrace Device Id", deviceId)
+    })
+}
+```  
+
+### Overview
+
+Embrace SDK’s API enables customers to programmatically obtain the current Embrace Device ID.
+
+**When should I call the Current Device ID method?** 
+
+If you call the method before the SDK has started, it will return null. So, you need to call it once the SDK has been started. 

@@ -8,12 +8,17 @@ sidebar_position: 1
 
 ## Getting Started
 
-This guide will walk you through integrating Embrace into your React Native application with a series of articles. We recommend following them in order, although you are free to skip around.
+This guide will walk you through integrating Embrace into your React Native application with a series of articles. We
+recommend following them in order, although you are free to skip around.
 
 ## Requirements
 
 :::info
-Note that our minimum requirements on the native side tend to be a bit higher than those set by react-native init or @react-native-community/cli init by default for a fresh React Native project, please double-check that your project is configured correctly for the SDK to run
+Note that our minimum requirements on the native side tend to be a bit higher than those set by react-native init or
+@react-native-community/cli init by default for a fresh React Native project, please double-check that your project is
+configured correctly for the SDK to run. You may find [these app templates](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates)
+that we've setup for integration testing useful as a guide for bringing your project up to the minimum required
+configuration.
 :::
 
 ### Android
@@ -35,7 +40,7 @@ Note that our minimum requirements on the native side tend to be a bit higher th
 
 ### Supported versions of React Native
 
-We test that apps integrated with Embrace across React Native minor versions from 0.71 to 0.76 build and launch without
+We test that apps integrated with Embrace across React Native minor versions from `0.71` to `0.76` build and launch without
 issue. Apps on versions of React Native older than 0.71 may work with Embrace after some modification but these are not
 directly supported. The templates used to generate apps for integration testing along with the exact patch versions of
 React Native we use can be found [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates).
