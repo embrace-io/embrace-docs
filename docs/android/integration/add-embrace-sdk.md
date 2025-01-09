@@ -8,6 +8,29 @@ description: Add the Embrace SDK as a dependency to your Android application
 
 ## Add Embrace as a dependency
 
+### If you are using Version Catalogs:
+
+Add our gradle plugin to your `libs.versions.toml` file
+
+```
+[versions]
+embrace = "{{ embrace_sdk_version platform="android" }}"
+...
+
+[plugins]
+embrace = { id = "io.embrace.swazzler", version.ref = "embrace" }
+```
+
+Then add the following at the top of your `app/build.gradle.kts`:
+
+```groovy
+plugins {
+    alias(libs.plugins.embrace)
+}
+```
+
+### If you are not using Version Catalogs:
+
 Add the following to your `settings.gradle`:
 
 ```mdx-code-block
