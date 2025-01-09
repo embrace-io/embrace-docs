@@ -10,7 +10,7 @@ description: Add the Embrace SDK as a dependency to your Android application
 
 ### If you are using Version Catalogs:
 
-Add out gradle plugin to your `libs.versions.toml` file
+Add our gradle plugin to your `libs.versions.toml` file
 
 ```
 [versions]
