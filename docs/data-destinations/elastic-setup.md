@@ -44,11 +44,8 @@ Add Data Destination.
 
 Your metrics will be prefixed with `embrace.`. You can visualize your data using the Dashboards view under the Analytics section of the hamburger menu. Below is a sample dashboard panel and the configuration for it.
 
-<div style={{"display": "flex", "justify-content": "center", "align-items": "center"}}>
 <img src={require('@site/static/images/data-destinations/elastic_metrics.png').default} alt="Image showing Elastic panel with metrics" width="50%"/>
-
 <img src={require('@site/static/images/data-destinations/elastic_metric_config.png').default} alt="Image showing Elastic panel configuration" width="30%" style={{"padding": "20px"}} />
-</div>
 
 ## Querying Your Network Spans
 
