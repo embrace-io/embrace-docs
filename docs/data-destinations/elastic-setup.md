@@ -1,7 +1,7 @@
 ---
 title: Elastic Integration
 description: Learn about the Embrace <> Elastic integration
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 # Elastic Integration
