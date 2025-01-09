@@ -25,30 +25,38 @@ cd ios && pod install --repo-update
 
 ## Using the new bundled package
 
-By default, the feature sets for our SDK are kept in separate packages. This allows users to include just the
-dependencies for features they wish to use and keep their overall bundle size smaller. If you prefer the simplicity of
+By default, the feature sets for our SDK are kept in separate packages. This allows you to include just the
+dependencies for features you wish to use and keep you overall bundle size smaller. If you prefer the simplicity of
 including just a single package to expose all available SDK features you can instead include just
-`@embrace-io/react-native-bundled`as a dependency in your application. All exports from other packages will be available
-from that library.
+`@embrace-io/react-native-bundled` as a dependency in your application. All exports from other packages will then be
+available from that library. See TODO for more details.
 
-## Moving from `@embrace-io/react-native-spans` to `@embrace-io/react-native-tracer-provider`
+## Migrating Traces
 
-The `@embrace-io/react-native-spans` package has been removed, however the same methods it exposed are now available
-in the `@embrace-io/react-native-tracer-provider`. To update simply update your dependency to the new package and
-rename any imports from the old one.
+The `@embrace-io/react-native-spans` package has been removed the functionality it provided is now available in the
+`@embrace-io/react-native-tracer-provider` package. The interface for interacting with spans has also been updated to
+conform to the OTel specification. To update first switch your dependency to the new package and then migrate any
+method calls in your code that used the [5.x Traces methods](/react-native/5x/features/traces) to the updated methods as
+detailed in the [6.x Traces guide](/react-native/features/traces/).
 
-## Moving to the new navigation package
+## Migrating navigation instrumentation
 
 Navigation instrumentation was previously split into two separate packages (`@embrace-io/react-navigation` + `@embrace-io/react-native-navigation`)
 depending on which style of navigation was being instrumented. Now all navigation instrumentations resides in `@embrace-io/react-native-navigation`.
 
-### Moving from `@embrace-io/react-navigation`
+### Moving from the react-navigation package
 
 TODO
 
-### Updating `@embrace-io/react-native-navigation`
+### Updating the react-native-navigation package
 
 TODO
+
+### Updating startView/endView calls
+
+If you had previously been calling the `startView` and `endView` methods directly these have been moved from 
+`@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to setup that package and invoke
+`startView` using its updated signature as detailed in TODO.
 
 ## Removal of automated CodePush support  
 
@@ -72,11 +80,13 @@ in order to have properly symbolicated stack traces. See TODO for more details o
 
 ## Removed APIs
 
-| Old API            | Comments                                      |
-|--------------------|-----------------------------------------------|
-| `logScreen`        | Use `addBreadcrumb(message: string)` instead. |
-| `setUserAsPayer`   | Use `addUserPersona("payer") instead.         |
-| `clearUserAsPayer` | Use `clearUserPersona("payer") instead.       |
+| Old API            | Comments                                                                              |
+|--------------------|---------------------------------------------------------------------------------------|
+| `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                         |
+| `setUserAsPayer`   | Use `addUserPersona("payer") instead.                                                 |
+| `clearUserAsPayer` | Use `clearUserPersona("payer") instead.                                               |
+| `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package |
+| `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead         |
 
 # Upgrading from 4.x to 5.x
 
