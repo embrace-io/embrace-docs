@@ -11,6 +11,7 @@ cross-platform observability tool of choice:
 
 * [Chronosphere integration guide](/data-destinations/chronosphere-setup.md)
 * [Datadog integration guide](/data-destinations/data-dog-setup.md)
+* [Elastic integration guide](/data-destinations/elastic-setup.md)
 * [Grafana Cloud integration guide](/data-destinations/grafana-cloud-setup.md)
   * [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
 * [Honeycomb integration guide](/data-destinations/honeycomb.md)
