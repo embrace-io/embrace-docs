@@ -25,7 +25,7 @@ Yes. We link all sessions to that user from the past and in the future. Search b
 
 ### **Do I have access to the Embrace ID at runtime?**
 
-Yes, we make the Embrace ID available to you via our SDK. See [these docs](/react-native/features/current-device-id-api) for more details.
+Yes, we make the Embrace ID available to you via our SDK. See [these docs](/react-native/features/session-metadata/#current-device-id) for more details.
 
 ## Network Requests
 

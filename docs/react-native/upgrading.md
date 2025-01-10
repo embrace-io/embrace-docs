@@ -161,7 +161,7 @@ Or in Swift a line such as:
 Embrace.sharedInstance().start(launchOptions: launchOptions, framework:.reactNative)
 ```
 
-Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/integration/session-reporting/#starting-embrace-sdk-from-android--ios)
+Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/integration/session-reporting/#start-the-embrace-sdk-from-android--ios)
 
 ## Moments have been replaced by Traces
 

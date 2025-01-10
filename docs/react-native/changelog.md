@@ -63,7 +63,7 @@ _December 17, 2024_
 ## 4.1.2
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.
-* Updated iOS script to upload sourcemap. Please [update your implementation](/react-native/integration/upload-symbol-files/#uploading-source-maps)
+* Updated iOS script to upload sourcemap. Please [update your implementation](/react-native/integration/upload-symbol-files/)
 * Updated Android native Embrace SDK dependency to 6.8.2.
 ## 4.1.1
 _April 15, 2024_
@@ -93,8 +93,8 @@ _December 11, 2023_
 * Updated iOS native Embrace SDK dependency to 5.24.0.
 ## 3.15.0
 _September 28, 2023_
-* New method to [get the current session id](/react-native/features/current-session-id-api/)
-* New method to [get the last run end state](/react-native/features/last-run-end-state/) of a session
+* New method to [get the current session id](/react-native/features/session-metadata/#current-session-id)
+* New method to [get the last run end state](/react-native/features/session-metadata/#last-run-end-state) of a session
 * Updated Android native Embrace SDK dependency to 5.24.0.
 * Updated iOS native Embrace SDK dependency to 5.23.1.
 ## 3.14.0
