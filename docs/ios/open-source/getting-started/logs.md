@@ -57,11 +57,16 @@ For example, if you have a steady rate of 1% for a given logEvent, then you can 
 
 ## Best Practices
 
-Embrace's Log Message API is immediate mode.
-
 A call to this API results in a networking call between your app and Embrace's servers immediately.
 This can have a negative effect on your application's performance or battery life when over-used.
 It can also be an invaluable tool for getting information about your application quickly.
+
+### Log Batching
+To reduce the device and network overhead. We batch logs according to the following critera: 
+- A maximum of **2 seconds** between logs: After receiving a log, we wait for 2 seconds. If no additional log arrives during that period, we send it to the backend.
+- A maximum of **5 seconds** for batch lifetime: Log batches should not exist for more than 5 seconds. This complements the previous logic to prevent accumulation of logs (for example, if someone adds a log every 1 second).
+- A maximum of **50 logs** per batch: This final rule prevents issues with large batches. If many logs are created in a short period (less than the batch lifetime), the batch will be sent.
+
 
 :::info
 For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api).
