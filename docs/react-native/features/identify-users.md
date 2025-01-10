@@ -10,7 +10,7 @@ Embrace offers two ways you can annotate sessions with information that will hel
 sessions for an unhappy user.
 
 1. [**User Personas**](/react-native/features/identify-users#user-personas). This is data you can set and update about the user of a session.
-1. [**Session Properties**](/react-native/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
+2. [**Session Properties**](/react-native/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
 ## User Personas
 
@@ -23,7 +23,7 @@ setUserIdentifier('internal_random_id_1234');
 ```
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, you can see the [source code](/api/react-native/). 
+For more methods to set and clear user values, you can view the [source code](https://github.com/embrace-io/embrace-react-native-sdk/blob/main/packages/core/src/api/user.ts).
 
 :::warning Important
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.

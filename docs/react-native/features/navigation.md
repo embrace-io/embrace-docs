@@ -6,6 +6,8 @@ sidebar_position: 3
 
 # Track Navigation
 
+TODO rewrite this for the updated navigation package
+
 ## Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.

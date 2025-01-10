@@ -56,7 +56,12 @@ TODO
 
 If you had previously been calling the `startView` and `endView` methods directly these have been moved from 
 `@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to setup that package and invoke
-`startView` using its updated signature as detailed in TODO.
+`startView` using its updated signature as described in [Track Components](/react-native/features/components/).
+
+## Migration Redux actions instrumentation
+
+TODO
+
 
 ## Removal of automated CodePush support  
 
@@ -65,7 +70,8 @@ keeping symbolication of stack traces consistent. Given the [retirement of CodeP
 this functionality has been removed. 
 
 If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)` whenever a new bundle is available
-in order to have properly symbolicated stack traces. See TODO for more details on symbolication.
+in order to have properly symbolicated stack traces. See [Symbolication with OTA updates](/react-native/integration/upload-symbol-files/#symbolication-with-ota-updates)
+for more details.
 
 ## Deprecated Packages
 

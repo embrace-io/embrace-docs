@@ -153,6 +153,11 @@ childSpan.end();
 parentSpan.end();
 ```
 
+### Recording a Completed Span
+
+TODO
+
+
 ## Support
 
 If you have any questions or if something is not working as intended, please get in touch with your Customer Success Manager.

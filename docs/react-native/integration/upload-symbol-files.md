@@ -69,18 +69,9 @@ only builds to save time.
 Proguard files will be uploaded automatically. If you don’t see symbolicated crashes while using Proguard, reach out to
 us and we’ll work with you directly.
 
-By default, source maps are uploaded only for the release variant. if you'd like to upload source maps for other
-variants, make the following changes:
-
-```groovy
-project.ext.react = [
-      ...
-      bundleIn<customVariant>: true,
-      devDisabledIn<customVariant>: true,
-]
-```
-
-This creates a bundle and sets the debuggable flag to false.
+By default, source maps are uploaded only for the release variant. If you'd like to upload source maps for other
+variants you will need to adjust `debuggableVariants` in your app/build.gradle see [React Native's documentation](https://reactnative.dev/docs/react-native-gradle-plugin#debuggablevariants)
+for more details.
 
 </TabItem>
 </Tabs>
