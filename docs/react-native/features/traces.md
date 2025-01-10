@@ -90,7 +90,7 @@ const span = tracer.startSpan("span-name")
 someAsyncOperation().then(() => span.end());
 ```
 
-### Create a Span that started in the past (or future)
+### Create a Span that started in the past
 
 ```javascript
 const span = tracer.startSpan("span-name", {
@@ -122,41 +122,56 @@ span.addEvent("my-event", {
 });
 ```
 
-### Stop Span For Operation That Ended Earlier
+### Stop a Span for an operation that ended earlier
 
 ```javascript
 span.end(new Date().getTime());
 ```
 
-### Stop Span For an Operation That Failed
-
-TODO, should we have a helper to simplify this?
+### Stop a Span for an operation that failed
 
 ```javascript
-import {SpanStatusCode} from "@opentelemetry/api";
+import {endAsFailed} from '@embrace-io/native-tracer-provider';
 
-span.setStatus({code: SpanStatusCode.ERROR})
-span.end();
+endAsFailed(span);
 ```
 
 ### Set a parent-child Span relationship
 
-TODO, should we have a helper to simplify this?
-
 ```javascript
-import {context, trace} from "@opentelemetry/api";
+import {asParent} from '@embrace-io/native-tracer-provider';
 
 const parentSpan = tracer.startSpan("the-parent")
-const childSpan = tracer.startSpan("the-child", {}, trace.setSpan(context.active(), parentSpan));
+const childSpan = tracer.startSpan("the-child", {}, asParent(parentSpan));
 
 childSpan.end();
 parentSpan.end();
 ```
 
-### Recording a Completed Span
+### Recording a completed Span
 
-TODO
+If an operation you wish to track has already completed you can use the `recordCompletedSpan` convenience function to 
+start and stop a span in a single call passing along all the relevant options for the span:
 
+```javascript
+import {recordCompletedSpan} from '@embrace-io/native-tracer-provider';
+
+recordCompletedSpan(tracer, "my-completed-span", {
+  startTime: previouslyStartedTime,
+  endTime: previouslyEndedTime,
+  attributes: {
+    "my-attr": "foo",
+  },
+  events: [
+    {
+      name: "completed-span-event",
+      attributes: {"event-attr": "bar"},
+      timeStamp: spanEventTime,
+    },
+  ],
+  parent: someParentSpan,
+});
+```
 
 ## Support
 

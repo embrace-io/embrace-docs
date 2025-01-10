@@ -2,7 +2,6 @@
 title: React Native SDK Changelog
 description: Changelog for the React Native Embrace SDK
 sidebar_position: 4
-
 ---
 # React Native SDK Changelog
 

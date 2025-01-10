@@ -6,11 +6,12 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 # Upgrade guide
 
-# Upgrading from 5.x to 6.x
+## Upgrading from 5.x to 6.x
 
 :::info Summary
 - Removal of various packages and methods, see sections below for details on specific migrations
 - Automatic support for CodePush has been removed
+- TODO
 :::
 
 Upgrade to the latest 6.x versions of the Embrace React Native SDK packages by either bumping to the latest version
@@ -23,7 +24,7 @@ Then install the latest Cocoapods with:
 cd ios && pod install --repo-update
 ```
 
-## Using the new bundled package
+### Using the new bundled package
 
 By default, the feature sets for our SDK are kept in separate packages. This allows you to include just the
 dependencies for features you wish to use and keep you overall bundle size smaller. If you prefer the simplicity of
@@ -31,39 +32,39 @@ including just a single package to expose all available SDK features you can ins
 `@embrace-io/react-native-bundled` as a dependency in your application. All exports from other packages will then be
 available from that library. See TODO for more details.
 
-## Migrating Traces
+### Migrating Traces
 
-The `@embrace-io/react-native-spans` package has been removed the functionality it provided is now available in the
+The `@embrace-io/react-native-spans` package has been removed and the functionality it provided is now available from the
 `@embrace-io/react-native-tracer-provider` package. The interface for interacting with spans has also been updated to
-conform to the OTel specification. To update first switch your dependency to the new package and then migrate any
+conform to the OTel specification. To update, first switch your dependency to the new package and then migrate any
 method calls in your code that used the [5.x Traces methods](/react-native/5x/features/traces) to the updated methods as
 detailed in the [6.x Traces guide](/react-native/features/traces/).
 
-## Migrating navigation instrumentation
+### Migrating navigation instrumentation
 
 Navigation instrumentation was previously split into two separate packages (`@embrace-io/react-navigation` + `@embrace-io/react-native-navigation`)
 depending on which style of navigation was being instrumented. Now all navigation instrumentations resides in `@embrace-io/react-native-navigation`.
 
-### Moving from the react-navigation package
+#### Moving from the react-navigation package
 
 TODO
 
-### Updating the react-native-navigation package
+#### Updating the react-native-navigation package
 
 TODO
 
-### Updating startView/endView calls
+#### Updating startView/endView calls
 
 If you had previously been calling the `startView` and `endView` methods directly these have been moved from 
 `@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to setup that package and invoke
 `startView` using its updated signature as described in [Track Components](/react-native/features/components/).
 
-## Migration Redux actions instrumentation
+### Migration Redux actions instrumentation
 
 TODO
 
 
-## Removal of automated CodePush support  
+### Removal of automated CodePush support  
 
 Previously our SDK would check if CodePush was integrated in the app and track OTA JS bundle updates for the purposes of
 keeping symbolication of stack traces consistent. Given the [retirement of CodePush](https://learn.microsoft.com/en-us/appcenter/retirement)
@@ -73,7 +74,7 @@ If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)
 in order to have properly symbolicated stack traces. See [Symbolication with OTA updates](/react-native/integration/upload-symbol-files/#symbolication-with-ota-updates)
 for more details.
 
-## Deprecated Packages
+### Deprecated Packages
 
 | Package                                              | Comments                                                                    |
 |------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -84,17 +85,17 @@ for more details.
 | `@embrace-io/react-native-apollo-graphql`            | TODO                                                                        |
 
 
-## Removed APIs
+### Removed APIs
 
-| Old API            | Comments                                                                              |
-|--------------------|---------------------------------------------------------------------------------------|
-| `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                         |
-| `setUserAsPayer`   | Use `addUserPersona("payer") instead.                                                 |
-| `clearUserAsPayer` | Use `clearUserPersona("payer") instead.                                               |
-| `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package |
-| `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead         |
+| Old API            | Comments                                                                               |
+|--------------------|----------------------------------------------------------------------------------------|
+| `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                          |
+| `setUserAsPayer`   | Use `addUserPersona("payer")` instead.                                                 |
+| `clearUserAsPayer` | Use `clearUserPersona("payer")` instead.                                               |
+| `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package. |
+| `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead.         |
 
-# Upgrading from 4.x to 5.x
+## Upgrading from 4.x to 5.x
 
 :::info Summary
 - Moments have been removed, Traces should be used in their place
@@ -114,7 +115,7 @@ Then install the latest Cocoapod with
 cd ios && pod install --repo-update
 ```
 
-## SDK initialization and configuration is triggered in-code
+### SDK initialization and configuration is triggered in-code
 
 If you initialize the Embrace SDK in your JavaScript code it will need to be updated to include a `sdkConfig`
 parameter to configure the iOS SDK:
@@ -144,7 +145,7 @@ const App = ()=> {
 export default App
 ```
 
-### Upgrade of native iOS code 
+#### Upgrade of native iOS code 
 
 The `Embrace-Info.plist` is no longer used for configuration and can be safely removed from your project.
 
@@ -163,16 +164,16 @@ Embrace.sharedInstance().start(launchOptions: launchOptions, framework:.reactNat
 
 Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/integration/session-reporting/#start-the-embrace-sdk-from-android--ios)
 
-## Moments have been replaced by Traces
+### Moments have been replaced by Traces
 
 APIs related to moments should be removed from your code.
 
 Any place that you were previously instrumenting your app's performance using Moments can now be done using Performance
 Tracing, please refer to [this guide](/react-native/features/traces/) for more information.
 
-## Troubleshooting
+### Troubleshooting
 
-### Android
+#### Android
 
 The minimum version of AGP required for the Embrace Swazzler to work as expected is `7.4.2`. If an older version is used for building the React Native Android application it will still build successfully but the SDK won't be able to initialize properly, getting the following error in runtime even when everything is configured as expected:
 
@@ -209,7 +210,7 @@ Caused by: java.lang.IllegalArgumentException: No appId supplied in embrace-conf
 
 The application will still work but the Embrace SDK won't initialize, causing unexpected issues. To resolve this please ensure you have the required minimum versions set in your Android build files ([more details here](/react-native/integration/))
 
-## Removed APIs
+### Removed APIs
 
 | Old API                  | Comments                                                 |
 |--------------------------|----------------------------------------------------------|
