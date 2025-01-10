@@ -23,7 +23,7 @@ _January 06, 2025_
 ## 5.1.0
 _December 16, 2024_
 * Updated Android native Embrace SDK dependency to version 6.14.0
-* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/render-errors.md) for more details
 * Guard against possible unhandled exceptions
 * Provide a default bundle path on iOS
 * Internal refactor and dependency updates to make packages that deal with native code more consistent
@@ -59,7 +59,7 @@ _July 04, 2024_
 * Updated iOS native Embrace SDK dependency to 5.25.2.
 ## 4.1.3
 _December 17, 2024_
-* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/render-errors.md) for more details
 ## 4.1.2
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.
