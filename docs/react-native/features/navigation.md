@@ -1,10 +1,12 @@
 ---
-title: Track Screens
-description: Add logging to your React Native application to track screens using the Embrace SDK
-sidebar_position: 8
+title: Track Navigation
+description: Add logging to your React Native application to track navigation between screens using the Embrace SDK
+sidebar_position: 3
 ---
 
-# Track React Native Screens
+# Track Navigation
+
+TODO rewrite this for the updated navigation package
 
 ## Adding Context to Sessions
 

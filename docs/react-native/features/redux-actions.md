@@ -1,10 +1,12 @@
 ---
-title: Track Redux's Actions
+title: Track Redux Actions
 description: Add logging to your React Native application to track actions dispatched using the Embrace SDK
-sidebar_position: 9
+sidebar_position: 5
 ---
 
-# Add React Actions tracker
+# Track Redux Actions
+
+TODO rewrite this for the updated actions package
 
 ## Adding Context to Sessions
 
