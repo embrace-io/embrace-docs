@@ -82,7 +82,7 @@ for more details.
 | `@embrace-io/react-native-web-tracker`               | No longer supported.                                                        |
 | `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
 | `@embrace-io/react-navigation`                       | Functionality has been moved to `@embrace-io/react-native-navigation`.      |
-| `@embrace-io/react-native-apollo-graphql`            | TODO                                                                        |
+| `@embrace-io/react-native-apollo-graphql`            | No longer supported.                                                        |
 
 
 ### Removed APIs

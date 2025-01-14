@@ -45,12 +45,12 @@ Yes, we have multiple customers that use GraphQL. See the [GraphQL guide](/best-
 
 ### **My network calls are not being captured. What could be going wrong?**
 
-This could be due to one of the following reasons:
+The native libraries that are used for React Native's [fetch and XMLHttpRequest implementations](https://reactnative.dev/docs/network)
+will be automatically instrumented and any network calls made through them (or third-party libraries that depend on them)
+should get captured.
 
-* We currently do not automatically capture WebSocket requests.
-* The networking library you're using isn't one of the supported ones.
-* You may use a CDN like Cloudflare, which can change your networking under-the-hood. Here's a list of CDNs that are verified to be compatible:
-  * Akamai
-  * Cloudflare
-  * PacketZoom
-* (TODO EMBR-6045 update this) You are using an Axios version that is not compatible with us or you have a custom integration that block us. You can force log the Axios request appying our [interceptor](https://github.com/embrace-io/embrace-react-native-sdk/blob/v5.2.0/packages/core/src/networkInterceptors/ApplyInterceptor.ts).
+If you or a package you are using are doing something custom beyond these implementations then network calls may not be
+getting captured. In these cases you can call our [network logging methods](https://github.com/embrace-io/embrace-react-native-sdk/blob/main/packages/core/src/api/network.ts)
+directly to manually record these requests.
+
+Note that we currently do not automatically capture WebSocket requests.
