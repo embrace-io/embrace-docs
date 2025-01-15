@@ -198,7 +198,7 @@ The SDK collects the disk usage for the app. Defaults to `true`.
 
 #### capture_enabled *bool*
 
-This is a failsafe. If the remote config is not set, this value will be used. Enable and Disable background activity capture. Defaults to `false`.
+This value is a failsafe to enable or disable background activity capture. If the remote configuration is not set by Embrace's backend, this value will be determine whether or not to enable background capture. Defaults to `false`.
 
 #### base_urls - config *string*
 
