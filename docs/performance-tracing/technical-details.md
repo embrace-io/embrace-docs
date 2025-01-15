@@ -49,3 +49,5 @@ Types of Unsuccessful Spans:
 - User Abandon: User navigated away before completion.
 
 ## Implementation
+
+Something here too.
