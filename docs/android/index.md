@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 description: Learn about Embrace for the Android platform
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # Android Platform Documentation
