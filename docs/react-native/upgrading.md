@@ -24,14 +24,6 @@ Then install the latest Cocoapods with:
 cd ios && pod install --repo-update
 ```
 
-### Using the new bundled package
-
-By default, the feature sets for our SDK are kept in separate packages. This allows you to include just the
-dependencies for features you wish to use and keep you overall bundle size smaller. If you prefer the simplicity of
-including just a single package to expose all available SDK features you can instead include just
-`@embrace-io/react-native-bundled` as a dependency in your application. All exports from other packages will then be
-available from that library. See TODO for more details.
-
 ### Migrating Traces
 
 The `@embrace-io/react-native-spans` package has been removed and the functionality it provided is now available from the

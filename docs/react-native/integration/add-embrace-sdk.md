@@ -31,9 +31,16 @@ For iOS you will also need to install or update pods for the application:
 cd ios && pod install --repo-update
 ```
 
-# Adding the SDK 
+:::info
+Additional features for our SDK are kept in separate packages to allow you to include just the dependencies for the ones
+you wish to use and keep your overall bundle size smaller. The instructions on this page will add just our core SDK
+package as a dependency, additional packages can then be included later as you integrate more of the functionality
+described in our [Feature Reference](/react-native/features/).
+:::
 
-## Setup Script
+## Native Setup
+
+### Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
@@ -64,7 +71,7 @@ git diff
 Compare the changes to the manual setup step to verify the changes were made
 correctly.
 
-## Manually
+### Manually
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
@@ -100,24 +107,6 @@ repositories {
   google()
 }
 ```
-
-:::warning Important
-React Native 0.59.0 and later automatically adds the required `compileOptions` directive to the `android/app/build.gradle` file.
-If you are using a version of React Native older than 0.59.0, or your project was created with a version older than 0.59.0, add the following to your `android/app/build.gradle` file:
-
-```groovy
-android {
-    // ...
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    // ...
-}
-```
-
-:::
 
 Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token.
 
