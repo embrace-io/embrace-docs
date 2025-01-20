@@ -15,4 +15,4 @@ useOrientationListener()
 ```
 
 You will then see breadcrumbs in the session timeline reporting on the initial orientation that the application began
-in as well as any changes that ocurred throughout the session.
+in as well as any changes that occurred throughout the session.

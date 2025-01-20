@@ -13,23 +13,21 @@ import TabItem from '@theme/TabItem';
 
 ## Add the JavaScript library
 
-Use Yarn or NPM to install the NPM module.
+npm:
 
-```shell-session
-yarn add @embrace-io/react-native
-```
-
-```shell-session
+```sh
 npm install @embrace-io/react-native
 ```
 
-:::info
-If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
-:::
+yarn:
 
-For iOS you will also need to install the pod:
+```sh
+yarn add @embrace-io/react-native
+```
 
-```shell
+For iOS you will also need to install or update pods for the application:
+
+```sh
 cd ios && pod install --repo-update
 ```
 

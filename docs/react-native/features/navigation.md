@@ -22,12 +22,16 @@ Embrace has a separate module for tracking Screens, to use it you will need to a
 
 #### Install the component
 
-```shell-session
-yarn add @embrace-io/react-navigation
+npm:
+
+```sh
+npm install @embrace-io/react-native-navigation
 ```
 
-```shell-session
-npm install @embrace-io/react-navigation
+yarn:
+
+```sh
+yarn add @embrace-io/react-native-navigation
 ```
 
 #### Adding the component to your code

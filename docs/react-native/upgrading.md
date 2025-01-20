@@ -61,8 +61,9 @@ If you had previously been calling the `startView` and `endView` methods directl
 
 ### Migration Redux actions instrumentation
 
-TODO
-
+If you had previously been using the `buildEmbraceMiddleware` method from the `@embrace-io/react-native-action-tracker`
+package this has been renamed and moved to `@embrace-io/react-native-redux`. You will need to setup that package and
+create the Embrace middleware using one of the updated methods as described in [Track Redux Actions](/react-native/features/redux-actions/).
 
 ### Removal of automated CodePush support  
 
@@ -83,6 +84,7 @@ for more details.
 | `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
 | `@embrace-io/react-navigation`                       | Functionality has been moved to `@embrace-io/react-native-navigation`.      |
 | `@embrace-io/react-native-apollo-graphql`            | No longer supported.                                                        |
+| `@embrace-io/react-native-action-tracker`            | Functionality has been moved to `@embrace-io/react-native-redux`.           |
 
 
 ### Removed APIs

@@ -1,56 +1,81 @@
 ---
 title: Track Redux Actions
-description: Add logging to your React Native application to track actions dispatched using the Embrace SDK
 sidebar_position: 5
 ---
 
 # Track Redux Actions
 
-TODO rewrite this for the updated actions package
+Embrace provides the `@embrace-io/react-native-redux` package that can be used to collect telemetry around dispatching
+actions with Redux. It provides a custom middleware that can be configured with your Redux store.
 
-## Adding Context to Sessions
-
-Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.
-Embrace can also collect the redux's actions that are being dispatched and include it as context within your sessions.
-Here's how you add the action tracker to the session.
+## Install the component
 
 :::info
-Currently we are only supporting the Redux SDK and others libraries that supports middleware as Saga, if you are using another library please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
+Note that this package requires a Tracer Provider to record its telemetry, if you haven't already you can set that up by
+following the instructions from our [Traces guide](/react-native/features/traces/#integration-steps).
 :::
 
-## Adding the component
+npm:
 
-Embrace has a separate module for tracking Redux's Actions, to use it you will need to add the Action Tracker
-
-### Install the component
-
-```shell-session
-yarn add @embrace-io/react-native-action-tracker
+```sh
+npm install @embrace-io/react-native-redux
 ```
 
-```shell-session
-npm install @embrace-io/react-native-action-tracker
+yarn:
+
+```sh
+yarn add @embrace-io/react-native-redux
 ```
 
-### Adding the component to your code
+## Add the middleware
 
-Add the Embrace's Middleware to your middleware's list
+### With hooks
 
-```javascript
-import {applyMiddleware, compose, configureStore} from '@reduxjs/toolkit';
-import {buildEmbraceMiddleware} from '@embrace-io/react-native-action-tracker';
-import myReducer from './reducers/MyReducer';
-import otherMiddleware from './middlewares/OtherMiddleware';
+```typescript
+import {useEffect, useState} from "react";
+import {EnhancedStore, configureStore, Tuple} from "@reduxjs/toolkit";
+import {useEmbrace} from "@embrace-io/react-native";
+import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {useEmbraceMiddleware} from "@embrace-io/react-native-redux";
 
-//Add the embrace middleware 'buildEmbraceMiddleware' an
-const middlewareEnhancer = applyMiddleware(otherMiddleware(), buildEmbraceMiddleware());
+const MyApp = () => {
+  const {isStarted} = useEmbrace({ios: {appId: "MYAPP"}});
+  const {tracerProvider} = useEmbraceNativeTracerProvider({}, isStarted);
+  const {middleware} = useEmbraceMiddleware(tracerProvider);
+  const [store, setStore] = useState<EnhancedStore>();
 
-const composedEnhancers = compose(middlewareEnhancer);
+  useEffect(() => {
+    if (middleware && !store) {
+      setStore(
+        configureStore({
+          reducer: rootReducer,
+          middleware: () => new Tuple(middleware),
+        }),
+      );
+    }
+  }, [middleware, store]);
 
-export default configureStore({
-  reducer: {
-    myReducer: myReducer,
-  },
-  enhancers: [composedEnhancers],
-});
+  ...
+
+};
 ```
+
+### Without hooks
+
+```typescript
+import {configureStore, Tuple} from "@reduxjs/toolkit";
+import {initialize} from "@embrace-io/react-native";
+import {EmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {createEmbraceMiddleware} from "@embrace-io/react-native-redux";
+
+const setupStore = async () => {
+  await initialize({sdkConfig: {ios: {appId: "abc123"}}});
+  const tracerProvider = new EmbraceNativeTracerProvider();
+  return configureStore({
+    reducer: rootReducer,
+    middleware: () => new Tuple(createEmbraceMiddleware(tracerProvider)),
+  });
+};
+```
+
+You will then see spans in the session timeline that represent the dispatch of actions through Redux.

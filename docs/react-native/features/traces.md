@@ -59,14 +59,22 @@ To use this feature:
 
 ### Install the Tracer Provider package
 
+npm:
+
 ```sh
-yarn add @embrace-io/native-tracer-provider
+npm install @embrace-io/react-native-tracer-provider
 ```
 
-Or
+yarn:
 
 ```sh
-npm install @embrace-io/native-tracer-provider
+yarn add @embrace-io/react-native-tracer-provider
+```
+
+For iOS you will also need to install or update pods for the application:
+
+```sh
+cd ios && pod install --repo-update
 ```
 
 ## API Usage Examples
