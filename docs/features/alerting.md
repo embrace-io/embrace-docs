@@ -45,7 +45,7 @@ Once your alert is set up, you'll find it listed under "Manage Alerts". Here, yo
 - Inactive: Alert is disabled or misconfigured; no thresholds set or notifications enabled.
 - Muted: Alerts is silenced; no notifications sent.
 
-### Alert Time vs Latest Data
+### Alert Time vs Latest Data
 
 TODO: INSERT GRAPH HERE
 
