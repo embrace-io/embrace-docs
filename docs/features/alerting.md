@@ -45,7 +45,7 @@ Once your alert is set up, you'll find it listed under "Manage Alerts". Here, yo
 - Inactive: Alert is disabled or misconfigured; no thresholds set or notifications enabled.
 - Muted: Alerts is silenced; no notifications sent.
 
-### Alert Time vs Latest Data
+### Alert Data vs Latest Data
 
 TODO: INSERT GRAPH HERE
 
@@ -55,8 +55,8 @@ When our system processes an alert, it evaluates the data received at that speci
 
 To provide a clear understanding of the data over time, our system visualizes two datasets:
 
-- Alert Data: The dataset available at the time the alert was evaluated and triggered.
-- Latest Data: The complete dataset, including data received after the alert was processed.
+- Alert data: The data available at the time the alert was triggered.
+- Latest data: Combines alert data with data received after the alert, matching what you see in the rest of the Embrace platform.
 
 This approach enables users to compare the state of the data during alert processing with the fuller picture that becomes available later. These comparisons help illustrate the impact of delayed data on analytics and ensure transparency in alerting decisions.
 
