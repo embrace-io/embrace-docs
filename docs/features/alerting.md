@@ -45,6 +45,21 @@ Once your alert is set up, you'll find it listed under "Manage Alerts". Here, yo
 - Inactive: Alert is disabled or misconfigured; no thresholds set or notifications enabled.
 - Muted: Alerts is silenced; no notifications sent.
 
+### Alert Time vs Latest Data
+
+TODO: INSERT GRAPH HERE
+
+Mobile data presents a unique challenge: it can be delayed due to factors such as offline devices, intermittent internet connectivity, or other disruptions.
+
+When our system processes an alert, it evaluates the data received at that specific point in time. The system assumes that the available data represents the most complete and accurate snapshot at that moment. Alerts are triggered (or not) based on this dataset, which may exclude some delayed data that has not yet arrived.
+
+To provide a clear understanding of the data over time, our system visualizes two datasets:
+
+- Alert Data: The dataset available at the time the alert was evaluated and triggered.
+- Latest Data: The complete dataset, including data received after the alert was processed.
+
+This approach enables users to compare the state of the data during alert processing with the fuller picture that becomes available later. These comparisons help illustrate the impact of delayed data on analytics and ensure transparency in alerting decisions.
+
 ### Why is my alert inactive?
 Your alert is inactive because one or more of the following conditions are met:
 - The email notification is using a disabled email.
