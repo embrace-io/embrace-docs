@@ -10,7 +10,7 @@ The Embrace Apple SDK is built to provide automatic instrumentation for the most
 
 ## Automatic Signals
 
-With the [convenience initializer](/ios/open-source/integration/embrace-options/#setup-options) provided for initial setup, the SDK adds a default set of [CaptureServices](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift) objects that instrument the app automatically. Each service is an extension of that base class, and so each service is instrumented to capture its signals and map them to OpenTelemetry spans.
+With the [convenience initializer](/ios/open-source/integration/embrace-options/#setup-options) provided for initial setup, the SDK adds a default set of [CaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift) objects that instrument the app automatically. Each service is an extension of that base class, and so each service is instrumented to capture its signals and map them to OpenTelemetry spans.
 
 For a detailed explanation on what each service does go [here](/ios/open-source/features/capture-services/index.md).
 
