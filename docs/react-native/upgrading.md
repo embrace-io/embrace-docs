@@ -111,19 +111,19 @@ EmbraceNavigationTracker.build(Navigation);
 
 Navigation.registerComponent('myLaunchScreen', () => App);
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
-    root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: 'myLaunchScreen'
-            }
-          }
-        ]
+ Navigation.setRoot({
+  root: {
+   stack: {
+    children: [
+     {
+      component: {
+       name: 'myLaunchScreen'
       }
-    }
-  });
+     }
+    ]
+   }
+  }
+ });
 });
 ```
 
@@ -136,42 +136,42 @@ import { EmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-pro
 import { TracerProvider } from '@opentelemetry/api';
 
 await initialize({
-  sdkConfig: {
-    ios: {
-      appId: '__APP_ID__'
-    }
+ sdkConfig: {
+  ios: {
+   appId: '__APP_ID__'
   }
+ }
 });
 
 let provider;
 try {
-  provider = new EmbraceNativeTracerProvider();
+ provider = new EmbraceNativeTracerProvider();
 } catch (e) {
-  console.log(
-    'Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead',
-    e
-  );
+ console.log(
+  'Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead',
+  e
+ );
 }
 
 // entry point of app
 Navigation.registerComponent(
-  'HomeScreen',
-  props => () => {
-    const ref = useRef(Navigation.events());
+ 'HomeScreen',
+ props => () => {
+  const ref = useRef(Navigation.events());
 
-    return (
-      <EmbraceNativeNavigationTracker
-        ref={ref}
-        tracerProvider={provider}
-        screenAttributes={{
-          'test.attr': 98765
-        }}
-      >
-        <RootScreen {...props} />
-      </EmbraceNativeNavigationTracker>
-    );
-  },
-  () => RootScreen
+  return (
+   <EmbraceNativeNavigationTracker
+    ref={ref}
+    tracerProvider={provider}
+    screenAttributes={{
+     'test.attr': 98765
+    }}
+   >
+    <RootScreen {...props} />
+   </EmbraceNativeNavigationTracker>
+  );
+ },
+ () => RootScreen
 );
 
 // rest of navigation + configuration
@@ -256,11 +256,11 @@ const App = ()=> {
     initialize({
       sdkConfig: {
         ios: {
-          appId: "YOUR_IOS_APP_ID",
+          appId: "__APP_ID__",
         }
       }
     }).then(hasStarted=>{
-      if(hasStarted){
+      if (hasStarted) {
          //doSomething
       }
     });
