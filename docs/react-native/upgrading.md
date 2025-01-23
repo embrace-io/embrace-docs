@@ -53,10 +53,10 @@ function App() {
   useEmbraceNavigationTracker(navigationRef);
 
   return (
-		// Assign the NavigationContainer reference value to the useRef created
-		<NavigationContainer ref={navigationRef}>
-			<Screens... />
-		</NavigationContainer>
+    // Assign the NavigationContainer reference value to the useRef created
+    <NavigationContainer ref={navigationRef}>
+      <Screens... />
+    </NavigationContainer>
   );
 }
 ```
@@ -73,7 +73,7 @@ import {
 } from "@react-navigation/native";
 
 function App() {
-	// Embrace initialization should happen before
+  // Embrace initialization should happen before
 
   // as of now if you inspect the source code of `useNavigationContainerRef` from `@react-navigation/native` you will see that it returns `navigation.current` instead of the entire shape of a reference
   const navigationRefVal = useNavigationContainerRef();
@@ -83,18 +83,18 @@ function App() {
   const {tracerProvider} = useEmbraceNativeTracerProvider();
 
 	return (
-		// `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
-		<NavigationContainer ref={navigationRefVal}>
-			<EmbraceNavigationTracker
-				ref={navigationRef}
-				tracerProvider={tracerProvider}
-				screenAttributes={{
-				"static.attribute": 123456,
-				"custom.key": "abcd...",
-			}}>
-				<Screens... />
-			</EmbraceNavigationTracker>
-		</NavigationContainer>
+    // `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
+    <NavigationContainer ref={navigationRefVal}>
+      <EmbraceNavigationTracker
+        ref={navigationRef}
+        tracerProvider={tracerProvider}
+        screenAttributes={{
+        "static.attribute": 123456,
+        "custom.key": "abcd...",
+      }}>
+        <Screens... />
+      </EmbraceNavigationTracker>
+    </NavigationContainer>
 	);
 }
 ```
