@@ -84,7 +84,17 @@ cd ios && pod install --repo-update
 Spans are created from a Tracer which you can get from the `useEmbraceNativeTracerProvider` hook:
 
 ```javascript
-TODO
+import { useEmbraceNativeTracerProvider } from "@embrace-io/react-native-tracer-provider";
+import {Tracer} from "@opentelemetry/api";
+
+const {isLoading, isError, error, tracerProvider} =
+  useEmbraceNativeTracerProvider();
+
+const tracer = useMemo<Tracer | undefined>(() => {
+  if (tracerProvider) {
+    return tracerProvider.getTracer("span-test", "1.0");
+  }
+}, [tracerProvider]);
 ```
 
 See the [package README](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages/react-native-tracer-provider)
