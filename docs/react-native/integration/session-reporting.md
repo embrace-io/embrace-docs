@@ -218,7 +218,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 ### Initializing Embrace SDK without an App Id or Token
 
-If you prefer to send the data into a custom backend avoiding Embrace you should skip the app_id / token values from both platform configurations. For more information about it you can visit how to [Send data outside Embrace](/react-native/integration/send-data-custom-backend/).
+If you prefer to send the data into a custom backend avoiding Embrace you should skip the app_id / token values from both platform configurations. For more information about it you can visit the how to [Use without an Embrace account](/react-native/integration/login-embrace-dashboard#use-without-an-embrace-account) section.
 
 ## Build and run the application
 
