@@ -16,6 +16,8 @@ Here are the steps you’ll be taking to create your first session.
 
 ## Initialize Embrace SDK in the JavaScript side
 
+### Without hooks
+
 Calling the `initialize` method setups up the tracking for the SDK on the JS side. This is needed even if you choose
 to start the SDK earlier on the native side as explained below, however in that case the configuration passed through
 in the `sdkConfig` object is ignored in favor of the native startup configuration.
@@ -56,7 +58,7 @@ const App = () => {
 export default App
 ```
 
-## Using hooks
+### With hooks
 
 We expose also a hook that handles the initialization of Embrace in a more React friendly way:
 

@@ -31,15 +31,15 @@ yarn add @embrace-io/react-native-redux
 
 ### With hooks
 
-```typescript
-import {useEffect, useState} from "react";
+```javascript
+import React, {useEffect, useState} from "react";
 import {EnhancedStore, configureStore, Tuple} from "@reduxjs/toolkit";
 import {useEmbrace} from "@embrace-io/react-native";
 import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
 import {useEmbraceMiddleware} from "@embrace-io/react-native-redux";
 
 const MyApp = () => {
-  const {isStarted} = useEmbrace({ios: {appId: "MYAPP"}});
+  const {isStarted} = useEmbrace({ios: {appId: "__APP_ID__"}});
   const {tracerProvider} = useEmbraceNativeTracerProvider({}, isStarted);
   const {middleware} = useEmbraceMiddleware(tracerProvider);
   const [store, setStore] = useState<EnhancedStore>();
@@ -62,7 +62,7 @@ const MyApp = () => {
 
 ### Without hooks
 
-```typescript
+```javascript
 import {configureStore, Tuple} from "@reduxjs/toolkit";
 import {initialize} from "@embrace-io/react-native";
 import {EmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
@@ -70,7 +70,9 @@ import {createEmbraceMiddleware} from "@embrace-io/react-native-redux";
 
 const setupStore = async () => {
   await initialize({sdkConfig: {ios: {appId: "abc123"}}});
+
   const tracerProvider = new EmbraceNativeTracerProvider();
+
   return configureStore({
     reducer: rootReducer,
     middleware: () => new Tuple(createEmbraceMiddleware(tracerProvider)),

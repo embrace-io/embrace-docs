@@ -106,13 +106,7 @@ if (isPending) {
   }
 }
 
-const {tracerProvider} = useEmbraceNativeTracerProvider({}, isStarted);
-
-const tracer = useMemo(() => {
-  if (tracerProvider) {
-    return tracerProvider.getTracer("span-test", "1.0");
-  }
-}, [tracerProvider]);
+const {tracer} = useEmbraceNativeTracerProvider({}, isStarted);
 ```
 
 See the [package README](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages/react-native-tracer-provider)
