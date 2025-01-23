@@ -67,6 +67,12 @@ If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)
 in order to have properly symbolicated stack traces. See [Symbolication with OTA updates](/react-native/integration/upload-symbol-files/#symbolication-with-ota-updates)
 for more details.
 
+### Unhandled promise rejection tracking is now opt-in
+
+Previously our SDK setup tracking for unhandled promise rejection tracking automatically. Now this feature must be
+explicitly enabled, see [Report Unhandled Promise Rejections](/react-native/features/unhandled-promise-rejections) for
+more details.
+
 ### Deprecated Packages
 
 | Package                                              | Comments                                                                    |
