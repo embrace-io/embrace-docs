@@ -9,12 +9,12 @@ sidebar_position: 5
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 Here are the steps you’ll be taking to create your first session.
 
-1. [Initialize Embrace SDK in the JavaScript side](/react-native/integration/session-reporting#initialize-the-embrace-sdk-in-js)
-2. [Start Embrace SDK in the Native side](/react-native/integration/session-reporting#start-the-embrace-sdk-from-android--ios)
+1. [Initialize Embrace SDK in the JavaScript side](/react-native/integration/session-reporting#initialize-embrace-sdk-in-the-javascript-side)
+2. [Start Embrace SDK in the Native side](/react-native/integration/session-reporting#start-embrace-sdk-in-the-native-side)
 3. [Build and run the application](/react-native/integration/session-reporting#build-and-run-the-application)
 4. [Trigger a session upload](/react-native/integration/session-reporting#trigger-a-session-upload)
 
-## Initialize Embrace in the JavaScript side
+## Initialize Embrace SDK in the JavaScript side
 
 Calling the `initialize` method setups up the tracking for the SDK on the JS side. This is needed even if you choose
 to start the SDK earlier on the native side as explained below, however in that case the configuration passed through
