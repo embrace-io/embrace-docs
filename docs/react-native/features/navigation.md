@@ -43,7 +43,11 @@ import {Stack, useNavigationContainerRef} from 'expo-router';
 import {useEmbrace} from "@embrace-io/react-native";
 
 const App = () => {
-  const {isStarted} = useEmbrace({ios: {appId: "abc123"}});
+  const {isPending, isStarted} = useEmbrace({
+    ios: {
+      appId: "__APP_ID__"
+    },
+  });
 
   // In both cases you have to make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
   const {tracerProvider, isLoading: isLoadingTracerProvider} =
@@ -102,7 +106,11 @@ import CheckoutPage from "screens/CheckoutPage";
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  const {isStarted} = useEmbrace({ios: {appId: "__APP_ID__"}});
+  const {isPending, isStarted} = useEmbrace({
+    ios: {
+      appId: "__APP_ID__"
+    },
+  });
 
   const {tracerProvider, isLoading: isLoadingTracerProvider} =
     useEmbraceNativeTracerProvider({}, isStarted);
