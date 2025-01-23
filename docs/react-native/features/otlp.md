@@ -67,7 +67,7 @@ const EXPORT_CONFIG = {
 };
 
 // iOS is configurable through code, Android configuration happens at build time
-const SDK_CONFIG = {appId: "__APP ID__"};
+const SDK_CONFIG = {appId: "__APP_ID__"};
 
 function RootLayout() {
   const {isPending, isStarted} = useEmbrace({

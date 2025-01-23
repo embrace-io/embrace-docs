@@ -86,9 +86,27 @@ Spans are created from a Tracer which you can get from the `useEmbraceNativeTrac
 
 ```javascript
 import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {useEmbrace} from "@embrace-io/react-native";
 
-const {isLoading, isError, error, tracerProvider} =
-  useEmbraceNativeTracerProvider();
+const {isPending, isStarted} = useEmbrace({
+  ios: {
+    appId: "__APP_ID__",
+  },
+});
+
+if (isPending) {
+  return (
+    <View>
+      <Text>Loading Embrace</Text>
+    </View>
+  );
+} else {
+  if (!isStarted) {
+    console.log("An error occurred during Embrace initialization");
+  }
+}
+
+const {tracerProvider} = useEmbraceNativeTracerProvider({}, isStarted);
 
 const tracer = useMemo(() => {
   if (tracerProvider) {
