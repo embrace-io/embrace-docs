@@ -39,7 +39,7 @@ Using `expo-router`:
 import React from 'react';
 import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
 import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
-import {Stack, useNavigationContainerRef} from 'expo-router';
+import {useNavigationContainerRef} from 'expo-router';
 import {useEmbrace} from "@embrace-io/react-native";
 
 const App = () => {
@@ -92,12 +92,9 @@ import {
   NavigationContainer,
   useNavigationContainerRef,
 } from "@react-navigation/native";
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {useEmbrace} from "@embrace-io/react-native";
 import CartPage from "screens/CartPage";
 import CheckoutPage from "screens/CheckoutPage";
-
-const Tab = createBottomTabNavigator();
 
 const App = () => {
   const {isPending, isStarted} = useEmbrace({
