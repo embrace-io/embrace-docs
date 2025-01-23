@@ -169,4 +169,4 @@ Embrace.getInstance().addLogRecordExporter(logExporter.build())
 Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
 ```
 
-In case you want to avoid sending telemetry into Embrace you could do it by removing the app_id/token values from each Platform configuration. For more information please visit how to [Send data outside Embrace](/react-native/integration/send-data-custom-backend.md).
+In case you want to avoid sending telemetry into Embrace you could do it by removing the app_id/token values from each Platform configuration. For more information please visit how to [Send data outside Embrace](/react-native/integration/send-data-custom-backend/).
