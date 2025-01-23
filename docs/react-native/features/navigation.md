@@ -60,9 +60,7 @@ const App = () => {
   if (isLoadingTracerProvider || tracerProvider === null) {
     return (
       <View>
-        <View>
-          <Text>Loading Tracer Provider...</Text>
-        </View>
+        <Text>Loading Tracer Provider...</Text>
       </View>
     );
   }
@@ -76,11 +74,7 @@ const App = () => {
           "static.attribute": 123456,
           "custom.key": "abcd...",
       }}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{headerShown: false}} />
-        <Stack.Screen name="+not-found" />
-        ... rest of stack
-      </Stack>
+      ... navigation
     </EmbraceNavigationTracker>
   );
 };
@@ -140,27 +134,7 @@ const App = () => {
           "static.attribute": 123456,
           "custom.key": "abcd...",
         }}>
-        <Tab.Navigator
-          screenOptions={{
-            tabBarLabelPosition: "beside-icon",
-            tabBarIconStyle: {display: "none"},
-          }}>
-          <Tab.Screen
-            name="cart"
-            options={{
-              tabBarAccessibilityLabel: "Cart",
-            }}
-            component={CartPage}
-          />
-          <Tab.Screen
-            name="checkout"
-            options={{
-              tabBarAccessibilityLabel: "Checkout",
-            }}
-            component={CheckoutPage}
-          />
-          ... rest of tabs
-        </Tab.Navigator>
+          ... navigation
       </EmbraceNavigationTracker>
     </NavigationContainer>
   );
