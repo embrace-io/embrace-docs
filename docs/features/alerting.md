@@ -47,8 +47,6 @@ Once your alert is set up, you'll find it listed under "Manage Alerts". Here, yo
 
 ### Alert Data vs Latest Data
 
-TODO: INSERT GRAPH HERE
-
 Mobile data presents a unique challenge: it can be delayed due to factors such as offline devices, intermittent internet connectivity, or other disruptions.
 
 When our system processes an alert, it evaluates the data received at that specific point in time. The system assumes that the available data represents the most complete and accurate snapshot at that moment. Alerts are triggered (or not) based on this dataset, which may exclude some delayed data that has not yet arrived.
@@ -56,7 +54,9 @@ When our system processes an alert, it evaluates the data received at that speci
 To provide a clear understanding of the data over time, our system visualizes two datasets:
 
 - Alert data: The data available at the time the alert was triggered.
+<img src={require('@site/static/images/features/alerting/alert_data.png').default} alt="Alert Data" />
 - Latest data: Combines alert data with data received after the alert, matching what you see in the rest of the Embrace platform.
+<img src={require('@site/static/images/features/alerting/latest_data.png').default} alt="Latest Data" />
 
 This approach enables users to compare the state of the data during alert processing with the fuller picture that becomes available later. These comparisons help illustrate the impact of delayed data on analytics and ensure transparency in alerting decisions.
 
