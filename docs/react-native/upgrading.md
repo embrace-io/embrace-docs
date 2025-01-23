@@ -82,17 +82,17 @@ function App() {
 
   const {tracerProvider} = useEmbraceNativeTracerProvider();
 
-  return (
+	return (
 		// `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
-    <NavigationContainer ref={navigationRefVal}>
+		<NavigationContainer ref={navigationRefVal}>
 			<EmbraceNavigationTracker
 				ref={navigationRef}
 				tracerProvider={tracerProvider}
 				screenAttributes={{
-					"static.attribute": 123456,
-					"custom.key": "abcd...",
-				}}>
-					<Screens... />
+				"static.attribute": 123456,
+				"custom.key": "abcd...",
+			}}>
+				<Screens... />
 			</EmbraceNavigationTracker>
 		</NavigationContainer>
 	);

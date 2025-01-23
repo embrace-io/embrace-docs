@@ -32,20 +32,20 @@ import TabItem from '@theme/TabItem';
 import { initialize } from '@embrace-io/react-native';
 
 export default class App extends Component {
-	componentDidMount() {
-		// Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-		initialize({
-			sdkConfig: {
-				ios: {
-					appId: 'abcdf'
-				}
-			}
-		}).then(hasStarted => {
-			if (hasStarted) {
-				//doSomething
-			}
-		});
-	}
+  componentDidMount() {
+    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
+    initialize({
+      sdkConfig: {
+        ios: {
+          appId: 'abcdf'
+        }
+      }
+    }).then(hasStarted => {
+      if (hasStarted) {
+        //doSomething
+      }
+    });
+  }
 }
 ```
 
@@ -56,11 +56,9 @@ export default class App extends Component {
 import React, {useEffect, useState} from 'react'
 import {initialize} from '@embrace-io/react-native';
 
-const App = ()=> {
-
-  useEffect(()=>{
+const App = () => {
+  useEffect(() => {
     // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-
     initialize({
       sdkConfig: {
         ios: {
@@ -68,14 +66,15 @@ const App = ()=> {
         }
       }
     }).then(hasStarted=>{
-      if(hasStarted){
-         //doSomething
+      if (hasStarted) {
+        // doSomething
       }
     });
-  },[])
+  },[]);
 
  return ...
 }
+
 export default App
 ```
 
@@ -164,6 +163,7 @@ information on how this is generated) and then add a call to `[EmbraceInitialize
 {
   [EmbraceInitializer start];
   ...
+}
 ```
 
 If you are using Expo you may need an additional `#import <ExpoModulesCore-Swift.h>` import before the line that

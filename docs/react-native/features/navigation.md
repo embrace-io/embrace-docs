@@ -42,41 +42,41 @@ import { useNavigationContainerRef } from 'expo-router';
 import { useEmbrace } from '@embrace-io/react-native';
 
 const App = () => {
-	const { isPending, isStarted } = useEmbrace({
-		ios: {
-			appId: '__APP_ID__'
-		}
-	});
+  const { isPending, isStarted } = useEmbrace({
+    ios: {
+      appId: '__APP_ID__'
+    }
+  });
 
-	// In both cases you have to make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
-	const { tracerProvider, isLoading: isLoadingTracerProvider } =
-		useEmbraceNativeTracerProvider({}, isStarted);
+  // In both cases you have to make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
+  const { tracerProvider, isLoading: isLoadingTracerProvider } =
+    useEmbraceNativeTracerProvider({}, isStarted);
 
-	// If you do not use `expo-router` the same hook is also available in `@react-navigation/native` since `expo-router` is built on top of it.
-	// Make sure this ref is passed also to the navigation container at the root of your app (if not, the ref would be empty and you will get a console.warn message instead).
-	const expoNavigationRef = useNavigationContainerRef();
+  // If you do not use `expo-router` the same hook is also available in `@react-navigation/native` since `expo-router` is built on top of it.
+  // Make sure this ref is passed also to the navigation container at the root of your app (if not, the ref would be empty and you will get a console.warn message instead).
+  const expoNavigationRef = useNavigationContainerRef();
 
-	if (isLoadingTracerProvider || tracerProvider === null) {
-		return (
-			<View>
-				<Text>Loading Tracer Provider...</Text>
-			</View>
-		);
-	}
+  if (isLoadingTracerProvider || tracerProvider === null) {
+    return (
+      <View>
+        <Text>Loading Tracer Provider...</Text>
+      </View>
+    );
+  }
 
-	return (
-		<EmbraceNavigationTracker
-			ref={expoNavigationRef}
-			tracerProvider={tracerProvider}
-			// These static attributes will be passed into each created span
-			screenAttributes={{
-				'static.attribute': 123456,
-				'custom.key': 'abcd...'
-			}}
-		>
-			... navigation
-		</EmbraceNavigationTracker>
-	);
+  return (
+    <EmbraceNavigationTracker
+      ref={expoNavigationRef}
+      tracerProvider={tracerProvider}
+      // These static attributes will be passed into each created span
+      screenAttributes={{
+        'static.attribute': 123456,
+        'custom.key': 'abcd...'
+      }}
+    >
+      ... navigation
+    </EmbraceNavigationTracker>
+  );
 };
 
 export default App;
@@ -89,51 +89,51 @@ import React from 'react';
 import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
 import { EmbraceNavigationTracker } from '@embrace-io/react-native-navigation';
 import {
-	NavigationContainer,
-	useNavigationContainerRef
+  NavigationContainer,
+  useNavigationContainerRef
 } from '@react-navigation/native';
 import { useEmbrace } from '@embrace-io/react-native';
 import CartPage from 'screens/CartPage';
 import CheckoutPage from 'screens/CheckoutPage';
 
 const App = () => {
-	const { isPending, isStarted } = useEmbrace({
-		ios: {
-			appId: '__APP_ID__'
-		}
-	});
+  const { isPending, isStarted } = useEmbrace({
+    ios: {
+      appId: '__APP_ID__'
+    }
+  });
 
-	const { tracerProvider, isLoading: isLoadingTracerProvider } =
-		useEmbraceNativeTracerProvider({}, isStarted);
+  const { tracerProvider, isLoading: isLoadingTracerProvider } =
+    useEmbraceNativeTracerProvider({}, isStarted);
 
-	// as of now if you inspect the source code of `useNavigationContainerRef` from `@react-navigation/native` you will see that it returns `navigation.current` instead of the entire shape of a reference
-	const navigationRefVal = useNavigationContainerRef();
-	// We need here the entire shape, so we re-create it and pass it down into the `ref` prop for the `EmbraceNavigationTracker` component.
-	const navigationRef = useRef(navigationRefVal);
+  // as of now if you inspect the source code of `useNavigationContainerRef` from `@react-navigation/native` you will see that it returns `navigation.current` instead of the entire shape of a reference
+  const navigationRefVal = useNavigationContainerRef();
+  // We need here the entire shape, so we re-create it and pass it down into the `ref` prop for the `EmbraceNavigationTracker` component.
+  const navigationRef = useRef(navigationRefVal);
 
-	if (isLoadingTracerProvider || tracerProvider === null) {
-		return (
-			<View>
-				<Text>Loading Tracer Provider...</Text>
-			</View>
-		);
-	}
+  if (isLoadingTracerProvider || tracerProvider === null) {
+    return (
+      <View>
+        <Text>Loading Tracer Provider...</Text>
+      </View>
+    );
+  }
 
-	return (
-		// `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
-		<NavigationContainer ref={navigationRefVal}>
-			<EmbraceNavigationTracker
-				ref={navigationRef}
-				tracerProvider={tracerProvider}
-				screenAttributes={{
-					'static.attribute': 123456,
-					'custom.key': 'abcd...'
-				}}
-			>
-				... navigation
-			</EmbraceNavigationTracker>
-		</NavigationContainer>
-	);
+  return (
+    // `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
+    <NavigationContainer ref={navigationRefVal}>
+      <EmbraceNavigationTracker
+        ref={navigationRef}
+        tracerProvider={tracerProvider}
+        screenAttributes={{
+          'static.attribute': 123456,
+          'custom.key': 'abcd...'
+        }}
+      >
+        ... navigation
+      </EmbraceNavigationTracker>
+    </NavigationContainer>
+  );
 };
 
 export default App;
@@ -211,14 +211,14 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 
 ```json
 {
-	"app_id": "__APP_ID__",
-	"api_token": "__API_TOKEN__",
-	// Add this lines
-	"sdk_config": {
-		"view_config": {
-			"enable_automatic_activity_capture": false
-		}
-	}
+  "app_id": "__APP_ID__",
+  "api_token": "__API_TOKEN__",
+  // Add this lines
+  "sdk_config": {
+    "view_config": {
+      "enable_automatic_activity_capture": false
+    }
+  }
 }
 ```
 
@@ -262,13 +262,12 @@ call to initialize the SDK:
 
 ```javascript
 const App = () => {
-  const {isPending, isStarted} = useEmbrace({
+  const { isPending, isStarted } = useEmbrace({
     ios: {
-      appId: "__APP_ID__",
-      disableAutomaticViewCapture: true, // disabling the feature
-    },
+      appId: '__APP_ID__',
+      disableAutomaticViewCapture: true // disabling the feature
+    }
   });
-
 
   if (isPending) {
     return (
@@ -286,7 +285,7 @@ const App = () => {
   return (
     ...
   );
-}
+};
 
-export default App
+export default App;
 ```
