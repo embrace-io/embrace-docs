@@ -117,9 +117,7 @@ const App = () => {
   if (isLoadingTracerProvider || tracerProvider === null) {
     return (
       <View>
-        <View>
-          <Text>Loading Tracer Provider...</Text>
-        </View>
+        <Text>Loading Tracer Provider...</Text>
       </View>
     );
   }
