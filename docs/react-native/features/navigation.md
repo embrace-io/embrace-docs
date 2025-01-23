@@ -35,21 +35,21 @@ yarn add @embrace-io/react-native-navigation
 Using `expo-router`:
 
 ```javascript
-import React from 'react';
-import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
-import { EmbraceNavigationTracker } from '@embrace-io/react-native-navigation';
-import { useNavigationContainerRef } from 'expo-router';
-import { useEmbrace } from '@embrace-io/react-native';
+import React from "react";
+import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
+import {useNavigationContainerRef} from "expo-router";
+import {useEmbrace} from "@embrace-io/react-native";
 
 const App = () => {
-  const { isPending, isStarted } = useEmbrace({
+  const {isPending, isStarted} = useEmbrace({
     ios: {
-      appId: '__APP_ID__'
-    }
+      appId: "__APP_ID__",
+    },
   });
 
   // In both cases you have to make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
-  const { tracerProvider, isLoading: isLoadingTracerProvider } =
+  const {tracerProvider, isLoading: isLoadingTracerProvider} =
     useEmbraceNativeTracerProvider({}, isStarted);
 
   // If you do not use `expo-router` the same hook is also available in `@react-navigation/native` since `expo-router` is built on top of it.
@@ -70,10 +70,9 @@ const App = () => {
       tracerProvider={tracerProvider}
       // These static attributes will be passed into each created span
       screenAttributes={{
-        'static.attribute': 123456,
-        'custom.key': 'abcd...'
-      }}
-    >
+        "static.attribute": 123456,
+        "custom.key": "abcd...",
+      }}>
       ... navigation
     </EmbraceNavigationTracker>
   );
@@ -85,25 +84,25 @@ export default App;
 If you are using purely [@react-navigation/native](https://github.com/react-navigation/react-navigation):
 
 ```javascript
-import React from 'react';
-import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
-import { EmbraceNavigationTracker } from '@embrace-io/react-native-navigation';
+import React from "react";
+import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
 import {
   NavigationContainer,
-  useNavigationContainerRef
-} from '@react-navigation/native';
-import { useEmbrace } from '@embrace-io/react-native';
-import CartPage from 'screens/CartPage';
-import CheckoutPage from 'screens/CheckoutPage';
+  useNavigationContainerRef,
+} from "@react-navigation/native";
+import {useEmbrace} from "@embrace-io/react-native";
+import CartPage from "screens/CartPage";
+import CheckoutPage from "screens/CheckoutPage";
 
 const App = () => {
-  const { isPending, isStarted } = useEmbrace({
+  const {isPending, isStarted} = useEmbrace({
     ios: {
-      appId: '__APP_ID__'
-    }
+      appId: "__APP_ID__",
+    },
   });
 
-  const { tracerProvider, isLoading: isLoadingTracerProvider } =
+  const {tracerProvider, isLoading: isLoadingTracerProvider} =
     useEmbraceNativeTracerProvider({}, isStarted);
 
   // as of now if you inspect the source code of `useNavigationContainerRef` from `@react-navigation/native` you will see that it returns `navigation.current` instead of the entire shape of a reference
@@ -126,10 +125,9 @@ const App = () => {
         ref={navigationRef}
         tracerProvider={tracerProvider}
         screenAttributes={{
-          'static.attribute': 123456,
-          'custom.key': 'abcd...'
-        }}
-      >
+          "static.attribute": 123456,
+          "custom.key": "abcd...",
+        }}>
         ... navigation
       </EmbraceNavigationTracker>
     </NavigationContainer>

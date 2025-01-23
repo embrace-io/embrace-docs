@@ -6,10 +6,9 @@ sidebar_position: 1
 
 # Integration Setup
 
-The Embrace SDK can be configured to work with other components in the OpenTelemetry ecosystem. This includes any Exporters and instrumentation libraries that can run on the supported mobile platforms, so long as the underlying API is implemented by Embrace. 
+The Embrace SDK can be configured to work with other components in the OpenTelemetry ecosystem. This includes any Exporters and instrumentation libraries that can run on the supported mobile platforms, so long as the underlying API is implemented by Embrace.
 
 Telemetry captured by the Embrace SDK can be sent directly from the mobile app to any configured OTel Collector. As well, additional OTel signals recorded by instrumentation libraries external to Embrace will be included in the Embrace session, as if they were recorded by the SDK itself. Any OTel APIs implemented by Embrace can also be used directly by SDK users if they so choose.
-
 
 ## Export to OpenTelemetry Collectors
 
@@ -44,7 +43,7 @@ Embrace.getInstance().addLogRecordExporter(myLogExporter);
 </Tabs>
 
 :::info
-Please note that exporters must be configured *before* the Embrace Android SDK is started. Exporters added after the SDK has already been started will not be used.
+Please note that exporters must be configured _before_ the Embrace Android SDK is started. Exporters added after the SDK has already been started will not be used.
 :::
 
 #### Local Testing
@@ -140,7 +139,7 @@ var otelCollectorSpanExporter: OtlpTraceExporter {
         target: ConnectionTarget.hostAndPort("localhost", 4317),
         eventLoopGroup: MultiThreadedEventLoopGroup(numberOfThreads: 1)
     )
-        
+
     let client = ClientConnection(configuration: config)
     return OtlpTraceExporter(channel: client)
 }
@@ -150,7 +149,7 @@ var grafanaOtelSpanExporter: OtlpHttpTraceExporter {
     let grafanaCloudTokenString = //String generated from your account
     let urlConfig = URLSessionConfiguration.default
     urlConfig.httpAdditionalHeaders = ["Authorization": "Basic \(grafanaCloudTokenString)"]
-            
+
     return OtlpHttpTraceExporter(
         endpoint: URL(string: "https://otlp-gateway-prod-us-east-0.grafana.net/otlp/v1/traces")!,
         useSession: session
@@ -165,9 +164,9 @@ try? Embrace
             export: OpenTelemetryExport(
                 spanExporter: MultiSpanExporter(
                     spanExporters: [
-                        loggingSpanExporter, 
+                        loggingSpanExporter,
                         otelCollectorSpanExporter,
-                        grafanaOtelSpanExporter 
+                        grafanaOtelSpanExporter
                     ]
                 ),
                 logExporter: nil
@@ -188,10 +187,9 @@ The enhanced Tracing API is currently available in the Embrace Android SDK.
 
 The Embrace implementation of the Tracing API deviates from the official SDK implementations in the following ways:
 
-* SpanLinks are not supported - `addLink()` in the `Span` implementation is a no-op.
-* Attribute values are persisted as Strings.
-* The resource attributes `service.name` and `service.version` refer to the Embrace SDK at this time. This will be changed shortly.
-
+- SpanLinks are not supported - `addLink()` in the `Span` implementation is a no-op.
+- Attribute values are persisted as Strings.
+- The resource attributes `service.name` and `service.version` refer to the Embrace SDK at this time. This will be changed shortly.
 
 ### Android
 
@@ -225,4 +223,3 @@ okHttpTelemetry.newCallFactory(okHttpClient).execute(request);
 
 </TabItem>
 </Tabs>
-

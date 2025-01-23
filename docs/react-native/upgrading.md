@@ -104,12 +104,12 @@ function App() {
 The old `@embrace-io/react-native-navigation` exposed a builder that received the Navigation shape in the way it is exported by `react-native-navigation` to start tracking views:
 
 ```javascript
-import { Navigation } from 'react-native-navigation';
+import {Navigation} from "react-native-navigation";
 
-import EmbraceNavigationTracker from '@embrace-io/react-native-navigation';
+import EmbraceNavigationTracker from "@embrace-io/react-native-navigation";
 EmbraceNavigationTracker.build(Navigation);
 
-Navigation.registerComponent('myLaunchScreen', () => App);
+Navigation.registerComponent("myLaunchScreen", () => App);
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
@@ -117,12 +117,12 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: 'myLaunchScreen'
-            }
-          }
-        ]
-      }
-    }
+              name: "myLaunchScreen",
+            },
+          },
+        ],
+      },
+    },
   });
 });
 ```
@@ -130,17 +130,17 @@ Navigation.events().registerAppLaunchedListener(() => {
 Now you just need to wrap your root view using the `EmbraceNativeNavigationTracker` component exposed by the newest version of `@embrace-io/react-native-navigation` and configure it in the desired way:
 
 ```javascript
-import { Navigation } from 'react-native-navigation';
-import { initialize } from '@embrace-io/react-native';
-import { EmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
-import { TracerProvider } from '@opentelemetry/api';
+import {Navigation} from "react-native-navigation";
+import {initialize} from "@embrace-io/react-native";
+import {EmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {TracerProvider} from "@opentelemetry/api";
 
 await initialize({
   sdkConfig: {
     ios: {
-      appId: '__APP_ID__'
-    }
-  }
+      appId: "__APP_ID__",
+    },
+  },
 });
 
 let provider;
@@ -148,14 +148,14 @@ try {
   provider = new EmbraceNativeTracerProvider();
 } catch (e) {
   console.log(
-    'Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead',
-    e
+    "Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead",
+    e,
   );
 }
 
 // entry point of app
 Navigation.registerComponent(
-  'HomeScreen',
+  "HomeScreen",
   props => () => {
     const ref = useRef(Navigation.events());
 
@@ -164,14 +164,13 @@ Navigation.registerComponent(
         ref={ref}
         tracerProvider={provider}
         screenAttributes={{
-          'test.attr': 98765
-        }}
-      >
+          "test.attr": 98765,
+        }}>
         <RootScreen {...props} />
       </EmbraceNativeNavigationTracker>
     );
   },
-  () => RootScreen
+  () => RootScreen,
 );
 
 // rest of navigation + configuration

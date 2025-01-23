@@ -85,15 +85,14 @@ cd ios && pod install --repo-update
 Spans are created from a Tracer which you can get from the `useEmbraceNativeTracerProvider` hook:
 
 ```javascript
-import { Tracer } from '@opentelemetry/api';
-import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
+import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
 
-const { isLoading, isError, error, tracerProvider } =
+const {isLoading, isError, error, tracerProvider} =
   useEmbraceNativeTracerProvider();
 
 const tracer = useMemo(() => {
   if (tracerProvider) {
-    return tracerProvider.getTracer('span-test', '1.0');
+    return tracerProvider.getTracer("span-test", "1.0");
   }
 }, [tracerProvider]);
 ```
@@ -104,7 +103,7 @@ for more details.
 ### Create and end a Span
 
 ```javascript
-const span = tracer.startSpan('span-name');
+const span = tracer.startSpan("span-name");
 
 someAsyncOperation().then(() => span.end());
 ```
@@ -112,8 +111,8 @@ someAsyncOperation().then(() => span.end());
 ### Create a Span that started in the past
 
 ```javascript
-const span = tracer.startSpan('span-name', {
-  startTime: new Date().getTime()
+const span = tracer.startSpan("span-name", {
+  startTime: new Date().getTime(),
 });
 ```
 
@@ -121,23 +120,23 @@ const span = tracer.startSpan('span-name', {
 
 ```javascript
 // Add an attribute on create
-const span = tracer.startSpan('span-name', {
+const span = tracer.startSpan("span-name", {
   attributes: {
-    'my-attr-on-create': 'hello'
-  }
+    "my-attr-on-create": "hello",
+  },
 });
 
 // Add an attribute later on
-span.setAttribute('my-other-attr', 'bye');
+span.setAttribute("my-other-attr", "bye");
 ```
 
 ### Add an Event to a Span
 
 ```javascript
-const span = tracer.startSpan('span-name');
+const span = tracer.startSpan("span-name");
 
-span.addEvent('my-event', {
-  'some-event-attr': 'event-attr-value'
+span.addEvent("my-event", {
+  "some-event-attr": "event-attr-value",
 });
 ```
 
@@ -150,7 +149,7 @@ span.end(new Date().getTime());
 ### Stop a Span for an operation that failed
 
 ```javascript
-import { endAsFailed } from '@embrace-io/native-tracer-provider';
+import {endAsFailed} from "@embrace-io/native-tracer-provider";
 
 endAsFailed(span);
 ```
@@ -158,10 +157,10 @@ endAsFailed(span);
 ### Set a parent-child Span relationship
 
 ```javascript
-import { asParent } from '@embrace-io/native-tracer-provider';
+import {asParent} from "@embrace-io/native-tracer-provider";
 
-const parentSpan = tracer.startSpan('the-parent');
-const childSpan = tracer.startSpan('the-child', {}, asParent(parentSpan));
+const parentSpan = tracer.startSpan("the-parent");
+const childSpan = tracer.startSpan("the-child", {}, asParent(parentSpan));
 
 childSpan.end();
 parentSpan.end();
@@ -173,22 +172,22 @@ If an operation you wish to track has already completed you can use the `recordC
 start and stop a span in a single call passing along all the relevant options for the span:
 
 ```javascript
-import { recordCompletedSpan } from '@embrace-io/native-tracer-provider';
+import {recordCompletedSpan} from "@embrace-io/native-tracer-provider";
 
-recordCompletedSpan(tracer, 'my-completed-span', {
+recordCompletedSpan(tracer, "my-completed-span", {
   startTime: previouslyStartedTime,
   endTime: previouslyEndedTime,
   attributes: {
-    'my-attr': 'foo'
+    "my-attr": "foo",
   },
   events: [
     {
-      name: 'completed-span-event',
-      attributes: { 'event-attr': 'bar' },
-      timeStamp: spanEventTime
-    }
+      name: "completed-span-event",
+      attributes: {"event-attr": "bar"},
+      timeStamp: spanEventTime,
+    },
   ],
-  parent: someParentSpan
+  parent: someParentSpan,
 });
 ```
 

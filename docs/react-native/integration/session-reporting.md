@@ -56,7 +56,7 @@ const App = () => {
 export default App
 ```
 
-We expose also a hook that handles the initialization of embrace in a more React friendly way:
+We expose also a hook that handles the initialization of Embrace in a more React friendly way:
 
 ```javascript
 import React, { useEffect, useState } from 'react'

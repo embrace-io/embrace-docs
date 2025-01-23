@@ -5,13 +5,13 @@ sidebar_position: 8
 
 # OTLP Export
 
-Embrace provides the `@embrace-io/react-native-otlp` package that can be used to export telemetry into a backend of choise.
+Embrace provides the `@embrace-io/react-native-otlp` package that can be used to export telemetry into a backend of choice.
 
 The [OpenTelemetry Protocol](https://opentelemetry.io/docs/specs/otel/protocol/) (OTLP) is an open standard that enables the transfer of observability data—such as traces and logs—from applications to various monitoring and analytics backends. By adopting OTLP, developers can send telemetry data in a consistent format, making integration with multiple backends straightforward.
 
 This package provides an easy way to export trace and log data to any OTLP-compatible backend over HTTP. If the app_id / token values are provided the package also keeps sending telemetry data to Embrace, ensuring continuous observability with Embrace’s platform while allowing users to export data to other observability backends.
 
-For more information about how Android / iOS Native custom export work please visit the [Open Telemetry Integration](/open-telemetry/integration/) guide.
+For more information about how Android / iOS Native custom export work please visit the [OpenTelemetry Integration](/open-telemetry/integration/) guide.
 
 ## Install the package
 
@@ -27,47 +27,52 @@ yarn:
 yarn add @embrace-io/react-native-otlp
 ```
 
+For iOS you will also need to install or update pods for the application:
+
+```sh
+cd ios && pod install --repo-update
+```
+
 ## Implementation
 
 For this example we will use Grafana Cloud in terms of redirecting telemetry data over there using OTLP endpoints. For more information about this please visit their online [docs](https://grafana.com/docs/grafana-cloud/send-data/otlp/send-data-otlp/).
 
 ```javascript
-import React, { useEffect, useMemo, useState } from 'react';
-import { initialize as initEmbraceWithCustomExporters } from '@embrace-io/react-native-otlp';
-import { useEmbrace } from '@embrace-io/react-native';
-import { View, Text } from 'react-native';
-import { Stack } from 'expo-router';
+import React, {useEffect, useMemo, useState} from "react";
+import {useEmbrace} from "@embrace-io/react-native";
+import {View, Text} from "react-native";
+import {Stack} from "expo-router";
 
-const GRAFANA_TOKEN = '__GRAFANA_TOKEN__'; // `grafana_instance:token` converted into a base64 string.
+const GRAFANA_TOKEN = "__GRAFANA_TOKEN__"; // `grafana_instance:token` converted into a base64 string.
 const EXPORT_CONFIG = {
   logExporter: {
-    endpoint: 'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs',
+    endpoint: "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs",
     headers: [
       {
-        key: 'Authorization',
-        token: `Basic ${GRAFANA_TOKEN}`
-      }
-    ]
+        key: "Authorization",
+        token: `Basic ${GRAFANA_TOKEN}`,
+      },
+    ],
   },
   traceExporter: {
     endpoint:
-      'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces',
+      "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces",
     headers: [
       {
-        key: 'Authorization',
-        token: `Basic ${GRAFANA_TOKEN}`
-      }
-    ]
-  }
+        key: "Authorization",
+        token: `Basic ${GRAFANA_TOKEN}`,
+      },
+    ],
+  },
 };
 
 // iOS is configurable through code, Android configuration happens at build time
-const SDK_CONFIG = { appId: '__APP ID__' };
+const SDK_CONFIG = {appId: "__APP ID__"};
 
 function RootLayout() {
-  const { isPending, isStarted } = useEmbrace({
+  const {isPending, isStarted} = useEmbrace({
     ios: SDK_CONFIG,
-    exporters: EXPORT_CONFIG
+    exporters: EXPORT_CONFIG,
   });
 
   if (isPending) {
@@ -78,14 +83,14 @@ function RootLayout() {
     );
   } else {
     if (!isStarted) {
-      console.log('An error occurred during Embrace initialization');
+      console.log("An error occurred during Embrace initialization");
     }
   }
 
   // regular content of the application
   return (
     <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
     </Stack>
   );
 }
@@ -95,7 +100,7 @@ export default RootLayout;
 
 ## Initializing in the Native layer
 
-If you already have the Embrace React Native SDK initialized in the Native Side or if you are planning to run the install scripts mentioned in our docs section you could still get benefit of the OTLP custom export feature. Remember that the install scripts are adding the minimum code needed for initializing Embrace in the Native side but are not integrating the configuration for exporting the telemetry data into your backend of your choice. For this you would need to tweak manually both the Android/iOS sides.
+If you already have the Embrace React Native SDK initialized your native code or if you are planning to run the install scripts mentioned in our [docs section](react-native/integration/add-embrace-sdk/#native-setup) you could still get the benefit of the OTLP custom export feature. Remember that the install scripts are adding the minimum code needed for initializing Embrace in the Native side but are not integrating the configuration for exporting the telemetry data into your backend of your choice. For this you would need to manually tweak both the Android/iOS sides.
 
 ### iOS
 
@@ -151,7 +156,7 @@ Similar to iOS, if you already ran the install script you will see the following
 Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
 ```
 
-Tweak the `onCreate` method using this following this snippet to initialize the exporters with the minimum configuration needed. Notice that you already have all of what you need, so no extra imports are required into this file.
+Tweak the `onCreate` method using the following snippet to initialize the exporters with the minimum configuration needed. Notice that you already have all of what you need, so no extra imports are required into this file.
 
 ```kotlin
 // Preparing Span Exporter config with the minimum required
