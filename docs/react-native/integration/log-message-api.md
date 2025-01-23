@@ -21,8 +21,8 @@ You can log a message immediately by calling the `logMessage` function.
 import { logMessage } from '@embrace-io/react-native';
 
 logMessage('Loading not finished in time.', 'error', {
-	propertyA: 'valueA',
-	propertyB: 'valueB'
+  propertyA: 'valueA',
+  propertyB: 'valueB'
 });
 ```
 

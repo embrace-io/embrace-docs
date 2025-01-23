@@ -40,54 +40,54 @@ import { Stack } from 'expo-router';
 
 const GRAFANA_TOKEN = '__GRAFANA_TOKEN__'; // `grafana_instance:token` converted into a base64 string.
 const EXPORT_CONFIG = {
-	logExporter: {
-		endpoint: 'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs',
-		headers: [
-			{
-				key: 'Authorization',
-				token: `Basic ${GRAFANA_TOKEN}`
-			}
-		]
-	},
-	traceExporter: {
-		endpoint:
-			'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces',
-		headers: [
-			{
-				key: 'Authorization',
-				token: `Basic ${GRAFANA_TOKEN}`
-			}
-		]
-	}
+  logExporter: {
+    endpoint: 'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs',
+    headers: [
+      {
+        key: 'Authorization',
+        token: `Basic ${GRAFANA_TOKEN}`
+      }
+    ]
+  },
+  traceExporter: {
+    endpoint:
+      'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces',
+    headers: [
+      {
+        key: 'Authorization',
+        token: `Basic ${GRAFANA_TOKEN}`
+      }
+    ]
+  }
 };
 
 // iOS is configurable through code, Android configuration happens at build time
 const SDK_CONFIG = { appId: '__APP ID__' };
 
 function RootLayout() {
-	const { isPending, isStarted } = useEmbrace({
-		ios: SDK_CONFIG,
-		exporters: EXPORT_CONFIG
-	});
+  const { isPending, isStarted } = useEmbrace({
+    ios: SDK_CONFIG,
+    exporters: EXPORT_CONFIG
+  });
 
-	if (isPending) {
-		return (
-			<View>
-				<Text>Loading Embrace</Text>
-			</View>
-		);
-	} else {
-		if (!isStarted) {
-			console.log('An error occurred during Embrace initialization');
-		}
-	}
+  if (isPending) {
+    return (
+      <View>
+        <Text>Loading Embrace</Text>
+      </View>
+    );
+  } else {
+    if (!isStarted) {
+      console.log('An error occurred during Embrace initialization');
+    }
+  }
 
-	// regular content of the application
-	return (
-		<Stack>
-			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-		</Stack>
-	);
+  // regular content of the application
+  return (
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
+  );
 }
 
 export default RootLayout;

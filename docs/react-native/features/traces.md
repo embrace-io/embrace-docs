@@ -85,21 +85,17 @@ cd ios && pod install --repo-update
 Spans are created from a Tracer which you can get from the `useEmbraceNativeTracerProvider` hook:
 
 ```javascript
-import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
 import { Tracer } from '@opentelemetry/api';
+import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
 
 const { isLoading, isError, error, tracerProvider } =
-	useEmbraceNativeTracerProvider();
+  useEmbraceNativeTracerProvider();
 
-const tracer =
-	(useMemo < Tracer) |
-	(undefined >
-		(() => {
-			if (tracerProvider) {
-				return tracerProvider.getTracer('span-test', '1.0');
-			}
-		},
-		[tracerProvider]));
+const tracer = useMemo(() => {
+  if (tracerProvider) {
+    return tracerProvider.getTracer('span-test', '1.0');
+  }
+}, [tracerProvider]);
 ```
 
 See the [package README](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages/react-native-tracer-provider)
@@ -117,7 +113,7 @@ someAsyncOperation().then(() => span.end());
 
 ```javascript
 const span = tracer.startSpan('span-name', {
-	startTime: new Date().getTime()
+  startTime: new Date().getTime()
 });
 ```
 
@@ -126,9 +122,9 @@ const span = tracer.startSpan('span-name', {
 ```javascript
 // Add an attribute on create
 const span = tracer.startSpan('span-name', {
-	attributes: {
-		'my-attr-on-create': 'hello'
-	}
+  attributes: {
+    'my-attr-on-create': 'hello'
+  }
 });
 
 // Add an attribute later on
@@ -141,7 +137,7 @@ span.setAttribute('my-other-attr', 'bye');
 const span = tracer.startSpan('span-name');
 
 span.addEvent('my-event', {
-	'some-event-attr': 'event-attr-value'
+  'some-event-attr': 'event-attr-value'
 });
 ```
 
@@ -180,19 +176,19 @@ start and stop a span in a single call passing along all the relevant options fo
 import { recordCompletedSpan } from '@embrace-io/native-tracer-provider';
 
 recordCompletedSpan(tracer, 'my-completed-span', {
-	startTime: previouslyStartedTime,
-	endTime: previouslyEndedTime,
-	attributes: {
-		'my-attr': 'foo'
-	},
-	events: [
-		{
-			name: 'completed-span-event',
-			attributes: { 'event-attr': 'bar' },
-			timeStamp: spanEventTime
-		}
-	],
-	parent: someParentSpan
+  startTime: previouslyStartedTime,
+  endTime: previouslyEndedTime,
+  attributes: {
+    'my-attr': 'foo'
+  },
+  events: [
+    {
+      name: 'completed-span-event',
+      attributes: { 'event-attr': 'bar' },
+      timeStamp: spanEventTime
+    }
+  ],
+  parent: someParentSpan
 });
 ```
 
