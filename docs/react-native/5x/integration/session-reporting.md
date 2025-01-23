@@ -29,26 +29,26 @@ import TabItem from '@theme/TabItem';
 <TabItem value="ios" label="Component">
 
 ```javascript
-import {initialize} from '@embrace-io/react-native';
+import { initialize } from '@embrace-io/react-native';
 
 export default class App extends Component {
-  componentDidMount() {
-    
-    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-    initialize({
-      sdkConfig: {
-        ios: {
-          appId: "abcdf",
-        }
-      }
-    }).then(hasStarted=>{
-      if(hasStarted){
-          //doSomething
-      }
-    });
-  }
+	componentDidMount() {
+		// Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
+		initialize({
+			sdkConfig: {
+				ios: {
+					appId: 'abcdf'
+				}
+			}
+		}).then(hasStarted => {
+			if (hasStarted) {
+				//doSomething
+			}
+		});
+	}
 }
 ```
+
 </TabItem>
 <TabItem value="hooks" label="Hooks">
 
@@ -83,8 +83,9 @@ export default App
 </Tabs>
 
 :::info Note for initialize method
-The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
+The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else.
 :::
+
 ## Starting Embrace SDK from Android / iOS
 
 Initializing the Embrace SDK from the JavaScript side as shown above will automatically initialize the underlying native
@@ -94,7 +95,7 @@ control over exactly when the SDK starts. However, if you want to start applying
 has started, or if you have custom configuration then you can perform the initialization on the native side as shown in
 this section.
 
-:::info 
+:::info
 If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/5x/integration/add-embrace-sdk/#setup-script)
 then these steps will already have been completed for you
 :::
@@ -129,10 +130,10 @@ import EmbraceIO
 
 :::warning
 Once the iOS SDK is being initialized in this way any configuration any parameters passed through the JS side with
-`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK by following [these steps](/ios/open-source/integration/embrace-options/). 
+`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK by following [these steps](/ios/open-source/integration/embrace-options/).
 :::
 
-If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the 
+If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the
 `application` method in your app delegate like:
 
 ```swift

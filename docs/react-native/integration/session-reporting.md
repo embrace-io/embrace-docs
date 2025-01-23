@@ -49,7 +49,7 @@ const App = () => {
 
   // regular content of the application
   return (
-    ... 
+    ...
   );
 }
 
@@ -85,7 +85,7 @@ const App = () => {
 
   // regular content of the application
   return (
-    ...  
+    ...
   );
 }
 
@@ -96,7 +96,7 @@ In both cases we recommend to use these methods to initialize the React Native E
 
 ## Start Embrace SDK in the Native side
 
-:::info 
+:::info
 If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk/#setup-script)
 then these steps will already have been completed for you
 :::
@@ -142,10 +142,10 @@ import EmbraceIO
 
 :::warning
 Once the iOS SDK is being initialized in this way any configuration any parameters passed through the JavaScript side with
-`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK by following [these steps](/ios/open-source/integration/embrace-options/). 
+`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK by following [these steps](/ios/open-source/integration/embrace-options/).
 :::
 
-If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the 
+If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the
 `application` method in your app delegate like:
 
 ```swift

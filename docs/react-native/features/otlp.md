@@ -7,7 +7,7 @@ sidebar_position: 8
 
 Embrace provides the `@embrace-io/react-native-otlp` package that can be used to export telemetry into a backend of choise.
 
-The [OpenTelemetry Protocol](https://opentelemetry.io/docs/specs/otel/protocol/) (OTLP) is an open standard that enables the transfer of observability data—such as traces and logs—from applications to various monitoring and analytics backends. By adopting OTLP, developers can send telemetry data in a consistent format, making integration with multiple backends straightforward. 
+The [OpenTelemetry Protocol](https://opentelemetry.io/docs/specs/otel/protocol/) (OTLP) is an open standard that enables the transfer of observability data—such as traces and logs—from applications to various monitoring and analytics backends. By adopting OTLP, developers can send telemetry data in a consistent format, making integration with multiple backends straightforward.
 
 This package provides an easy way to export trace and log data to any OTLP-compatible backend over HTTP. If the app_id / token values are provided the package also keeps sending telemetry data to Embrace, ensuring continuous observability with Embrace’s platform while allowing users to export data to other observability backends.
 
@@ -32,62 +32,62 @@ yarn add @embrace-io/react-native-otlp
 For this example we will use Grafana Cloud in terms of redirecting telemetry data over there using OTLP endpoints. For more information about this please visit their online [docs](https://grafana.com/docs/grafana-cloud/send-data/otlp/send-data-otlp/).
 
 ```javascript
-import React, {useEffect, useMemo, useState} from "react";
-import {initialize as initEmbraceWithCustomExporters} from "@embrace-io/react-native-otlp";
-import {useEmbrace} from "@embrace-io/react-native";
-import {View, Text} from "react-native";
-import {Stack} from "expo-router";
+import React, { useEffect, useMemo, useState } from 'react';
+import { initialize as initEmbraceWithCustomExporters } from '@embrace-io/react-native-otlp';
+import { useEmbrace } from '@embrace-io/react-native';
+import { View, Text } from 'react-native';
+import { Stack } from 'expo-router';
 
-const GRAFANA_TOKEN = "__GRAFANA_TOKEN__"; // `grafana_instance:token` converted into a base64 string.
+const GRAFANA_TOKEN = '__GRAFANA_TOKEN__'; // `grafana_instance:token` converted into a base64 string.
 const EXPORT_CONFIG = {
-  logExporter: {
-    endpoint: "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs",
-    headers: [
-      {
-        key: "Authorization",
-        token: `Basic ${GRAFANA_TOKEN}`,
-      },
-    ],
-  },
-  traceExporter: {
-    endpoint:
-      "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces",
-    headers: [
-      {
-        key: "Authorization",
-        token: `Basic ${GRAFANA_TOKEN}`,
-      },
-    ],
-  },
+	logExporter: {
+		endpoint: 'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs',
+		headers: [
+			{
+				key: 'Authorization',
+				token: `Basic ${GRAFANA_TOKEN}`
+			}
+		]
+	},
+	traceExporter: {
+		endpoint:
+			'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces',
+		headers: [
+			{
+				key: 'Authorization',
+				token: `Basic ${GRAFANA_TOKEN}`
+			}
+		]
+	}
 };
 
 // iOS is configurable through code, Android configuration happens at build time
-const SDK_CONFIG = {appId: "__APP ID__"};
+const SDK_CONFIG = { appId: '__APP ID__' };
 
 function RootLayout() {
-  const {isPending, isStarted} = useEmbrace({
-    ios: SDK_CONFIG,
-    exporters: EXPORT_CONFIG
-  });
+	const { isPending, isStarted } = useEmbrace({
+		ios: SDK_CONFIG,
+		exporters: EXPORT_CONFIG
+	});
 
-  if (isPending) {
-    return (
-      <View>
-        <Text>Loading Embrace</Text>
-      </View>
-    );
-  } else {
-    if (!isStarted) {
-      console.log('An error occurred during Embrace initialization');
-    }
-  }
+	if (isPending) {
+		return (
+			<View>
+				<Text>Loading Embrace</Text>
+			</View>
+		);
+	} else {
+		if (!isStarted) {
+			console.log('An error occurred during Embrace initialization');
+		}
+	}
 
-  // regular content of the application
-  return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
-    </Stack>
-  );
+	// regular content of the application
+	return (
+		<Stack>
+			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+		</Stack>
+	);
 }
 
 export default RootLayout;
@@ -119,14 +119,14 @@ let GRAFANA_LOGS_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/
                 headers: [("Authorization", GRAFANA_AUTH_TOKEN)]
             )
           )
-          
+
           // Preparing Log Exporter config with the minimum required
           let logExporter = OtlpHttpLogExporter(endpoint: URL(string: GRAFANA_LOGS_ENDPOINT)!,
              config: OtlpConfiguration(
                 headers: [("Authorization", GRAFANA_AUTH_TOKEN)]
              )
           )
-          
+
           try Embrace
               .setup(
                   options: Embrace.Options(

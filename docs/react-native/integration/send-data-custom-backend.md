@@ -14,7 +14,7 @@ For Android both values can be omitted in the `embrace-config.json` file. For mo
 
 ## iOS
 
-For iOS the *appId* can be ommited as well when the SDK is initialized and configured through the code.
+For iOS the _appId_ can be ommited as well when the SDK is initialized and configured through the code.
 
 :::info SDK initialized in the Native side
 If you already have the React Native Embrace SDK initialized in the Native Side or if you are planning to run the install scripts you would need to tweak manually both the Android/iOS sides.
