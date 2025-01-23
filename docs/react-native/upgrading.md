@@ -82,7 +82,7 @@ function App() {
 
   const {tracerProvider} = useEmbraceNativeTracerProvider();
 
-	return (
+  return (
     // `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
     <NavigationContainer ref={navigationRefVal}>
       <EmbraceNavigationTracker
@@ -95,7 +95,7 @@ function App() {
         <Screens... />
       </EmbraceNavigationTracker>
     </NavigationContainer>
-	);
+  );
 }
 ```
 
@@ -251,20 +251,19 @@ import React, {useEffect, useState} from 'react'
 import {initialize} from '@embrace-io/react-native';
 
 const App = ()=> {
-
-  useEffect(()=>{
+  useEffect(() => {
     initialize({
       sdkConfig: {
         ios: {
           appId: "__APP_ID__",
         }
       }
-    }).then(hasStarted=>{
+    }).then(hasStarted => {
       if (hasStarted) {
-         //doSomething
+         // do something
       }
     });
-  },[])
+  }, []);
 
  return ...
 }
