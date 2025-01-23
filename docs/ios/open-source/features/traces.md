@@ -15,28 +15,28 @@ Embrace’s Traces gives you complete visibility into any customized operation y
 The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record past operations.
-    - For real-time tracing, we use a “Stopwatch” concept that enables you to start and stop the timing of a span manually
-    - To record a past operation, you can pass in start and end times during span creation.
+  - For real-time tracing, we use a “Stopwatch” concept that enables you to start and stop the timing of a span manually
+  - To record a past operation, you can pass in start and end times during span creation.
 - Create child spans that can be attached to a parent.
 - Add attributes and events to each span
-    - Attributes have `String` keys and `String` values
-    - Events also have a set of attributes that have `String` keys and values.
+  - Attributes have `String` keys and `String` values
+  - Events also have a set of attributes that have `String` keys and values.
 
 There is no limit on the duration of spans, but **if a crash occurs during a span that is in progress, that span will not be recorded.**
 
 ### Limits
 
-| Type  | Limit |
-| --- | --- |
-| Max number of spans per session  | 100 |
-| Max number of spans per Root Span | 10 |
-| Max number of attributes per span | 50  |
-| Max number of events per span | 10 |
-| Max number of attributes per event  | 10 |
-| Length of attribute keys | 50 characters |
-| Length of attribute values | 200 characters |
-| Length of Span names | 50 characters |
-| Length of Event names | 100 characters |
+| Type                               | Limit          |
+| ---------------------------------- | -------------- |
+| Max number of spans per session    | 100            |
+| Max number of spans per Root Span  | 10             |
+| Max number of attributes per span  | 50             |
+| Max number of events per span      | 10             |
+| Max number of attributes per event | 10             |
+| Length of attribute keys           | 50 characters  |
+| Length of attribute values         | 200 characters |
+| Length of Span names               | 50 characters  |
+| Length of Event names              | 100 characters |
 
 :::warning Exceeding Limits
 If you exceed the listed limits, the operation with the limit-exceeding call will fail and return a value indicating that there is a failure. See the API documentation for details.
@@ -61,7 +61,7 @@ To use this feature:
 
 ### Create SpanBuilder
 
-To trace an in-progress operation, use the `Embrace.client` instance to create a `Span`. This span is atop the OpenTelemetry API and builds an OTel-exportable span. 
+To trace an in-progress operation, use the `Embrace.client` instance to create a `Span`. This span is atop the OpenTelemetry API and builds an OTel-exportable span.
 
 Note: Until the span is started, the `.buildSpan` method below and any decorators return a `SpanBuilder` object.
 
@@ -131,7 +131,7 @@ You can add [Events](https://opentelemetry.io/docs/languages/swift/instrumentati
 ```swift
 // Add span events to mark points in time
 span.addEvent(
-    name: "image-render-complete", 
+    name: "image-render-complete",
     attributes: [ "size" : .int(3) ],
     timestamp: Date.now
 )
@@ -182,8 +182,6 @@ Embrace
 
 To, for example, store a Span in object scope, you will need to import `Span` from the [OpenTelemetry API](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/OpenTelemetryApi):
 
-
-
 ```swift
 /* ******************************* */
 // Imports for new object
@@ -193,7 +191,7 @@ import OpenTelemetryApi
 
 // New object definition
 class MyClass {
-    
+
     // Create a Span property that will be available across the object
     var activitySpan: Span? = nil // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
 

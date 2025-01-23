@@ -15,28 +15,28 @@ Embrace’s Traces solution gives you complete visibility into any customized op
 The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record past operations.
-    - For real-time tracing, we use a “Stopwatch” concept that enables you to start and stop the timing of a span manually
-    - To record a past operation, you can pass in start and end times during span creation.
+  - For real-time tracing, we use a “Stopwatch” concept that enables you to start and stop the timing of a span manually
+  - To record a past operation, you can pass in start and end times during span creation.
 - Create child spans that can be attached to a parent.
 - Add attributes and events to each span
-    - Attributes have String keys and String values
-    - Events also have a set of attributes that have String keys and values.
+  - Attributes have String keys and String values
+  - Events also have a set of attributes that have String keys and values.
 
 There is no limit on the duration of spans, but **if a crash occurs during a span that is in progress, that span will not be recorded.**
 
 ### Limits
 
-| Type  | Limit |
-| --- | --- |
-| Max number of span per session  | 100 |
-| Max number of spans per Root Span | 10 |
-| Max number of attributes per span | 50  |
-| Max number of events per span | 10 |
-| Max number of attributes per event  | 10 |
-| Length of attribute keys | 50 characters |
-| Length of attribute values | 200 characters |
-| Length of Span names | 50 characters |
-| Length of Event names | 100 characters |
+| Type                               | Limit          |
+| ---------------------------------- | -------------- |
+| Max number of span per session     | 100            |
+| Max number of spans per Root Span  | 10             |
+| Max number of attributes per span  | 50             |
+| Max number of events per span      | 10             |
+| Max number of attributes per event | 10             |
+| Length of attribute keys           | 50 characters  |
+| Length of attribute values         | 200 characters |
+| Length of Span names               | 50 characters  |
+| Length of Event names              | 100 characters |
 
 :::warning Exceeding Limits
 If you exceed the listed limits, the operation with the limit-exceeding call will fail and return a value indicating that. See the API documentation for details.

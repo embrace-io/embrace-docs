@@ -32,7 +32,13 @@ yarn add @embrace-io/react-native-navigation
 
 ## Setup in your code
 
-Using `expo-router`:
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="packages" queryString="packages">
+<TabItem value="expo-router" label="expo-router">
 
 ```javascript
 import React from "react";
@@ -48,12 +54,10 @@ const App = () => {
     },
   });
 
-  // In both cases you have to make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
+  // make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
   const {tracerProvider, isLoading: isLoadingTracerProvider} =
     useEmbraceNativeTracerProvider({}, isStarted);
 
-  // If you do not use `expo-router` the same hook is also available in `@react-navigation/native` since `expo-router` is built on top of it.
-  // Make sure this ref is passed also to the navigation container at the root of your app (if not, the ref would be empty and you will get a console.warn message instead).
   const expoNavigationRef = useNavigationContainerRef();
 
   if (isLoadingTracerProvider || tracerProvider === null) {
@@ -71,9 +75,9 @@ const App = () => {
       // These static attributes will be passed into each created span
       screenAttributes={{
         "static.attribute": 123456,
-        "custom.key": "abcd...",
+        "custom.key": "custom.value",
       }}>
-      ... navigation
+      {/* rest of the navigation */}
     </EmbraceNavigationTracker>
   );
 };
@@ -81,7 +85,9 @@ const App = () => {
 export default App;
 ```
 
-If you are using purely [@react-navigation/native](https://github.com/react-navigation/react-navigation):
+</TabItem>
+
+<TabItem value="react-navigation/native" label="@react-navigation/native">
 
 ```javascript
 import React from "react";
@@ -92,8 +98,6 @@ import {
   useNavigationContainerRef,
 } from "@react-navigation/native";
 import {useEmbrace} from "@embrace-io/react-native";
-import CartPage from "screens/CartPage";
-import CheckoutPage from "screens/CheckoutPage";
 
 const App = () => {
   const {isPending, isStarted} = useEmbrace({
@@ -126,9 +130,9 @@ const App = () => {
         tracerProvider={tracerProvider}
         screenAttributes={{
           "static.attribute": 123456,
-          "custom.key": "abcd...",
+          "custom.key": "custom.value",
         }}>
-        ... navigation
+        {/* rest of the navigation */}
       </EmbraceNavigationTracker>
     </NavigationContainer>
   );
@@ -137,7 +141,10 @@ const App = () => {
 export default App;
 ```
 
-NOTE: If you are using [@react-navigation/native](https://github.com/react-navigation/react-navigation) you need to wrap your entire application with the `NavigationTracker` component as described in their official documentation.
+Do not forget to wrap your entire application with the `NavigationTracker` component as described in their official documentation.
+</TabItem>
+
+<TabItem value="react-native-navigation" label="react-native-navigation">
 
 If you are using [react-native-navigation](https://wix.github.io/react-native-navigation/) you are also able to track navigation changes.
 You have to make sure you wrap your entry view with the `<EmbraceNativeNavigationTracker />` component and initialize Embrace as soon as possible to avoid missing telemetry data.
@@ -192,20 +199,23 @@ const initApp = async () => {
     () => HomeScreen,
   );
 
-  // ... rest of registration and configuration
+  // rest of registration and configuration
 };
 
 // entry point of the app
 initApp();
 ```
 
+</TabItem>
+</Tabs>
+
 ### Disable Auto Tracking for Native Screens
 
 Embrace automatically collects the native screens, if you do not want to see them in the session you can disable it.
 
-#### Android:
-
-Go to your embrace-config.json inside android/app/src/main and add the sdk_config, your file should be like this
+<Tabs groupId="disable-auto-native-screen-tracking" queryString="disable-auto-native-screen-tracking">
+<TabItem value="android" label="Android">
+Go to your `embrace-config.json` inside `android/app/src/main` and add the `sdk_config`, your file should be like this
 
 ```json
 {
@@ -220,7 +230,9 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 }
 ```
 
-#### iOS:
+</TabItem>
+
+<TabItem value="ios" label="iOS">
 
 If you used the automated installation script or followed the manual steps for setting up the iOS SDK then you can
 modify the setup in `EmbraceInitializer.swift` to remove the view capture service, see [Configurating the iOS SDK](/ios/open-source/integration/embrace-options/)
@@ -255,16 +267,19 @@ import EmbraceCrash
 }
 ```
 
-If instead you only initialized the SDK through JS then the `disableAutomaticViewCapture` property can be set during the
+</TabItem>
+</Tabs>
+
+If instead you only initialized the SDK through JavaScript then the `disableAutomaticViewCapture` property can be set during the
 call to initialize the SDK:
 
 ```javascript
 const App = () => {
-  const { isPending, isStarted } = useEmbrace({
+  const {isPending, isStarted} = useEmbrace({
     ios: {
-      appId: '__APP_ID__',
-      disableAutomaticViewCapture: true // disabling the feature
-    }
+      appId: "__APP_ID__",
+      disableAutomaticViewCapture: true, // disabling the feature
+    },
   });
 
   if (isPending) {
@@ -275,14 +290,13 @@ const App = () => {
     );
   } else {
     if (!isStarted) {
-      console.log('An error occurred during Embrace initialization');
+      console.log("An error occurred during Embrace initialization");
     }
   }
 
-  // regular content of the application
   return (
-    ...
-  );
+    /* regular content of the application */
+  )
 };
 
 export default App;

@@ -100,11 +100,14 @@ export default RootLayout;
 
 ## Initializing in the Native layer
 
-If you already have the Embrace React Native SDK initialized your native code or if you are planning to run the install scripts mentioned in our [docs section](react-native/integration/add-embrace-sdk/#native-setup) you could still get the benefit of the OTLP custom export feature. Remember that the install scripts are adding the minimum code needed for initializing Embrace in the Native side but are not integrating the configuration for exporting the telemetry data into your backend of your choice. For this you would need to manually tweak both the Android/iOS sides.
+If you already have the Embrace React Native SDK initialized your native code or if you are planning to run the install scripts mentioned in our [docs section](react-native/integration/add-embrace-sdk#native-setup) you could still get the benefit of the OTLP custom export feature. Remember that the install scripts are adding the minimum code needed for initializing Embrace in the Native side but are not integrating the configuration for exporting the telemetry data into your backend of your choice. For this you would need to manually tweak both the Android/iOS sides.
 
 ### iOS
 
 If you already ran the install script mentioned above you would be able to find the `EmbraceInitializer.swift` file with some initial code that you can update:
+
+<Tabs groupId="ios-otlp-native-layer" queryString="ios-otlp-native-layer">
+<TabItem value="swift" label="Swift">
 
 ```swift
 import Foundation
@@ -148,6 +151,9 @@ let GRAFANA_LOGS_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Android
 
 Similar to iOS, if you already ran the install script you will see the following line already in place in your `MainApplication` file:
@@ -157,6 +163,14 @@ Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
 ```
 
 Tweak the `onCreate` method using the following snippet to initialize the exporters with the minimum configuration needed. Notice that you already have all of what you need, so no extra imports are required into this file.
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs groupId="android-otlp-native-layer" queryString="android-otlp-native-layer">
+<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
 // Preparing Span Exporter config with the minimum required
@@ -175,5 +189,30 @@ Embrace.getInstance().addLogRecordExporter(logExporter.build())
 // This is the line already added by the install script
 Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
 ```
+
+</TabItem>
+
+<TabItem value="java" label="Java">
+
+```java
+// Preparing Span Exporter config with the minimum required
+OtlpHttpSpanExporter spanExporter = OtlpHttpSpanExporter.builder()
+                                .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces")
+                                .addHeader("Authorization", "Basic __YOUR TOKEN__")
+
+// Preparing Log Exporter config with the minimum required
+OtlpHttpLogRecordExporter logExporter = OtlpHttpLogRecordExporter.builder()
+                                .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs")
+                                .addHeader("Authorization", "Basic __YOUR TOKEN__")
+
+Embrace.getInstance().addSpanExporter(spanExporter.build())
+Embrace.getInstance().addLogRecordExporter(logExporter.build())
+
+// This is the line already added by the install script
+Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
+```
+
+</TabItem>
+</Tabs>
 
 In case you want to avoid sending telemetry into Embrace you could do it by removing the app_id/token values from each Platform configuration. For more information please visit how to [Send data outside Embrace](/react-native/integration/send-data-custom-backend/).

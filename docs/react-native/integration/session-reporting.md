@@ -56,6 +56,8 @@ const App = () => {
 export default App
 ```
 
+## Using hooks
+
 We expose also a hook that handles the initialization of Embrace in a more React friendly way:
 
 ```javascript
@@ -97,7 +99,7 @@ In both cases we recommend to use these methods to initialize the React Native E
 ## Start Embrace SDK in the Native side
 
 :::info
-If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk/#setup-script)
+If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk#setup-script)
 then these steps will already have been completed for you
 :::
 
