@@ -102,7 +102,7 @@ export default RootLayout;
 
 If you already have the Embrace React Native SDK initialized your native code or if you are planning to run the install scripts mentioned in our [docs section](/react-native/integration/add-embrace-sdk/#native-setup) you could still get the benefit of the OTLP custom export feature. Remember that the install scripts are adding the minimum code needed for initializing Embrace in the Native side but are not integrating the configuration for exporting the telemetry data into your backend of your choice. For this you would need to manually tweak both the Android/iOS sides.
 
-## iOS
+### iOS
 
 If you already ran the install script mentioned above you would be able to find the `EmbraceInitializer.swift` file with some initial code that you can update:
 
@@ -154,7 +154,7 @@ let GRAFANA_LOGS_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/
 </TabItem>
 </Tabs>
 
-## Android
+### Android
 
 Similar to iOS, if you already ran the install script you will see the following line already in place in your `MainApplication` file:
 
