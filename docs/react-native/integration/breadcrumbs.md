@@ -10,7 +10,7 @@ sidebar_position: 7
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting/) and [Session Reporting](/react-native/integration/session-reporting/) sections.
 Embrace can also collect your logging data and include it as context within your sessions.
-Here's how you add a Breadcrumb to the session.
+Here's how you add a Breadcrumb to the session:
 
 ```javascript
 import {addBreadcrumb} from '@embrace-io/react-native';

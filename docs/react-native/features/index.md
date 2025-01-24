@@ -16,6 +16,7 @@ how your application is performing in production.
 - [**Track Redux Actions.**](/react-native/features/redux-actions/) Add instrumentation for dispatching of Redux actions.
 - [**Track Screen Orientation.**](/react-native/features/screen-orientation/) Track when the screen orientation switches.
 - [**Report Render Errors.**](/react-native/features/render-errors) Automatic logging of React Native rendering errors.
+- [**Report Unhandled Promise Rejections.**](/react-native/features/unhandled-promise-rejections/) Add logging for unhandled promise rejections.
 - [**OTLP Export.**](/react-native/features/otlp) Export data to OTLP endpoints beyond Embrace.
 - [**Network Spans Forwarding.**](/react-native/features/network-spans-forwarding) Correlate network spans between Embrace and your backend monitoring.
 - [**Retrieve Session Metadata.**](/react-native/features/session-metadata) Various APIs that programmatically provide information about the user's session.

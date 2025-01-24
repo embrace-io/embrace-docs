@@ -1,6 +1,6 @@
 ---
 title: Retrieve Session Metadata
-sidebar_position: 10
+sidebar_position: 11
 ---
 
 # Retrieve Session Metadata
