@@ -1,7 +1,7 @@
 ---
 title: Honeycomb Integration
 description: Learn about the Embrace <> Honeycomb integration
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Honeycomb Integration

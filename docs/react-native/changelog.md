@@ -6,6 +6,18 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 
+## 5.2.0
+_January 06, 2025_
+* Published new `@embrace-io/react-native-otlp` package that allows sending data to a Backend of preference (besides Embrace) following the OTLP-http protocols.
+* `@embrace-io/react-native` now supports [Network Span Forwarding](/react-native/features/network-spans-forwarding.md) 
+* Updated iOS native Embrace SDK dependency to [version 6.6.0](/ios/changelog/#660)
+## 5.1.0
+_December 16, 2024_
+* Updated Android native Embrace SDK dependency to version 6.14.0
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
+* Guard against possible unhandled exceptions
+* Provide a default bundle path on iOS
+* Internal refactor and dependency updates to make packages that deal with native code more consistent
 ## 5.0.2
 _October 31, 2024_
 * Updated iOS native Embrace SDK dependency to 6.5.1.
@@ -36,6 +48,9 @@ _July 04, 2024_
 * Added startTimeMs in startSpan
 * Added endTimeMs in stopSpan
 * Updated iOS native Embrace SDK dependency to 5.25.2.
+## 4.1.3
+_December 17, 2024_
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
 ## 4.1.2
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.

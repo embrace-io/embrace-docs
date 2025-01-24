@@ -12,6 +12,10 @@ Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the 
 
 For further information, please refer to this discussion: https://github.com/CocoaPods/CocoaPods/issues/11960
 :::
+
+:::warning Info
+You should [remove the Embrace scoped registry](/unity/upgrade-guide/#remove-scoped-registry) from your project if it was added by a previous version of the Embrace SDK.
+:::
 * Upgrade of Embrace iOS dependency to 6.6.0
 * Removal of automated scoped registry functionality
 * Removal of integration guide steps in lieu of documentation

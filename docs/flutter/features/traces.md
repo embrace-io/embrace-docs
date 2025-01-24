@@ -87,15 +87,38 @@ if (span != null) {
 To send telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) directly from your app you can setup a [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter). When configured, telemetry will be sent to these exporters as soon as they are recorded. More than one exporter of each signal can be configured, but be aware of the performance impact of sending too many network requests if that is applicable.
 
 :::info
-All telemetry in Embrace's Flutter SDK is routed through Embrace's Android/iOS SDKs so it's necessary to configure Android/iOS code to send Dart telemetry to your desired destination.
+All telemetry in Embrace's Flutter SDK is routed through Embrace's Android/iOS SDKs. You should configure Android/iOS exporters before initializing the SDK in order to send Dart telemetry to your desired destination.
 :::
 
 ### Android OTel export
-Please follow [this guide](/android/features/traces) to setup OpenTelemetry collectors on Android.
+Please follow [this guide](/android/features/traces/#export-to-opentelemetry-collectors) to setup OpenTelemetry exporters on Android.
 
 ### iOS OTel export
-Please follow [this guide](/ios/open-source/features/otel-exporter) to setup OpenTelemetry collectors on iOS.
+Please follow [this guide](/ios/open-source/features/otel-exporter) for details on setting up OpenTelemetry exporters on iOS.
+
+Exporters are set when the SDK is [configured](/flutter/integration/add-embrace-sdk/#ios-setup). A sample implementation might look like:
+
+```swift
+try Embrace
+                .setup(
+                    options: Embrace.Options(
+                        appId: "", // Your App ID from Embrace Dash
+                        platform: .flutter,
+                        export: OpenTelemetryExport(
+                            spanExporter: OtlpHttpTraceExporter(
+                                endpoint: URL(string: "https://otelcollector-gateway.mydomain.com/v1/traces")!,
+                                useSession: URLSession(configuration: myAuthorizedConfiguration)
+                            ),
+                            logExporter: OtlpHttpLogExporter(
+                                endpoint: URL(string: "https://otelcollector-gateway.mydomain.com/v1/logs")!,
+                                useSession: URLSession(configuration: myAuthorizedConfiguration)
+                            )
+                        )
+                    )
+                )
+                .start()
+```
 
 :::info
-Please note the OpenTelemetry-Swift repository does not support Cocoapods so you will be unable to import ready-made exporters directly. We recommend adding a new file that implements `SpanExporter` or `LogRecordExporter` directly, and using the ready-made exporters as reference implementations.
+Please note the OpenTelemetry-Swift repository does not support Cocoapods, so you will be unable to import ready-made exporters directly. We recommend adding a new file that implements a Swift [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) directly, and using the ready-made exporters as reference implementations.
 :::

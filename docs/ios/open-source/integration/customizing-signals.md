@@ -1,25 +1,18 @@
 ---
-title: Customizing Signals
-description: Customize the Signals You Receive From Embrace
+title: Autoinstrumentation
+description: Choose Your Autoinstrumentation
 sidebar_position: 4
 ---
 
-# Customize the Signals You Receive From Embrace
+# Choose Your Autoinstrumentation
 
 The Embrace Apple SDK is built to provide automatic instrumentation for the most important mobile signals, right out of the box. However, it is possible to customize the signals that you receive when you [set up](/ios/open-source/integration/embrace-options.md) the SDK.
 
 ## Automatic Signals
 
-With the [convenience initializer](/ios/open-source/integration/embrace-options/#configuration-options) provided for initial setup, the SDK adds a default set of [CaptureServices](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift) objects that instrument the app automatically. Each service is an extension of that base class, and so each service is instrumented to capture its signals and map them to OpenTelemetry spans.
+With the [convenience initializer](/ios/open-source/integration/embrace-options/#setup-options) provided for initial setup, the SDK adds a default set of [CaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift) objects that instrument the app automatically. Each service is an extension of that base class, and so each service is instrumented to capture its signals and map them to OpenTelemetry spans.
 
-The services pre-configured by default in the [CaptureServiceBuilder](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceIO/Capture/CaptureServiceBuilder.swift#L42) are:
-
-- `URLSessionCaptureService`: generates OpenTelemetry spans for network requests that use `URLSession`.
-- `TapCaptureService`: generates OpenTelemetry span events for taps on the screen.
-- `ViewCaptureService`: generates OpenTelemtry spans for `UIViewControllers`.
-- `WebViewCaptureService`: generates OpenTelemetry span events when a `WKWebView` loads an URL or throws an error.
-- `LowMemoryWarningCaptureService`: generates OpenTelemetry span events when the application receives a low memory warning.
-- `LowPowerModeCaptureService`: generates OpenTelemetry spans when the phone is running in low power mode.
+For a detailed explanation on what each service does go [here](/ios/open-source/features/capture-services/index.md).
 
 ## Customizing the Signals You Receive
 
@@ -95,4 +88,4 @@ public class ScreenshotCaptureService: CaptureService {
 
 Additional configuration, especially to the [session span](/ios/open-source/#how-we-built-it), would be necessary to make this CaptureService useful, but you can see here how intuitive it is to add your own automatic instrumentation. 
 
-Consider opening a pull request on the SDK's [GitHub repository](https://github.com/embrace-io/embrace-apple-sdk/) with any instrumentation you've found useful!
+Consider opening a pull request on the Apple SDK's [GitHub repository](https://github.com/embrace-io/embrace-apple-sdk/) with any instrumentation you've found useful!
