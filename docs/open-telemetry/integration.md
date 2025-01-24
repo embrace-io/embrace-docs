@@ -177,7 +177,8 @@ try? Embrace
 
 ### React Native
 
-The Embrace React Native SDK also has the ability to configure custom [OTLP exporters](/react-native/features/otlp) by passing some configuration when initializing Embrace. The Native side implements internally the Android/Apple exporters as described above letting this Hosted SDK to send telemetry data to any backend.
+The Embrace React Native SDK also has the ability to configure custom [OTLP exporters](/react-native/features/otlp) by passing some configuration when initializing Embrace.
+The Native side internally implements the Android/Apple exporters as described above letting this Hosted SDK send telemetry data to any backend.
 
 ```javascript
 const {isPending, isStarted} = useEmbrace({

@@ -219,7 +219,7 @@ Go to your `embrace-config.json` inside `android/app/src/main` and add the `sdk_
 {
   "app_id": "__APP_ID__",
   "api_token": "__API_TOKEN__",
-  // Add this lines
+  // Add these lines
   "sdk_config": {
     "view_config": {
       "enable_automatic_activity_capture": false

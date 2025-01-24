@@ -10,9 +10,9 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 :::info Summary
 
-- Removal of various packages and methods, see sections below for details on specific migrations
+- Removal or replacement of various packages and methods, see sections below for details on specific migrations
 - Automatic support for CodePush has been removed
-- TODO
+- Unhandled promise rejection tracking is now opt-in
   :::
 
 Upgrade to the latest 6.x versions of the Embrace React Native SDK packages by either bumping to the latest version
@@ -25,6 +25,27 @@ Then install the latest Cocoapods with:
 cd ios && pod install --repo-update
 ```
 
+### Deprecated Packages
+
+| Package                                              | Comments                                                                    |
+|------------------------------------------------------|-----------------------------------------------------------------------------|
+| `@embrace-io/react-native-orientation-change-tracer` | Use `useOrientationListener` from `@embrace-io/react-native` instead.       |
+| `@embrace-io/react-native-web-tracker`               | No longer supported.                                                        |
+| `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
+| `@embrace-io/react-navigation`                       | Functionality has been moved to `@embrace-io/react-native-navigation`.      |
+| `@embrace-io/react-native-apollo-graphql`            | No longer supported.                                                        |
+| `@embrace-io/react-native-action-tracker`            | Functionality has been moved to `@embrace-io/react-native-redux`.           |
+
+### Removed APIs
+
+| Old API            | Comments                                                                               |
+|--------------------|----------------------------------------------------------------------------------------|
+| `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                          |
+| `setUserAsPayer`   | Use `addUserPersona("payer")` instead.                                                 |
+| `clearUserAsPayer` | Use `clearUserPersona("payer")` instead.                                               |
+| `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package. |
+| `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead.         |
+
 ### Migrating Traces
 
 The `@embrace-io/react-native-spans` package has been removed and the functionality it provided is now available from the
@@ -32,6 +53,34 @@ The `@embrace-io/react-native-spans` package has been removed and the functional
 conform to the OTel specification. To update, first switch your dependency to the new package and then migrate any
 method calls in your code that used the [5.x Traces methods](/react-native/5x/features/traces) to the updated methods as
 detailed in the [6.x Traces guide](/react-native/features/traces/).
+
+### Updating startView/endView calls
+
+If you had previously been calling the `startView` and `endView` methods directly these have been moved from
+`@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to setup that package and invoke
+`startView` using its updated signature as described in [Track Components](/react-native/features/components/).
+
+### Migration Redux actions instrumentation
+
+If you had previously been using the `buildEmbraceMiddleware` method from the `@embrace-io/react-native-action-tracker`
+package this has been renamed and moved to `@embrace-io/react-native-redux`. You will need to setup that package and
+create the Embrace middleware using one of the updated methods as described in [Track Redux Actions](/react-native/features/redux-actions/).
+
+### Removal of automated CodePush support
+
+Previously our SDK would check if CodePush was integrated in the app and track OTA JS bundle updates for the purposes of
+keeping symbolication of stack traces consistent. Given the [retirement of CodePush](https://learn.microsoft.com/en-us/appcenter/retirement)
+this functionality has been removed.
+
+If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)` whenever a new bundle is available
+in order to have properly symbolicated stack traces. See [Symbolication with OTA updates](/react-native/integration/upload-symbol-files/#symbolication-with-ota-updates)
+for more details.
+
+### Unhandled promise rejection tracking is now opt-in
+
+Previously our SDK setup tracking for unhandled promise rejection tracking automatically. Now this feature must be
+explicitly enabled, see [Report Unhandled Promise Rejections](/react-native/features/unhandled-promise-rejections) for
+more details.
 
 ### Migrating navigation instrumentation
 
@@ -176,55 +225,6 @@ Navigation.registerComponent(
 // rest of navigation + configuration
 ```
 
-#### Updating startView/endView calls
-
-If you had previously been calling the `startView` and `endView` methods directly these have been moved from
-`@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to setup that package and invoke
-`startView` using its updated signature as described in [Track Components](/react-native/features/components/).
-
-### Migration Redux actions instrumentation
-
-If you had previously been using the `buildEmbraceMiddleware` method from the `@embrace-io/react-native-action-tracker`
-package this has been renamed and moved to `@embrace-io/react-native-redux`. You will need to setup that package and
-create the Embrace middleware using one of the updated methods as described in [Track Redux Actions](/react-native/features/redux-actions/).
-
-### Removal of automated CodePush support
-
-Previously our SDK would check if CodePush was integrated in the app and track OTA JS bundle updates for the purposes of
-keeping symbolication of stack traces consistent. Given the [retirement of CodePush](https://learn.microsoft.com/en-us/appcenter/retirement)
-this functionality has been removed.
-
-If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)` whenever a new bundle is available
-in order to have properly symbolicated stack traces. See [Symbolication with OTA updates](/react-native/integration/upload-symbol-files/#symbolication-with-ota-updates)
-for more details.
-
-### Unhandled promise rejection tracking is now opt-in
-
-Previously our SDK setup tracking for unhandled promise rejection tracking automatically. Now this feature must be
-explicitly enabled, see [Report Unhandled Promise Rejections](/react-native/features/unhandled-promise-rejections) for
-more details.
-
-### Deprecated Packages
-
-| Package                                              | Comments                                                                    |
-| ---------------------------------------------------- | --------------------------------------------------------------------------- |
-| `@embrace-io/react-native-orientation-change-tracer` | Use `useOrientationListener` from `@embrace-io/react-native` instead.       |
-| `@embrace-io/react-native-web-tracker`               | No longer supported.                                                        |
-| `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
-| `@embrace-io/react-navigation`                       | Functionality has been moved to `@embrace-io/react-native-navigation`.      |
-| `@embrace-io/react-native-apollo-graphql`            | No longer supported.                                                        |
-| `@embrace-io/react-native-action-tracker`            | Functionality has been moved to `@embrace-io/react-native-redux`.           |
-
-### Removed APIs
-
-| Old API            | Comments                                                                               |
-| ------------------ | -------------------------------------------------------------------------------------- |
-| `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                          |
-| `setUserAsPayer`   | Use `addUserPersona("payer")` instead.                                                 |
-| `clearUserAsPayer` | Use `clearUserPersona("payer")` instead.                                               |
-| `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package. |
-| `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead.         |
-
 ## Upgrading from 4.x to 5.x
 
 :::info Summary
@@ -343,7 +343,7 @@ The application will still work but the Embrace SDK won't initialize, causing un
 ### Removed APIs
 
 | Old API                | Comments                                    |
-| ---------------------- | ------------------------------------------- |
+|------------------------|---------------------------------------------|
 | `endAppStartup`        | Deprecated API that is no longer supported. |
 | `startMoment`          | Deprecated API that is no longer supported. |
 | `endMoment`            | Deprecated API that is no longer supported. |
