@@ -28,8 +28,6 @@ yarn:
 yarn add @embrace-io/react-native-navigation
 ```
 
-#### Adding the component to your code
-
 ## Setup in your code
 
 ```mdx-code-block
@@ -60,7 +58,7 @@ const App = () => {
 
   const expoNavigationRef = useNavigationContainerRef();
 
-  if (isLoadingTracerProvider || tracerProvider === null) {
+  if (isLoadingTracerProvider) {
     return (
       <View>
         <Text>Loading Tracer Provider...</Text>
@@ -114,7 +112,7 @@ const App = () => {
   // We need here the entire shape, so we re-create it and pass it down into the `ref` prop for the `EmbraceNavigationTracker` component.
   const navigationRef = useRef(navigationRefVal);
 
-  if (isLoadingTracerProvider || tracerProvider === null) {
+  if (isLoadingTracerProvider) {
     return (
       <View>
         <Text>Loading Tracer Provider...</Text>
@@ -209,7 +207,7 @@ initApp();
 </TabItem>
 </Tabs>
 
-### Disable Auto Tracking for Native Screens
+## Disable Auto Tracking for Native Screens
 
 Embrace automatically collects the native screens, if you do not want to see them in the session you can disable it.
 

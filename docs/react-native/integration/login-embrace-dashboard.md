@@ -36,13 +36,13 @@ Now we are ready to add the SDK to your app.
 
 ## Use without an Embrace account
 
-If you prefer to send the data into a custom backend avoiding Embrace it could be done by initializing the Embrace SDK without an app_id/token. This requires to configure the [OTLP Export](/react-native/features/otlp) feature using the `@embrace-io/react-native-otlp` package to be installed and the configuration of at least **1 span exporter** and/or **1 log exporter**.
+If you prefer to send the data into a custom backend avoiding Embrace it could be done by initializing the Embrace SDK without an app_id/token. This requires configuring the [OTLP Export](/react-native/features/otlp) feature using the `@embrace-io/react-native-otlp` package to be installed and the configuration of at least **1 span exporter** and/or **1 log exporter**.
 
-## Android
+### Android
 
 For Android both values can be omitted in the `embrace-config.json` file. For more information visit [Avoiding sending telemetry to Embrace](/android/features/traces/#avoiding-sending-telemetry-to-embrace). Please, make sure you also add `embrace.disableMappingFileUpload = true` to your `gradle.properties` file.
 
-## iOS
+### iOS
 
 For iOS the _appId_ can be ommited as well when the SDK is initialized and configured through the code.
 

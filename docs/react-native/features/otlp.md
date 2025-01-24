@@ -102,7 +102,7 @@ export default RootLayout;
 
 If you already have the Embrace React Native SDK initialized your native code or if you are planning to run the install scripts mentioned in our [docs section](/react-native/integration/add-embrace-sdk/#native-setup) you could still get the benefit of the OTLP custom export feature. Remember that the install scripts are adding the minimum code needed for initializing Embrace in the Native side but are not integrating the configuration for exporting the telemetry data into your backend of your choice. For this you would need to manually tweak both the Android/iOS sides.
 
-### iOS
+## iOS
 
 If you already ran the install script mentioned above you would be able to find the `EmbraceInitializer.swift` file with some initial code that you can update:
 
@@ -196,20 +196,20 @@ Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
 
 ```java
 // Preparing Span Exporter config with the minimum required
-OtlpHttpSpanExporter spanExporter = OtlpHttpSpanExporter.builder()
+OtlpHttpSpanExporter spanExporter = OtlpHttpSpanExporter.builder();
                                 .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces")
-                                .addHeader("Authorization", "Basic __YOUR TOKEN__")
+                                .addHeader("Authorization", "Basic __YOUR TOKEN__");
 
 // Preparing Log Exporter config with the minimum required
-OtlpHttpLogRecordExporter logExporter = OtlpHttpLogRecordExporter.builder()
+OtlpHttpLogRecordExporter logExporter = OtlpHttpLogRecordExporter.builder();
                                 .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs")
-                                .addHeader("Authorization", "Basic __YOUR TOKEN__")
+                                .addHeader("Authorization", "Basic __YOUR TOKEN__");
 
-Embrace.getInstance().addSpanExporter(spanExporter.build())
-Embrace.getInstance().addLogRecordExporter(logExporter.build())
+Embrace.getInstance().addSpanExporter(spanExporter.build());
+Embrace.getInstance().addLogRecordExporter(logExporter.build());
 
 // This is the line already added by the install script
-Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
+Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE);
 ```
 
 </TabItem>

@@ -62,7 +62,7 @@ You can send your data to any generic OpenTelemetry Collector by using any Andro
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
- // gRPC through an OTel Collector in a local docker image
+// gRPC through an OTel Collector in a local docker image
 val customDockerExporter = OtlpGrpcSpanExporter.builder()
     .setEndpoint("https://otel-collector.mydomain.com:4317")
     .build()
@@ -112,7 +112,7 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter)
 <TabItem value="java" label="Java">
 
 ```java
- // HTTPS to an OTEL Collector in Grafana Cloud
+// HTTPS to an OTEL Collector in Grafana Cloud
 OtlpHttpSpanExporter grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
     .addHeader("Authorization", "YourToken")
@@ -129,7 +129,6 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
 In the Embrace Apple SDK, exporters are configured at the same time that the SDK itself is configured. Any [Swift-language OTel exporter](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) can be attached as an optional value when the SDK is set up in [Embrace Options](/docs/ios/open-source/integration/embrace-options.md). Multiple span exporters can be attached during configuration by using the [`otel-swift MultiSpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/MultiSpanExporter.swift).
 
 ```swift
-
 // logging span exporter outputting to the Xcode console
 var loggingSpanExporter = StdoutExporter()
 
@@ -174,7 +173,38 @@ try? Embrace
         )
     )
     .start()
+```
 
+### React Native
+
+The Embrace React Native SDK also has the ability to configure custom [OTLP exporters](/react-native/features/otlp) by passing some configuration when initializing Embrace. The Native side implements internally the Android/Apple exporters as described above letting this Hosted SDK to send telemetry data to any backend.
+
+```javascript
+const {isPending, isStarted} = useEmbrace({
+  ios: {appId: "__APP_ID__"},
+  exporters: {
+    logExporter: {
+      endpoint:
+        "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs",
+      headers: [
+        {
+          key: "Authorization",
+          token: `Basic __GRAFANA_TOKEN__`,
+        },
+      ],
+    },
+    traceExporter: {
+      endpoint:
+        "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces",
+      headers: [
+        {
+          key: "Authorization",
+          token: `Basic __GRAFANA_TOKEN__`,
+        },
+      ],
+    },
+  },
+});
 ```
 
 ## Use the OpenTelemetry Tracing API
