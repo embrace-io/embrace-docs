@@ -299,3 +299,150 @@ const App = () => {
 
 export default App;
 ```
+
+## Migrating from older versions
+
+<Tabs groupId="older" queryString="older">
+<TabItem value="react-navigation" label="@embrace-io/react-navigation">
+
+The old `@embrace-io/react-navigation` exposed a hook that receives a reference pointing to the `NavigationContainer` component:
+
+```javascript
+import {useRef} from 'react'
+import {useEmbraceNavigationTracker} from '@embrace-io/react-navigation';
+
+function App() {
+  // Create the reference
+  const navigationRef = useRef();
+  // Pass the reference to Embrace's Hook
+  useEmbraceNavigationTracker(navigationRef);
+
+  return (
+    // Assign the NavigationContainer reference value to the useRef created
+    <NavigationContainer ref={navigationRef}>
+      <Screens... />
+    </NavigationContainer>
+  );
+}
+```
+
+Now you just need to pass the reference into the new `EmbraceNavigationTracker` component exposed by the newest version of `@embrace-io/react-native-navigation` and configure it in the desired way:
+
+```javascript
+import React, {useRef} from "react";
+import {EmbraceNativeNavigationTracker} from "@embrace-io/react-native-navigation";
+import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from "@react-navigation/native";
+
+function App() {
+  // Embrace initialization should happen before
+
+  // as of now if you inspect the source code of `useNavigationContainerRef` from `@react-navigation/native` you will see that it returns `navigation.current` instead of the entire shape of a reference
+  const navigationRefVal = useNavigationContainerRef();
+  // We need here the entire shape, so we re-create it and pass it down into the `ref` prop for the `EmbraceNavigationTracker` component.
+  const navigationRef = useRef(navigationRefVal)
+
+  const {tracerProvider} = useEmbraceNativeTracerProvider();
+
+  return (
+    // `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
+    <NavigationContainer ref={navigationRefVal}>
+      <EmbraceNavigationTracker
+        ref={navigationRef}
+        tracerProvider={tracerProvider}
+        screenAttributes={{
+        "static.attribute": 123456,
+        "custom.key": "abcd...",
+      }}>
+        <Screens... />
+      </EmbraceNavigationTracker>
+    </NavigationContainer>
+  );
+}
+```
+
+</TabItem>
+
+<TabItem value="react-native-navigation" label="@embrace-io/react-native-navigation">
+
+The old `@embrace-io/react-native-navigation` exposed a builder that received the Navigation shape in the way it is exported by `react-native-navigation` to start tracking views:
+
+```javascript
+import {Navigation} from "react-native-navigation";
+
+import EmbraceNavigationTracker from "@embrace-io/react-native-navigation";
+EmbraceNavigationTracker.build(Navigation);
+
+Navigation.registerComponent("myLaunchScreen", () => App);
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        children: [
+          {
+            component: {
+              name: "myLaunchScreen",
+            },
+          },
+        ],
+      },
+    },
+  });
+});
+```
+
+Now you just need to wrap your root view using the `EmbraceNativeNavigationTracker` component exposed by the newest version of `@embrace-io/react-native-navigation` and configure it in the desired way:
+
+```javascript
+import {Navigation} from "react-native-navigation";
+import {initialize} from "@embrace-io/react-native";
+import {EmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {TracerProvider} from "@opentelemetry/api";
+
+await initialize({
+  sdkConfig: {
+    ios: {
+      appId: "__APP_ID__",
+    },
+  },
+});
+
+let provider;
+try {
+  provider = new EmbraceNativeTracerProvider();
+} catch (e) {
+  console.log(
+    "Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead",
+    e,
+  );
+}
+
+// entry point of app
+Navigation.registerComponent(
+  "HomeScreen",
+  props => () => {
+    const ref = useRef(Navigation.events());
+
+    return (
+      <EmbraceNativeNavigationTracker
+        ref={ref}
+        tracerProvider={provider}
+        screenAttributes={{
+          "test.attr": 98765,
+        }}>
+        <RootScreen {...props} />
+      </EmbraceNativeNavigationTracker>
+    );
+  },
+  () => RootScreen,
+);
+
+// rest of navigation + configuration
+```
+
+</TabItem>
+</Tabs>
+
