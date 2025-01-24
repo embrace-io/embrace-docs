@@ -11,7 +11,7 @@ turned on using the `trackUnhandledRejections` flag:
 
 ```typescript
 const {isStarted} = useEmbrace({
-  ios: IOS_CONFIG,
+  ios: {appId: "__APP_ID__"},
   trackUnhandledRejections: true,
 });
 ```
