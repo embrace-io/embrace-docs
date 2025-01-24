@@ -9,10 +9,11 @@ description: Upgrade guide for Embrace React Native SDK versions
 ## Upgrading from 5.x to 6.x
 
 :::info Summary
+
 - Removal of various packages and methods, see sections below for details on specific migrations
 - Automatic support for CodePush has been removed
 - TODO
-:::
+  :::
 
 Upgrade to the latest 6.x versions of the Embrace React Native SDK packages by either bumping to the latest version
 manually in your package.json and running `yarn install` or `npm install` Or remove the existing packages entirely and
@@ -37,17 +38,147 @@ detailed in the [6.x Traces guide](/react-native/features/traces/).
 Navigation instrumentation was previously split into two separate packages (`@embrace-io/react-navigation` + `@embrace-io/react-native-navigation`)
 depending on which style of navigation was being instrumented. Now all navigation instrumentations resides in `@embrace-io/react-native-navigation`.
 
-#### Moving from the react-navigation package
+#### Moving from the @embrace-io/react-navigation package
 
-TODO
+The old `@embrace-io/react-navigation` exposed a hook that receives a reference pointing to the `NavigationContainer` component:
 
-#### Updating the react-native-navigation package
+```javascript
+import {useRef} from 'react'
+import {useEmbraceNavigationTracker} from '@embrace-io/react-navigation';
 
-TODO
+function App() {
+  // Create the reference
+  const navigationRef = useRef();
+  // Pass the reference to Embrace's Hook
+  useEmbraceNavigationTracker(navigationRef);
+
+  return (
+    // Assign the NavigationContainer reference value to the useRef created
+    <NavigationContainer ref={navigationRef}>
+      <Screens... />
+    </NavigationContainer>
+  );
+}
+```
+
+Now you just need to pass the reference into the new `EmbraceNavigationTracker` component exposed by the newest version of `@embrace-io/react-native-navigation` and configure it in the desired way:
+
+```javascript
+import React, {useRef} from "react";
+import {EmbraceNativeNavigationTracker} from "@embrace-io/react-native-navigation";
+import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from "@react-navigation/native";
+
+function App() {
+  // Embrace initialization should happen before
+
+  // as of now if you inspect the source code of `useNavigationContainerRef` from `@react-navigation/native` you will see that it returns `navigation.current` instead of the entire shape of a reference
+  const navigationRefVal = useNavigationContainerRef();
+  // We need here the entire shape, so we re-create it and pass it down into the `ref` prop for the `EmbraceNavigationTracker` component.
+  const navigationRef = useRef(navigationRefVal)
+
+  const {tracerProvider} = useEmbraceNativeTracerProvider();
+
+  return (
+    // `NavigationContainer` is waiting for what `useNavigationContainerRef` is returning (both exported from `@react-navigation/native`)
+    <NavigationContainer ref={navigationRefVal}>
+      <EmbraceNavigationTracker
+        ref={navigationRef}
+        tracerProvider={tracerProvider}
+        screenAttributes={{
+        "static.attribute": 123456,
+        "custom.key": "abcd...",
+      }}>
+        <Screens... />
+      </EmbraceNavigationTracker>
+    </NavigationContainer>
+  );
+}
+```
+
+#### Updating the `@embrace-io/react-native-navigation` package
+
+The old `@embrace-io/react-native-navigation` exposed a builder that received the Navigation shape in the way it is exported by `react-native-navigation` to start tracking views:
+
+```javascript
+import {Navigation} from "react-native-navigation";
+
+import EmbraceNavigationTracker from "@embrace-io/react-native-navigation";
+EmbraceNavigationTracker.build(Navigation);
+
+Navigation.registerComponent("myLaunchScreen", () => App);
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        children: [
+          {
+            component: {
+              name: "myLaunchScreen",
+            },
+          },
+        ],
+      },
+    },
+  });
+});
+```
+
+Now you just need to wrap your root view using the `EmbraceNativeNavigationTracker` component exposed by the newest version of `@embrace-io/react-native-navigation` and configure it in the desired way:
+
+```javascript
+import {Navigation} from "react-native-navigation";
+import {initialize} from "@embrace-io/react-native";
+import {EmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
+import {TracerProvider} from "@opentelemetry/api";
+
+await initialize({
+  sdkConfig: {
+    ios: {
+      appId: "__APP_ID__",
+    },
+  },
+});
+
+let provider;
+try {
+  provider = new EmbraceNativeTracerProvider();
+} catch (e) {
+  console.log(
+    "Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead",
+    e,
+  );
+}
+
+// entry point of app
+Navigation.registerComponent(
+  "HomeScreen",
+  props => () => {
+    const ref = useRef(Navigation.events());
+
+    return (
+      <EmbraceNativeNavigationTracker
+        ref={ref}
+        tracerProvider={provider}
+        screenAttributes={{
+          "test.attr": 98765,
+        }}>
+        <RootScreen {...props} />
+      </EmbraceNativeNavigationTracker>
+    );
+  },
+  () => RootScreen,
+);
+
+// rest of navigation + configuration
+```
 
 #### Updating startView/endView calls
 
-If you had previously been calling the `startView` and `endView` methods directly these have been moved from 
+If you had previously been calling the `startView` and `endView` methods directly these have been moved from
 `@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to setup that package and invoke
 `startView` using its updated signature as described in [Track Components](/react-native/features/components/).
 
@@ -57,11 +188,11 @@ If you had previously been using the `buildEmbraceMiddleware` method from the `@
 package this has been renamed and moved to `@embrace-io/react-native-redux`. You will need to setup that package and
 create the Embrace middleware using one of the updated methods as described in [Track Redux Actions](/react-native/features/redux-actions/).
 
-### Removal of automated CodePush support  
+### Removal of automated CodePush support
 
 Previously our SDK would check if CodePush was integrated in the app and track OTA JS bundle updates for the purposes of
 keeping symbolication of stack traces consistent. Given the [retirement of CodePush](https://learn.microsoft.com/en-us/appcenter/retirement)
-this functionality has been removed. 
+this functionality has been removed.
 
 If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)` whenever a new bundle is available
 in order to have properly symbolicated stack traces. See [Symbolication with OTA updates](/react-native/integration/upload-symbol-files/#symbolication-with-ota-updates)
@@ -70,7 +201,7 @@ for more details.
 ### Deprecated Packages
 
 | Package                                              | Comments                                                                    |
-|------------------------------------------------------|-----------------------------------------------------------------------------|
+| ---------------------------------------------------- | --------------------------------------------------------------------------- |
 | `@embrace-io/react-native-orientation-change-tracer` | Use `useOrientationListener` from `@embrace-io/react-native` instead.       |
 | `@embrace-io/react-native-web-tracker`               | No longer supported.                                                        |
 | `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
@@ -78,11 +209,10 @@ for more details.
 | `@embrace-io/react-native-apollo-graphql`            | No longer supported.                                                        |
 | `@embrace-io/react-native-action-tracker`            | Functionality has been moved to `@embrace-io/react-native-redux`.           |
 
-
 ### Removed APIs
 
 | Old API            | Comments                                                                               |
-|--------------------|----------------------------------------------------------------------------------------|
+| ------------------ | -------------------------------------------------------------------------------------- |
 | `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                          |
 | `setUserAsPayer`   | Use `addUserPersona("payer")` instead.                                                 |
 | `clearUserAsPayer` | Use `clearUserPersona("payer")` instead.                                               |
@@ -92,12 +222,13 @@ for more details.
 ## Upgrading from 4.x to 5.x
 
 :::info Summary
+
 - Moments have been removed, Traces should be used in their place
 - Configuration through `Embrace-Info.plist` on iOS has been removed, configuration is now done in code
 - Native side initialization of the Embrace SDK has been rewritten in Swift
 - Minimum versions for iOS deployment have been bumped ([details here](/react-native/integration/#ios))
 - Minimum versions for Android Kotlin and AGP have been bumped ([details here](/react-native/integration/#android))
-:::
+  :::
 
 Upgrade to the latest 5.x versions of the Embrace React Native SDK packages by either bumping to the latest version
 manually in your package.json and running `yarn install` or `npm install` Or remove the existing packages entirely and
@@ -119,27 +250,26 @@ import React, {useEffect, useState} from 'react'
 import {initialize} from '@embrace-io/react-native';
 
 const App = ()=> {
-
-  useEffect(()=>{
+  useEffect(() => {
     initialize({
       sdkConfig: {
         ios: {
-          appId: "YOUR_IOS_APP_ID",
+          appId: "__APP_ID__",
         }
       }
-    }).then(hasStarted=>{
-      if(hasStarted){
-         //doSomething
+    }).then(hasStarted => {
+      if (hasStarted) {
+         // do something
       }
     });
-  },[])
+  }, []);
 
  return ...
 }
 export default App
 ```
 
-#### Upgrade of native iOS code 
+#### Upgrade of native iOS code
 
 The `Embrace-Info.plist` is no longer used for configuration and can be safely removed from your project.
 
@@ -156,7 +286,7 @@ Or in Swift a line such as:
 Embrace.sharedInstance().start(launchOptions: launchOptions, framework:.reactNative)
 ```
 
-Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/integration/session-reporting/#start-the-embrace-sdk-from-android--ios)
+Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/5x/integration/session-reporting#initialize-embrace-sdk)
 
 ### Moments have been replaced by Traces
 
@@ -206,9 +336,9 @@ The application will still work but the Embrace SDK won't initialize, causing un
 
 ### Removed APIs
 
-| Old API                  | Comments                                                 |
-|--------------------------|----------------------------------------------------------|
-| `endAppStartup`          | Deprecated API that is no longer supported.              |
-| `startMoment`            | Deprecated API that is no longer supported.              |
-| `endMoment`              | Deprecated API that is no longer supported.              |
-| `getSessionProperties`   | Deprecated API that is no longer supported.              |
+| Old API                | Comments                                    |
+| ---------------------- | ------------------------------------------- |
+| `endAppStartup`        | Deprecated API that is no longer supported. |
+| `startMoment`          | Deprecated API that is no longer supported. |
+| `endMoment`            | Deprecated API that is no longer supported. |
+| `getSessionProperties` | Deprecated API that is no longer supported. |

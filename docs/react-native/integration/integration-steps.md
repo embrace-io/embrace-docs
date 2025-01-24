@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Integration Steps
 
-1. [**Login to the Embrace Dashboard.**](/react-native/integration/login-embrace-dashboard) Your data is available in the dashboard. It is important that you have this open while working on the integration to monitor progress.
+1. [**Login to the Embrace Dashboard.**](/react-native/integration/login-embrace-dashboard) Your data is available in the dashboard. It is important that you have this open while working on the integration to monitor progress. If you are looking to use the SDK without sending data to Embrace you may want to jump into the how to [Use without an Embrace account](/react-native/integration/login-embrace-dashboard#use-without-an-embrace-account) section.
 1. [**Adding the Embrace SDK.**](/react-native/integration/add-embrace-sdk) We'll be adding the Embrace SDK to your project.
 1. [**Upload Symbol Files**](/react-native/integration/upload-symbol-files) Learn which files need to be uploaded to make sure stack traces are translated.
 1. [**Create Your First Session.**](/react-native/integration/session-reporting) You'll launch your app after you've
