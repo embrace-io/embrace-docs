@@ -5,6 +5,13 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+## 2.2.0
+*January 27, 2025*
+- Upgraded Embrace iOS dependency to 6.7.1
+- Swapped iOS dependency map method from xcframeworks to SPM
+- Patch issue interacting with Embrace Android 6.14.0 config
+- Patch of StopSpan interaction issue
+
 ## 2.1.2
 *December 12, 2024*
 :::warning Info
