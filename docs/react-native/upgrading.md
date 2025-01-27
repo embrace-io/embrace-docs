@@ -28,7 +28,7 @@ cd ios && pod install --repo-update
 ### Deprecated Packages
 
 | Package                                              | Comments                                                                    |
-|------------------------------------------------------|-----------------------------------------------------------------------------|
+| ---------------------------------------------------- | --------------------------------------------------------------------------- |
 | `@embrace-io/react-native-orientation-change-tracer` | Use `useOrientationListener` from `@embrace-io/react-native` instead.       |
 | `@embrace-io/react-native-web-tracker`               | No longer supported.                                                        |
 | `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
@@ -39,12 +39,28 @@ cd ios && pod install --repo-update
 ### Removed APIs
 
 | Old API            | Comments                                                                               |
-|--------------------|----------------------------------------------------------------------------------------|
+| ------------------ | -------------------------------------------------------------------------------------- |
 | `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                          |
 | `setUserAsPayer`   | Use `addUserPersona("payer")` instead.                                                 |
 | `clearUserAsPayer` | Use `clearUserPersona("payer")` instead.                                               |
 | `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package. |
 | `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead.         |
+
+#### Upgrading `@embrace-io/react-native` package
+
+If you are still in a React Native application that runs a Metro prior to v0.76.3 and you would like to get [OTLP exporters](/react-native/features/otlp) configured you may need to update your `metro.config.js` file enabling the `transformer.unstable_allowRequireContext` to true. Newer versions shouldn't require this extra step.
+
+```javascript
+// metro.config.js
+module.exports = {
+  transformer: {
+    unstable_allowRequireContext: true,
+    // ... other configuration
+  },
+};
+```
+
+This is because under the hood we are checking at runtime the installment of the `@embrace-io/react-native-otlp` package, which is mandatory if OTLP feature is required.
 
 ### Migrating Traces
 
@@ -207,7 +223,7 @@ The application will still work but the Embrace SDK won't initialize, causing un
 ### Removed APIs
 
 | Old API                | Comments                                    |
-|------------------------|---------------------------------------------|
+| ---------------------- | ------------------------------------------- |
 | `endAppStartup`        | Deprecated API that is no longer supported. |
 | `startMoment`          | Deprecated API that is no longer supported. |
 | `endMoment`            | Deprecated API that is no longer supported. |
