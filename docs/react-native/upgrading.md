@@ -48,7 +48,7 @@ cd ios && pod install --repo-update
 
 #### Upgrading `@embrace-io/react-native` package
 
-If you are still in a React Native application that runs a Metro prior to v0.76.3 and you would like to get [OTLP exporters](/react-native/features/otlp) configured you may need to update your `metro.config.js` file enabling the `transformer.unstable_allowRequireContext` to true. Newer versions shouldn't require this extra step.
+If you are still in a React Native application that runs a Metro prior to [v0.76.3](https://github.com/facebook/metro/releases/tag/v0.76.3) and you would like to get [OTLP exporters](/react-native/features/otlp) configured you may need to update your `metro.config.js` file enabling the `transformer.unstable_allowRequireContext` to true. Newer versions shouldn't require this extra step.
 
 ```javascript
 // metro.config.js
