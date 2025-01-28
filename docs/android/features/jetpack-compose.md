@@ -39,8 +39,8 @@ import TabItem from '@theme/TabItem';
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-swazzler {
-    disableComposeDependencyInjection.set(false) 
+dependencies {
+    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
@@ -48,8 +48,8 @@ swazzler {
 <TabItem value="groovy" label="Groovy">
 
 ```groovy
-swazzler {
-    disableComposeDependencyInjection = false 
+dependencies {
+    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
@@ -58,7 +58,7 @@ swazzler {
 
 ### Set ProGuard rule
 
-In order to prevent code obfuscation, the following rule must be added into pro guard-rules :
+In order to prevent code obfuscation, the following rule must be added into your R8/ProGuard rules:
 
 ```
 -keep class androidx.compose.ui.platform.AndroidComposeView {

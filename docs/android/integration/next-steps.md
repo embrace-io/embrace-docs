@@ -22,8 +22,7 @@ our [Feature Reference](/android/features/).
 
 ## Sample Integration Apps
 
-For a sample integration, or to check out how you can use more advanced features of the SDK, take a look at the Kotlin
-and Java apps in the <a href="https://github.com/embrace-io/embrace-demo-apps/tree/master/android" target="_blank">Embrace demo apps repo</a> on GitHub.
+For a sample integration, or to check out how you can use more advanced features of the SDK, take a look at the example apps in the <a href="https://github.com/embrace-io/embrace-android-sdk/tree/main/examples/" target="_blank">Embrace Android SDK repo</a> on GitHub.
 
 ## API Docs
 
