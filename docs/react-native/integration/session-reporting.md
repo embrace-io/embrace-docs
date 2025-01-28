@@ -96,7 +96,8 @@ const App = () => {
 export default App
 ```
 
-In both cases we recommend to use these methods to initialize the React Native Embrace SDK at the top level of your application just once to prevent side effects in the JavaScript layer.
+In both cases we recommend to use these methods to initialize the React Native Embrace SDK at the top level of your
+application just once to prevent side effects in the JavaScript layer.
 
 ## Start Embrace SDK in the Native side
 

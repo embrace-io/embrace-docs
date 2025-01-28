@@ -16,3 +16,10 @@ useOrientationListener()
 
 You will then see breadcrumbs in the session timeline reporting on the initial orientation that the application began
 in as well as any changes that occurred throughout the session.
+
+:::warning
+For Expo apps the hook will provide the initial orientation but not report on any future changes. To get orientation
+changes reported in this case you will need to install [Expo's ScreenOrientation package](https://docs.expo.dev/versions/latest/sdk/screen-orientation/)
+and then use our [Breadcrumb Logs](integration/breadcrumbs/) to log a breadcrumb yourself when you detect an orientation
+change from their listener.
+:::
