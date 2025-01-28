@@ -17,6 +17,20 @@ Explanations for each of the fields are provided below.
   "api_token": "0123456789abcdef0123456789abcdef",
   "ndk_enabled": true,
   "sdk_config": {
+    "capture_fcm_pii_data": false,
+    "sensitive_keys_denylist": ["secret", "password"],
+    "app": {
+      "report_disk_usage": true
+    },
+    "crash_handler": {
+      "enabled": true
+    },
+    "networking": {
+      "capture_request_content_length": true,
+      "disabled_url_patterns": [],
+      "enable_native_monitoring": true,
+      "trace_id_header": "x-emb-trace-id"
+    },
     "automatic_data_capture": {
       "memory_info": true,
       "power_save_mode_info": true,

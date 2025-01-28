@@ -12,7 +12,6 @@ Here are the steps you'll be taking to create your first session.
 
 1. [**Import Embrace**](/android/integration/session-reporting#import-embrace)
 1. [**Add a start call to the Embrace SDK**](/android/integration/session-reporting#add-the-start-call)
-1. [**End the startup moment**](/android/integration/session-reporting#end-the-startup-moment)
 1. [**Build and run the application**](/android/integration/session-reporting#build-and-run-the-application)
 1. [**Trigger a session upload**](/android/integration/session-reporting#trigger-a-session-upload)
 
@@ -68,8 +67,44 @@ public final class MyApplication extends Application {
 
 We currently recommend that you start the SDK on the main thread to ensure you're capturing mobile telemetry and crashes as soon as possible.
 
+## Build and Run the Application
+
+Now you're ready to build and run the application. Assuming the app launches correctly,
+pay attention to the system logging and confirm Embrace prints its version number.
+
+```
+Embrace SDK started. API key: xxxxx Version: {{ embrace_sdk_version platform="android" }}
+```
+
+:::info
+If you encounter any errors, please get in touch on Slack and we can assist you.
+:::
+
+## Trigger a Session Upload
+
+You can trigger a session upload by sending your app to the background, and restarting it again. Refresh the dashboard in
+your browser and you should now see that you've moved on to the next step.
+
+:::warning Important
+If you stop your application by either force killing it or using the Android Studio stop button, 
+the Embrace SDK will not be able to upload the session that was just completed until you restart 
+your application. During the next application launch the previous session will be immediately uploaded. 
+:::
+
+---
+
+Congratulations! At this point you've completed a basic integration of Embrace.
+Embrace is already collecting interesting data from your application. You can
+see this data by browsing around the timeline page for the session you just captured.
+
+Up next, you'll be learning about uploading crash reports.
+
 
 ## End the startup moment
+
+:::warning Important
+The moments feature is only available in version 6 and below of the Android SDK. You should use the [Traces API](/android/features/traces) instead.
+:::
 
 The Embrace SDK automatically records a special "startup" moment that's used to track app launch performance.
 The end of the startup moment is recorded when the `Activity.onResume()` method returns.
@@ -119,35 +154,3 @@ Add this method call to every location where the startup moment can end. You can
   "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 }
 ```
-
-## Build and Run the Application
-
-Now you're ready to build and run the application. Assuming the app launches correctly,
-pay attention to the system logging and confirm Embrace prints its version number.
-
-```
-Embrace SDK started. API key: xxxxx Version: {{ embrace_sdk_version platform="android" }}
-```
-
-:::info
-If you encounter any errors, please get in touch on Slack and we can assist you.
-:::
-
-## Trigger a Session Upload
-
-You can trigger a session upload by sending your app to the background, and restarting it again. Refresh the dashboard in
-your browser and you should now see that you've moved on to the next step.
-
-:::warning Important
-If you stop your application by either force killing it or using the Android Studio stop button, 
-the Embrace SDK will not be able to upload the session that was just completed until you restart 
-your application. During the next application launch the previous session will be immediately uploaded. 
-:::
-
----
-
-Congratulations! At this point you've completed a basic integration of Embrace.
-Embrace is already collecting interesting data from your application. You can
-see this data by browsing around the timeline page for the session you just captured.
-
-Up next, you'll be learning about uploading crash reports.

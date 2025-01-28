@@ -1,5 +1,40 @@
 # Upgrade Guide
 
+# Upgrading from 6.x to 7.x
+
+Version 7 of the Embrace Android SDK contains the following breaking changes:
+
+- The `embrace-android-fcm` and `embrace-android-compose` gradle modules are no longer automatically added by Embrace's gradle plugin. Add them as dependencies in your `build.gradle` file if you require them.
+- The `startMoment/endMoment` API has been removed. Use `startSpan/recordSpan` instead.
+- `Embrace.AppFramework` is now its own top level class, `AppFramework`
+- `Embrace.LastRunEndState` is now its own top level class, `LastRunEndState`
+- Several public APIs are now implemented in Kotlin rather than Java. Generally this will not affect backwards
+  compatibility but the following may have slight changes to their signatures:
+    - `EmbraceNetworkRequest` Java overloads replaced with default parameters
+- View taps do not capture coordinates by default. Set `sdk_config.taps.capture_coordinates` to `true` in your
+  `embrace-config.json` to enable this feature
+- Several internally used classes and symbols have been hidden from the public API
+- Recording a custom trace ID for an HTTP request from a custom request header is no longer supported. IDs in the
+  `x-emb-trace-id` header will still be recorded and displayed on the dashboard.
+- Methods to add and remove the `payer` Persona have been removed. 
+  - Use the generic Persona API methods with the name `payer` to get the equivalent functionality.
+- The `setAppId` API has been removed. Changing the `appId` at runtime is no longer supported.
+- Removed several obsolete remote config + local config properties. If you specify the configs below in your
+  `embrace-config.json` they will be ignored:
+    - `sdk_config.beta_features_enabled`
+    - `sdk_config.anr.capture_google`
+    - `sdk_config.background_activity.manual_background_activity_limit`
+    - `sdk_config.background_activity.min_background_activity_duration`
+    - `sdk_config.background_activity.max_cached_activities`
+    - `sdk_config.base_urls.images`
+    - `sdk_config.networking.trace_id_header`
+    - `sdk_config.startup_moment.automatically_end`
+- Removed the following properties from the Embrace Gradle plugin, that can be removed if they remain in your buildscripts:
+  - `customSymbolsDirectory`
+  - `jarSkipList`
+  - `encodeExtractedFileNames`
+- Embrace no longer attempts to detect other signal handlers & reinstall itself by default. If you notice changes in your NDK crash report quality you can re-enable this behavior by setting `sdk_config.sig_handler_detection` to `true` in your `embrace-config.json`
+
 # Upgrading from 5.x to 6.x
 
 :::info Summary

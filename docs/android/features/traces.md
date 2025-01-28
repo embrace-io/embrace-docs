@@ -117,6 +117,30 @@ EmbraceSpan activityLoad = Embrace.getInstance().startSpan("load-activity");
 </TabItem>
 </Tabs>
 
+### Create a Span that automatically terminates
+
+By default spans do not terminate until `stop()` has been invoked. If your span might take a long time & you want it to stop when a session ends you should supply the `AutoTerminationMode` parameter when creating the span.
+
+<Tabs groupId="android-language" queryString="android-language">
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val span = Embrace.getInstance().startSpan("my-span", AutoTerminationMode.ON_BACKGROUND)
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+EmbraceSpan span = Embrace.getInstance().startSpan("my-span", AutoTerminationMode.ON_BACKGROUND);
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+Spans created with `recordSpan` or `recordCompletedSpan` will stop once the function call is complete & rarely require `AutoTerminationMode`.
+:::
 
 ### Start Span That Tracks an Operation That Started at an Earlier Time
 
