@@ -8,7 +8,7 @@ sidebar_position: 16
 
 ## Overview
 
-The Embrace SDK is able to automatically instrument key workflows as the app goes through its operational lifecycle. The instrumentation generates traces (root span and child spans) similar to the spans that are created when using the [Performance Tracing](/android/features/traces/) API. They will appear in the Embrace UI and be exported via the configured `SpanExporter` just like any other span.
+The Embrace SDK can automatically instrument key workflows as the app goes through its operational lifecycle. The instrumentation generates traces (root span and child spans) similar to the spans that are created when using the [Performance Tracing](/android/features/traces/) API. They will appear in the Embrace UI and be exported via the configured `SpanExporter` just like any other span.
 
 These traces can be augmented with additional attributes and child spans, as well as configured in other ways.
 
@@ -57,7 +57,7 @@ For any interstitial Activities that are opened before the actual Activity whose
 
 ### Code Example
 
-The following sample `Application` will add a custom span and attribute to the app startup trace. It will also inform the SDK of when the application object has finished beign created.
+The following sample `Application` will add a custom span and attribute to the app startup trace. It will also inform the SDK of when the application object has finished being created.
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -133,7 +133,7 @@ Note: Be mindful of when these customization methods are invoked. Doing so on a 
 
 #### Custom end event
 
-If you don't want to consider when the UI first loads as the end time for your Activity load traces, you can end it with manually instead by invoking the `activityLoad()` method.n This is useful, for instance, if you want to end the trace when `reportFullyDrawn()` is reported for the Activity. 
+If you don't want to consider when the UI first loads as the end time for your Activity load traces, you can end it with manually instead by invoking the `activityLoad()` method. This is useful, for instance, if you want to end the trace when `reportFullyDrawn()` is reported for the Activity. 
 
 To use this configuration, annotate the Activity class with `@CustomLoadTracedActivity`.
 
@@ -151,7 +151,7 @@ Custom span attributes can be added to the root span of the trace by using the `
 
 #### Custom child spans
 
-Custom child spans can be added to the root span of the trace by using the `addLoadTraceChildSpan()`  method before the Activity load is completed or abandoned.. Parameters for the name, start time, and end time must be specified, while optional parameters for attributes, span events, and error code may also be specified to customize the span.
+Custom child spans can be added to the root span of the trace by using the `addLoadTraceChildSpan()`  method before the Activity load is completed or abandoned. Parameters for the name, start time, and end time must be specified, while optional parameters for attributes, span events, and error code may also be specified to customize the span.
 
 To ensure the timestamps of the custom spans are in sync with the timestamps of the other spans in the trace, use the `getSdkCurrentTimeMs()` method to obtain it from the same clock instance the SDK uses. This clock instance is locked after the SDK starts up and will not change even if the system clock changes.
 
@@ -163,10 +163,10 @@ The default configuration of the SDK is to trace the loading of all Activities a
 If you wish to only have the instrumentation enabled for a subset of Activities, you can do so by disabling all by default and enabling it for a select few. Alternatively, you can enable the feature for all Activities by default and then disable it for a select few.
 
 - Disabling all Activity load instrumentation
-	- Set the configuration property `ui_load_tracing_disabled` in `embrace-config.json` in the section `sdk_config`.`automatic_data_capture` to `true`
+	- Set the configuration property `ui_load_tracing_disabled` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`
 
 - Explicitly enabling select Activities
-	- Set the configuration property `ui_load_tracing_selected_only` in `embrace-config.json` in the section `sdk_config`.`ui_load_tracing_selected_only` to `true`
+	- Set the configuration property `ui_load_tracing_selected_only` in `embrace-config.json` in the section `sdk_config.ui_load_tracing_selected_only` to `true`
 	- Annotate each Activity that you want to instrument with `@LoadTracedActivity` or `@CustomLoadTracedActivity`
 
 - Explicitly disabling select Activities
