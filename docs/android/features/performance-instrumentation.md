@@ -47,7 +47,9 @@ To ensure the timestamps of the custom spans are in sync with the timestamps of 
 
 #### Application object create completion notification
 
-It's difficult to programmatically determine precisely when the app's application object has been created, but the `applicationInitEnd()` method can be called to notify the SDK of when this happens, which will allow it to more accurately assess whether an app startup is cold or warm.
+It's difficult for the SDK to programmatically determine precisely when the app's application object has been created, but it's easy to do so for the app itself (i.e. it's when the `Application.onCreate()` method finishes.
+
+As such, the `applicationInitEnd()` method can be used to notify the SDK when this happens, which will allow it to more accurately assess whether an app startup is cold or warm.
 
 #### Bypassing interstitial activities during app startup
 
