@@ -13,7 +13,7 @@ _TBD_
   * Rewriting of internal instrumentation libraries to work with any OTel compliant Tracer Providers
   * Deprecation of packages that exposed Embrace specific rather than OTel interfaces
 * This new major version includes several backwards incompatible change, before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
-* Updated iOS native Embrace SDK dependency to [version 6.7.0](/ios/changelog/#670)
+* Updated iOS native Embrace SDK dependency to [version 6.7.1](/ios/changelog/#671)
 
 ## 5.2.0
 _January 06, 2025_

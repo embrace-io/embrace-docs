@@ -7,7 +7,7 @@ sidebar_position: 4
 # iOS/tvOS SDK Changelog
 
 ## 6.7.1
-*Jan 22nd, 2025**
+*Jan 22nd, 2025*
 * Fixes
     * Fixed an issue that caused the crash `'Cannot form weak reference to instance X of class Y'`.
     * Fixed an issue that prevented enabling/disabling certain functionalities.
