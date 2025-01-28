@@ -16,10 +16,10 @@ Version 7 of the Embrace Android SDK contains the following breaking changes:
 - Several internally used classes and symbols have been hidden from the public API
 - Recording a custom trace ID for an HTTP request from a custom request header is no longer supported. IDs in the
   `x-emb-trace-id` header will still be recorded and displayed on the dashboard.
-- Methods to add and remove the `payer` Persona has been removed. 
+- Methods to add and remove the `payer` Persona have been removed. 
   - Use the generic Persona API methods with the name `payer` to get the equivalent functionality.
 - The `setAppId` API has been removed. Changing the `appId` at runtime is no longer supported.
-- Removed several obsolete remote config + local config properties. If you specify the below in your
+- Removed several obsolete remote config + local config properties. If you specify the configs below in your
   `embrace-config.json` they will be ignored:
     - `sdk_config.beta_features_enabled`
     - `sdk_config.anr.capture_google`
