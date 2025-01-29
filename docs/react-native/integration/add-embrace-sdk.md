@@ -108,12 +108,16 @@ repositories {
 }
 ```
 
-Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token.
+Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token. Make
+sure to also indicate that your app is using React Native.
 
 ```json
 {
   "app_id": "xxxxx",
-  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sdk_config": {
+    "app_framework": "react_native"
+  }
 }
 ```
 

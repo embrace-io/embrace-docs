@@ -11,9 +11,10 @@ description: Upgrade guide for Embrace React Native SDK versions
 :::info Summary
 
 - Removal or replacement of various packages and methods, see sections below for details on specific migrations
+- Initialization and configuration of the SDK on Android has been updated
 - Automatic support for CodePush has been removed
 - Unhandled promise rejection tracking is now opt-in
-  :::
+:::
 
 Upgrade to the latest 6.x versions of the Embrace React Native SDK packages by either bumping to the latest version
 manually in your package.json and running `yarn install` or `npm install` Or remove the existing packages entirely and
@@ -45,6 +46,35 @@ cd ios && pod install --repo-update
 | `clearUserAsPayer` | Use `clearUserPersona("payer")` instead.                                               |
 | `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package. |
 | `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead.         |
+
+### Updating native initialization on Android
+
+Specifying "react_native" as the app framework in the Android config is now required whereas previously only "app_id" and
+"app_token" were. To update edit `android/app/src/main/embrace-config.json` in your app so that it matches the following:
+
+```json
+{
+  "app_id": "xxxxx",
+  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sdk_config": {
+    "app_framework": "react_native"
+  }
+}
+```
+
+In addition, if you had previously run our install script or manually followed the steps for initializing the SDK from
+native code on Android you will have the following line in your `MainApplication.java` or `MainApplication.kt`:
+
+```kotlin
+Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE)
+```
+
+Since the app's framework is now passed through the config JSON this invocation of `start` is no longer supported. To
+upgrade replace it with:
+
+```kotlin
+Embrace.getInstance().start(this)
+```
 
 ### Migrating Traces
 

@@ -213,14 +213,15 @@ Embrace automatically collects the native screens, if you do not want to see the
 
 <Tabs groupId="disable-auto-native-screen-tracking" queryString="disable-auto-native-screen-tracking">
 <TabItem value="android" label="Android">
-Go to your `embrace-config.json` inside `android/app/src/main` and add the `sdk_config`, your file should be like this
+Go to your `embrace-config.json` inside `android/app/src/main` and edit the `sdk_config`, your file should be like this
 
 ```json
 {
   "app_id": "__APP_ID__",
   "api_token": "__API_TOKEN__",
-  // Add these lines
   "sdk_config": {
+    "app_framework": "react_native",
+    // Add these lines
     "view_config": {
       "enable_automatic_activity_capture": false
     }
