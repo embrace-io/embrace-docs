@@ -35,8 +35,6 @@ Version 7 of the Embrace Android SDK contains the following breaking changes:
   - `encodeExtractedFileNames`
 - Embrace no longer attempts to detect other signal handlers & reinstall itself by default. If you notice changes in your NDK crash report quality you can re-enable this behavior by setting `sdk_config.sig_handler_detection` to `true` in your `embrace-config.json`
 
-# Upgrading from 5.x to 6.x
-
 :::info Summary
 - Remove deprecated properties from Gradle file
 - Replace usage of deprecated methods
