@@ -89,6 +89,12 @@ Previously our SDK setup tracking for unhandled promise rejection tracking autom
 explicitly enabled, see [Report Unhandled Promise Rejections](/react-native/features/unhandled-promise-rejections) for
 more details.
 
+### Fixed process for uploading sourcemaps on iOS Expo apps
+
+If your app is using Expo and you have previously followed our symbol file upload guide or ran our automated install script
+then please update your build phases with our latest instructions from [Uploading Native And Javascript Symbol Files](/react-native/integration/upload-symbol-files/?platform=ios#uploading-native-and-javascript-symbol-files)
+to ensure that sourcemaps are uploaded correctly.
+
 ## Upgrading from 4.x to 5.x
 
 :::info Summary
