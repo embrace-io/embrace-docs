@@ -7,14 +7,14 @@ sidebar_position: 4
 # iOS/tvOS SDK Changelog
 
 ## 6.7.1
-*Jan 22nd, 2025**
+*Jan 22nd, 2025*
 * Fixes
     * Fixed an issue that caused the crash `'Cannot form weak reference to instance X of class Y'`.
     * Fixed an issue that prevented enabling/disabling certain functionalities.
     * Fixed incompatibility issues with AppLovin.
 
 ## 6.7.0
-*Jan 10th, 2025**
+*Jan 10th, 2025*
 * Features
     * Improvements to the Automatic View Capture functionality, allowing attributes to be added to traces (`TTFR` and `TTI`) using the `addAttributesToTrace(_:)` method.
 * Fixes
