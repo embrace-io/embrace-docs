@@ -33,6 +33,23 @@ For iOS you will also need to install or update pods for the application:
 cd ios && pod install --repo-update
 ```
 
+If you are not using Expo, you need to update your Metro configuration before running the application.
+To do this, open your `metro.config.js` file and set `transformer.unstable_allowRequireContext` to true:
+
+```javascript
+// metro.config.js
+module.exports = {
+  transformer: {
+    unstable_allowRequireContext: true,
+    // ... other configuration
+  },
+};
+```
+
+This update is required because, under the hood, we check at runtime whether the `@embrace-io/react-native-otlp` package is installed. This package is mandatory if the OTLP feature is needed.
+
+Expo applications use the `@expo/metro-config` package, which applies a default Metro configuration that enables this flag by default. As a result, this step is not necessary for Expo projects.
+
 ## Implementation
 
 For this example we will use Grafana Cloud in terms of redirecting telemetry data over there using OTLP endpoints. For more information about this please visit their online [docs](https://grafana.com/docs/grafana-cloud/send-data/otlp/send-data-otlp/).
@@ -44,7 +61,7 @@ import {View, Text} from "react-native";
 import {Stack} from "expo-router";
 
 const GRAFANA_TOKEN = "__GRAFANA_TOKEN__"; // `grafana_instance:token` converted into a base64 string.
-const EXPORT_CONFIG = {
+const EXPORTER_CONFIG = {
   logExporter: {
     endpoint: "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs",
     headers: [
@@ -67,12 +84,12 @@ const EXPORT_CONFIG = {
 };
 
 // iOS is configurable through code, Android configuration happens at build time
-const SDK_CONFIG = {appId: "__APP_ID__"};
+const IOS_SDK_CONFIG = {appId: "__APP_ID__"};
 
 function RootLayout() {
   const {isPending, isStarted} = useEmbrace({
-    ios: SDK_CONFIG,
-    exporters: EXPORT_CONFIG,
+    ios: IOS_SDK_CONFIG,
+    exporters: EXPORTER_CONFIG,
   });
 
   if (isPending) {
