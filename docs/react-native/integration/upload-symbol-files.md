@@ -33,19 +33,35 @@ In Xcode, find the "Bundle React Native code and images" step in the Build Phase
 The contents should look something like the following:
 
 ```shell-session
-export NODE_BINARY=node
-../node_modules/react-native/scripts/react-native-xcode.sh
+set -e
+
+WITH_ENVIRONMENT="$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh"
+REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
+
+/bin/sh -c "$WITH_ENVIRONMENT $REACT_NATIVE_XCODE"
 ```
 
 Change the contents to the following:
 
 ```shell-session
-export NODE_BINARY=node
+set -e
 
-export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/main.jsbundle.map"; <-- Add this line
+WITH_ENVIRONMENT="$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh"
 
-../node_modules/react-native/scripts/react-native-xcode.sh
+# Add these two lines
+mkdir -p "$CONFIGURATION_BUILD_DIR/embrace-assets"
+export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map"
+
+REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
+
+/bin/sh -c "$WITH_ENVIRONMENT $REACT_NATIVE_XCODE"
 ```
+
+:::info
+Note that for Expo apps this build phase looks quite different but the same process will work just make sure to add
+the new lines above the invocation of `react-native-xcode.sh` which on Expo will look something like 
+`"$NODE_BINARY" --print "require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'"`
+:::
 
 Now we will add a new phase:
 
@@ -57,7 +73,7 @@ This phase is going to be calling Embrace's `run.sh` upload script which is dist
 Use the following command for the build phase:
 
 ```shell
-REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/main.jsbundle.map" EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
+REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 
 You can configure the phase to only run on builds you want symbols uploaded to Embrace for, and skip the step on internal
@@ -85,7 +101,7 @@ updated bundle correctly.
 First you must manually upload source maps for the new bundle using the upload script distributed with the Embrace Cocoapod:
 
 ```shell
-ios/Pods/EmbraceIO/run.sh --app <your app ID> --token <your token> --rn-bundle path/to/main.jsbundle --rn-map path/to/main.map
+ios/Pods/EmbraceIO/run.sh --app <your app ID> --token <your token> --rn-bundle path/to/main.jsbundle --rn-map path/to/main.jsbundle.map
 ```
 
 Next you must tell the Embrace SDK the location where it can find the downloaded bundle on the device when there are updates:
