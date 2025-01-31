@@ -23,7 +23,7 @@ re-installing.
 Then install the latest Cocoapods with:
 
 ```shell
-cd ios && pod install --repo-update
+cd ios && pod update EmbraceIO && pod install --repo-update
 ```
 
 ### Deprecated Packages
