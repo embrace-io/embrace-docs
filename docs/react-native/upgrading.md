@@ -46,22 +46,6 @@ cd ios && pod install --repo-update
 | `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package. |
 | `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead.         |
 
-#### Upgrading `@embrace-io/react-native` package
-
-If you are still in a React Native application that runs a Metro prior to [v0.76.3](https://github.com/facebook/metro/releases/tag/v0.76.3) and you would like to get [OTLP exporters](/react-native/features/otlp) configured you may need to update your `metro.config.js` file enabling the `transformer.unstable_allowRequireContext` to true. Newer versions shouldn't require this extra step.
-
-```javascript
-// metro.config.js
-module.exports = {
-  transformer: {
-    unstable_allowRequireContext: true,
-    // ... other configuration
-  },
-};
-```
-
-This is because under the hood we are checking at runtime the installment of the `@embrace-io/react-native-otlp` package, which is mandatory if OTLP feature is required.
-
 ### Migrating Traces
 
 The `@embrace-io/react-native-spans` package has been removed and the functionality it provided is now available from the
