@@ -208,7 +208,7 @@ public class MainApplication extends Application implements ReactApplication {
         super.onCreate();
 
         // Add this line right after the super.onCreate();
-        Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE);
+        Embrace.getInstance().start(this);
     }
 }
 ```

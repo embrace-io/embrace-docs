@@ -108,12 +108,16 @@ repositories {
 }
 ```
 
-Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token.
+Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token. Make
+sure to also indicate that your app is using React Native.
 
 ```json
 {
   "app_id": "xxxxx",
-  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sdk_config": {
+    "app_framework": "react_native"
+  }
 }
 ```
 
@@ -153,3 +157,19 @@ Update your `AppDelegate.m|mm` file to include the following import, making sure
 ```
 
 See [this GitHub issue](https://github.com/expo/expo/issues/17705) for more details.
+
+### Android build error on React Native 0.71
+
+In your `android/app/build.gradle` if you have
+
+```
+apply from react.gradle
+```
+
+try replacing it with:
+
+```
+apply plugin: "com.facebook.react"
+```
+
+See [this commit](https://github.com/facebook/react-native/commit/af6aafff90c4d40abfe160c4cfc8e1ae8fa0d956) for more details.
