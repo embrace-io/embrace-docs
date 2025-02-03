@@ -89,6 +89,8 @@ the Embrace dashboard.
 Embrace exposes a public endpoint that based on the time range and aggregations used on the Grafana visualizations will 
 redirect the customer to the Embrace dashboard with the same time range and aggregations.
 
+### What does Embrace support and not support?
+
 Embraces supports the following options used on the Grafana visualization:
 - Time range. Example: if the time range on Grafana visualization is last 12 hours,
 Embrace uses the same time range on the Embrace dashboard.
