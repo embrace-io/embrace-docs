@@ -10,14 +10,16 @@ sidebar_position: 4
 
 - Have an active Grafana Cloud account.
 
-## Pulling your Grafana Cloud API Key or Access Policy / Token
+### Configure integration
+
+#### Pulling your Grafana Cloud API Key or Access Policy / Token
 
 Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies). 
 It depends on your Grafana Cloud version the information that you need to share with us.
 
 > Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/authentication-and-permissions/cloud-roles/) for more information.
 
-### Access Policy/Token
+##### Access Policy/Token
 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_access_policies.png').default} alt="Image showing Grafana cloud access policy tab" />
 
@@ -36,7 +38,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 11. In **Token Name**, enter a name for the token.
 12. In **Expiration Date**, select `No expiry`.
 
-### API Key
+##### API Key
 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_api_keys.png').default} alt="Image showing Grafana cloud api key tab" />
 
@@ -51,7 +53,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 9. Share the token with an Embrace onboarding specialist.
 10. Click **Close** when finished.
 
-## Pulling your Instance ID and Zone
+#### Pulling your Instance ID and Zone
 
 1. Log into your [Grafana Cloud account](https://grafana.com/auth/sign-in) to access the **Cloud Portal**.
 2. Select the organization you want the instance ID and zone, by selecting from the dropdown in the top left.
@@ -91,7 +93,7 @@ redirect the customer to the Embrace dashboard with the same time range and aggr
 
 ### What does Embrace support and not support?
 
-Embraces supports the following options used on the Grafana visualization:
+Embrace supports the following options used on the Grafana visualization:
 - Time range. Example: if the time range on Grafana visualization is last 12 hours,
 Embrace uses the same time range on the Embrace dashboard.
 - Aggregations. Example: if the metric is aggregated by "os_version" and "country" (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total)`)
@@ -123,7 +125,9 @@ Embrace uses the "os_version" filter but not the "app_version" filter on the Emb
      (`sum by (os_version, app_id, embrace_metric_name) (embrace_sessions_hourly_total)`) works.
 3. Click the "three dots" at the top right of the Grafana Visualization and choose "edit".
 4. At the right sidebar menu, go to the "Data Links" section. Click the "+ Add link" button to add a new one:
-   1. Title: "Embrace".
-   2. URL: "https://dash-api-us1.embrace.io/external/data_destination/grafana_cloud?labels=${__field.labels}&from=${__from}&to=${__to}".
-   3. Open in new tab: "on".
+   1. **Title**: Embrace.
+   2. **URL**: https://dash-api-us1.embrace.io/external/data_destination/grafana_cloud?labels=${__field.labels}&from=${__from}&to=${__to}
+   3. **Open in new tab**: on.
+
+
 <img src={require('@site/static/images/data-destinations/grafana_cloud_dashboard_backlink_detailed.png').default} alt="Image showing the Data Links section backlink" />
