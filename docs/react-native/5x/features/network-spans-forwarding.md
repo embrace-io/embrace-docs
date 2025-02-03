@@ -1,6 +1,6 @@
 ---
 title: Network Spans Forwarding
-sidebar_position: 10
+sidebar_position: 7
 ---
 
 # Network Spans Forwarding
@@ -18,7 +18,6 @@ At this point everything should be working on iOS. For Android one additional co
   "app_id": "xxxxx",
   "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "sdk_config": {
-      "app_framework": "react_native",
       "networking": {
           "enable_network_span_forwarding": true
       }
@@ -84,7 +83,6 @@ Remove the parameter that was added or set to `false`.
   "app_id": "xxxxx",
   "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "sdk_config": {
-      "app_framework": "react_native",
       "networking": {
           "enable_network_span_forwarding": false
       }

@@ -1,7 +1,7 @@
 ---
 title: Next Steps
 description: Resources to help you take your Embrace integration for your React Native application to the next level
-sidebar_position: 9
+sidebar_position: 11
 ---
 
 # Next Steps
@@ -17,7 +17,7 @@ please don't hesitate to reach out to us at [support@embrace.com](mailto:support
 
 Embrace includes many optional advanced features that can help you figure out some of 
 the most challenging issues. Learn about these features, and how to enable them, in
-our [Feature Reference](/react-native/features/).
+our [Feature Reference](/react-native/5x/features/).
 
 ## Best Practices
 

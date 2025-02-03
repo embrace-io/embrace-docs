@@ -8,7 +8,7 @@ sidebar_position: 8
 
 ## Adding Context to Sessions
 
-Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.
+Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/5x/integration/crash-reporting) and [Session Reporting](/react-native/5x/integration/session-reporting) sections.
 Embrace can also collect the screens that your app opened and include it as context within your sessions.
 Here's how you add the screen tracker to the session.
 

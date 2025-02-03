@@ -13,34 +13,29 @@ import TabItem from '@theme/TabItem';
 
 ## Add the JavaScript library
 
-npm:
+Use Yarn or NPM to install the NPM module.
 
-```sh
-npm install @embrace-io/react-native
-```
-
-yarn:
-
-```sh
+```shell-session
 yarn add @embrace-io/react-native
 ```
 
-For iOS you will also need to install or update pods for the application:
-
-```sh
-cd ios && pod install --repo-update
+```shell-session
+npm install @embrace-io/react-native
 ```
 
 :::info
-Additional features for our SDK are kept in separate packages to allow you to include just the dependencies for the ones
-you wish to use and keep your overall bundle size smaller. The instructions on this page will add just our core SDK
-package as a dependency, additional packages can then be included later as you integrate more of the functionality
-described in our [Feature Reference](/react-native/features/).
+If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
 
-## Native Setup
+For iOS you will also need to install the pod:
 
-### Setup Script
+```shell
+cd ios && pod install --repo-update
+```
+
+# Adding the SDK 
+
+## Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
@@ -71,7 +66,7 @@ git diff
 Compare the changes to the manual setup step to verify the changes were made
 correctly.
 
-### Manually
+## Manually
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
@@ -108,16 +103,30 @@ repositories {
 }
 ```
 
-Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token. Make
-sure to also indicate that your app is using React Native.
+:::warning Important
+React Native 0.59.0 and later automatically adds the required `compileOptions` directive to the `android/app/build.gradle` file.
+If you are using a version of React Native older than 0.59.0, or your project was created with a version older than 0.59.0, add the following to your `android/app/build.gradle` file:
+
+```groovy
+android {
+    // ...
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // ...
+}
+```
+
+:::
+
+Now, add the Embrace config file at `android/app/src/main/embrace-config.json`, and add your API key and token.
 
 ```json
 {
   "app_id": "xxxxx",
-  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "sdk_config": {
-    "app_framework": "react_native"
-  }
+  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 }
 ```
 
@@ -157,19 +166,3 @@ Update your `AppDelegate.m|mm` file to include the following import, making sure
 ```
 
 See [this GitHub issue](https://github.com/expo/expo/issues/17705) for more details.
-
-### Android build error on React Native 0.71
-
-In your `android/app/build.gradle` if you have
-
-```
-apply from react.gradle
-```
-
-try replacing it with:
-
-```
-apply plugin: "com.facebook.react"
-```
-
-See [this commit](https://github.com/facebook/react-native/commit/af6aafff90c4d40abfe160c4cfc8e1ae8fa0d956) for more details.

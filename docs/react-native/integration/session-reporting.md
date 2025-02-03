@@ -9,95 +9,113 @@ sidebar_position: 5
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 Here are the steps you’ll be taking to create your first session.
 
-1. [Initialize Embrace](/react-native/integration/session-reporting#initialize-embrace-sdk)
-1. [Add a start call to the Embrace SDK (optional)](/react-native/integration/session-reporting#starting-embrace-sdk-from-android--ios)
-1. [Build and run the application](/react-native/integration/session-reporting#build-and-run-the-application)
-1. [Trigger a session upload](/react-native/integration/session-reporting#trigger-a-session-upload)
+1. [Initialize Embrace SDK in the JavaScript side](/react-native/integration/session-reporting#initialize-embrace-sdk-in-the-javascript-side)
+2. [Start Embrace SDK in the Native side](/react-native/integration/session-reporting#start-embrace-sdk-in-the-native-side)
+3. [Build and run the application](/react-native/integration/session-reporting#build-and-run-the-application)
+4. [Trigger a session upload](/react-native/integration/session-reporting#trigger-a-session-upload)
 
-## Initialize Embrace SDK
+## Initialize Embrace SDK in the JavaScript side
 
-Initialize method applies the necessary listener to your application. This allows Embrace to track javascript errors,
-check js bundle changes (if you use OTA), track js patch and react native versions. For iOS this is also where you'll
-pass in your app ID.
+### Without hooks
+
+Calling the `initialize` method setups up the tracking for the SDK on the JS side. This is needed even if you choose
+to start the SDK earlier on the native side as explained below, however in that case the configuration passed through
+in the `sdkConfig` object is ignored in favor of the native startup configuration.
+
+```javascript
+import React, { useEffect, useState } from 'react'
+import { initialize } from '@embrace-io/react-native';
+
+const App = () => {
+  useEffect(() => {
+    const initEmbrace = async () => {
+      try {
+        const isStarted = await initialize({
+          sdkConfig: {
+            ios: {
+              appId: "abcdf",
+            },
+          },
+        });
+
+        if (isStarted) {
+          // do something
+        }
+      } catch {
+        console.log("Error initializing Embrace SDK");
+      }
+    };
+
+    initEmbrace();
+  });
+
+  // regular content of the application
+  return (
+    ...
+  );
+}
+
+export default App
+```
+
+### With hooks
+
+We expose also a hook that handles the initialization of Embrace in a more React friendly way:
+
+```javascript
+import React, { useEffect, useState } from 'react'
+import { useEmbrace } from '@embrace-io/react-native';
+
+const App = () => {
+  // minimum of configuration required
+  const {isPending, isStarted} = useEmbrace({
+    ios: {
+      appId: "__APP_ID__", // 5 digits string
+    },
+  });
+
+
+  if (isPending) {
+    return (
+      <View>
+        <Text>Loading Embrace</Text>
+      </View>
+    );
+  } else {
+    if (!isStarted) {
+      console.log('An error occurred during Embrace initialization');
+    }
+  }
+
+  // regular content of the application
+  return (
+    ...
+  );
+}
+
+export default App
+```
+
+In both cases we recommend to use these methods to initialize the React Native Embrace SDK at the top level of your
+application just once to prevent side effects in the JavaScript layer.
+
+## Start Embrace SDK in the Native side
+
+:::info
+If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk#setup-script)
+then these steps will already have been completed for you
+:::
+
+Initializing the Embrace SDK from the JavaScript side as shown above will automatically initialize the underlying native
+Embrace SDKs (Android / iOS). This means telemetry collection will **only begin once JavaScript is loaded** and the initialize
+method from the previous step has been called. This can be useful if you want more control over exactly when the SDK starts.
+However, if you want data to be collected as soon as Android / iOS has started, or if you require more custom setup,
+then you can perform the initialization on the native side as shown in this section.
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
-
-<Tabs groupId="platform" queryString="platform">
-<TabItem value="ios" label="Component">
-
-```javascript
-import {initialize} from '@embrace-io/react-native';
-
-export default class App extends Component {
-  componentDidMount() {
-    
-    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-    initialize({
-      sdkConfig: {
-        ios: {
-          appId: "abcdf",
-        }
-      }
-    }).then(hasStarted=>{
-      if(hasStarted){
-          //doSomething
-      }
-    });
-  }
-}
-```
-</TabItem>
-<TabItem value="hooks" label="Hooks">
-
-```javascript
-import React, {useEffect, useState} from 'react'
-import {initialize} from '@embrace-io/react-native';
-
-const App = ()=> {
-
-  useEffect(()=>{
-    // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-
-    initialize({
-      sdkConfig: {
-        ios: {
-          appId: "abcdf",
-        }
-      }
-    }).then(hasStarted=>{
-      if(hasStarted){
-         //doSomething
-      }
-    });
-  },[])
-
- return ...
-}
-export default App
-```
-
-</TabItem>
-</Tabs>
-
-:::info Note for initialize method
-The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
-:::
-## Starting Embrace SDK from Android / iOS
-
-Initializing the Embrace SDK from the JavaScript side as shown above will automatically initialize the underlying native
-Embrace SDKs (Android / iOS). This means that the network, crash, and metrics interceptors will only be initialized once
-JavaScript is loaded and has called the initialize method mentioned in the previous step. This is useful if you want more
-control over exactly when the SDK starts. However, if you want to start applying the interceptors as soon as Android / iOS
-has started, or if you have custom configuration then you can perform the initialization on the native side as shown in
-this section.
-
-:::info 
-If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk/#setup-script)
-then these steps will already have been completed for you
-:::
 
 <Tabs groupId="platform" queryString="platform">
 
@@ -115,7 +133,7 @@ import EmbraceIO
             try Embrace
                 .setup(
                     options: Embrace.Options(
-                        appId: "YOUR-APP-ID",
+                        appId: "__APP_ID__", // 5 digits string
                         platform: .reactNative
                     )
                 )
@@ -128,28 +146,30 @@ import EmbraceIO
 ```
 
 :::warning
-Once the iOS SDK is being initialized in this way any configuration any parameters passed through the JS side with
-`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK by following [these steps](/ios/open-source/integration/embrace-options/). 
+Once the iOS SDK is being initialized in this way any configuration any parameters passed through the JavaScript side with
+`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK by following [these steps](/ios/open-source/integration/embrace-options/).
 :::
 
-If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the 
+If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the
 `application` method in your app delegate like:
 
 ```swift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    ...
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         EmbraceInitializer.start()
-        ...
+
+        // rest of the logic
+    }
+}
 ```
 
-If your app delegate is in Objective-c and this is the first swift file in your project Xcode will prompt you to create
-a Bridging header file which you should accept. Then in your `AppDelegate.m|mm` file you will need to add an import to
-your project's auto generated Swift header `#import "ProductModuleName-Swift.h"` substituting your product's module name
-(see [Apple's docs](https://developer.apple.com/documentation/swift/importing-swift-into-objective-c#Overview) for more
-information on how this is generated) and then add a call to `[EmbraceInitializer start];` to the start of the
-`application` method in your app delegate like:
+If your app delegate is in Objective-c and this is the first swift file in your project then Xcode will prompt you to create
+a Bridging header file which you should accept. Next, in your `AppDelegate.m|mm` file you will need to add an import to
+your project's auto generated Swift header `#import "ProductModuleName-Swift.h"` (substituting your product's module name,
+see [Apple's docs](https://developer.apple.com/documentation/swift/importing-swift-into-objective-c#Overview)), and then
+add a call to `[EmbraceInitializer start];` to the start of the `application` method in your app delegate like the
+following:
 
 ```objectivec
 #import "AppDelegate.h"
@@ -162,7 +182,9 @@ information on how this is generated) and then add a call to `[EmbraceInitialize
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [EmbraceInitializer start];
-  ...
+
+  // rest of the logic
+}
 ```
 
 If you are using Expo you may need an additional `#import <ExpoModulesCore-Swift.h>` import before the line that
@@ -185,8 +207,9 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
         // Add this line right after the super.onCreate();
-        Embrace.getInstance().start(this, false, Embrace.AppFramework.REACT_NATIVE);
+        Embrace.getInstance().start(this);
     }
 }
 ```
@@ -194,7 +217,11 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 </Tabs>
 
-## Build and Run the Application
+### Initializing Embrace SDK without an App Id or Token
+
+If you prefer to send the data into a custom backend avoiding Embrace you should skip the app_id / token values from both platform configurations. For more information about it you can visit the how to [Use without an Embrace account](/react-native/integration/login-embrace-dashboard#use-without-an-embrace-account) section.
+
+## Build and run the application
 
 Now you're ready to build and run the application.
 Launch the application how you usually would during development.
@@ -203,13 +230,13 @@ Launch the application how you usually would during development.
 If you encounter any errors, please get in touch on Slack and we can assist you.
 :::
 
-## Trigger a Session Upload
+## Trigger a session upload
 
-To trigger a session upload, simply stop the application by either force killing
-it or using the stop button in either Xcode for iOS or Android Studio for Android.
+To trigger a session upload, simply background and then foreground the app, or stop the application by either force
+killing it or using the stop button in either Xcode for iOS or Android Studio for Android.
 Now run the application again.
 This second launch will upload the previous session immediately.
-Refresh the dashboard in your browser and you should now see that you've moved on to the next step.
+Refresh the dashboard in your browser and you should see the session reported.
 
 ---
 

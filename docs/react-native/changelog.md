@@ -2,9 +2,19 @@
 title: React Native SDK Changelog
 description: Changelog for the React Native Embrace SDK
 sidebar_position: 4
-
 ---
 # React Native SDK Changelog
+
+## 6.0.0
+_February 03, 2025_
+* This major version focuses on bringing the SDK up to OpenTelemetry standards including:
+  * Export of Traces and Logs to non-Embrace OTLP endpoints without requiring an Embrace application ID
+  * Exposing a Tracer Provider to allow telemetry to be collected from any OTel compliant instrumentation library
+  * Rewriting of internal instrumentation libraries to work with any OTel compliant Tracer Providers
+  * Deprecation of packages that exposed Embrace specific rather than OTel interfaces
+* This new major version includes several backwards incompatible change, before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
+* Updated iOS native Embrace SDK dependency to [version 6.7.1](/ios/changelog/#671)
+* Updated Android native Embrace SDK dependency to [version 7.0.0](/android/changelog/#700)
 
 ## 5.2.0
 _January 06, 2025_
@@ -14,7 +24,7 @@ _January 06, 2025_
 ## 5.1.0
 _December 16, 2024_
 * Updated Android native Embrace SDK dependency to version 6.14.0
-* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/render-errors.md) for more details
 * Guard against possible unhandled exceptions
 * Provide a default bundle path on iOS
 * Internal refactor and dependency updates to make packages that deal with native code more consistent
@@ -50,11 +60,11 @@ _July 04, 2024_
 * Updated iOS native Embrace SDK dependency to 5.25.2.
 ## 4.1.3
 _December 17, 2024_
-* Log component tree stack during rendering errors, see the [feature description](/react-native/features/tracking-render-errors.md) for more details
+* Log component tree stack during rendering errors, see the [feature description](/react-native/features/render-errors.md) for more details
 ## 4.1.2
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.
-* Updated iOS script to upload sourcemap. Please [update your implementation](/react-native/integration/upload-symbol-files/#uploading-source-maps)
+* Updated iOS script to upload sourcemap. Please [update your implementation](/react-native/integration/upload-symbol-files/)
 * Updated Android native Embrace SDK dependency to 6.8.2.
 ## 4.1.1
 _April 15, 2024_
@@ -84,8 +94,8 @@ _December 11, 2023_
 * Updated iOS native Embrace SDK dependency to 5.24.0.
 ## 3.15.0
 _September 28, 2023_
-* New method to [get the current session id](/react-native/features/current-session-id-api/)
-* New method to [get the last run end state](/react-native/features/last-run-end-state/) of a session
+* New method to [get the current session id](/react-native/features/session-metadata/#current-session-id)
+* New method to [get the last run end state](/react-native/features/session-metadata/#last-run-end-state) of a session
 * Updated Android native Embrace SDK dependency to 5.24.0.
 * Updated iOS native Embrace SDK dependency to 5.23.1.
 ## 3.14.0

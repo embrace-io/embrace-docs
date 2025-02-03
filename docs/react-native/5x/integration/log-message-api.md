@@ -1,12 +1,12 @@
 ---
 title: Log Message API
 description: Trigger alerts for your React Native application using logs with the Embrace SDK
-sidebar_position: 8
+sidebar_position: 10
 ---
 
 # Adding Logs
 
-As we've discussed in the [Session Reporting section](/react-native/integration/session-reporting), Embrace uploads its sessions on the next app launch.
+As we've discussed in the [Session Reporting section](/react-native/5x/integration/session-reporting), Embrace uploads its sessions on the next app launch.
 This delay may seem like it hurts the immediacy of the data you are seeing, but the reality is that at scale this still means you are finding out about issues very quickly.
 
 However, some situations might require instant feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout.
@@ -18,19 +18,20 @@ You can leverage the log message API for this.
 You can log a message immediately by calling the `logMessage` function.
 
 ```javascript
-import { logMessage } from '@embrace-io/react-native';
+import {logMessage, ERROR} from '@embrace-io/react-native';
 
-logMessage('Loading not finished in time.', 'error', {
-  propertyA: 'valueA',
-  propertyB: 'valueB'
-});
+logMessage(
+	'Loading not finished in time.',
+	ERROR,
+	{propertyA: 'valueA', propertyB: 'valueB'},
+);
 ```
 
 Here's a breakdown of the arguments being passed to the `logMessage` function.
 
 1. **The message.** The string of the log message. Make this short yet informative.
-1. **Severity.** Other options include `warning` and `info`.
-1. **Properties.** A map of key-value pairs you can use to categorize and filter log messages with.
+1. **Severity.** Other options include `WARNING` and `INFO`.
+1. **Properties.** A map of key-value pairs you can use to categorize and filter log messages with. 
 
 import LogLimit from '@site/shared/log-limit.md';
 
@@ -53,4 +54,4 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 
 ---
 
-Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/react-native/integration/next-steps) page to wrap up your integration.
+Congratulations! By this point, you should have a solid integration. Continue to the [Next Steps](/react-native/5x/integration/next-steps) page to wrap up your integration.
