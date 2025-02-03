@@ -6,7 +6,7 @@ sidebar_position: 4
 # React Native SDK Changelog
 
 ## 6.0.0
-_TBD_
+_February 03, 2025_
 * This major version focuses on bringing the SDK up to OpenTelemetry standards including:
   * Export of Traces and Logs to non-Embrace OTLP endpoints without requiring an Embrace application ID
   * Exposing a Tracer Provider to allow telemetry to be collected from any OTel compliant instrumentation library
