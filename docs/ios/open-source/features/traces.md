@@ -56,7 +56,7 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and 
 To use this feature:
 
 1. Ensure you’re using a version of the Embrace SDK that supports Traces.
-2. Instrument your app using the reference guide in this sections to start adding spans to your operations.
+2. Instrument your app using the reference guide in these sections to start adding spans to your operations.
 3. See the spans in the Traces section of the Embrace dashboard.
 
 ### Create SpanBuilder
