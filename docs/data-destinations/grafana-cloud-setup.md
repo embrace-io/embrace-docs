@@ -120,10 +120,8 @@ Embrace uses the "os_version" filter but not the "app_version" filter on the Emb
       the dashboard backlink. Example: this (`sum by (os_version) (embrace_sessions_hourly_total)`) doesn't work and this 
      (`sum by (os_version, app_id, embrace_metric_name) (embrace_sessions_hourly_total)`) works.
 3. Click the "three dots" at the top right of the Grafana Visualization and choose "edit".
-4. At the right sidebar menu, go to the "Data Links" section.
-   1. Click the "+ Add link" button to add a new one and add: "https://dash-api-us1.dashlink.santileira.dev.emb-eng.com/external/data_destination/grafana_cloud?labels=${__field.labels}&from=${__from}&to=${__to}"
-
-Example: when the customer clicks on a point of the below Grafana visualization, it will be redirected to: <add-url?
-
-<img src={require('@site/static/images/data-destinations/grafana_cloud_dashboard_backlink.png').default} alt="Image showing the dashboard backlink" />
-
+4. At the right sidebar menu, go to the "Data Links" section. Click the "+ Add link" button to add a new one:
+   1. Title: "Embrace".
+   2. URL: "https://dash-api-us1.embrace.io/external/data_destination/grafana_cloud?labels=${__field.labels}&from=${__from}&to=${__to}".
+   3. Open in new tab: "on".
+<img src={require('@site/static/images/data-destinations/grafana_cloud_dashboard_backlink_detailed.png').default} alt="Image showing the Data Links section backlink" />
