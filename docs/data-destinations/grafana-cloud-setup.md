@@ -10,16 +10,16 @@ sidebar_position: 4
 
 - Have an active Grafana Cloud account.
 
-### Configure integration
+## Configure integration
 
-#### Pulling your Grafana Cloud API Key or Access Policy / Token
+### Pulling your Grafana Cloud API Key or Access Policy / Token
 
 Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies). 
 It depends on your Grafana Cloud version the information that you need to share with us.
 
 > Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/authentication-and-permissions/cloud-roles/) for more information.
 
-##### Access Policy/Token
+#### Access Policy/Token
 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_access_policies.png').default} alt="Image showing Grafana cloud access policy tab" />
 
@@ -38,7 +38,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 11. In **Token Name**, enter a name for the token.
 12. In **Expiration Date**, select `No expiry`.
 
-##### API Key
+#### API Key
 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_api_keys.png').default} alt="Image showing Grafana cloud api key tab" />
 
@@ -53,7 +53,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 9. Share the token with an Embrace onboarding specialist.
 10. Click **Close** when finished.
 
-#### Pulling your Instance ID and Zone
+### Pulling your Instance ID and Zone
 
 1. Log into your [Grafana Cloud account](https://grafana.com/auth/sign-in) to access the **Cloud Portal**.
 2. Select the organization you want the instance ID and zone, by selecting from the dropdown in the top left.
@@ -82,7 +82,6 @@ For Data Destination ensure that you are selecting the correct prometheus dataso
 
 - **Data Destination**: Embrace can push metrics directly to your Grafana Cloud instance as a data destination. This setup leverages Grafana Cloud's managed Prometheus services, enabling seamless integration without the need for an additional Prometheus instance. This method is ideal for most users who prefer a simple, automated approach to access Embrace metrics within Grafana Cloud.
 
-
 ## Embrace dashboard backlink
 
 Embrace provides this feature to allows the customer to navigate from Grafana visualizations using Embrace metrics to
@@ -100,7 +99,7 @@ Embrace uses the same time range on the Embrace dashboard.
 Embrace uses those filters with equals operator on the Embrace dashboard.
 
 Embrace doesn't support the following options used on the Grafana visualization:
-- Some aggregations are not supported on the Embrace dashboard as filters, Embrace skips them on the dashboard backlink. Aggregations not supported: 
+- Some aggregations are not supported on the Embrace dashboard as filters, Embrace skips them on the Embrace dashboard backlink. Aggregations not supported: 
   - duration_bucket, group_id, log_property_value, moment_property_value, root_span_duration_bucket, root_span_attribute_value, 
   session_property_value, status_code, tag_value.
 - Some aggregations are converted to other filters on the Embrace dashboard. The next 4 filters have the [top_n](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) feature, 
@@ -119,9 +118,9 @@ Embrace uses the "os_version" filter but not the "app_version" filter on the Emb
 ### How to configure it?
 
 1. Go to the Grafana Dashboard where you visualize the Embrace metrics.
-2. Go to the Grafana Visualization where you want to add the dashboard backlink. 
+2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink. 
    1. All the metrics must be aggregated by "app_id" and "embrace_metric_name". Embrace uses those aggregations to generate 
-      the dashboard backlink. Example: this (`sum by (os_version) (embrace_sessions_hourly_total)`) doesn't work and this 
+      the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_sessions_hourly_total)`) doesn't work and this 
      (`sum by (os_version, app_id, embrace_metric_name) (embrace_sessions_hourly_total)`) works.
 3. Click the "three dots" at the top right of the Grafana Visualization and choose "edit".
 4. At the right sidebar menu, go to the "Data Links" section. Click the "+ Add link" button to add a new one:
