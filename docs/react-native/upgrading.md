@@ -29,7 +29,7 @@ cd ios && pod update EmbraceIO && pod install --repo-update
 ### Deprecated Packages
 
 | Package                                              | Comments                                                                    |
-|------------------------------------------------------|-----------------------------------------------------------------------------|
+| ---------------------------------------------------- | --------------------------------------------------------------------------- |
 | `@embrace-io/react-native-orientation-change-tracer` | Use `useOrientationListener` from `@embrace-io/react-native` instead.       |
 | `@embrace-io/react-native-web-tracker`               | No longer supported.                                                        |
 | `@embrace-io/react-native-spans`                     | Functionality has been moved to `@embrace-io/react-native-tracer-provider`. |
@@ -40,7 +40,7 @@ cd ios && pod update EmbraceIO && pod install --repo-update
 ### Removed APIs
 
 | Old API            | Comments                                                                               |
-|--------------------|----------------------------------------------------------------------------------------|
+| ------------------ | -------------------------------------------------------------------------------------- |
 | `logScreen`        | Use `addBreadcrumb(message: string)` instead.                                          |
 | `setUserAsPayer`   | Use `addUserPersona("payer")` instead.                                                 |
 | `clearUserAsPayer` | Use `clearUserPersona("payer")` instead.                                               |
@@ -243,7 +243,7 @@ The application will still work but the Embrace SDK won't initialize, causing un
 ### Removed APIs
 
 | Old API                | Comments                                    |
-|------------------------|---------------------------------------------|
+| ---------------------- | ------------------------------------------- |
 | `endAppStartup`        | Deprecated API that is no longer supported. |
 | `startMoment`          | Deprecated API that is no longer supported. |
 | `endMoment`            | Deprecated API that is no longer supported. |
