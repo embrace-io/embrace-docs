@@ -101,7 +101,7 @@ updated bundle correctly.
 First you must manually upload source maps for the new bundle using the upload script distributed with the Embrace Cocoapod:
 
 ```shell
-ios/Pods/EmbraceIO/run.sh --app <your app ID> --token <your token> --rn-bundle path/to/main.jsbundle --rn-map path/to/main.jsbundle.map
+ios/Pods/EmbraceIO/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle path/to/main.jsbundle --rn-map path/to/main.jsbundle.map
 ```
 
 Next you must tell the Embrace SDK the location where it can find the downloaded bundle on the device when there are updates:
