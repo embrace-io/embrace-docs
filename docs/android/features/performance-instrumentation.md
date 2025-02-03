@@ -108,8 +108,6 @@ class SampleApplication(private val nativeLibName: String) : Application() {
 
 When an Activity is brought into view, its loading workflow will be appropriately traced.
 
-By default, the feature is disabled by a remote feature flag. Please contact us if you wish to have it enabled for your app.
-
 For loads where the Activity object has to be created, a trace with a root span named `emb-{Activity Name}-cold-time-to-initial-display` will be generated, where `{Activity Name}` is the fully-qualified class name of the Activity that was loaded. This generally happens when you navigate from one Activity to another while the app is in the foreground.
 
 This trace begins at our best estimate of when Activity creation begins. It ends at our best estimate of when the Activity has reached the `RESUMED` stage of its lifecycle.
