@@ -162,7 +162,7 @@ Similar to iOS, if you already ran the install script you will see the following
 Embrace.getInstance().start(this)
 ```
 
-Tweak the `onCreate` method using the following snippet to initialize the exporters with the minimum configuration needed. Notice that you already have all of what you need, so no extra imports are required into this file.
+Tweak the `onCreate` method using the following snippet to initialize the exporters with the minimum configuration needed.
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -171,6 +171,15 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-otlp-native-layer" queryString="android-otlp-native-layer">
 <TabItem value="kotlin" label="Kotlin">
+
+Add the following imports:
+
+```kotlin
+import io.opentelemetry.exporter.otlp.http.trace.OtlpHttpSpanExporter
+import io.opentelemetry.exporter.otlp.http.logs.OtlpHttpLogRecordExporter
+```
+
+And then the following in the OnCreate method:
 
 ```kotlin
 // Preparing Span Exporter config with the minimum required
@@ -194,6 +203,15 @@ Embrace.getInstance().start(this)
 
 <TabItem value="java" label="Java">
 
+Add the following imports:
+
+```java
+import io.opentelemetry.exporter.otlp.http.trace.OtlpHttpSpanExporter;
+import io.opentelemetry.exporter.otlp.http.logs.OtlpHttpLogRecordExporter;
+```
+
+And then the following in the OnCreate method:
+
 ```java
 // Preparing Span Exporter config with the minimum required
 OtlpHttpSpanExporter spanExporter = OtlpHttpSpanExporter.builder();
@@ -216,3 +234,91 @@ Embrace.getInstance().start(this);
 </Tabs>
 
 In case you want to avoid sending telemetry into Embrace you could do it by removing the app_id/token values from each Platform configuration. For more information please visit the how to [Use without an Embrace account](/react-native/integration/login-embrace-dashboard#use-without-an-embrace-account) section.
+
+## Disable tracing for the OTLP export network requests
+
+Embrace automatically creates spans for network requests, however because the OTLP export itself makes a network request
+this can produce a cycle where the export's network request creates a span which is then exported and then creates another
+span, etc.
+
+To avoid this you can configure the endpoint to which you are exporting to be ignored on both Android and iOS:
+<Tabs>
+
+<TabItem value="android" label="Android">
+
+Edit `android/app/src/main/embrace-config.json` in your app and add the `disabled_url_patterns` key. In the above example
+if you were exporting to Grafana your config would look like:
+
+```json
+{
+  "app_id": "xxxxx",
+  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sdk_config": {
+    "app_framework": "react_native",
+    "networking": {
+      "enable_network_span_forwarding": true,
+      "disabled_url_patterns": [
+        "grafana.net"
+      ]
+    }
+  }
+}
+```
+
+See the [Android Configure File](/android/features/configuration-file/#networking---disabled_url_patterns-string-array)
+page for more details.
+
+</TabItem>
+
+<TabItem value="ios" label="iOS">
+
+When initializing in the JS layer you can simply include the `disabledUrlPatterns` key, in the above example if you were
+exporting to Grafana you would add the following in the `SDK_CONFIG`: 
+
+```json
+"disabledUrlPatterns": [
+    "grafana.net"
+]
+```
+
+When initializing in Swift more configuration is required when setting up Embrace. First add the following import to
+`EmbraceInitializer.swift`:
+
+```swift
+import EmbraceCrash
+```
+
+Then setup a custom `URLSessionCaptureService` that ignores the Grafana export (see [Configuring the iOS SDK](/ios/open-source/integration/embrace-options/)
+for more details):
+
+```swift
+let servicesBuilder = CaptureServiceBuilder()
+let urlSessionServiceOptions = URLSessionCaptureService.Options(
+  injectTracingHeader: true,
+  requestsDataSource: nil,
+  ignoredURLs: ["grafana.net"]
+)
+// manually adding the URLSessionCaptureService
+servicesBuilder.add(.urlSession(options: urlSessionServiceOptions))
+// adding defaults
+servicesBuilder.addDefaults()
+```
+
+Finally pass the additional configuration when starting the SDK:
+
+```swift
+try Embrace
+    .setup(
+        options: Embrace.Options(
+          appId: "__YOUR APP ID__",
+          platform: .reactNative,
+          captureServices: servicesBuilder.build(),
+          crashReporter: EmbraceCrashReporter(),
+          export: OpenTelemetryExport(spanExporter: traceExporter, logExporter: logExporter) // passing the configuration into `export`
+        )
+    )
+    .start()
+```
+
+</TabItem>
+</Tabs>
