@@ -93,27 +93,27 @@ redirect the customer to the Embrace dashboard with the same time range and aggr
 ### What does Embrace support and not support?
 
 Embrace supports the following options used on the Grafana visualization:
-- Time range. Example: if the time range on Grafana visualization is last 12 hours,
-Embrace uses the same time range on the Embrace dashboard.
-- Aggregations. Example: if the metric is aggregated by "os_version" and "country" (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total)`)
+- Time range. Example: if the time range on Grafana visualization is last 12 hours (i.e. now is `2025-02-04 08:45:09`),
+Embrace uses the same time range on the Embrace dashboard (i.e. start date is `2025-02-03 23:00` and end date is `2025-02-04 12:00`).
+- Aggregations. Example: if the metric is aggregated by `os_version` and `country` (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total)`)
 Embrace uses those filters with equals operator on the Embrace dashboard.
 
 Embrace doesn't support the following options used on the Grafana visualization:
 - Some aggregations are not supported on the Embrace dashboard as filters, Embrace skips them on the Embrace dashboard backlink. Aggregations not supported: 
-  - duration_bucket, group_id, log_property_value, moment_property_value, root_span_duration_bucket, root_span_attribute_value, 
-  session_property_value, status_code, tag_value.
+  - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_duration_bucket`, `root_span_attribute_value`, 
+  `session_property_value`, `status_code`, `tag_value`.
 - Some aggregations are converted to other filters on the Embrace dashboard. The next 4 filters have the [top_n](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) feature, 
 if the value is `other`, there is no way to map it to a specific value on the Embrace dashboard and Embrace skips them. Aggregations converted: 
   - `device_model` converted to `model_market_name` (Model Name). 
   - `top_n_domain` converted to `domain`.
   - `top_n_market_name` converted to `model_market_name` (Model Name).
   - `top_n_path` converted to `path`.
-- Label filters. Example: if the metric is filtered by "os_version" and "country" (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`)
-Embrace don't use those filters on the Embrace dashboard.
+- Label filters. Example: if the metric is filtered by `os_version` and `country` (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`)
+Embrace doesn't use those filters on the Embrace dashboard.
 - Filters at creation time, when you create the custom metric on the Embrace dashboard, you can specify filters, Embrace 
-don't use those filters on the Embrace dashboard. Example: if you created a custom metric "sessions_total" group by "os_version" and filter by "app_version = 1.2.3" on 
+don't use those filters on the Embrace dashboard. Example: if you created a custom metric `sessions_total` group by `os_version` and filter by `app_version = 1.2.3` on 
 the Embrace dashboard, and you graph it on Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_sessions_hourly_total)`,
-Embrace uses the "os_version" filter but not the "app_version" filter on the Embrace dashboard.
+Embrace uses the `os_version` filter but not the `app_version` filter on the Embrace dashboard.
 
 ### How to configure it?
 
