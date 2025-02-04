@@ -127,7 +127,7 @@ Embrace uses the `os_version` filter but not the `app_version` filter on the Emb
 3. Click the "three dots" at the top right of the Grafana Visualization and choose "edit".
 4. At the right sidebar menu, go to the "Data Links" section. Click the "+ Add link" button to add a new one:
    1. **Title**: Embrace.
-   2. **URL**: `https://dash-api-us1.embrace.io/external/data_destination/grafana_cloud?labels=${__field.labels}&from=${__from}&to=${__to}`.
+   2. **URL**: `https://api.embrace.io/data-destinations/api/v1/grafana_cloud/dashboard-backlink?labels=${__field.labels}&from=${__from}&to=${__to}`.
    3. **Open in new tab**: on.
 
 
