@@ -13,14 +13,14 @@ The API implements the Tempo HTTP API, for more information you can read [here](
 - Embrace Spans API Token. This is a different token than the Metrics API token and from the Custom Metrics token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently retrieving spans information.
 
 :::info
-If you want to get a feel of the API, you can use the Sandbox token: `dc8b04fb11874ee19a6ac1ced98da486`
+If you want to get a feel of the API, you can use the Sandbox token: `dc8b04fb11874ee19a6ac1ced98da486`.
 This token will get artificial data for you to test the API and see how it works.
 :::
 
 ## API Endpoints
 
-All the endpoints have the same authentication and authorization method and url. Use the Spans API token provided by an Embrace onboarding specialist to get spans information.
-- `URL`: `https://api.embrace.io/spans`
+All the endpoints have the same authentication, authorization method and url. Use the Spans API token provided by an Embrace onboarding specialist to get spans information.
+- `URL`: `https://api.embrace.io/spans/api`
 
 ### Authorization
 
@@ -33,8 +33,8 @@ i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
 This endpoint allows you to search for spans based on a TraceQL query.
 Parameters:
 - `q = (TraceQL query)`: Url encoded [TraceQL query](https://grafana.com/docs/tempo/latest/traceql/#query-with-traceql).
-- `limit` = (integer) Optional. Limit the number of search results. Default is 20
-- `start` = (unix epoch seconds) Optional. Along with `end` define a time range from which span should be returned.
+- `limit` = (integer) Optional. Limit the number of search results. Default is 20.
+- `start` = (unix epoch seconds) Optional. Along with `end` define a time range from which spans should be returned.
 - `end` = (unix epoch seconds) Optional. Along with `start`, define a time range from which spans should be returned. Providing both start and end will change the way that Tempo searches. If the parameters are not provided, then it will search the most recent spans.
 - `spss` = (integer) Optional. Limit the number of spans on the results. The default value is 3.
 To speed up the search, you can filter using the `span.emb.app_id` attribute.
@@ -349,20 +349,20 @@ curl 'https://api.embrace.io/spans/api/traces/4d67df900d474c740eb302939b596c3d' 
 }
 ```
 
-### Embrace Attributes
+## Embrace Attributes
 These are the attributes that you can use to filter your spans:
 - emb.app_id
 - emb.app_version
+- emb.country_iso
+- emb.dashboard_session
+- emb.device_id
+- emb.framework
 - emb.os
 - emb.os_version
-- emb.region
-- emb.country_iso
-- emb.framework
-- emb.device_id
-- emb.sdk_version
-- emb.session_start_time
-- emb.session_end_time
-- emb.span_id
 - emb.parent_span_id
-- emb.dashboard_session
-- emb.session_prop_\{key\} for every key on session properties
+- emb.region
+- emb.sdk_version
+- emb.session_end_time
+- emb.session_prop_\{key\} for every key on session properties. Example: emb.session_prop_user_type.
+- emb.session_start_time
+- emb.span_id

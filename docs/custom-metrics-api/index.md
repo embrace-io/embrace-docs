@@ -16,7 +16,7 @@ Any Custom Metrics you create are available via the [Metrics API](/embrace-api),
 
 ## API Endpoints
 
-All the endpoints have the same authentication and authorization method, url and parameters. Use the Custom Metrics API token provided by an Embrace onboarding specialist to create custom metrics.
+All the endpoints have the same authentication, authorization method, url and parameters. Use the Custom Metrics API token provided by an Embrace onboarding specialist to create custom metrics.
 - `URL`: `https://api.embrace.io/custom-metrics`
 
 ### Request
