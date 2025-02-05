@@ -112,7 +112,7 @@ Embrace doesn't support the following options used on the Grafana visualization:
 - Label filters. Example: if the metric is filtered by `os_version` and `country` (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`)
 Embrace ignores those filters when it generates the dashboard backlink.
 - Filters at creation time. When you create the custom metric on the Embrace dashboard, you can specify filters, Embrace 
-don't use those filters when it generates the dashboard backlink. Example: you may create a custom metric `sessions_total` group by `os_version` and filter by `app_version = 1.2.3` on 
+doesn't use those filters when it generates the dashboard backlink. Example: you may create a custom metric `sessions_total` group by `os_version` and filter by `app_version = 1.2.3` on 
 the Embrace dashboard, and you graph it on Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_sessions_hourly_total)`,
 Embrace uses the `os_version` filter but not the `app_version` filter when it generates the dashboard backlink.
 
