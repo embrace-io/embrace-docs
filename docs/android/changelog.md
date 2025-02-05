@@ -10,7 +10,7 @@ sidebar_position: 4
 *January 28, 2025*
 
 :::warning Important
-This version has a known issue were JVM crash symbols arent being uploaded correctly - we are working on a patch to update. In the mean time please refrain from updating to this version.
+This version has a known issue were JVM symbol mapping files are sometimes not being uploaded correctly, leading to some obfuscated elements to appear in call stacks (e.g. in crashes an ANRS). We are investigating the issue, and in the meantime, please refrain from putting this in production.
 :::
 
 - API and functional changes in this major release are documented in the [Upgrade Guide](/android/upgrading/). Key ones to be aware of include:
