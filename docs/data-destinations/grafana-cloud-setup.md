@@ -109,7 +109,7 @@ Embrace doesn't support the following options used on the Grafana visualization:
   - `top_n_domain` converted to `domain`.
   - `top_n_market_name` converted to `model_market_name` (Model Name).
   - `top_n_path` converted to `path`.
-- Label filters. Example: if the metric is filtered by `os_version` and `country` (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`)
+- Label filters. Example: if the metric is filtered by `os_version` and `country` but they are not part of the aggregations (i.e. `sum by(app_id, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`)
 Embrace ignores those filters when it generates the dashboard backlink.
 - Filters at creation time. When you create the custom metric on the Embrace dashboard, you can specify filters, Embrace 
 doesn't use those filters when it generates the dashboard backlink. Example: you may create a custom metric `sessions_total` group by `os_version` and filter by `app_version = 1.2.3` on 
