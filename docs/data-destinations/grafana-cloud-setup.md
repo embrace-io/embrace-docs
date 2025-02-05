@@ -82,52 +82,46 @@ For Data Destination ensure that you are selecting the correct prometheus dataso
 
 - **Data Destination**: Embrace can push metrics directly to your Grafana Cloud instance as a data destination. This setup leverages Grafana Cloud's managed Prometheus services, enabling seamless integration without the need for an additional Prometheus instance. This method is ideal for most users who prefer a simple, automated approach to access Embrace metrics within Grafana Cloud.
 
-## Embrace dashboard backlink
+## Backlinking from Grafana to Embrace
 
-Embrace provides a backlinking feature that allows the customer to navigate from Grafana visualizations using Embrace metrics to
-the Embrace dashboard.
+Embrace offers a backlinking feature that enables customers to seamlessly navigate from Grafana panels visualizing Embrace data to the Embrace dashboard.
 
-Embrace exposes a public endpoint that accepts the time range and aggregations used on the Grafana visualizations and will
-redirect the customer to the Embrace dashboard with those same time range and aggregations. Embrace redirects the customer
-to different pages based on the metric that they are visualizing. If the metric is a sessions metric, Embrace redirects the 
-customer to the Sessions page. 
+The destination within the Embrace dashboard depends on the metric being visualized. For example, if the metric represents session data, the user will be redirected to the Sessions page.
 
-### What does Embrace support and not support?
+This functionality is powered by an API endpoint that can be configured in Grafana visualizations as a "data link", and redirects users to the corresponding Embrace dashboard, preserving the selected time range and aggregations.
 
-Embrace supports the following options used on the Grafana visualization:
-- Time range. Example: if the time range on Grafana visualization is last 12 hours (i.e. now is `2025-02-04 08:45:09`),
-Embrace uses the same time range on the Embrace dashboard (i.e. start date is `2025-02-03 23:00` and end date is `2025-02-04 12:00`).
-- Aggregations. Example: if the metric is aggregated by `os_version` and `country` (i.e. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total)`)
-Embrace uses those filters with equals operator on the Embrace dashboard.
+### Supported Options
 
-Embrace doesn't support the following options used on the Grafana visualization:
+Embrace supports a subset of the filters that may be active in the Grafana visualization where the data link is configured. Please note that any unsupported filters will be ignored when following the backlink to the Embrace dashboard.
+
+Supported options:
+- Time range. Embrace will use the same time range on the Embrace dashboard. If the time range is specified in relative format (e.g. "Last 12 hours"), it will be converted to absolute time stamps.
+- Aggregations. For example, if the metric is aggregated by `os_version` and `country` (e.g. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total)`), Embrace will use those filters with the `equal` operator on the Embrace dashboard.
+
+Unsupported options:
 - The following aggregations are ignored when Embrace generates the dashboard backlink: 
   - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_attribute_value`, `root_span_duration_bucket`, 
   `session_property_value`, `status_code`, `tag_value`.
-- [Top N](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations converted:
+- [Top N](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations that are converted:
   - `device_model` converted to `model_market_name` (Model Name). 
   - `top_n_domain` converted to `domain`.
   - `top_n_market_name` converted to `model_market_name` (Model Name).
   - `top_n_path` converted to `path`.
-- Label filters. Example: if the metric is filtered by `os_version` and `country` but they are not part of the aggregations (i.e. `sum by(app_id, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`)
-Embrace ignores those filters when it generates the dashboard backlink.
-- Filters at creation time. When you create the custom metric on the Embrace dashboard, you can specify filters, Embrace 
-doesn't use those filters when it generates the dashboard backlink. Example: you may create a custom metric `sessions_total` group by `os_version` and filter by `app_version = 1.2.3` on 
-the Embrace dashboard, and you graph it on Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_sessions_hourly_total)`,
-Embrace uses the `os_version` filter but not the `app_version` filter when it generates the dashboard backlink.
+- Label filters. For example, a metric that is filtered by `os_version` and `country`, but these labels are not in the aggregation clause (e.g. `sum by(app_id, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`). In this case, Embrace is unable to access the filters in the backlink.
+- Filters that are part of the metric specification. Any filters that were configured when the custom metric is initially configured in the Embrace dashboard are not supported by the backlink. For example, a custom metric `sessions_total` that is grouped by `os_version` and filtered by `app_version = 1.2.3` on the Embrace dashboard, and visualized within Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_sessions_hourly_total)` will use `os_version` filter in the backlink, but not the `app_version`.
 
-### How to configure it?
+### Configuring backlinks
 
-1. Go to the Grafana Dashboard where you visualize the Embrace metrics.
+1. Go to the Grafana Dashboard where you visualize your Embrace metrics.
 2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink. 
-   1. All the metrics must be aggregated by "app_id" and "embrace_metric_name". Embrace uses those aggregations to generate 
+   1. Ensure that all Embrace metrics are aggregated by `app_id` and `embrace_metric_name`. Embrace uses those aggregations to generate 
       the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_sessions_hourly_total)`) doesn't work and this 
      (`sum by (os_version, app_id, embrace_metric_name) (embrace_sessions_hourly_total)`) works.
-3. Click the "three dots" at the top right of the Grafana Visualization and choose "edit".
-4. At the right sidebar menu, go to the "Data Links" section. Click the "+ Add link" button to add a new one:
+3. Hover over the Grafana Visualization to reveal the three dot menu in the top-right and select "edit".
+4. In the right sidebar menu, scroll down to the "Data Links" section. Click the "+ Add link" button, and enter the following details:
    1. **Title**: Embrace.
    2. **URL**: `https://api.embrace.io/data-destinations/api/v1/grafana_cloud/dashboard-backlink?labels=${__field.labels}&from=${__from}&to=${__to}`.
-   3. **Open in new tab**: on.
+   3. **Open in new tab**: `on`.
 
 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_dashboard_backlink_detailed.png').default} alt="Image showing the Data Links section backlink" />
