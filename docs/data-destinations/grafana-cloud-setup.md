@@ -104,7 +104,7 @@ Embrace doesn't support the following options used on the Grafana visualization:
 - The following aggregations are ignored when Embrace generates the dashboard backlink: 
   - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_attribute_value`, `root_span_duration_bucket`, 
   `session_property_value`, `status_code`, `tag_value`.
-- [Top N]((/embrace-api/supported_metrics_and_queries/#dimension-reduction---other)) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations converted:
+- [Top N](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations converted:
   - `device_model` converted to `model_market_name` (Model Name). 
   - `top_n_domain` converted to `domain`.
   - `top_n_market_name` converted to `model_market_name` (Model Name).
