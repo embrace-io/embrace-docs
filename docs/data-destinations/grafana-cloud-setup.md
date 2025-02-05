@@ -87,8 +87,8 @@ For Data Destination ensure that you are selecting the correct prometheus dataso
 Embrace provides a backlinking feature that allows the customer to navigate from Grafana visualizations using Embrace metrics to
 the Embrace dashboard.
 
-Embrace exposes a public endpoint that based on the time range and aggregations used on the Grafana visualizations will 
-redirect the customer to the Embrace dashboard with the same time range and aggregations. Embrace redirects the customer
+Embrace exposes a public endpoint that accepts the time range and aggregations used on the Grafana visualizations and will
+redirect the customer to the Embrace dashboard with those same time range and aggregations. Embrace redirects the customer
 to different pages based on the metric that they are visualizing. If the metric is a sessions metric, Embrace redirects the 
 customer to the 
 
