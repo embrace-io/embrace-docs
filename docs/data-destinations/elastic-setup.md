@@ -10,16 +10,15 @@ sidebar_position: 3
 
 - Have an active Elastic account
 - Have an [APM server setup](https://www.elastic.co/guide/en/fleet/7.15/fleet-quick-start-traces.html) (You may have a
-default APM integration setup already.)
-
+default APM integration setup already).
 
 ## Get Secret Token for APM
 If you have set a [secret token already](https://www.elastic.co/guide/server/current/secret-token.html) you can use that
 token. Otherwise, you can use the default token in your integration. The instructions below are for the default token.
 
-1. Click the hamburger menu to open the menu and select Management. 
-1. Select Fleet, then Agent policies. You should see a default policy.
-1. Click into the default policy, and select the Elastic APM integration policy.
+1. Click the hamburger menu to open the menu and select "Management". 
+1. Select "Fleet", then "Agent policies". You should see a default policy.
+1. Click into the default policy, and select the "Elastic APM integration policy".
 1. Scroll down to the Agent authorization section and select the secret token.
 
 ## Find Server URL

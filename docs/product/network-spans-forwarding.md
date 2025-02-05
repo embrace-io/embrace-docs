@@ -49,7 +49,7 @@ Once all requirements are met, Network Spans Forwarding will be set up by an int
 
 Additionally, Embrace can forward metadata associated with each call.  Device, app version, and OS version will be properties for each traceparent-tagged call, forwarded as an OTel Span.  Your backend team can use their observability tools to set up analyses and monitoring.
 
-Embrace currently supports Network Span Forwarding for Grafana Cloud, New Relic, Honeycomb, Datadog and Chronosphere.  See our guide to enabling [Data Destinations](/data-destinations/) to get started.
+Embrace currently supports Network Span Forwarding for Grafana Cloud, New Relic, Honeycomb, Datadog, Chronosphere and Elastic.  See our guide to enabling [Data Destinations](/data-destinations/) to get started.
 
 
 <img src={require('@site/static/images/NSF > Honeycomb example.png').default} alt="NSF in honeycomb" />
