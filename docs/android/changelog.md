@@ -9,6 +9,10 @@ sidebar_position: 4
 ## 7.0.0
 *January 28, 2025*
 
+:::warning Important
+This version has a known issue were JVM crash symbols arent being uploaded correctly - we are working on a patch to update. In the mean time please refrain from updating to this version.
+:::
+
 - API and functional changes in this major release are documented in the [Upgrade Guide](/android/upgrading/). Key ones to be aware of include:
     - Moments feature and API have been removed in favor of [Traces](/android/features/traces/), which should be used instead to track how long workflows in the app took to complete.
     - Public API methods are all implemented in Kotlin, so passing in nulls in Java for parameters annotated with `@NonNull` will cause a runtime exception and could cause a crash.
