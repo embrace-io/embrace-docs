@@ -84,7 +84,7 @@ For Data Destination ensure that you are selecting the correct prometheus dataso
 
 ## Embrace dashboard backlink
 
-Embrace provides this feature to allows the customer to navigate from Grafana visualizations using Embrace metrics to
+Embrace provides a backlinking feature that allows the customer to navigate from Grafana visualizations using Embrace metrics to
 the Embrace dashboard.
 
 Embrace exposes a public endpoint that based on the time range and aggregations used on the Grafana visualizations will 
