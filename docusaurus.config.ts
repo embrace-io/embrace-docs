@@ -225,6 +225,15 @@ const config: Config = {
         ],
       },
     ],
+    [
+      'docusaurus-pushfeedback',{
+          project: 'ya8ye995kh',
+          buttonPosition: 'center-right',
+          modalPosition: 'sidebar-right',
+          buttonStyle: 'dark',
+          modalTitle: 'Share your thoughts'
+      }
+    ]
   ],
 
   presets: [

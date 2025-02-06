@@ -21,7 +21,9 @@
     "@mdx-js/react": "3.1.0",
     "@tabler/icons-react": "^3.26.0",
     "clsx": "2.1.1",
+    "docusaurus-pushfeedback": "^1.0.1",
     "prism-react-renderer": "^2.4.1",
+    "pushfeedback-react": "^0.1.50",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
