@@ -40,3 +40,14 @@ Adjust the columns you want to display and how to filter the Issues
 Then once you save, you'll see this table on your dashboard!  Issues are sorted by percentage of users impacted:
 <img src={require('@site/static/images/issues widget dashboard.png').default} alt="final table" />
 
+## Emailing Custom Dashboards
+
+You can also email your Custom Dashboards to yourself or your team. 
+
+Click on the "Create Report" button in the top right of your dashboard.  
+<img src={require('@site/static/images/email-report-form.png').default} alt="Create Report button" />
+
+You can set a title for your report, add the recipients, and set the frequency of the report. Frequency options include daily and weekly. You can also set the time of day you'd like to receive the report. You can update any of these options after the report is created.
+
+Before sending the report, you can send a test email to the recipients to ensure the report looks as expected. After a few minutes you should receive the test email.
+<img src={require('@site/static/images/email-report.png').default} alt="Email Report" />
