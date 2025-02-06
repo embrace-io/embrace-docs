@@ -124,4 +124,4 @@ Unsupported options:
    3. **Open in new tab**: `on`.
 
 
-<img src={require('@site/static/images/data-destinations/grafana_cloud_dashboard_backlink_detailed.png').default} alt="Image showing the Data Links section backlink" />
+<img src={require('@site/static/images/data-destinations/grafana_cloud_dashboard_backlink.png').default} alt="Image showing the Data Links section backlink" />
