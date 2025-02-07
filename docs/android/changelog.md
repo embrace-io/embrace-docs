@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+## 7.1.0
+*February 7, 2025*
+
+- Fixed stacktrace symbolication issue caused by incorrect ProGuard rules
+- Added API for sending log messages that contain binary attachments
+- Internal refactoring of gradle plugin
+
 ## 7.0.0
 *January 28, 2025*
 
