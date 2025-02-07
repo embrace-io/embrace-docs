@@ -17,7 +17,7 @@ sidebar_position: 4
 *January 28, 2025*
 
 :::warning Important
-This version has an issue where JVM symbol mapping files are sometimes not being uploaded correctly, leading to some call stacks being partially obfuscated (e.g. in crashes and ANRS) - please use v7.1.
+This version has an issue where JVM symbol mapping files are sometimes not being uploaded correctly, leading to some call stacks being partially obfuscated (e.g. in crashes and ANRs). Please use 7.1.0 instead.
 :::
 
 - API and functional changes in this major release are documented in the [Upgrade Guide](/android/upgrading/). Key ones to be aware of include:
