@@ -222,6 +222,38 @@ const config: Config = {
             to: "/features/traces",
             from: "/features/performance-tracing",
           },
+          {
+            to: "/code/da-unexpected-input-chronosphere-credentials",
+            from: "/data-destinations/chronosphere-setup/",
+          },
+          {
+            to: "/code/da-unexpected-input-elastic-credentials",
+            from: "/data-destinations/elastic-setup/",
+          },
+          {
+            to: "/code/da-unexpected-input-grafana_cloud-instance-id",
+            from: "/data-destinations/grafana-cloud-setup/",
+          },
+          {
+            to: "/code/da-unexpected-input-grafana_cloud-api-key",
+            from: "/data-destinations/grafana-cloud-setup/",
+          },
+          {
+            to: "/code/da-unexpected-input-grafana_cloud-credentials",
+            from: "/data-destinations/grafana-cloud-setup/",
+          },
+          {
+            to: "/code/da-unexpected-input-observe-credentials",
+            from: "/data-destinations/observe-setup/",
+          },
+          {
+            to: "/code/da-unexpected-input-splunk-api-key",
+            from: "/data-destinations/splunk/",
+          },
+          {
+            to: "/code/da-unexpected-input-splunk-credentials",
+            from: "/data-destinations/splunk/",
+          },
         ],
       },
     ],
