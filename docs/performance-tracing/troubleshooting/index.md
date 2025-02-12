@@ -1,9 +1,9 @@
 ---
-title: Troubleshooting
-description: Troubleshooting
+title: Feature Support
+description: Feature Support
 sidebar_position: 5
 ---
 
 # Troubleshooting
 
-Having trouble? Check out our FAQ or resources further.
+Having trouble? Check out these addtional reseources.
