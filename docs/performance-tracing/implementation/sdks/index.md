@@ -1,13 +1,14 @@
 ---
-title: SDKs
+title: Using Embrace SDKs
 description: SDKs
 sidebar_position: 0
 ---
 
-If I can remember how to turn sidebar items into links I'll do so here.
+Detailed instrumatation instructions can be found at the links below: 
 
-- [Android tracing](/docs/android/features/traces.md)
-- [Apple tracing](/docs/ios/open-source/features/traces.md)
-- [React Native tracing](/docs/react-native/features/traces.md)
-- [Flutter tracing](/docs/flutter/features/traces.md)
-- [Unity tracing](/docs/unity/features/traces.md)
+- [Android](/docs/android/features/traces.md)
+- [iOS](/docs/ios/open-source/features/traces.md)
+- [React Native](/docs/react-native/features/traces.md)
+- [Unity](/docs/unity/features/traces.md)
+- [Flutter](/docs/flutter/features/traces.md)
+
