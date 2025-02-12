@@ -6,13 +6,9 @@ sidebar_position: 2
 
 # Technical Details for Performance Tracing
 
-## Data Structure
-
-<img src={require('@site/static/images/span-relationships.png').default} />
+Here are some details about how tracing works in Embrace:
 
 ## Definitions
-
-<img src={require('@site/static/images/span-components.png').default} />
 
 Trace: Describes the end-to-end journey of one or more connected spans.
 
@@ -23,6 +19,9 @@ Root Span: A span that doesn't have a parent that represents the entire workflow
 Span Instance: A specific occurrence of a workflow, representing an individual run of it, identified by a unique Span ID.
 
 Child Spans: Spans that list a given span as their parent. When filtering, a matching child span includes its parent.
+
+<img src={require('@site/static/images/span-relationships.png').default} />
+
 
 ## Span Outcomes
 
@@ -50,4 +49,10 @@ Types of Unsuccessful Spans:
 
 ## Implementation
 
-Something here too.
+Detailed instrumentation instructions can be found at the links below:  
+- [Android](/docs/android/features/traces.md)
+- [iOS](/docs/ios/open-source/features/traces.md)
+- [React Native](/docs/react-native/features/traces.md)
+- [Unity](/docs/unity/features/traces.md)
+- [Flutter](/docs/flutter/features/traces.md)
+- 
