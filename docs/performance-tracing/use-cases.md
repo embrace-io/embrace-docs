@@ -1,7 +1,7 @@
 ---
 title: Use Cases
 description: Use Cases for Tracing
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 ## Use Cases

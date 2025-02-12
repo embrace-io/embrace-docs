@@ -1,17 +1,33 @@
 ---
-title: Tracing
-description: Add Tracing to Improve Your App Performance
+title: Getting Started
+description: Get Started with Performance Tracing
 sidebar_position: 0
 ---
 
-# Performance Tracing
+# Getting Started
 
-This is an intro to the topic. It will tell you why this is good and also should point you where you want to go.
+## Improving performance with Traces
 
-There is 
-- [Getting started](/performance-tracing/getting-started.md)
-- [Implementation](/performance-tracing/implementation/)
-- [Technical Details](/performance-tracing/technical-details.md)
-- [Tracing UI](/performance-tracing/tracing-ui.md)
-- [Use Cases](/performance-tracing/use-cases.md)
-- [Troubleshooting](/performance-tracing/troubleshooting/)
+Embrace’s Performance Tracing solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+
+## Learn More
+
+See these tracing topics:
+
+- [What is Performance Tracing?](https://embrace.io/blog/what-is-performance-tracing/)
+- [Building Dashboards, Alerts, and Widgets with spans and traces](https://embrace.io/blog/spans-in-custom-dashboards-alerts/)
+- [View active network requests in traces](https://embrace.io/blog/network-spans-in-traces/)
+- [How to optimize mobile performance using traces](https://embrace.io/blog/mobile-performance-tracing/)
+
+## Instrumentation Details
+
+Detailed instrumentation instructions can be found the the link below:
+- [Android](/docs/android/features/traces.md)
+- [iOS](/docs/ios/open-source/features/traces.md)
+- [React Native](/docs/react-native/features/traces.md)
+- [Unity](/docs/unity/features/traces.md)
+- [Flutter](/docs/flutter/features/traces.md)
+
+## View Traces in the Embrace Dashboard
+
+After you’ve instrumented your app, you can see your traces in the [Embrace UI](https://embrace.io/docs/features/traces/)
