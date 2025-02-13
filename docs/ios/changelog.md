@@ -19,7 +19,7 @@ sidebar_position: 4
 *Feb 6th, 2025*
 
 :::warning Important
-This version has known issues with `URLSession` and `WKWebView` Capture Services. Please use v6.7.1
+This version has known issues with `URLSession` and `WKWebView` Capture Services. Please use v6.8.1
 :::
 
 * Features
