@@ -32,6 +32,10 @@ Choose which team members should receive notifications when the alert is trigger
 
 Finally, name the alert for easy identification, knowing you can always change it later.
 
+### Alert Ownership
+
+Assign an owner to each alert to provide clear visibility on who is responsible. While ownership doesn’t grant special permissions, it helps teams quickly identify the point of contact for an alert. Each alert can have only one owner, who must be part of the organization.
+
 ## Monitoring
 
 Once your alert is set up, you'll find it listed under "Manage Alerts". Here, you can also view currently triggered alerts under "Triggered Alerts" and access the history of previously triggered alerts.
