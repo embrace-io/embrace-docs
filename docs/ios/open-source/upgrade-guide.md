@@ -178,11 +178,23 @@ class MyClass {
 
 ### Startup Moment
 
-We are working on a replacement for the `endAppStartup` Moment from prior versions, creating a trace-based measurement that will make better use of the device and system's signals. The prior implementation left much to be desired, and using OTel tracing will allow us to combine signals from libraries, both native and third-party, to more-accurately model the startup activity in apps.
+The `endAppStartup` Moment from prior versions has been **removed** in Embrace Apple SDK v6.x. Instead of using a predefined method, you should now measure app startup using a **custom trace**.
 
-If you wish to create your own version of the `endAppStartup` Moment, you can create a trace with child spans that measure various parts of the app's initialization.
+This change allows for more flexibility and accuracy, as traces can incorporate signals from both **native lifecycle events and third-party libraries**, providing a more comprehensive view of startup performance.
 
-Measuring startup can be infinitely customizable, as you can add spans encapsulating native lifecycle events, any 3rd-party framework starts, and other factors that affect time prior to a user's ability to interact with the app. Using timestamps and a [span record](/ios/open-source/features/traces/#recording-a-completed-span), you can even measure events that occurred before the Embrace SDK. Additionally, Embrace's SDK creates a span `emb-setup` that measures the time for Embrace itself to launch.
+#### How to Measure App Startup in v6.x
+
+To track app startup, create a **trace with child spans** that capture key moments in your app’s initialization, such as:
+- Native lifecycle events (e.g., app launch, first view controller load)
+- Third-party framework startup times
+- Any other factors affecting the time before a user can interact with the app
+
+You can even measure events that occurred **before** the Embrace SDK initialized by using timestamps and a [span record](/ios/open-source/features/traces/#recording-a-completed-span).
+
+Additionally, Embrace automatically records a span called **`emb-setup`**, which measures the time it takes for the SDK itself to launch.
+
+For more details on creating traces, refer to our tracing documentation:
+[Recording a Completed Span](https://embrace.io/docs/ios/open-source/features/traces/#recording-a-completed-span)
 
 ## Replace deprecated method calls with new ones
 
