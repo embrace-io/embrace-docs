@@ -15,7 +15,7 @@ Integrating the Embrace Apple SDK can be accomplished using either the Swift Pac
 For your project, you'll want to add a package dependency in Xcode. Select `File > Add Package Dependencies...`
 and enter the repository URL `https://github.com/embrace-io/embrace-apple-sdk.git` into the search bar.
 
-Be sure to set the Dependency Rule to a recent release. When "Choose Package Products for embrace-apple-sdk" appears, Xcode will add all libraries to your application by default. For the most straightforward installation, select either `EmbraceIO` or `EmbraceIO-Dynamic` to add to your application target. For all other package products, do not add these to your target by selecting `None`.
+Be sure to set the Dependency Rule to a recent release. When "Choose Package Products for embrace-apple-sdk" appears, Xcode will add all libraries to your application by default. For the most straightforward installation, select `EmbraceIO` to add to your application target. For all other package products, do not add these to your target by selecting `None`.
 
 **Explanation of Package Products**
 
@@ -40,11 +40,6 @@ reporter but also want to leverage the Embrace Dashboard.
 5. **EmbraceSemantics** - This module contains constants and attributes used internally
 to extend OTel Semantic Conventions.
 
-:::info
-We also distribute each product statically and dynamically. The `*-Dynamic` products should
-be used if you prefer dynamic libraries.
-:::
-
 ## CocoaPods
 
 Installing through CocoaPods is straightforward. Add the main pod to your Podfile:
@@ -67,7 +62,5 @@ pod 'Embrace/EmbraceCrashlyticsSupport'
 
 ## Known Issues
 
-* We rely on [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/) which as of today does not
-have official CocoaPods support. We are working with the community to provide this support but in the meantime we
-work around this issue by wrapping the OpenTelemetry binary as part of our podspec. In practice this means that our SDK
-will not be compatible with other SDKs that do their own version of this work around.
+- **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/). 
+We have forked the Datadog SDK and created a version that can integrate better with other frameworks. It can be found in [our public repository](https://github.com/embrace-io/dd-sdk-ios).
