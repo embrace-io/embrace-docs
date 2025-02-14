@@ -16,11 +16,16 @@ On any Crash, you can directly create a rule in the stack frame.  Click on the e
 
 <img src={require('@site/static/images/tagging-ui-1.png').default} alt="edit-in-stack" width="500px"/>
 
-<img src={require('@site/static/images/tagging-ui-2.png').default} alt="rule-modal" width="500px"/>
-
+<img src={require('@site/static/images/tagging-ui-3.png').default} alt="rules-in-settings" width="500px"/>
 
 You can also see, create, and modify rules in the Settings view.
-<img src={require('@site/static/images/tagging-ui-3.png').default} alt="rules-in-settings" width="500px"/>
+1. Click on the Settings icon in the lower right hand corner of the dashboard.
+2. Under the "Projects and Apps" section, select the app you want to create
+   rules for.
+3. Expand the desired app and navigate to the "Owner Rules" section.
+4. Modify or create new rules as needed.
+
+<img src={require('@site/static/images/tagging-ui-2.png').default} alt="rule-modal" width="500px"/>
 
 ### With a CODEOWNERS File
 POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, 
