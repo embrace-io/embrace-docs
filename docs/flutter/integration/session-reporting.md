@@ -46,13 +46,7 @@ Future<void> main() async {
 
 ### Add the Android SDK start call
 
-The call to start the Embrace Android SDK can be placed in either:
-1. A custom Application class, or
-2. The `MainActivity` class
-
-### Adding to a custom application class
-
-If you have a custom application class, you can start the Embrace Android SDK in its `onCreate` method:
+The call to start the Embrace Android SDK should be placed in the `onCreate` method of an `Application` subclass:
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="java" label="Java">
@@ -65,7 +59,7 @@ public final class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Embrace.getInstance().start(this, false, Embrace.AppFramework.FLUTTER);
+        Embrace.getInstance().start(this);
     }
 }
 ```
@@ -80,27 +74,11 @@ import io.embrace.android.embracesdk.Embrace
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Embrace.getInstance().start(this, false, Embrace.AppFramework.FLUTTER)
+        Embrace.getInstance().start(this)
     }
 }
 ```
 
-### Adding to `MainActivity`
-
-If you don't want to create a custom application class, you can start the Embrace Android SDK from the `MainActivity`:
-
-```kotlin
-import android.os.Bundle
-import io.embrace.android.embracesdk.Embrace
-import io.flutter.embedding.android.FlutterActivity
-
-class MainActivity : FlutterActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-      super.onCreate(savedInstanceState)
-      Embrace.getInstance().start(this, false, Embrace.AppFramework.FLUTTER)
-  }
-}
-```
 </TabItem>
 </Tabs>
 
