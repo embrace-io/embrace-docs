@@ -14,11 +14,13 @@ sidebar_position: 1
 ## Setting Up Embrace as a Data Source to retrieve spans
 
 Follow these steps to add Tempo as a data source in the Grafana dashboard:
-1. Click the gear icon to go to the Configurations page.
-2. Click on "Add data source" and select Tempo.
-3. Name your source "embrace-spans-api" and set the following fields:
-    - `URL`: `https://api.embrace.io/spans`
-    - Under `Custom HTTP Headers`, add a header with a name `Authorization` and use `Bearer <YOUR_API_TOKEN>` as your token string. If you don't have a token yet, you can use the sandbox token `dc8b04fb11874ee19a6ac1ced98da486`, and your token string should be `Bearer dc8b04fb11874ee19a6ac1ced98da486`.
+1. Click the "Open Menu" icon to go to the "Connections -> Data sources" page.
+1. Click the "Add new data source" button on the top right page and select "Tempo".
+1. Configure it with the following fields:
+   - Name: `embrace-spans-api`.
+   - Under "Connection" section, set "URL": `https://api.embrace.io/spans`.
+   - Under "Authentication" section, click the button "Add header":
+      - Header: `Authorization`, Value: `Bearer <YOUR_API_TOKEN>` as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
 
 ## Exploring Spans Data
 
