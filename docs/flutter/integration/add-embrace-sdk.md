@@ -84,7 +84,10 @@ In `app/src/main`, add a config file named `embrace-config.json`. You can find y
 {
   "app_id": "{YOUR_APP_ID}",
   "api_token": "{YOUR_APP_TOKEN}",
-  "ndk_enabled": true
+  "ndk_enabled": true,
+  "sdk_config": {
+    "app_framework": "flutter"
+  }
 }
 ```
 
