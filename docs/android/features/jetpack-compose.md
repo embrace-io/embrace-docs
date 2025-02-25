@@ -15,7 +15,7 @@ Requires Jetpack Compose dependency at build time and run time
 :::
 
 :::info
-Instrumenting Jetpack Compose click events incurs a small performance penalty as it requires searching Compose's UI tree. On lower-end devices this may manifest as dropped frames.
+Instrumenting Jetpack Compose click events incurs a small performance penalty on a tap as it requires searching Compose's UI tree. On lower-end devices this may manifest as dropped frames.
 :::
 
 ### Set Local config and swazzler block
