@@ -14,3 +14,5 @@ sidebar_position: 0
 * [Custom Dashboards](/product/custom-dashboards/)
 * [Network Spans Forwarding](/product/network-spans-forwarding/)
 * [Network Grouping Rules](/product/network-grouping-rules/)
+
+You can also view our [FAQ](/product/faq/)
