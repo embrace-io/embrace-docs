@@ -71,3 +71,52 @@ To reduce the device and network overhead. We batch logs according to the follow
 :::info
 For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api).
 :::
+
+## File Attachments
+
+You can attach any kind of data to a log by using the appropiate APIs.
+These attachments will be available to download through the Embrace Dashboard.
+
+### Embrace Hosted
+
+By using this method, Embrace will host the attachment and link it to the log.
+
+```swift
+let attributes = ["property_a": "value_a", "property_b": "value_b"]
+Embrace.client?.log(
+    "This is a log with an Embrace-hosted attachment", // message
+    severity: .info,
+    timestamp: Date.now,
+    attachment: someData, // Data
+    attributes: attributes
+)
+```
+
+:::warning
+There's a limit of 5 Embrace hosted attachments per session.
+
+Once the limit is reached, if there's an attempt to send a log with a new attachment, the attachment won't be uploaded and the log will have an error attribute: `emb.attachment_error_code = OVER_MAX_ATTACHMENTS`.
+:::
+
+:::warning
+The attachment size cannot exceed 1 MiB (1048576 bytes).
+
+If the attachment data exceeds the limit, the attachment won't be uploaded and the log will have an error attribute: `emb.attachment_error_code = ATTACHMENT_TOO_LARGE`.
+:::
+
+### User Hosted
+
+You can use your own hosting method for the attachment and just pass an identifier along with the download URL when sending a log.
+There are no size or quantity limitations when using this API.
+
+```swift
+let attributes = ["property_a": "value_a", "property_b": "value_b"]
+Embrace.client?.log(
+    "This is a log with an user-hosted attachment", // message
+    severity: .info,
+    timestamp: Date.now,
+    attachmentId: attachmentId, // String
+    attachmentUrl: attachmentUrl, // URL
+    attributes: attributes
+)
+```
