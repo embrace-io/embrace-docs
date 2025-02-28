@@ -40,7 +40,7 @@ Embrace.client?.log(
 Let's examine the method call from above to understand the arguments involved:
 
 1. **message**: The first argument is a string and represents the message itself.
-1. **severity**: This is the [LogSeverity](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCommonInternal/Enums/LogSeverity.swift) of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs](/docs/ios/open-source/getting-started/breadcrumbs.md).
+1. **severity**: This is the [LogSeverity](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCommonInternal/Models/LogSeverity.swift) of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs](/docs/ios/open-source/getting-started/breadcrumbs.md).
 1. **timestamp**: This is the time that this log message should show in the timeline. If the log points to an error or warning happening prior to the current time, the timestamp for the occurrence can be added here.
 1. **attributes**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values.
 
