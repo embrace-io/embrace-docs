@@ -17,8 +17,10 @@ The only requirement is having `embrace.useAsmTransformApi` enabled, but it's en
 If you want to enable the Push Notifications feature, you can set `instrumentFirebaseMessaging` to true in your `app/build.gradle` file.
 
 ```groovy
-swazzler {
-    instrumentFirebaseMessaging = true
+embrace {
+    bytecodeInstrumentation {
+        firebasePushNotificationsEnabled.set(true)
+    }
 }
 
 dependencies {
