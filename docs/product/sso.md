@@ -5,44 +5,43 @@ sidebar_position: 2
 
 # SSO Configuration
 
-Embrace offers SSO support using SAML 2.0. This documentation goes over how to configure SSO for your organization using OneLogin as the SSO provider, however these steps would be very similar with other providers and Okta, PingIdentity and Google have been tested.
+Embrace offers SSO support using standard SAML 2.0, and providers such as Okta, OneLogin, Google and Microsoft have been tested.
 
 If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or Slack us.
 
-For IdP-initiated flow, your users will navigate to your organization's SSO portal and select our app from the portal. For SP-initiated login, users need to click "Continue with SSO" on the bottom of dash.embrace.io and enter their email and they will be redirected to your SSO provider for authentication.
+For IdP-initiated flow, your users will navigate to your organization's SSO portal and select our app from the portal. For SP-initiated login, users need to click "Continue with SSO" on the bottom of [dash.embrace.io](https://dash.embrace.io) home page and enter their email and they will be redirected to your SSO provider for authentication.
 
-## Configuring SSO for OneLogin
+## Configuring SSO
 
-In order to properly configure SSO for OneLogin, we'll need two pieces of information which you will need to obtain from OneLogin's web portal:
+In order to properly configure SAML SSO we'll need two pieces of information which you will need to obtain from SSO provider's portal:
 
-1.  **Metadata URL**: This can be found in the OneLogin admin portal, referred to as the Issuer URL. Add the Embrace app connector from OneLogin's App Catalog and navigate to SSO in the side menu. The Issuer URL should be displayed there.
+1.  **Metadata URL or XML File** Some SSO providers referred to this as Issuer URL, or only allow you to download an XML file and do not use a URL.
+2. **Domain**: In most cases, it will be the domain of your company's email (i.e. example.com if your email is bob.smith@example.com).
 
-<img src={require('@site/static/images/onelogin-sso-issuer-url.png').default} />
+Once you have obtained those two pieces of information, any user with Embrace "admin" privileges can navigate to [dash.embrace.io](https://dash.embrace.io) SSO settings:
 
-2. **Domain**: In most cases, it will be the domain of your email (i.e. example.com if your email is bob.smith@example.com).
-
-Once you have obtained those two pieces of information, navigate to [dash.embrace.io](https://dash.embrace.io) and select your app:
-1. Navigate to the **Settings Page** (gear icon on the top right hand corner of the dashboard).
-2. Select the **SSO Tab**.
+1. Click **Settings Page** (gear icon on the top right hand corner of the dashboard).
+2. Select the **SSO** on the left.
 *Note: SSO is an enterprise-level feature and you'll need to contact support@embrace.io if it has not yet been enabled for your organization.*
-3. Once you're able to access the **SSO Tab**, input your **Metadata URL** and your **Domain**.
-*Note: You must be an admin to make changes to the SSO configuration.*
+3. On the **SSO Configuration**, choose `URL` and enter your **Metadata URL**, or choose `File` and upload your **Metadata XML File**.
+4. Enter your company's **Domain**.
+5. Select whether you wish to **Make SSO Optional** or not. You should keep this option turned `on` until you have fully verified that your SSO flow is working for all of your users. Afterwards, you can toggle this option to `off` to require SSO and disable email + password login process for all users.
+5. Click **Save Changes**.
 
-<img src={require('@site/static/images/sso-configuration.png').default} />
+## Okta
 
-4. Select if you wish to **Allow Login** or not. If you toggle **Allow Login**, you will allow your organization's users to bypass the SSO flow. If your organization adheres to strict SSO policies, this is highly **not recommended**.
+1. Use **Browse App Catalog** to locate Embrace's application.
+2. Copy the SAML **Metadata URL** URL.
+3. Navigate to to [dash.embrace.io](https://dash.embrace.io) SSO settings using any user wih Embrace "admin" privileges:
+   - Click **Settings Page** (gear icon on the top right hand corner of the dashboard).
+   - Select the **SSO** on the left.
+   - On the **SSO Configuration**, choose `URL` and enter your **Metadata URL**.
+   - Click **Save Changes**.
+   - Navigate to **Provider Information** tab and copy your **Org ID**.
+4. On Okta's app configuration's General Settings, provide the **Org ID** obtained above; click Save.
 
-5. Once the **Metadata URL** and **Login Domain** are input and saved, we will generate an **Org ID** for you towards the right of the config panel.
+## OneLogin
 
-<img src={require('@site/static/images/sso-org-id.png').default} />
+Similar to Okta documentation above, you can find [Embrace connector](https://www.onelogin.com/connector/embrace_saml) in OneLogin's application catalog. You will need to provide your **Org ID** that is found on the **Provider Information** tab.
 
-6. Once you've generated your **Org ID**, head back to your OneLogin portal and select the Embrace app.
-
-7.  Back in OneLogin, navigate to Configuration in the side menu and input your **Org ID** that we've generated into the **Org ID** field.
-
-<img src={require('@site/static/images/sso-onelogin-org-id.png').default} />
-
-If you've followed all of these instructions, SSO should be configured for your organization.
-We're planning on adding support for other SSO providers as well as SP-initiated login in the future.
-
-Feel free to [email us](mailto:support@embrace.io) or Slack us if you have any questions or feedback!
+Feel free to [email us](mailto:support@embrace.io) or Slack us if you have any questions.
