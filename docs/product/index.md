@@ -14,4 +14,4 @@ sidebar_position: 0
 * [Custom Dashboards](/product/custom-dashboards/)
 * [Network Spans Forwarding](/product/network-spans-forwarding/)
 * [Network Grouping Rules](/product/network-grouping-rules/)
-* [Data Marshling and Transmission](/product/Data-Marshaling-and-Transmission/)
+[Data Marshaling and Transmission](/product/Data-Marshaling-and-Transmission/)
