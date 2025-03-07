@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # SSO Configuration
 
-Embrace offers SSO support using standard SAML 2.0, and providers such as Okta, OneLogin, Google and Microsoft have been tested.
+Embrace offers SSO support using standard SAML 2.0. Providers such as Okta, OneLogin, Google and Microsoft have been tested.
 
 If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or Slack us.
 
