@@ -87,7 +87,7 @@ Embrace.client?.log(
     "This is a log with an Embrace-hosted attachment", // message
     severity: .info,
     timestamp: Date.now,
-    attachment: someData, // Data
+    attachment: someData, // NSData/Data
     attributes: attributes
 )
 ```
