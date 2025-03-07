@@ -9,13 +9,15 @@ Embrace offers SSO support using standard SAML 2.0. Providers such as Okta, OneL
 
 If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or Slack us.
 
-For IdP-initiated flow, your users will navigate to your organization's SSO portal and select our app from the portal. For SP-initiated login, users need to click "Continue with SSO" on the bottom of [dash.embrace.io](https://dash.embrace.io) home page and enter their email and they will be redirected to your SSO provider for authentication.
+For [IdP](https://www.cloudflare.com/learning/access-management/what-is-an-identity-provider/)-initiated flow, users should navigate to your organization's SSO portal and select our app from the portal. 
+
+For [SP](https://auth0.com/docs/authenticate/single-sign-on/inbound-single-sign-on)-initiated login, users should click "Continue with SSO" on the bottom of the Embrace dashboard's ([dash.embrace.io](https://dash.embrace.io)) home page. Tey can then enter their email, and they will be redirected to your SSO provider for authentication.
 
 ## Configuring SSO
 
 In order to properly configure SAML SSO we'll need two pieces of information which you will need to obtain from SSO provider's portal:
 
-1.  **Metadata URL or XML File** Some SSO providers referred to this as Issuer URL, or only allow you to download an XML file and do not use a URL.
+1.  **Metadata URL or XML File**: Some SSO providers referred to the Metadata URL as an "Issuer URL." Other providers might not use a URl and will only allow you to download an XML file.
 2. **Domain**: In most cases, it will be the domain of your company's email (i.e. example.com if your email is bob.smith@example.com).
 
 Once you have obtained those two pieces of information, any user with Embrace "admin" privileges can navigate to [dash.embrace.io](https://dash.embrace.io) SSO settings:
@@ -44,4 +46,4 @@ Once you have obtained those two pieces of information, any user with Embrace "a
 
 Similar to Okta documentation above, you can find [Embrace connector](https://www.onelogin.com/connector/embrace_saml) in OneLogin's application catalog. You will need to provide your **Org ID** that is found on the **Provider Information** tab.
 
-Feel free to [email us](mailto:support@embrace.io) or Slack us if you have any questions.
+Feel free to [email us](mailto:support@embrace.io) or [Slack us](http://community.embrace.io/) if you have any questions.
