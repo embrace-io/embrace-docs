@@ -6,7 +6,7 @@ sidebar_position: 4
 # React Native SDK Changelog
 
 ## 6.0.1
-_March 10, 2025_
+_March 11, 2025_
 * Updated iOS native Embrace SDK dependency to [version 6.8.1](/ios/changelog/#681)
 * Updated Android native Embrace SDK dependency to [version 7.2.0](/android/changelog/#720)
 * Improved debug logging for the `@embrace-io/react-native-navigation` package
