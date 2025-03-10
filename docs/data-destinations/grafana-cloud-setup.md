@@ -24,19 +24,18 @@ It depends on your Grafana Cloud version the information that you need to share 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_access_policies.png').default} alt="Image showing Grafana cloud access policy tab" />
 
 1. Log into your [Grafana Cloud account](https://grafana.com/auth/sign-in) to access the **Cloud Portal**.
-2. Select the organization that you want to add an Access Policy Token to, by selecting from the dropdown in top left.
-3. Click **Access Policies** from the SECURITY section on the left.
-4. Click **Create Access Policy**.
+1. Select the organization that you want to add an Access Policy Token to, by selecting from the dropdown in top left.
+1. Click **Access Policies** from the SECURITY section on the left.
+1. Click **Create Access Policy**.
 <img src={require('@site/static/images/data-destinations/grafana_cloud_access_policy.png').default} alt="Image showing Grafana cloud access policy tab" />
-5. In **Display Name** and **Name**, enter a name for your Access Policy.
-6. In **Realms**, choose the organization in which you want the metrics.
-7. In **Scopes**, select `write` for Metrics, Logs and Traces. (this only gives permission to send metric, log and trace data to Grafana Cloud).
-8. In **Add Scope**, choose `api-keys-metrics-publisher`.
-9. Click **Create** when finished.
+1. In **Display Name** and **Name**, enter a name for your Access Policy.
+1. In **Realms**, choose the organization in which you want the metrics.
+1. In **Scopes**, select `write` for Metrics, Logs and Traces. (this only gives permission to send metric, log and trace data to Grafana Cloud).
+1. Click **Create** when finished.
 <img src={require('@site/static/images/data-destinations/grafana_cloud_token.png').default} alt="Image showing Grafana cloud token tab" />
-10. Click **Add token** to generate it associated with the access policy.
-11. In **Token Name**, enter a name for the token.
-12. In **Expiration Date**, select `No expiry`.
+1. Click **Add token** to generate it associated with the access policy.
+1. In **Token Name**, enter a name for the token.
+1. In **Expiration Date**, select `No expiry`.
 
 #### API Key
 
