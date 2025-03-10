@@ -56,6 +56,13 @@ If necessary, the Embrace logo icon can be downloaded in [svg](https://embrace.i
 
 Embrace application is published in Okta's Integration Network, which simplifies the configuration. Instead of using SAML steps above you can do the following:
 
+### Prerequisites
+
+- Enterprise-level Embrace account with SSO feature enabled.
+- Username and password for Embrace user with administrator access.
+
+### Configuration Steps
+
 1. Use **Browse App Catalog** to locate Embrace's application.
 2. Copy the SAML **Metadata URL** URL.
 3. Navigate to to [dash.embrace.io](https://dash.embrace.io) SSO settings screen using any user wih Embrace "admin" privileges:
@@ -65,6 +72,13 @@ Embrace application is published in Okta's Integration Network, which simplifies
   - Click **Save Changes**.
   - Navigate to **Provider Information** tab and copy your **Org ID**.
 4. Within Okta's app configuration's General Settings, provide the **Org ID** obtained above; click Save.
+
+### SP-initiated SSO
+
+- Navigate to Embrace dashboard home page at [https://dash.embrace.io](https://dash.embrace.io)
+- Click **Continue with SSO**
+- Enter your email address, and optionally, check **Remember my email** box.
+- Click **Log in using SSO** to be redirected to Okta to complete authentication and be redirected back to Embrace.
 
 ### OneLogin
 
