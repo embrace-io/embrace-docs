@@ -65,7 +65,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 ## Selecting the correct data source for Embrace Metrics
 
 :::tip
-If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this <a href="/docs/embrace-api/grafana_integrations#setting-up-embrace-as-a-data-source" target="_blank">guide</a>.
+If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this [guide](/embrace-api/grafana_integrations.md#setting-up-embrace-as-a-data-source).
 :::
 
 Embrace provides two main options for viewing metrics within Grafana: using the **Embrace Metrics API** (pull method) or setting up a **Data Destination** (push method).
