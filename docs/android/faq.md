@@ -95,7 +95,7 @@ Alternatively you can set your `minSdk` to 24 to avoid the problem.
 
 In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file
 implementation `'io.embrace:embrace-android-sdk:<version>'`.
-You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
+You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
 
 ```groovy
 buildscript {
@@ -113,7 +113,7 @@ buildscript {
 
 ### **Is there a way that I can speed up build times?**
 
-Yes, update to the latest version of the swazzler gradle plugin & ensure your AGP + Gradle version are on the latest stable version.
+Yes, update to the latest version of the Embrace Gradle Plugin & ensure your AGP + Gradle version are on the latest stable version.
 Newer AGP versions provide a more performant API for bytecode instrumentation amongst other improvements that our plugin relies upon.
 
 ### **Does adding the Embrace SDK impact launch performance?**

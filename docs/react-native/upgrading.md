@@ -205,7 +205,7 @@ Tracing, please refer to [this guide](/react-native/features/traces/) for more i
 
 #### Android
 
-The minimum version of AGP required for the Embrace Swazzler to work as expected is `7.4.2`. If an older version is used for building the React Native Android application it will still build successfully but the SDK won't be able to initialize properly, getting the following error in runtime even when everything is configured as expected:
+The minimum version of AGP required for the Embrace Gradle Plugin to work as expected is `7.4.2`. If an older version is used for building the React Native Android application it will still build successfully but the SDK won't be able to initialize properly, getting the following error in runtime even when everything is configured as expected:
 
 ```bash
 Error occurred while initializing the Embrace SDK. Instrumentation may be disabled.
