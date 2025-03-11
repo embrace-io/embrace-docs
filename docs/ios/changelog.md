@@ -6,6 +6,16 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.8.2
+*Mar 10th, 2025*
+* Features
+    * Added the ability to add custom stack traces to logs with `StackTraceBehavior.custom`.
+    * The `TapCaptureService` can now be configured to capture taps on either start or end.
+* Fixes
+    * Potential fixes for core data related crashes.
+* Changes
+    * Deprecated `Embrace.Endpoints.developmentBaseURL`.
+
 ## 6.8.1
 *Feb 12th, 2025*
 * Features
