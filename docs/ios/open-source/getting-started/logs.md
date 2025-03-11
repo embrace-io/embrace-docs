@@ -112,7 +112,7 @@ There are no size or quantity limitations when using this API.
 ```swift
 let attributes = ["property_a": "value_a", "property_b": "value_b"]
 Embrace.client?.log(
-    "This is a log with an user-hosted attachment", // message
+    "This is a log with a user-hosted attachment", // message
     severity: .info,
     timestamp: Date.now,
     attachmentId: attachmentId, // String
