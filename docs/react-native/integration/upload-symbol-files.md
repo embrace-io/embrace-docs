@@ -98,9 +98,10 @@ If you perform over-the-air (OTA) updates to your JavaScript code without submit
 Google Play Store you will need to perform a couple more steps to allow Embrace to symbolicate the stack traces on the
 updated bundle correctly.
 
-First you must manually upload source maps for the new bundle using the upload script distributed with the Embrace Cocoapod:
+First you must upload source maps for the new bundle using the upload script distributed with the Embrace Cocoapod:
 
 ```shell
+# For macOS, use arch "darwin", for Linux use "linux.arm64" or "linux.amd64" (depending on your CPU)
 ios/Pods/EmbraceIO/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle path/to/main.jsbundle --rn-map path/to/main.jsbundle.map
 ```
 
@@ -114,4 +115,4 @@ setJavaScriptBundlePath(pathToBundle)
 
 ---
 
-Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.  
+Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.
