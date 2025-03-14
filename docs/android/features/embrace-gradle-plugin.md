@@ -16,7 +16,7 @@ The Embrace Gradle Plugin performs several functions:
 
 ## Apply the Embrace Gradle Plugin
 
-To apply the Embrace Gradle Plugin to your app follow the instructions in our [integration steps](/docs/android/integration/integration-steps).
+To apply the Embrace Gradle Plugin to your app follow the instructions in our [integration steps](/android/integration/integration-steps).
 
 ## Configure the Embrace Gradle Plugin
 
