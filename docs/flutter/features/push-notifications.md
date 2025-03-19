@@ -13,8 +13,10 @@ If using the [firebase_messaging](https://pub.dev/packages/firebase_messaging) p
 To enable the push notifications capture, you must set `instrumentFirebaseMessaging` to true in the `app/build.gradle` file of your Android project.
 
 ```groovy
-swazzler {
-    instrumentFirebaseMessaging = true
+embrace {
+    bytecodeInstrumentation {
+        firebasePushNotificationsEnabled.set(true)
+    }
 }
 ```
 
