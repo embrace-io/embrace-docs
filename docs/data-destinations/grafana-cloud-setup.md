@@ -107,15 +107,15 @@ Unsupported options:
   - `top_n_market_name` converted to `model_market_name` (Model Name).
   - `top_n_path` converted to `path`.
 - Label filters. For example, a metric that is filtered by `os_version` and `country`, but these labels are not in the aggregation clause (e.g. `sum by(app_id, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`). In this case, Embrace is unable to access the filters in the backlink.
-- Filters that are part of the metric specification. Any filters that were configured when the custom metric is initially configured in the Embrace dashboard are not supported by the backlink. For example, a custom metric `sessions_total` that is grouped by `os_version` and filtered by `app_version = 1.2.3` on the Embrace dashboard, and visualized within Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_sessions_hourly_total)` will use `os_version` filter in the backlink, but not the `app_version`.
+- Filters that are part of the metric specification. Any filters that were configured when the custom metric is initially configured in the Embrace dashboard are not supported by the backlink. For example, a custom metric `sessions_total` that is grouped by `os_version` and filtered by `app_version = 1.2.3` on the Embrace dashboard, and visualized within Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_session_hourly_total)` will use `os_version` filter in the backlink, but not the `app_version`.
 
 ### Configuring backlinks
 
 1. Go to the Grafana Dashboard where you visualize your Embrace metrics.
 2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink. 
    1. Ensure that all Embrace metrics are aggregated by `app_id` and `embrace_metric_name`. Embrace uses those aggregations to generate 
-      the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_sessions_hourly_total)`) doesn't work and this 
-     (`sum by (os_version, app_id, embrace_metric_name) (embrace_sessions_hourly_total)`) works.
+      the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this 
+     (`sum by (os_version, app_id, embrace_metric_name) (embrace_session_hourly_total)`) works.
 3. Hover over the Grafana Visualization to reveal the three dot menu in the top-right and select "edit".
 4. In the right sidebar menu, scroll down to the "Data Links" section. Click the "+ Add link" button, and enter the following details:
    1. **Title**: Embrace.
