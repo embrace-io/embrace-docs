@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.8.3
+*Mar 18th, 2025*
+* Fixes
+    * Fixed some methods from `NSURLSessionDataDelegate` and `NSURLSessionDownloadDelegate` not being called when using a `URLSessionCaptureService`.
+
 ## 6.8.2
 *Mar 10th, 2025*
 * Features
