@@ -37,7 +37,7 @@ For example, if you want to create a rate of successful network requests but not
     b. Order of operations follows standard PEMDAS.
 5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
 <img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} alt="Multiple queries and formula" />
-<img src={require('@site/static/images/combined_widget_formula_preview.png').default} alt="Multiple queries and formula" />
+<img src={require('@site/static/images/combined_widget_formula_preview.png').default} alt="Formula graph preview" />
 Note: Queries in Combined type charts do not support group-bys.
 
 ## Table of Issues
