@@ -28,7 +28,9 @@ Finally, add any filters and group-bys.  In addition to our core dimensions, for
 
 You can also create Combined graphs. With Combined graphs, you can visualize up to 10 timeseries in the same graph and optionally create a custom time series using arithmetic operators.
 
+### Adding Formulas to Graphs
 For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
+
 1. Select the Combined data type from the picker.
 2. Line charts are the only available graph type currently, so you'll be directed to the query builder (more visualization options coming soon).
 3. Create queries to gather Successful Requests, 4XX, and 5XX calls with the applicable filters.
@@ -36,9 +38,15 @@ For example, if you want to create a rate of successful network requests but not
     a. The formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
 5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
+
 <img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} alt="Multiple queries and formula" />
 <img src={require('@site/static/images/combined_widget_formula_preview.png').default} alt="Formula graph preview" />
+
 Note: Queries in Combined type charts do not support group-bys.
+
+### Multiple Combined Timeseries without a Formula
+
+Since the Formula field is optional, you can visualize up to 10 timeseries on the same chart with the steps above. Use the eye symbols to show or hide each and leave the Formula field blank.
 
 ## Table of Issues
 
