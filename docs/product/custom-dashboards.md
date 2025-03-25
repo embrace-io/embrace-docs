@@ -35,8 +35,9 @@ For example, if you want to create a rate of Crashes in the foreground and Netwo
 4. In the Formula box, add the formula `(A+B)/C`.\
     a. The formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
-5. Hide the queries above to just show the formula, which is your rate.
+5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
 <img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} alt="Multiple queries and formula" />
+<img src={require('@site/static/images/combined_widget_formula_preview.png').default} alt="Multiple queries and formula" />
 Note: Queries in Combined type charts do not support group-bys.
 
 ## Table of Issues
