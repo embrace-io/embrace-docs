@@ -28,11 +28,11 @@ Finally, add any filters and group-bys.  In addition to our core dimensions, for
 
 You can also create Combined graphs. With Combined graphs, you can visualize up to 10 timeseries in the same graph and optionally create a custom time series using arithmetic operators.
 
-For example, if you want to create a rate of Crashes in the foreground and Network Connection Errors > 100 ms over your total sessions. To do this, you will:
+For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
 1. Select the Combined data type from the picker.
 2. Line charts are the only available graph type currently, so you'll be directed to the query builder (more visualization options coming soon).
-3. Create queries to gather Crash Count, ANR Count, and Session Count with the applicable filters.
-4. In the Formula box, add the formula `(A+B)/C`.\
+3. Create queries to gather Successful Requests, 4XX, and 5XX calls with the applicable filters.
+4. In the Formula box, add the formula `A/(A+B+C)`.\
     a. The formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
 5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
