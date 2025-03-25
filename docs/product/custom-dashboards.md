@@ -15,7 +15,7 @@ To get started, click on "Add new widget" in the menu by your dashboard name.
 Create graphs monitoring Spans performance.  You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
 
 First, select the Spans category when making a new Widget:
-<img src={require('@site/static/images/Spans widgets > 02 pick Spans.png').default} alt="Spans as a Widget option" />
+<img src={require('@site/static/images/widget_data_types_new.png').default} alt="Spans as a Widget option" />
 
 Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both counts and sums of duration.
 <img src={require('@site/static/images/Spans widgets > 03 pick metric.png').default} alt="Span metric options" />
@@ -32,7 +32,8 @@ Finally, add any filters and group-bys.  In addition to our core dimensions, for
 Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) .  You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/tagging)
 
 To get started, click on the Issues category when making a new Widget:
-<img src={require('@site/static/images/issues in dashboard.png').default} alt="Issues as a Widget option" />
+<!--<img src={require('@site/static/images/issues in dashboard.png').default} alt="Issues as a Widget option" />-->
+<img src={require('@site/static/images/widget_data_types_issues_selection.png').default} alt="Issues as a Widget option" />
 
 Adjust the columns you want to display and how to filter the Issues
 <img src={require('@site/static/images/issues widget filter.png').default} alt="customize your Issues list" />
