@@ -26,7 +26,7 @@ Finally, add any filters and group-bys.  In addition to our core dimensions, for
 
 ## Combined Timeseries 
 
-You can also create Combined graphs. With Combined type graphs, you can visualize up to 10 timeseries in the same graph and optionally create a custom time series using arithmetic operators.
+You can also create Combined graphs. With Combined graphs, you can visualize up to 10 timeseries in the same graph and optionally create a custom time series using arithmetic operators.
 
 For example, if you want to create a rate of Crashes in the foreground and Network Connection Errors > 100 ms over your total sessions. To do this, you will:
 1. Select the Combined data type from the picker.
