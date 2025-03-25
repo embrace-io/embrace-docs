@@ -33,14 +33,13 @@ For example, if you want to create a rate of successful network requests but not
 
 1. Select the Combined data type from the picker.
 2. Line charts are the only available graph type currently, so you'll be directed to the query builder (more visualization options coming soon).
-3. Create queries to gather Successful Requests, 4XX, and 5XX calls with the applicable filters.
-4. In the Formula box, add the formula `A/(A+B+C)`.\
+3. Create 2 queries for Network Request, the first filtered for Status Codes in the range 200-299, and the second in the range 400-599.
+4. In the Formula box, add the formula `A/(A+B) * 100` to get a percentage.\
     a. The formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
 5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
 
 <img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} alt="Multiple queries and formula" />
-<img src={require('@site/static/images/combined_widget_formula_preview.png').default} alt="Formula graph preview" />
 
 Note: Queries in Combined type charts do not support group-bys.
 
