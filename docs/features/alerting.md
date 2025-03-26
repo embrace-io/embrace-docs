@@ -20,7 +20,7 @@ To create an alert using the same conditions in a widget, go to the specific wid
 
 ### Alert Creation from Existing Custom Metric
 
-To create an alert using the conditions set in a Custom Metric, go to the Custom Metric of interest in App Settings > Custom Metrics and click the "more" icon on the Custom Metric you want to use.
+To create an alert using the conditions set in a Custom Metric, go to the Custom Metric of interest in App Settings > Custom Metrics and click the "more" icon (three dots) on the Custom Metric you want to use.
 
 <img src={require('@site/static/images/features/shortcuts/shortcut-from-custom-metric.png').default} alt="Create an Alert from Existing Custom Metric" />
 
