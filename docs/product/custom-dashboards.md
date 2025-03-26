@@ -24,9 +24,9 @@ Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both
 Finally, add any filters and group-bys.  In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 <img src={require('@site/static/images/Spans widgets > 04 filters and group-bys.png').default} alt="Spans as a Widget option" />
 
-## Combined Timeseries 
+## Combined Time Series 
 
-You can also create Combined graphs. With Combined graphs, you can visualize up to 10 timeseries in the same graph and optionally create a custom time series using arithmetic operators.
+You can also create Combined graphs. With Combined graphs, you can visualize up to 10 time series in the same graph and optionally create a custom time series using arithmetic operators.
 
 ### Adding Formulas to Graphs
 For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
@@ -43,9 +43,9 @@ For example, if you want to create a rate of successful network requests but not
 
 Note: Queries in Combined type charts do not support group-bys.
 
-### Multiple Combined Timeseries without a Formula
+### Multiple Combined Time Series without a Formula
 
-Since the Formula field is optional, you can visualize up to 10 timeseries on the same chart with the steps above. Use the eye symbols to show or hide each and leave the Formula field blank.
+Since the Formula field is optional, you can visualize up to 10 time series on the same chart with the steps above. Use the eye symbols to show or hide each and leave the Formula field blank.
 
 ## Table of Issues
 
