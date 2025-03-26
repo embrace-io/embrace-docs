@@ -15,7 +15,7 @@ To get started, click on "Add new widget" in the menu by your dashboard name.
 Create graphs monitoring Spans performance.  You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
 
 First, select the Spans category when making a new Widget:
-<img src={require('@site/static/images/Spans widgets > 02 pick Spans.png').default} alt="Spans as a Widget option" />
+<img src={require('@site/static/images/widget_data_types_new.png').default} alt="Spans as a Widget option" />
 
 Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both counts and sums of duration.
 <img src={require('@site/static/images/Spans widgets > 03 pick metric.png').default} alt="Span metric options" />
@@ -24,15 +24,36 @@ Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both
 Finally, add any filters and group-bys.  In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 <img src={require('@site/static/images/Spans widgets > 04 filters and group-bys.png').default} alt="Spans as a Widget option" />
 
+## Combined Time Series 
 
+You can also create Combined graphs. With Combined graphs, you can visualize up to 10 time series in the same graph and optionally create a custom time series using arithmetic operators.
 
+### Adding Formulas to Graphs
+For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
+
+1. Select the Combined data type from the picker.
+2. Line charts are the only available graph type currently, so you'll be directed to the query builder (more visualization options coming soon).
+3. Create 2 queries for Network Request, the first filtered for Status Codes in the range 200-299, and the second in the range 400-599.
+4. In the Formula box, add the formula `A/(A+B) * 100` to get a percentage.\
+    a. The formula field accepts the operators: `+, -, *, /`.\
+    b. Order of operations follows standard PEMDAS.
+5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
+
+<img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} alt="Multiple queries and formula" />
+
+Note: Queries in Combined type charts do not support group-bys.
+
+### Multiple Combined Time Series without a Formula
+
+Since the Formula field is optional, you can visualize up to 10 time series on the same chart with the steps above. Use the eye symbols to show or hide each and leave the Formula field blank.
 
 ## Table of Issues
 
 Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) .  You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/tagging)
 
 To get started, click on the Issues category when making a new Widget:
-<img src={require('@site/static/images/issues in dashboard.png').default} alt="Issues as a Widget option" />
+<!--<img src={require('@site/static/images/issues in dashboard.png').default} alt="Issues as a Widget option" />-->
+<img src={require('@site/static/images/widget_data_types_issues_selection.png').default} alt="Issues as a Widget option" />
 
 Adjust the columns you want to display and how to filter the Issues
 <img src={require('@site/static/images/issues widget filter.png').default} alt="customize your Issues list" />
