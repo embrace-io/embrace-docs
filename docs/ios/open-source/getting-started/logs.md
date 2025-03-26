@@ -74,7 +74,7 @@ For more tips on making the most of the Log Message API, checkout the [Best Prac
 
 ## File Attachments
 
-You can attach any kind of data to a log by using the appropiate APIs.
+You can attach any kind of data to a log by using the appropriate APIs.
 These attachments will be available to download through the Embrace Dashboard.
 
 ### Embrace Hosted
