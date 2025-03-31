@@ -119,7 +119,7 @@ Unsupported options:
 3. Hover over the Grafana Visualization to reveal the three dot menu in the top-right and select "edit".
 4. In the right sidebar menu, scroll down to the "Data Links" section. Click the "+ Add link" button, and enter the following details:
    1. **Title**: Embrace.
-   2. **URL**: `https://api.embrace.io/data-destinations/api/v1/grafana_cloud/dashboard-backlink?labels=${__field.labels}&from=${__from}&to=${__to}`.
+   2. **URL**: `https://api.embrace.io/data-destinations/api/v1/grafana_cloud/dashboard-backlink?labels=${__field.labels}&from=${__from}&to=${__to}`
    3. **Open in new tab**: `on`.
 
 
