@@ -93,7 +93,7 @@ We have benchmarked the Embrace SDK's performance during app launch between 10 a
 
 TL;DR _The impact depends on how you use the API._
 
-The incremental battery usage is negligible because we are mostly dormant unless telemetry is being recorded, in which case the CPU should already be active. We do have a thread that monitors the main thread for ANRs if that feature is enabled when the app is in the foreground, but that only pings the thread every 100ms
+The incremental battery usage is negligible because we are mostly dormant unless telemetry is being recorded, in which case the CPU should already be active. We do have a thread that monitors the main thread for ANRs if that feature is enabled when the app is in the foreground, but that only pings the thread every 100ms.
 For disk usage, we only hit the disk every 2 seconds when the app is in the foreground, regardless of how much telemetry is recorded. Everything is buffered in memory and flushed to disk at that interval. In the background, we only do so if new telemetry has been added since the last check, so it's pretty lightweight if you're not recording data.
 For disk space, we buffer on disk session data that hasn't been sent, and once it's successfully sent, it's deleted. The data is compressed too, so unless the device has a lot of unsent requests due to a lack of network connection, the disk usage should not exceed a few megabytes.
 In terms of data usage, it also depends on usage, but it's negligible for a modern app. Sessions typically get bigger if there are a lot of network requests to be logged, but they compress well and each is usually less than 100 KB (P99 for sessions is 98KB)
