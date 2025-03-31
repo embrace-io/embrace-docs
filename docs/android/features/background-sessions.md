@@ -8,6 +8,8 @@ sidebar_position: 7
 
 The Embrace SDK can be configured to enable the capturing of background sessions. You can enable and disable capturing background sessions on the settings page of the Embrace dashboard.
 
+It’s a server side configuration that gets received by the clients, and as it propagates they will stop sending the data.
+
 :::info
 Capturing background sessions requires v5.10.0 or higher.
 :::
