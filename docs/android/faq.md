@@ -120,6 +120,20 @@ Newer AGP versions provide a more performant API for bytecode instrumentation am
 
 We have benchmarked the Embrace SDK's performance during app launch between 10 and 50 milliseconds. In practice, this is between 1-3% of typical app launch time.
 
+### **What is the impact of adding Embrace Android SDK regarding app performance, device battery/data usage/disk space?**
+
+TL;DR _The impact depends on how you use the API._
+
+The incremental battery usage is negligible because we are mostly dormant unless telemetry is being recorded, in which case the CPU should already be active. We do have a thread that monitors the main thread for ANRs if that feature is enabled when the app is in the foreground, but that only pings the thread every 100ms.
+For disk usage, we only hit the disk every 2 seconds when the app is in the foreground, regardless of how much telemetry is recorded. Everything is buffered in memory and flushed to disk at that interval. In the background, we only do so if new telemetry has been added since the last check, so it's pretty lightweight if you're not recording data.
+For disk space, we buffer on disk session data that hasn't been sent, and once it's successfully sent, it's deleted. The data is compressed too, so unless the device has a lot of unsent requests due to a lack of network connection, the disk usage should not exceed a few megabytes.
+In terms of data usage, it also depends on usage, but it's negligible for a modern app. Sessions typically get bigger if there are a lot of network requests to be logged, but they compress well and each is usually less than 100 KB (P99 for sessions is 98KB)
+Our delivery layer retry is based on exponential backoff, starting at 1 minute and doubling with every failure. We only attempt to do so if we detect a network connection. So you should never see tight loops of failures and retries that would clog up the CPU, as the 7th retry will be after 64m. The request connection timeout is 10s, and the read timeout is 60.
+In terms of disk persistence, we store a maximum of 500 payloads that have failed to be sent - and we trim based on priority and time, i.e., if we need to trim, we trim the less important payloads first, starting with logs, then sessions, then crashes, by First-In-First-Out. So even if the app is offline for a long time, there is still a ceiling of how much extra disk space will be consumed, which may be 10s of MBs if you're logging a lot of data.
+Regarding payload size, our backend rejects any payloads greater than 3mb, so in practice, with the data limits we have set on the various telemetry types we capture, it should not get close to that.
+
+We proactively profile the impact of instrumentation on the app. Spans generally take < 1 ms to start and stop, so the overhead to measurement shouldn't impact user experience, even if you do it directly on the main thread.
+
 ### **What determines if a session is classified as prod or dev?**
 
 A session is classified as dev if all of the following are true:
