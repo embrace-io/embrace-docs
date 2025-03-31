@@ -10,7 +10,19 @@ You can set up alerts for various types of issues, including crashes, ANRs, erro
 
 ## Alert Creation
 
-To create a new alert, navigate to the alerts page and click on the "Add Alert" button.
+You can create a new alert by navigating to the Alerts page and clicking on the "Add Alert" button or by using the shortcut from an existing Widget or Custom Metric.
+
+### Alert Creation from Existing Widget
+
+To create an alert using the same conditions in a widget, go to the specific widget and click on the "more" icon in the top right of the widget. If an alert is able to be created from the conditions being used, you can select Create Alert. This will take you to the Alerts creation page to specify the rest of the details below.
+
+<img src={require('@site/static/images/features/shortcuts/shortcut-from-widget.png').default} alt="Create an Alert from Existing Widget" />
+
+### Alert Creation from Existing Custom Metric
+
+To create an alert using the conditions set in a Custom Metric, go to the Custom Metric of interest in App Settings > Custom Metrics and click the "more" icon (three dots) on the Custom Metric you want to use.
+
+<img src={require('@site/static/images/features/shortcuts/shortcut-from-custom-metric.png').default} alt="Create an Alert from Existing Custom Metric" />
 
 ### Alert Type
 
