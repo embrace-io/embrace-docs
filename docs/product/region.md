@@ -1,5 +1,5 @@
 ---
-title: Region
+title: Data Location
 sidebar_position: 1
 ---
 
