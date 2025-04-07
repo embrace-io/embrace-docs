@@ -13,6 +13,7 @@ If you need assistance configuring SSO with other providers please [email us](ma
 
 - IdP-initiated flow - users navigate to your organization's SSO portal and select Embrace app.
 - SP-initiated login - users enter their username on Embrace's dashboard and are redirected to your SSO portal for authorization.
+- JIT provisioning (optional).
 
 ### IdP-initiated SSO
 
