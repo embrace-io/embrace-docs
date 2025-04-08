@@ -35,6 +35,18 @@ const config: Config = {
 
   scripts: [
     {
+      id: "runllm-widget-script",
+      type: "module",
+      src: "https://widget.runllm.com",
+      crossorigin: "true",
+      "runllm-name": "Embrace Assistant",
+      "runllm-assistant-id": "284",
+      "runllm-position": "BOTTOM_RIGHT",
+      "runllm-keyboard-shortcut": "Mod+j",
+      "runllm-preset": "docusaurus",
+      async: true,
+    },
+    {
       src: "scripts/init.js",
     },
     ...(process.env.EMBR_ENV === "production"
