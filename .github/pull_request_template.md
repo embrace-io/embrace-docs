@@ -6,4 +6,4 @@
 
 - [ ] If you renamed any pages then perhaps you likely want to add a redirect from old to new URL so that we don't end up with broken links. You can do this by adding a pair of to/from values in `docusaurus.config.js` under `@docusaurus/plugin-client-redirects`
 
-- [ ] If you link to a page or header within the docs, make sure that header has an explicit tag. E.g., the H3 header `### Hello World {#my-explicit-id}` has an explicit tag `my-explicit-id`.
+- [ ] If you link to a header within a page in the docs, make sure that header has an explicit tag. E.g., the H3 header `### Hello World {#my-explicit-id}` has an explicit tag `my-explicit-id`.
