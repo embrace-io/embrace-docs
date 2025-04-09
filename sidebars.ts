@@ -58,40 +58,89 @@ const sidebars: SidebarsConfig = {
                         }
                       ],
                     },
+                    // TODO: replace placeholder with actual getting started content
                     {
                       type: "category",
                       label: "Getting Started",
-                      items: [],
+                      items: [
+                        {
+                          type: "doc",
+                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
+                          label: "Getting Started Placeholder"
+                        }
+                      ],
                     },
+                    // TODO: replace placeholder with actual core concepts content
                     {
                       type: "category",
                       label: "Core Concepts",
-                      items: [],
+                      items: [
+                        {
+                          type: "doc",
+                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
+                          label: "Core Concepts Placeholder"
+                        }
+                      ],
                     },
+                    // TODO: replace placeholder with actual automatic instrumentation content
                     {
                       type: "category",
                       label: "Automatic Instrumentation",
-                      items: [],
+                      items: [
+                        {
+                          type: "doc",
+                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
+                          label: "Automatic Instrumentation Placeholder"
+                        }
+                      ],
                     },
+                    // TODO: replace placeholder with actual manual instrumentation content
                     {
                       type: "category",
                       label: "Manual Instrumentation",
-                      items: [],
+                      items: [
+                        {
+                          type: "doc",
+                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
+                          label: "Manual Instrumentation Placeholder"
+                        }
+                      ],
                     },
+                    // TODO: replace placeholder with actual advanced features content
                     {
                       type: "category",
                       label: "Advanced Features",
-                      items: [],
+                      items: [
+                        {
+                          type: "doc",
+                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
+                          label: "Advanced Features Placeholder"
+                        }
+                      ],
                     },
+                    // TODO: replace placeholder with actual best practices content
                     {
                       type: "category",
                       label: "Best Practices",
-                      items: [],
+                      items: [
+                        {
+                          type: "doc",
+                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
+                          label: "Best Practices Placeholder"
+                        }
+                      ],
                     },
+                    // TODO: replace placeholder with actual API reference content
                     {
                       type: "category",
                       label: "API Reference",
-                      items: [],
+                      items: [
+                        {
+                          type: "doc",
+                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
+                          label: "API Reference Placeholder"
+                        }
+                      ],
                     },
                   ],
                 },
