@@ -11,7 +11,7 @@ description: How Embrace SDKs Transfer Data from Devices to Our Servers
 
 Embrace is designed to be a “good citizen” within your mobile application. We’re aware that many of our customers have critical user journeys (such as completing a transaction) that cannot be interrupted or slowed by non-essential network activity. To address these concerns:
 
-- **Data is batched and tranmitted to balance reliability with resource usage.**
+- **Data is batched and transmitted to balance reliability with resource usage.**
   - On Android, requests are sent serially, i.e. only one payload is actively being sent at one time.
   - On iOS, payloads are enqueued with a low-priority.
 - **We do not send data if we detect there is no network connection** and use an exponential backoff scheme to handle retries so the queue won't be overwhelmed by requests timing out if the network condition is poor.
