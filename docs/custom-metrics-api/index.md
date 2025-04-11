@@ -155,7 +155,7 @@ If you want to filter all durations less or equal than 999 you should create thi
 
 For some custom metrics the API allows you to group by data based on the `session_property`, `log_property` or `root_span_attribute` parameters.
 
-If you want to group by on the property "city" and "state" for `session_property`, you should create this filter:
+If you want to group by on the property "city" and "state" for `session_property`, you should create this group by:
 
 ```json
 {

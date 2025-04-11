@@ -84,10 +84,10 @@ For example, if a Session has a property like BRANCH=["master", "develop", "main
 To group by an exploded property:
 
 1. When adding or editing a Widget, go to the Group By section.
-1. Start typing the name of the property you want to use—exploded properties will appear just like any other attribute.
+2. Start typing the name of the property you want to use—exploded properties will appear just like any other attribute.
 <img src={require('@site/static/images/exploded-properties/group_by.png').default} alt="group by exploded property" />
-1. Select the property. If it's a multi-value field, we'll automatically explode it for you.
-   <img src={require('@site/static/images/exploded-properties/table.png').default} alt="group by exploded property" />
+3. Select the property. If it's a multi-value field, we'll automatically explode it for you.
+<img src={require('@site/static/images/exploded-properties/table.png').default} alt="group by exploded property" />
 
 
 In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.
