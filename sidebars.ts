@@ -65,8 +65,23 @@ const sidebars: SidebarsConfig = {
                       items: [
                         {
                           type: "doc",
-                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
-                          label: "Getting Started Placeholder"
+                          id: "ios/open-source/getting-started/index"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/getting-started/installation"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/getting-started/basic-setup"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/getting-started/configuration-options"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/getting-started/migration-guide"
                         }
                       ],
                     },

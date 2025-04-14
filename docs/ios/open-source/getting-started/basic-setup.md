@@ -1,0 +1,135 @@
+---
+title: Basic Setup
+description: Setting up the Embrace iOS SDK 6.x in your application
+sidebar_position: 2
+---
+
+# Basic Setup
+
+Unlike previous versions, Embrace's 6.x SDK does not use a `.plist` file to configure your application. Instead, the SDK is centered around and configured through the [`Embrace`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Embrace.swift) class.
+
+The `Embrace` class is the main interface for the Embrace SDK. It provides methods to configure, start, and interact with the SDK. The SDK is configured using an [`Embrace.Options`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BOptions.swift) instance passed in the setup static method.
+
+## Prerequisites
+
+Before setting up the SDK, you need:
+
+- An Embrace App ID (obtained from the Embrace Dashboard)
+- The SDK installed in your project ([see installation guide](/ios/open-source/getting-started/installation.md))
+
+## Initializing the Embrace Client
+
+Embrace should be configured and started as close to the launch of the application as possible. Below is an example setup for a straightforward SwiftUI application:
+
+```swift
+import EmbraceIO
+import SwiftUI
+
+struct NewEmbraceApp: App {
+    init() {
+        do {
+            try Embrace
+                .setup(
+                    options: Embrace.Options(
+                        appId: "YOUR_APP_ID",  // Your App ID from Embrace Dashboard
+                        logLevel: .default
+                    )
+                )
+                .start()
+        } catch let e {
+            print("Error starting Embrace \(e.localizedDescription)")
+        }
+    }
+}
+```
+
+### For UIKit Applications
+
+For UIKit applications, initialize Embrace in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method:
+
+```swift
+import EmbraceIO
+import UIKit
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        do {
+            try Embrace
+                .setup(
+                    options: Embrace.Options(
+                        appId: "YOUR_APP_ID",  // Your App ID from Embrace Dashboard
+                        logLevel: .default
+                    )
+                )
+                .start()
+        } catch let e {
+            print("Error starting Embrace \(e.localizedDescription)")
+        }
+        
+        return true
+    }
+}
+```
+
+## Error Handling
+
+Both the `.setup` and the `.start` methods can throw errors. While it's unlikely that the SDK fails during startup, it's possible in edge cases such as:
+
+- No disk space is available for Embrace's data stores
+- Data stores have been corrupted
+
+You can handle errors with a `do-try-catch` statement as shown above, or use Swift's Optional try for silent failure:
+
+```swift
+// Optional try for silent failure
+try? Embrace
+    .setup(options: Embrace.Options(appId: "YOUR_APP_ID"))
+    .start()
+
+// Later in your code
+// If setup failed, this will simply not create a span
+let span = Embrace.client?.buildSpan(name: "user-action")
+// ...
+span?.end()
+```
+
+## Accessing the Embrace Client
+
+Once `setup` has succeeded, you can access the Embrace instance in two ways:
+
+1. Store a reference from the setup call:
+```swift
+let embrace = try Embrace
+    .setup(options: embraceOptions)
+    .start()
+
+// Later in your code
+embrace.buildSpan(name: "my-operation").startSpan()
+```
+
+2. Use the static client property:
+```swift
+// After setup has been called
+Embrace.client?.buildSpan(name: "my-operation").startSpan()
+```
+
+## Checking SDK Status
+
+If you need to know whether the SDK has started successfully, you can access the status:
+
+```swift
+if Embrace.client?.started == true {
+    // SDK is running
+} else {
+    // SDK failed to start or hasn't been started yet
+}
+```
+
+## Next Steps
+
+After basic setup, you can:
+
+- [Configure additional options](/ios/open-source/getting-started/configuration-options.md) to customize the SDK's behavior
+- Learn about [core concepts](/ios/open-source/core-concepts/sessions.md) like sessions, traces, and logs
+- Set up [automatic instrumentation](/ios/open-source/automatic-instrumentation/network-monitoring.md) for network monitoring and other features 
