@@ -37,7 +37,7 @@ The 6.x iOS SDK has been rearchitected from the foundations to support and exten
 
 ### How we built it
 
-As an example, [Sessions](https://embrace.io/product/user-session-insights/) are the core of Embrace's reproduce-and-fix approach to insights. Sessions capture everything that your app is doing while foregrounded or backgrounded, until the user starts or stops using the app. Given that Sessions take place in a given time period, with different related activities occurring in that time, it shouldn't surprise anyone OTel-aware that we model Sessions as a **trace**.
+As an example, [Sessions](https://embrace.io/product/user-session-insights/) are the core of Embrace's reproduce-and-fix approach to insights. An individual Session takes place while the app is in foreground, or separately while the app is in the background, and captures everything that your app is doing until the user starts or stops using the app. Given that Sessions take place in a given time period, with different related activities occurring in that time, it shouldn't surprise anyone OTel-aware that we model Sessions as a **trace**.
 
 Whenever a Session starts, as we can see in the [`SessionController`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Session/SessionController.swift#L68), a span begins that will endure until the session ends: 
 
