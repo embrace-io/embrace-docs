@@ -56,6 +56,11 @@ Refer to this [documentation](/custom-metrics-api/supported_metrics) to know the
 sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
 ```
 
+* Sessions grouped by session property city and session property state for a given app version
+```promql
+sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (city, state)
+```
+
 * Percentage of crash free sessions by devices.
 ```promql
 1 - sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessions_total{app_id="$app_id"}) by (device_model) * 100

@@ -72,3 +72,22 @@ You can set a title for your report, add the recipients, and set the frequency o
 
 Before sending the report, you can send a test email to the recipients to ensure the report looks as expected. After a few minutes you should receive the test email.
 <img src={require('@site/static/images/email-report.png').default} alt="Email Report" />
+
+
+## Grouping by Exploded Properties
+
+You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
+
+This is especially useful if you’re tagging Sessions, Logs, Spans or other events with multiple values and want to break them out into individual groups. 
+For example, if a Session has a property like BRANCH=["master", "develop", "main", "staging"], you can group by `BRANCH`, and each of those values will be treated as its own group.
+
+To group by an exploded property:
+
+1. When adding or editing a Widget, go to the Group By section.
+2. Start typing the name of the property you want to use—exploded properties will appear just like any other attribute.
+<img src={require('@site/static/images/exploded-properties/group_by.png').default} alt="group by exploded property" />
+3. Select the property. If it's a multi-value field, we'll automatically explode it for you.
+<img src={require('@site/static/images/exploded-properties/table.png').default} alt="group by exploded property" />
+
+
+In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.
