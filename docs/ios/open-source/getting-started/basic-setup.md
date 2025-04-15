@@ -131,5 +131,5 @@ if Embrace.client?.started == true {
 After basic setup, you can:
 
 - [Configure additional options](/ios/open-source/getting-started/configuration-options.md) to customize the SDK's behavior
-- Learn about [core concepts](/ios/open-source/core-concepts/sessions.md) like sessions, traces, and logs
-- Set up [automatic instrumentation](/ios/open-source/automatic-instrumentation/network-monitoring.md) for network monitoring and other features 
+- Learn about core concepts like sessions, traces, and logs
+- Set up automatic instrumentation for network monitoring and other features 

@@ -203,9 +203,9 @@ Many methods from the 5.x SDK have been replaced with new equivalents in 6.x:
 
 After migrating to the 6.x SDK, we recommend:
 
-1. Review the [Core Concepts](/ios/open-source/core-concepts/sessions.md) documentation to understand the new architecture
-2. Explore the new [Automatic Instrumentation](/ios/open-source/automatic-instrumentation/network-monitoring.md) capabilities
-3. Learn about [Manual Instrumentation](/ios/open-source/manual-instrumentation/custom-traces.md) for custom traces and logs
+1. Review the Core Concepts documentation to understand the new architecture
+2. Explore the new Automatic Instrumentation capabilities
+3. Learn about Manual Instrumentation for custom traces and logs
 
 ## Need Help?
 

@@ -32,10 +32,10 @@ Once the Embrace Apple SDK is integrated into your mobile app, you can begin to 
 
 After you've set up the SDK, explore these additional capabilities:
 
-- [Sessions](/ios/open-source/core-concepts/sessions.md) - Understand how user sessions are tracked
-- [Traces & Spans](/ios/open-source/core-concepts/traces-spans.md) - Learn about tracing operations in your app
-- [Logs](/ios/open-source/core-concepts/logs.md) - Add context with custom logging
-- [Automatic Instrumentation](/ios/open-source/automatic-instrumentation/index.md) - Discover built-in monitoring capabilities
+- Sessions - Understand how user sessions are tracked
+- Traces & Spans - Learn about tracing operations in your app
+- Logs - Add context with custom logging
+- Automatic Instrumentation - Discover built-in monitoring capabilities
 
 ## Prerequisites
 

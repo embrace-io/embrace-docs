@@ -116,5 +116,5 @@ This allows you to have more verbose logging in development while keeping produc
 After configuring the SDK, you should explore:
 
 - [Migration from 5.x](/ios/open-source/getting-started/migration-guide.md) if you're upgrading
-- [Core concepts](/ios/open-source/core-concepts/sessions.md) to understand how the SDK works
-- [Automatic instrumentation](/ios/open-source/automatic-instrumentation/network-monitoring.md) for built-in monitoring capabilities 
+- Core concepts to understand how the SDK works
+- Automatic instrumentation for built-in monitoring capabilities 
