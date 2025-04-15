@@ -1,22 +1,42 @@
 ---
-title: Get Started With Embrace
-description: Start integrating Embrace into your iOS application
-sidebar_position: 3
+title: Getting Started
+description: Getting started with the Embrace iOS SDK 6.x
+sidebar_position: 0
 ---
 
-# Get Started With Embrace
+# Getting Started with Embrace iOS SDK 6.x
 
-Once the Embrace Apple SDK is integrated into your mobile app, you can begin to send mobile signals to the Embrace backend for analysis. This section contains information on what you can expect from our commercial product. These features, such as [session reporting](/ios/open-source/getting-started/session-reporting.md) are also available for open-source users, but without the visualization provided by the Embrace dashboard.
+This section will guide you through the process of adding the Embrace SDK to your iOS application and configuring it for optimal performance monitoring.
 
-Read on to find out more about:
+## Installation and Setup
 
-- Adding [crash reporters](/ios/open-source/getting-started/crash-report.md) to your app.
-- Making sense of [sessions](/ios/open-source/getting-started/session-reporting.md) in your app.
-- Symbolicating [crash reports and dSYMs](/ios/open-source/getting-started/symbolicating-crash-reports.md) in your app.
-- Adding context to sessions with [breadcrumbs](/ios/open-source/getting-started/breadcrumbs.md).
-- Get immediate warning of any issues with the [Log Message API](/ios/open-source/getting-started/logs.md)
-- Learn what processes are still running when users [background](/ios/open-source/getting-started/background-sessions.md) your application
+Follow these steps to integrate the Embrace SDK into your app:
+
+1. [Installation](/ios/open-source/getting-started/installation.md) - Add the SDK to your project using Swift Package Manager or CocoaPods
+2. [Basic Setup](/ios/open-source/getting-started/basic-setup.md) - Initialize the SDK in your application
+3. [Configuration Options](/ios/open-source/getting-started/configuration-options.md) - Customize the SDK's behavior
+4. [Migration Guide](/ios/open-source/getting-started/migration-guide.md) - If you're upgrading from 5.x, follow this guide
+
+## What You'll Get
+
+Once the Embrace Apple SDK is integrated into your mobile app, you can begin to send mobile signals to the Embrace backend for analysis. With Embrace, you'll be able to:
+
+- Monitor session data to understand user interactions
+- Track crashes and errors with detailed reports
+- Gain insights into network performance
+- Observe view controller lifecycle and performance
+- Add custom logs and traces for specific events
+- Identify and fix issues faster
+
+## Next Steps
+
+After you've set up the SDK, explore these additional capabilities:
+
+- Sessions - Understand how user sessions are tracked
+- Traces & Spans - Learn about tracing operations in your app
+- Logs - Add context with custom logging
+- Automatic Instrumentation - Discover built-in monitoring capabilities
 
 ## Prerequisites
 
-To link the SDK to your Embrace dashboard, you will need an App ID. Register your app to get an App ID by [logging in to your Embrace Dashboard](/ios/5x/integration/login-embrace-dashboard.md).
+To link the SDK to your Embrace dashboard, you will need an App ID. Register your app to get an App ID by logging in to your Embrace Dashboard.
