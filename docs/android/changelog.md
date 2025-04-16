@@ -6,6 +6,10 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+:::info Important 
+Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
+:::
+
 ## 7.3.0
 *March 18, 2025*
 
