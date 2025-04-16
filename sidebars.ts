@@ -92,8 +92,23 @@ const sidebars: SidebarsConfig = {
                       items: [
                         {
                           type: "doc",
-                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
-                          label: "Core Concepts Placeholder"
+                          id: "ios/open-source/core-concepts/index"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/core-concepts/sessions"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/core-concepts/traces-spans"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/core-concepts/logs"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/core-concepts/user-identification"
                         }
                       ],
                     },
