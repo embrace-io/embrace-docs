@@ -20,6 +20,10 @@ The network capture service instruments URLSession-based networking in your app 
 
 This data helps identify slow APIs, track error rates, and understand the network performance impact on your app.
 
+:::info
+By default, the SDK captures raw network data and does not automatically scrub personally identifiable information (PII) or sensitive data. You should configure header filters, URL pattern blacklists, and custom data sources as described below to prevent capturing sensitive information.
+:::
+
 ## Configuration
 
 You can customize network capture behavior when initializing the Embrace SDK:
