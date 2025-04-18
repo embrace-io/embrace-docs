@@ -28,7 +28,7 @@ For both app startup traces, you can configure the SDK so they are ended program
 
 If the app is backgrounded or terminated before startup completes, the trace will end automatically but be marked as abandoned or failed, respectively,
 
-### Configuration
+### Configuration {#configuration}
 
 App startup traces can be configured and augmented in the following ways to better suit your needs:
 
@@ -104,7 +104,7 @@ Depending on the version of Android and other additional data your app provides,
 - The time between when the trace would have ended automatically and when `appReady()` was called.
 - Only recorded if the startup traces are configured to be ended programmatically.
 
-### Mapping to Android Startup Metrics
+### Mapping to Android startup metrics {#mapping-to-android-startup-metrics}
 
 Android provides app startup metrics via [Logcat](https://developer.android.com/topic/performance/vitals/launch-time#retrieve-TTID), [Perfetto](https://developer.android.com/topic/performance/vitals/launch-time#app-startup-perfetto), and the [ApplicationStartInfo](https://developer.android.com/reference/android/app/ApplicationStartInfo) API (Android 15+). This app startup instrumentation maps closely to that. Specifically, the automatic end time yields similar results to [Time to Initial Display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial), though it waits for the first drawn frame to be delivered rather than simply rendered before ending the trace.
 
@@ -159,7 +159,7 @@ class SampleApplication(private val nativeLibName: String) : Application() {
 </TabItem>
 </Tabs>
 
-### App Startup Traces in Old Embrace SDK Versions
+### App startup traces in old Embrace SDK versions
 
 This documentation covers the app startup instrumentation as of Embrace Android SDK version 7.3.0. For earlier versions, there are the following differences:
 
