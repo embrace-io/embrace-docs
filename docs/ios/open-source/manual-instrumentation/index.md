@@ -10,7 +10,7 @@ While Embrace's [automatic instrumentation](../automatic-instrumentation/index.m
 
 ## What is Manual Instrumentation?
 
-Manual instrumentation refers to the explicit addition of code in your application to create spans, events, metrics, and logs. This gives you the ability to:
+Manual instrumentation refers to the explicit addition of code in your application to create traces, logs, handle errors, and monitor performance. This gives you the ability to:
 
 - Track custom business processes
 - Measure performance of critical operations
@@ -22,12 +22,10 @@ Manual instrumentation refers to the explicit addition of code in your applicati
 
 Embrace provides several APIs for manual instrumentation:
 
-1. **[Custom Spans](./custom-spans.md)** - Measure the duration of custom operations
-2. **[Custom Events](./custom-events.md)** - Record discrete events and user actions
-3. **[Custom Attributes](./custom-attributes.md)** - Add contextual data to sessions and spans
-4. **[User Identification](./user-identification.md)** - Associate telemetry with specific users
-5. **[User Flows](./user-flows.md)** - Track complex user journeys across multiple screens
-6. **[Logging](./logging.md)** - Capture log messages at various severity levels
+1. **[Custom Traces](./custom-traces.md)** - Measure the duration of custom operations with spans
+2. **[Custom Logging](./custom-logging.md)** - Capture log messages at various severity levels
+3. **[Error Handling](./error-handling.md)** - Record and track errors that occur in your app
+4. **[Performance Monitoring](./performance-monitoring.md)** - Track performance metrics for critical operations
 
 ## When to Use Manual Instrumentation
 

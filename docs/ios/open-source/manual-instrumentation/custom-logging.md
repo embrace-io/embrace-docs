@@ -1,10 +1,10 @@
 ---
-title: Logging
+title: Custom Logging
 description: Capture log messages with different severity levels in your iOS app
-sidebar_position: 6
+sidebar_position: 2
 ---
 
-# Logging
+# Custom Logging
 
 Embrace's logging capabilities allow you to capture log messages with different severity levels, providing valuable context for troubleshooting and debugging issues in your app.
 
@@ -64,28 +64,6 @@ Embrace.client?.logMessage(
 ```
 
 Properties help you filter and search logs more effectively.
-
-## Logging Errors
-
-For errors, you can use a specialized method that captures the error object:
-
-```swift
-do {
-    try processPayment(amount: amount)
-} catch let error {
-    Embrace.client?.logError(
-        error,
-        properties: [
-            "amount": amount.description,
-            "currency": currency,
-            "payment_method": paymentMethod
-        ]
-    )
-    // Handle the error
-}
-```
-
-This preserves the error type and message for better debugging.
 
 ## Integrating with Existing Logging Systems
 
@@ -251,149 +229,67 @@ class APIClient {
                     properties: [
                         "request_id": requestId,
                         "status_code": String(httpResponse.statusCode),
-                        "duration": String(format: "%.2f", duration),
-                        "response_body": String(data: data ?? Data(), encoding: .utf8) ?? "empty"
+                        "duration": String(format: "%.2f", duration)
                     ]
                 )
-                
-                let error = NSError(domain: "APIClient", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "HTTP error \(httpResponse.statusCode)"])
-                completion(.failure(error))
-                return
-            }
-            
-            // Log successful request
-            Embrace.client?.logMessage(
-                "API request completed successfully",
-                severity: .info,
-                properties: [
-                    "request_id": requestId,
-                    "status_code": String(httpResponse.statusCode),
-                    "duration": String(format: "%.2f", duration),
-                    "response_size": String(data?.count ?? 0)
-                ]
-            )
-            
-            // Parse response
-            do {
-                guard let data = data else {
-                    throw NSError(domain: "APIClient", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])
-                }
-                
-                let decoded = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(decoded))
-            } catch let decodingError {
-                Embrace.client?.logError(
-                    decodingError,
-                    properties: [
-                        "request_id": requestId,
-                        "error_type": "decoding_error"
-                    ]
-                )
-                completion(.failure(decodingError))
-            }
-        }.resume()
-    }
-}
-```
-
-### Logging User Actions
-
-```swift
-class CheckoutViewController: UIViewController {
-    @IBAction func payButtonTapped(_ sender: UIButton) {
-        Embrace.client?.logMessage(
-            "User tapped pay button",
-            severity: .info,
-            properties: [
-                "cart_value": cartManager.totalValue.description,
-                "item_count": cartManager.itemCount.description,
-                "payment_method": selectedPaymentMethod
-            ]
-        )
-        
-        processPayment()
-    }
-    
-    private func processPayment() {
-        paymentService.processPayment(amount: cartManager.totalValue) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let transaction):
+            } else {
                 Embrace.client?.logMessage(
-                    "Payment processed successfully",
+                    "API request completed successfully",
                     severity: .info,
                     properties: [
-                        "transaction_id": transaction.id,
-                        "amount": transaction.amount.description
+                        "request_id": requestId,
+                        "status_code": String(httpResponse.statusCode),
+                        "duration": String(format: "%.2f", duration),
+                        "response_size": data?.count.description ?? "0"
                     ]
                 )
-                
-                self.showConfirmation(transaction)
-                
-            case .failure(let error):
-                Embrace.client?.logError(
-                    error,
-                    properties: [
-                        "amount": self.cartManager.totalValue.description,
-                        "payment_method": self.selectedPaymentMethod
-                    ]
-                )
-                
-                self.showError(error)
             }
+            
+            // Process response and call completion handler
         }
     }
 }
 ```
 
-## Best Practices
+## Best Practices for Logging
 
 ### Log Levels
 
-Use the appropriate severity level for each log:
-- **Info**: Normal operation events, user actions, state changes
-- **Warning**: Non-critical issues, degraded functionality, retries
-- **Error**: Failed operations, user-impacting issues
-- **Debug**: Detailed troubleshooting information
+Use appropriate log levels:
+- **Debug**: Detailed technical information, visible only in development builds
+- **Info**: General operational information
+- **Warning**: Unexpected behavior that doesn't impact functionality
+- **Error**: Issues that impact functionality but don't crash the app
 
-### Meaningful Messages
+### Contextual Information
 
-Write clear, descriptive log messages:
-- Include what happened and why it's significant
-- Be specific but concise
-- Include the operation context
-- Use consistent terminology
+Include relevant context in logs:
+- User actions that preceded the log
+- Relevant IDs (user ID, session ID, request ID)
+- State information that helps understand the context
+- Error codes and descriptions
 
-Good examples:
-- "User login failed: Invalid credentials"
-- "Image cache missed for profile image ID 12345"
-- "Payment processing timed out after 30 seconds"
+### Performance Considerations
 
-### Structured Properties
+Be mindful of logging frequency:
+- Avoid excessive logging in performance-critical paths
+- Consider batching logs for high-frequency events
+- Use debug logs for verbose information that's only needed during development
 
-Use properties for structured data that you might want to filter or search by:
-- Use consistent property names across related logs
-- Include IDs that can be used to correlate events
-- Add quantitative data that might be useful for analysis
-- Include state information that provides context
+### Sensitive Information
 
-### Sensitive Data
+Never log sensitive data:
+- Authentication credentials
+- Personal identifiable information (PII)
+- Payment information
+- Access tokens
 
-Never log sensitive information:
-- No passwords or authentication tokens
-- No personally identifiable information (PII)
-- No financial details
-- No health information
+### Structured Logging
 
-### Volume Management
+Use a consistent structure for log messages:
+- Start with the event or action being logged
+- Use properties for structured data rather than concatenating into the message
+- Group related logs using consistent naming
 
-Be mindful of log volume:
-- Don't log routine operations in high-volume code paths
-- Use debug logs for detailed information that's only needed for troubleshooting
-- Consider sampling for high-frequency events
-- Focus on logs that provide actionable information
-
-TODO: Add examples of how logs appear in the Embrace dashboard
-TODO: Add code samples for logging best practices in different app categories
-TODO: Add examples of integrating with SwiftLog 
+TODO: Add examples for integrating with other popular iOS logging frameworks
+TODO: Include best practices for log rotation and privacy considerations 

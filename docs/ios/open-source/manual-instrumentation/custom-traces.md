@@ -1,16 +1,20 @@
 ---
-title: Custom Spans
+title: Custom Traces
 description: Track the duration and performance of custom operations in your iOS app
 sidebar_position: 1
 ---
 
-# Custom Spans
+# Custom Traces
 
-Custom spans allow you to measure the duration of specific operations in your app, providing insights into performance and behavior of code paths that matter to your business.
+Custom traces allow you to measure the duration of specific operations in your app, providing insights into performance and behavior of code paths that matter to your business. Traces are implemented using spans from the OpenTelemetry standard.
 
-## What are Spans?
+## What are Traces and Spans?
 
-In OpenTelemetry, spans represent a unit of work or operation. Each span:
+In OpenTelemetry:
+- A **trace** represents the entire journey of a request or operation through your system
+- **Spans** are the building blocks of a trace, representing individual units of work or operations
+
+Each span:
 - Has a name and type
 - Tracks when the operation started and ended
 - Can include attributes (key-value pairs) that provide context
@@ -87,23 +91,6 @@ span?.end()
 ```
 
 You can add attributes at any point before the span is ended.
-
-## Error Handling
-
-Record errors that occur during the span's lifetime:
-
-```swift
-let span = Embrace.client?.startSpan(name: "user_authentication")
-
-do {
-    try authenticate(username: username, password: password)
-    span?.end()
-} catch let error {
-    span?.recordError(error)
-    span?.setStatus(.error)
-    span?.end()
-}
-```
 
 ## Span Hierarchy
 
@@ -248,6 +235,5 @@ func processFeed(posts: [Post]) -> [ProcessedPost] {
 }
 ```
 
-TODO: Add examples of how custom spans appear in the Embrace dashboard
-TODO: Add more complex examples showing span hierarchies for real-world scenarios
-TODO: Add code samples for SwiftUI and Combine integration 
+TODO: Add more examples showing complex trace structures with multiple nested spans
+TODO: Include examples for measuring key user flows through the application 
