@@ -5,6 +5,25 @@ sidebar_position: 4
 ---
 
 # Unity SDK Changelog
+
+## 2.4.0
+Embrace Android SDK Version: [7.3.0](https://embrace.io/docs/android/changelog/#730)
+Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+
+*April 10, 2025*
+- Upgraded Embrace Android Dependency to 7.3.0
+- Upgraded Embrace iOS Dependency to 6.8.4
+- Removed Unity ANR Capture Feature
+- Patch to Installation.cs that could prevent setup failure on KeyNotFoundException
+- Patch to Xcode project path generation on iOS builds out of Unity that could block CI builds
+
+## 2.3.0
+*February 11, 2025*
+- Upgraded Embrace Android dependency to 7.1.0
+- Upgraded Embrace iOS dependency to 6.8.0
+- Changed Unity Swift code to local Swift Package
+- New Attachment API exposed for LogMessage
+
 ## 2.2.0
 *January 27, 2025*
 - Upgraded Embrace iOS dependency to 6.7.1

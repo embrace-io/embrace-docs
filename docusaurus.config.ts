@@ -35,6 +35,18 @@ const config: Config = {
 
   scripts: [
     {
+      id: "runllm-widget-script",
+      type: "module",
+      src: "https://widget.runllm.com",
+      crossorigin: "true",
+      "runllm-name": "Embrace Assistant",
+      "runllm-assistant-id": "284",
+      "runllm-position": "BOTTOM_RIGHT",
+      "runllm-keyboard-shortcut": "Mod+j",
+      "runllm-preset": "docusaurus",
+      async: true,
+    },
+    {
       src: "scripts/init.js",
     },
     ...(process.env.EMBR_ENV === "production"
@@ -221,6 +233,38 @@ const config: Config = {
           {
             to: "/features/traces",
             from: "/features/performance-tracing",
+          },
+          {
+            to: "/data-destinations/chronosphere-setup",
+            from: "/code/da-unexpected-input-chronosphere-credentials",
+          },
+          {
+            to: "/data-destinations/elastic-setup",
+            from: "/code/da-unexpected-input-elastic-credentials",
+          },
+          {
+            to: "/data-destinations/grafana-cloud-setup",
+            from: "/code/da-unexpected-input-grafana_cloud-instance-id",
+          },
+          {
+            to: "/data-destinations/grafana-cloud-setup",
+            from: "/code/da-unexpected-input-grafana_cloud-api-key",
+          },
+          {
+            to: "/data-destinations/grafana-cloud-setup",
+            from: "/code/da-unexpected-input-grafana_cloud-credentials",
+          },
+          {
+            to: "/data-destinations/observe-setup",
+            from: "/code/da-unexpected-input-observe-credentials",
+          },
+          {
+            to: "/data-destinations/splunk",
+            from: "/code/da-unexpected-input-splunk-api-key",
+          },
+          {
+            to: "/data-destinations/splunk/",
+            from: "/code/da-unexpected-input-splunk-credentials",
           },
         ],
       },

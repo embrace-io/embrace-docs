@@ -29,6 +29,8 @@ import LogoHoneycomb from "@site/static/images/logo-honeycomb.svg";
 import logoGrafana from "@site/static/images/logo-grafana.png";
 import LogoDataDog from "@site/static/images/logo-datadog.svg";
 import LogoChronosphere from "@site/static/images/logo-chronosphere.svg";
+import LogoElastic from "@site/static/images/logo-elastic.svg";
+import LogoObserve from "@site/static/images/logo-observe.svg";
 import LogoIOS from "@site/static/images/ios.svg";
 import LogoFlutter from "@site/static/images/flutter.svg";
 import LogoAndroid from "@site/static/images/android.svg";
@@ -230,6 +232,16 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "Grafana",
       icon: <img src={logoGrafana} alt="Logo Grafana" />,
       linkTo: "/partners/grafana",
+    },
+    {
+      title: "Elastic",
+      icon: <LogoElastic />,
+      linkTo: "/data-destinations/elastic-setup",
+    },
+    {
+      title: "Observe",
+      icon: <LogoObserve />,
+      linkTo: "/data-destinations/observe-setup",
     },
     {
       title: "Chronosphere",

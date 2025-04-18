@@ -8,7 +8,7 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 
 ## Updating These Docs
 
-You can make edits to these docs from within GitHub UI or by forking/cloning the repo to make edits locally.
+You can make edits to these docs from within GitHub UI or by forking/cloning the repo to make edits locally. Ensure that any edits conform to the [Embrace Docs Style Guide](https://embraceio.notion.site/Embrace-Public-Docs-Style-Guide-19f7e3c99852804abd7deacc2b14cc14).
 
 ### Recommendations
 

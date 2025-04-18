@@ -39,6 +39,37 @@ Finally, SDKs use different approaches to capture and process crash data. For JV
 
 All the reasons in this [crashes FAQ](#why-does-embraces-crash-data-look-different-compared-to-another-crash-reporting-solution-i-use) also applies to ANR data.
 
+# Why am I seeing a `Semaphore.tryAcquire` ANR in `UnityPlayerActivity.onPause`?
+
+This ANR (Application Not Responding) happens because a long-running operation in your game is blocking Unity’s ability to pause in a timely manner—it’s not caused by `OnApplicationPause` itself.
+
+## What’s happening behind the scenes?
+
+### Unity’s Android architecture
+Every Unity Android app includes `UnityPlayerActivity`, a Java class that runs on the Android UI thread. It manages the app’s lifecycle and acts as a bridge between the OS and the Unity runtime, which runs on a separate thread.
+
+### How pausing works
+When the OS tells your app to pause (e.g., the user switches apps), that request goes to `UnityPlayerActivity.onPause` on the UI thread. To complete the pause process, the activity needs to notify the Unity engine (running on another thread) to trigger `OnApplicationPause` and suspend the game loop.
+
+Since this requires coordination between threads, `onPause` must **wait** for a synchronization point at the end of Unity’s frame loop. This wait happens via `java.util.concurrent.Semaphore.tryAcquire`, which is what you see in the ANR stack trace.
+
+### Why does this cause an ANR?
+Normally, this wait lasts just a few milliseconds. However, if the Unity thread is already **blocked** by a long-running operation (such as synchronous asset loading or heavy computation), the pause request gets stuck waiting—leading to an ANR.
+
+## Example scenario
+Let’s say your game loads a large 3D environment when the user taps a button in the main menu. If the scene loads **synchronously** and takes several seconds (especially on a low-end device), the user usually just waits for it to complete. But if the OS happens to pause the app during this process (e.g., the user switches apps), the ongoing load delays the pause process, and boom—ANR.
+
+## How to prevent this?
+
+### Identify long-running synchronous operations
+Use **performance tracing tools** to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
+
+### Optimize your game loop
+Where possible, move heavy operations **off the main Unity thread** or make them **asynchronous** to avoid blocking the pause request.
+
+## Key takeaway
+The `Semaphore.tryAcquire` ANR isn’t caused by `OnApplicationPause`—it’s caused by other long-running tasks in your game that prevent Unity from handling the pause in time. By reducing these blocking operations, you can avoid this issue and improve your app’s responsiveness.
+
 
 ## Integrating
 
@@ -64,7 +95,7 @@ Alternatively you can set your `minSdk` to 24 to avoid the problem.
 
 In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file
 implementation `'io.embrace:embrace-android-sdk:<version>'`.
-You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
+You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
 
 ```groovy
 buildscript {
@@ -82,12 +113,26 @@ buildscript {
 
 ### **Is there a way that I can speed up build times?**
 
-Yes, update to the latest version of the swazzler gradle plugin & ensure your AGP + Gradle version are on the latest stable version.
+Yes, update to the latest version of the Embrace Gradle Plugin & ensure your AGP + Gradle version are on the latest stable version.
 Newer AGP versions provide a more performant API for bytecode instrumentation amongst other improvements that our plugin relies upon.
 
 ### **Does adding the Embrace SDK impact launch performance?**
 
 We have benchmarked the Embrace SDK's performance during app launch between 10 and 50 milliseconds. In practice, this is between 1-3% of typical app launch time.
+
+### **What is the impact of adding Embrace Android SDK regarding app performance, device battery/data usage/disk space?**
+
+TL;DR _The impact depends on how you use the API._
+
+The incremental battery usage is negligible because we are mostly dormant unless telemetry is being recorded, in which case the CPU should already be active. We do have a thread that monitors the main thread for ANRs if that feature is enabled when the app is in the foreground, but that only pings the thread every 100ms.
+For disk usage, we only hit the disk every 2 seconds when the app is in the foreground, regardless of how much telemetry is recorded. Everything is buffered in memory and flushed to disk at that interval. In the background, we only do so if new telemetry has been added since the last check, so it's pretty lightweight if you're not recording data.
+For disk space, we buffer on disk session data that hasn't been sent, and once it's successfully sent, it's deleted. The data is compressed too, so unless the device has a lot of unsent requests due to a lack of network connection, the disk usage should not exceed a few megabytes.
+In terms of data usage, it also depends on usage, but it's negligible for a modern app. Sessions typically get bigger if there are a lot of network requests to be logged, but they compress well and each is usually less than 100 KB (P99 for sessions is 98KB)
+Our delivery layer retry is based on exponential backoff, starting at 1 minute and doubling with every failure. We only attempt to do so if we detect a network connection. So you should never see tight loops of failures and retries that would clog up the CPU, as the 7th retry will be after 64m. The request connection timeout is 10s, and the read timeout is 60.
+In terms of disk persistence, we store a maximum of 500 payloads that have failed to be sent - and we trim based on priority and time, i.e., if we need to trim, we trim the less important payloads first, starting with logs, then sessions, then crashes, by First-In-First-Out. So even if the app is offline for a long time, there is still a ceiling of how much extra disk space will be consumed, which may be 10s of MBs if you're logging a lot of data.
+Regarding payload size, our backend rejects any payloads greater than 3mb, so in practice, with the data limits we have set on the various telemetry types we capture, it should not get close to that.
+
+We proactively profile the impact of instrumentation on the app. Spans generally take < 1 ms to start and stop, so the overhead to measurement shouldn't impact user experience, even if you do it directly on the main thread.
 
 ### **What determines if a session is classified as prod or dev?**
 

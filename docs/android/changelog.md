@@ -6,11 +6,44 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
+:::info Important 
+Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
+:::
+
+## 7.3.0
+*March 18, 2025*
+
+- Improved app startup instrumentation
+  - Updated name of root and child spans logged for cold and warm app startups
+  - Added support for programmatic termination of app startup as opt-in configuration option
+  - Record failed and abandoned app startup spans if the app crashes or backgrounds before startup completes
+  - Added new annotation (`@IgnoreForStartup`) for trampoline or splash-screen Activities, which will make the app startup instrumentation ignore them for the purposes of ending a startup
+  - Deprecated (`@StartupActivity`). This annotation will no longer affect how the app startup instrumentation works.
+  - Fixed issue with app startup instrumentation recording on Android 12 for Activities that use Jetpack Compose Navigation
+- Fail app build if symbol upload request fails
+- Modified logic of uploading `ApplicationExitInfo` (non-visible change)
+- Updated OpenTelemetry API and SDK to `1.48.0`
+
+## 7.2.0
+*February 27, 2025*
+
+- Fixed stacktrace deobfuscation in React Native
+- Fixed build issues on some apps that use DexGuard
+- Fixed memory leak of the Activity loaded during app launch
+- Fixed rare crash when the Jetpack Compose tap detection feature is enabled
+
+## 7.1.0
+*February 7, 2025*
+
+- Fixed stacktrace symbolication issue caused by incorrect ProGuard rules
+- Added API for sending log messages that contain binary attachments
+- Internal refactoring of gradle plugin
+
 ## 7.0.0
 *January 28, 2025*
 
 :::warning Important
-This version has an issue where JVM symbol mapping files are sometimes not being uploaded correctly, leading to some call stacks being partially obfuscated (e.g. in crashes and ANRS). We are investigating the issue, and in the meantime, please refrain from putting this SDK version in production.
+This version has an issue where JVM symbol mapping files are sometimes not being uploaded correctly, leading to some call stacks being partially obfuscated (e.g. in crashes and ANRs). Please use 7.1.0 instead.
 :::
 
 - API and functional changes in this major release are documented in the [Upgrade Guide](/android/upgrading/). Key ones to be aware of include:

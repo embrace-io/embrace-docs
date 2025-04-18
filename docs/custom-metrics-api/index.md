@@ -78,7 +78,33 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 }'
 ```
 
-#### Filter Parameter Examples
+#### Response
+
+Status codes: `200`, `400`, `403`, `409` and `500`.
+
+#### OK
+```json 
+{
+  "custom_metric_id": "y8vayvn",
+  "app_id": "appID1",
+  "name": "sessions_total_v1",
+  "metric": "sessions_total",
+  "filters": {
+    "op": "and",
+    "children": [{"field_op": "eq", "key": "os_version", "val": "12"}]
+  },
+  "group_by": ["app_version"],
+  "time_granularity": ["five_minute", "hourly"],
+  "data_destination": ["metrics_api", "newrelic"]
+}
+```
+
+#### Error (500)
+```json
+{"message": "we had an internal error, please try again later"}
+```
+
+#### Filters Examples
 
 | Type     | Example                                                                                             |
 |----------|-----------------------------------------------------------------------------------------------------|
@@ -88,7 +114,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 | range    | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}`                      |
 | property | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
 
-#### Using `duration_bucket` filters
+#### Filters using `duration_bucket`
 
 For some custom metrics the API allows you to filter data based on the `duration_bucket` parameter, which categorizes data according to specific `duration` ranges. Each `duration_bucket` value corresponds to a specific range of `duration` values. Here's how it works:
 
@@ -125,31 +151,18 @@ If you want to filter all durations less or equal than 999 you should create thi
 }
 ```
 
-#### Response
+#### Group by using `session_property`, `log_property` or `root_span_attribute`
 
-Status codes: `200`, `400`, `403`, `409` and `500`.
+For some custom metrics the API allows you to group by data based on the `session_property`, `log_property` or `root_span_attribute` parameters.
 
-#### OK
-```json 
+If you want to group by on the property "city" and "state" for `session_property`, you should create this group by:
+
+```json
 {
-  "custom_metric_id": "y8vayvn",
-  "app_id": "appID1",
-  "name": "sessions_total_v1",
-  "metric": "sessions_total",
-  "filters": {
-    "op": "and",
-    "children": [{"field_op": "eq", "key": "os_version", "val": "12"}]
-  },
-  "group_by": ["app_version"],
-  "time_granularity": ["five_minute", "hourly"],
-  "data_destination": ["metrics_api", "newrelic"]
+  "group_by": ["session_property.city", "session.property.state"]
 }
 ```
 
-#### Error (500)
-```json
-{"message": "we had an internal error, please try again later"}
-```
 
 ### Get custom metrics
 

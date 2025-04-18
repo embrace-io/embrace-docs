@@ -83,7 +83,7 @@ so you're good to go!
 
 <TabItem value="android" label="Android">
 
-Update the `build.gradle` file (usually located at `<root>/android/build.gradle`) to include the Embrace Swazzler.
+Update the `build.gradle` file (usually located at `<root>/android/build.gradle`) to include the Embrace Gradle Plugin.
 
 ```groovy
 buildscript {

@@ -16,7 +16,7 @@ sidebar_position: 1
 Follow these steps to add Prometheus as a data source in the Grafana dashboard:
 1. Click the "Open Menu" icon to go to the "Connections -> Data sources" page. 
 1. Click the "Add new data source" button on the top right page and select "Prometheus".
-3. Configure it with the following fields:
+1. Configure it with the following fields:
     - Name: `embrace-metrics-api`.
     - Under "Connection" section, set "Prometheus server URL": `https://api.embrace.io/metrics`.
     - Under "Authentication" section, click the button "Add header":

@@ -117,7 +117,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "dpa",
+          id: "dpa/index",
         },
       ],
     },

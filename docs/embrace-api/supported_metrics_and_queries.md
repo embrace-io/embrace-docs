@@ -8,17 +8,15 @@ sidebar_position: 3
 
 The following metrics are supported. Metrics with the suffix "_total" are gauges.
 
-To query your desired unit, simply prefix the metric name with the unit, eg: `daily_crashes_total`, `hourly_my_custom_sessions_total` and 
- `five_minute_sessions_total`.
+To query your desired unit, simply prefix the metric name with the unit, eg: `daily_crashes_total`, `hourly_my_custom_sessions_total` and `five_minute_sessions_total`.
 
 ## Standard
 
-
-| Metric         | Description            | Filters                               | Time granularity           |           
+| Metric         | Description            | Filters                               | Time granularity           |
 |----------------|------------------------|---------------------------------------|----------------------------|
 | crashes_total  | Number of crashes      | app_version, os_version, device_model | five_minute, hourly, daily |
 | sessions_total | Number of sessions     | app_version, os_version, device_model | five_minute, hourly, daily |
-| users_total    | Number of unique users | app_version, os_version, device_model | daily                      |    
+| users_total    | Number of unique users | app_version, os_version, device_model | daily                      |
 
 :::info
 The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day. 
@@ -36,7 +34,7 @@ All the information provided by these metrics can now be obtained using the new 
 These deprecated metrics will remain available for retrieving historical data prior to October 30, 2023.
 However, we strongly recommend transitioning to the new metrics to ensure a consistent experience.
 
-| Metric                                       | Description                                               | Filters                               | Time granularity           |           
+| Metric                                       | Description                                               | Filters                               | Time granularity           |
 |----------------------------------------------|-----------------------------------------------------------|---------------------------------------|----------------------------|
 | crash_free_session_by_device_rate_deprecated | Percentage of crash free sessions grouped by device model | app_version, device_model, os_version | hourly, daily              |
 | crash_session_pct_deprecated                 | Percentage of crash sessions                              | app_version, os_version               | hourly, daily              |
@@ -45,17 +43,22 @@ However, we strongly recommend transitioning to the new metrics to ensure a cons
 | crashes_total_deprecated                     | Number of crashes                                         | app_version, os_version               | five_minute, hourly, daily |
 | sessions_by_device_total_deprecated          | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
 | sessions_total_deprecated                    | Number of sessions                                        | app_version, os_version               | five_minute, hourly, daily |
-| users_deprecated                             | Number of unique users                                    | app_version, os_version               | hourly, daily              | Metrics
+| users_deprecated                             | Number of unique users                                    | app_version, os_version               | hourly, daily              |
 
 ## Custom Metrics
 
-Refer to this [documentation](/custom-metrics-api/supported_metrics.md) to know the supported custom metrics. 
+Refer to this [documentation](/custom-metrics-api/supported_metrics) to know the supported custom metrics.
 
 ## Sample PromQL queries
 
 * Sessions grouped by devices for a given app version
 ```promql
 sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
+```
+
+* Sessions grouped by session property city and session property state for a given app version
+```promql
+sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (city, state)
 ```
 
 * Percentage of crash free sessions by devices.
@@ -90,6 +93,7 @@ sum(hourly_custom_metric_sessions_total{})
 To reduce storage costs with various observability platforms (eg Datadog), Embrace Metrics examine high cardinality dimensions for consolidation.
 
 ### Device Models
+
 There are over 40,000 unique device models on the Android operating system. The bottom 39,000 models account for ~30% of data typically.  Aside from being expensive to store this many unique values, it is also unwieldy to visualize or review!
 
 <img src={require('@site/static/images/embrace-api/device_other.png').default} alt="Chart showing data by device ranking" />

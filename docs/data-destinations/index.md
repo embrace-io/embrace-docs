@@ -16,6 +16,7 @@ cross-platform observability tool of choice:
     * [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
 * [Honeycomb integration guide](/data-destinations/honeycomb.md)
 * [New Relic integration guide](/data-destinations/new-relic-setup.md)
+* [Observe integration guide](/data-destinations/observe-setup.md)
 * [Splunk integration guide](/data-destinations/splunk.md)
 
 ## Metrics

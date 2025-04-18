@@ -40,7 +40,7 @@ Embrace.client?.log(
 Let's examine the method call from above to understand the arguments involved:
 
 1. **message**: The first argument is a string and represents the message itself.
-1. **severity**: This is the [LogSeverity](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCommonInternal/Enums/LogSeverity.swift) of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs](/docs/ios/open-source/getting-started/breadcrumbs.md).
+1. **severity**: This is the [LogSeverity](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCommonInternal/Models/LogSeverity.swift) of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs](/docs/ios/open-source/getting-started/breadcrumbs.md).
 1. **timestamp**: This is the time that this log message should show in the timeline. If the log points to an error or warning happening prior to the current time, the timestamp for the occurrence can be added here.
 1. **attributes**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values.
 
@@ -71,3 +71,52 @@ To reduce the device and network overhead. We batch logs according to the follow
 :::info
 For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api).
 :::
+
+## File Attachments
+
+You can attach any kind of data to a log by using the appropriate APIs.
+These attachments will be available to download through the Embrace Dashboard.
+
+### Embrace Hosted
+
+By using this method, Embrace will host the attachment and link it to the log.
+
+```swift
+let attributes = ["property_a": "value_a", "property_b": "value_b"]
+Embrace.client?.log(
+    "This is a log with an Embrace-hosted attachment", // message
+    severity: .info,
+    timestamp: Date.now,
+    attachment: someData, // NSData/Data
+    attributes: attributes
+)
+```
+
+:::warning
+There's a limit of 5 Embrace hosted attachments per session.
+
+Once the limit is reached, if there's an attempt to send a log with a new attachment, the attachment won't be uploaded and the log will have an error attribute: `emb.attachment_error_code = OVER_MAX_ATTACHMENTS`.
+:::
+
+:::warning
+The attachment size cannot exceed 1 MiB (1048576 bytes).
+
+If the attachment data exceeds the limit, the attachment won't be uploaded and the log will have an error attribute: `emb.attachment_error_code = ATTACHMENT_TOO_LARGE`.
+:::
+
+### User Hosted
+
+You can use your own hosting method for the attachment and just pass an identifier along with the download URL when sending a log.
+There are no size or quantity limitations when using this API.
+
+```swift
+let attributes = ["property_a": "value_a", "property_b": "value_b"]
+Embrace.client?.log(
+    "This is a log with a user-hosted attachment", // message
+    severity: .info,
+    timestamp: Date.now,
+    attachmentId: attachmentId, // String
+    attachmentUrl: attachmentUrl, // URL
+    attributes: attributes
+)
+```

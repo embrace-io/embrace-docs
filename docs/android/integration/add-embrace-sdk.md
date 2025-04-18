@@ -180,7 +180,7 @@ android {
 </TabItem>
 </Tabs>
 
-The Swazzler gradle plugin performs a few key functions:
+The Embrace Gradle Plugin performs a few key functions:
 * Adds the Embrace SDK to your app's dependency list.
 * Injects configuration info the SDK reads at run time.
 * Instruments bytecode to insert SDK hooks that capture telemetry.
@@ -216,7 +216,7 @@ implementation("io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="
 </TabItem>
 </Tabs>
 
-You still need to apply the Swazzler plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the Swazzler version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
+You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
 
 ## Add the config file
 

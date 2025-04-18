@@ -24,19 +24,18 @@ It depends on your Grafana Cloud version the information that you need to share 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_access_policies.png').default} alt="Image showing Grafana cloud access policy tab" />
 
 1. Log into your [Grafana Cloud account](https://grafana.com/auth/sign-in) to access the **Cloud Portal**.
-2. Select the organization that you want to add an Access Policy Token to, by selecting from the dropdown in top left.
-3. Click **Access Policies** from the SECURITY section on the left.
-4. Click **Create Access Policy**.
+1. Select the organization that you want to add an Access Policy Token to, by selecting from the dropdown in top left.
+1. Click **Access Policies** from the SECURITY section on the left.
+1. Click **Create Access Policy**.
 <img src={require('@site/static/images/data-destinations/grafana_cloud_access_policy.png').default} alt="Image showing Grafana cloud access policy tab" />
-5. In **Display Name** and **Name**, enter a name for your Access Policy.
-6. In **Realms**, choose the organization in which you want the metrics.
-7. In **Scopes**, select `write` for Metrics, Logs and Traces. (this only gives permission to send metric, log and trace data to Grafana Cloud).
-8. In **Add Scope**, choose `api-keys-metrics-publisher`.
-9. Click **Create** when finished.
+1. In **Display Name** and **Name**, enter a name for your Access Policy.
+1. In **Realms**, choose the organization in which you want the metrics.
+1. In **Scopes**, select `write` for Metrics, Logs and Traces. (this only gives permission to send metric, log and trace data to Grafana Cloud).
+1. Click **Create** when finished.
 <img src={require('@site/static/images/data-destinations/grafana_cloud_token.png').default} alt="Image showing Grafana cloud token tab" />
-10. Click **Add token** to generate it associated with the access policy.
-11. In **Token Name**, enter a name for the token.
-12. In **Expiration Date**, select `No expiry`.
+1. Click **Add token** to generate it associated with the access policy.
+1. In **Token Name**, enter a name for the token.
+1. In **Expiration Date**, select `No expiry`.
 
 #### API Key
 
@@ -65,7 +64,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 ## Selecting the correct data source for Embrace Metrics
 
 :::tip
-If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this <a href="/docs/embrace-api/grafana_integrations#setting-up-embrace-as-a-data-source" target="_blank">guide</a>.
+If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this [guide](/embrace-api/grafana_integrations.md#setting-up-embrace-as-a-data-source).
 :::
 
 Embrace provides two main options for viewing metrics within Grafana: using the **Embrace Metrics API** (pull method) or setting up a **Data Destination** (push method).
@@ -108,19 +107,19 @@ Unsupported options:
   - `top_n_market_name` converted to `model_market_name` (Model Name).
   - `top_n_path` converted to `path`.
 - Label filters. For example, a metric that is filtered by `os_version` and `country`, but these labels are not in the aggregation clause (e.g. `sum by(app_id, embrace_metric_name) (embrace_crash_hourly_total{os_version="12", country="US"})`). In this case, Embrace is unable to access the filters in the backlink.
-- Filters that are part of the metric specification. Any filters that were configured when the custom metric is initially configured in the Embrace dashboard are not supported by the backlink. For example, a custom metric `sessions_total` that is grouped by `os_version` and filtered by `app_version = 1.2.3` on the Embrace dashboard, and visualized within Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_sessions_hourly_total)` will use `os_version` filter in the backlink, but not the `app_version`.
+- Filters that are part of the metric specification. Any filters that were configured when the custom metric is initially configured in the Embrace dashboard are not supported by the backlink. For example, a custom metric `sessions_total` that is grouped by `os_version` and filtered by `app_version = 1.2.3` on the Embrace dashboard, and visualized within Grafana as `sum by (app_id, os_version, embrace_metric_name) (embrace_session_hourly_total)` will use `os_version` filter in the backlink, but not the `app_version`.
 
 ### Configuring backlinks
 
 1. Go to the Grafana Dashboard where you visualize your Embrace metrics.
 2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink. 
    1. Ensure that all Embrace metrics are aggregated by `app_id` and `embrace_metric_name`. Embrace uses those aggregations to generate 
-      the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_sessions_hourly_total)`) doesn't work and this 
-     (`sum by (os_version, app_id, embrace_metric_name) (embrace_sessions_hourly_total)`) works.
+      the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this 
+     (`sum by (os_version, app_id, embrace_metric_name) (embrace_session_hourly_total)`) works.
 3. Hover over the Grafana Visualization to reveal the three dot menu in the top-right and select "edit".
 4. In the right sidebar menu, scroll down to the "Data Links" section. Click the "+ Add link" button, and enter the following details:
    1. **Title**: Embrace.
-   2. **URL**: `https://api.embrace.io/data-destinations/api/v1/grafana_cloud/dashboard-backlink?labels=${__field.labels}&from=${__from}&to=${__to}`.
+   2. **URL**: `https://api.embrace.io/data-destinations/api/v1/grafana_cloud/dashboard-backlink?labels=${__field.labels}&from=${__from}&to=${__to}`
    3. **Open in new tab**: `on`.
 
 

@@ -11,6 +11,7 @@ Months after your app has been released and your user base is growing, you are g
 It is important that you annotate your sessions with enough information so that developers and other agents can find problem sessions when required. You will also want to be able to answer questions about a session to help you understand the severity of an issue. Embrace offers two mechanisms for annotating sessions in a searchable way:
 
 - [User Personas](./#user-personas). This is data you can set and update about the user of a session.
+- [User Identifier](./#user-identifier). This is a unique ID you can set for the user of a session.
 - [Session Properties](./#session-properties). This is data you use to track information about the device or the session itself.
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
@@ -52,6 +53,20 @@ extension PersonaTag {
   }
 }
 ```
+
+## User Identifiers {#user-identifier}
+
+The `MetadataHandler` object allows you to set a user identifier (user ID).
+
+To set a **unique identifier** for the user, assign a `String` value to the `userIdentifier` property. This identifier should be unique and can be used to track the user across sessions.
+
+```swift
+Embrace.client?.metadata.userIdentifier = "user-12345"
+```
+
+:::warning Note on Privacy
+ The value set for `userIdentifier` is not validated by the Embrace SDK to follow a specific format. It's crucial to ensure that this values accurately represents the user without directly storing Personally Identifiable Information (PII). Consider using references, aliases, or hashed values for this property to maintain user privacy and comply with data protection regulations. 
+ :::
 
 ## Session Properties
 Session Properties are another way to annotate the session. The difference between session properties and user personas is that the former are for items relating to the session or the device, and not necessarily to the user. Although, you are free to use both mechanisms interchangeably.
