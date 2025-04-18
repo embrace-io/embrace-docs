@@ -46,8 +46,8 @@ If you want something other than an Activity rendering to end a startup trace, y
 
 To do that, first set the configuration property `end_startup_with_app_ready` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`. Then, in your app code, call the method `appReady()` when you wish to signal that app startup has ended successfully. 
 
-:::tip Synchronize With Android Reported Metrics
-If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see the [Mapping to Android Vitals Startup Time](#mapping-to-android-startup-metrics) section below. 
+:::tip Synchronize with Android metrics
+If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see [this section](#mapping-to-android-startup-metrics). 
 :::
 
 #### Ignore interstitial Activities during app startup
@@ -106,7 +106,7 @@ Depending on the version of Android and other additional data your app provides,
 
 ### Mapping to Android startup metrics {#mapping-to-android-startup-metrics}
 
-Android provides app startup metrics via [Logcat](https://developer.android.com/topic/performance/vitals/launch-time#retrieve-TTID), [Perfetto](https://developer.android.com/topic/performance/vitals/launch-time#app-startup-perfetto), and the [ApplicationStartInfo](https://developer.android.com/reference/android/app/ApplicationStartInfo) API (Android 15+). This app startup instrumentation maps closely to that. Specifically, the automatic end time yields similar results to [Time to Initial Display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial), though it waits for the first drawn frame to be delivered rather than simply rendered before ending the trace.
+Android provides app startup metrics via [Logcat](https://developer.android.com/topic/performance/vitals/launch-time#retrieve-TTID), [Perfetto](https://developer.android.com/topic/performance/vitals/launch-time#app-startup-perfetto), and the [ApplicationStartInfo](https://developer.android.com/reference/android/app/ApplicationStartInfo) API (Android 15+). This app startup instrumentation maps closely to that. Specifically, the automatic end time yields similar results to [Time to Initial Display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial), though it waits for the first drawn frame to be delivered rather than just rendered before ending the trace.
 
 If your app reports [Time to Full Display](https://developer.android.com/topic/performance/vitals/launch-time#time-full), you can synchronize the invocations of `reportFullyDrawn()` and `appReady()`, either manually, or utilizing the APIs provided by [FullyDrawnReporter](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter).
 
