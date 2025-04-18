@@ -14,46 +14,101 @@ These traces can be augmented with additional attributes and child spans, as wel
 
 ## App Startup
 
-Both [cold](https://developer.android.com/topic/performance/vitals/launch-time#cold) and [warm](https://developer.android.com/topic/performance/vitals/launch-time#warm) app startups will generate traces that track the time between when the app is launched in the foreground and when the designated Activity shows up on screen. Depending on which Android version the app is running on, the end time of the trace and what child spans and metadata on the root span that will be recorded may differ.
+Both [cold](https://developer.android.com/topic/performance/vitals/launch-time#cold) and [warm](https://developer.android.com/topic/performance/vitals/launch-time#warm) app startups will generate traces that track the time between when the app is launched in the foreground and when the designated Activity shows up on screen. Depending on which Android version the app is running on, the start and end times of the trace and what child spans and metadata on the root span that are recorded may differ.
 
-Cold startups generate a trace with a root span called `emb-cold-time-to-initial-display`. On modern versions of Android, this trace begins when we can best estimate when the process is created for use by the app instance. It will end when the first frame of the designated Activity has been fully rendered. 
+### Start
+Cold startups generate a trace with a root span called `emb-app-startup-cold`. Warm startups generate a trace with a root span called `emb-app-startup-warm`. 
 
-On Android version 6.x or earlier, the trace will start when the Embrace SDK starts, which is recommended to be the first line of the `onCreate()` method of the app's `Application` object.
+The cold startup trace usually begins at the best estimated time of when the app process is created and specialized for the app. On Android versions before 7, it begins when the Embrace SDK starts, which is recommended to be the first line of the `onCreate()` method of the app's `Application` object. 
 
-Warm startups generate a trace with a root span called `emb-warm-time-to-initial-display`. This trace begins at our estimate of when the designated Activity creation begins. It will end when the first frame of the designated Activity has been fully rendered.
+The warm startup trace begins at the best estimated time of when the first Activity is beginning to be instantiated. 
 
-For Android version 9 or earlier, both types of app startup traces will end when the designated Activity reaches the `RESUMED` state of its lifecycle.
+### End
+For both app startup traces, you can configure the SDK so they are ended programmatically (see [Configuration](#configuration)). Otherwise, they will end automatically when the first frame of the startup Activity has been fully rendered, if it can be detected. If not, the time of the Activity's first draw will be used. For Android 5.x, the time when the Activity has reached the `RESUMED` state of its lifecycle will be used instead.
+
+If the app is backgrounded or terminated before startup completes, the trace will end automatically but be marked as abandoned or failed, respectively,
 
 ### Configuration
 
-App startup traces can be augmented in the following ways to add additional data particular to your app:
+App startup traces can be configured and augmented in the following ways to better suit your needs:
 
-- Custom attributes
-- Custom child spans
-- Application object creation completion
-- Ignore splash or trampoline Activities on startup
+- End startup programmatically
+- Ignore interstitial Activities during app startup
+- Add custom attributes
+- Add custom child spans
+- Add data for `Application` object creation
 
-Note: Be mindful of when these customization methods are invoked. Doing so on a background thread or at a time when it is not certain whether app startup has completed may result in the customization not being recorded.
+Note: Be mindful of when these customization methods are invoked. They will only be applied before app startup has ended. Further, doing so at a time when it is not certain whether app startup has completed may result in the customization not being recorded (e.g. on a background thread not guaranteed to run before app startup has ended).
 
-#### Custom attributes
+#### End startup programmatically
+
+If you want something other than an Activity rendering to end a startup trace, you can configure the SDK so that it waits for the app to manually end it. 
+
+To do that, first set the configuration property `end_startup_with_app_ready` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`. Then, in your app code, call the method `appReady()` when you wish to signal that app startup has ended successfully. 
+
+:::tip Synchronize With Android Reported Metrics
+If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see the [Mapping to Android Vitals Startup Time](#mapping-to-android-startup-metrics) section below. 
+:::
+
+#### Ignore interstitial Activities during app startup
+
+For any interstitial Activities that are opened before the actual Activity whose load completes the startup of the app, annotate them with the `@IgnoreForStartup` annotation so that they will be skipped. That is, their loading will not automatically end app startup.
+
+#### Add custom attributes
 
 Custom span attributes can be added to the root span of the trace by using the `addStartupTraceAttribute()` method before startup has completed.
 
-#### Custom child spans
+#### Add custom child spans
 
 Custom child spans can be added to the root span of the trace during app startup by using the `addStartupTraceAttribute()` method. Parameters for the name, start time, and end time must be specified, while optional parameters for attributes, span events, and error code may also be specified to further customize the span.
 
 To ensure the timestamps of the custom spans are in sync with the timestamps of the other spans in the trace, use the `getSdkCurrentTimeMs()` method to obtain it from the same clock instance the SDK uses. This instance is locked after the SDK starts up and will not change even if the system clock changes.
 
-#### Application object create completion notification
+#### Add data for Application object creation
 
-It's difficult for the SDK to programmatically determine precisely when the app's application object has been created, but it's easy to do so for the app itself (i.e. it's when the `Application.onCreate()` method finishes.
+It's difficult for the SDK to programmatically determine precisely when the app's application object has been created, but it's easy to do so for the app itself (i.e. it's when the `Application.onCreate()` method finishes).
 
 As such, the `applicationInitEnd()` method can be used to notify the SDK when this happens, which will allow it to more accurately assess whether an app startup is cold or warm.
 
-#### Bypassing interstitial activities during app startup
+### Child Spans
+Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app startup trace, with the cold or warm root span as their parent.
 
-For any interstitial Activities that are opened before the actual Activity whose load completes the launch of the app, annotate them with the `@StartupActivity` annotation so that they will be skipped for the purposes of app startup tracking.
+#### emb-process-init
+- The time between when the app process is created and specialized and when the `Application` object has been created.
+- Only recorded for cold startups AND if `applicationInitEnd()` was invoked.
+
+#### emb-embrace-init
+- The time it took for the Embrace SDK to initialize.
+- Only recorded for cold startups
+
+#### emb-activity-init-delay
+- The time between the last known time during the `Application` object creation process and when the first sign of Activity initialization is detected.
+- Only recorded for cold startups
+
+#### emb-activity-init
+- The time between when the startup Activity initialization begins and when it has completed (i.e. when it has fully reached the `STARTED` stage of its lifecycle).
+
+#### emb-activity-render
+- The time between when the startup Activity has been initialized and when the first frame has been delivered.
+- Only recorded for Android 10, 11, and 13+.
+
+#### emb-activity-first-draw
+- The time between when the startup Activity has been initialized and when the first draw of the Activity has been detected.
+- Only recorded for Android 6-9 and 12.
+
+#### emb-activity-load
+- The time between when the startup Activity has been initialized and when it has fully reached the `RESUMED` stage of its lifecycle
+- Only recorded for Android 5.
+
+#### emb-app-ready
+- The time between when the trace would have ended automatically and when `appReady()` was called.
+- Only recorded if the startup traces are configured to be ended programmatically.
+
+### Mapping to Android Startup Metrics
+
+Android provides app startup metrics via [Logcat](https://developer.android.com/topic/performance/vitals/launch-time#retrieve-TTID), [Perfetto](https://developer.android.com/topic/performance/vitals/launch-time#app-startup-perfetto), and the [ApplicationStartInfo](https://developer.android.com/reference/android/app/ApplicationStartInfo) API (Android 15+). This app startup instrumentation maps closely to that. Specifically, the automatic end time yields similar results to [Time to Initial Display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial), though it waits for the first drawn frame to be delivered rather than simply rendered before ending the trace.
+
+If your app reports [Time to Full Display](https://developer.android.com/topic/performance/vitals/launch-time#time-full), you can synchronize the invocations of `reportFullyDrawn()` and `appReady()`, either manually, or utilizing the APIs provided by [FullyDrawnReporter](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter).
 
 ### Code Example
 
@@ -103,6 +158,16 @@ class SampleApplication(private val nativeLibName: String) : Application() {
 
 </TabItem>
 </Tabs>
+
+### App Startup Traces in Old Embrace SDK Versions
+
+This documentation covers the app startup instrumentation as of Embrace Android SDK version 7.3.0. For earlier versions, there are the following differences:
+
+- The names for the cold and warm startup root spans are `emb-cold-time-to-initial-display` and `emb-warm-time-to-initial-display`, respectively.
+- The annotation used for ignoring interstitial Activities is called `@StartupActivity`.
+- Traces are only logged if app startup completes successfully, so there is no way for an app startup trace to fail or be abandoned.
+- Programmatic ending of app startup is not supported.
+- Start and end times of root spans as well as conditions for recording child spans differ slightly.
 
 ## Activity Load
 
