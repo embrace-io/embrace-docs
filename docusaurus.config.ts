@@ -406,6 +406,9 @@ const config: Config = {
       ],
     },
   },
+  customFields: {
+    pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? '',
+  },
 };
 
 module.exports = config;
