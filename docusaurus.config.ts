@@ -271,7 +271,7 @@ const config: Config = {
     ],
     [
       'docusaurus-pushfeedback',{
-          project: process.env.PUSHFEEDBACK_TOKEN ?? '',
+          project: process.env.PUSHFEEDBACK_TOKEN ?? 'missing-token',
           buttonPosition: 'center-right',
           modalPosition: 'sidebar-right',
           buttonStyle: 'dark',
@@ -407,7 +407,7 @@ const config: Config = {
     },
   },
   customFields: {
-    pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? '',
+    pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? 'missing-token',
   },
 };
 
