@@ -1,6 +1,6 @@
 # Upgrade Guide
 
-# Upgrading to the new Embrace Gradle Plugin DSL
+## Upgrading to the new Embrace Gradle Plugin DSL
 
 The Embrace Gradle Plugin previously had a DSL via the 'swazzler' extension. This has been replaced with a new DSL via the 'embrace'
 extension.
@@ -33,27 +33,32 @@ The following project properties are now ignored and have no effect. You should 
 - `embrace.logLevel`
 - `embrace.instrumentationScope`
 
-# Upgrading from 6.x to 7.x
+## Upgrading from 6.x to 7.x
 
-Version 7 of the Embrace Android SDK contains the following breaking changes:
+Version 7 of the Embrace Android SDK introduces several breaking changes and enhancements. You should update your app to accommodate these changes before building with 7.x.
 
-- The `embrace-android-fcm` and `embrace-android-compose` gradle modules are no longer automatically added by Embrace's gradle plugin. Add them as dependencies in your `build.gradle` file if you require them.
-- The `startMoment/endMoment` API has been removed. Use `startSpan/recordSpan` instead.
-- `Embrace.AppFramework` is now its own top level class, `AppFramework`
-- `Embrace.LastRunEndState` is now its own top level class, `LastRunEndState`
-- Several public APIs are now implemented in Kotlin rather than Java. Generally this will not affect backwards
-  compatibility but the following may have slight changes to their signatures:
-    - `EmbraceNetworkRequest` Java overloads replaced with default parameters
-- View taps do not capture coordinates by default. Set `sdk_config.taps.capture_coordinates` to `true` in your
-  `embrace-config.json` to enable this feature
-- Several internally used classes and symbols have been hidden from the public API
-- Recording a custom trace ID for an HTTP request from a custom request header is no longer supported. IDs in the
-  `x-emb-trace-id` header will still be recorded and displayed on the dashboard.
-- Methods to add and remove the `payer` Persona have been removed. 
-  - Use the generic Persona API methods with the name `payer` to get the equivalent functionality.
-- The `setAppId` API has been removed. Changing the `appId` at runtime is no longer supported.
-- Removed several obsolete remote config + local config properties. If you specify the configs below in your
-  `embrace-config.json` they will be ignored:
+Below is a list of everything that has changed and how to address it in your codebase.
+
+### Breaking changes
+
+- The **embrace-android-fcm** and **embrace-android-compose** Gradle modules are no longer automatically added by Embrace’s Gradle plugin.  
+  - **Action**: Add them manually to your `build.gradle` if you need them.
+- The `startMoment/endMoment` APIs have been removed.  
+  - **Action**: Use `startSpan/recordSpan` instead.
+- `Embrace.AppFramework` is now a top-level class named `AppFramework`.
+- `Embrace.LastRunEndState` is now a top-level class named `LastRunEndState`.
+- Some public APIs are now implemented in Kotlin rather than Java, with slight changes to their signatures.  
+  - **Action**: Replace Java overloads with Kotlin default parameters where applicable.
+- View taps no longer capture coordinates by default.  
+  - **Action**: Set `sdk_config.taps.capture_coordinates = true` in your `embrace-config.json` if you need them.
+- Several internally used classes and symbols have been hidden from the public API.
+- Recording a custom trace ID from a custom request header is no longer supported.  
+  - **Action**: Continue using `x-emb-trace-id` for custom trace IDs.
+- Methods to add and remove the `payer` Persona have been removed.  
+  - **Action**: Use the generic Persona API methods with the name `"payer"`.
+- The `setAppId` API has been removed (changing `appId` at runtime is no longer supported).
+- Several remote and local config properties have been removed.  
+  - **Action**: If you specify any of these in `embrace-config.json`, remove them:
     - `sdk_config.beta_features_enabled`
     - `sdk_config.anr.capture_google`
     - `sdk_config.background_activity.manual_background_activity_limit`
@@ -62,17 +67,19 @@ Version 7 of the Embrace Android SDK contains the following breaking changes:
     - `sdk_config.base_urls.images`
     - `sdk_config.networking.trace_id_header`
     - `sdk_config.startup_moment.automatically_end`
-- Removed the following properties from the Embrace Gradle plugin, that can be removed if they remain in your buildscripts:
-  - `customSymbolsDirectory`
-  - `jarSkipList`
-  - `encodeExtractedFileNames`
-- Embrace no longer attempts to detect other signal handlers & reinstall itself by default. If you notice changes in your NDK crash report quality you can re-enable this behavior by setting `sdk_config.sig_handler_detection` to `true` in your `embrace-config.json`
+- The following properties are removed from the Embrace Gradle plugin.  
+  - **Action**: Remove them if they appear in your build scripts:
+    - `customSymbolsDirectory`
+    - `jarSkipList`
+    - `encodeExtractedFileNames`
+- Embrace no longer attempts to detect other signal handlers and reinstall itself by default.  
+  - **Action**: If you notice changes in NDK crash reports, you can re-enable this behavior with `sdk_config.sig_handler_detection = true`.
 
 :::info Summary
-- Remove deprecated properties from Gradle file
-- Replace usage of deprecated methods
-- Remove references to internal symbols that were previously exposed
-- Only use OkHttp versions that are at least 4.0.0 (3.13.0+ supported as of 6.3.2)
+- Remove deprecated properties from your Gradle files.  
+- Replace usage of any deprecated methods (see table below). 
+- Remove references to internal symbols that were previously exposed.
+- Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
 :::
 
 ## Moments have been superseded by Traces
@@ -92,6 +99,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+  
 ```kotlin
 val span = Embrace.getInstance().startSpan("my-identifier") // start span
 // add events and attributes to span
