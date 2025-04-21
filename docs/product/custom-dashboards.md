@@ -3,6 +3,16 @@ title: Custom Dashboards
 sidebar_position: 6
 ---
 
+# To Add
+- [ ] 2-3 examples of mulit-query line charts
+    - Multi, no formula
+    - Multi, hidden, with formula
+    - Multi, group group-bys
+    - Other viz
+- [ ] Fill -> multi-query line chart migration
+- [ ] New screenshots throughout
+
+
 # Custom Dashboards
 
 In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards.  In these dashboards, you can create new analyses.  Visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
