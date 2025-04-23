@@ -102,7 +102,7 @@ Depending on the version of Android and other additional data your app provides,
 
 #### emb-app-ready
 - The time between when the trace would have ended automatically and when `appReady()` was called.
-- Only recorded if the startup traces are configured to be ended programmatically.
+- Only recorded if the startup traces are configured to end programmatically.
 
 ### Mapping to Android startup metrics {#mapping-to-android-startup-metrics}
 
