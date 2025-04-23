@@ -7,11 +7,10 @@ sidebar_position: 6
 - [ ] 2-3 examples of mulit-query line charts
     - Multi, no formula
     - Multi, hidden, with formula
-    - Multi, group group-bys
-    - Other viz
+- [ ] Other viz
+- [ ] Rules for joining -> Outer join nature -> no data returned for non-overlapping setsG
 - [ ] Fill -> multi-query line chart migration
 - [ ] New screenshots throughout
-
 
 # Custom Dashboards
 
@@ -19,6 +18,16 @@ In addition to our pre-built dashboards for topics like Crashes, Logs, and Netwo
 
 To get started, click on "Add new widget" in the menu by your dashboard name.
 <img src={require('@site/static/images/Spans widgets > 01 add menu.png').default} alt="create new widget" />
+
+## Creating a Chart
+You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
+
+| Chart Type | Crashes | Network | Logs | Issues | Moments | Sessions | Spans | Historical | 
+| ---------- | ------- | ------- | ---- | ------ | ------- | -------- | ----- | ---------- |
+| Line | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Table | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
+| Bar | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
+| Pie | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
 
 ## Spans (Traces)
 
@@ -43,22 +52,35 @@ You can also create Combined graphs. With Combined graphs, you can visualize up 
 ### Adding Formulas to Graphs
 For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
 
-~1. Select the Combined data type from the picker.~
-2. Line charts are the only available graph type currently, so you'll be directed to the query builder (more visualization options coming soon).
-3. Create 2 queries for Network Request, the first filtered for Status Codes in the range 200-299, and the second in the range 400-599.
-4. In the Formula box, add the formula `A/(A+B) * 100` to get a percentage.\
+1. Create 2 queries for Network Request, the first filtered for Status Codes in the range 200-299, and the second in the range 400-599.\
+    a. Formulas and multiple queries are only supported on line charts currently. 
+2. In the Formula box, add the formula `A/(A+B) * 100` to get a percentage.\
     a. The formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
-5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
+3. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
 
 **UPDATE ME**\
 <img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} alt="Multiple queries and formula" />
 
-~Note: Queries in Combined type charts do not support group-bys.~
-
 ### Multiple Combined Time Series without a Formula
 
 Since the Formula field is optional, you can visualize up to 10 time series on the same chart with the steps above. Use the eye symbols to show or hide each and leave the Formula field blank.
+
+### Grouping with Combined Time Series
+
+In the broadest sense, the group-by's for each query must have some overlapping set. For example, if you were to set one query to "Crash Count" grouped by "App Version", and the second query to "Session Count", grouped by "Build", then perform some operation on them, this would be an illegal formula.
+
+**INSERT EXAMPLE ERROR MESSAGE**
+
+Additionally, order of operations matters. Consider a situation where you create three queries:
+- `A` grouped by `[app_version, os_version]` 
+- `B` grouped by `[app_version]` 
+- `C` grouped by `[os_version]` 
+
+Then you were to combine them in the formula field:
+
+:white_check_mark: `(A + B) + C`: `A` and `B` share a grouping dimension and can combine, then combine with `C`.\
+:x: `A + (B + C)`: `B` and `C` share now group-by dimension and therefore fail. 
 
 ## Table of Issues
 
@@ -88,3 +110,4 @@ You can set a title for your report, add the recipients, and set the frequency o
 
 Before sending the report, you can send a test email to the recipients to ensure the report looks as expected. After a few minutes you should receive the test email.
 <img src={require('@site/static/images/email-report.png').default} alt="Email Report" />
+
