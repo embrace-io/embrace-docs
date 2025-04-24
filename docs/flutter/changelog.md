@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+# 4.1.0
+*Apr 24, 2025*
+* Updated Embrace Android SDK to 7.3.0
+* Updated Embrace iOS SDK to 6.8.5
+
 # 4.0.1
 *Apr 1, 2025*
 * Fixed crash in Dio interceptors when SDK is disabled but interceptor is applied
