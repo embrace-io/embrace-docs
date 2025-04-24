@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.9.0
+*Apr 22th, 2025*
+* Changes
+    * Removed GRDB as a dependency.
+    * Reworked the internal storage system using Core Data.
+
 ## 6.8.5
 *Apr 16th, 2025*
 * Fixes
