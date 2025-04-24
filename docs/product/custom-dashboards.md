@@ -10,52 +10,83 @@ In addition to our pre-built dashboards for topics like Crashes, Logs, and Netwo
 To get started, click on "Add new widget" in the menu by your dashboard name.
 <img src={require('@site/static/images/Spans widgets > 01 add menu.png').default} alt="create new widget" />
 
+## Creating a Chart
+You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
+
+| Chart Type | Crashes | Network | Logs | Issues | Moments | Sessions | Spans | Historical | Multi-query |
+| ---------- | ------- | ------- | ---- | ------ | ------- | -------- | ----- | ---------- | ----------- |
+| Line | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Table | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x:
+| Bar | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
+| Pie | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
+
 ## Spans (Traces)
 
 Create graphs monitoring Spans performance.  You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
 
+**UPDATE ME**\
 First, select the Spans category when making a new Widget:
 <img src={require('@site/static/images/widget_data_types_new.png').default} alt="Spans as a Widget option" />
 
+**UPDATE ME**\
 Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both counts and sums of duration.
 <img src={require('@site/static/images/Spans widgets > 03 pick metric.png').default} alt="Span metric options" />
 
-
+**UPDATE ME**\
 Finally, add any filters and group-bys.  In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 <img src={require('@site/static/images/Spans widgets > 04 filters and group-bys.png').default} alt="Spans as a Widget option" />
 
-## Combined Time Series 
+## Combined Time Series (Line Charts)
 
-You can also create Combined graphs. With Combined graphs, you can visualize up to 10 time series in the same graph and optionally create a custom time series using arithmetic operators.
+You can also create Combined graphs in Line vizualizations. With Combined graphs, you can visualize up to 10 time series together and optionally create a custom time series using arithmetic operators.
+
+NOTE: as of 2025-04-29, we've rebuilt our chart builder. Any legacy charts using fills have been moved to multi-query line charts. 
 
 ### Adding Formulas to Graphs
 For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
 
-1. Select the Combined data type from the picker.
-2. Line charts are the only available graph type currently, so you'll be directed to the query builder (more visualization options coming soon).
-3. Create 2 queries for Network Request, the first filtered for Status Codes in the range 200-299, and the second in the range 400-599.
-4. In the Formula box, add the formula `A/(A+B) * 100` to get a percentage.\
+1. Create 2 queries for Network Request, the first filtered for Status Codes in the range 200-299, and the second in the range 400-599.\
+    a. Formulas and multiple queries are only supported on line charts currently. 
+2. In the Formula box, add the formula `A/(A+B) * 100` to get a percentage.\
     a. The formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
-5. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
+3. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
 
+**UPDATE ME**\
 <img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} alt="Multiple queries and formula" />
-
-Note: Queries in Combined type charts do not support group-bys.
 
 ### Multiple Combined Time Series without a Formula
 
 Since the Formula field is optional, you can visualize up to 10 time series on the same chart with the steps above. Use the eye symbols to show or hide each and leave the Formula field blank.
+
+### Grouping with Combined Time Series
+
+In the broadest sense, the group-by's for each query must have some overlapping set. For example, if you were to set one query to "Crash Count" grouped by "App Version", and the second query to "Session Count", grouped by "Build", then perform some operation on them, this would be an illegal formula.
+
+**INSERT EXAMPLE ERROR MESSAGE**
+
+Additionally, order of operations matters. Consider a situation where you create three queries:
+- `A` grouped by `[app_version, os_version]` 
+- `B` grouped by `[app_version]` 
+- `C` grouped by `[os_version]` 
+
+Then you were to combine them in the formula field:
+
+:white_check_mark: `(A + B) + C`: `A` and `B` share a grouping dimension and can combine, then combine with `C`.\
+:x: `A + (B + C)`: `B` and `C` share now group-by dimension and therefore fail. 
 
 ## Table of Issues
 
 Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) .  You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/tagging)
 
 To get started, click on the Issues category when making a new Widget:
-<!--<img src={require('@site/static/images/issues in dashboard.png').default} alt="Issues as a Widget option" />-->
+
+**UPDATE ME**\
 <img src={require('@site/static/images/widget_data_types_issues_selection.png').default} alt="Issues as a Widget option" />
 
 Adjust the columns you want to display and how to filter the Issues
+
+**UPDATE ME**\
 <img src={require('@site/static/images/issues widget filter.png').default} alt="customize your Issues list" />
 
 Then once you save, you'll see this table on your dashboard!  Issues are sorted by percentage of users impacted:
@@ -72,22 +103,3 @@ You can set a title for your report, add the recipients, and set the frequency o
 
 Before sending the report, you can send a test email to the recipients to ensure the report looks as expected. After a few minutes you should receive the test email.
 <img src={require('@site/static/images/email-report.png').default} alt="Email Report" />
-
-
-## Grouping by Exploded Properties
-
-You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
-
-This is especially useful if you’re tagging Sessions, Logs, Spans or other events with multiple values and want to break them out into individual groups. 
-For example, if a Session has a property like BRANCH=["master", "develop", "main", "staging"], you can group by `BRANCH`, and each of those values will be treated as its own group.
-
-To group by an exploded property:
-
-1. When adding or editing a Widget, go to the Group By section.
-2. Start typing the name of the property you want to use—exploded properties will appear just like any other attribute.
-<img src={require('@site/static/images/exploded-properties/group_by.png').default} alt="group by exploded property" />
-3. Select the property. If it's a multi-value field, we'll automatically explode it for you.
-<img src={require('@site/static/images/exploded-properties/table.png').default} alt="group by exploded property" />
-
-
-In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.
