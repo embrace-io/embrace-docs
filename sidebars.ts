@@ -131,8 +131,25 @@ const sidebars: SidebarsConfig = {
                       items: [
                         {
                           type: "doc",
-                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
-                          label: "Manual Instrumentation Placeholder"
+                          id: "ios/open-source/manual-instrumentation/index"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/manual-instrumentation/custom-traces",
+                          label: "Traces"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/manual-instrumentation/custom-logging",
+                          label: "Logging"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/manual-instrumentation/error-handling"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/manual-instrumentation/performance-monitoring"
                         }
                       ],
                     },
