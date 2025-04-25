@@ -309,6 +309,15 @@ measureOperation(name: "image_processing", budget: 0.1) {
 }
 ```
 
+While client-side performance budgeting like this can provide immediate feedback during development, for production monitoring it's generally better to:
+
+1. Instrument your code with spans for all important operations
+2. Send the performance data to Embrace
+3. Analyze the data and set performance thresholds in the Embrace dashboard
+4. Configure alerts for when those thresholds are exceeded
+
+This approach provides more flexibility and allows you to adjust performance budgets without code changes.
+
 ### Identify Performance Regressions
 
 Use custom events to track performance metrics over time:

@@ -135,11 +135,13 @@ const sidebars: SidebarsConfig = {
                         },
                         {
                           type: "doc",
-                          id: "ios/open-source/manual-instrumentation/custom-traces"
+                          id: "ios/open-source/manual-instrumentation/custom-traces",
+                          label: "Traces"
                         },
                         {
                           type: "doc",
-                          id: "ios/open-source/manual-instrumentation/custom-logging"
+                          id: "ios/open-source/manual-instrumentation/custom-logging",
+                          label: "Logging"
                         },
                         {
                           type: "doc",

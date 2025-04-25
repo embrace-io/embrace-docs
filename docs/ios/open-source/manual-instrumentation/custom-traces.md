@@ -1,10 +1,10 @@
 ---
-title: Custom Traces
+title: Traces
 description: Track the duration and performance of custom operations in your iOS app
 sidebar_position: 1
 ---
 
-# Custom Traces
+# Traces
 
 Custom traces allow you to measure the duration of specific operations in your app, providing insights into performance and behavior of code paths that matter to your business. Traces are implemented using spans from the OpenTelemetry standard.
 
@@ -20,6 +20,7 @@ Each span:
 - Can include attributes (key-value pairs) that provide context
 - Can record errors that occurred during the operation
 - Can have parent-child relationships with other spans
+- **Must be ended** to properly capture the operation's duration and avoid memory leaks
 
 Embrace uses spans to visualize and analyze the performance of operations in your app.
 
@@ -135,14 +136,14 @@ span?.end()
 ### Naming Conventions
 
 Use clear, descriptive names for your spans. Consider a naming convention such as:
-- Use snake_case for span names
+- Use camelCase for span names to maintain consistency with Swift naming conventions
 - Include the general category followed by the specific operation
 - Be consistent across your codebase
 
 Good examples:
-- `network_fetch_user_profile`
-- `database_save_preferences`
-- `rendering_product_list`
+- `networkFetchUserProfile`
+- `databaseSavePreferences`
+- `renderingProductList`
 
 ### Granularity
 
@@ -235,5 +236,5 @@ func processFeed(posts: [Post]) -> [ProcessedPost] {
 }
 ```
 
-TODO: Add more examples showing complex trace structures with multiple nested spans
+TODO: Add more examples showing complex trace structures with multiple nested spans, especially for navigation between screens
 TODO: Include examples for measuring key user flows through the application 

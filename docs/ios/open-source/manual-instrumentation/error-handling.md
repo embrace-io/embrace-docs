@@ -21,13 +21,18 @@ Embrace categorizes errors into different types:
 
 ### Basic Error Logging
 
-The simplest way to log an error is with the `logError` method:
+The simplest way to track an error is with the error recording methods:
 
 ```swift
 do {
     try riskyOperation()
 } catch let error {
-    Embrace.client?.logError(error)
+    // In Embrace 6.x, you can record errors through spans
+    let span = Embrace.client?.startSpan(name: "riskyOperation")
+    span?.recordError(error)
+    span?.setStatus(.error)
+    span?.end()
+    
     // Handle the error
 }
 ```

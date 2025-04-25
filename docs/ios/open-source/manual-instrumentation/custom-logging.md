@@ -1,10 +1,10 @@
 ---
-title: Custom Logging
+title: Logging
 description: Capture log messages with different severity levels in your iOS app
 sidebar_position: 2
 ---
 
-# Custom Logging
+# Logging
 
 Embrace's logging capabilities allow you to capture log messages with different severity levels, providing valuable context for troubleshooting and debugging issues in your app.
 
@@ -272,9 +272,10 @@ Include relevant context in logs:
 ### Performance Considerations
 
 Be mindful of logging frequency:
-- Avoid excessive logging in performance-critical paths
-- Consider batching logs for high-frequency events
+- Avoid excessive logging in performance-critical paths as it can impact app performance and increase data transmission
+- Consider batching logs for high-frequency events to reduce overhead
 - Use debug logs for verbose information that's only needed during development
+- Excessive logging can impact battery life, network usage, and storage requirements
 
 ### Sensitive Information
 
