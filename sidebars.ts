@@ -160,8 +160,23 @@ const sidebars: SidebarsConfig = {
                       items: [
                         {
                           type: "doc",
-                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
-                          label: "Advanced Features Placeholder"
+                          id: "ios/open-source/advanced-features/index"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/advanced-features/opentelemetry-export"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/advanced-features/network-body-capture"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/advanced-features/user-personas"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/advanced-features/last-run-end-state"
                         }
                       ],
                     },
