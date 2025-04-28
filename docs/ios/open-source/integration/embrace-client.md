@@ -106,7 +106,9 @@ Since the `Embrace.client` instance is optional, it will return nil if `.setup` 
 
 ## Stopping Embrace
 
-If you want to prevent the Embrace SDK from capturing data after it was initialized and started, simply call the `stop()` method:
+If you want to prevent the Embrace SDK from capturing data after it was initialized and started, simply call the `stop()` method.
+
+The SDK can be re-started afterwards by calling `start()` again.
 
 ```swift
 // Stopping Embrace
