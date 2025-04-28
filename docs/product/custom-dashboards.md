@@ -24,17 +24,10 @@ You can create multiple types of visualizations. A table of which visualizations
 
 Create graphs monitoring Spans performance.  You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
 
-**UPDATE ME**\
-First, select the Spans category when making a new Widget:
+- First, select the visualization type you want to see and a source for the first query (more on multi-query combined time series below).
+- Then, choose the metric you wish to aggregate. For Spans, Embrace supports both counts and sums of duration.
+- Finally, add any filters and group-bys.  In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 <img src={require('@site/static/images/custom_dashboards/Spans_Chart_Builder.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
-
-**UPDATE ME**\
-Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both counts and sums of duration.
-<img src={require('@site/static/images/Spans widgets > 03 pick metric.png').default} style={{ width: '75%', height: '75%' }} alt="Span metric options" />
-
-**UPDATE ME**\
-Finally, add any filters and group-bys.  In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
-<img src={require('@site/static/images/Spans widgets > 04 filters and group-bys.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
 
 ## Combined Time Series (Line Charts)
 
@@ -46,14 +39,14 @@ You can also create Combined graphs in Line vizualizations. With Combined graphs
 For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
 
 1. Create 2 queries for Network Request, the first filtered for Status Codes in the range 200-299, and the second in the range 400-599.\
-    a. Formulas and multiple queries are only supported on line charts currently. 
-2. In the Formula box, add the formula `A/(A+B) * 100` to get a percentage.\
+    a. You can also add a group by here. For this example, we group by App Version. See more on grouping functionality below. 
+    b. Formulas and multiple queries are only supported on line charts currently. 
+2. In the Formula box, add the formula `A / (A+B) * 100` to get a successful network request percentage by App Version.\
     a. The formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
-3. Hide the queries above by clicking on the eye symbols to just show the formula, which is your rate.
+3. Hide the queries by clicking on the eye symbols to just show the formula, which is your successful network request percentage.
 
-**UPDATE ME**\
-<img src={require('@site/static/images/combined_widget_multiquery_formula.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
+<img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
 
 ### Multiple Combined Time Series without a Formula
 
@@ -79,7 +72,7 @@ Then you were to combine them in the formula field:
 
 Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) .  You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/tagging)
 
-To get started, click on the Issues category when making a new Widget:
+To get started, select the Table visualization option and Issues as the source when making a new Widget:
 
 **UPDATE ME**\
 <img src={require('@site/static/images/widget_data_types_issues_selection.png').default} style={{ width: '75%', height: '75%' }} alt="Issues as a Widget option" />
