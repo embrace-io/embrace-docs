@@ -8,7 +8,7 @@ sidebar_position: 6
 In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards.  In these dashboards, you can create new analyses.  Visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
 
 To get started, click on "Add new widget" in the menu by your dashboard name.
-<img src={require('@site/static/images/Spans widgets > 01 add menu.png').default} style={{ width: '75%', height: '75%' }} alt="create new widget" />
+<img src={require('@site/static/images/custom_dashboards/Add_Widget_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="create new widget" />
 
 ## Creating a Chart
 You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
@@ -26,7 +26,7 @@ Create graphs monitoring Spans performance.  You can filter and group by name, o
 
 **UPDATE ME**\
 First, select the Spans category when making a new Widget:
-<img src={require('@site/static/images/widget_data_types_new.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
+<img src={require('@site/static/images/custom_dashboards/Spans_Chart_Builder.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
 
 **UPDATE ME**\
 Then, choose the metric you wish to aggregate.  For Spans, Embrace supports both counts and sums of duration.
