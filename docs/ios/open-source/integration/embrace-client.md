@@ -103,6 +103,26 @@ Since the `Embrace.client` instance is optional, it will return nil if `.setup` 
     return true
 }
 ```
+
+## Stopping Embrace
+
+If you want to prevent the Embrace SDK from capturing data after it was initialized and started, simply call the `stop()` method:
+
+```swift
+// Stopping Embrace
+try? Embrace.client.stop()
+```
+
+:::info
+If the `start()` method is called when the SDK is already started, nothing will happen.
+If the `stop()` method is called when the SDK is already stopped, nothing will happen.
+:::
+
+:::warning
+Both the `start()` and `stop()` methods need to be called from the main thread.
+If they are called fron any other thread, they will throw the `EmbraceSetupError.invalidThread` error.
+:::
+
 ## See SDK status
 
 If you specifically need to know whether the SDK has started or not, you can access the [`Embrace.client?.started`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Embrace.swift#L43) Bool value.
