@@ -275,8 +275,7 @@ const config: Config = {
           buttonPosition: 'center-right',
           modalPosition: 'sidebar-right',
           buttonStyle: 'dark',
-          modalTitle: 'Share your thoughts',
-          submit: true
+          modalTitle: 'Share your thoughts'
       }
     ]
   ],
