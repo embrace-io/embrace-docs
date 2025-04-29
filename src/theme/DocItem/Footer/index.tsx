@@ -32,7 +32,7 @@ function FeedbackWidget() {
                 </FeedbackButton>
             </span>
             <span class="feedback-widget-negative margin-left--sm">
-                <FeedbackButton project={projectId} rating="0" custom-font="True" button-style="default" modal-position="center" submit="true">
+                <FeedbackButton project={projectId} rating="-1" custom-font="True" button-style="default" modal-position="center" submit="true">
                     <button className="button button--outline button--primary button--sm" title="No">
                         {buttonThumbsDown}
                     </button>
