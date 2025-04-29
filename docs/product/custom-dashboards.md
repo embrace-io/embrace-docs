@@ -5,7 +5,7 @@ sidebar_position: 6
 
 # Custom Dashboards
 
-In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards.  In these dashboards, you can create new analyses.  Visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
+In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards. In these dashboards, you can create new analyses. Visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
 
 To get started, click on "Add new widget" in the menu by your dashboard name.
 <img src={require('@site/static/images/custom_dashboards/Add_Widget_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
@@ -22,11 +22,11 @@ You can create multiple types of visualizations. A table of which visualizations
 
 ## Spans (Traces)
 
-Create graphs monitoring Spans performance.  You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
+Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
 
 - First, select the visualization type you want to see and a source for the first query (more on multi-query combined time series below).
 - Then, choose the metric you wish to aggregate. For Spans, Embrace supports both counts and sums of duration.
-- Finally, add any filters and group-bys.  In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
+- Finally, add any filters and group-bys. In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 
 <img src={require('@site/static/images/custom_dashboards/Spans_Chart_Builder.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
 
@@ -72,11 +72,11 @@ Then you were to combine them in the formula field:
 
 ## Table of Issues
 
-Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) .  You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/tagging)
+Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) . You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/tagging)
 
 1. To get started, select the Table visualization option and Issues as the source when making a new Widget.
 2. Adjust the columns you want to display and how to filter the Issues.
-3. Then once you save, you'll see this table on your dashboard!  Issues are sorted by percentage of users impacted in descending order.
+3. Then once you save, you'll see this table on your dashboard! Issues are sorted by percentage of users impacted in descending order.
 
 <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
 
@@ -84,7 +84,7 @@ Our Issues Widget, lets you specify how to list a table of [Issues](/product/iss
 
 You can also email your Custom Dashboards to yourself or your team. 
 
-Click on the "Create Report" button in the top right of your dashboard.  
+Click on the "Create Report" button in the top right of your dashboard. 
 <img src={require('@site/static/images/custom_dashboards/Create_Email_Report.png').default} style={{ width: '75%', height: '75%' }} alt="Create Report button" />
 
 You can set a title for your report, add the recipients, and set the frequency of the report. Frequency options include daily and weekly. You can also set the time of day you'd like to receive the report. You can update any of these options after the report is created.
