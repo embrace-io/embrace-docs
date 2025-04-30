@@ -4,7 +4,7 @@ sidebar_position: 3
 ---
 
 ### Exporting Traces via the Spans API
-Spans collected with the Embrace SDK can be queried via the [Spans API](/docs/spans-api)
+Spans collected with the Embrace SDK can be queried via the [Spans API](/docs/spans-api/)
 
 ### Exporting Traces via Data Destinations
 Spans for Network requests can be exported as part of [Network Span Forwarding](/docs/product/network-spans-forwarding.md).
