@@ -267,6 +267,15 @@ const config: Config = {
             from: "/code/da-unexpected-input-splunk-credentials",
           },
         ],
+        [
+          'docusaurus-pushfeedback',{
+            project: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
+            buttonPosition: 'center-right',
+            modalPosition: 'sidebar-right',
+            buttonStyle: 'dark',
+            modalTitle: 'Share your thoughts'
+          }
+        ],
       },
     ],
   ],
@@ -395,6 +404,9 @@ const config: Config = {
         "dart",
         "promql",
       ],
+    },
+    customFields: {
+      pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
     },
   },
 };
