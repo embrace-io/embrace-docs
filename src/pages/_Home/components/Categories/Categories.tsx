@@ -169,7 +169,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Stay on top of key mobile KPIs and unusual activity that matter for your team.",
       icon: <IconLayoutGridAdd {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/product/custom-dashboards",
+      linkTo: "/features/dashboards",
     },
   ],
   Features: [
@@ -191,7 +191,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Recreate every single user journey for every issue with exceptional detail.",
       icon: <IconUsersGroup {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/user-session-insights",
+      linkTo: "/features/user-sessions",
     },
     {
       title: "Crash Reporting",
@@ -205,7 +205,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Identify and resolve the networking issues behind your app’s crashes.",
       icon: <IconWifi {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/network-monitoring",
+      linkTo: "/features/network",
     },
     {
       title: "Alerting",
