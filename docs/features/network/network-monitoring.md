@@ -1,7 +1,7 @@
 ---
 title: Network Monitoring
 description: Network Monitoring
-sidebar_position: 5
+sidebar_position: 1
 ---
 
 # Network Monitoring
