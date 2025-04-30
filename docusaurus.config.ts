@@ -267,16 +267,16 @@ const config: Config = {
             from: "/code/da-unexpected-input-splunk-credentials",
           },
         ],
-        [
-          'docusaurus-pushfeedback',{
-            project: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
-            buttonPosition: 'center-right',
-            modalPosition: 'sidebar-right',
-            buttonStyle: 'dark',
-            modalTitle: 'Share your thoughts'
-          }
-        ],
       },
+    ],
+    [
+      'docusaurus-pushfeedback',{
+        project: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
+        buttonPosition: 'center-right',
+        modalPosition: 'sidebar-right',
+        buttonStyle: 'dark',
+        modalTitle: 'Share your thoughts'
+      }
     ],
   ],
 
