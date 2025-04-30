@@ -1,7 +1,7 @@
 ---
 title: Filtering User Sessions
-sidebar_position: 10
-description: Query User Sessions to dig into many dimensions of app activity
+sidebar_position: 3
+description: Filter User Sessions to dig into many dimensions of app activity
 ---
 
 # Filtering User Sessions
