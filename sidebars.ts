@@ -319,6 +319,11 @@ const sidebars: SidebarsConfig = {
               label: "Logs",
               id: "features/error-logs-tracking"
             },
+            {
+              type: "doc",
+              label: "Release Health",
+              id: "features/release-health"
+            },
         {
           type: "category",
           label: "Developer Features",
