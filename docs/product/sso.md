@@ -81,6 +81,16 @@ Embrace application is published in Okta's Integration Network, which simplifies
 - Enter your email address, and optionally, check **Remember my email** box.
 - Click **Log in using SSO** to be redirected to Okta to complete authentication and be redirected back to Embrace.
 
+### Attributes
+
+The following SAML attributes are supported:
+
+| Name | Value |
+|--------|--------|
+| FirstName | user.firstName |
+| LastName | user.lastName |
+| Email | user.email |
+
 ### OneLogin
 
 Similar to Okta documentation above, you can find [Embrace connector](https://www.onelogin.com/connector/embrace_saml) in OneLogin's application catalog. You will need to provide your **Org ID** that is found on the **Provider Information** tab.
