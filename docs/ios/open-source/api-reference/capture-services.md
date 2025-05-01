@@ -64,7 +64,7 @@ enum NetworkBodyCaptureOptions {
 }
 ```
 
-**GitHub Source**: [EmbraceCore/Capture/Network/NetworkCaptureService.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/Network/NetworkCaptureService.swift)
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
 ## ViewCaptureService
 
@@ -89,7 +89,7 @@ struct ViewCaptureServiceOptions {
 - `viewAttributesProvider`: Custom function for providing additional view attributes.
 - `viewNameFilter`: Filter function to determine which views to track.
 
-**GitHub Source**: [EmbraceCore/Capture/View/ViewCaptureService.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/View/ViewCaptureService.swift)
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
 ## TapCaptureService
 
@@ -112,7 +112,7 @@ struct TapCaptureServiceOptions {
 - `targetProvider`: Custom function for providing tap target identifiers.
 - `viewFilter`: Filter function to determine which views to track taps for.
 
-**GitHub Source**: [EmbraceCore/Capture/Tap/TapCaptureService.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/Tap/TapCaptureService.swift)
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
 ## WebViewCaptureService
 
@@ -133,7 +133,7 @@ struct WebViewCaptureServiceOptions {
 - `captureJavaScriptErrors`: Whether to capture JavaScript errors.
 - `captureJavaScriptLogs`: Whether to capture JavaScript console logs.
 
-**GitHub Source**: [EmbraceCore/Capture/WebView/WebViewCaptureService.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/WebView/WebViewCaptureService.swift)
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
 ## PushNotificationCaptureService
 
@@ -154,7 +154,7 @@ struct PushNotificationCaptureServiceOptions {
 - `captureNotificationContent`: Whether to capture notification content.
 - `payloadAttributesFilter`: Filter for notification payload attributes to capture.
 
-**GitHub Source**: [EmbraceCore/Capture/PushNotification/PushNotificationCaptureService.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/PushNotification/PushNotificationCaptureService.swift)
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
 ## LowMemoryWarningCaptureService
 
@@ -162,7 +162,7 @@ Captures low memory warning events from iOS.
 
 This service doesn't have configurable options.
 
-**GitHub Source**: [EmbraceCore/Capture/LowMemory/LowMemoryWarningCaptureService.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/LowMemory/LowMemoryWarningCaptureService.swift)
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
 ## LowPowerModeCaptureService
 
@@ -170,7 +170,7 @@ Captures device low power mode state changes.
 
 This service doesn't have configurable options.
 
-**GitHub Source**: [EmbraceCore/Capture/LowPower/LowPowerModeCaptureService.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/LowPower/LowPowerModeCaptureService.swift)
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
 ## Custom Capture Services
 

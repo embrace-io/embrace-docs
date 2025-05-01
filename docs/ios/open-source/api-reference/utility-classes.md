@@ -27,7 +27,7 @@ class SpanBuilder {
 - `setAttributes(_:)`: Sets multiple attributes on the span.
 - `startSpan()`: Creates and starts the span with the configured attributes.
 
-**GitHub Source**: [EmbraceCore/Spans/SpanBuilder.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Spans/SpanBuilder.swift)
+**GitHub Source**: [Embrace Apple SDK Repository](https://github.com/embrace-io/embrace-apple-sdk)
 
 ### Span
 
