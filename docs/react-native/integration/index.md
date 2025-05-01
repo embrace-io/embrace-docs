@@ -40,7 +40,7 @@ configuration.
 
 ### Supported versions of React Native
 
-We test that apps integrated with Embrace across React Native minor versions from `0.71` to `0.76` build and launch without
+We test that apps integrated with Embrace across React Native minor versions from `0.71` to `0.79` build and launch without
 issue. Apps on versions of React Native older than 0.71 may work with Embrace after some modification but these are not
 directly supported. The templates used to generate apps for integration testing along with the exact patch versions of
 React Native we use can be found [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates).
