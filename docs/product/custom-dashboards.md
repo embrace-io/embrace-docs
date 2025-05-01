@@ -47,7 +47,6 @@ For example, if you want to create a rate of successful network requests but not
     b. Order of operations follows standard PEMDAS.
 3. Hide the queries by clicking on the eye symbols to just show the formula, which is your successful network request percentage.
 
-**UPDATE ME: FILTER BY IN WRONG PLACE**
 <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
 
 ### Multiple Combined Time Series without a Formula
