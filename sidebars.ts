@@ -181,8 +181,27 @@ const sidebars: SidebarsConfig = {
                       items: [
                         {
                           type: "doc",
-                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
-                          label: "Best Practices Placeholder"
+                          id: "ios/open-source/best-practices/index"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/best-practices/performance-optimization"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/best-practices/security-considerations"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/best-practices/debugging-tips"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/best-practices/common-patterns"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/best-practices/dsym-uploads"
                         }
                       ],
                     },
