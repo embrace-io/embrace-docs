@@ -188,7 +188,7 @@ protocol CaptureService {
 }
 ```
 
-See [Extending CaptureServices to Add Your Own Instrumentation](../manual-instrumentation/custom-instrumentation.md) for more details.
+See [Extending CaptureServices to Add Your Own Instrumentation](../manual-instrumentation/custom-traces.md) for more details.
 
 ## Code Examples
 
