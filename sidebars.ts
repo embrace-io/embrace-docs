@@ -205,15 +205,30 @@ const sidebars: SidebarsConfig = {
                         }
                       ],
                     },
-                    // TODO: replace placeholder with actual API reference content
+                    // API reference section is now complete
                     {
                       type: "category",
                       label: "API Reference",
                       items: [
                         {
                           type: "doc",
-                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
-                          label: "API Reference Placeholder"
+                          id: "ios/open-source/api-reference/index"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/api-reference/embrace-client"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/api-reference/configuration"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/api-reference/capture-services"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/api-reference/utility-classes"
                         }
                       ],
                     },
