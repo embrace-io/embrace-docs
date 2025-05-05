@@ -11,7 +11,7 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 :::
 
 ## 7.4.0
-*May 2, 2025*
+*May 5, 2025*
 
 - OTel integration improvements
   - API to add custom Resource attributes
