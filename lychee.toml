@@ -5,3 +5,4 @@ exclude = [
     'https://discussions.unity.com/t/how-to-set-up-a-fastlane-gymfile-and-multiple-provisioning-profiles/711408'
 ]
 max_cache_age = "1d"
+accept = ["200", "429"]
