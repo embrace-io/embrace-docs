@@ -5,6 +5,10 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 
+## 6.0.2
+_May 05, 2025_
+* Updated iOS native Embrace SDK dependency to [version 6.8.5](/ios/changelog/#685)
+
 ## 6.0.1
 _March 11, 2025_
 * Updated iOS native Embrace SDK dependency to [version 6.8.1](/ios/changelog/#681)
