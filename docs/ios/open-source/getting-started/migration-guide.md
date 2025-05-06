@@ -35,7 +35,7 @@ struct NewEmbraceApp: App {
             try Embrace
                 .setup(
                     options: Embrace.Options(
-                        appId: "12345"
+                        appId: "12345",
                         logLevel: .default,
                         crashReporter: EmbraceCrashReporter(),
                         // Other configuration options
@@ -113,7 +113,7 @@ let addCartUIUpdateSpan = Embrace.client?.buildSpan(name: "add-cart-ui-update")
                             .setParent(addCartSpan)
                             .startSpan()
 // Perform UI update logic
-addCartUIUpdateSpan.end()
+addCartUIUpdateSpan?.end()
 
 // Perform other add-cart-item logic
 addCartSpan?.end()
@@ -176,37 +176,76 @@ class MyClass {
 
 The `endAppStartup` Moment from prior versions has been **removed** in 6.x. Instead, measure app startup using a **custom trace**.
 
-This allows for more flexibility and accuracy, as traces can incorporate signals from both native lifecycle events and third-party libraries.
+The SDK now automatically creates a span called **`emb-process-launch`** to measure process startup time and a span called **`emb-setup`** to measure SDK initialization time.
 
-To track app startup, create a trace with child spans that capture key moments in your app's initialization. You can even measure events that occurred before the Embrace SDK initialized by using timestamps.
+To track app startup more comprehensively, create a custom trace with child spans that capture key moments in your app's initialization. You can even measure events that occurred before the Embrace SDK initialized by using timestamps:
 
-Embrace also automatically records a span called **`emb-setup`**, which measures the time it takes for the SDK itself to launch.
+```swift
+// Example of custom app startup tracking
+let startupSpan = Embrace.client?.buildSpan(name: "app-startup")
+                          .startSpan()
+
+// Record child spans for important startup events
+let databaseInitSpan = Embrace.client?.buildSpan(name: "database-initialization")
+                              .setParent(startupSpan)
+                              .startSpan()
+// Initialize database
+databaseInitSpan?.end()
+
+// Add more child spans for other initialization components
+// ...
+
+// End the startup span when the app is fully loaded
+startupSpan?.end()
+```
 
 ## API Method Changes
 
 Many methods from the 5.x SDK have been replaced with new equivalents in 6.x:
 
-| 5.x Method | 6.x Equivalent |
-|------------|----------------|
-| `Embrace.sharedInstance()` | `Embrace.client` |
-| `startMoment()` / `endMoment()` | `buildSpan().startSpan()` / `span.end()` |
-| `logMessage()` | `Embrace.client?.logMessage()` |
-| `setUserIdentifier()` | `Embrace.client?.setUserIdentifier()` |
-| `setUsername()` | `Embrace.client?.setUsername()` |
-| `setUserEmail()` | `Embrace.client?.setUserEmail()` |
-| `setUserAsPayer()` | `Embrace.client?.setUserAsPayer()` |
-| `clearUserEmail()` / `clearUsername()` | `Embrace.client?.clearUserEmail()` / `clearUsername()` |
-| `clearAllUserPersonas()` | `Embrace.client?.clearAllUserPersonas()` |
-| `endAppStartup()` | Create a custom trace/span (see above) |
+| 5.x Method | 6.x Equivalent | Comments |
+|------------|----------------|----------|
+| `Embrace.sharedInstance()` | `Embrace.client` | Access the client instance |
+| `isStarted` | `state == .started` | Check SDK state |
+| `startWithLaunchOptions` | `setup(options)` and `start()` | Two-step initialization |
+| `startMoment()` / `endMoment()` | `buildSpan().startSpan()` / `span.end()` | See Traces documentation |
+| `logMessage()` | `log(_ message:severity:timestamp:attributes:)` | Improved logging API with severity levels |
+| `getLastRunEndState` | `lastRunEndState()` | Method signature change |
+| `addSessionProperty` | `metadata.addProperty(key:value:lifespan:)` | Properties now in metadata |
+| `removeSessionProperty` | `metadata.removeProperty(key:lifespan:)` | Properties now in metadata |
+| `endSession` | `endSession` | Same method name |
+| `getCurrentSessionId` | `currentSessionId()` | Method signature change |
+| `logBreadcrumbWithMessage()` | `add(event: .breadcrumb())` | Breadcrumbs are now SpanEvents |
+| `startSpanWithName` | `buildSpan(name:type:attributes:).startSpan()` | More flexible span creation |
+| `stopSpanWithId` | Use `span.end()` on existing Span | Direct span manipulation |
+| `setUserIdentifier()` | `metadata.userIdentifier = "id"` | User identification now through metadata |
+| `clearUserIdentifier()` | `metadata.userIdentifier = nil` | Clear through metadata |
+| `setUserPersona()` | `metadata.add(persona:lifespan:)` | Personas now use tags and lifespans |
+| `setUserAsPayer()` | `metadata.add(persona: .payer, lifespan:)` | Predefined persona tags available |
+| `clearUserPersona()` | `metadata.removePersonaTag(value:lifespan:)` | Remove specific persona tag |
+| `clearAllUserPersonas()` | `metadata.removeAllPersonaTags(lifespans:)` | Clear all personas |
+| `getDeviceId` | `currentDeviceId()` | Method signature change |
+| `endAppStartup()` | No direct replacement | Create a custom trace/span |
+| `startView()` / `endView()` | Create spans with `SpanType.ux` | View tracking is now span-based |
+
+## Removed and Deprecated Features
+
+The following features have been removed or significantly changed in 6.x:
+- NSURLConnection capture
+- Screenshots
+- App disk usage monitoring (including free disk space and CPU "spike" detection)
+- View lifecycle tracking via `startView`/`endView` (use spans with `SpanType.ux` instead)
+- Extension Insights
+- Network Request logging (will be available in future versions)
 
 ## Next Steps
 
 After migrating to the 6.x SDK, we recommend:
 
-1. Review the Core Concepts documentation to understand the new architecture
+1. Review the [Core Concepts](/ios/open-source/core-concepts/) documentation to understand the new architecture
 2. Explore the new Automatic Instrumentation capabilities
 3. Learn about Manual Instrumentation for custom traces and logs
 
 ## Need Help?
 
-If you encounter issues during migration, please reach out on the [community slack](https://community.embrace.io) or email [support@embrace.com](mailto:support@embrace.com). 
+If you encounter issues during migration, please reach out on the [community slack](https://community.embrace.io) or email [support@embrace.com](mailto:support@embrace.com).
