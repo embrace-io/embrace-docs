@@ -335,56 +335,51 @@ const config: Config = {
 
       items: [
         {
-          type: "html",
-          value:
-            'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://community.embrace.io/">Slack</a>',
-          position: "right",
+          to: "https://embrace.io/product",
+          label: "Product",
+          position: "left",
+        },
+        {
+          to: "https://embrace.io/unify-mobile-and-backend-observability/",
+          label: "Solutions",
+          position: "left",
+        },
+        {
+          to: "https://embrace.io/blog",
+          label: "Learn",
+          position: "left",
+        },
+        {
+          to: "https://embrace.io/pricing",
+          label: "Pricing",
+          position: "left",
         },
       ],
     },
 
     footer: {
       style: "dark",
-
       links: [
         {
-          title: "Additional Resources",
-          items: [
-            {
-              label: "Edit these docs",
-              href: "https://github.com/embrace-io/embrace-docs/",
-            },
-            {
-              label: "Community Slack",
-              href: "https://community.embrace.io",
-            },
-            {
-              label: "Reddit",
-              href: "https://www.reddit.com/r/embrace_observability/",
-            },
-            {
-              label: "Get Started For Free",
-              href: "https://dash.embrace.io/signup/",
-            },
-          ],
+          label: "Privacy Policy",
+          to: "/privacy-policy/",
         },
         {
-          title: "Embrace",
-          items: [
-            {
-              label: "Privacy Policy",
-              to: "/privacy-policy/",
-            },
-            {
-              label: "Terms of Service",
-              to: "/terms-of-service/",
-            },
-            {
-              label: "Data Processing Agreement",
-              to: "/dpa/",
-            },
-          ],
+          label: "Terms of Service",
+          to: "/terms-of-service/",
         },
+        {
+          label: "Data Processing Agreement",
+          to: "/dpa/",
+        },
+        {
+          label: "Github",
+          to: "https://github.com/embrace-io/embrace-docs/",
+        },
+        {
+          html:
+            'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://community.embrace.io/">Slack</a>',
+        },    
       ],
 
       copyright: `Copyright © ${new Date().getFullYear()} Embrace`,
