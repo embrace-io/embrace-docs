@@ -337,7 +337,7 @@ const config: Config = {
         {
           to: "https://embrace.io/product",
           label: "Product",
-          position: "center",
+          position: "left",
         },
         {
           to: "https://embrace.io/unify-mobile-and-backend-observability/",
