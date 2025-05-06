@@ -45,7 +45,7 @@ Embrace.Options(
 
 Additional arguments from the [core Embrace.Options initializer](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BOptions.swift#L37) provide more flexibility:
 
-- **`captureServices`**: Out-of-the-box [`CaptureServices`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/CaptureServices.swift) that automatically capture mobile events like networking and memory warnings. You can extend the base `CaptureService` for new services that fit your use case.
+- **`captureServices`**: Out-of-the-box [`CaptureServices`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/CaptureServices.swift) that automatically capture mobile events like networking and memory warnings. When using the convenience initializers, the SDK includes services for URLSession network monitoring, view tracking, tap capture, WebView monitoring, and system events (but not push notifications, which must be added manually). You can extend the base `CaptureService` for new services that fit your use case.
 - **`crashReporter`**: By default, an [`EmbraceCrashReporter`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCrash/EmbraceCrashReporter.swift) is used, but you can customize this.
 
 ## Using the SDK Without the Embrace Dashboard
@@ -56,7 +56,7 @@ Versions 6.5 and higher of the Embrace Apple SDK allow developers to use the SDK
 Embrace.Options(
     export: .init(
         spanExporter: OtlpHttpTraceExporter(
-            //...set up the destination for your exported spans
+            // Set up the destination for your exported spans
         )
     )
 )
@@ -68,12 +68,14 @@ You can also set up different capabilities to replace the configuration that Emb
 Embrace.Options(
     export: .init(
         spanExporter: OtlpHttpTraceExporter(
-            //...set up the destination for your exported spans
+            // Set up the destination for your exported spans
         ),
-        captureServices: .automatic,
-        crashReporter: nil,
-        runtimeConfiguration: MyConfigurable()
-    )
+        logExporter: OtlpHttpLogExporter(
+            // Set up the destination for your exported logs
+        )
+    ),
+    logLevel: .debug,
+    runtimeConfiguration: MyConfigurable()  // Custom configuration implementation
 )
 ```
 
@@ -110,6 +112,7 @@ This allows you to have more verbose logging in development while keeping produc
 - For production builds, use the default log level or `.none` to minimize console output
 - Configure capture services based on your application's needs
 - Set up appropriate error handling for SDK initialization
+- If using push notifications, add the `PushNotificationCaptureService` manually
 
 ## Next Steps
 
