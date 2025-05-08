@@ -40,6 +40,58 @@ reporter but also want to leverage the Embrace Dashboard.
 5. **EmbraceSemantics** - This module contains constants and attributes used internally
 to extend OTel Semantic Conventions.
 
+### Using SPM with Tuist
+
+If you are consuming the Embrace SDK via Swift Package Manager and using [Tuist](https://tuist.dev/) to manage your Xcode project, there’s one additional step required to ensure correct linking.
+
+By default, when Tuist links Swift packages _statically_, some Objective-C selectors defined via `@objc` (in particular, in Swift extensions) may be stripped during compilation. This behavior can break core SDK functionality.
+
+To avoid this, we conditionally pass the `-ObjC` flag via our `Package.swift` using the `EMBRACE_ENABLE_TUIST_OBJC_LINK` environment variable.
+
+Make sure to set this environment variable **before** installing dependencies and generating the project with Tuist. For example
+
+```
+# Set environment variable to enable Objective-C linker flag
+export EMBRACE_ENABLE_TUIST_OBJC_LINK=1
+
+# Install dependencies and regenerate the Xcode project
+tuist install
+tuist generate
+```
+
+
+
+:::tip
+If Embrace doesn’t link properly at first, make sure to clean caches and then install and generate the xcodeproj:
+```
+rm -rf ~/Library/Developer/Xcode/DerivedData
+tuist clean
+```
+:::
+
+:::info Additional Notes / Troubleshooting
+Even when the SDK targets use `-ObjC`, your app target (and any intermediate frameworks) must also include `-ObjC` in `Other Linker Flags`. 
+This is required when linking static libraries.
+
+Also, ensure that any `.xcconfig` files:
+* Use `+=` instead of `=`.
+* Include `$(inherited)` properly.
+* Apply the flag to both Debug and Release configurations.
+
+You can confirm this by using:
+```
+xcodebuild -showBuildSettings -target YourAppTarget
+```
+And checking that `OTHER_LDFLAGS` includes `-ObjC`.
+:::
+
+:::danger
+If this setup is missing, it may lead to runtime crashes due to missing Objective-C symbols.
+:::
+
+
+
+
 ## CocoaPods
 
 Installing through CocoaPods is straightforward. Add the main pod to your Podfile:
