@@ -48,7 +48,7 @@ By default, when Tuist links Swift packages _statically_, some Objective-C selec
 
 To avoid this, we conditionally pass the `-ObjC` flag via our `Package.swift` using the `EMBRACE_ENABLE_TUIST_OBJC_LINK` environment variable.
 
-Make sure to set this environment variable **before** installing dependencies and generating the project with Tuist. For example
+Make sure to set this environment variable **before** installing dependencies and generating the project with Tuist. For example:
 
 ```
 # Set environment variable to enable Objective-C linker flag
