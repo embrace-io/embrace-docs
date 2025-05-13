@@ -55,7 +55,10 @@ Since the Formula field is optional, you can visualize up to 10 time series on t
 
 ### Grouping with Combined Time Series
 
-In the broadest sense, the group-by's for each query must have some overlapping set. For example, if you were to set one query to "Crash Count" grouped by "App Version", and the second query to "Session Count", grouped by "Build", then perform some operation on them, this would be an illegal formula.
+In the broadest sense, the group-by's for each query must have some overlapping set. For example, if you were to set one query to "Crash Count" grouped by "App Version", and the second query to "Session Count", grouped by "Build", then perform some operation on them, you will get zero results. An example of this could be:
+- `A` grouped by `[app_version]`
+- `B` grouped by `[app_version]`
+- However `A` has only App Versions 1.0 and 2.0, while `B` has only App Version 3.0. 
 
 Additionally, order of operations matters. Consider a situation where you create three queries:
 - `A` grouped by `[app_version, os_version]` 
