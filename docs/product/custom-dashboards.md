@@ -65,7 +65,7 @@ Additionally, order of operations matters. Consider a situation where you create
 Then you were to combine them in the formula field:
 
 :white_check_mark: `(A + B) + C`: `A` and `B` share a grouping dimension and can combine, then combine with `C`.\
-:x: `A + (B + C)`: `B` and `C` share now group-by dimension and therefore fail. 
+:x: `A + (B + C)`: `B` and `C` share no group-by dimension and therefore fail. 
 
 <img src={require('@site/static/images/custom_dashboards/Grouping_Error.png').default} style={{ width: '75%', height: '75%' }} alt="Example of Grouping Error" />
 
