@@ -24,7 +24,7 @@ You can create multiple types of visualizations. A table of which visualizations
 
 Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
 
-- First, select the visualization type you want to see and a source for the first query (more on multi-query combined time series below).
+- First, select the visualization type you want to see and a source for the query.
 - Then, choose the metric you wish to aggregate. For Spans, Embrace supports both counts and sums of duration.
 - Finally, add any filters and group-bys. In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 
