@@ -57,7 +57,7 @@ Since the Formula field is optional, you can visualize up to 10 time series on t
 
 When you combine time series that have groupings defined with a formula, it’s important to understand the rules for how time series are joined given their groupings. The examples below use two time series, but the same rules apply with any greater number of time series.
 
-As a rule, if you have **two timeseries both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
+As a rule, if you have **two timeseries that both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
 
 #### **Valid Groupings:**
 
