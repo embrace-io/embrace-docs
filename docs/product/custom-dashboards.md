@@ -60,13 +60,7 @@ When you combine time series that have groupings defined with a formula, it’s 
 As a rule, if you have **two timeseries that both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
 
 #### **Valid Groupings:**
-
-- No groupings
-
-    - `A`: *grouped by* `[]` 
-    - `B`: *grouped by* `[]` 
-    - `A` and `B` have no groupings. Their common join key is the empty set.
-   
+  
 - Grouping only on one time series
 
     - `A`: *grouped by* `[”App Version”]` 
@@ -95,6 +89,12 @@ As a rule, if you have **two timeseries that both have groupings**, the grouping
 | `{"App Version": "2.0", "Country": "US"}` | 50 | 20 | 70 |
 | `{"App Version": "2.0", "Country": "MEX"}` | 60 | 20 | 80 |
 
+- No groupings
+
+    - `A`: *grouped by* `[]` 
+    - `B`: *grouped by* `[]` 
+    - `A` and `B` have no groupings. Their common join key is the empty set.
+ 
 #### **Invalid Groupings:**
 
 - Grouping with no overlapping set
