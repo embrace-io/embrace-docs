@@ -70,7 +70,7 @@ As a rule, if you have **two timeseries that both have groupings**, the grouping
 - Grouping only on one time series
 
     - `A`: *grouped by* `[”App Version”]` 
-        - Returns 100 for `{"App Version": "1.0"}` and 50 for `{"App Version": "2.0"}`
+        - Returns values for each distinct, non-empty `App Version`.
     - `B`: *grouped by* `[]`
         - Returns 10
     - `A` has a grouping and `B` does not. Their common join key is the empty set. 
@@ -83,7 +83,9 @@ As a rule, if you have **two timeseries that both have groupings**, the grouping
 - Grouping on both time series
 
     - `A`: *grouped by* `[”App Version”, “Country”]`
+        - Returns values for each distinct, non-empty combination of grouping dimensions. 
     - `B`: *grouped by* `[”App Version”]`
+        - Returns values for each distinct, non-empty `App Version`.
     - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
 
 | Dimension | A | B | A + B | 
