@@ -55,17 +55,70 @@ Since the Formula field is optional, you can visualize up to 10 time series on t
 
 ### Grouping with Combined Time Series
 
-In the broadest sense, the group-by's for each query must have some overlapping set. For example, if you were to set one query to "Crash Count" grouped by "App Version", and the second query to "Session Count", grouped by "Build", then perform some operation on them, this would be an illegal formula.
+When you combine time series that have groupings defined with a formula, it’s important to understand the rules for how time series are joined given their groupings. The examples below use two time series, but the same rules apply with any greater number of time series.
+
+As a rule, if you have **two timeseries both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
+
+#### **Valid Groupings:**
+
+- No groupings
+
+    - `A`: *grouped by* `[]` 
+    - `B`: *grouped by* `[]` 
+    - `A` and `B` have no groupings. Their common join key is the empty set.
+   
+- Grouping only on one time series
+
+    - `A`: *grouped by* `[”App Version”]` 
+        - Returns 100 for `{"App Version": "1.0"}` and 50 for `{"App Version": "2.0"}`
+    - `B`: *grouped by* `[]`
+        - Returns 10
+    - `A` has a grouping and `B` does not. Their common join key is the empty set. 
+
+| Dimension | A | B | A + B | 
+| :--------------: | :---------------: | :---------------: |:---------------: |
+| `{"App Version": "1.0"}` | 100 | 10 | 110 |
+| `{"App Version": "2.0"}` | 50 | 10 | 60 |
+ 
+- Grouping on both time series
+
+    - `A`: *grouped by* `[”App Version”, “Country”]`
+    - `B`: *grouped by* `[”App Version”]`
+    - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
+
+| Dimension | A | B | A + B | 
+| :--------------: | :---------------: | :---------------: |:---------------: |
+| `{"App Version": "1.0", "Country": "US"}` | 100 | 10 | 110 | 
+| `{"App Version": "1.0", "Country": "MEX"}` | 30 | 10 | 40 |
+| `{"App Version": "2.0", "Country": "US"}` | 50 | 20 | 70 |
+| `{"App Version": "2.0", "Country": "MEX"}` | 60 | 20 | 80 |
+
+#### **Invalid Groupings:**
+
+- Grouping with no overlapping set
+
+    - `A`: *grouped by* `[”App Version”]` 
+    - `B`: *grouped by* `[”OS Version”]` 
+    - Both have groupings but neither is a subset of the other.
+
+- Grouping 
+
+    - `A`: *grouped by* `[”App Version”, “Country”, “OS Version”]`
+    - `B`: *grouped by* `[”App Version”, “Country”, “Model”]`
+    - If A and B have no similar `App Version` and `Country`, the grouping is valid, but neither is a subset of the other and no results are returned.
+
+#### Order of Operations
 
 Additionally, order of operations matters. Consider a situation where you create three queries:
-- `A` grouped by `[app_version, os_version]` 
-- `B` grouped by `[app_version]` 
-- `C` grouped by `[os_version]` 
+
+- `A` grouped by `["App Version", "OS Version"]` 
+- `B` grouped by `["App Version"]` 
+- `C` grouped by `["OS Version"]` 
 
 Then you were to combine them in the formula field:
 
-:white_check_mark: `(A + B) + C`: `A` and `B` share a grouping dimension and can combine, then combine with `C`.\
-:x: `A + (B + C)`: `B` and `C` share now group-by dimension and therefore fail. 
+- **Valid:** `(A + B) + C`: `A` and `B` share a grouping dimension and can combine, then combine with `C`.
+- **Invalid:** `A + (B + C)`: `B` and `C` share now group-by dimension and therefore fail. 
 
 <img src={require('@site/static/images/custom_dashboards/Grouping_Error.png').default} style={{ width: '75%', height: '75%' }} alt="Example of Grouping Error" />
 
