@@ -24,7 +24,7 @@ You can create multiple types of visualizations. A table of which visualizations
 
 Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
 
-- First, select the visualization type you want to see and a source for the first query (more on multi-query combined time series below).
+- First, select the visualization type you want to see and a source for the query.
 - Then, choose the metric you wish to aggregate. For Spans, Embrace supports both counts and sums of duration.
 - Finally, add any filters and group-bys. In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 
@@ -34,7 +34,7 @@ Create graphs monitoring Spans performance. You can filter and group by name, ou
 
 You can also create Combined graphs in Line vizualizations. With Combined graphs, you can visualize up to 10 time series together and optionally create a custom time series using arithmetic operators.
 
-**NOTE:** as of 2025-04-29, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts. 
+**NOTE:** as of 2025-05-14, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts. 
 
 ### Adding Formulas to Graphs
 For example, if you want to create a rate of successful network requests but not include redirects. To do this, you will:
