@@ -10,6 +10,16 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.4.0
+*May 5, 2025*
+
+- OTel integration improvements
+  - API to add custom Resource attributes
+  - API to create Span Links
+  - ANRs exported as spans to configured `SpanExporters`
+- Enabled UI Load traces by default
+- Updated OpenTelemetry API and SDK to `1.49.0`
+
 ## 7.3.0
 *March 18, 2025*
 
