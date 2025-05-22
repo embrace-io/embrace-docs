@@ -5,7 +5,7 @@ sidebar_position: 6
 
 # Custom Dashboards
 
-In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards. In these dashboards, you can create new analyses. Visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
+In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards. In these dashboards, you can create new analyses. For example, you can visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
 
 To get started, click on "Add new widget" in the menu by your dashboard name.
 <img src={require('@site/static/images/custom_dashboards/Add_Widget_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
@@ -22,7 +22,7 @@ You can create multiple types of visualizations. A table of which visualizations
 
 ## Spans (Traces)
 
-Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any attributes you have set on the Span.
+Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any custom Attributes you have set on the Span.
 
 - First, select the visualization type you want to see and a source for the query.
 - Then, choose the metric you wish to aggregate. For Spans, Embrace supports both counts and sums of duration.
@@ -37,14 +37,14 @@ You can also create Combined graphs in Line vizualizations. With Combined graphs
 **NOTE:** as of 2025-05-20, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts. 
 
 ### Adding Formulas to Graphs
-For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relatve to your total sessions, grouped by App Version. To do this, you will:
+For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relatve to your total sessions, grouped by App Version. To do this:
 
 1. For the inital query A, select Crashes as the source, Crash Count as the metric, and App Version in the group by field.\
     a. You can also add a group by here. For this example, we group by App Version. See more on grouping functionality below.\
     b. Formulas and multiple queries are only supported on line charts currently. 
-2. On Query A, click the Filter By button below the query details and filter for State = foreground. 
+2. On query A, click the Filter By button below the query details and filter for State = foreground. 
 3. Create a second query (B) by clicking the "Add query" button. Select ANR's as the source, ANR count as the metric, and again group by App Version.\
-    a. On Query B, filter for Duration Bucket (milliseconds) = 3500 - 10000.
+    a. On query B, filter for Duration Bucket (milliseconds) = 3500 - 10000.
 4. Create a third query (C) for your Session Count grouped by App Version and filter for foreground sessions using the same process as in query A.
 5. Hide queries A, B, and C by clicking the eye symbols at the right side of each query row.
 5. In the Formula field at the bottom, enter `(A+B) / C`. You can optionally multiply this by 100 to get a y-axis as a percentage (`((A+B) / C) * 100`).\
@@ -55,7 +55,7 @@ For example, you want to get a rate over the last 24 hours of the sum of crashes
 
 ### Multiple Combined Time Series without a Formula
 
-Since the Formula field is optional, you can visualize up to 10 time series on the same chart with the steps above. Use the eye symbols to show or hide each and leave the Formula field blank.
+Since the Formula field is optional, you can visualize up to 10 time series on the same chart with the steps above. Use the eye symbols to show or hide each, and leave the Formula field blank.
 
 ### Grouping with Combined Time Series
 
@@ -107,7 +107,7 @@ As a rule, if you have **two timeseries that both have groupings**, the grouping
     - `B`: *grouped by* `[”OS Version”]` 
     - Both have groupings but neither is a subset of the other.
 
-- Grouping 
+- Grouping with similar Attributes, but no overlapping data
 
     - `A`: *grouped by* `[”App Version”, “Country”, “OS Version”]`
     - `B`: *grouped by* `[”App Version”, “Country”, “Model”]`
@@ -124,7 +124,7 @@ Additionally, order of operations matters. Consider a situation where you create
 Then you were to combine them in the formula field:
 
 - **Valid:** `(A + B) + C`: `A` and `B` share a grouping dimension and can combine, then combine with `C`.
-- **Invalid:** `A + (B + C)`: `B` and `C` share now group-by dimension and therefore fail. 
+- **Invalid:** `A + (B + C)`: `B` and `C` do not share a group-by dimension and therefore fail. 
 
 <img src={require('@site/static/images/custom_dashboards/Grouping_Error.png').default} style={{ width: '75%', height: '75%' }} alt="Example of Grouping Error" />
 
