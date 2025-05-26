@@ -40,6 +40,9 @@ described in our [Feature Reference](/react-native/features/).
 
 ## Native Setup
 
+There are 3 options for applying the native side changes required by the SDK: using our Expo config plugin, using our
+setup script, or applying them manually. Each options is described below.
+
 ### Expo config plugin
 
 If you are using Expo's `prebuild` system to manage your native files you can make use of our config plugin. In your
