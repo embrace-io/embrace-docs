@@ -53,7 +53,7 @@ If you are using Expo's `prebuild` system to manage your native files you can ma
         ...
         
         [
-            "@embrace-io/react-native",
+            "@embrace-io/react-native/lib/app.plugin.js",
             {
                 "androidAppId": "__ANDROID_APP_ID__",
                 "iOSAppId": "__IOS_APP_ID__",
@@ -206,3 +206,10 @@ apply plugin: "com.facebook.react"
 ```
 
 See [this commit](https://github.com/facebook/react-native/commit/af6aafff90c4d40abfe160c4cfc8e1ae8fa0d956) for more details.
+
+### Package "@embrace-io/react-native" does not contain a valid config plugin
+
+Expo's plugin resolution method changed in version 52, the simplest way to guarantee our plugin is found across
+different Expo versions is to specify the full "@embrace-io/react-native/lib/app.plugin.js" path for the plugin in
+`app.json` rather just the "@embrace-io/react-native" package name. See [this PR](https://github.com/expo/expo/pull/31569)
+for more details.
