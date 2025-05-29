@@ -5,6 +5,11 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 
+## 6.1.0
+_May 29, 2025_
+* Added an [Expo Config Plugin](/react-native/integration/add-embrace-sdk#expo-config-plugin) for automating native
+setup on Expo projects
+
 ## 6.0.2
 _May 05, 2025_
 * Updated iOS native Embrace SDK dependency to [version 6.8.5](/ios/changelog/#685)
