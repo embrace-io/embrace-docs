@@ -113,8 +113,27 @@ const sidebars: SidebarsConfig = {
                       items: [
                         {
                           type: "doc",
-                          id: "ios/open-source/overview/index", // Reusing existing doc as placeholder
-                          label: "Automatic Instrumentation Placeholder"
+                          id: "ios/open-source/automatic-instrumentation/index"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/automatic-instrumentation/network-monitoring"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/automatic-instrumentation/view-tracking"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/automatic-instrumentation/tap-capture"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/automatic-instrumentation/push-notifications"
+                        },
+                        {
+                          type: "doc",
+                          id: "ios/open-source/automatic-instrumentation/webview-monitoring"
                         }
                       ],
                     },

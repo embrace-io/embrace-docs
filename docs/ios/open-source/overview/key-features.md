@@ -10,17 +10,17 @@ The Embrace iOS SDK 6.x provides a comprehensive suite of features to help you m
 
 ## Session Monitoring
 
-Embrace captures detailed session data to help you understand how users are interacting with your application. Sessions capture everything that your app is doing while foregrounded or backgrounded, until the user starts or stops using the app.
+Embrace captures detailed session data to help you understand how users are interacting with your application. Sessions capture everything that your app is doing while foregrounded or backgrounded, until the user starts or stops using the app. As a core part of Embrace's reproduce-and-fix approach to insights, sessions are modeled as OpenTelemetry traces.
 
 ## Automatic Instrumentation
 
-The SDK automatically instruments several aspects of your app with minimal configuration:
+The SDK automatically instruments several aspects of your app with minimal configuration through Capture Services:
 
-- **Network Monitoring**: Automatically tracks all network requests and responses
-- **View Controller Tracking**: Monitors view lifecycle and performance
-- **Tap Capture**: Records user interactions with your app
-- **Push Notifications**: Tracks push notification handling
-- **WebView Monitoring**: Monitors web content performance in your app
+- **Network Monitoring**: Automatically tracks all network requests and responses via URLSession
+- **View Controller Tracking**: Monitors view lifecycle and performance including load and render times
+- **Tap Capture**: Records user interactions with your app through UI touch events
+- **Push Notifications**: Tracks push notification receipt and handling
+- **WebView Monitoring**: Monitors WKWebView URL loading and error events
 
 ## Error and Crash Reporting
 
@@ -28,41 +28,43 @@ Embrace captures detailed crash reports and errors, providing you with the conte
 
 - Comprehensive crash reports with stack traces
 - Exception handling
-- Low memory warnings
-- Custom error logging
+- Low memory warnings and low power mode detection
+- Custom error logging through OpenTelemetry spans
 
 ## Performance Monitoring
 
 Track key performance metrics throughout your app:
 
 - App startup time
-- View controller load times
-- Network performance
-- Memory usage
-- Custom performance spans
+- View controller load and render times
+- Network performance and request details
+- Custom performance tracing with spans
+- First render instrumentation for UI components
 
-## Logs and Breadcrumbs
+## Logs and Traces
 
-Embrace provides powerful logging capabilities to help you track events and troubleshoot issues:
+Embrace provides powerful logging and tracing capabilities to help you track events and troubleshoot issues:
 
-- Custom logging with severity levels
-- Breadcrumb tracking for user journeys
+- Custom logging with severity levels using OpenTelemetry
+- Trace spans for tracking operation performance
 - Automatic system event logging
+- Span events for marking checkpoints
 
 ## User and Session Context
 
 Gain insights into user behavior and session information:
 
 - User identification
-- User properties and personas
-- Session attributes
-- Custom event properties
+- User personas for dynamic user segmentation
+- Session properties for contextual metadata
+- Custom attributes on spans and logs
 
 ## OpenTelemetry Foundation
 
 Built on OpenTelemetry standards, allowing you to:
 
-- Export telemetry to other systems
-- Leverage industry-standard observability
+- Export telemetry to other systems using OTel exporters
+- Leverage industry-standard observability semantics
 - Integrate with existing observability pipelines
-- Utilize OTel spans and logs 
+- Build on OTel spans and logs for custom instrumentation
+- Use the SDK without Embrace backend by configuring your own OTel endpoints
