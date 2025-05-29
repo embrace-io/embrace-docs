@@ -40,6 +40,39 @@ described in our [Feature Reference](/react-native/features/).
 
 ## Native Setup
 
+There are 3 options for applying the native side changes required by the SDK: using our Expo config plugin, using our
+setup script, or applying them manually. Each options is described below.
+
+### Expo config plugin
+
+If you are using Expo's `prebuild` system to manage your native files you can make use of our config plugin. In your
+`app.json` configure the plugin with your Embrace application IDs and symbol upload API token:
+
+```json
+    "plugins": [
+        ...
+        
+        [
+            "@embrace-io/react-native/lib/app.plugin.js",
+            {
+                "androidAppId": "__ANDROID_APP_ID__",
+                "iOSAppId": "__IOS_APP_ID__",
+                "apiToken": "__SYMBOL_UPLOAD_API_TOKEN__"
+            }
+        ]
+    ],
+```
+
+:::info
+Refer to [EmbraceProps](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages/core/src/plugin//types.ts)
+for the full set properties available to configure the plugin.
+:::
+
+The next time you run `npx expo prebuild` the native Android and iOS files should be updated with the changes required
+by the Embrace SDK. Note that there are other customizations and advanced features of the SDK such as [OTLP Export](/react-native/features/otlp/#initializing-in-the-native-layer)
+which will still require manual editing of native files, at the moment the config plugin only covers this initial SDK
+setup.
+
 ### Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
@@ -173,3 +206,10 @@ apply plugin: "com.facebook.react"
 ```
 
 See [this commit](https://github.com/facebook/react-native/commit/af6aafff90c4d40abfe160c4cfc8e1ae8fa0d956) for more details.
+
+### Package "@embrace-io/react-native" does not contain a valid config plugin
+
+Expo's plugin resolution method changed in version 52, the simplest way to guarantee our plugin is found across
+different Expo versions is to specify the full "@embrace-io/react-native/lib/app.plugin.js" path for the plugin in
+`app.json` rather just the "@embrace-io/react-native" package name. See [this PR](https://github.com/expo/expo/pull/31569)
+for more details.

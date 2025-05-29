@@ -45,11 +45,8 @@ issue. Apps on versions of React Native older than 0.71 may work with Embrace af
 directly supported. The templates used to generate apps for integration testing along with the exact patch versions of
 React Native we use can be found [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates).
 
-### Expo
+### Expo support
 
-Apps using Expo should work with Embrace however setup of our SDK does require modification of files within your
-project's native `android/` and `ios/` folders, as such those directories need to be created by running `expo prebuild`
-(or equivalently for older versions the project must be ejected using `expo eject`).
-
-We are developing an Expo Config plugin to better integrate with the framework, you can follow [this issue](https://github.com/embrace-io/embrace-react-native-sdk/issues/308)
-to be notified of progress.
+Apps using Expo are supported by Embrace's React Native SDK. If you are using Expo's `prebuild` system you can make use
+of our [Expo config plugin](/react-native/integration/add-embrace-sdk/#expo-config-plugin) to manage the changes to your
+project's native `android/` and `ios/` folders required by the SDK.
