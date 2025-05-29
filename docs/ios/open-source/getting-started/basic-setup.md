@@ -31,8 +31,7 @@ struct NewEmbraceApp: App {
             try Embrace
                 .setup(
                     options: Embrace.Options(
-                        appId: "YOUR_APP_ID",  // Your App ID from Embrace Dashboard
-                        logLevel: .default
+                        appId: "YOUR_APP_ID"  // Your App ID from Embrace Dashboard
                     )
                 )
                 .start()
@@ -58,8 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try Embrace
                 .setup(
                     options: Embrace.Options(
-                        appId: "YOUR_APP_ID",  // Your App ID from Embrace Dashboard
-                        logLevel: .default
+                        appId: "YOUR_APP_ID"  // Your App ID from Embrace Dashboard
                     )
                 )
                 .start()
@@ -71,6 +69,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+
+## Configuration Options
+
+The most commonly used options for SDK initialization include:
+
+```swift
+Embrace.Options(
+    appId: "YOUR_APP_ID",         // Required for sending data to Embrace
+    appGroupId: "group.your.id",  // Optional: for app extensions sharing data
+    logLevel: .default,           // Controls SDK's console logging verbosity
+    export: nil                   // Optional: for OpenTelemetry export
+)
+```
+
+Available log levels include:
+- `.none` - No logging
+- `.trace`, `.debug`, `.info`, `.warning`, `.error` - Increasing levels of severity
+- `.default` - Uses `.debug` in DEBUG builds, `.error` in RELEASE builds
+
+For more advanced configuration options, see the [Configuration Options](/ios/open-source/getting-started/configuration-options.md) page.
 
 ## Error Handling
 
@@ -119,17 +137,23 @@ Embrace.client?.buildSpan(name: "my-operation").startSpan()
 If you need to know whether the SDK has started successfully, you can access the status:
 
 ```swift
-if Embrace.client?.started == true {
+switch Embrace.client?.state {
+case .started:
     // SDK is running
-} else {
-    // SDK failed to start or hasn't been started yet
+case .initialized:
+    // SDK is initialized but not started
+case .notInitialized, nil:
+    // SDK failed to initialize or hasn't been initialized yet
 }
 ```
+
+> Note: The `started` property is deprecated. Use the `state` property instead which provides more detailed status information.
 
 ## Next Steps
 
 After basic setup, you can:
 
 - [Configure additional options](/ios/open-source/getting-started/configuration-options.md) to customize the SDK's behavior
-- Learn about core concepts like sessions, traces, and logs
-- Set up automatic instrumentation for network monitoring and other features 
+- Learn about [Sessions](/ios/open-source/core-concepts/sessions.md) and how they track user activity
+- Explore [Traces & Spans](/ios/open-source/core-concepts/traces-spans.md) for performance monitoring
+- Set up [automatic instrumentation](/ios/open-source/automatic-instrumentation/index.md) for network monitoring and other features
