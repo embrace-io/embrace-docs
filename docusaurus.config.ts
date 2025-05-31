@@ -79,6 +79,14 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/",
+            from: "/features/app-exits/",
+          },
+          {
+            to: "/",
+            from: "/product/video-recording-and-apples-policy/",
+          },
+          {
             to: "/product/settings/sso/",
             from: "/product/sso/",
           },
