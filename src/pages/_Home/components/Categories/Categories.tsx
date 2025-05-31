@@ -34,6 +34,7 @@ import LogoObserve from "@site/static/images/logo-observe.svg";
 import LogoIOS from "@site/static/images/ios.svg";
 import LogoFlutter from "@site/static/images/flutter.svg";
 import LogoAndroid from "@site/static/images/android.svg";
+// import LogoWeb from "@site/static/images/web.svg";
 import type { HomeCardProps } from "@site/src/pages/_Home/components/HomeCard/HomeCard";
 import Category from "@site/src/pages/_Home/components/Category/Category";
 
@@ -45,7 +46,7 @@ type Categories =
   | "Data Forwarding"
   | "Features"
   | "Partner Solutions"
-  | "Platforms";
+  | "Instrumentation";
 
 const DEFAULT_TABLER_ICON_PROPS = {
   size: 24,
@@ -53,7 +54,7 @@ const DEFAULT_TABLER_ICON_PROPS = {
   color: "var(--icon-color)",
 };
 const CATEGORIES: Record<Categories, HomeCardProps[]> = {
-  Platforms: [
+  Instrumentation: [
     {
       title: "Android",
       description: "Add Embrace to your Android project.",
@@ -66,6 +67,12 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       icon: <LogoIOS className={styles.platformLogo} />,
       linkTo: "/ios",
     },
+    // {
+    //   title: "Web",
+    //   description: "Add Embrace to your Web project.",
+    //   icon: <LogoWeb className={styles.platformLogo} />,
+    //   linkTo: "/web",
+    // },
     {
       title: "React Native",
       description: "Add Embrace to your React Native project.",

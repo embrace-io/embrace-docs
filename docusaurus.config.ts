@@ -79,6 +79,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/data-marshaling-and-transmission/",
+            from: "/product/data-marshaling-and-transmission/",
+          },
+          {
             to: "/region/",
             from: "/product/region/",
           },
