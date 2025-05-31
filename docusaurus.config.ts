@@ -349,6 +349,16 @@ const config: Config = {
         ],
       },
     ],
+
+    [
+      'docusaurus-pushfeedback',{
+        project: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
+        buttonPosition: 'center-right',
+        modalPosition: 'sidebar-right',
+        buttonStyle: 'dark',
+        modalTitle: 'Share your thoughts'
+      }
+    ],
   ],
 
   presets: [
@@ -470,6 +480,9 @@ const config: Config = {
         "dart",
         "promql",
       ],
+    },
+    customFields: {
+      pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
     },
   },
 };
