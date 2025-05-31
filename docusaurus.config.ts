@@ -79,6 +79,14 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/troubleshooting/release-health/",
+            from: "/product/release-health/",
+          },
+          {
+            to: "/product/troubleshooting/anr-reporting/",
+            from: "/feature/anr-reporting/",
+          },
+          {
             to: "/product/crashes/crash-tagging/",
             from: "/product/tagging/",
           },

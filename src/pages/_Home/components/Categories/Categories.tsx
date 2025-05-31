@@ -224,14 +224,14 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "ANR Reporting",
       description: "Resolve freezes faster with intelligent ANR Reporting.",
       icon: <IconDeviceMobileBolt {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/anr-reporting",
+      linkTo: "/product/troubleshooting/anr-reporting",
     },
     {
-      title: "App Exits",
+      title: "Troubleshooting",
       description:
         "User Terminations, Out-of-Memory (OOM) Exits and Uncategorized Exits (UE).",
       icon: <IconDeviceMobileX {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/app-exits",
+      linkTo: "/product/troubleshooting",
     },
   ],
   "Partner Solutions": [

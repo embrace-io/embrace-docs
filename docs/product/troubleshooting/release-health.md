@@ -1,6 +1,6 @@
 ---
 title: Release Health
-sidebar_position: 12
+sidebar_position: 2
 ---
 
 # Release Health
