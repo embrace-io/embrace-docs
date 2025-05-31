@@ -79,6 +79,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/sessions/",
+            from: "/features/user-session-insights/",
+          },
+          {
             to: "/data-marshaling-and-transmission/",
             from: "/product/data-marshaling-and-transmission/",
           },

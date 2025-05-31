@@ -1,9 +1,9 @@
 ---
-title: Issue Monitoring and Workflow 
+title: Issues
 sidebar_position: 1
 ---
 
-# Issue Monitoring and Workflow 
+# Issues
 
 Our dashboard gives you a plethora of metrics to provide full visibility into the health and stability of your app. Rather than clicking through pages filled with metrics to get a basic understanding of key issues within your app, we've rolled-up relevant issues into our *Issues* page. Navigate to the page by selecting *Issues* in the left hand menu on the dashboard.
 

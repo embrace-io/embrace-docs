@@ -1,10 +1,10 @@
 ---
-title: Filtering User Sessions
-sidebar_position: 10
-description: Query User Sessions to dig into many dimensions of app activity
+title: Filtering Sessions
+sidebar_position: 3
+description: Filter User Sessions to dig into many dimensions of app activity
 ---
 
-# Filtering User Sessions
+# Filtering Sessions
 
 Embrace provides an easy UI for filtering and querying your Sessions. You can add filters to your sessions to find and group the Sessions that you are looking to find out more about: Sessions that resulted in crashes, Sessions with specific user flows, Sessions on certain app versions.
 

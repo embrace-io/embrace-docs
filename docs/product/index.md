@@ -3,15 +3,21 @@ title: Overview
 sidebar_position: 0
 ---
 
-# Product Information
+# Embrace Dashboard
 
-* [Issue Monitoring and Workflow](/product/issue-monitoring-and-work-flow/)
-* [Find target User Sessions](/product/sessions/)
-* [Crash Tagging with Codeowners](/product/tagging)
-* [SSO Configuration](/product/sso/)
-* [Video Recording and Apple's Policy](/product/video-recording-and-apples-policy/)
-* [User Permissions on Organizations and Projects](/product/permissions/)
-* [Custom Dashboards](/product/custom-dashboards/)
-* [Network Spans Forwarding](/product/network-spans-forwarding/)
-* [Network Grouping Rules](/product/network-grouping-rules/)
-* [Release Health](/product/release-health/)
+The Embrace Dashboard provides real-time tools for developers to observe all user-impacting production data from their apps. Developers use Embrace to solve issues, measure performance, and explore high-dimensional app scenarios.
+
+By combining robust OpenTelemetry telemetry shapes with powerful tools for aggregation and investigation, dashboard users use Embrace to find out exactly what happened to individual users, important user cohorts, and the user population as a whole.
+
+## Features
+
+Embrace's dashboard features provide a rich view of mobile and web telemetry in every user session. Developers can draw insights by digging in to these features to find the needle in a haystack or by manipulating the entire dataset to find out about the success or impact of experiments.
+
+These features include:
+
+## Settings
+
+Embrace's dashboard also provides a broad set of capabilities for engineering team management and collaboration.
+
+These features include:
+

@@ -198,7 +198,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Recreate every single user journey for every issue with exceptional detail.",
       icon: <IconUsersGroup {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/user-session-insights",
+      linkTo: "/product/sessions",
     },
     {
       title: "Crash Reporting",
