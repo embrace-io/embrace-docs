@@ -79,6 +79,14 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/crashes/crash-tagging/",
+            from: "/product/tagging/",
+          },
+          {
+            to: "/product/crashes/crash-reporting/",
+            from: "/features/crash-reporting/",
+          },
+          {
             to: "/product/network/network-grouping-rules/",
             from: "/product/network-grouping-rules/",
           },

@@ -1,6 +1,6 @@
 ---
 title: Crash Tagging with Codeowners
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Tagging Automatically Highlights the Most Relevant Person, Team, or Company to Fix a Crash

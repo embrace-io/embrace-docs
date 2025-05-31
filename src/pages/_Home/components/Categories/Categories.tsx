@@ -205,7 +205,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Highly accurate crash groupings with built-in intelligence.",
       icon: <IconFlame {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/crash-reporting",
+      linkTo: "/product/crashes",
     },
     {
       title: "Network Monitoring",
