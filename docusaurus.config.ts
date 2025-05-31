@@ -79,6 +79,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/traces/",
+            from: "/features/traces/",
+          },
+          {
             to: "/product/boards/custom-dashboards/",
             from: "/product/custom-dashboards/",
           },
@@ -215,7 +219,7 @@ const config: Config = {
             from: "/open-telemetry/error-logs-tracking",
           },
           {
-            to: "/features/traces",
+            to: "/product/traces/",
             from: "/product/performance-tracing",
           },
           {
@@ -247,7 +251,7 @@ const config: Config = {
             from: "/unity/features/performance-tracing",
           },
           {
-            to: "/features/traces",
+            to: "/product/traces/",
             from: "/features/performance-tracing",
           },
           {

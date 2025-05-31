@@ -185,7 +185,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Complete visibility into any customized operation you’d like to track.",
       icon: <PerformanceTraces className={styles.svgIcon} />,
-      linkTo: "/features/traces",
+      linkTo: "/product/traces",
     },
     {
       title: "Error Logs Tracking",

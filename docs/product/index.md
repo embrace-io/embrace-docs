@@ -15,6 +15,11 @@ Embrace's dashboard features provide a rich view of mobile and web telemetry in 
 
 These features include:
 
+- [Issues](/docs/product/issue-monitoring-and-work-flow.md): Spot user issues as they happen.
+- [User Sessions](/docs/product/sessions/): Dig into the details of every user session.
+- [Dashboards](/docs/product/boards/): Build rich representations of the technical details in your apps.
+- [Traces](/docs/product/traces/): Trace the key flows for every user's journey.
+
 ## Settings
 
 Embrace's dashboard also provides a broad set of capabilities for engineering team management and collaboration.

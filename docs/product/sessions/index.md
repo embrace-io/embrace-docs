@@ -1,6 +1,6 @@
 ---
 title: Sessions
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Get Total Insight into Activity with User Sessions
