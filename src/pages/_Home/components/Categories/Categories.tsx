@@ -191,7 +191,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "Error Logs Tracking",
       description: "Identify issues faster with Error Tracking.",
       icon: <IconTimelineEventExclamation {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/error-logs-tracking",
+      linkTo: "/product/logs",
     },
     {
       title: "User Session Insights",

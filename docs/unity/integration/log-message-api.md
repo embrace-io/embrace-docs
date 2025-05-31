@@ -41,7 +41,7 @@ This can have a negative effect on your application's performance or battery lif
 It can also be an invaluable tool for getting information about your application quickly.
 
 :::info
-For more tips on making the most of the Log Message API, checkout the [Best Practices](/best-practices/log-message-api/).
+For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages/).
 :::
 
 ---

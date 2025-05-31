@@ -79,6 +79,14 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/logs/log-messages/",
+            from: "/best-practices/log-message-api/",
+          },
+          {
+            to: "/product/logs/logs-ui/",
+            from: "/features/error-logs-tracking/",
+          },
+          {
             to: "/product/troubleshooting/release-health/",
             from: "/product/release-health/",
           },

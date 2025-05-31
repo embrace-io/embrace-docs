@@ -1,10 +1,9 @@
 ---
-title: Logs Tracking
-description: TBD
-sidebar_position: 2
+title: Logs UI
+sidebar_position: 1
 ---
 
-# Logs
+# Logs UI
 
 The logs section gives you access to all logs emitted by your application. Embrace provides two ways to explore your logs
 
