@@ -1,6 +1,6 @@
 ---
-title: User Permissions on Organizations and Projects
-sidebar_position: 4
+title: Users & Teams
+sidebar_position: 2
 ---
 
 Roles categorize users and define what permissions those users have in the Embrace dashboard, such as what projects they can read or what settings they can modify.

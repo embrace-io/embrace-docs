@@ -1,6 +1,6 @@
 ---
-title: Single Sign On using SAML 2.0
-sidebar_position: 2
+title: Single Sign On (SSO)
+sidebar_position: 5
 ---
 
 # Single Sign On (SSO)
@@ -11,9 +11,9 @@ If you need assistance configuring SSO with other providers please [email us](ma
 
 ## Supported Features
 
-- IdP-initiated flow - users navigate to your organization's SSO portal and select Embrace app.
-- SP-initiated login - users enter their username on Embrace's dashboard and are redirected to your SSO portal for authorization.
-- JIT provisioning (optional).
+- **IdP-initiated flow** - users navigate to your organization's SSO portal and select Embrace app.
+- **SP-initiated login** - users enter their username on Embrace's dashboard and are redirected to your SSO portal for authorization.
+- **JIT provisioning** (optional).
 
 ### IdP-initiated SSO
 

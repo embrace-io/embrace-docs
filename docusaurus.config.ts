@@ -79,6 +79,22 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/settings/sso/",
+            from: "/product/sso/",
+          },
+          {
+            to: "/product/settings/user-teams/",
+            from: "/product/permissions/",
+          },
+          {
+            to: "/product/settings/integrations/webhooks/",
+            from: "/best-practices/webhooks/",
+          },
+          {
+            to: "/product/settings/app-settings/data-usage/",
+            from: "/best-practices/sampling/",
+          },
+          {
             to: "/product/alerting/",
             from: "/features/alertings/",
           },
