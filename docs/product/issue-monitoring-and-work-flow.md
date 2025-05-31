@@ -1,9 +1,9 @@
 ---
-title: Issue Monitoring and Workflow 
-sidebar_position: 1
+title: Issues
+sidebar_position: 0
 ---
 
-# Issue Monitoring and Workflow 
+# Issues
 
 Our dashboard gives you a plethora of metrics to provide full visibility into the health and stability of your app. Rather than clicking through pages filled with metrics to get a basic understanding of key issues within your app, we've rolled-up relevant issues into our *Issues* page. Navigate to the page by selecting *Issues* in the left hand menu on the dashboard.
 
@@ -52,7 +52,7 @@ Slow Instances serve as a valuable tool for pinpointing performance bottlenecks 
 
 They're grouped by Root Span name and comprise instances with both significant occurrences (100 over the last two days)
 and durations surpassing the 95th percentile of successful root spans bearing the same name.
-You can see slow instances on the [traces tab](/features/traces/#slow-root-spans).
+You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-root-spans).
 
 ---
 

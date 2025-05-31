@@ -2,7 +2,8 @@
 cache = true
 exclude = [
     '^https://webhook\.site',
-    'https://discussions.unity.com/t/how-to-set-up-a-fastlane-gymfile-and-multiple-provisioning-profiles/711408'
+    'https://discussions.unity.com/t/how-to-set-up-a-fastlane-gymfile-and-multiple-provisioning-profiles/711408',
+    'https://opentelemetry.io/docs'
 ]
 max_cache_age = "1d"
 accept = ["200", "429"]

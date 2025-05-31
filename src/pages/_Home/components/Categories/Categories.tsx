@@ -34,6 +34,7 @@ import LogoObserve from "@site/static/images/logo-observe.svg";
 import LogoIOS from "@site/static/images/ios.svg";
 import LogoFlutter from "@site/static/images/flutter.svg";
 import LogoAndroid from "@site/static/images/android.svg";
+// import LogoWeb from "@site/static/images/web.svg";
 import type { HomeCardProps } from "@site/src/pages/_Home/components/HomeCard/HomeCard";
 import Category from "@site/src/pages/_Home/components/Category/Category";
 
@@ -45,7 +46,7 @@ type Categories =
   | "Data Forwarding"
   | "Features"
   | "Partner Solutions"
-  | "Platforms";
+  | "Instrumentation";
 
 const DEFAULT_TABLER_ICON_PROPS = {
   size: 24,
@@ -53,7 +54,7 @@ const DEFAULT_TABLER_ICON_PROPS = {
   color: "var(--icon-color)",
 };
 const CATEGORIES: Record<Categories, HomeCardProps[]> = {
-  Platforms: [
+  Instrumentation: [
     {
       title: "Android",
       description: "Add Embrace to your Android project.",
@@ -66,6 +67,12 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       icon: <LogoIOS className={styles.platformLogo} />,
       linkTo: "/ios",
     },
+    // {
+    //   title: "Web",
+    //   description: "Add Embrace to your Web project.",
+    //   icon: <LogoWeb className={styles.platformLogo} />,
+    //   linkTo: "/web",
+    // },
     {
       title: "React Native",
       description: "Add Embrace to your React Native project.",
@@ -106,7 +113,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "https://www.youtube.com/channel/UC8EjpY1ol3QGdp2qk1uZARQ",
     },
   ],
-  "OpenTelemetry": [
+  OpenTelemetry: [
     {
       title: "Overview",
       description:
@@ -163,13 +170,12 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/network-spans-forwarding",
     },
-    // TODO: review
     {
       title: "Custom Dashboards",
       description:
         "Stay on top of key mobile KPIs and unusual activity that matter for your team.",
       icon: <IconLayoutGridAdd {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/product/custom-dashboards",
+      linkTo: "/product/boards/custom-dashboards",
     },
   ],
   Features: [
@@ -178,53 +184,53 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Complete visibility into any customized operation you’d like to track.",
       icon: <PerformanceTraces className={styles.svgIcon} />,
-      linkTo: "/features/traces",
+      linkTo: "/product/traces",
     },
     {
       title: "Error Logs Tracking",
       description: "Identify issues faster with Error Tracking.",
       icon: <IconTimelineEventExclamation {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/error-logs-tracking",
+      linkTo: "/product/logs",
     },
     {
       title: "User Session Insights",
       description:
         "Recreate every single user journey for every issue with exceptional detail.",
       icon: <IconUsersGroup {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/user-session-insights",
+      linkTo: "/product/sessions",
     },
     {
       title: "Crash Reporting",
       description:
         "Highly accurate crash groupings with built-in intelligence.",
       icon: <IconFlame {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/crash-reporting",
+      linkTo: "/product/crashes",
     },
     {
       title: "Network Monitoring",
       description:
         "Identify and resolve the networking issues behind your app’s crashes.",
       icon: <IconWifi {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/network-monitoring",
+      linkTo: "/product/network",
     },
     {
       title: "Alerting",
       description: "Customizable alerts let you cut through the noise.",
       icon: <IconAlarmPlus {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/alerting",
+      linkTo: "/product/alerting",
     },
     {
       title: "ANR Reporting",
       description: "Resolve freezes faster with intelligent ANR Reporting.",
       icon: <IconDeviceMobileBolt {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/anr-reporting",
+      linkTo: "/product/troubleshooting/anr-reporting",
     },
     {
-      title: "App Exits",
+      title: "Troubleshooting",
       description:
         "User Terminations, Out-of-Memory (OOM) Exits and Uncategorized Exits (UE).",
       icon: <IconDeviceMobileX {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/app-exits",
+      linkTo: "/product/troubleshooting",
     },
   ],
   "Partner Solutions": [

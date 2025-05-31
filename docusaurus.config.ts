@@ -79,6 +79,86 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/",
+            from: "/features/app-exits/",
+          },
+          {
+            to: "/",
+            from: "/product/video-recording-and-apples-policy/",
+          },
+          {
+            to: "/product/settings/sso/",
+            from: "/product/sso/",
+          },
+          {
+            to: "/product/settings/users-teams/",
+            from: "/product/permissions/",
+          },
+          {
+            to: "/product/settings/integrations/webhooks/",
+            from: "/best-practices/webhooks/",
+          },
+          {
+            to: "/product/settings/app-settings/data-usage/",
+            from: "/best-practices/sampling/",
+          },
+          {
+            to: "/product/alerting/",
+            from: "/features/alertings/",
+          },
+          {
+            to: "/product/logs/log-messages/",
+            from: "/best-practices/log-message-api/",
+          },
+          {
+            to: "/product/logs/logs-ui/",
+            from: "/features/error-logs-tracking/",
+          },
+          {
+            to: "/product/troubleshooting/release-health/",
+            from: "/product/release-health/",
+          },
+          {
+            to: "/product/troubleshooting/anr-reporting/",
+            from: "/feature/anr-reporting/",
+          },
+          {
+            to: "/product/crashes/crash-tagging/",
+            from: "/product/tagging/",
+          },
+          {
+            to: "/product/crashes/crash-reporting/",
+            from: "/features/crash-reporting/",
+          },
+          {
+            to: "/product/network/network-grouping-rules/",
+            from: "/product/network-grouping-rules/",
+          },
+          {
+            to: "/product/network/network-monitoring/",
+            from: "/features/network-monitoring/",
+          },
+          {
+            to: "/product/traces/",
+            from: "/features/traces/",
+          },
+          {
+            to: "/product/boards/custom-dashboards/",
+            from: "/product/custom-dashboards/",
+          },
+          {
+            to: "/product/sessions/",
+            from: "/features/user-session-insights/",
+          },
+          {
+            to: "/data-marshaling-and-transmission/",
+            from: "/product/data-marshaling-and-transmission/",
+          },
+          {
+            to: "/region/",
+            from: "/product/region/",
+          },
+          {
             to: "/dpa/",
             from: "/gdpr-data-processing-addendum-dpa/",
           },
@@ -195,11 +275,11 @@ const config: Config = {
             from: "/android/features/performance-monitoring/",
           },
           {
-            to: "/features/error-logs-tracking",
+            to: "/product/logs/logs-ui",
             from: "/open-telemetry/error-logs-tracking",
           },
           {
-            to: "/features/traces",
+            to: "/product/traces/",
             from: "/product/performance-tracing",
           },
           {
@@ -231,7 +311,7 @@ const config: Config = {
             from: "/unity/features/performance-tracing",
           },
           {
-            to: "/features/traces",
+            to: "/product/traces/",
             from: "/features/performance-tracing",
           },
           {
@@ -268,6 +348,16 @@ const config: Config = {
           },
         ],
       },
+    ],
+
+    [
+      'docusaurus-pushfeedback',{
+        project: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
+        buttonPosition: 'center-right',
+        modalPosition: 'sidebar-right',
+        buttonStyle: 'dark',
+        modalTitle: 'Share your thoughts'
+      }
     ],
   ],
 
@@ -310,9 +400,9 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: 'open-sourced-1', // Increment this when contents change so that it becomes visible to users who previously [x] hidden it
+      id: 'new-structure-announcement', // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        'Embrace documentation is now open-source! Please open issues or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in Github!</a>',
+        'Embrace\'s documentation has changed! Please open an issue or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in Github with any changes!</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
@@ -390,6 +480,9 @@ const config: Config = {
         "dart",
         "promql",
       ],
+    },
+    customFields: {
+      pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
     },
   },
 };
