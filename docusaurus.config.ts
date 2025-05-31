@@ -83,7 +83,7 @@ const config: Config = {
             from: "/product/sso/",
           },
           {
-            to: "/product/settings/user-teams/",
+            to: "/product/settings/users-teams/",
             from: "/product/permissions/",
           },
           {
