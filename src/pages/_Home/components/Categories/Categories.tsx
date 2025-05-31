@@ -170,13 +170,12 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/network-spans-forwarding",
     },
-    // TODO: review
     {
       title: "Custom Dashboards",
       description:
         "Stay on top of key mobile KPIs and unusual activity that matter for your team.",
       icon: <IconLayoutGridAdd {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/product/boards/custom-dashboards.md",
+      linkTo: "/product/boards/custom-dashboards",
     },
   ],
   Features: [
