@@ -79,6 +79,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/alerting/",
+            from: "/features/alertings/",
+          },
+          {
             to: "/product/logs/log-messages/",
             from: "/best-practices/log-message-api/",
           },
@@ -247,7 +251,7 @@ const config: Config = {
             from: "/android/features/performance-monitoring/",
           },
           {
-            to: "/features/error-logs-tracking",
+            to: "/product/logs/logs-ui",
             from: "/open-telemetry/error-logs-tracking",
           },
           {

@@ -218,7 +218,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "Alerting",
       description: "Customizable alerts let you cut through the noise.",
       icon: <IconAlarmPlus {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/alerting",
+      linkTo: "/product/alerting",
     },
     {
       title: "ANR Reporting",
