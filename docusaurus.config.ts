@@ -79,6 +79,14 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/network/network-grouping-rules/",
+            from: "/product/network-grouping-rules/",
+          },
+          {
+            to: "/product/network/network-monitoring/",
+            from: "/features/network-monitoring/",
+          },
+          {
             to: "/product/traces/",
             from: "/features/traces/",
           },

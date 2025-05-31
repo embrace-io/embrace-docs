@@ -212,7 +212,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Identify and resolve the networking issues behind your app’s crashes.",
       icon: <IconWifi {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/features/network-monitoring",
+      linkTo: "/product/network",
     },
     {
       title: "Alerting",

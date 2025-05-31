@@ -1,18 +1,10 @@
 ---
 title: Network Monitoring
 description: Network Monitoring
-sidebar_position: 5
+sidebar_position: 1
 ---
 
 # Network Monitoring
-
-We provide a comprehensive view of your network requests, allowing you to assess the performance of each request and its impact on your users.
-
-:::info Network Spans Forwarding
-
-Embrace can help you diagnose network errors by forwarding network spans to your backend monitoring service. Read more about [Network Spans Forwarding](/product/network-spans-forwarding/).
-
-:::
 
 ## Network Summary
 
@@ -29,3 +21,9 @@ This table presents a comprehensive list of all your network requests, organized
 ### Domain Type
 
 Easily filter by domain type to focus on first-party, third-party, or media requests. Configure your first-party domains in the settings page for enhanced customization.
+
+:::info Network Spans Forwarding
+
+Embrace can help you diagnose network errors by forwarding network spans to your backend monitoring service. Read more about [Network Spans Forwarding](/product/network-spans-forwarding/).
+
+:::

@@ -1,9 +1,9 @@
 ---
-title: Custom Network Grouping Rules 
-sidebar_position: 1
+title: Network Grouping Rules 
+sidebar_position: 2
 ---
 
-# Custom Network Grouping Rules
+# Network Grouping Rules
 
 Embrace provides automatic collapsing of network paths to group similar paths together for analytics purposes.
 We automatically collapse certain path elements if they match a common pattern, and we also group endpoints
