@@ -79,6 +79,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/boards/custom-dashboards/",
+            from: "/product/custom-dashboards/",
+          },
+          {
             to: "/product/sessions/",
             from: "/features/user-session-insights/",
           },

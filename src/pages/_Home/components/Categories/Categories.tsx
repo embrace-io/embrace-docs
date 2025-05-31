@@ -176,7 +176,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Stay on top of key mobile KPIs and unusual activity that matter for your team.",
       icon: <IconLayoutGridAdd {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/product/custom-dashboards",
+      linkTo: "/product/boards/custom-dashboards.md",
     },
   ],
   Features: [
