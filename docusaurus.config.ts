@@ -79,6 +79,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/region/",
+            from: "/product/region/",
+          },
+          {
             to: "/dpa/",
             from: "/gdpr-data-processing-addendum-dpa/",
           },

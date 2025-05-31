@@ -105,7 +105,7 @@ const sidebars: SidebarsConfig = {
       type: "category",
       collapsible: true,
       collapsed: true,
-      label: "Legal",
+      label: "Policies and Legal",
       items: [
         {
           type: "doc",
@@ -114,6 +114,10 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "terms-of-service",
+        },
+        {
+          type: "doc",
+          id: "region",
         },
         {
           type: "doc",
