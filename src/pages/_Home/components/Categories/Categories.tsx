@@ -106,7 +106,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "https://www.youtube.com/channel/UC8EjpY1ol3QGdp2qk1uZARQ",
     },
   ],
-  "OpenTelemetry": [
+  OpenTelemetry: [
     {
       title: "Overview",
       description:
