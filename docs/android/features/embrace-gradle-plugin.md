@@ -143,7 +143,7 @@ Whether Embrace should automatically instrument push notifications from Firebase
 
 #### bytecodeInstrumentation.autoSdkInitializationEnabled
 
-Whether Embrace should automatically instrument its initialization. When this is enabled, Embrace.getInstace().start() will be injected automatically to any class that extends Application. Defaults to false.
+Whether the Embrace SDK should automatically start when the `Application.onCreate()` method is invoked. Enabling this will make the Gradle plugin inject `Embrace.getInstace().start()` at the beginning of the method for all classes that extend `Application`. Defaults to false.
 
 #### bytecodeInstrumentation.classIgnorePatterns
 
