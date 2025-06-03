@@ -4,6 +4,10 @@ description: Understanding logs in the Embrace Web SDK
 sidebar_position: 3
 ---
 
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
 
 # Logs
 
