@@ -234,7 +234,7 @@ Go to your `embrace-config.json` inside `android/app/src/main` and edit the `sdk
 <TabItem value="ios" label="iOS">
 
 If you used the automated installation script or followed the manual steps for setting up the iOS SDK then you can
-modify the setup in `EmbraceInitializer.swift` to remove the view capture service, see [Configuring the iOS SDK](/ios/open-source/integration/embrace-options/)
+modify the setup in `EmbraceInitializer.swift` to remove the view capture service, see [Configuring the iOS SDK](/docs/ios/6x/getting-started/configuration-options.md)
 for more details:
 
 ```swift

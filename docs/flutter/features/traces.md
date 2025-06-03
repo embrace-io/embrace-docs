@@ -94,7 +94,7 @@ All telemetry in Embrace's Flutter SDK is routed through Embrace's Android/iOS S
 Please follow [this guide](/android/features/traces/#export-to-opentelemetry-collectors) to setup OpenTelemetry exporters on Android.
 
 ### iOS OTel export
-Please follow [this guide](/ios/open-source/features/otel-exporter) for details on setting up OpenTelemetry exporters on iOS.
+Please follow [this guide](/docs/ios/6x/advanced-features/opentelemetry-export) for details on setting up OpenTelemetry exporters on iOS.
 
 Exporters are set when the SDK is [configured](/flutter/integration/add-embrace-sdk/#ios-setup). A sample implementation might look like:
 

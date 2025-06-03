@@ -6,7 +6,7 @@ sidebar_position: 2
 
 # Getting Started
 
-Embrace's 5.x SDK supports both the iOS and the Apple TV platform from a common codebase. All of the API you can use on iOS, is also available on Apple TV. The 5.x SDK is built on Objective-C and is closed-source. It is no longer recommended for new and current users, who should upgrade to the [6.x SDK](/ios/open-source/).
+Embrace's 5.x SDK supports both the iOS and the Apple TV platform from a common codebase. All of the API you can use on iOS, is also available on Apple TV. The 5.x SDK is built on Objective-C and is closed-source. It is no longer recommended for new and current users, who should upgrade to the [6.x SDK](/docs/ios/6x/).
 
 This documentation is split into two sections:
 
