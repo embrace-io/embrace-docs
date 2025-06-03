@@ -147,7 +147,7 @@ import EmbraceIO
 
 :::warning
 Once the iOS SDK is being initialized in this way any configuration any parameters passed through the JavaScript side with
-`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK by following [these steps](/ios/open-source/integration/embrace-options/).
+`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK.
 :::
 
 If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the

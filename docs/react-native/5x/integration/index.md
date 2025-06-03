@@ -31,7 +31,7 @@ Note that our minimum requirements on the native side tend to be a bit higher th
 * iOS 13.0
 * Swift 5
 * Known incompatibilities
-  * `@datadog/mobile-react-native`. More details [here](/ios/open-source/integration/linking-embrace/#known-issues).
+  * `@datadog/mobile-react-native`. More details [here](/docs/ios/6x/getting-started/installation.md#known-issues).
 
 ### Expo
 

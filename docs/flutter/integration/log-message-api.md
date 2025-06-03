@@ -61,7 +61,7 @@ Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
 :::info
-For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages/).
+For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages.md).
 :::
 
 ---

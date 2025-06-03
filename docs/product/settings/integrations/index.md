@@ -9,4 +9,4 @@ See how you can integrate using:
 
 - [Slack](/docs/product/settings/integrations/slack.md)
 - [Webhooks](/docs/product/settings/integrations/webhooks.md)
-- [Data Destinations](/docs/data-destinations/)
+- [Data Destinations](/docs/data-destinations/index.md)

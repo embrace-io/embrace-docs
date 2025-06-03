@@ -305,7 +305,7 @@ When initializing in Swift more configuration is required when setting up Embrac
 import EmbraceCrash
 ```
 
-Then setup a custom `URLSessionCaptureService` that ignores the Grafana export (see [Configuring the iOS SDK](/ios/open-source/integration/embrace-options/)
+Then setup a custom `URLSessionCaptureService` that ignores the Grafana export (see [Configuring the iOS SDK](/docs/ios/6x/getting-started/configuration-options.md)
 for more details):
 
 ```swift

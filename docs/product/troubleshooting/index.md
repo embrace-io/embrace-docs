@@ -7,7 +7,7 @@ Embrace allows developers to find the root cause of production issues in their a
 
 The dashboard places problems in context of the specific user's session, then aggregates them to let developers triage and prioritize issues before solving them. These troubleshooting mechanisms include:
 
-- [Crashes](/docs/product/crashes/), a prominent source of user frustration.
+- [Crashes](/docs/product/crashes/index.md), a prominent source of user frustration.
 - [Error Logs](/docs/product/troubleshooting/error-logs.md) point developers to severe issues.
 - [ANR Reporting](/docs/product//troubleshooting/anr-reporting.md) point to Android apps "hanging" or not responding.
 - [Release Health](/docs/product//troubleshooting/release-health.md) to measure rollout viability from one version to the next.

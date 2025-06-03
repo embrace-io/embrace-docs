@@ -31,7 +31,7 @@ There are also no limits to the number of child spans you can have per Root Span
 
 ### Limits
 
-For limits pertaining to each platform, please see the Android limits [here](/android/features/traces/#limits), and the iOS limits [here](/ios/open-source/features/traces/#limits).
+For limits pertaining to each platform, please see the Android limits [here](/android/features/traces/#limits), and the iOS limits [here](/docs/ios/6x/core-concepts/traces-spans.md).
 
 :::warning Exceeding Limits
 If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.
