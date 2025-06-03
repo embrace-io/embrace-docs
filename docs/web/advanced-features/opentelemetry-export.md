@@ -1,93 +1,87 @@
 ---
-title: Architecture
-description: Architectural overview of the Embrace iOS SDK 6.x with OpenTelemetry foundation
-sidebar_position: 3
+title: OpenTelemetry Export
+description: Export your Embrace telemetry to OpenTelemetry-compatible backends
+sidebar_position: 1
 ---
 
-# Architecture (OpenTelemetry Foundation)
+# OpenTelemetry Export
 
-The Embrace 6.x iOS SDK has been architecturally designed from the ground up to support and extend [OpenTelemetry](https://opentelemetry.io) for mobile. This modular approach builds Embrace's event-based observability paradigm directly on OpenTelemetry signals, making it both powerful and flexible.
+Because the Web SDK is built on OpenTelemetry, it has the ability to export OpenTelemetry signals directly from the mobile code level, without any of the telemetry hitting our backend.
 
-## OpenTelemetry Integration
+To send traces and logs from the SDK to your collector or vendor of choice, you will need to configure the SDK with an exporter capable of sending OTel signals to that destination.
 
-The SDK is built on OpenTelemetry signals like traces (spans) and logs, which allows for:
+## Direct Exporters
 
-1. Native integration with the OpenTelemetry ecosystem
-2. Standardized telemetry collection and processing
-3. Flexible export options to various observability platforms
-4. Future-proof design aligned with industry standards
+Some collectors have built or presently support direct export of traces or logs in Swift. In theory, any implementation of [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) that can point to the location of the collector should be able to send, respectively, spans and logs.
 
-## Architectural Components
-
-The Embrace SDK consists of several core architectural components:
-
-### Tracer Provider
-
-The SDK uses OpenTelemetry's tracer provider to create and manage spans, which represent operations or events occurring in your application. This provider is configured when the SDK is initialized and is responsible for generating spans with the correct context and attributes.
-
-### Span Processor
-
-The span processor handles spans as they are created and completed, determining how and when they are exported. The SDK includes optimized span processors designed for mobile environments:
-
-- `SingleSpanProcessor`: Efficiently exports spans to storage for use by the Embrace backend
-- `BatchSpanProcessor`: Used for external OpenTelemetry exporters to optimize the frequency of exports
-
-### Log Processor
-
-Similar to span processing, the log processor manages log records, ensuring they are properly formatted, batched, and exported according to your configuration through the `DefaultEmbraceLoggerProvider`.
-
-### Exporters
-
-The SDK supports multiple exporters for sending telemetry data to different destinations:
-
-- Embrace backend (default)
-- Custom OpenTelemetry exporters via the `OpenTelemetryExport` configuration
-- Third-party observability platforms
-
-## How Embrace Concepts Map to OpenTelemetry
-
-Embrace maps its core observability concepts to OpenTelemetry signals:
-
-| Embrace concept | OTel Representation |
-| ------------ | ---------- |
-| Session | Span |
-| Embrace logs | Log |
-| View Breadcrumb | Span |
-| Custom Breadcrumb | Span event |
-| Crash | Log |
-| Exception | Log |
-| Network request | Span + Span attributes |
-| Low memory warning | Span event |
-
-## Session Implementation Example
-
-As an example of how Embrace leverages OpenTelemetry, consider how Sessions are implemented:
-
-Sessions are the core of Embrace's reproduce-and-fix approach to insights. They capture everything your app is doing while foregrounded or backgrounded, until the user starts or stops using the app. Because Sessions take place in a given time period, with different related activities occurring in that time, they are modeled as OpenTelemetry **spans**.
-
-When a Session starts, a span begins that will endure until the session ends:
+The OpenTelemetry-Swift repository lists [`publicly-available exporters`](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) that can be added directly to your Embrace configuration. For example, here is an SDK configuration that adds a Jaeger exporter for traces:
 
 ```swift
-// from SessionSpanUtils
-static func span(id: SessionIdentifier, startTime: Date, state: SessionState, coldStart: Bool) -> Span {
-    EmbraceOTel().buildSpan(name: SpanSemantics.Session.name, type: .session)
-        .setStartTime(time: startTime)
-        .setAttribute(key: SpanSemantics.Session.keyId, value: id.toString)
-        .setAttribute(key: SpanSemantics.Session.keyState, value: state.rawValue)
-        .setAttribute(key: SpanSemantics.Session.keyColdStart, value: coldStart)
-        .startSpan()
-}
+try? Embrace
+    .setup(
+        options: Embrace.Options(
+            appId: "AppID",
+            logLevel: .debug,
+            export: OpenTelemetryExport(
+                spanExporter: JaegerSpanExporter(
+                    serviceName: "jaegerServiceName",
+                    collectorAddress: "jaegerCollectorAddress"
+                )
+            )
+        )
+    )
+    .start()
 ```
 
-The session span contains all the relevant information about the session and serves as a parent for other spans created during the session lifetime. When the session ends, the span is completed and processed for export.
+## OTLP Export through HTTP or gRPC
 
-## Extensibility
+The OpenTelemetry-Swift list also has OTLP HTTP and gRPC exporters for logs and spans. These can be used more flexibly than the single-service exporters like Jaeger, because vendors can provide some important keys or headers that allow you to use the protocol to export to an HTTP or gRPC address.
 
-Because of this architecture, the SDK can be easily extended through:
+For example, Grafana Cloud allows you to [generate a token](/docs/data-destinations/grafana-cloud-setup.md#access-policytoken) that you can use with their OTLP traces and spans gateway. On the SDK side, you can add an [OtlpHttpTraceExporter](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/Exporters/OpenTelemetryProtocolHttp/trace/OtlpHttpTraceExporter.swift) to send your spans to that Grafana account via the Grafana Cloud traces endpoint, and similarly use an [OtlpHttpLogExporter](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/Exporters/OpenTelemetryProtocolHttp/logs/OtlpHttpLogExporter.swift) to send your logs to the same account via the GC log endpoint:
 
-- Custom span processors
-- Additional exporters (configured through OpenTelemetryExport)
-- Custom span attributes
-- Integration with other OpenTelemetry-based systems
+```swift
+let grafanaCloudTokenString = //String generated from your account
+let urlConfig = URLSessionConfiguration.default
+urlConfig.httpAdditionalHeaders = ["Authorization": "Basic \(grafanaCloudTokenString)"]
 
-This design provides a solid foundation for mobile observability while maintaining compatibility with the broader observability ecosystem. Detailed examples of how to configure custom exporters can be found in the "Advanced Features" -> "OpenTelemetry Export" section.
+try? Embrace
+    .setup(
+        options: Embrace.Options(
+            appId: "AppID",
+            logLevel: .debug,
+            export: OpenTelemetryExport(
+                spanExporter: OtlpHttpTraceExporter(
+                    endpoint: URL(string: "https://otlp-gateway-prod-us-west-0.grafana.net/otlp/v1/traces")!,
+                    useSession: URLSession(configuration: urlConfig)
+                ),
+                logExporter: OtlpHttpLogExporter(
+                    endpoint: URL(string: "https://otlp-gateway-prod-us-west-0.grafana.net/otlp/v1/logs")!,
+                    useSession: URLSession(configuration: urlConfig)
+                )
+            )
+        )
+    )
+    .start()
+```
+
+## Common Use Cases
+
+### Integrating with Existing Observability Stacks
+
+If your organization already uses an observability platform that supports OpenTelemetry, you can integrate Embrace data directly into that platform:
+
+- Send mobile app traces to the same system that monitors your backend services
+- Create unified dashboards that show full-stack performance
+- Correlate mobile issues with backend problems
+
+### Custom Exporters
+
+For specialized environments, you can implement custom exporters that:
+
+- Send data to internal systems
+- Apply custom filtering or processing before export
+- Implement company-specific security or compliance requirements
+
+<!-- TODO: Add examples of implementing a custom exporter
+TODO: Include examples of configuring batching and sampling for performance optimization
+TODO: Show how to conditionally enable exporters based on build configuration (debug vs. release)  -->

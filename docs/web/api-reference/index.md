@@ -12,23 +12,21 @@ This section provides detailed reference documentation for the key classes and i
 
 The Embrace iOS SDK is organized around several core components:
 
-- **[Embrace Client](./embrace-client.md)** - The main interface for interacting with the SDK
-- **[Configuration](./configuration.md)** - Options and settings for configuring the SDK
+<!-- TODO: determine if any of these are relevant- **[Configuration](./configuration.md)** - Options and settings for configuring the SDK
 - **[Capture Services](./capture-services.md)** - Services that automatically instrument your application
-- **[Utility Classes](./utility-classes.md)** - Helper classes and utilities for common tasks
+- **[Utility Classes](./utility-classes.md)** - Helper classes and utilities for common tasks -->
 
 ## Using the API Reference
 
 This reference is designed to provide a comprehensive overview of all available APIs in the Embrace iOS SDK 6.x:
 
-- **Embrace Client** - Methods for initializing the SDK, managing sessions, logging, error handling, and user identification
 - **Configuration** - Available options and properties to customize the SDK's behavior
 - **Capture Services** - Reference for built-in automatic instrumentation services including network monitoring, view tracking, tap capture, and more
 - **Utility Classes** - Helper classes and utilities for common tasks and advanced use cases
 
 ## OpenTelemetry Integration
 
-Embrace iOS SDK 6.x is built on OpenTelemetry and provides:
+Embrace Web SDK is built on OpenTelemetry and provides:
 
 - Fully OpenTelemetry-compliant implementation
 - Standard trace and span creation
@@ -38,7 +36,7 @@ Embrace iOS SDK 6.x is built on OpenTelemetry and provides:
 
 For complete source code, the Embrace iOS SDK is open-source and available on GitHub:
 
-[Embrace Web SDK on GitHub](https://github.com/embrace-io/embrace-apple-sdk)
+[Embrace Web SDK on GitHub](https://github.com/embrace-io/embrace-web-sdk)
 
 Each reference page in this section includes links to the relevant source code on GitHub, allowing you to see the implementation details when needed.
 

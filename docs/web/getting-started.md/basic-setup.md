@@ -15,7 +15,7 @@ The `Embrace` class is the main interface for the Embrace SDK. It provides metho
 Before setting up the SDK, you need:
 
 - An Embrace App ID (obtained from the Embrace Dashboard)
-- The SDK installed in your project ([see installation guide](/ios/6x/getting-started/installation.md))
+- The SDK installed in your project (see installation guide)
 
 ## Initializing the Embrace Client
 
@@ -88,7 +88,6 @@ Available log levels include:
 - `.trace`, `.debug`, `.info`, `.warning`, `.error` - Increasing levels of severity
 - `.default` - Uses `.debug` in DEBUG builds, `.error` in RELEASE builds
 
-For more advanced configuration options, see the [Configuration Options](/ios/6x/getting-started/configuration-options.md) page.
 
 ## Error Handling
 
@@ -152,7 +151,7 @@ case .notInitialized, nil:
 
 After basic setup, you can:
 
-- [Configure additional options](/docs/ios/6x/getting-started/configuration-options.md) to customize the SDK's behavior
-- Learn about [Sessions](/docs/ios/6x/core-concepts/sessions.md) and how they track user activity
-- Explore [Traces & Spans](/docs/ios/6x/core-concepts/traces-spans.md) for performance monitoring
-- Set up [automatic instrumentation](/docs/ios/6x/automatic-instrumentation) for network monitoring and other features
+- [Configure additional options](/docs/web/getting-started.md/configuration-options.md) to customize the SDK's behavior
+- Learn about [Sessions](/docs/web/core-concepts/sessions.md) and how they track user activity
+- Explore [Traces & Spans](/docs/web/core-concepts/traces-spans.md) for performance monitoring
+- Set up [automatic instrumentation](/docs/web/automatic-instrumentation/) for network monitoring and other features

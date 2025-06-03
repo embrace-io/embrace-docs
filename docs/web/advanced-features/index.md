@@ -1,12 +1,12 @@
 ---
 title: Advanced Features
-description: Explore advanced capabilities of the Embrace iOS SDK
+description: Explore advanced capabilities of the Embrace Web SDK
 sidebar_position: 5
 ---
 
 # Advanced Features
 
-The Embrace iOS SDK includes several advanced features that provide additional capabilities for monitoring, debugging, and customizing your app's behavior. These features extend beyond the basic instrumentation and can help you address specific use cases or requirements.
+The Embrace Web SDK includes several advanced features that provide additional capabilities for monitoring, debugging, and customizing your app's behavior. These features extend beyond the basic instrumentation and can help you address specific use cases or requirements.
 
 ## What are Advanced Features?
 
@@ -20,11 +20,10 @@ Advanced features in the Embrace SDK include specialized capabilities that:
 
 ## Available Advanced Features
 
-The Embrace iOS SDK offers the following advanced features:
+The Embrace Web SDK offers the following advanced features:
 
 - **[OpenTelemetry Export](./opentelemetry-export.md)** - Export your telemetry data directly to OpenTelemetry-compatible backends
 - **[User Personas](./user-personas.md)** - Segment users based on behaviors or characteristics
-- **[Last Run End State](./last-run-end-state.md)** - Determine how the previous app session ended
 
 ## When to Use Advanced Features
 
