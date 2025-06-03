@@ -26,6 +26,8 @@ Embrace provides several APIs for manual instrumentation:
 2. **[Custom Logging](./custom-logging.md)** - Capture log messages at various severity levels
 3. **[Error Handling](./error-handling.md)** - Record and track errors that occur in your app
 4. **[Performance Monitoring](./performance-monitoring.md)** - Track performance metrics for critical operations
+5. **[Crash Reporting](./crash-reporting.md)** - Configure crash reporting and integrate with Crashlytics
+6. **[Breadcrumbs](./breadcrumbs.md)** - Add lightweight logging context to sessions
 
 ## When to Use Manual Instrumentation
 
