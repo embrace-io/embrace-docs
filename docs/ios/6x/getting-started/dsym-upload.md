@@ -94,7 +94,7 @@ If your crashes are not being symbolicated:
 3. Ensure your App ID and API Token are correct
 4. Verify that the dSYM files match the build that crashed
 
-For more troubleshooting tips, see our [FAQ section](/ios/faq#dsym-troubleshooting).
+For more troubleshooting tips, see our [FAQ section](/ios/faq#troubleshooting-dsym-upload).
 
 ## Next Steps
 
