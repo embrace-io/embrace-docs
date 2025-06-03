@@ -1,7 +1,7 @@
 ---
 title: 6.x Apple SDK
 description: Using the Embrace Open Source SDK
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # Using the Embrace 6.x SDK
@@ -12,7 +12,7 @@ Embrace's 6.x SDK is open-source and can be found on [GitHub](https://github.com
 
 ## What is in the Embrace Apple SDK?
 
-The Embrace Apple SDK is built on OpenTelemetry signals like logs and spans, which allow you to [export the telemetry](/docs/ios/6x/advanced-features/opentelemetry-export) captured in your app to other sources. We encourage you to add the SDK to your app and view the logs and traces that the SDK automatically captures, with the caveat that we can't guarantee you'll quickly make sense of it all. Embrace 6.x SDK is also built in Swift, which allows us to provide more support for modern language features like async/await.
+The Embrace Apple SDK is built on OpenTelemetry signals like logs and spans, which allow you to [export the telemetry](/docs/ios/6x/advanced-features/opentelemetry-export.md) captured in your app to other sources. We encourage you to add the SDK to your app and view the logs and traces that the SDK automatically captures, with the caveat that we can't guarantee you'll quickly make sense of it all. Embrace 6.x SDK is also built in Swift, which allows us to provide more support for modern language features like async/await.
 
 Please note that some prior functionality has been deprecated and that some method names or implementation details may differ. Further details are available in the [migration guide](/docs/ios/6x/getting-started/migration-guide.md). Please reach out to in the [Community Slack](https://community.embrace.io) if you have any questions. 
 

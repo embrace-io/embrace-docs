@@ -156,4 +156,4 @@ After basic setup, you can:
 - [Configure additional options](/docs/ios/6x/getting-started/configuration-options.md) to customize the SDK's behavior
 - Learn about [Sessions](/docs/ios/6x/core-concepts/sessions.md) and how they track user activity
 - Explore [Traces & Spans](/docs/ios/6x/core-concepts/traces-spans.md) for performance monitoring
-- Set up [automatic instrumentation](/docs/ios/6x/automatic-instrumentation) for network monitoring and other features
+- Set up [automatic instrumentation](/docs/ios/6x/automatic-instrumentation/index.md) for network monitoring and other features

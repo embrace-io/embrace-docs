@@ -246,7 +246,7 @@ To reduce the device and network overhead, we batch logs according to the [follo
 - `MAX_INACTIVITY_TIME` = 2000 (in milliseconds). If no new log appears after 2 seconds from the last log, we send the batch.
 
 :::info
-For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages/).
+For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages.md.
 :::
 
 ---
