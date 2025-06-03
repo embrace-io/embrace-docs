@@ -48,7 +48,6 @@ embrace {
         onLongClickEnabled.set(true)
         webviewOnPageStartedEnabled.set(true)
         firebasePushNotificationsEnabled.set(true)
-        autoSdkInitializationEnabled.set(true)
         classIgnorePatterns.set(["com.example.foo.*"])
     }
 
@@ -83,7 +82,6 @@ embrace {
         onLongClickEnabled.set(true)
         webviewOnPageStartedEnabled.set(true)
         firebasePushNotificationsEnabled.set(true)
-        autoSdkInitializationEnabled.set(true)
         classIgnorePatterns.set(listOf("com.example.foo.*"))
     }
 
@@ -140,10 +138,6 @@ Whether Embrace should automatically instrument onPageStarted() in webviews. Def
 #### bytecodeInstrumentation.firebasePushNotificationsEnabled
 
 Whether Embrace should automatically instrument push notifications from Firebase. Defaults to false.
-
-#### bytecodeInstrumentation.autoSdkInitializationEnabled
-
-Whether the Embrace SDK should automatically start when the `Application.onCreate()` method is invoked. Enabling this will make the Gradle plugin inject `Embrace.getInstace().start()` at the beginning of the method for all classes that extend `Application`. Defaults to false.
 
 #### bytecodeInstrumentation.classIgnorePatterns
 
