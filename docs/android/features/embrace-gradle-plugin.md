@@ -40,6 +40,7 @@ embrace {
     autoAddEmbraceComposeClickDependency.set(false)
     telemetryEnabled.set(true)
     failBuildOnUploadErrors.set(true)
+    customSymbolsDirectory = "app/src/main/embrace/symbols"
 
     bytecodeInstrumentation {
         enabled.set(true)
@@ -74,6 +75,7 @@ embrace {
     autoAddEmbraceComposeClickDependency.set(false)
     telemetryEnabled.set(true)
     failBuildOnUploadErrors.set(true)
+    customSymbolsDirectory = "app/src/main/embrace/symbols"
 
     bytecodeInstrumentation {
         enabled.set(true)
@@ -106,6 +108,13 @@ Whether the Embrace Gradle Plugin should automatically add Embrace dependencies 
 #### autoAddEmbraceComposeClickDependency
 
 Whether the Embrace Gradle Plugin should automatically add the embrace-android-compose dependency to this module's classpath. Defaults to false.
+
+#### customSymbolsDirectory
+
+Path to a directory containing architecture subdirectories (e.g., arm64-v8a/, x86/, etc.) with .so files to be used for crash symbolication
+This could be:
+    - An **absolute path**, like: "/Users/yourname/project/app/src/main/symbols".
+    - A **path relative to the module's root directory** such as: "app/src/main/embrace/symbols".
 
 #### telemetryEnabled
 
