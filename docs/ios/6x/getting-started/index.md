@@ -15,6 +15,7 @@ Follow these steps to integrate the Embrace SDK into your app:
 - [Installation](/ios/6x/getting-started/installation.md) - Add the SDK to your project using Swift Package Manager or CocoaPods
 - [Basic Setup](/ios/6x/getting-started/basic-setup.md) - Initialize the SDK in your application
 - [Configuration Options](/ios/6x/getting-started/configuration-options.md) - Customize the SDK's behavior
+- [dSYM Upload](/ios/6x/getting-started/dsym-upload.md) - Configure automatic symbolication for crash reports
 - [Migration Guide](/ios/6x/getting-started/migration-guide.md) - If you're upgrading from 5.x, follow this guide
 
 ## What You'll Get
