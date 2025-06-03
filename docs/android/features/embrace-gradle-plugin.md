@@ -48,6 +48,7 @@ embrace {
         onLongClickEnabled.set(true)
         webviewOnPageStartedEnabled.set(true)
         firebasePushNotificationsEnabled.set(true)
+        autoSdkInitializationEnabled.set(true)
         classIgnorePatterns.set(["com.example.foo.*"])
     }
 
@@ -82,6 +83,7 @@ embrace {
         onLongClickEnabled.set(true)
         webviewOnPageStartedEnabled.set(true)
         firebasePushNotificationsEnabled.set(true)
+        autoSdkInitializationEnabled.set(true)
         classIgnorePatterns.set(listOf("com.example.foo.*"))
     }
 
@@ -138,6 +140,10 @@ Whether Embrace should automatically instrument onPageStarted() in webviews. Def
 #### bytecodeInstrumentation.firebasePushNotificationsEnabled
 
 Whether Embrace should automatically instrument push notifications from Firebase. Defaults to false.
+
+#### bytecodeInstrumentation.autoSdkInitializationEnabled
+
+Whether Embrace should automatically instrument its initialization. When this is enabled, Embrace.getInstace().start() will be injected automatically to any class that extends Application. Defaults to false.
 
 #### bytecodeInstrumentation.classIgnorePatterns
 
