@@ -21,7 +21,7 @@ Embrace.client?
 Breadcrumb messages must be 256 characters or less.
 :::
 
-Note here that the `.add(event:)` method adds a SpanEvent to the [session span](/ios/open-source/#how-we-built-it). Embrace's Breadcrumbs are an OpenTelemetry-compliant subclass of SpanEvents, and are add in-context in the [User Timeline](/docs/product/sessions/).
+Note here that the `.add(event:)` method adds a SpanEvent to the [session span](/ios/open-source/#how-we-built-it). Embrace's Breadcrumbs are an OpenTelemetry-compliant subclass of SpanEvents, and are add in-context in the [User Timeline](/docs/product/sessions/index.md).
 
 :::info
 For how to best use Breadcrumbs, check out the [Best Practices](/docs/best-practices/breadcrumbs.md) page.

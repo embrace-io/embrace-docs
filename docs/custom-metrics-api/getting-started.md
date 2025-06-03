@@ -28,7 +28,7 @@ amongst paying customers. You can then consume this metric in your datastore of 
 ## Creating Custom Metrics in Embrace 
 
 ### via Boards
-Some Widgets on [custom Boards](/docs/product/boards/custom-dashboards) can be directly converted to Custom Metrics.
+Some Widgets on [custom Boards](/docs/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.
 
 Open the menu on a Widget, and click "Create Custom Metric".  This will open up a Custom Metric creation form, pre-populated with the same parameters as the Widget.
 

@@ -154,4 +154,4 @@ After basic setup, you can:
 - [Configure additional options](/docs/web/getting-started.md/configuration-options.md) to customize the SDK's behavior
 - Learn about [Sessions](/docs/web/core-concepts/sessions.md) and how they track user activity
 - Explore [Traces & Spans](/docs/web/core-concepts/traces-spans.md) for performance monitoring
-- Set up [automatic instrumentation](/docs/web/automatic-instrumentation/) for network monitoring and other features
+- Set up [automatic instrumentation](/docs/web/automatic-instrumentation/index.md) for network monitoring and other features

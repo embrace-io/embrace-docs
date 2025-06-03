@@ -69,7 +69,7 @@ To reduce the device and network overhead. We batch logs according to the follow
 
 
 :::info
-For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages/).
+For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages.md).
 :::
 
 ## File Attachments
