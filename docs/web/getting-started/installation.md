@@ -57,4 +57,4 @@ We have forked the Datadog SDK and created a version that can integrate better w
 
 ## Next Steps
 
-After installing the Embrace SDK, you need to [set up and configure](/docs/web/getting-started.md/basic-setup.md) it in your application code. 
+After installing the Embrace SDK, you need to [set up and configure](/docs/web/getting-started/basic-setup.md) it in your application code. 

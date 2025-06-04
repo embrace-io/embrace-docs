@@ -71,7 +71,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "Web",
       description: "Add Embrace to your Web project.",
       icon: <LogoIOS className={styles.platformLogo} />,
-      linkTo: "/web",
+      linkTo: "/web/getting-started",
     },
     {
       title: "React Native",
