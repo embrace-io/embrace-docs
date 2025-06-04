@@ -33,7 +33,10 @@ User Personas allow you to dynamically segment app users according to their beha
 ### Retrieving Current Personas
 
 ```swift
-let personas = Embrace.client?.metadata.currentPersonas
+Embrace.client?.metadata.getCurrentPersonas { personas in
+    print("Current personas: \(personas)")
+    // Use personas here
+}
 ```
 
 ### Adding User Personas
@@ -79,7 +82,7 @@ The value set for `userIdentifier` is not validated by the SDK to follow a speci
 Session Properties provide context about the session or device. They're useful for tracking information that's specific to a particular session:
 
 ```swift
-Embrace.client?.metadata.addProperty(key: "launch type", value: "normal", lifespan: .session)
+try? Embrace.client?.metadata.addProperty(key: "launch_type", value: "normal", lifespan: .session)
 ```
 
 ## Metadata Lifespan

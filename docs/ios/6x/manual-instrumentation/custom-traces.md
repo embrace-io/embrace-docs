@@ -30,15 +30,18 @@ Embrace provides several ways to create custom spans depending on your needs:
 
 ### Basic Span Creation
 
-The simplest way to create a span is with the `startSpan` method:
+Create a span using the `buildSpan` method:
 
 ```swift
-let span = Embrace.client?.startSpan(name: "image_processing")
+let span = Embrace.client?.buildSpan(
+    name: "image_processing", 
+    type: .performance
+).startSpan()
 
 // Your code here
 performImageProcessing()
 
-span?.end()
+span.end()
 ```
 
 ### Using Closures
@@ -46,7 +49,10 @@ span?.end()
 For operations contained within a single function, you can use the closure-based API:
 
 ```swift
-Embrace.client?.createSpan(name: "data_calculation") { span in
+let result = Embrace.recordSpan(
+    name: "data_calculation", 
+    type: .performance
+) { span in
     // Your code here
     let result = performCalculation()
 
@@ -62,16 +68,19 @@ Embrace.client?.createSpan(name: "data_calculation") { span in
 For asynchronous operations, start the span before the operation begins and end it when the operation completes:
 
 ```swift
-let span = Embrace.client?.startSpan(name: "network_request")
+let span = Embrace.client?.buildSpan(
+    name: "network_request", 
+    type: .performance
+).startSpan()
 
 performAsyncOperation { result, error in
     if let error = error {
-        span?.recordError(error)
-        span?.setStatus(.error)
+        span.recordError(error)
+        span.setStatus(.error)
     } else {
-        span?.setAttribute(key: "result_count", value: result.count.description)
+        span.setAttribute(key: "result_count", value: result.count.description)
     }
-    span?.end()
+    span.end()
 }
 ```
 
@@ -80,15 +89,18 @@ performAsyncOperation { result, error in
 Add context to your spans with attributes:
 
 ```swift
-let span = Embrace.client?.startSpan(name: "checkout_process")
+let span = Embrace.client?.buildSpan(
+    name: "checkout_process", 
+    type: .performance
+).startSpan()
 
-span?.setAttribute(key: "cart_item_count", value: "5")
-span?.setAttribute(key: "total_amount", value: "99.99")
-span?.setAttribute(key: "payment_method", value: "credit_card")
+span.setAttribute(key: "cart_item_count", value: "5")
+span.setAttribute(key: "total_amount", value: "99.99")
+span.setAttribute(key: "payment_method", value: "credit_card")
 
 // Complete checkout process
 
-span?.end()
+span.end()
 ```
 
 You can add attributes at any point before the span is ended.
@@ -98,18 +110,33 @@ You can add attributes at any point before the span is ended.
 Create parent-child relationships between spans to represent nested operations:
 
 ```swift
-let parentSpan = Embrace.client?.startSpan(name: "data_sync")
+let parentSpan = Embrace.client?.buildSpan(
+    name: "data_sync", 
+    type: .performance
+).startSpan()
 
 // Start a child span
-let childSpan = parentSpan?.createChildSpan(name: "fetch_remote_data")
+let childSpan = Embrace.client?.buildSpan(
+    name: "fetch_remote_data", 
+    type: .performance
+)
+.setParent(parentSpan)
+.startSpan()
+
 fetchRemoteData { result in
-    childSpan?.end()
+    childSpan.end()
 
     // Create another child span
-    let processSpan = parentSpan?.createChildSpan(name: "process_data")
+    let processSpan = Embrace.client?.buildSpan(
+        name: "process_data", 
+        type: .performance
+    )
+    .setParent(parentSpan)
+    .startSpan()
+    
     processData(result) { success in
-        processSpan?.end()
-        parentSpan?.end()
+        processSpan.end()
+        parentSpan.end()
     }
 }
 ```
@@ -121,15 +148,20 @@ This creates a hierarchy that helps visualize the relationship between operation
 You can specify a span type to categorize different kinds of operations:
 
 ```swift
-let span = Embrace.client?.startSpan(
+let span = Embrace.client?.buildSpan(
     name: "payment_processing",
-    type: "business_transaction"
-)
+    type: .performance // Use SpanType enum values like .performance, .ux, .system
+).startSpan()
 
 // Process payment
 
-span?.end()
+span.end()
 ```
+
+Available span types include:
+- `.performance` - For performance monitoring
+- `.ux` - For user experience tracking
+- `.system` - For system-level operations
 
 ## Best Practices
 
@@ -157,8 +189,11 @@ Choose an appropriate level of granularity for your spans:
 Always end your spans to avoid memory leaks. Consider using Swift's `defer` statement for safety:
 
 ```swift
-let span = Embrace.client?.startSpan(name: "important_operation")
-defer { span?.end() }
+let span = Embrace.client?.buildSpan(
+    name: "important_operation", 
+    type: .performance
+).startSpan()
+defer { span.end() }
 
 // Your code here, even if it throws an exception, span will be ended
 ```
@@ -168,9 +203,9 @@ defer { span?.end() }
 Add attributes that would be useful for troubleshooting:
 
 ```swift
-span?.setAttribute(key: "user_tier", value: "premium")
-span?.setAttribute(key: "data_size", value: dataSize.description)
-span?.setAttribute(key: "retry_count", value: retryCount.description)
+span.setAttribute(key: "user_tier", value: "premium")
+span.setAttribute(key: "data_size", value: dataSize.description)
+span.setAttribute(key: "retry_count", value: retryCount.description)
 ```
 
 ## Common Use Cases
@@ -179,19 +214,22 @@ span?.setAttribute(key: "retry_count", value: retryCount.description)
 
 ```swift
 func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-    let span = Embrace.client?.startSpan(name: "api_fetch_user_profile")
-    span?.setAttribute(key: "user_id", value: userId)
+    let span = Embrace.client?.buildSpan(
+        name: "api_fetch_user_profile", 
+        type: .performance
+    ).startSpan()
+    span.setAttribute(key: "user_id", value: userId)
 
     apiClient.get("/users/\(userId)") { result in
         switch result {
         case .success(let data):
-            span?.setAttribute(key: "data_size", value: data.count.description)
-            span?.end()
+            span.setAttribute(key: "data_size", value: data.count.description)
+            span.end()
             // Process data and call completion
         case .failure(let error):
-            span?.recordError(error)
-            span?.setStatus(.error)
-            span?.end()
+            span.setAttribute(key: "error.message", value: error.localizedDescription)
+            span.status = .error(description: "API request failed")
+            span.end()
             completion(.failure(error))
         }
     }
@@ -202,18 +240,21 @@ func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile,
 
 ```swift
 func saveUserPreferences(preferences: Preferences) throws {
-    let span = Embrace.client?.startSpan(name: "db_save_preferences")
-    defer { span?.end() }
+    let span = Embrace.client?.buildSpan(
+        name: "db_save_preferences", 
+        type: .performance
+    ).startSpan()
+    defer { span.end() }
 
-    span?.setAttribute(key: "preference_count", value: preferences.count.description)
+    span.setAttribute(key: "preference_count", value: preferences.count.description)
 
     do {
         try database.write { transaction in
             transaction.setObject(preferences, forKey: "user_preferences")
         }
     } catch let error {
-        span?.recordError(error)
-        span?.setStatus(.error)
+        span.setAttribute(key: "error.message", value: error.localizedDescription)
+        span.status = .error(description: "Database save failed")
         throw error
     }
 }
@@ -223,14 +264,17 @@ func saveUserPreferences(preferences: Preferences) throws {
 
 ```swift
 func processFeed(posts: [Post]) -> [ProcessedPost] {
-    let span = Embrace.client?.startSpan(name: "algorithm_feed_processing")
-    span?.setAttribute(key: "post_count", value: posts.count.description)
+    let span = Embrace.client?.buildSpan(
+        name: "algorithm_feed_processing", 
+        type: .performance
+    ).startSpan()
+    span.setAttribute(key: "post_count", value: posts.count.description)
 
     // Measure the main processing algorithm
     let result = performFeedProcessing(posts)
 
-    span?.setAttribute(key: "processed_count", value: result.count.description)
-    span?.end()
+    span.setAttribute(key: "processed_count", value: result.count.description)
+    span.end()
 
     return result
 }
