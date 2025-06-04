@@ -8,6 +8,12 @@ sidebar_position: 1
 
 This section will guide you through the process of adding the Embrace SDK to your web application and configuring it for optimal performance monitoring.
 
+## Repository
+
+The Embrace Web SDK is available open-source on [GitHub at this link](https://github.com/embrace-io/embrace-web-sdk).
+
+Continue reading for information on adding the SDK to your web applications.
+
 ## Installation and Setup
 
 Follow these steps to integrate the Embrace SDK into your app:
