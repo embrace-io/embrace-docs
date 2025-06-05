@@ -13,7 +13,7 @@ Core Web Vitals are defined by Google to measure user experience in production. 
 
 ## Implementation and use
 
-Core Web Vitals are automatically collected by the [Embrace Web SDK](/docs/web/). 
+Core Web Vitals are automatically collected by the [Embrace Web SDK](/docs/web/getting-started/index.md). 
 
 Core Web Vitals are available in context with the other technical operations of a user's session in the [User Timeline](/docs/product/sessions/user-timeline.md). For a given Core Web Vital, Embrace displays the element that is most responsible for creating the Core Web Vital calculation.
 
