@@ -132,10 +132,10 @@ This is for auto generating relative paths for network requests similiar to how 
 
 This is a dictionary that contains Two Keys.
 
-1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
-2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash, in the following format:
-``` 
-/(RELATIVE_URL_PATH value)/(value for http header thats name is equal to the value of HEADER)
+- `HEADER` - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
+- `RELATIVE_URL_PATH` - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash, in the following format:
+```swift
+/(`RELATIVE_URL_PATH` value)/(value for http header thats name is equal to the value of HEADER)
 ```
 
 Here is an example use case

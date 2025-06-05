@@ -10,8 +10,8 @@ description: Learn about Embrace for the React Native platform
 
 This documentation is split into two sections:
 
-1. [**Integration Guide**](/react-native/integration/)
-2. [**Feature Reference**](/react-native/features/)
+- [**Integration Guide**](/react-native/integration/)
+- [**Feature Reference**](/react-native/features/)
 
 If you are just starting out with Embrace, follow the [**Integration Guide**](/react-native/integration/) to learn
 the key steps to successfully using our product.

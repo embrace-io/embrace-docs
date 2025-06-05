@@ -75,9 +75,9 @@ Filter your instances by durantion or outcome with these filters:
     * **User Abandon**: user navigated away before instance completion.
 
 ## Implementation Details
- 1. [**Android**](/android/features/traces)
- 2. [**iOS**](/docs/ios/6x/core-concepts/traces-spans.md)
- 3. [**Unity**](/unity/features/traces)
- 4. [**React Native**](/react-native/features/traces)
- 5. [**Flutter**](/flutter/features/traces)
+- [**Android**](/android/features/traces)
+- [**iOS**](/docs/ios/6x/core-concepts/traces-spans.md)
+- [**Unity**](/unity/features/traces)
+- [**React Native**](/react-native/features/traces)
+- [**Flutter**](/flutter/features/traces)
 

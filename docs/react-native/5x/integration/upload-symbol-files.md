@@ -70,8 +70,8 @@ Automatically uploading dSYM files is a good option for you if you are not using
 
 To enable automatic dSYM uploads, we will need to locate a number of items first:
 
-1. **Your App ID.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
-1. **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the API section.
+- **Your App ID.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
+- **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the API section.
 
 Now, open the "Build Phases" tab in Xcode. We will be adding a new phase.
 

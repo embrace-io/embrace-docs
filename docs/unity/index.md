@@ -14,8 +14,8 @@ We test our SDK on Unity LTS versions 2021.3.41f1 and newer. Each Unity release 
 
 This documentation is split into two sections:
 
-1. [**Integration Guide**](/unity/integration/)
-2. [**Feature Reference**](/unity/features/)
+- [**Integration Guide**](/unity/integration/)
+- [**Feature Reference**](/unity/features/)
 
 If you are just starting out with Embrace, follow the [**Integration Guide**](/unity/integration/) to learn
 the key steps to successfully using our product.

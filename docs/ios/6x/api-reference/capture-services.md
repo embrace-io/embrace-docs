@@ -12,13 +12,13 @@ Capture Services are core components of the Embrace SDK that provide automatic i
 
 The SDK includes the following built-in capture services:
 
-1. **NetworkCaptureService** - Captures HTTP/HTTPS network requests and responses
-2. **ViewCaptureService** - Tracks UIViewController lifecycle and performance
-3. **TapCaptureService** - Records user interaction with your app's interface
-4. **WebViewCaptureService** - Monitors WKWebView performance and errors
-5. **LowMemoryWarningCaptureService** - Detects low memory warnings
-6. **LowPowerModeCaptureService** - Tracks low power mode
-7. **PushNotificationCaptureService** - Captures push notification events
+- **NetworkCaptureService** - Captures HTTP/HTTPS network requests and responses
+- **ViewCaptureService** - Tracks UIViewController lifecycle and performance
+- **TapCaptureService** - Records user interaction with your app's interface
+- **WebViewCaptureService** - Monitors WKWebView performance and errors
+- **LowMemoryWarningCaptureService** - Detects low memory warnings
+- **LowPowerModeCaptureService** - Tracks low power mode
+- **PushNotificationCaptureService** - Captures push notification events
 
 ## NetworkCaptureService
 

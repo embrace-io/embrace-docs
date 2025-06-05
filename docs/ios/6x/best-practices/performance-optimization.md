@@ -179,9 +179,9 @@ func highFrequencyOperation() {
 
 Regularly profile your app with Instruments to ensure the Embrace SDK is not causing performance issues:
 
-1. Use Time Profiler to identify if any Embrace methods are consuming excessive CPU time
-2. Use Allocations instrument to check if the SDK is causing memory growth
-3. Compare app performance metrics with and without the SDK enabled
+- Use Time Profiler to identify if any Embrace methods are consuming excessive CPU time
+- Use Allocations instrument to check if the SDK is causing memory growth
+- Compare app performance metrics with and without the SDK enabled
 
 ## Summary
 

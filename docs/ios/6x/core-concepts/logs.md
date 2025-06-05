@@ -55,10 +55,10 @@ Embrace.client?.log(
 
 The log method takes the following parameters:
 
-1. **message**: A string representing the log message itself
-2. **severity**: The [LogSeverity](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCommonInternal/Models/LogSeverity.swift) of the event (e.g., info, warn, error)
-3. **timestamp**: When this log event occurred
-4. **attributes**: A dictionary of key-value pairs for additional context and filtering
+- **message**: A string representing the log message itself
+- **severity**: The [LogSeverity](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCommonInternal/Models/LogSeverity.swift) of the event (e.g., info, warn, error)
+- **timestamp**: When this log event occurred
+- **attributes**: A dictionary of key-value pairs for additional context and filtering
 
 ## Log Limits
 

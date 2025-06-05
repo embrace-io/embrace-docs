@@ -12,10 +12,10 @@ The Embrace 6.x iOS SDK has been architecturally designed from the ground up to 
 
 The SDK is built on OpenTelemetry signals like traces (spans) and logs, which allows for:
 
-1. Native integration with the OpenTelemetry ecosystem
-2. Standardized telemetry collection and processing
-3. Flexible export options to various observability platforms
-4. Future-proof design aligned with industry standards
+- Native integration with the OpenTelemetry ecosystem
+- Standardized telemetry collection and processing
+- Flexible export options to various observability platforms
+- Future-proof design aligned with industry standards
 
 ## Architectural Components
 
