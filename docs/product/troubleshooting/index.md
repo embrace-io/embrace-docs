@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 Embrace allows developers to find the root cause of production issues in their apps. However, as most developers know, there can be many kinds of issues in user-facing applications, which makes troubleshooting difficult.
