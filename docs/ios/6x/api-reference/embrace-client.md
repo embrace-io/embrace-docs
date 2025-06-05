@@ -331,18 +331,15 @@ let metadata = Embrace.client?.metadata
 Set user information using the metadata handler's properties:
 
 ```swift
-// Set user identifier
-Embrace.client?.metadata.userIdentifier = "user123"
-
-// Set user email
-Embrace.client?.metadata.userEmail = "user@example.com"
-
-// Set username
-Embrace.client?.metadata.userName = "john_doe"
+// Set user identifier (should be an anonymized ID, not account info)
+// Use hashed values, UUIDs, or other anonymized identifiers
+Embrace.client?.metadata.userIdentifier = "anon_user_1a2b3c4d"
 
 // Clear all user properties
 Embrace.client?.metadata.clearUserProperties()
 ```
+
+**Important**: The `userIdentifier` should be an anonymized identifier that doesn't represent actual account information for the app user. Use hashed values, UUIDs, or other privacy-safe identifiers that allow you to track users without exposing personal information.
 
 #### Session Properties
 
@@ -488,10 +485,8 @@ Embrace.client?.log(
 #### User Identification Examples
 
 ```swift
-// Set user information
-Embrace.client?.metadata.userIdentifier = "user123"
-Embrace.client?.metadata.userName = "john_doe"
-Embrace.client?.metadata.userEmail = "john@example.com"
+// Set anonymized user identifier
+Embrace.client?.metadata.userIdentifier = "anon_user_7f8e9a1b"
 
 // Add session properties
 try Embrace.client?.metadata.addProperty(
