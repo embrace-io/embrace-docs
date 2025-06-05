@@ -123,10 +123,6 @@ const config: Config = {
             from: "/ios/open-source/getting-started/",
           },
           {
-            to: "/ios/6x/getting-started/",
-            from: "/ios/open-source/getting-started/",
-          },
-          {
             to: "/ios/6x/core-concepts/traces-spans/",
             from: "/ios/open-source/features/traces/",
           },
