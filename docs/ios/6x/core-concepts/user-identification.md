@@ -138,9 +138,8 @@ class AuthenticationFlow {
         do {
             let user = try await performSignUp(email: email)
             
-            // Set user identification immediately after signup
-            Embrace.client?.metadata.userIdentifier = user.id
-            Embrace.client?.metadata.userEmail = email
+            // Set user identification immediately after signup (use anonymized ID)
+            Embrace.client?.metadata.userIdentifier = user.anonymizedId
             
             // Add personas for new user
             try? Embrace.client?.metadata.add(
@@ -178,10 +177,8 @@ class AuthenticationFlow {
         do {
             let user = try await performLogin(credentials)
             
-            // Update user identification for returning user
-            Embrace.client?.metadata.userIdentifier = user.id
-            Embrace.client?.metadata.userEmail = user.email
-            Embrace.client?.metadata.userName = user.username
+            // Update user identification for returning user (use anonymized ID)
+            Embrace.client?.metadata.userIdentifier = user.anonymizedId
             
             // Remove new_user persona if present, add authenticated
             try? Embrace.client?.metadata.remove(
@@ -497,10 +494,8 @@ class PrivacySafeUserIdentification {
             lifespan: .permanent
         )
         
-        // Only set email if user consented
-        if consentLevel.allowsEmailStorage {
-            Embrace.client?.metadata.userEmail = email
-        }
+        // Note: Email storage should only be done if user explicitly consented
+        // and your privacy policy allows it. Consider using hashed identifiers instead.
         
         // Add privacy-aware personas
         try? Embrace.client?.metadata.add(
@@ -526,10 +521,8 @@ class PrivacySafeUserIdentification {
             lifespan: .permanent
         )
         
-        // Clear data if consent was withdrawn
-        if !newLevel.allowsEmailStorage {
-            Embrace.client?.metadata.userEmail = nil
-        }
+        // Clear any stored personal data if consent was withdrawn
+        // (implementation depends on what data you're storing)
         
         // Update personas
         try? Embrace.client?.metadata.removeAllPersonas(lifespans: [.permanent])
