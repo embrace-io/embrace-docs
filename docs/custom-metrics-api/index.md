@@ -225,7 +225,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 ```
 
 :::info
-1. Refer to this [page](/custom-metrics-api/supported_metrics) if you want to see supported metrics without using the API.
+Refer to this [page](/custom-metrics-api/supported_metrics) if you want to see supported metrics without using the API.
 :::
 
 #### Query Parameter

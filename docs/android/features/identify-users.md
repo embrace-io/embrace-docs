@@ -8,12 +8,12 @@ description: Get to know the users of your Android application with the Embrace 
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
 sessions for an unhappy user.
 
-1. [**User Personas**](/android/features/identify-users#user-personas). This is data you can set and update about the user of a session.
-1. [**Session Properties**](/android/features/session-properties). This is data you use to track information about the device or the session itself.
+- [**User Personas and Identifiers**](/android/features/identify-users#user-personas). This is data you can set and update about the user of a session.
+- [**Session Properties**](/android/features/session-properties). This is data you use to track information about the device or the session itself.
 
-## User Personas
+## User Personas and identifiers {#user-personas}
 
-Embrace offers a set of methods to pass information about your users.
+Embrace offers a set of methods to pass information about your users. You can set a "persona" for the session's user, such as tester or VIP. You can also add a user identifier, which will be an Embrace-specific ID for identifying the session in the dashboard.
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -23,12 +23,14 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
 ```kotlin
-Embrace.getInstance().addUserPersona("internal_user_id_123")
+Embrace.getInstance().addUserPersona("internal_user")
+Embrace.getInstance().setUserIdentifier("internal_user_id_123")
 ```
 </TabItem>
 <TabItem value="java" label="Java">
 ```java
-Embrace.getInstance().addUserPersona("internal_user_id_123");
+Embrace.getInstance().addUserPersona("internal_user");
+Embrace.getInstance().setUserIdentifier("internal_user_id_123")
 ```
 </TabItem>
 </Tabs>

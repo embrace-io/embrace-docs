@@ -17,8 +17,8 @@ the latest.
 
 This documentation is split into two sections:
 
-1. [**Integration Guide**](/react-native/5x/integration/)
-2. [**Feature Reference**](/react-native/5x/features/)
+- [**Integration Guide**](/react-native/5x/integration/)
+- [**Feature Reference**](/react-native/5x/features/)
 
 If you are just starting out with Embrace, follow the [**Integration Guide**](/react-native/5x/integration/) to learn
 the key steps to successfully using our product.

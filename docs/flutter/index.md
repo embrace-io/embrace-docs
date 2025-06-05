@@ -10,8 +10,8 @@ description: Learn about Embrace for the Flutter platform
 
 This documentation is split into two sections:
 
-1. [**Integration Guide**](/flutter/integration/)
-2. [**Feature Reference**](/flutter/features/)
+- [**Integration Guide**](/flutter/integration/)
+- [**Feature Reference**](/flutter/features/)
 
 If you are just starting out with Embrace, follow the [**Integration Guide**](/flutter/integration/) to learn
 the key steps to successfully using our product.

@@ -9,10 +9,10 @@ sidebar_position: 20
 ## Overview
 
 The Embrace Gradle Plugin performs several functions:
-1. It uploads mapping files to the Embrace backend that are required to get readable stacktraces from production apps
-2. It instruments your app's bytecode to insert SDK hooks that capture telemetry out-of-the-box
-3. It adds Embrace dependencies to your project's compile classpath
-4. It injects your specified configuration for the Embrace SDK into the APK/App Bundle
+- It uploads mapping files to the Embrace backend that are required to get readable stacktraces from production apps
+- It instruments your app's bytecode to insert SDK hooks that capture telemetry out-of-the-box
+- It adds Embrace dependencies to your project's compile classpath
+- It injects your specified configuration for the Embrace SDK into the APK/App Bundle
 
 ## Apply the Embrace Gradle Plugin
 

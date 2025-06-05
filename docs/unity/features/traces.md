@@ -51,8 +51,8 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attrib
 To use this feature:
 
 1. **Ensure you're using Embrace Unity SDK version 1.26.0 or greater**.
-3. Instrument your app using the reference guide in this section to start adding spans to your operations.
-4. See the spans in the Traces section of the Embrace dashboard.
+2. Instrument your app using the reference guide in this section to start adding spans to your operations.
+3. See the spans in the [Traces](/docs/product/traces/index.md) section of the Embrace dashboard.
 
 ## API Usage Examples
 

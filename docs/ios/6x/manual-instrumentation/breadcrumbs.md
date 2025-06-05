@@ -148,9 +148,9 @@ trace?.end()
 
 Breadcrumbs appear in several places in the Embrace dashboard:
 
-1. **Session Timeline** - Shows breadcrumbs in chronological order with other session events
-2. **Crash Reports** - Displays breadcrumbs leading up to crashes
-3. **User Journey** - Provides context for understanding user behavior patterns
+- **Session Timeline** - Shows breadcrumbs in chronological order with other session events
+- **Crash Reports** - Displays breadcrumbs leading up to crashes
+- **User Journey** - Provides context for understanding user behavior patterns
 
 ## Common Use Cases
 

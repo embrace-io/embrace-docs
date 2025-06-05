@@ -9,8 +9,8 @@ sidebar_position: 2
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
 sessions for an unhappy user.
 
-1. [**User Personas**](/react-native/4x/features/identify-users#user-personas). This is data you can set and update about the user of a session.
-1. [**Session Properties**](/react-native/4x/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
+- [**User Personas**](/react-native/4x/features/identify-users#user-personas). This is data you can set and update about the user of a session.
+- [**Session Properties**](/react-native/4x/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
 ## User Personas
 

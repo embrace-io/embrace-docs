@@ -22,9 +22,9 @@ As your app grows, you'll need to triage issues based on segments of your user b
 
 The Embrace SDK offers three main approaches for adding user context:
 
-1. **User Personas**: Data about user characteristics and behaviors (tags)
-2. **User Identifier**: A unique ID for tracking specific users
-3. **Session Properties**: Data about the device or session context
+- **User Personas**: Data about user characteristics and behaviors (tags)
+- **User Identifier**: A unique ID for tracking specific users
+- **Session Properties**: Data about the device or session context
 
 ## User Personas
 
