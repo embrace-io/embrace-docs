@@ -79,11 +79,115 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/ios/6x/api-reference/configuration/",
+            from: "/ios/open-source/integration/customizing-signals/",
+          },
+          {
+            to: "/ios/6x/api-reference/embrace-client/",
+            from: "/ios/open-source/integration/embrace-client/",
+          },
+          {
+            to: "/ios/6x/api-reference/embrace-client/",
+            from: "/ios/open-source/integration/embrace-options/",
+          },
+          {
+            to: "/ios/6x/getting-started/",
+            from: "/ios/open-source/integration/",
+          },
+          {
+            to: "/ios/6x/getting-started/dsym-upload/",
+            from: "/ios/open-source/getting-started/symbolicating-crash-reports/",
+          },
+          {
+            to: "/ios/6x/core-concepts/sessions/",
+            from: "/ios/open-source/getting-started/session-reporting/",
+          },
+          {
+            to: "/ios/6x/core-concepts/logs/",
+            from: "/ios/open-source/getting-started/logs/",
+          },
+          {
+            to: "/ios/6x/manual-instrumentation/crash-reporting/",
+            from: "/ios/open-source/getting-started/crash-report/",
+          },
+          {
+            to: "/ios/6x/manual-instrumentation/breadcrumbs/",
+            from: "/ios/open-source/getting-started/breadcrumbs/",
+          },
+          {
+            to: "/ios/6x/getting-started/",
+            from: "/ios/open-source/getting-started/background-sessions/",
+          },
+          {
+            to: "/ios/6x/getting-started/",
+            from: "/ios/open-source/getting-started/",
+          },
+          {
+            to: "/ios/6x/core-concepts/traces-spans/",
+            from: "/ios/open-source/features/traces/",
+          },
+          {
+            to: "/ios/6x/",
+            from: "/ios/open-source/features/network-body-capture/",
+          },
+          {
+            to: "/ios/6x/advanced-features/last-run-end-state/",
+            from: "/ios/open-source/features/last-run-end-state/",
+          },
+          {
+            to: "/ios/6x/core-concepts/user-identification/",
+            from: "/ios/open-source/features/identify-users/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/web-view/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/url-session/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/ui-view-controller/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/tap/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/push-notifications/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/low-power/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/low-memory/",
+          },
+          {
+            to: "/ios/6x/api-reference/capture-services/",
+            from: "/ios/open-source/features/capture-services/",
+          },
+          {
+            to: "/ios/6x/",
+            from: "/ios/open-source/features/",
+          },
+          {
+            to: "/ios/6x/getting-started/migration-guide/",
+            from: "/ios/open-source/upgrade-guide/",
+          },
+          {
             to: "/ios/6x",
             from: "/ios/open-source/",
           },
           {
-            to: "/product",
+            to: "/product/",
+            from: "/features/",
+          },
+          {
+            to: "/product/troubleshooting/",
             from: "/features/app-exits/",
           },
           {
