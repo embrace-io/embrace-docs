@@ -22,7 +22,7 @@ Traces are added to key flows in your app using the Embrace SDKs. Once you've be
 To add Traces to your application, use the detailed instrumentation instructions by platform:
 
 - [Android](/docs/android/features/traces.md)
-- [iOS](/docs/ios/open-source/features/traces.md)
+- [iOS](/docs/ios/6x/core-concepts/traces-spans.md)
 - [React Native](/docs/react-native/features/traces.md)
 - [Unity](/docs/unity/features/traces.md)
 - [Flutter](/docs/flutter/features/traces.md)

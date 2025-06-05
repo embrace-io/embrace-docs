@@ -14,13 +14,7 @@ The Embrace Apple SDK is designed to provide first class observability and diagn
 
 Our Apple 6.x SDK is recommended for all current and new customers. The 6.x SDK is our [open-source](https://github.com/embrace-io/embrace-apple-sdk) superset of [OpenTelemetry](https://opentelemetry.io) instrumentation, built in Swift for modern language (such as async/await) and mobile observability (spans, logs) features. It has all the latest Embrace features and semantics, and will continue to grow as Embrace helps expand the OTel ecosystem for mobile.
 
-We recommend that customers use our version 6 SDK, as it contains OTel primitives, open-source support, and better use of modern Swift features like async/await. If you are upgrading from our older 5x SDK, a [migration guide](/ios/open-source/upgrade-guide.md) is available to implement the new features and interface in the 6.x SDK.
-
-This documentation reflects information on the 6.x SDK. Current documentation for the 6.x SDK is split into three sections:
-
-1. [**Integration Guide**](./open-source/integration/) for open-source SDK developers.
-2. [**Getting Started**](./open-source/getting-started/) for users adding Embrace to your project.
-3. [**Feature Reference**](./open-source/features/) for more details about Embrace features.
+We recommend that customers use our version 6 SDK, as it contains OTel primitives, open-source support, and better use of modern Swift features like async/await. If you are upgrading from our older 5x SDK, a [migration guide](/docs/ios/6x/getting-started/migration-guide.md) is available to implement the new features and interface in the 6.x SDK.
 
 ## 5.x SDK Documentation
 

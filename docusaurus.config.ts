@@ -79,11 +79,15 @@ const config: Config = {
       {
         redirects: [
           {
-            to: "/",
+            to: "/ios/6x",
+            from: "/ios/open-source/",
+          },
+          {
+            to: "/product",
             from: "/features/app-exits/",
           },
           {
-            to: "/",
+            to: "/product",
             from: "/product/video-recording-and-apples-policy/",
           },
           {
@@ -163,15 +167,15 @@ const config: Config = {
             from: "/gdpr-data-processing-addendum-dpa/",
           },
           {
-            to: "/ios/open-source/upgrade-guide/#moments-have-been-replaced-by-traces",
+            to: "/ios/6x/",
             from: "/ios/open-source/moments-to-tracing/",
           },
           {
-            to: "/ios/open-source/#built-on-opentelemetry/",
+            to: "/ios/6x/",
             from: "/ios/upgrade-guide/built-on-otel/",
           },
           {
-            to: "/ios/open-source/upgrade-guide/",
+            to: "/ios/6x/",
             from: "/ios/upgrade-guide/",
           },
           {
@@ -295,7 +299,7 @@ const config: Config = {
             from: "/ios/5x/features/tracing",
           },
           {
-            to: "/ios/open-source/features/traces",
+            to: "/ios/6x",
             from: "/ios/open-source/tracing",
           },
           {
