@@ -31,8 +31,8 @@ Embrace.instance.logError(
 
 Here's a breakdown of the arguments being passed to the `logError` method (the only required one is the message):
 
-1. **message** The string is the message itself. Try to make this short yet informative.
-1. **properties** This is a map of key-value pairs you can use to categorize and filter log messages with.
+- **message** The string is the message itself. Try to make this short yet informative.
+- **properties** This is a map of key-value pairs you can use to categorize and filter log messages with.
 
 :::info Adjusting Severity
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.

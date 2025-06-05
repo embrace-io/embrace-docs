@@ -56,7 +56,7 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and 
 To use this feature:
 
 1. Instrument your app using the reference guide in this sections to start adding spans to your operations.
-2. See the spans in the Traces section of the Embrace dashboard.
+2. See the spans in the [Traces](/docs/product/traces/index.md) section of the Embrace dashboard.
 
 ### Install the Tracer Provider package
 

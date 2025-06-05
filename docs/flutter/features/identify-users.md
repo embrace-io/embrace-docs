@@ -9,8 +9,8 @@ sidebar_position: 2
 Embrace offers two methods of annotating sessions with information that will help developers and customer service agents find
 sessions for an unhappy user.
 
-1. [**User Personas**](/flutter/features/identify-users/#user-personas). This is data you can set and update about the user of a session.
-1. [**Session Properties**](/flutter/features/identify-users/#session-properties). This is data you use to track information about the device or the session itself.
+- [**User Personas**](/flutter/features/identify-users/#user-personas). This is data you can set and update about the user of a session.
+- [**Session Properties**](/flutter/features/identify-users/#session-properties). This is data you use to track information about the device or the session itself.
 
 ## User Personas
 

@@ -26,8 +26,8 @@ import TabItem from '@theme/TabItem';
 
 To enable automatic dSYM uploads, we will need to locate a number of items first:
 
-1. **Your App ID.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
-2. **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the API section.
+- **Your App ID.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
+- **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the API section.
 
 In Xcode, find the "Bundle React Native code and images" step in the Build Phases tab.
 The contents should look something like the following:

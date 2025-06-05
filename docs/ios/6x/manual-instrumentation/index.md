@@ -22,12 +22,12 @@ Manual instrumentation refers to the explicit addition of code in your applicati
 
 Embrace provides several APIs for manual instrumentation:
 
-1. **[Custom Traces](./custom-traces.md)** - Measure the duration of custom operations with spans
-2. **[Custom Logging](./custom-logging.md)** - Capture log messages at various severity levels
-3. **[Error Handling](./error-handling.md)** - Record and track errors that occur in your app
-4. **[Performance Monitoring](./performance-monitoring.md)** - Track performance metrics for critical operations
-5. **[Crash Reporting](./crash-reporting.md)** - Configure crash reporting and integrate with Crashlytics
-6. **[Breadcrumbs](./breadcrumbs.md)** - Add lightweight logging context to sessions
+- **[Custom Traces](./custom-traces.md)** - Measure the duration of custom operations with spans
+- **[Custom Logging](./custom-logging.md)** - Capture log messages at various severity levels
+- **[Error Handling](./error-handling.md)** - Record and track errors that occur in your app
+- **[Performance Monitoring](./performance-monitoring.md)** - Track performance metrics for critical operations
+- **[Crash Reporting](./crash-reporting.md)** - Configure crash reporting and integrate with Crashlytics
+- **[Breadcrumbs](./breadcrumbs.md)** - Add lightweight logging context to sessions
 
 ## When to Use Manual Instrumentation
 
@@ -44,11 +44,11 @@ Consider adding manual instrumentation when:
 
 Effective manual instrumentation follows these principles:
 
-1. **Consistent naming** - Use a consistent naming convention for spans and events
-2. **Appropriate granularity** - Create spans that are neither too broad nor too narrow
-3. **Relevant attributes** - Add attributes that provide useful context
-4. **Error capturing** - Record errors within the proper context
-5. **Proper span hierarchy** - Create logical parent-child relationships
+- **Consistent naming** - Use a consistent naming convention for spans and events
+- **Appropriate granularity** - Create spans that are neither too broad nor too narrow
+- **Relevant attributes** - Add attributes that provide useful context
+- **Error capturing** - Record errors within the proper context
+- **Proper span hierarchy** - Create logical parent-child relationships
 
 ## Getting Started
 

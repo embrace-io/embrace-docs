@@ -135,11 +135,11 @@ You can register callbacks to be notified when crashes occur:
 
 ## Best Practices
 
-1. **Always upload dSYMs** - Ensure your crash reports are symbolicated by [uploading dSYM files](/ios/6x/getting-started/dsym-upload)
-2. **Add context** - Use [breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs) and custom attributes to provide context around crashes
-3. **Test thoroughly** - Test crash reporting in your development and staging environments
-4. **Monitor regularly** - Set up alerts for new crash types or increased crash rates
-5. **Prioritize fixes** - Focus on crashes that affect the most users or critical user flows
+- **Always upload dSYMs** - Ensure your crash reports are symbolicated by [uploading dSYM files](/docs/ios/6x/getting-started/dsym-upload)
+- **Add context** - Use [breadcrumbs](/docs/ios/6x/manual-instrumentation/breadcrumbs) and custom attributes to provide context around crashes
+- **Test thoroughly** - Test [crash reporting](/docs/product/crashes/crash-reporting.md) in your development and staging environments
+- **Monitor regularly** - Set up [alerts](/docs/product/alerting.md) for new crash types or increased crash rates
+- **Prioritize fixes** - Focus on crashes that affect the most users or critical user flows
 
 ## Troubleshooting
 

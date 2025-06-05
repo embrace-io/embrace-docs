@@ -24,8 +24,8 @@ Versions 5.x and 6.x are not compatible nor are they interoperable. The 6.x SDK 
 
 This documentation reflects information on the 5.x SDK. It is split into two sections:
 
-1. [**Integration Guide**](./5x/integration/)
-2. [**Feature Reference**](./5x/features/)
+- [**Integration Guide**](./5x/integration/)
+- [**Feature Reference**](./5x/features/)
 
 ## Any questions
 

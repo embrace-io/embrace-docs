@@ -39,8 +39,8 @@ Users can start from Embrace's [dashboard](https://dash.embrace.io) by providing
 
 In order to properly configure SAML SSO we'll need two pieces of information which you will need to obtain from SSO provider's portal:
 
-1. **Metadata URL or XML File**: Some SSO providers referred to the Metadata URL as an "Issuer URL." Other providers might not use a URL and will only allow you to download an XML file.
-2. **Domain**: In most cases, it will be the domain of your company's email (i.e. example.com if your email is bob.smith@example.com).
+- **Metadata URL or XML File**: Some SSO providers referred to the Metadata URL as an "Issuer URL." Other providers might not use a URL and will only allow you to download an XML file.
+- **Domain**: In most cases, it will be the domain of your company's email (i.e. example.com if your email is bob.smith@example.com).
 
 Once you have obtained those two pieces of information, any user with Embrace "admin" privileges can navigate to [dash.embrace.io](https://dash.embrace.io) SSO settings:
 
