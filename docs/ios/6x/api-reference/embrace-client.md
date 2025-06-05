@@ -151,7 +151,10 @@ func log(
 - `severity`: `LogSeverity` for the log (`.info`, `.warning`, `.error`, etc.).
 - `type`: The type of log (defaults to `.message`).
 - `attributes`: Optional dictionary of key-value pairs to attach to the log.
-- `stackTraceBehavior`: Defines if stack trace information should be added to the log.
+- `stackTraceBehavior`: Defines if stack trace information should be added to the log. Available options:
+  - `.default` - Uses the default behavior (captures stack traces for `.warning` and `.error` logs)
+  - `.notIncluded` - Stack traces are not automatically captured
+  - `.custom(EmbraceStackTrace)` - Uses a custom stack trace provided
 
 **Note**: Only `warn` and `error` logs will have stack traces.
 
@@ -204,6 +207,28 @@ func log(
 - `.info` - General information
 - `.warning` - Warning conditions
 - `.error` - Error conditions
+
+#### Stack Trace Behavior Examples
+
+```swift
+// Default behavior - automatically captures stack traces for warning and error logs
+Embrace.client?.log("Something went wrong", severity: .error)
+
+// Explicitly disable stack trace capture
+Embrace.client?.log(
+    "Debug message", 
+    severity: .debug, 
+    stackTraceBehavior: .notIncluded
+)
+
+// Use custom stack trace
+let customTrace = EmbraceStackTrace(/* custom trace data */)
+Embrace.client?.log(
+    "Custom trace log", 
+    severity: .info, 
+    stackTraceBehavior: .custom(customTrace)
+)
+```
 
 ### Performance Monitoring
 
