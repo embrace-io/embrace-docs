@@ -25,6 +25,7 @@ The Embrace iOS SDK offers the following advanced features:
 - **[OpenTelemetry Export](./opentelemetry-export.md)** - Export your telemetry data directly to OpenTelemetry-compatible backends
 - **[User Personas](./user-personas.md)** - Segment users based on behaviors or characteristics
 - **[Last Run End State](./last-run-end-state.md)** - Determine how the previous app session ended
+- **[Startup Instrumentation](./startup-instrumentation.md)** - Add your own instrumentation around the application startup
 
 ## When to Use Advanced Features
 

@@ -5,6 +5,15 @@ sidebar_position: 4
 ---
 
 # iOS/tvOS SDK Changelog
+
+## 6.11.0
+*June 6, 2025*
+* Fixes
+    * Fixed compilation errors when having the Embrace SDK as a dependency of a static library in a SwiftPM project.
+* Changes
+    * Added new instrumentation around application startup.
+    * Added capture services to capture `MetricKit` reports.
+
 ## 6.10.1
 *May 28, 2025*
 * Fixes
