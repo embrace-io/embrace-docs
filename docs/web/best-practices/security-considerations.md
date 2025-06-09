@@ -34,7 +34,7 @@ Be mindful that exceptions and stack traces may contain sensitive information as
 Consider implementing mechanisms to respect user privacy choices:
 
 ```typescript
-function updatePrivacyConsent(userConsented: Bool) {
+function updatePrivacyConsent(userConsented: boolean) {
     if (userConsented) {
       // Start Embrace with user consent
       sdk.initSDK({
