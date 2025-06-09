@@ -38,7 +38,7 @@ Stack traces are automatically captured for warning and error level logs. This c
 ```typescript
 import { log } from '@embrace-io/web-sdk';
 
-log.message('Purchase attempt failed', {
+log.message('Purchase attempt failed', 'error', {
   attributes: {
     productID,
     price,

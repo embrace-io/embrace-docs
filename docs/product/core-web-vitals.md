@@ -5,7 +5,8 @@ sidebar_position: 5
 
 Embrace collects and captures [Core Web Vital](https://developers.google.com/search/docs/appearance/core-web-vitals) scores for each page of your web application. These scores provide insight into key aspects of your site performance.
 
-Core Web Vitals are defined by Google to measure user experience in production. The metrics collected are:
+Core Web Vitals are defined by Google to measure user experience in production and can impact how a site is ranked in
+search results. The metrics collected are:
 
 - Largest Contentful Paint (**LCP**), which measures loading performance for the page.
 - Interaction to Next Paint (**INP**), which measures page responsiveness.

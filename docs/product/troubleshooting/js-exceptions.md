@@ -11,8 +11,10 @@ The Exceptions page provides a summary of all exceptions encountered, the total 
 
 <img src={require('@site/static/images/features/js-exceptions/exceptions-summary.png').default} alt="Javascript Exceptions Summary" />
 
-
-The Exceptions page also provides a list of all specific exceptions. This list notes trends for the exception over time and versions in which it occurred. This list is also filterable by dimensions like country and version
+The Exceptions page also provides a list of all specific exceptions. This list represents all the exceptions that
+occurred within a given time period, grouped into events that correspond to the same type of exception. If you want to
+see specific instance details, you can drill down by selecting one of the grouped rows. This list is also filterable by
+dimensions like country and version.
 
 <img src={require('@site/static/images/features/js-exceptions/exceptions-list.png').default} alt="Javascript Exceptions List" />
 
