@@ -6,49 +6,49 @@ sidebar_position: 1
 
 # Sessions
 
-Sessions are a fundamental concept in the Embrace Web SDK that help you understand how users interact with your application over time.
+Sessions are a fundamental concept in the Embrace Web SDK that help you understand how users interact with your
+application over time.
 
 ## What is a Session?
 
-<!-- TODO: update details for web -->
-A session is a comprehensive record of user interaction that occurs while your app is in either the foreground or background state. Embrace automatically captures sessions when your app is initialized and started.
+A session is a comprehensive record of user interaction that occurs within your app. Embrace manages session lifecycle
+automatically when your app is started and the SDK is initialized.
 
-Key points about sessions:
-- Foreground sessions capture user interaction while the app is actively being used
-- Background sessions capture processes that occur while the app is in the background
-- Sessions transition when the app changes state (foreground to background or vice versa)
+A new session starts when your web app is loaded in a user's browser tab and is ended when any of the following occurs:
+- The tab or browser is closed or refreshed
+- The user switches to another tab or the browser's window loses focuses. If background sessions are enabled this also
+starts a new background session
+- There is no user activity detected on the tab for a certain period of time (30 minutes by default)
 
-## How Sessions Work
+A session ending will trigger an upload of that session's data to Embrace where it will be shown within the Embrace
+Dashboard. You can also manually trigger the start or stop of sessions if needed:
 
-When you initialize the Embrace SDK in your app, it automatically begins capturing session data. Sessions are recorded as OpenTelemetry spans with attributes and span events for various app lifecycle events, user experiences, and device information.
+```typescript
+import { session } from '@embrace-io/web-sdk';
 
-Sessions contain important information such as:
-- App lifecycle events (start, foreground, background, terminate)
-- Device information (model, OS version, memory usage)
-- Network activity
-- View controller lifecycle
-- User actions and interactions
-- Custom events and logs you add
+// Force start a new session
+session.startSessionSpan();
 
-## Session Lifecycle
+// Force end the current session
+session.endSessionSpan();
+```
 
-A typical session lifecycle looks like this:
+:::info
+Embrace "stitches" individual sessions together where it makes sense to treat them as the same overall
+user interaction. So, for example, a user switching away from your web app to another tab before returning and performing
+more actions would be recorded as two sessions but presented as one stitched session in the Embrace Dashboard.
+:::
 
-1. **Session Start**: When the app is launched or foregrounded
-2. **Session Running**: As the user interacts with the app, data is collected
-3. **Session End**: When the app is backgrounded or terminated
-4. **Session Upload**: The session data is uploaded to Embrace for analysis
+## Session Properties
 
-Embrace automatically uploads sessions on subsequent launches or when the app transitions between foreground and background states.
+Session Properties provide context about the session. They're useful for tracking information that's specific
+to a particular session:
 
-## Triggering Session Uploads
+```typescript
+import { session } from '@embrace-io/web-sdk';
 
-To manually trigger a session upload during development, you can:
-
-1. Send the application to the background by pressing the simulator's home button or using `Cmd+Shift+H`
-2. Launch the application again to ensure the session was fully uploaded
-
-Sometimes the app might not have sufficient time to complete the upload while in the background. Relaunching the app ensures the session data is properly transmitted.
+session.addProperty("my-custom-property", "some value");
+```
 
 ## Sessions vs Other Concepts
 
@@ -56,29 +56,22 @@ It's important to understand how sessions relate to other core concepts in the S
 
 - **Sessions and Traces**: A session can contain multiple traces. Traces represent specific operations within a session.
 - **Sessions and Logs**: Logs provide additional context within a session, helping you understand what happened during user interaction.
-- **Sessions and User Identification**: User identification helps you attribute sessions to specific users or user segments.
 
 ## Implementation Details
 
-In the Embrace SDK, sessions are implemented as OpenTelemetry spans. When a session starts, a span begins that will continue until the session ends:
+In the Embrace SDK, sessions are implemented as OpenTelemetry spans. When a session starts, a span begins that will
+continue until the session ends:
 
-<!-- TODO: replace -->
-```swift
+```typescript
 // This happens internally in the SDK
-static func span(id: SessionIdentifier, startTime: Date) -> Span {
-    EmbraceOTel().buildSpan(name: spanName, type: .session)
-        .setStartTime(time: startTime)
-        .setAttribute(key: sessionIdAttribute, value: id.toString)
-        .startSpan()
-}
+this._sessionSpan = tracer.startSpan('emb-session', {
+  attributes: {
+    [KEY_EMB_TYPE]: EMB_TYPES.Session,
+    [KEY_EMB_STATE]:
+      this._visibilityDoc.visibilityState === 'hidden'
+        ? EMB_STATES.Background
+        : EMB_STATES.Foreground,
+    [ATTR_SESSION_ID]: this._activeSessionId,
+  },
+});
 ```
-
-The session span contains all relevant session information and serves as a parent for other spans created during the session lifetime.
-
-## Best Practices
-
-- Let the SDK manage session lifecycle automatically
-- Add relevant user identification early in the session to ensure proper attribution
-- Use custom logs and traces to add context to sessions
-- Consider how background sessions impact your analytics
-- Review session data regularly to identify patterns and issues

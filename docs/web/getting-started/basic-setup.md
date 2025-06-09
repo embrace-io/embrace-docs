@@ -1,157 +1,183 @@
 ---
 title: Basic Setup
-description: Setting up the Embrace iOS SDK 6.x in your application
-sidebar_position: 2
+description: Setting up the Embrace Web SDK in your application
+sidebar_position: 1
 ---
 
-# Basic Setup
+## Install the package
 
-Unlike previous versions, Embrace's 6.x SDK does not use a `.plist` file to configure your application. Instead, the SDK is centered around and configured through the [`Embrace`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Embrace.swift) class.
+npm:
 
-The `Embrace` class is the main interface for the Embrace SDK. It provides methods to configure, start, and interact with the SDK. The SDK is configured using an [`Embrace.Options`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BOptions.swift) instance passed in the setup static method.
+```sh
+npm install @embrace-io/web-sdk
+```
 
-## Prerequisites
+yarn:
 
-Before setting up the SDK, you need:
+```sh
+yarn add @embrace-io/web-sdk
+```
 
-- An Embrace App ID (obtained from the Embrace Dashboard)
-- The SDK installed in your project (see installation guide)
+:::tip
+For CDN installs, see [Including the SDK as a code snippet from CDN](#including-the-sdk-as-a-code-snippet-from-cdn).
+:::
 
-## Initializing the Embrace Client
 
-Embrace should be configured and started as close to the launch of the application as possible. Below is an example setup for a straightforward SwiftUI application:
+## Initialize the SDK
 
-```swift
-import EmbraceIO
-import SwiftUI
+Once you've created an Embrace web application you can initialize the SDK using the appID you were given along with
+the app version of your application. The following should be done as early in your app's lifecycle as possible to start
+capturing telemetry:
 
-struct NewEmbraceApp: App {
-    init() {
-        do {
-            try Embrace
-                .setup(
-                    options: Embrace.Options(
-                        appId: "YOUR_APP_ID"  // Your App ID from Embrace Dashboard
-                    )
-                )
-                .start()
-        } catch let e {
-            print("Error starting Embrace \(e.localizedDescription)")
-        }
-    }
+```typescript
+import { sdk } from '@embrace-io/web-sdk';
+
+const result = sdk.initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: "YOUR_APP_VERSION",
+});
+
+if (!!result) {
+  console.log("Successfully initialized the Embrace SDK");
+} else {
+  console.log("Failed to initialize the Embrace SDK");
 }
 ```
 
-### For UIKit Applications
+At this point you should be able to rebuild your app and have Embrace begin collecting telemetry. Data should start to
+show up in the Embrace Dashboard once the SDK reports at least 1 completed session. You can learn more about how sessions
+are calculated [here](/docs/web/core-concepts/sessions.md).
 
-For UIKit applications, initialize Embrace in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method:
+:::note 
+It may take a few minutes before the first sessions appear in your Embrace dashboard.
+:::
 
-```swift
-import EmbraceIO
-import UIKit
+## Keeping your app version up-to-date
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        do {
-            try Embrace
-                .setup(
-                    options: Embrace.Options(
-                        appId: "YOUR_APP_ID"  // Your App ID from Embrace Dashboard
-                    )
-                )
-                .start()
-        } catch let e {
-            print("Error starting Embrace \(e.localizedDescription)")
-        }
+Embrace uses the `appVersion` you provide to segment collected telemetry and allow you to view differences between
+releases, as such you should make sure this value is updated whenever you release a new version of your application. If
+you use your `package.json` to track versions of your app then a way to keep this up-to-date is simply to read that
+value when initializing the SDK (assuming that your bundler provides a method for importing json files):
 
-        return true
-    }
-}
+```typescript
+import * as packageInfo from "../<some-path>/package.json";
+
+sdk.initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: packageInfo.version,
+});
 ```
 
-## Configuration Options
+Alternatively if your app version is generated as part of your CI/CD process, you can use our CLI tool to inject your
+app version into your bundle at build time. The process is done as part of [uploading sourcemaps](/docs/web/getting-started/sourcemap-uploads.md).
 
-The most commonly used options for SDK initialization include:
 
-```swift
-Embrace.Options(
-    appId: "YOUR_APP_ID",         // Required for sending data to Embrace
-    appGroupId: "group.your.id",  // Optional: for app extensions sharing data
-    logLevel: .default,           // Controls SDK's console logging verbosity
-    export: nil                   // Optional: for OpenTelemetry export
-)
+## Including the SDK as a code snippet from CDN
+
+We recommend you include our SDK as a regular npm dependency (see above). If you prefer to include the SDK as a code
+snippet from CDN, you can do so by adding the following script tag to your main HTML file:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X"></script>
 ```
 
-Available log levels include:
-- `.none` - No logging
-- `.trace`, `.debug`, `.info`, `.warning`, `.error` - Increasing levels of severity
-- `.default` - Uses `.debug` in DEBUG builds, `.error` in RELEASE builds
+Replacing `X.X.X` with the version of the SDK you wish to include. Check available version on [npm](https://www.npmjs.com/package/@embrace-io/web-sdk).
 
+We recommend you add this script tag to the `<head>` of your HTML file, so that it loads before your app code. This will
+expose the SDK as a global variable `EmbraceWebSdk` on the `window` object. This needs to be added before any script
+that makes use of the sdk.
 
-## Error Handling
+The rest of this documentation assumes using the SDK from an NPM installation, here are some required changes to keep in
+mind as you refer to further instructions:
 
-Both the `.setup` and the `.start` methods can throw errors. While it's unlikely that the SDK fails during startup, it's possible in edge cases such as:
+1) Importing the sdk from node modules is no longer valid. Instead, reference it from the global `window` object:
 
-- No disk space is available for Embrace's data stores
-- Data stores have been corrupted
+   ```diff
+   - import { sdk } from '@embrace-io/web-sdk';
+   + const { sdk } = window.EmbraceWebSdk;
+   ```
 
-You can handle errors with a `do-try-catch` statement as shown above, or use Swift's Optional try for silent failure:
+2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
+bundled with your code, instead you will need to make sure to pass in your app version when initializing the sdk as in
+the following example:
 
-```swift
-// Optional try for silent failure
-try? Embrace
-    .setup(options: Embrace.Options(appId: "YOUR_APP_ID"))
-    .start()
+   ```javascript
+   sdk.initSDK({
+     appVersion: '0.0.1',
+     /*...*/
+   });
+   ```
 
-// Later in your code
-// If setup failed, this will simply not create a span
-let span = Embrace.client?.buildSpan(name: "user-action")
-// ...
-span?.end()
+### Async CDN Loading
+
+If you prefer to load the SDK asynchronously to avoid blocking the rendering of your page, you'll need to add the
+following snippet to your HTML file. Remember to replace `X.X.X` with the version of the SDK you want to include:
+```html
+<script>
+   !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
+</script>
 ```
 
-## Accessing the Embrace Client
+By deferring the loading of the SDK, any early calls to the SDK need to be wrapped in the `onReady` method:
 
-Once `setup` has succeeded, you can access the Embrace instance in two ways:
-
-1. Store a reference from the setup call:
-```swift
-let embrace = try Embrace
-    .setup(options: embraceOptions)
-    .start()
-
-// Later in your code
-embrace.buildSpan(name: "my-operation").startSpan()
+```javascript
+window.EmbraceWebSdkOnReady.onReady(() => {
+   window.EmbraceWebSdk.sdk.initSDK({
+      appVersion: '0.0.1',
+      /*...*/
+   });
+})
 ```
 
-2. Use the static client property:
-```swift
-// After setup has been called
-Embrace.client?.buildSpan(name: "my-operation").startSpan()
+This is necessary to ensure that the SDK is fully loaded before you start using it.
+
+:::warning
+The SDK may miss some early telemetry events emitted before the SDK is initialized if you use this method.
+:::
+
+## Using the SDK without the Embrace Dashboard
+
+If you'd prefer not to send data to Embrace you can simply omit the embrace app id when calling `initSDK`. Note that in
+this case at least one custom exporter needs to be configured following the steps
+from [OpenTelemetry Export](/docs/web/advanced-features/opentelemetry-export.md).
+
+## Troubleshooting
+
+### Compatibility with OTel packages
+
+The SDK is built on top of OpenTelemetry and as such it is possible to use it alongside other OTel libraries. If you
+wish to customize the sdk behaviour by configuring custom resources, exporters, processors or instrumentations you
+should make sure to use versions of the OTel packages that are compatible with what the SDK uses. this table
+summarizes those compatible versions of the OTel packages:
+
+| Open Telemetry APIs | Core  | Instrumentations & Contrib |
+|---------------------|-------|----------------------------|
+| ^1.9.0              | ^1.30 | ^0.57.0                    |
+
+For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json)
+and [package-lock.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package-lock.json) files in the SDK repository.
+
+### Turning on verbose logging in the SDK
+
+By default, the SDK will only send error level logs to the console. The log level of the SDK can be increased when
+initializing as follows:
+
+```typescript
+import { sdk } from '@embrace-io/web-sdk';
+
+sdk.initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: "YOUR_APP_VERSION",
+  logLevel: sdk.DiagLogLevel.INFO,
+});
 ```
 
-## Checking SDK Status
-
-If you need to know whether the SDK has started successfully, you can access the status:
-
-```swift
-switch Embrace.client?.state {
-case .started:
-    // SDK is running
-case .initialized:
-    // SDK is initialized but not started
-case .notInitialized, nil:
-    // SDK failed to initialize or hasn't been initialized yet
-}
-```
-
-> Note: The `started` property is deprecated. Use the `state` property instead which provides more detailed status information.
 ## Next Steps
 
 After basic setup, you can:
 
-- [Configure additional options](/docs/web/getting-started/configuration-options.md) to customize the SDK's behavior
+- Configure [Sourcemap Upload](/docs/web/getting-started/sourcemap-uploads.md) to view symbolicated stack traces for
 - Learn about [Sessions](/docs/web/core-concepts/sessions.md) and how they track user activity
+exceptions and logs in the Embrace dashboard
 - Explore [Traces & Spans](/docs/web/core-concepts/traces-spans.md) for performance monitoring
-- Set up [automatic instrumentation](/docs/web/automatic-instrumentation/index.md) for network monitoring and other features
+- Dig into what is available through [automatic instrumentation](/docs/web/automatic-instrumentation/index.md)

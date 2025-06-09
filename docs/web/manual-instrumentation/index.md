@@ -1,16 +1,19 @@
 ---
 title: Manual Instrumentation
-description: Add custom telemetry to your iOS app with Embrace's manual instrumentation APIs
+description: Add custom telemetry to your web app with Embrace's manual instrumentation APIs
 sidebar_position: 4
 ---
 
 # Manual Instrumentation
 
-While Embrace's [automatic instrumentation](../automatic-instrumentation/index.md) captures many important metrics and events out of the box, manual instrumentation allows you to add custom telemetry data that's specific to your application's unique workflows and business logic.
+While Embrace's [automatic instrumentation](../automatic-instrumentation/index.md) captures many important metrics and
+events out of the box, manual instrumentation allows you to add custom telemetry data that's specific to your
+application's unique workflows and business logic.
 
 ## What is Manual Instrumentation?
 
-Manual instrumentation refers to the explicit addition of code in your application to create traces, logs, handle errors, and monitor performance. This gives you the ability to:
+Manual instrumentation refers to the explicit addition of code in your application to create traces, logs, handle errors,
+and monitor performance. This gives you the ability to:
 
 - Track custom business processes
 - Measure performance of critical operations
@@ -24,8 +27,7 @@ Embrace provides several APIs for manual instrumentation:
 
 1. **[Custom Traces](./custom-traces.md)** - Measure the duration of custom operations with spans
 2. **[Custom Logging](./custom-logging.md)** - Capture log messages at various severity levels
-3. **[Error Handling](./error-handling.md)** - Record and track errors that occur in your app
-4. **[Performance Monitoring](./performance-monitoring.md)** - Track performance metrics for critical operations
+3. **[Breadcrumbs](./breadcrumbs.md)** - Provide context to user activity in sessions
 
 ## When to Use Manual Instrumentation
 
@@ -33,7 +35,7 @@ Consider adding manual instrumentation when:
 
 - You need to track business-specific metrics not covered by automatic instrumentation
 - You want to measure performance of critical algorithms or operations
-- You need to track user journeys across multiple screens
+- You need to track user journeys across multiple interactions
 - You want to add custom context to your telemetry data
 - You need to capture application-specific events
 - You want to track third-party SDK interactions
@@ -52,23 +54,23 @@ Effective manual instrumentation follows these principles:
 
 The most common way to start with manual instrumentation is by creating custom spans:
 
-```swift
+```typescript
+import { trace } from '@embrace-io/web-sdk';
+
 // Create and start a span
-let span = Embrace.client?.startSpan(name: "important_operation")
+const span = trace.startSpan("span-name");
 
 // Perform your operation
 // ...
 
 // Add some context to the span
-span?.setAttribute(key: "operation_size", value: "large")
+span.setAttribute("operation-size", "large");
 
 // Record success or failure
-if success {
-    span?.end()
+if (success) {
+  span.end();
 } else {
-    span?.recordError(error)
-    span?.setStatus(.error)
-    span?.end()
+  span.fail();
 }
 ```
 
@@ -82,11 +84,3 @@ Explore the sections in this documentation to learn about all the available manu
 - Create a standardized naming scheme for your organization
 - Avoid creating too many spans which could impact performance
 - Balance detail with volume to avoid overwhelming your telemetry data
-
-## Integration with Automatic Instrumentation
-
-Manual instrumentation complements automatic instrumentation. For example:
-
-- Add custom attributes to automatically captured spans
-- Create custom spans as children of automatically captured spans
-- Use custom events to mark significant points within automatically tracked user flows

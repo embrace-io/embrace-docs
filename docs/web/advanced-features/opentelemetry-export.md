@@ -6,73 +6,64 @@ sidebar_position: 1
 
 # OpenTelemetry Export
 
-Because the Web SDK is built on OpenTelemetry, it has the ability to export OpenTelemetry signals directly from the mobile code level, without any of the telemetry hitting our backend.
+Because the Web SDK is built on OpenTelemetry, it has the ability to export OpenTelemetry signals directly from the
+client-side, without any of the telemetry hitting our backend.
 
-To send traces and logs from the SDK to your collector or vendor of choice, you will need to configure the SDK with an exporter capable of sending OTel signals to that destination.
+To send traces and logs from the SDK to your collector or vendor of choice, you will need to configure the SDK with an
+exporter capable of sending OTel signals to that destination.
 
-## Direct Exporters
+## Setup custom exporters
 
-Some collectors have built or presently support direct export of traces or logs in Swift. In theory, any implementation of [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) that can point to the location of the collector should be able to send, respectively, spans and logs.
+You can set up your own custom log and trace exporters and pass them in when initializing the SDK. For example if you
+wish to send telemetry to Grafana cloud using OTLP, and assuming you have installed the
+`@opentelemetry/exporter-logs-otlp-http` and `@opentelemetry/exporter-trace-otlp-http` packages, then you could do the
+following:
 
-The OpenTelemetry-Swift repository lists [`publicly-available exporters`](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) that can be added directly to your Embrace configuration. For example, here is an SDK configuration that adds a Jaeger exporter for traces:
+```typescript
+import { OTLPLogExporter }   from '@opentelemetry/exporter-logs-otlp-http';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 
-```swift
-try? Embrace
-    .setup(
-        options: Embrace.Options(
-            appId: "AppID",
-            logLevel: .debug,
-            export: OpenTelemetryExport(
-                spanExporter: JaegerSpanExporter(
-                    serviceName: "jaegerServiceName",
-                    collectorAddress: "jaegerCollectorAddress"
-                )
-            )
-        )
-    )
-    .start()
+sdk.initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: "YOUR_APP_VERSION",
+  spanExporters: [
+    new OTLPTraceExporter({
+      url: `GRANAFA_ENDPOINT/v1/traces`,
+      headers: {
+        'Authorization': 'Basic YOUR_GRAFANA_CLOUD_TOKEN'
+      }
+    }),
+  ],
+  logExporters: [
+    new OTLPLogExporter({
+      url: `GRANAFA_ENDPOINT/v1/logs`,
+      headers: {
+        'Authorization': 'Basic YOUR_GRAFANA_CLOUD_TOKEN'
+      }
+    }),
+  ]
+});
 ```
 
-## OTLP Export through HTTP or gRPC
+:::warning
+Embrace automatically creates spans for network requests, however because the OTLP export itself makes a network request
+this can produce a cycle where the export's network request creates a span which is then exported which then creates
+another span, etc.
 
-The OpenTelemetry-Swift list also has OTLP HTTP and gRPC exporters for logs and spans. These can be used more flexibly than the single-service exporters like Jaeger, because vendors can provide some important keys or headers that allow you to use the protocol to export to an HTTP or gRPC address.
-
-For example, Grafana Cloud allows you to [generate a token](/docs/data-destinations/grafana-cloud-setup.md#access-policytoken) that you can use with their OTLP traces and spans gateway. On the SDK side, you can add an [OtlpHttpTraceExporter](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/Exporters/OpenTelemetryProtocolHttp/trace/OtlpHttpTraceExporter.swift) to send your spans to that Grafana account via the Grafana Cloud traces endpoint, and similarly use an [OtlpHttpLogExporter](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/Exporters/OpenTelemetryProtocolHttp/logs/OtlpHttpLogExporter.swift) to send your logs to the same account via the GC log endpoint:
-
-```swift
-let grafanaCloudTokenString = //String generated from your account
-let urlConfig = URLSessionConfiguration.default
-urlConfig.httpAdditionalHeaders = ["Authorization": "Basic \(grafanaCloudTokenString)"]
-
-try? Embrace
-    .setup(
-        options: Embrace.Options(
-            appId: "AppID",
-            logLevel: .debug,
-            export: OpenTelemetryExport(
-                spanExporter: OtlpHttpTraceExporter(
-                    endpoint: URL(string: "https://otlp-gateway-prod-us-west-0.grafana.net/otlp/v1/traces")!,
-                    useSession: URLSession(configuration: urlConfig)
-                ),
-                logExporter: OtlpHttpLogExporter(
-                    endpoint: URL(string: "https://otlp-gateway-prod-us-west-0.grafana.net/otlp/v1/logs")!,
-                    useSession: URLSession(configuration: urlConfig)
-                )
-            )
-        )
-    )
-    .start()
-```
+To avoid this you can [configure the SDK's network monitoring](/docs/web/automatic-instrumentation/network-monitoring.md#configuration-options)
+to ignore the endpoint to which you are exporting.
+:::
 
 ## Common Use Cases
 
 ### Integrating with Existing Observability Stacks
 
-If your organization already uses an observability platform that supports OpenTelemetry, you can integrate Embrace data directly into that platform:
+If your organization already uses an observability platform that supports OpenTelemetry, you can integrate Embrace data
+directly into that platform:
 
-- Send mobile app traces to the same system that monitors your backend services
+- Send frontend traces to the same system that monitors your backend services
 - Create unified dashboards that show full-stack performance
-- Correlate mobile issues with backend problems
+- Correlate frontend issues with backend problems
 
 ### Custom Exporters
 
@@ -81,7 +72,3 @@ For specialized environments, you can implement custom exporters that:
 - Send data to internal systems
 - Apply custom filtering or processing before export
 - Implement company-specific security or compliance requirements
-
-<!-- TODO: Add examples of implementing a custom exporter
-TODO: Include examples of configuring batching and sampling for performance optimization
-TODO: Show how to conditionally enable exporters based on build configuration (debug vs. release)  -->

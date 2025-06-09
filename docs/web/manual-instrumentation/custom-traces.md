@@ -1,134 +1,105 @@
 ---
 title: Traces
-description: Track the duration and performance of custom operations in your iOS app
+description: Track the duration and performance of custom operations in your web app
 sidebar_position: 1
 ---
 
 # Traces
 
-Custom traces allow you to measure the duration of specific operations in your app, providing insights into performance and behavior of code paths that matter to your business. Traces are implemented using spans from the OpenTelemetry standard.
-
-## What are Traces and Spans?
-
-In OpenTelemetry:
-- A **trace** represents the entire journey of a request or operation through your system
-- **Spans** are the building blocks of a trace, representing individual units of work or operations
-
-Each span:
-- Has a name and type
-- Tracks when the operation started and ended
-- Can include attributes (key-value pairs) that provide context
-- Can record errors that occurred during the operation
-- Can have parent-child relationships with other spans
-- **Must be ended** to properly capture the operation's duration and avoid memory leaks
-
-Embrace uses spans to visualize and analyze the performance of operations in your app.
+Custom traces allow you to measure the duration of specific operations in your app, providing insights into performance
+and behavior of code paths that matter to your business. See our
+[Core Concepts section on Traces & Spans](/docs/web/core-concepts/traces-spans.md) for a more detailed overview.
 
 ## Creating Spans
 
-Embrace provides several ways to create custom spans depending on your needs:
+Each span:
+- Has a name
+- Tracks when the operation started and ended
+- Can include attributes (key-value pairs) that provide context
+- Can record that an error occurred during the operation
+- Can have parent-child relationships with other spans
+- **Must be ended** to properly capture the operation's duration and avoid memory leaks
 
 ### Basic Span Creation
 
 The simplest way to create a span is with the `startSpan` method:
 
-```swift
-let span = Embrace.client?.startSpan(name: "image_processing")
+```typescript
+import { trace } from '@embrace-io/web-sdk';
 
-// Your code here
-performImageProcessing()
+const span = trace.startSpan("span-name");
 
-span?.end()
-```
-
-### Using Closures
-
-For operations contained within a single function, you can use the closure-based API:
-
-```swift
-Embrace.client?.createSpan(name: "data_calculation") { span in
-    // Your code here
-    let result = performCalculation()
-
-    // Add attributes to the span
-    span?.setAttribute(key: "calculation_result", value: result.description)
-
-    return result
-}
-```
-
-### Async Operations
-
-For asynchronous operations, start the span before the operation begins and end it when the operation completes:
-
-```swift
-let span = Embrace.client?.startSpan(name: "network_request")
-
-performAsyncOperation { result, error in
-    if let error = error {
-        span?.recordError(error)
-        span?.setStatus(.error)
-    } else {
-        span?.setAttribute(key: "result_count", value: result.count.description)
-    }
-    span?.end()
-}
+someAsyncOperation()
+  .then(() => span.end())
+  .catch(() => span.fail());
 ```
 
 ## Span Attributes
 
 Add context to your spans with attributes:
 
-```swift
-let span = Embrace.client?.startSpan(name: "checkout_process")
+```typescript
+import { trace } from '@embrace-io/web-sdk';
 
-span?.setAttribute(key: "cart_item_count", value: "5")
-span?.setAttribute(key: "total_amount", value: "99.99")
-span?.setAttribute(key: "payment_method", value: "credit_card")
+// Adding attributes on start is recommended if they are known at that point
+const span = trace.startSpan("span-name", {
+  attributes: {
+    "my-attr-on-create": "hello",
+  },
+});
 
-// Complete checkout process
-
-span?.end()
+// But they can also be added later on if needed as long as the span hasn't been ended
+span.setAttribute("my-other-attr", "bye");
 ```
 
-You can add attributes at any point before the span is ended.
+:::info
+Embrace span attribute values must be strings even though the OTel interface allows for a wider range of types
+:::
 
 ## Span Hierarchy
 
 Create parent-child relationships between spans to represent nested operations:
 
-```swift
-let parentSpan = Embrace.client?.startSpan(name: "data_sync")
+```typescript
+import { trace } from '@embrace-io/web-sdk';
 
-// Start a child span
-let childSpan = parentSpan?.createChildSpan(name: "fetch_remote_data")
-fetchRemoteData { result in
-    childSpan?.end()
+const parentSpan = tracer.startSpan("the-parent");
+const childSpan = tracer.startSpan("the-child", { parentSpan });
 
-    // Create another child span
-    let processSpan = parentSpan?.createChildSpan(name: "process_data")
-    processData(result) { success in
-        processSpan?.end()
-        parentSpan?.end()
-    }
-}
+await someNestedOperation();
+childSpan.end();
+
+await finalStep();
+parentSpan.end();
 ```
 
 This creates a hierarchy that helps visualize the relationship between operations.
 
-## Custom Span Types
+## Add an Event to a Span
 
-You can specify a span type to categorize different kinds of operations:
+If you just want to record that something interesting happened at a certain point in the span's lifetime rather than
+a full child span you can instead add an event to the span:
 
-```swift
-let span = Embrace.client?.startSpan(
-    name: "payment_processing",
-    type: "business_transaction"
-)
+```typescript
+import { trace } from '@embrace-io/web-sdk';
 
-// Process payment
+const span = trace.startSpan("span-name");
 
-span?.end()
+span.addEvent("something-happened", {
+  "some-event-attr": "event-attr-value",
+});
+```
+
+### Recording a Completed Span
+
+Sometimes you need to create a span for an operation that has already completed:
+
+```typescript
+import { trace } from '@embrace-io/web-sdk';
+
+trace.startSpan("span-name", {
+  startTime: previouslyStartedTime,
+}).end(previouslyEndedTime);
 ```
 
 ## Best Practices
@@ -136,102 +107,27 @@ span?.end()
 ### Naming Conventions
 
 Use clear, descriptive names for your spans. Consider a naming convention such as:
-- Use camelCase for span names to maintain consistency with Swift naming conventions
-- Include the general category followed by the specific operation
-- Be consistent across your codebase
-
-Good examples:
-- `networkFetchUserProfile`
-- `databaseSavePreferences`
-- `renderingProductList`
+- Using consistent casing for span names and attributes
+- Including the general category followed by the specific operation
+- Being consistent across your codebase
 
 ### Granularity
 
 Choose an appropriate level of granularity for your spans:
-- Too coarse: `app_startup` (better to break into component parts)
-- Too fine-grained: `increment_counter` (likely too small to be useful)
-- Just right: `image_cache_lookup`, `user_authentication`
-
-### Resource Management
-
-Always end your spans to avoid memory leaks. Consider using Swift's `defer` statement for safety:
-
-```swift
-let span = Embrace.client?.startSpan(name: "important_operation")
-defer { span?.end() }
-
-// Your code here, even if it throws an exception, span will be ended
-```
+- Too coarse: `app-startup` (better to break into component parts)
+- Too fine-grained: `increment-counter` (likely too small to be useful)
+- Just right: `user-authentication`
 
 ### Capturing Meaningful Data
 
 Add attributes that would be useful for troubleshooting:
 
-```swift
-span?.setAttribute(key: "user_tier", value: "premium")
-span?.setAttribute(key: "data_size", value: dataSize.description)
-span?.setAttribute(key: "retry_count", value: retryCount.description)
-```
-
-## Common Use Cases
-
-### API Client Instrumentation
-
-```swift
-func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-    let span = Embrace.client?.startSpan(name: "api_fetch_user_profile")
-    span?.setAttribute(key: "user_id", value: userId)
-
-    apiClient.get("/users/\(userId)") { result in
-        switch result {
-        case .success(let data):
-            span?.setAttribute(key: "data_size", value: data.count.description)
-            span?.end()
-            // Process data and call completion
-        case .failure(let error):
-            span?.recordError(error)
-            span?.setStatus(.error)
-            span?.end()
-            completion(.failure(error))
-        }
-    }
-}
-```
-
-### Database Operations
-
-```swift
-func saveUserPreferences(preferences: Preferences) throws {
-    let span = Embrace.client?.startSpan(name: "db_save_preferences")
-    defer { span?.end() }
-
-    span?.setAttribute(key: "preference_count", value: preferences.count.description)
-
-    do {
-        try database.write { transaction in
-            transaction.setObject(preferences, forKey: "user_preferences")
-        }
-    } catch let error {
-        span?.recordError(error)
-        span?.setStatus(.error)
-        throw error
-    }
-}
-```
-
-### Performance-Critical Algorithms
-
-```swift
-func processFeed(posts: [Post]) -> [ProcessedPost] {
-    let span = Embrace.client?.startSpan(name: "algorithm_feed_processing")
-    span?.setAttribute(key: "post_count", value: posts.count.description)
-
-    // Measure the main processing algorithm
-    let result = performFeedProcessing(posts)
-
-    span?.setAttribute(key: "processed_count", value: result.count.description)
-    span?.end()
-
-    return result
-}
+```typescript
+trace.startSpan("span-name", {
+  attributes: {
+    "user-tier": "premium",
+    "data-size": dataSize.description,
+    "retry-count": retryCount.description
+  }
+});
 ```

@@ -6,6 +6,8 @@ sidebar_position: 4
 
 # Common Implementation Patterns
 
+TODO, do we have enough examples for web here?
+
 This guide presents several common implementation patterns for the Embrace iOS SDK 6.x that can help you get the most value from mobile observability in your app.
 
 ## Structuring View Names for Better Analytics
