@@ -1,7 +1,7 @@
 ---
 title: User Interactions
 description: Automatically monitor user interactions in your web app with Embrace
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # User Interactions
