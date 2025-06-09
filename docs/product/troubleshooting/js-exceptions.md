@@ -7,7 +7,7 @@ The Javascript Exceptions page gives an overview of all handled and unhandled ex
 
 ## Exceptions Summary and List
 
-The Exceptions page provides a summary of all exceptions encountered, the total unique exceptions encountered, the number of users that have been affected by these exceptions.
+The Exceptions page provides a summary of all exceptions encountered, the total unique exceptions encountered, and the number of users that have been affected by these exceptions.
 
 <img src={require('@site/static/images/features/js-exceptions/exceptions-summary.png').default} alt="Javascript Exceptions Summary" />
 
