@@ -25,8 +25,8 @@ Depending on your requirements, you can choose from three severity types: `logIn
 
 To use this API, you need to pass the following arguments to the method:
 
-1. **The message:** The string is the message itself. Try to make this short yet informative.
-2. **Properties:** A map of key-value pairs that enables you to categorize and filter log messages.
+- **The message:** The string is the message itself. Try to make this short yet informative.
+- **Properties:** A map of key-value pairs that enables you to categorize and filter log messages.
 
 In the case of logError, you may also send an Exception to be shown on the dashboard.
 

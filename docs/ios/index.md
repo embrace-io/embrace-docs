@@ -12,20 +12,22 @@ The Embrace Apple SDK is designed to provide first class observability and diagn
 
 ## Recommended Major Version - Apple 6.x
 
-Our Apple 6.x SDK is recommended for all current and new customers. The 6.x SDK is our [open-source](https://github.com/embrace-io/embrace-apple-sdk) superset of [OpenTelemetry](https://opentelemetry.io) instrumentation, built in Swift for modern language (such as async/await) and mobile observability (spans, logs) features. It has all the latest Embrace features and semantics, and will continue to grow as Embrace helps expand the OTel ecosystem for mobile.
+Our Apple 6.x SDK is the **current recommended version** for all new and existing customers. The 6.x SDK is our [open-source](https://github.com/embrace-io/embrace-apple-sdk) superset of [OpenTelemetry](https://opentelemetry.io) instrumentation, built in Swift for modern language features (such as async/await) and mobile observability (spans, logs). It includes all the latest Embrace features and semantics, and will continue to grow as Embrace helps expand the OTel ecosystem for mobile.
 
-We recommend that customers use our version 6 SDK, as it contains OTel primitives, open-source support, and better use of modern Swift features like async/await. If you are upgrading from our older 5x SDK, a [migration guide](/docs/ios/6x/getting-started/migration-guide.md) is available to implement the new features and interface in the 6.x SDK.
+**Start here for new integrations:** [Getting Started with iOS SDK 6.x](/docs/ios/6x/getting-started/)
 
-## 5.x SDK Documentation
+If you are upgrading from our older 5.x SDK, a [migration guide](/docs/ios/6x/getting-started/migration-guide.md) is available to implement the new features and interface in the 6.x SDK.
 
-Embrace iOS 5.x is the closed-source SDK that has been generally available since the year 2020. It is not available for open-source developers, and is not recommended for new users.
+## 5.x SDK Documentation (Legacy)
 
-Versions 5.x and 6.x are not compatible nor are they interoperable. The 6.x SDK is built on [OpenTelemetry](https://opentelemetry.io), and the features and signals that it provides have different semantics and syntax than previous versions. 6.x is also a rewrite of the SDK in the Swift programming language, so it does not include features that Embrace does not intend to support in the future, like Moments.
+Embrace iOS 5.x is the legacy closed-source SDK that was generally available from 2020-2024. **It is not recommended for new users** and is not available for open-source developers.
 
-This documentation reflects information on the 5.x SDK. It is split into two sections:
+Versions 5.x and 6.x are not compatible nor interoperable. The 6.x SDK is built on [OpenTelemetry](https://opentelemetry.io), and the features and signals that it provides have different semantics and syntax than previous versions. 6.x is also a rewrite of the SDK in the Swift programming language, so it does not include deprecated features like Moments.
 
-1. [**Integration Guide**](./5x/integration/)
-2. [**Feature Reference**](./5x/features/)
+Legacy 5.x documentation:
+
+- [**Integration Guide**](./5x/integration/)
+- [**Feature Reference**](./5x/features/)
 
 ## Any questions
 

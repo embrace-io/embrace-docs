@@ -107,7 +107,10 @@ try? Embrace
 
 // Later in your code
 // If setup failed, this will simply not create a span
-let span = Embrace.client?.buildSpan(name: "user-action")
+let span = Embrace.client?.buildSpan(
+    name: "user-action", 
+    type: .performance
+).startSpan()
 // ...
 span?.end()
 ```
@@ -123,13 +126,13 @@ let embrace = try Embrace
     .start()
 
 // Later in your code
-embrace.buildSpan(name: "my-operation").startSpan()
+embrace.buildSpan(name: "my-operation", type: .performance).startSpan()
 ```
 
 2. Use the static client property:
 ```swift
 // After setup has been called
-Embrace.client?.buildSpan(name: "my-operation").startSpan()
+Embrace.client?.buildSpan(name: "my-operation", type: .performance).startSpan()
 ```
 
 ## Checking SDK Status

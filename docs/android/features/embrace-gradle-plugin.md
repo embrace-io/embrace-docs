@@ -9,10 +9,10 @@ sidebar_position: 20
 ## Overview
 
 The Embrace Gradle Plugin performs several functions:
-1. It uploads mapping files to the Embrace backend that are required to get readable stacktraces from production apps
-2. It instruments your app's bytecode to insert SDK hooks that capture telemetry out-of-the-box
-3. It adds Embrace dependencies to your project's compile classpath
-4. It injects your specified configuration for the Embrace SDK into the APK/App Bundle
+- It uploads mapping files to the Embrace backend that are required to get readable stacktraces from production apps
+- It instruments your app's bytecode to insert SDK hooks that capture telemetry out-of-the-box
+- It adds Embrace dependencies to your project's compile classpath
+- It injects your specified configuration for the Embrace SDK into the APK/App Bundle
 
 ## Apply the Embrace Gradle Plugin
 
@@ -40,6 +40,7 @@ embrace {
     autoAddEmbraceComposeClickDependency.set(false)
     telemetryEnabled.set(true)
     failBuildOnUploadErrors.set(true)
+    customSymbolsDirectory = "app/src/main/embrace/symbols"
 
     bytecodeInstrumentation {
         enabled.set(true)
@@ -48,6 +49,7 @@ embrace {
         onLongClickEnabled.set(true)
         webviewOnPageStartedEnabled.set(true)
         firebasePushNotificationsEnabled.set(true)
+        autoSdkInitializationEnabled.set(true)
         classIgnorePatterns.set(["com.example.foo.*"])
     }
 
@@ -74,6 +76,7 @@ embrace {
     autoAddEmbraceComposeClickDependency.set(false)
     telemetryEnabled.set(true)
     failBuildOnUploadErrors.set(true)
+    customSymbolsDirectory = "app/src/main/embrace/symbols"
 
     bytecodeInstrumentation {
         enabled.set(true)
@@ -82,6 +85,7 @@ embrace {
         onLongClickEnabled.set(true)
         webviewOnPageStartedEnabled.set(true)
         firebasePushNotificationsEnabled.set(true)
+        autoSdkInitializationEnabled.set(true)
         classIgnorePatterns.set(listOf("com.example.foo.*"))
     }
 
@@ -106,6 +110,13 @@ Whether the Embrace Gradle Plugin should automatically add Embrace dependencies 
 #### autoAddEmbraceComposeClickDependency
 
 Whether the Embrace Gradle Plugin should automatically add the embrace-android-compose dependency to this module's classpath. Defaults to false.
+
+#### customSymbolsDirectory
+
+Path to a directory containing architecture subdirectories (e.g., arm64-v8a/, x86/, etc.) with .so files to be used for crash symbolication
+This could be:
+    - An **absolute path**, like: "/Users/yourname/project/app/src/main/symbols".
+    - A **path relative to the module's root directory** such as: "app/src/main/embrace/symbols".
 
 #### telemetryEnabled
 
@@ -138,6 +149,10 @@ Whether Embrace should automatically instrument onPageStarted() in webviews. Def
 #### bytecodeInstrumentation.firebasePushNotificationsEnabled
 
 Whether Embrace should automatically instrument push notifications from Firebase. Defaults to false.
+
+#### bytecodeInstrumentation.autoSdkInitializationEnabled
+
+Whether the Embrace SDK should automatically start when the `Application.onCreate()` method is invoked. Enabling this will make the Gradle plugin inject `Embrace.getInstace().start()` at the beginning of the method for all classes that extend `Application`. Defaults to false.
 
 #### bytecodeInstrumentation.classIgnorePatterns
 

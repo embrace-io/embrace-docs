@@ -18,8 +18,8 @@ Automatically uploading dSYM files is the recommended approach for symbolication
 
 To enable automatic dSYM uploads, you will need:
 
-1. **Your App ID** - This is a 5 character code used to initialize Embrace. It was provided when you registered for an Embrace account.
-2. **Your API Token** - This is a longer character string found in the dashboard on the settings page, under the Tokens section.
+- **Your App ID** - This is a 5 character code used to initialize Embrace. It was provided when you registered for an Embrace account.
+- **Your API Token** - This is a longer character string found in the dashboard on the settings page, under the Tokens section.
 
 ### Setting up the Build Phase
 

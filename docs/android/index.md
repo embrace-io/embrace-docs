@@ -10,8 +10,8 @@ sidebar_position: 0
 
 This documentation is split into two sections:
 
-1. [**Integration Guide**](/android/integration/)
-2. [**Feature Reference**](/android/features/)
+- [**Integration Guide**](/android/integration/)
+- [**Feature Reference**](/android/features/)
 
 If you are just starting out with Embrace, follow the [**Integration Guide**](/android/integration/) to learn
 the key steps to successfully using our product.
