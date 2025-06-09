@@ -24,9 +24,9 @@ below:
 | `SwazzlerExtension.Variant.setSwazzlingEnabled()`     | `embrace.buildVariantFilter.disableBytecodeInstrumentationForVariant()` |
 | `SwazzlerExtension.Variant.disablePluginForVariant()` | `embrace.buildVariantFilter.disablePluginForVariant()`                  |
 | `embrace.disableCollectBuildData`                     | `embrace.telemetryEnabled`                                              |
+| `swazzler.customSymbolsDirectory`                     | `embrace.customSymbolsDirectory`                                        |
 | `swazzler.forceIncrementalOverwrite`                  | Obsolete - no alternative provided.                                     |
 | `swazzler.disableRNBundleRetriever`                   | Obsolete - no alternative provided.                                     |
-| `swazzler.customSymbolsDirectory`                     | Obsolete - no alternative provided.                                     |
 
 The following project properties are now ignored and have no effect. You should remove them from your `gradle.properties` file:
 
@@ -69,7 +69,6 @@ Below is a list of everything that has changed and how to address it in your cod
     - `sdk_config.startup_moment.automatically_end`
 - The following properties are removed from the Embrace Gradle plugin.  
   - **Action**: Remove them if they appear in your build scripts:
-    - `customSymbolsDirectory`
     - `jarSkipList`
     - `encodeExtractedFileNames`
 - Embrace no longer attempts to detect other signal handlers and reinstall itself by default.  
