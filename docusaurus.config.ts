@@ -49,6 +49,10 @@ const config: Config = {
     {
       src: "scripts/init.js",
     },
+    {
+      id: "reo-script",
+      src: "scripts/reo.js",
+    },
     ...(process.env.EMBR_ENV === "production"
       ? [
           {
