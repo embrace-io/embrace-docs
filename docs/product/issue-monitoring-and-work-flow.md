@@ -54,6 +54,10 @@ They're grouped by Root Span name and comprise instances with both significant o
 and durations surpassing the 95th percentile of successful root spans bearing the same name.
 You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-root-spans).
 
+## Javascript Exceptions
+
+Exceptions are available for apps instrumented with the Embrace Web SDK, with entries pointing to the function or module responsible for the exception. You can see more information about trends over time and exception grouping in the [Exceptions](/docs/product/troubleshooting/js-exceptions.md) page in the Troubleshooting tab.
+
 ---
 
 *We are continually iterating on this feature by adding more functionality in the coming weeks for different issue types (i.e. session events, rage taps). In the meantime, we'd love to know what you think! Your partnership got us this far so please don't hesitate to reach out via Slack or [support@embrace.com](mailto:support@embrace.com) for any questions or feedback.*
