@@ -29,7 +29,7 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 - **[Web Vitals](./web-vitals.md)** - Surfaces Web Vital reports measuring your app's performance and responsiveness
 - **[Document Load](./document-load.md)** - Provides insight into your app's page load performance
 - **[User Interactions](./user-interactions.md)** - Records user interactions within your app's pages
-- **[React](./react.md)** - Various instrumentations that emit React specific telemetry if your app is built on that
+- **[React](./react/index.md)** - Various instrumentations that emit React specific telemetry if your app is built on that
 framework
 
 ## Configuring Automatic Instrumentation
