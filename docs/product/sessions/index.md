@@ -28,4 +28,4 @@ Sessions are automatically collected by the Embrace SDKs, ingested by Embrace's 
 Read about [Use Cases](/docs/product/sessions/use-cases.md) to learn more about how developers use Sessions to dig into user experiences.
 
 See these User Session topics:
-- [Track complete user sessions to deliver optimal mobile experiences](https://embrace.io/blog/track-complete-user-sessions-to-deliver-optimal-mobile-experiences/)
+- [Track complete user sessions to deliver optimal user experiences](https://embrace.io/blog/track-complete-user-sessions-to-deliver-optimal-mobile-experiences/)
