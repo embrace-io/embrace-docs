@@ -10,7 +10,7 @@ const embraceSdkVersion = require("./src/remark/embrace-sdk-version");
 
 const config: Config = {
   title: "Embrace Documentation",
-  tagline: "Take the guesswork out of building next-level mobile experiences.",
+  tagline: "Take the guesswork out of building next-level user experiences.",
   favicon: "/images/favicon.png",
   trailingSlash: true,
   noIndex: false,

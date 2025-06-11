@@ -5,7 +5,7 @@ const Header = () => {
     <header className={styles.header}>
       <h1 className={styles.title}>Embrace Documentation</h1>
       <h2 className={styles.subtitle}>
-        Take the guesswork out of building next-level mobile experiences.
+        Take the guesswork out of building next-level user experiences.
       </h2>
     </header>
   );
