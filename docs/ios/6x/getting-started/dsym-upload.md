@@ -33,33 +33,25 @@ You may run into an issue in Xcode 15 and above as Run Script phases now run in 
 Please ensure that the upload script is the **last step** in the build phase. Placing it last ensures all necessary build artifacts are generated before the upload begins.
 :::
 
-### Script Configuration by Integration Method
+### Download and Setup the Upload Utility
 
-The run.sh script location depends on how you integrated the Embrace SDK:
+**Important:** Starting with iOS SDK 6.x, the dSYM upload scripts are no longer bundled with the SDK package. You must download them separately.
 
-#### Swift Package Manager
+1. **Download the support utility** from: https://downloads.embrace.io/embrace_support.zip
+2. **Extract the archive** and copy both `run.sh` and `embrace_symbol_upload.darwin` to a known location in your project (e.g., `Scripts/embrace/` or `third_party/embrace/`)
 
-For SPM integrations, download the support utility from [our releases page](https://github.com/embrace-io/embrace-apple-sdk/releases) and place it in your project. Then use:
+### Script Configuration
 
-```bash
-EMBRACE_ID=YOUR_APP_ID EMBRACE_TOKEN=YOUR_API_TOKEN "${SRCROOT}/path/to/EmbraceIO/run.sh"
-```
-
-#### CocoaPods
-
-For CocoaPods integrations:
+Once you've placed the scripts in your project, use the following command regardless of your integration method:
 
 ```bash
-EMBRACE_ID=YOUR_APP_ID EMBRACE_TOKEN=YOUR_API_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
+EMBRACE_ID=YOUR_APP_ID EMBRACE_TOKEN=YOUR_API_TOKEN "${SRCROOT}/path/to/your/run.sh"
 ```
 
-#### Manual Integration
-
-For manual linking:
-
-```bash
-EMBRACE_ID=YOUR_APP_ID EMBRACE_TOKEN=YOUR_API_TOKEN "${SRCROOT}/third_party/EmbraceIO/run.sh"
-```
+Replace `path/to/your/` with the actual path where you placed the scripts. For example:
+- `"${SRCROOT}/Scripts/embrace/run.sh"`
+- `"${SRCROOT}/third_party/embrace/run.sh"`
+- `"${SRCROOT}/embrace_support/run.sh"`
 
 :::info Environment Variables
 Notice how the environment variables for your App ID and token are on the same line as the call to the `run.sh` script. If the environment variables are on different lines, they will not be available when run.sh executes and the command will fail.
@@ -71,7 +63,7 @@ If automatic uploads aren't suitable for your CI/CD pipeline, you can upload dSY
 
 ### Using the Upload Utility
 
-The upload utility is distributed with the Embrace SDK. You can upload individual dSYM files or zip archives:
+The upload utility is available in the support utility download. You can upload individual dSYM files or zip archives:
 
 ```bash
 # Upload a single file
