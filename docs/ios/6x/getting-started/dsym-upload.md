@@ -33,6 +33,17 @@ You may run into an issue in Xcode 15 and above as Run Script phases now run in 
 Please ensure that the upload script is the **last step** in the build phase. Placing it last ensures all necessary build artifacts are generated before the upload begins.
 :::
 
+### Ensuring dSYMs are Available (Recommended)
+
+To prevent race conditions and ensure dSYMs are generated before upload, add these **Input Files** to your Run Script phase:
+
+```
+$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)/Contents/Resources/DWARF/$(PRODUCT_NAME)
+$(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)
+```
+
+This tells Xcode that your script depends on the dSYM files being available, ensuring proper build order and preventing the upload script from running before dSYMs are generated.
+
 ### Download and Setup the Upload Utility
 
 **Important:** Starting with iOS SDK 6.x, the dSYM upload scripts are no longer bundled with the SDK package. You must download them separately.
