@@ -78,7 +78,7 @@ The upload utility is available in the support utility download. You can upload 
 
 ```bash
 # Upload a single file
-./upload --app YOUR_APP_ID --token YOUR_API_TOKEN dsyms.zip
+./embrace_symbol_upload.darwin --app YOUR_APP_ID --token YOUR_API_TOKEN dsyms.zip
 
 # Upload multiple files
 ./upload --app YOUR_APP_ID --token YOUR_API_TOKEN --dsym my_dsym --dsym my_file.zip
