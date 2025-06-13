@@ -49,7 +49,7 @@ This tells Xcode that your script depends on the dSYM files being available, ens
 **Important:** Starting with iOS SDK 6.x, the dSYM upload scripts are no longer bundled with the SDK package. You must download them separately.
 
 1. **Download the support utility** from: https://downloads.embrace.io/embrace_support.zip
-2. **Extract the archive** and copy both `run.sh` and `upload` to a known location in your project (e.g., `Scripts/embrace/` or `third_party/embrace/`)
+2. **Extract the archive** and copy both `run.sh` and `embrace_symbol_upload.darwin` to a known location in your project (e.g., `Scripts/embrace/` or `third_party/embrace/`)
 
 ### Script Configuration
 
