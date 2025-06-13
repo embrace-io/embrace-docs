@@ -20,7 +20,7 @@ This table presents a comprehensive list of all your network requests, organized
 
 ### Domain Type
 
-Easily filter by domain type to focus on first-party, third-party, or media requests. Configure your first-party domains in the settings page for enhanced customization.
+Easily filter by domain type to focus on first-party, third-party, or media requests. [Configure](/product/settings/app-settings/network) your first-party domains in the settings page for enhanced customization.
 
 :::info Network Spans Forwarding
 

@@ -58,7 +58,7 @@ Complete the rest of the Jira automation per your organization’s needs.
 
 You will need to setup a Custom Event Transformer integration (CET).
 
-Follow the instructions on the [PagerDuty documentation for CET](https://www.pagerduty.com/docs/guides/custom-event-transformer/)
+Follow the instructions on the [PagerDuty documentation for CET](https://developer.pagerduty.com/docs/custom-event-transformer)
 
 When you get to steps 5-7, modify the JavaScript and replace it with the following code (you can also customize it to fit your needs):
 
