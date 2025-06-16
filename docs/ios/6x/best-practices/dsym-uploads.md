@@ -20,4 +20,12 @@ The guide covers:
 
 This is an essential best practice for ensuring proper symbolication of crash reports in the Embrace dashboard.
 
-TODO: Update this guide with any 6.x-specific changes to dSYM handling 
+## Key Changes in iOS SDK 6.x
+
+**Important:** Starting with iOS SDK 6.x, the dSYM upload scripts are no longer bundled with the SDK package. Make sure to:
+
+1. Download the support utility from: https://downloads.embrace.io/embrace_support.zip
+2. Include the `run.sh` and `embrace_symbol_upload.darwin` files in your CI artifacts or project repository
+3. Update your CI scripts to use the correct path to these files
+
+For complete setup instructions, see [dSYM Upload](/ios/6x/getting-started/dsym-upload). 
