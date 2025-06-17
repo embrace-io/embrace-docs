@@ -457,7 +457,7 @@ Embrace.getInstance().addSpanExporter(customDockerExporter);
 
 ### Sending Telemetry to Grafana Cloud
 
-To send telemetry to [Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/setup/collector/), set up the collector and add an authorization token as a header.
+To send telemetry to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/), set up the collector and add an authorization token as a header.
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
