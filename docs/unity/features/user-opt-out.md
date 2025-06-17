@@ -1,7 +1,7 @@
 ---
 title: User Opt Out
 description: Allow users to opt out of data collection
-sidebar_position: 8
+sidebar_position: 16
 ---
 
 ## Overview
