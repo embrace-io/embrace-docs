@@ -176,7 +176,7 @@ OtlpGrpcLogRecordExporter customDockerLogRecordExporter = OtlpGrpcLogRecordExpor
 
 ### Exporting data to Grafana Cloud
 
-Embrace Logs can be exported to [Grafana Cloud](https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/setup/collector/) using an OTel Collector.
+Embrace Logs can be exported to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/) using an OTel Collector.
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
