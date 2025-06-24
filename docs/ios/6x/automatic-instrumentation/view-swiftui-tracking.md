@@ -12,13 +12,17 @@ The Embrace SDK provides tools to instrument SwiftUI view lifecycles and perform
 
 The SwiftUI view tracking system automatically generates OpenTelemetry spans based on critical lifecycle events:
 
-- **Render loop performance** - How efficiently your views update
-- **View visibility** - When views appear and disappear (`onAppear` / `onDisappear`)
-- **Time to first render** - How quickly users see your content
-- **Time to content completion** - When async content finishes loading (optional)
-- **`View.body` execution time** - Performance of your view building logic
+**Render loop performance** - How efficiently your views update when SwiftUI's state changes trigger re-renders. This measures whether your view hierarchy is responding smoothly to data updates or if expensive computations in your view's `body` are causing lag. Poor render loop performance typically shows up as stuttering animations or delayed responses to user taps.
 
-These traces help you understand how your SwiftUI views behave in the system's rendering pipeline and measure how long users wait to see or interact with your content.
+**View visibility** - When views appear and disappear using SwiftUI's `onAppear` and `onDisappear` lifecycle events. This tracking captures navigation patterns and helps identify views that might be doing heavy work (like network calls or database queries) every time they become visible instead of loading data more efficiently.
+
+**Time to first render** - How quickly users see your content after navigating to a new screen. This critical user experience metric measures the gap between when someone taps a button or link and when they see visual feedback that something is happening. Even showing a loading spinner quickly is better than a blank screen.
+
+**Time to content completion** - When async content finishes loading (optional). This extends beyond first render to track when meaningful content like images, API responses, or computed data actually appears on screen. You can instrument this manually by marking when your async operations complete.
+
+**View.body execution time** - Performance of your view building logic. Since SwiftUI calls the `body` property frequently as part of its diffing algorithm, expensive operations here directly impact your app's frame rate. This includes complex calculations, heavy view composition, or inefficient use of SwiftUI modifiers.
+
+These traces help you understand how your SwiftUI views behave in the system's rendering pipeline and measure how long users wait to see or interact with your content. The spans create a timeline showing exactly where bottlenecks occur - whether it's slow network requests, inefficient view updates, or expensive rendering operations that are impacting the user experience.
 
 ## SwiftUI Rendering Lifecycle
 
