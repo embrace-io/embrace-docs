@@ -146,7 +146,7 @@ struct MyView: View {
 
 - **Start simple:** Use the macro (`@EmbraceTrace`) for basic tracking, then upgrade to the modifier when you need custom names or attributes
 - **Track meaningful completion:** Use the `contentComplete` parameter for views that load data asynchronously to measure when users can actually interact with your content
-- **Avoid over-instrumentation:** Don't nest multiple instrumented views unnecessarily—each generates its own trace tree and can impact performance
+- **Avoid over-instrumentation:** Do not nest multiple instrumented views unnecessarily—each generates its own trace tree and can impact performance
 
 ## Common Use Cases
 
