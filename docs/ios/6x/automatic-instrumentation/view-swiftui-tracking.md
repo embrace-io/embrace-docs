@@ -75,10 +75,12 @@ struct MyView: View {
 
 :::note
 **Macro Limitations:** The macro cannot currently accept parameters like `name`, `attributes`, or `contentComplete`. Use the modifier or wrapper for customization.
+
+**Setup Required:** Ensure you have added the `EmbraceMacros` module to your application.
 :::
 
-:::note
-**Setup Required:** Ensure you have added the `EmbraceMacros` module to your application.
+:::warning
+The macro is only available through Swift Package Manager.
 :::
 
 ### 2. View Modifier (`.embraceTrace`) - Most Flexible
