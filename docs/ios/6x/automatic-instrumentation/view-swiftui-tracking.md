@@ -62,6 +62,10 @@ Each update to a SwiftUI view creates a render loop trace with this structure:
 
 You can add view instrumentation using any of these three approaches:
 
+:::note
+**Custom Configuration:** If you're not using the Embrace Dashboard, enable this by passing a custom `EmbraceConfigurable` with `isSwiftUiViewInstrumentationEnabled` set to `true` when initializing the SDK.
+:::
+
 ### 1. Macro (`@EmbraceTrace`) - Simplest
 
 The easiest way to add view instrumentation—just annotate your struct with no additional configuration needed:
@@ -89,7 +93,13 @@ The macro is only available through Swift Package Manager.
 
 ### 2. View Modifier (`.embraceTrace`) - Most Flexible
 
-Apply view tracing by adding a modifier to any view:
+Apply view tracing by adding a modifier to any view.
+
+**Parameters**
+- **name** (*required*): Automatically detected in macro.
+- **attributes** (*optional*): 
+Custom attributes to add additional context to the created spans.
+- **contentComplete** (*optional*): An `Equatable` value that triggers the end of the "time to first content complete" span when changed. Behaves the same as the `onChange` view modifier.
 
 ```swift
 struct MyView: View {
@@ -135,12 +145,6 @@ struct MyView: View {
     }
 }
 ```
-
-:::warning
-**Dashboard Setup:** If you're using the Embrace Dashboard, contact Embrace support to enable this feature through remote configuration.
-
-**Custom Configuration:** If you're not using the Embrace Dashboard, enable this by passing a custom `EmbraceConfigurable` with `isSwiftUiViewInstrumentationEnabled` set to `true` when initializing the SDK.
-:::
 
 ## Best Practices
 
