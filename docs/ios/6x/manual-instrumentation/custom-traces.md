@@ -75,12 +75,11 @@ let span = Embrace.client?.buildSpan(
 
 performAsyncOperation { result, error in
     if let error = error {
-        span.recordError(error)
-        span.setStatus(.error)
+        span.end(error: error)
     } else {
         span.setAttribute(key: "result_count", value: result.count.description)
+        span.end()
     }
-    span.end()
 }
 ```
 
@@ -115,30 +114,25 @@ let parentSpan = Embrace.client?.buildSpan(
     type: .performance
 ).startSpan()
 
-// Start a child span
-let childSpan = Embrace.client?.buildSpan(
-    name: "fetch_remote_data", 
+// Start a child span using recordSpan with parent parameter
+let result = Embrace.recordSpan(
+    name: "fetch_remote_data",
+    parent: parentSpan,
     type: .performance
-)
-.setParent(parentSpan)
-.startSpan()
-
-fetchRemoteData { result in
-    childSpan.end()
-
-    // Create another child span
-    let processSpan = Embrace.client?.buildSpan(
-        name: "process_data", 
-        type: .performance
-    )
-    .setParent(parentSpan)
-    .startSpan()
-    
-    processData(result) { success in
-        processSpan.end()
-        parentSpan.end()
-    }
+) { childSpan in
+    return fetchRemoteData()
 }
+
+// Create another child span
+Embrace.recordSpan(
+    name: "process_data",
+    parent: parentSpan,
+    type: .performance
+) { processSpan in
+    processData(result)
+}
+
+parentSpan.end()
 ```
 
 This creates a hierarchy that helps visualize the relationship between operations.
@@ -228,8 +222,7 @@ func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile,
             // Process data and call completion
         case .failure(let error):
             span.setAttribute(key: "error.message", value: error.localizedDescription)
-            span.status = .error(description: "API request failed")
-            span.end()
+            span.end(error: error)
             completion(.failure(error))
         }
     }
@@ -254,7 +247,7 @@ func saveUserPreferences(preferences: Preferences) throws {
         }
     } catch let error {
         span.setAttribute(key: "error.message", value: error.localizedDescription)
-        span.status = .error(description: "Database save failed")
+        span.end(error: error)
         throw error
     }
 }
@@ -302,30 +295,26 @@ class NavigationFlowTracker {
     }
     
     func trackScreenTransition(from: String, to: String) {
-        let transitionSpan = Embrace.client?.buildSpan(
+        Embrace.recordSpan(
             name: "screen_transition",
+            parent: userJourneySpan,
             type: .ux,
             attributes: [
                 "transition.from": from,
                 "transition.to": to
             ]
-        )
-        .setParent(userJourneySpan)
-        .startSpan()
-        
-        // Track the transition duration
-        defer { transitionSpan?.end() }
-        
-        // Add transition-specific events
-        transitionSpan?.addEvent(name: "transition_started")
-        
-        // Simulate transition work
-        performTransition(from: from, to: to) { success in
+        ) { transitionSpan in
+            // Add transition-specific events
+            transitionSpan.addEvent(name: "transition_started")
+            
+            // Simulate transition work
+            let success = performTransition(from: from, to: to)
+            
             if success {
-                transitionSpan?.addEvent(name: "transition_completed")
+                transitionSpan.addEvent(name: "transition_completed")
             } else {
-                transitionSpan?.status = .error(description: "Navigation failed")
-                transitionSpan?.addEvent(name: "transition_failed")
+                transitionSpan.addEvent(name: "transition_failed")
+                // Error will be handled by span.end(error:) if needed
             }
         }
     }
@@ -373,29 +362,25 @@ class GameFlowTracker {
                 "round.number": String(currentRound),
                 "round.start_time": ISO8601DateFormatter().string(from: Date())
             ]
-        )
-        .setParent(gameSpan)
-        .startSpan()
+        ).startSpan()
     }
     
     func recordUserAction(action: String, isCorrect: Bool, reactionTime: TimeInterval) {
-        let actionSpan = Embrace.client?.buildSpan(
+        Embrace.recordSpan(
             name: "user_action",
+            parent: roundSpan,
             type: .ux,
             attributes: [
                 "action.type": action,
                 "action.correct": String(isCorrect),
                 "action.reaction_time_ms": String(Int(reactionTime * 1000))
             ]
-        )
-        .setParent(roundSpan)
-        .startSpan()
-        
-        if !isCorrect {
-            actionSpan?.status = .error(description: "Incorrect user action")
+        ) { actionSpan in
+            if !isCorrect {
+                // Handle incorrect action - could end with error if needed
+                actionSpan.setAttribute(key: "action.error", value: "incorrect_action")
+            }
         }
-        
-        actionSpan?.end()
     }
     
     func endRound(score: Int, success: Bool) {
@@ -403,7 +388,7 @@ class GameFlowTracker {
         roundSpan?.setAttribute(key: "round.success", value: String(success))
         
         if !success {
-            roundSpan?.status = .error(description: "Round failed")
+            roundSpan?.setAttribute(key: "round.failure_reason", value: "round_failed")
         }
         
         roundSpan?.end()
@@ -441,50 +426,43 @@ class CheckoutFlowTracker {
     }
     
     func trackCheckoutStep(step: String, duration: TimeInterval? = nil) {
-        let stepSpan = Embrace.client?.buildSpan(
+        return Embrace.recordSpan(
             name: "checkout_step",
+            parent: checkoutSpan,
             type: .ux,
             attributes: [
                 "step.name": step,
                 "step.timestamp": ISO8601DateFormatter().string(from: Date())
             ]
-        )
-        .setParent(checkoutSpan)
-        .startSpan()
-        
-        if let duration = duration {
-            stepSpan?.setAttribute(key: "step.duration_ms", value: String(Int(duration * 1000)))
+        ) { stepSpan in
+            if let duration = duration {
+                stepSpan.setAttribute(key: "step.duration_ms", value: String(Int(duration * 1000)))
+            }
+            return stepSpan
         }
-        
-        return stepSpan
     }
     
     func trackPaymentFlow(paymentMethod: String) {
-        let paymentSpan = Embrace.client?.buildSpan(
+        Embrace.recordSpan(
             name: "payment_processing",
+            parent: checkoutSpan,
             type: .ux,
             attributes: [
                 "payment.method": paymentMethod
             ]
-        )
-        .setParent(checkoutSpan)
-        .startSpan()
-        
-        // Track payment validation
-        let validationSpan = Embrace.client?.buildSpan(
-            name: "payment_validation",
-            type: .performance
-        )
-        .setParent(paymentSpan)
-        .startSpan()
-        
-        // Simulate payment processing
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            validationSpan?.end()
+        ) { paymentSpan in
+            // Track payment validation as nested span
+            Embrace.recordSpan(
+                name: "payment_validation",
+                parent: paymentSpan,
+                type: .performance
+            ) { validationSpan in
+                // Simulate validation work
+                Thread.sleep(forTimeInterval: 2.0)
+            }
             
             // Track payment completion
-            paymentSpan?.setAttribute(key: "payment.status", value: "completed")
-            paymentSpan?.end()
+            paymentSpan.setAttribute(key: "payment.status", value: "completed")
         }
     }
     
@@ -496,7 +474,8 @@ class CheckoutFlowTracker {
             checkoutSpan?.setAttribute(key: "checkout.status", value: "failed")
             if let error = error {
                 checkoutSpan?.setAttribute(key: "error.message", value: error.localizedDescription)
-                checkoutSpan?.status = .error(description: "Checkout failed")
+                checkoutSpan?.end(error: error)
+                return
             }
         }
         
