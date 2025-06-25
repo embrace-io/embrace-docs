@@ -24,6 +24,18 @@ Each span:
 
 Embrace uses spans to visualize and analyze the performance of operations in your app.
 
+## Required Imports
+
+To use custom traces in your Swift code, you need the following imports:
+
+```swift
+import Foundation
+import EmbraceIO
+import OpenTelemetryApi  // Required for Span type
+```
+
+Note: If you're using spans as class properties or in complex examples, you must import `OpenTelemetryApi` to access the `Span` type.
+
 ## Creating Spans
 
 Embrace provides several ways to create custom spans depending on your needs:
@@ -62,6 +74,8 @@ let result = Embrace.recordSpan(
     return result
 }
 ```
+
+**Important:** The `span` parameter in the closure is optional (`Span?`), so always use optional chaining (`span?.setAttribute`) when calling methods on it.
 
 ### Async Operations
 
@@ -305,15 +319,15 @@ class NavigationFlowTracker {
             ]
         ) { transitionSpan in
             // Add transition-specific events
-            transitionSpan.addEvent(name: "transition_started")
+            transitionSpan?.addEvent(name: "transition_started")
             
             // Simulate transition work
             let success = performTransition(from: from, to: to)
             
             if success {
-                transitionSpan.addEvent(name: "transition_completed")
+                transitionSpan?.addEvent(name: "transition_completed")
             } else {
-                transitionSpan.addEvent(name: "transition_failed")
+                transitionSpan?.addEvent(name: "transition_failed")
                 // Error will be handled by span.end(error:) if needed
             }
         }
@@ -378,7 +392,7 @@ class GameFlowTracker {
         ) { actionSpan in
             if !isCorrect {
                 // Handle incorrect action - could end with error if needed
-                actionSpan.setAttribute(key: "action.error", value: "incorrect_action")
+                actionSpan?.setAttribute(key: "action.error", value: "incorrect_action")
             }
         }
     }
@@ -436,7 +450,7 @@ class CheckoutFlowTracker {
             ]
         ) { stepSpan in
             if let duration = duration {
-                stepSpan.setAttribute(key: "step.duration_ms", value: String(Int(duration * 1000)))
+                stepSpan?.setAttribute(key: "step.duration_ms", value: String(Int(duration * 1000)))
             }
             return stepSpan
         }
@@ -462,7 +476,7 @@ class CheckoutFlowTracker {
             }
             
             // Track payment completion
-            paymentSpan.setAttribute(key: "payment.status", value: "completed")
+            paymentSpan?.setAttribute(key: "payment.status", value: "completed")
         }
     }
     
