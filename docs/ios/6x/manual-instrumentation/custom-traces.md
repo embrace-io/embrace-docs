@@ -31,10 +31,15 @@ To use custom traces in your Swift code, you need the following imports:
 ```swift
 import Foundation
 import EmbraceIO
-import OpenTelemetryApi  // Required for Span type
+import OpenTelemetryApi  // Only required for parent-child span relationships
 ```
 
-Note: If you're using spans as class properties or in complex examples, you must import `OpenTelemetryApi` to access the `Span` type.
+**Note:** The `OpenTelemetryApi` import is only required when:
+- Creating parent-child span relationships using `.setParent()`
+- Storing spans as class properties or variables with explicit `Span` type annotations
+- Using advanced span manipulation methods
+
+For basic span creation and `recordSpan` usage, only `EmbraceIO` is needed.
 
 ## Creating Spans
 
@@ -79,14 +84,17 @@ let result = Embrace.recordSpan(
 }
 ```
 
-**Important:** The `span` parameter in the closure is optional (`Span?`), so always use optional chaining (`span?.setAttribute`) when calling methods on it.
+**Important:** 
+- The `span` parameter in the closure is optional (`Span?`), so always use optional chaining (`span?.setAttribute`) when calling methods on it.
+- **Never call `span?.end()` within a `recordSpan` closure** - the span is automatically ended when the closure completes. Calling `end()` manually can cause undefined behavior.
 
 ### Async Operations
 
 For asynchronous operations, start the span before the operation begins and end it when the operation completes:
 
 ```swift
-let span = Embrace.client?.buildSpan(
+guard let embrace = Embrace.client else { return }
+let span = embrace.buildSpan(
     name: "network_request", 
     type: .performance
 ).startSpan()
@@ -125,14 +133,19 @@ span.end()
 ### Setting Individual Attributes
 
 ```swift
-let span = Embrace.client?.buildSpan(
+// Ensure we initialized embrace
+guard let embrace = Embrace.client else { return }
+
+// Create the span
+let span = embrace.buildSpan(
     name: "checkout_process", 
     type: .performance
 ).startSpan()
 
-span?.setAttribute(key: "cart_item_count", value: "5")
-span?.setAttribute(key: "total_amount", value: "99.99")
-span?.setAttribute(key: "payment_method", value: "credit_card")
+// Add some attributes relevant to the checkout
+span.setAttribute(key: "cart_item_count", value: "5")
+span.setAttribute(key: "total_amount", value: "99.99")
+span.setAttribute(key: "payment_method", value: "credit_card")
 
 // Complete checkout process
 span.end()
@@ -141,8 +154,11 @@ span.end()
 ### Hybrid Approach
 
 ```swift
+// Ensure we initialized embrace
+guard let embrace = Embrace.client else { return }
+
 // Set known attributes upfront
-let span = Embrace.client?.buildSpan(
+let span = embrace.buildSpan(
     name: "api_request",
     type: .performance,
     attributes: [
@@ -153,8 +169,8 @@ let span = Embrace.client?.buildSpan(
 ).startSpan()
 
 // Add dynamic attributes during execution
-span?.setAttribute(key: "response_size", value: String(responseData.count))
-span?.setAttribute(key: "cache_status", value: cacheHit ? "hit" : "miss")
+span.setAttribute(key: "response_size", value: String(responseData.count))
+span.setAttribute(key: "cache_status", value: cacheHit ? "hit" : "miss")
 
 span.end()
 ```
@@ -214,9 +230,11 @@ span.end()
 ```
 
 Available span types include:
-- `.performance` - For performance monitoring
+- `.performance` - For performance monitoring *(default if not specified)*
 - `.ux` - For user experience tracking
 - `.system` - For system-level operations
+
+**Note:** If you don't specify a `type` parameter, `.performance` is used by default.
 
 ## Best Practices
 
@@ -244,7 +262,8 @@ Choose an appropriate level of granularity for your spans:
 Always end your spans to avoid memory leaks. Consider using Swift's `defer` statement for safety:
 
 ```swift
-let span = Embrace.client?.buildSpan(
+guard let embrace = Embrace.client else { return }
+let span = embrace.buildSpan(
     name: "important_operation", 
     type: .performance
 ).startSpan()
@@ -258,9 +277,14 @@ defer { span.end() }
 Add attributes that would be useful for troubleshooting:
 
 ```swift
+guard let embrace = Embrace.client else { return }
+let span = embrace.buildSpan(name: "data_operation").startSpan()
+
 span.setAttribute(key: "user_tier", value: "premium")
 span.setAttribute(key: "data_size", value: dataSize.description)
 span.setAttribute(key: "retry_count", value: retryCount.description)
+
+span.end()
 ```
 
 ## Common Use Cases
@@ -269,10 +293,16 @@ span.setAttribute(key: "retry_count", value: retryCount.description)
 
 ```swift
 func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
-    let span = Embrace.client?.buildSpan(
+    guard let embrace = Embrace.client else {
+        completion(.failure(APIError.instrumentationUnavailable))
+        return
+    }
+    
+    let span = embrace.buildSpan(
         name: "api_fetch_user_profile", 
         type: .performance
     ).startSpan()
+    
     span.setAttribute(key: "user_id", value: userId)
 
     apiClient.get("/users/\(userId)") { result in
@@ -294,10 +324,12 @@ func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile,
 
 ```swift
 func saveUserPreferences(preferences: Preferences) throws {
-    let span = Embrace.client?.buildSpan(
+    guard let span = Embrace.client?.buildSpan(
         name: "db_save_preferences", 
         type: .performance
-    ).startSpan()
+    ).startSpan() else {
+        throw DatabaseError.instrumentationUnavailable
+    }
     defer { span.end() }
 
     span.setAttribute(key: "preference_count", value: preferences.count.description)
@@ -318,17 +350,21 @@ func saveUserPreferences(preferences: Preferences) throws {
 
 ```swift
 func processFeed(posts: [Post]) -> [ProcessedPost] {
-    let span = Embrace.client?.buildSpan(
+    guard let span = Embrace.client?.buildSpan(
         name: "algorithm_feed_processing", 
         type: .performance
-    ).startSpan()
+    ).startSpan() else {
+        // Fallback to processing without instrumentation
+        return performFeedProcessing(posts)
+    }
+    defer { span.end() }
+    
     span.setAttribute(key: "post_count", value: posts.count.description)
 
     // Measure the main processing algorithm
     let result = performFeedProcessing(posts)
 
     span.setAttribute(key: "processed_count", value: result.count.description)
-    span.end()
 
     return result
 }
@@ -591,9 +627,10 @@ struct ShoppingAppView: View {
     
     private func trackTabChange(to newTab: Int) {
         let tabNames = ["products", "cart"]
-        guard newTab < tabNames.count else { return }
+        guard newTab < tabNames.count,
+              let client = Embrace.client else { return }
         
-        try? Embrace.client?.metadata.addProperty(
+        try? client.metadata.addProperty(
             key: "current_tab",
             value: tabNames[newTab],
             lifespan: .session
