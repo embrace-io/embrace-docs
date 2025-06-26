@@ -45,6 +45,9 @@ Each update to a SwiftUI view creates a render loop trace with this structure:
 
   - **`emb-swiftui.view.<name>.disappear`**  
     *Child span* - Time spent inside the `.onDisappear` view modifier
+    :::note
+    When `onDisappear` happens outside of a render loop, the `disappear` span will be a root span instead of a child span of the render-loop.
+    :::
 
 ### Time to First Render
 
