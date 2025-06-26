@@ -63,12 +63,16 @@ For operations contained within a single function, you can use the closure-based
 ```swift
 let result = Embrace.recordSpan(
     name: "data_calculation", 
-    type: .performance
+    type: .performance,
+    attributes: [
+        "input_size": String(inputData.count),
+        "algorithm": "fast_math"
+    ]
 ) { span in
     // Your code here
     let result = performCalculation()
 
-    // Add attributes to the span
+    // Add dynamic attributes to the span
     span?.setAttribute(key: "calculation_result", value: result.description)
 
     return result
@@ -99,7 +103,26 @@ performAsyncOperation { result, error in
 
 ## Span Attributes
 
-Add context to your spans with attributes:
+Add context to your spans with attributes. You can set attributes in two ways:
+
+### Setting Multiple Attributes at Creation
+
+```swift
+let span = Embrace.client?.buildSpan(
+    name: "checkout_process", 
+    type: .performance,
+    attributes: [
+        "cart_item_count": "5",
+        "total_amount": "99.99",
+        "payment_method": "credit_card"
+    ]
+).startSpan()
+
+// Complete checkout process
+span.end()
+```
+
+### Setting Individual Attributes
 
 ```swift
 let span = Embrace.client?.buildSpan(
@@ -107,16 +130,40 @@ let span = Embrace.client?.buildSpan(
     type: .performance
 ).startSpan()
 
-span.setAttribute(key: "cart_item_count", value: "5")
-span.setAttribute(key: "total_amount", value: "99.99")
-span.setAttribute(key: "payment_method", value: "credit_card")
+span?.setAttribute(key: "cart_item_count", value: "5")
+span?.setAttribute(key: "total_amount", value: "99.99")
+span?.setAttribute(key: "payment_method", value: "credit_card")
 
 // Complete checkout process
+span.end()
+```
+
+### Hybrid Approach
+
+```swift
+// Set known attributes upfront
+let span = Embrace.client?.buildSpan(
+    name: "api_request",
+    type: .performance,
+    attributes: [
+        "endpoint": "/users/profile",
+        "method": "GET",
+        "user_id": userId
+    ]
+).startSpan()
+
+// Add dynamic attributes during execution
+span?.setAttribute(key: "response_size", value: String(responseData.count))
+span?.setAttribute(key: "cache_status", value: cacheHit ? "hit" : "miss")
 
 span.end()
 ```
 
-You can add attributes at any point before the span is ended.
+**Best Practices:**
+- Use the **attributes dictionary** for static values known at span creation
+- Use **setAttribute()** for dynamic values computed during span execution
+- **Attribute values must be strings** - convert numbers and booleans to strings
+- You can add attributes at any point before the span is ended
 
 ## Span Hierarchy
 
