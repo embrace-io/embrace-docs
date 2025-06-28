@@ -18,3 +18,4 @@ how your application is performing in production.
 - [**Last Run End State.**](/unity/features/last-run-end-state/) Understand if your last app instance ended in a crash.
 - [**C# Symbolication.**](/unity/features/csharp-symbolication/) Translate C++ stack frames from il2cpp builds back to the C# source.
 - [**Build Options.**](/unity/features/build-options/) The Embrace Unity Editor Windows have options that can modify the build process.
+- [**User Opt Out.**](/docs/unity/features/user-opt-out) Allow your users to opt out of data collection.
