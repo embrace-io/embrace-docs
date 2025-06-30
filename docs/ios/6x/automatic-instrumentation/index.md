@@ -22,7 +22,8 @@ Automatic instrumentation refers to the SDK's ability to monitor and collect dat
 The Embrace SDK includes the following automatic instrumentation capabilities:
 
 - **[Network Monitoring](./network-monitoring.md)** - Tracks `URLSession` network requests, timing, headers, and responses
-- **[View Tracking](./view-tracking.md)** - Measures `UIViewController` lifecycle, load times, and visibility
+- **[UIKit View Tracking](./view-uikit-tracking.md)** - Measures `UIViewController` lifecycle, load times, and visibility
+- **[SwiftUI View Tracking](./view-swiftui-tracking.md)** - Measures `View` lifecycle, load times, and visibility
 - **[Tap Capture](./tap-capture.md)** - Records user interactions with your app's interface
 - **[Push Notifications](./push-notifications.md)** - Captures push notification events received by your app
 - **[WebView Monitoring](./webview-monitoring.md)** - Tracks URL loads and errors in `WKWebView` components

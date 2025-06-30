@@ -1,7 +1,7 @@
 ---
 title: Network Capture
 description: Automatically monitor network requests and responses in your iOS app
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Network Capture
