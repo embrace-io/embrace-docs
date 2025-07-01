@@ -41,14 +41,31 @@ more actions would be recorded as two sessions but presented as one stitched ses
 
 ## Session Properties
 
-Session Properties provide context about the session. They're useful for tracking information that's specific
-to a particular session:
+You can add session properties to track information unique to a user’s visit. Use session properties for details like feature flags, experiment groups, or temporary user states. This helps you understand the context of each session and analyze user behavior more effectively.
+
+To add a property to the current session:
 
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
 session.addProperty("my-custom-property", "some value");
 ```
+## Permanent Session Properties
+
+If you want a property to be included in all current and future sessions (even after a browser restart), set `lifespan` to `'permanent'`. The Embrace SDK immediately propagates permanent properties to all other tabs and windows.
+
+```typescript
+session.addProperty("my-custom-property", "some value", {
+  lifespan: 'permanent'
+});
+```
+
+The Embrace SDK stores permanent properties in the browser’s localStorage. These properties remain until you remove them:
+
+```typescript
+session.removeProperty("my-custom-property");
+```
+If localStorage is not available, the property applies only to the current session and will not be saved for future sessions. Some browsers may disable or limit localStorage, especially in private or incognito mode. Learn more about [localStorage availability](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#testing_for_availability).
 
 ## Sessions vs Other Concepts
 
