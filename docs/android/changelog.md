@@ -10,6 +10,12 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.6.0
+*June 25, 2025*
+
+- Fix a Dexguard issue when bundle and assemble are executed in the same Gradle command
+- Stop tracking ANRs for sessions that start and stay in the background
+
 ## 7.5.0
 *June 9, 2025*
 

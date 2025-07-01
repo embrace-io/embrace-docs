@@ -11,11 +11,11 @@ sidebar_position: 6
 - Have an active Splunk account.
 
 
-## Pulling your Splunk Access Token ([Splunk documentation](https://docs.splunk.com/observability/en/admin/authentication/authentication-tokens/org-tokens.html#admin-org-tokens))
+## Pulling your Splunk Access Token ([Splunk documentation](https://help.splunk.com/en/splunk-observability-cloud/administer/authentication-and-security/authentication-tokens/org-access-tokens))
 
 1. Log into your Splunk account.
 2. Locate your Access Tokens:
-In the left navigation bar select Settings, than select Access Tokens menu item. A page with your Access tokens appears.
+In the left navigation bar select Settings, then select Access Tokens menu item. A page with your Access tokens appears.
 <img src={require('@site/static/images/data-destinations/splunk_access_tokens.png').default} alt="Image showing access tokens Menu" />
 
 3. Click on **New Token** button
