@@ -47,7 +47,7 @@ You can, but we highly recommend against it. There are some complications that m
 * Embrace may not track the foreground and background states effectively on app start
 * Embrace may not track Views correctly as it may miss the first view loaded
 
-## Users
+## Users and sessions {#users-and-sessions}
 
 ### **If a user registered in a later session, are previous sessions still linked to that user?**
 
@@ -64,12 +64,31 @@ We store a unique device identifier (the Embrace ID) that is a random value we g
 Storing it in the keychain allows us to keep the same device ID if the app is uninstalled and reinstalled.
 During development you can delete this value, but it is not recommended that this be deleted in a production environment.
 
+### Why am I not seeing my session in Embrace's dashboard?
+
+There might be a few reasons your session isn't showing in production or QA. When testing, manual testing on actual devices is the preferred method.
+
+For iOS and Android, typically, the SDK will be given sufficient time to upload the session as the app is going to the background, but sometimes the OS will not allow the app to complete the upload in the background. To ensure the session was uploaded, relaunch the application. Refresh the dashboard in your browser, and you should now see that session.
+
+When the Xcode or Android Studio debugger is connected, crashes will be suppressed and some sessions will not make it into Embrace. To capture crashes, whether, through debugger sessions or a standard session, the app must be disconnected from the Xcode / Android Studio debugger.
+
+For iOS, sessions generated via XCUITest automation or other unit tests will not appear in Embrace. Typically these platforms, terminate the app before the app has a chance to send the data to Embrace, or they delete the app which also deletes the session data.
+
+### What is the difference between a user persona and a session property?
+
+Both user personas and session properties are custom additions to an integration. User personas are attributes that describe a user, whereas session properties describe a session.
+
+For example, a user persona is attached to a user and could be a "payer," "heavy user," "buyer," or "seller," whereas a session property is attached to the session and describe session characteristics such as "dark mode," "purchase made," or "no internet connection."  User personas are assigned when a user logs in and are cleared when the user logs out, and session properties are assigned upon session start (session property persistence is determined by the 'permanent' parameter).
+
+For more information and specifics, read about [user identification on iOS](/docs/ios/6x/core-concepts/user-identification.md)
+
 ## Crashes
 
 ### **What if I have more than 1 crash reporter integrated?**
 
-You should only use one.
-Using more than one may lead to a loss of crashes due to handler collisions and competition to receive data upon a user returning to the app.
+“For iOS, we don't recommend more than one crash reporter turned on at a time. Using more than one may lead to a loss of crashes due to handler collisions and competition to receive data upon a user returning to the app.
+
+If you decide to keep another tool like Firebase as your prominent crash reporter, Embrace will swizzle their message in an attempt to pull in  the crashes Firebase is reporting into Embrace. In some cases, Embrace cannot pull the crash fast enough from Firebase before the app crashes.
 
 ## **Troubleshooting dSYM upload**
 
@@ -244,3 +263,10 @@ You can also API to pause and resume capture during sensitive user interactions 
 You can capture trace IDs in two ways:
 1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value.
 1. If the ID is already present in the request as a different header, set the name of the header in the `Embrace-Info.plist` file with the `TRACE_ID_HEADER_NAME` field.
+
+## Miscellaneous {#miscellaneous}
+
+### Does Embrace support Mac Catalyst?
+
+Currently, we do not support Mac Catalyst. If you believe that your organization would benefit from us supporting Mac Catalyst, please reach out in our [community Slack](http://community.embrace.io)
+or email us at [support@embrace.com](mailto:support@embrace.com).
