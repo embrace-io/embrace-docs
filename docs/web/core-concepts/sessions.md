@@ -47,7 +47,7 @@ Session properties let you attach custom information to a user’s session, such
 
 Session properties in the Embrace SDK can have two different lifespans: **current session** or **permanent**.
 
-- **Session Properties:**
+- **Current Session Properties:**
 
   Session properties only last for the duration of the current session. When the session ends (for example, when the user leaves the tab, closes the tab, or after a period of inactivity), these properties are uploaded and then cleared from memory. They are not included in future sessions, even if the user returns to a tab that was previously focused.
 
