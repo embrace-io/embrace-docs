@@ -270,3 +270,15 @@ You can capture trace IDs in two ways:
 
 Currently, we do not support Mac Catalyst. If you believe that your organization would benefit from us supporting Mac Catalyst, please reach out in our [community Slack](http://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
+
+### How are low memory warnings calculated?
+
+Low memory warnings are calculated differently for Android and iOS. The Unity SDK does not handle low memory warnings and follows the behavior of the native SDKs.
+
+On Android, we are listening to the system’s `onTrimMemory` which is determined by the OS when it is a good time for a process to trim unneeded memory. If the value returned is **10 * (`TRIM_MEMORY_RUNNING_LOW`)** we attempt to capture the timestamp.
+
+For iOS, we receive the notification [**UIApplicationDidReceiveMemoryWarningNotification**](https://developer.apple.com/documentation/uikit/uiapplication/didreceivememorywarningnotification) from the OS. This indicates the phone is running out of memory.”
+
+### Do I need to make log calls on a background thread?
+
+No, the log methods in our SDKs are designed to be called wherever you need to log things in your app without adding excessive latency. Very little work is done on the calling thread and the majority of the work to send the log to our backend is done on a worker thread.
