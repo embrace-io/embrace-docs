@@ -238,6 +238,8 @@ Available span types include:
 
 ## Span Links
 
+Span links correlate one or more spans together that are causally related but don’t have a typical parent-child relationship. These links may correlate spans within the same trace or across different traces.
+
 You can add links to other spans when building a span:
 
 ```swift
