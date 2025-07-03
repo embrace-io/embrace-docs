@@ -75,7 +75,7 @@ session.addProperty("my-custom-property", "some value", {
 });
 ```
 
-To remove a permanent property:
+To remove a property:
 ```typescript
 session.removeProperty("my-custom-property");
 ```
