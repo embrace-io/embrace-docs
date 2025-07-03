@@ -80,6 +80,12 @@ To remove a property:
 session.removeProperty("my-custom-property");
 ```
 
+### Limits on Properties
+
+* Property keys have a limit of 128 characters.
+* Property values have a limit of 256 characters.
+* There can be a maximum of 100 properties per session.
+
 ## Sessions vs Other Concepts
 
 It's important to understand how sessions relate to other core concepts in the SDK:
