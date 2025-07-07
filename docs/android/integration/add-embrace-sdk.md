@@ -12,7 +12,7 @@ description: Add the Embrace SDK as a dependency to your Android application
 
 Add our gradle plugin to your `libs.versions.toml` file
 
-```
+```toml
 [versions]
 embrace = "{{ embrace_sdk_version platform="android" }}"
 ...
@@ -204,7 +204,29 @@ implementation("io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="
 
 You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
 
-## Add the config file
+## Set your app ID and API token
+
+:::info
+Your app ID and API token are available on the Embrace dashboard.
+:::
+
+### With environment variables (recommended)
+
+Set the following environment variables in your development environment:
+
+```bash
+export EMBRACE_APP_ID="xxxxx"
+export EMBRACE_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+The Embrace SDK will automatically read these environment variables at runtime.
+
+
+### With a config file
+
+:::warning
+Hardcoding access tokens in your source code might lead to security issues. We recommend using environment variables.
+:::
 
 Add a file at `app/src/main/embrace-config.json` with the following contents:
 
@@ -219,24 +241,14 @@ Add a file at `app/src/main/embrace-config.json` with the following contents:
 Further configuration options are documented [here](/android/features/configuration-file/).
 :::
 
-:::warning
-It's not recommended to directly hardcode access tokens into your source code. Instead, you can add it as an environment variable like `EMBRACE_API_TOKEN` and reference that.
-:::
-
-:::info
-Your app ID and API token are available on the Embrace dashboard.
-:::
-
 ---
 
 ## NDK crash capture
 
-If you want to capture NDK crash reports from your app add the `ndk_enabled` setting to your config file:
+If you want to capture NDK crash reports from your app add the `ndk_enabled` setting to your `app/src/main/embrace-config.json` file:
 
 ```json
 {
-  "app_id": "xxxxx",
-  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "ndk_enabled": true
 }
 ```
