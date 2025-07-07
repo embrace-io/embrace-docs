@@ -48,7 +48,7 @@ pluginManagement {
     }
 
     plugins {
-        id 'io.embrace.swazzler' version "${swazzler_version}" apply false
+        id 'io.embrace.swazzler' version "${embrace_version}" apply false
     }
 }
 ```
@@ -62,9 +62,9 @@ pluginManagement {
     repositories {
         mavenCentral()
     }
-    val swazzler_version: String by settings
+    val embrace_version: String by settings
     plugins {
-        id("io.embrace.swazzler") version "${swazzler_version}" apply false
+        id("io.embrace.swazzler") version "${embrace_version}" apply false
     }
 }
 ```
@@ -72,10 +72,10 @@ pluginManagement {
 </TabItem>
 </Tabs>
 
-Include `swazzler_version` in your `gradle.properties` file:
+Include `embrace_version` in your `gradle.properties` file:
 
 ```groovy
-swazzler_version={{ embrace_sdk_version platform="android" }}
+embrace_version={{ embrace_sdk_version platform="android" }}
 ```
 
 Then add the following at the top of your `app/build.gradle`:
@@ -136,7 +136,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath("io.embrace:embrace-swazzler:$swazzler_version")
+        classpath("io.embrace:embrace-swazzler:$embrace_version")
     }
 }
 ```
@@ -144,7 +144,7 @@ buildscript {
 </TabItem>
 </Tabs>
 
-Then apply the plugin in your `app/build.gradle` file & ensure you specify Java 8 in `compileOptions`:
+Then apply the plugin in your `app/build.gradle` file:
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="groovy" label="Groovy">
@@ -152,13 +152,6 @@ Then apply the plugin in your `app/build.gradle` file & ensure you specify Java 
 ```groovy
 apply plugin: 'com.android.application'
 apply plugin: 'embrace-swazzler'
-
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-}
 ```
 
 </TabItem>
@@ -168,13 +161,6 @@ android {
 ```kotlin
 apply(plugin = "com.android.application")
 apply(plugin = "embrace-swazzler")
-
-android {
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-}
 ```
 
 </TabItem>
