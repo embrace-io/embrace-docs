@@ -185,4 +185,4 @@ fi
 
 # dSYM Upload
 
-If you haven't already, check out our [dSYM Upload Integration Document](/ios/5x/integration/dsym-upload). This document walks through the Xcode project configuration that allows for the automatic upload of dSYM files to the Embrace dashboard.
+If you haven't already, check out our [dSYM Upload Integration Document](/ios/6x/getting-started/dsym-upload). This document walks through the Xcode project configuration that allows for the automatic upload of dSYM files to the Embrace dashboard.
