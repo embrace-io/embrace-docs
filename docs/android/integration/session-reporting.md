@@ -54,37 +54,3 @@ Embrace is already collecting interesting data from your application. You can
 see this data by browsing around the timeline page for the session you just captured.
 
 Up next, you'll be learning about uploading crash reports.
-
-
-## End the startup moment
-
-:::warning Important
-The moments feature is only available in version 6 and below of the Android SDK. You should use the [Traces API](/android/features/traces) instead.
-:::
-
-The Embrace SDK automatically records a special "startup" moment that's used to track app launch performance.
-The end of the startup moment is recorded when the `Activity.onResume()` method returns.
-However, if `onResume()` is not a good indication of when the app launch has ended (apps that have a splash screen, for example),
-you can use the `@StartupActivity` annotation to indicate that you don't want the startup moment to end when the `onResume` method returns.
-Add the `@StartupActivity` annotation to any Activity class where this applies.
-
-```kotlin
-@StartupActivity
-class MainActivity : Activity
-```
-
-Then, end the startup moment manually by making the following method call.
-
-```kotlin
-Embrace.getInstance().endAppStartup()
-```
-
-You should end the startup moment before the user has a chance to interact with the application.
-Add this method call to every location where the startup moment can end. You can call this method as many times as you like.
-
-```json
-{
-  "app_id": "xxxxx",
-  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-}
-```
