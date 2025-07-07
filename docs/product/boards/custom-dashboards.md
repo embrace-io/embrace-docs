@@ -151,7 +151,7 @@ Before sending the report, you can send a test email to the recipients to ensure
 
 <img src={require('@site/static/images/email-report.png').default} style={{ width: '75%', height: '75%' }} alt="Email Report" />
 
-## Grouping by Exploded Properties
+## Grouping by Exploded Properties {#exploded-properties}
 
 You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
 

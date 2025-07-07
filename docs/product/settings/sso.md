@@ -53,7 +53,7 @@ Once you have obtained those two pieces of information, any user with Embrace "a
 
 If necessary, the Embrace logo icon can be downloaded in [svg](https://embrace.io/embrace.svg), [png](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/android-icon-192x192.png) or [ico](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/favicon.ico) format.
 
-### Okta
+### Okta {#okta}
 
 Embrace application is published in Okta's Integration Network, which simplifies the configuration. Instead of using SAML steps above you can do the following:
 
