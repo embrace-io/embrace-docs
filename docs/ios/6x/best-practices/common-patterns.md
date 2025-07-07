@@ -113,11 +113,6 @@ let networkOptions = NetworkCaptureServiceOptions(
 
         // Categorize endpoints
         if url.path.contains("/v2/products") {
-Member
-@davidlawrencer davidlawrencer on Apr 30
-🔥
-
-@davidlawrencer	Reply...
             attributes["endpoint_type"] = "product_api"
             attributes["api_version"] = "v2"
         } else if url.path.contains("/v1/users") {
