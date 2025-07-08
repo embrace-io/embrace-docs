@@ -4,11 +4,6 @@ sidebar_position: 7
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 # Adding Logs
 
 Typically the Embrace SDK uploads data at the end of a session. However, some situations 
@@ -32,46 +27,23 @@ In the case of logError, you may also send an Exception to be shown on the dashb
 
 Here is an example of how to use the Log Message API for errors:
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 Embrace.getInstance().logError("Loading not finished in time.")
 ```
-</TabItem>
-<TabItem value="java" label="Java">
-```java
-Embrace.getInstance().logError("Loading not finished in time.");
-```
-</TabItem>
-</Tabs>
 
 Or you can call `logMessage` if you want to add properties to your logs.
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 val props = mutableMapOf<String, Any>()
 props["propertyA"] = "valueA"
 props["propertyB"] = "valueB"
 Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props)
 ```
-</TabItem>
-<TabItem value="java" label="Java">
-```java
-Map<String, Object> map = new HashMap<String, String>();
-map.put("propertyA", "valueA");
-map.put("propertyB", "valueB");
-Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props);
-```
-</TabItem>
-</Tabs>
 
 ### Log Handled Exception
 
 If there is a need to log an exception, but the severity level is something other than an error, the **`logException`** method can be used.
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 val props = mutableMapOf<String, Any>()
 props["propertyA"] = "valueA"
@@ -84,23 +56,6 @@ try {
     Embrace.getInstance().logException(e, Severity.WARNING, props)
 }
 ```
-</TabItem>
-<TabItem value="java" label="Java">
-```java
-Map<String, Object> map = new HashMap<String, String>();
-map.put("propertyA", "valueA");
-map.put("propertyB", "valueB");
-
-try {
-    Throwable exception = new NullPointerException("this is my handled exception");
-    throw exception;
-} catch (Exception e) {
-    Embrace.getInstance().logException(e, Severity.WARNING, props);
-}
-```
-</TabItem>
-</Tabs>
-
 
 LogType could be ERROR,  WARNING or INFO.
 
@@ -108,21 +63,10 @@ LogType could be ERROR,  WARNING or INFO.
 
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 Embrace.getInstance().logWarning("User attempted expired credit card")
 Embrace.getInstance().logInfo("User has entered checkout flow")
 ```
-</TabItem>
-<TabItem value="java" label="Java">
-```java
-Embrace.getInstance().logWarning("User attempted expired credit card");
-Embrace.getInstance().logInfo("User has entered checkout flow");
-```
-</TabItem>
-</Tabs>
-
 :::
 
 import LogLimit from '@site/shared/log-limit.md';
@@ -149,10 +93,7 @@ Injecting a [SystemOutLogRecordExporter](https://github.com/open-telemetry/opent
 
 ### Adding a LogRecordExporter for a custom OTel Collector
 
-You can send your data to a custom ([OTel Collector](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/otlp/all/src/main/java/io/opentelemetry/exporter/otlp/logs/OtlpGrpcLogRecordExporter.java)) 
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
+You can send your data to a custom [OTel Collector](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/otlp/all/src/main/java/io/opentelemetry/exporter/otlp/logs/OtlpGrpcLogRecordExporter.java):
 
 ```kotlin
  //grpc through an otel collector in a local docker image
@@ -161,25 +102,9 @@ val customDockerLogRecordExporter = OtlpGrpcLogRecordExporter.builder()
     .build()
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
- //grpc through an otel collector in a local docker image
-OtlpGrpcLogRecordExporter customDockerLogRecordExporter = OtlpGrpcLogRecordExporter.builder()
-    .setEndpoint("http://10.0.2.2:4317")
-    .build();
-```
-
-</TabItem>
-</Tabs>
-
 ### Exporting data to Grafana Cloud
 
 Embrace Logs can be exported to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/) using an OTel Collector.
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
 //... or directly to grafana cloud
@@ -189,26 +114,9 @@ val grafanaCloudLogRecordExporter = OtlpHttpLogRecordExporter.builder()
     .build()
 ```
 
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
- //http to an otel collector in Grafana cloud
-OtlpHttpLogRecordExporter grafanaCloudLogRecordExporter = OtlpHttpLogRecordExporter.builder()
-    .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
-    .addHeader("Authorization", "YourToken")
-    .build();
-```
-
-</TabItem>
-</Tabs>
-
 :::info
 **Every exporter should be added before starting the SDK**
 :::
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
 Embrace.getInstance().addLogRecordExporter(SystemOutLogRecordExporter.create())
@@ -217,20 +125,6 @@ Embrace.getInstance().addLogRecordExporter(grafanaCloudLogRecordExporter)
 
 Embrace.getInstance().start(this)        
 ```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-Embrace.getInstance().addSpanExporter(SystemOutLogRecordExporter.create());
-Embrace.getInstance().addSpanExporter(customDockerLogRecordExporter);
-Embrace.getInstance().addSpanExporter(grafanaCloudLogRecordExporter);
-
-Embrace.getInstance().start(this);
-```
-
-</TabItem>
-</Tabs>
 
 ## Best Practices
 
