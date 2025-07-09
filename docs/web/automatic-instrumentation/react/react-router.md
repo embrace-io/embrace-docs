@@ -117,6 +117,33 @@ const App = () => {
 }
 ```
 
+### Custom instrumentation
+
+If you are using a navigation method that we do not currently provide a helper for you can still instrument manually by
+letting us know when a route changes through the `setCurrentRoute` method:
+
+```typescript
+import { createReactRouterNavigationInstrumentation } from '@embrace-io/web-sdk/react-instrumentation';
+
+const customNavigationHandler = () => {
+  // ... navigation logic
+
+  // Get raw URL and path pattern from the custom navigation
+  const url = '/path/before/replaced'
+  const path = '/path/before/:replace'
+
+  // Since `createReactRouterNavigationInstrumentation` was already called when setting up the instrumentation in
+  // `initSDK` this will simply get a reference to the NavigationInstrumentation instance rather than creating a new one
+  const navigationInstrumentation = createReactRouterNavigationInstrumentation();
+
+  // Track that the navigation occurred
+  navigationInstrumentation.setCurrentRoute({
+    url,
+    path
+  });
+}
+```
+
 ### Configuration
 
 You can configure the React Router instrumentation by passing options to the `createReactRouterNavigationInstrumentation` function. 
