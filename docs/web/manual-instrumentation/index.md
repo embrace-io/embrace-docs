@@ -28,6 +28,7 @@ Embrace provides several APIs for manual instrumentation:
 1. **[Custom Traces](./custom-traces.md)** - Measure the duration of custom operations with spans
 2. **[Custom Logging](./custom-logging.md)** - Capture log messages at various severity levels
 3. **[Breadcrumbs](./breadcrumbs.md)** - Provide context to user activity in sessions
+4. **[Navigation](./navigation.md)** - Annotate sessions as users navigate through your app
 
 ## When to Use Manual Instrumentation
 
