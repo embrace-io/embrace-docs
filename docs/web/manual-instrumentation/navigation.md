@@ -41,9 +41,6 @@ const customNavigationHandler = () => {
   const url = '/path/before/replaced'
   const path = '/path/before/:replace'
 
-  // Since `getNavigationInstrumentation` was already called when setting up the instrumentation in
-  // `initSDK` this will simply get a reference to the NavigationInstrumentation instance rather than
-  // creating a new one
   const navigationInstrumentation = getNavigationInstrumentation();
 
   // Track that the navigation occurred
