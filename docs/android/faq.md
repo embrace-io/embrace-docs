@@ -233,7 +233,7 @@ You also can pass a User ID to identify users through a set of methods related t
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. We recommend including an anonymized user ID that only your agents can search for. 
 
-If no user identifier is set, Embrace sets an random string as the identifier, which is active and available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/docs/android/features/identify-users.md).
+If no user identifier is set, Embrace sets a random string as the identifier, which is active and available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/docs/android/features/identify-users.md).
 
 ### **If a user registered in a later session, are previous sessions still linked to that user?**
 
