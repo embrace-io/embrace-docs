@@ -27,6 +27,12 @@ our SDK. It is therefore not recommended to enable more than one NDK crash repor
 
 The call stack that is reported for an ANR includes all processes running on the main thread at the time of an ANR. This way of classifying an ANR often misattributes the real culprit, as it tells you what is happening on the main thread at that moment, but doesn't point to the cause prior to the ANR. Embrace takes lightweight samples of the main thread up to 5 seconds before the occurrence of an ANR to show you what the thread was doing in that time. So, if you see Embrace in your ANR call stack, it's very likely the noise of the ANR reporter landing on the Embrace sampling methods.
 
+### **How can I resolve an Android OkHttp crash?**
+
+The Embrace SDK often appears in the stack trace of an OkHttp crash due to the nature of how OkHttp intercepters work, by chaining the calls one after another. You will often see multiple intercept() calls in the stack.
+
+To resolve this type of crash, we recommend first looking at where exactly the crash occurred. For example, if the crash happened in `okhttp3.internal.http2.Http2Stream.takeHeaders` , this suggests that the way the headers were sent could have contributed to the crash.
+
 ### **Why does Embrace's crash data look different compared to another crash reporting solution I use?**
 
 All crash reporting solutions capture crashes in subtly different ways. One of the main differences is in how individual stacktraces are grouped into a distinct report. Different vendors will take different views on how best to do this grouping. When comparing the dashboards of two different vendors side-by-side, this can give the appearance that one vendor is 'missing' a specific crash report, or the crash count is lower/higher than expected. In reality, the vendors have chosen different approaches to aggregate individual events, and missing crash events have simply been aggregated in a different location.
@@ -55,6 +61,10 @@ Since this requires coordination between threads, `onPause` must **wait** for a 
 
 ### Why does this cause an ANR?
 Normally, this wait lasts just a few milliseconds. However, if the Unity thread is already **blocked** by a long-running operation (such as synchronous asset loading or heavy computation), the pause request gets stuck waiting—leading to an ANR.
+
+### **How does Embrace deliver session data if there is no WIFI Data or if there is a firewall?**
+
+We cache all data prior to sending it to Embrace. If it fails to send, we attempt again later and continue trying until the disc space is full, at which time the oldest message/data is deleted first. Therefore, we continue to retry so long as we don't surpass a hard drive space restriction.
 
 ## Example scenario
 Let’s say your game loads a large 3D environment when the user taps a button in the main menu. If the scene loads **synchronously** and takes several seconds (especially on a low-end device), the user usually just waits for it to complete. But if the OS happens to pause the app during this process (e.g., the user switches apps), the ongoing load delays the pause process, and boom—ANR.
@@ -149,6 +159,10 @@ See [this section](/android/features/configuration-file#custom-settings-for-buil
 
 Not currently. Please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
 
+### **Does Embrace support Hermes for React Native?**
+
+Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please ensure that you are using at least version 0.71 of React Native when utilizing Hermes.
+
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
 A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events. 
@@ -209,6 +223,18 @@ Note that Embrace does not support versions of dependencies lower than what has 
 
 ## Users
 
+### **How does Embrace identify users?**
+
+Embrace automatically generates an Embrace ID determined based on the device.
+
+You also can pass a User ID to identify users through a set of methods related to the user identifier. Setting the user identifier annotates the session with a user identifier that you can use later to search for this user:
+
+`Embrace.getInstance().setUserIdentifier("internal_user_id_1234")`
+
+Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. We recommend including an anonymized user ID that only your agents can search for. 
+
+If no user identifier is set, Embrace sets an random string as the identifier, which is active and available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/docs/android/features/identify-users.md).
+
 ### **If a user registered in a later session, are previous sessions still linked to that user?**
 
 Yes. We link all sessions to that user from the past and in the future. Search by the Embrace ID for all of that users sessions.
@@ -266,6 +292,10 @@ This could be due to one of the following reasons:
         val myOkHttpClient = OkHttpClient()
     ```
     Our SDK instruments the `build()` method, so it will only track network requests with the first approach. 
+
+### **What does Embrace use to hook into network calls on Android apps?**
+
+For Android, Embrace captures information from native UrlConnections and OkHttp3
 
 ## Monitoring Performance
 
