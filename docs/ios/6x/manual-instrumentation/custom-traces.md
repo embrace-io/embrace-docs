@@ -236,6 +236,27 @@ Available span types include:
 
 **Note:** If you don't specify a `type` parameter, `.performance` is used by default.
 
+## Span Links
+
+Span links correlate one or more spans together that are causally related but don’t have a typical parent-child relationship. These links may correlate spans within the same trace or across different traces.
+
+You can add links to other spans when building a span:
+
+```swift
+// Build a new span
+let builder = Embrace.client?.buildSpan(name: "mySpan")
+
+// Set a SpanLink
+builder?.addLink(spanContext: linkContext, attributes: linkAttributes)
+
+// Start the span
+let span = builder?.startSpan()
+
+// End the span
+// ...
+span?.end()
+```
+
 ## Best Practices
 
 ### Naming Conventions

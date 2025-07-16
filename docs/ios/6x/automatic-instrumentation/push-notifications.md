@@ -1,7 +1,7 @@
 ---
 title: Push Notifications
 description: Track push notification events in your iOS app with Embrace
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Push Notifications
