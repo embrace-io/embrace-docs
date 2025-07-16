@@ -3,6 +3,11 @@ title: User Journeys
 sidebar_position: 101
 ---
 
+<!--
+TODO:
+- Add a card under Features on the home page
+-->
+
 # User Journeys
 
 With Embrace’s User Journeys feature, you can move beyond simple funnel analysis and gain deeper insights into how users experience your application. User Journeys allow engineering teams to track and analyze all of the steps in a journey that a user takes, providing valuable data on performance impacts and behavioral trends.
