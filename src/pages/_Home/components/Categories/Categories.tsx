@@ -158,12 +158,6 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "/embrace-api",
     },
     {
-      title: "Spans API",
-      description: "Query your spans using TraceQL. ",
-      icon: <IconBrackets {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/spans-api",
-    },
-    {
       title: "Spans Forwarding",
       description:
         "Automatically add a unique identifier to every network request your app makes.",
