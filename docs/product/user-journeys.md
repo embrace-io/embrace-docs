@@ -68,8 +68,8 @@ For high cardinality fields such as Logs, Breadcrumbs, and Network events, you c
 On the User Flow summary page, you'll see a list of all of your currently configured User Flows with some useful information. 
 
 - **Completion:** This is the percentage of User Flows that were seen that made it from the Start Event to the End Event inside of the time threshold and without exiting the app (find a less ambiguous term for "exiting"). This is shown in comparison across the time windo you have selected.
-- **Abandon:** This is the percentage of User Flows that timed out or were abandoned through normal means (entered another flow, exited the app)
-- **Error:** These are the percentage of User Flows that ended in an error. 
+- **Abandon:** This is the percentage of User Flows that timed out or were abandoned through normal means (entered another flow, exited the app).
+- **Error:** These are the percentage of User Flows that ended in an issue. 
 - **Session Volume:** This is the count of sessions that have been seen with this User Flow across the time selected. 
 
 <!-- TODO: [**IMAGE OF SUMMARY PAGE WITH DATA**]-->
@@ -78,11 +78,7 @@ On the User Flow summary page, you'll see a list of all of your currently config
 
 When you click on any of the User Flows you've created, you'll be taken to that User Flow's details page. Here you'll find some helpful tools to analyze your User Flows.
 
-### Completion Rate
-- Here you'll find the User Flow completion rate grouped by your Top Versions over time
-
-<!-- TODO:  \[**Completion Rate Chart**]-->
-
+<!-- Only need to explain Issue Rate, attribute correlation, etc., not everything -->
 ### Issue Rate
 <!--
 - Treemap - how to read, what is it 
