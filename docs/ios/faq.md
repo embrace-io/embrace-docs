@@ -166,9 +166,13 @@ Please contact via Slack or email and we will turn on header and body capture fo
 We then send the data to you and delete it.
 We use this approach to restrict the impact to the user if too much data was collected on device.
 
-### **Do you support GRPC?**
+### **Do you support gRPC for networking?**
 
-Yes. Please contact us for the steps to track GRPC.
+This depends on the app's implementation of gRPC.
+
+- If your gRPC implementation is built using `URLSession`, requests will automatically be tracked in Embrace's networking page. 
+
+- If the implementation does NOT use `URLSession`, you can use the OpenTelemetry Span API to manually create spans for the gRPC requests.
 
 ### **Do you support GraphQL?**
 
