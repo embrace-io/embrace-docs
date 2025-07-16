@@ -21,12 +21,6 @@ Embrace also offers a "pull" method for metrics in the form of our public [Metri
 See the [setup docs](/embrace-api/grafana_integrations/) for more information on Metrics API for Grafana. You can also look at [sample queries](/embrace-api/code_samples/) using Node and Python.
 
 ## Traces
-### Spans API
-
-Similarly to the Metrics API, Embrace also offers a public [Spans API](/spans-api/) for trace querying. With the [TraceQL query language](https://grafana.com/blog/2023/02/07/get-to-know-traceql-a-powerful-new-query-language-for-distributed-tracing/), you can use the Grafana Tempo HTTP API to pull queries from Embrace into your Grafana project.
-
-See the [setup docs](/spans-api/grafana_integrations/) for more information on Spans API for Grafana.
-
 ### Network Spans Forwarding
 
 [Network Span Forwarding](/product/network-spans-forwarding/) is an end-to-end network tracing feature offered by Embrace and Grafana. With this feature enabled, you can trace the result of a networking request from the mobile device to your web service, with rich detail in both the Embrace dashboard and Grafana Cloud. The [w3c traceheader](https://www.w3.org/TR/trace-context-1/#traceparent-header) connects networking requests in your web service to activity in your mobile app.
