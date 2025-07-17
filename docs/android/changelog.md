@@ -11,7 +11,7 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 :::
 
 ## 7.6.1
-*July 14, 2025*
+*July 17, 2025*
 
 :::info Important
 This version is identical to 7.6.0 except that the desugaring requirement if Android 7.x is supported will be verified at build time. 
