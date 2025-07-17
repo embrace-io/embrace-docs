@@ -10,8 +10,23 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.6.1
+*July 17, 2025*
+
+:::info Important
+This version is identical to 7.6.0 except that the desugaring requirement if Android 7.x is supported will be verified at build time. 
+
+This patch is unnecessary if you are already running 7.6.0. But if you support Android 7.x, ensure that you have desugaring enabled or else the Embrace SDK will not start for apps running on those Android versions.
+:::
+
+- Require desugaring at build time when minSdk < 26 due to OTel SDK issue
+
 ## 7.6.0
 *June 25, 2025*
+
+:::warning Important
+This version requires desugaring if your app support Android 7.x. Previously, the requirement had been for support of Android 6.x or lower. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring) 
+:::
 
 - Fix a Dexguard issue when bundle and assemble are executed in the same Gradle command
 - Stop tracking ANRs for sessions that start and stay in the background
