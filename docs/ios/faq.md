@@ -172,7 +172,7 @@ This depends on the app's implementation of gRPC.
 
 - If your gRPC implementation is built using `URLSession`, requests will automatically be tracked in Embrace's networking page. 
 
-- If the implementation does NOT use `URLSession`, you can use the OpenTelemetry Span API to manually create spans for the gRPC requests.
+- If the implementation does NOT use `URLSession`, you should use manual instrumentation to create spans with all the necessary information about your gRPC requests. Please see our page on [capturing other forms of networking](/docs/ios/6x/manual-instrumentation/network-instrumentation.md) for more information.
 
 ### **Do you support GraphQL?**
 
