@@ -15,6 +15,7 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 
 - Improve cold startup trace by automatically instrumenting `Application.onCreate()` invocation
 - Add `session.id` attribute to all Spans that denotes the session in which a Span started in
+- Use Kotlin OTel API and Java adaptors internally (no visible API or behavior change to SDK users)
 - Require desugaring at build time when minSdk < 26 due to OTel SDK issue
 
 ## 7.6.1
