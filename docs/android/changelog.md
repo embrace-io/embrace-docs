@@ -10,6 +10,13 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.7.0
+*July 17, 2025*
+
+- Improve cold startup trace by automatically instrumenting `Application.onCreate()` invocation
+- Add `session.id` attribute to all Spans that denotes the session in which a Span started in
+- Require desugaring at build time when minSdk < 26 due to OTel SDK issue
+
 ## 7.6.1
 *July 17, 2025*
 
