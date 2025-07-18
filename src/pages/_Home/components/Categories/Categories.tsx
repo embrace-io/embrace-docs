@@ -23,6 +23,7 @@ import {
 import LogoUnity from "@site/static/images/unity.svg";
 import LogoReactNative from "@site/static/images/react-native.svg";
 import PerformanceTraces from "@site/static/images/performance_traces.svg";
+import UserJourneys from "@site/static/images/user-journeys.svg"
 import Logo from "@site/static/images/logo.svg";
 import LogoSplunk from "@site/static/images/logo-splunk.svg";
 import LogoNewRelic from "@site/static/images/logo-new-relic.svg";
@@ -179,6 +180,13 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
         "Complete visibility into any customized operation you’d like to track.",
       icon: <PerformanceTraces className={styles.svgIcon} />,
       linkTo: "/product/traces",
+    },
+    {
+      title: "User Journeys",
+      description:
+        "Measure how performance affects your user's experience through key flows.",
+      icon: <UserJourneys className={styles.svgIcon} />,
+      linkTo: "/product/user-journeys",
     },
     {
       title: "Error Logs Tracking",
