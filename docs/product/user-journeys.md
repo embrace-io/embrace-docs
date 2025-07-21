@@ -17,11 +17,10 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 
 User Flows are built using various telemetry events:
 
-<!--TODO: add links to the instrumentation pages for these-->
-- **Spans:** Represent a specific operation within your application.
-- **Logs:** Detailed messages generated during user interactions.
-- **Breadcrumbs:** Tracks the user's navigation path.
-- **Network Events:** Captures data related to HTTP requests and responses.
+- [**Spans:**](/product/traces/technical-details) Represent a specific operation within your application.
+- [**Logs:**](/product/logs/) Detailed messages generated during user interactions.
+- [**Breadcrumbs:**](/android/features/breadcrumbs) Tracks the user's navigation path.
+- [**Network Events:**](/product/network/network-monitoring/) Captures data related to HTTP requests and responses.
 
 **Note:** While Traces provide detailed performance information, User Flows offer a more focused approach by connecting events around user behavior, making them easier to interpret and use for analysis.
 
@@ -61,18 +60,13 @@ On the User Flow summary page, you'll see a list of all of your currently config
 - **Error:** These are the percentage of User Flows that ended in an issue. 
 - **Session Volume:** This is the count of sessions that have been seen with this User Flow across the time selected. 
 
-<!-- TODO: [**IMAGE OF SUMMARY PAGE WITH DATA**]-->
+<img src={require('@site/static/images/user-journeys/User-Flows-Summary.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
 ## User Flow Details
 
 When you click on any of the User Flows you've created, you'll be taken to that User Flow's details page. Here you'll find some helpful tools to analyze your User Flows. You can see Completion Rates and Session Volume broken down by app version, as well as Issue Rates which are covered in detail below.
 
 ### Issue Rate
-<!--
-- Treemap - how to read, what is it 
-    - Filtering by instance outcomes
-    - Filtering by attributes 
--->
 
 In the Issue Rate tab, you get a couple sub-tabs. The first is Issue Distribution, and gives you an idea of the makeup of all Issues that are being seen during the selected User Flows in aggregate. 
 
@@ -80,12 +74,8 @@ On the Properties Correlation sub-tab, you can dig into how certain attributes o
 
 Hovering your mouse over the treemap you'll see a tooltip that breaks down the distribution of User Flow outcomes for flows with that specific property value. By clicking on the cell, you'll see the instance list below filter just for that attribute so you can easily find some example sessions to dig into. 
 
-
-<!-- TODO: \[**IMAGE OF TREEMAP WITH DATA**]-->
+<img src={require('@site/static/images/user-journeys/User-Flows-Details-Treemap.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
 ## Instance List
 
 You can find a filterable list of all instances of the User Flow at the bottom of the page. Clicking any of these instances will take you to the [User Timeline](/docs/product/sessions/user-timeline.md) for further investigation as you need it.
-
-<!-- TODO: \[**IMAGE OF INSTANCE LIST (Maybe a gif showing it taking you to UT??)**]-->
-
