@@ -3,31 +3,15 @@ title: User Journeys
 sidebar_position: 101
 ---
 
-<!--
-TODO:
-- Add a card under Features on the home page
--->
-
 # User Journeys
 
-With Embrace’s User Journeys feature, you can move beyond simple funnel analysis and gain deeper insights into how users experience your application. User Journeys allow engineering teams to track and analyze all of the steps in a journey that a user takes, providing valuable data on performance impacts and behavioral trends.
+With Embrace’s User Journeys feature, you can move beyond simple funnel analysis and gain deeper insights into how users experience your application. User Journeys allow engineering teams to track and analyze all of the events in a journey that a user takes, providing valuable data on performance impacts and behavioral trends.
+
 ## User Flows
 
-User Flows are duration events that are created server-side between two events of telemetry that you choose. You can create flows between any combination of the below events:
+User Flows are a powerful way to understand the sequence of events that users experience within your app. They’re created by defining the connection between two specific telemetry events, allowing you to track key performance elements between actions. Think about User Flows as the first order logical grouping of all of the base telemetry events you can emit into a contextualized view of a user's experience.
 
-User Flows are a powerful way to understand the sequence of events that users experience within your app. They’re created by defining the connection between two specific telemetry events, allowing you to track key performance elements between actions.
-
-<!-- TODO: 
-**[PLACEHOLDER FOR SOME SPECIFIC EXAMPLE]**
-- Cart render flow example
-    1. User selects "view cart" from modal
-    2. View change -> API call to fetch data -> page fully rendered
-    3. Flow ends
-- Pre-transaction checkout flow
-    1. User selects checkout button
-    2. Page change to checkout page -> user fills in page details -> user selects "Purchase"
-        3. (ALTERNATIVE FLOW) User selects "Add payment method" -> add payment method details -> user selects return to checkout -> checkout page fully rendered
--->
+You can find User Flows under the Performance tab in the sidebar on the left of your dashboard.
 
 ## Key Events Used in User Flows
 
@@ -47,10 +31,15 @@ While instrumenting Traces can be useful in situations like this, they involve m
 
 To create a user flow, you will click on the Create User Flow button in the top right of the page. This will take you to the User Flow creation page where you can set them up.
 
-1.  Click the “Create User Flow” button in the top right of the page.
-2.  Name your User Flow and add an optional description.
-3.  Select your **start event** and **end event** – these are the events that signify the start and end of a user flow.
-4.  **Set a Timeout Threshold:**  We recommend keeping these as short as possible, but they must be less than 5 minutes.
+As an example, let's assume you have an eCommerce application. A key componenet of your user's experience would be searching for and rendering specific results pages. So, here you may want to set up a User Flow that starts at a Breadcrumb you already have for `Entered search` and finishes at the end of a Span named `inflateResultsView`. 
+
+To create this User Flow, you will:
+1. From the User Flows page, select Create User Flow in the upper right corner.
+2. In the Create Flow screen, fill in the details of your User Flow. \
+    a. Give it a name (required) and a description (optional). Both of these will be visible on the summary page after you create User Flows.\
+    b. Set your start event as Breadcrumb = `Entered search` and Span = `inflateResultsView` as your end event.
+3. Set a Timeout for your User Flow.\
+    a. We recommend keeping these as short as possible, but they must be less than 5 minutes.
 
 **Wildcarding Patterns:**
 
@@ -76,15 +65,21 @@ On the User Flow summary page, you'll see a list of all of your currently config
 
 ## User Flow Details
 
-When you click on any of the User Flows you've created, you'll be taken to that User Flow's details page. Here you'll find some helpful tools to analyze your User Flows.
+When you click on any of the User Flows you've created, you'll be taken to that User Flow's details page. Here you'll find some helpful tools to analyze your User Flows. You can see Completion Rates and Session Volume broken down by app version, as well as Issue Rates which are covered in detail below.
 
-<!-- Only need to explain Issue Rate, attribute correlation, etc., not everything -->
 ### Issue Rate
 <!--
 - Treemap - how to read, what is it 
     - Filtering by instance outcomes
     - Filtering by attributes 
 -->
+
+In the Issue Rate tab, you get a couple sub-tabs. The first is Issue Distribution, and gives you an idea of the makeup of all Issues that are being seen during the selected User Flows in aggregate. 
+
+On the Properties Correlation sub-tab, you can dig into how certain attributes of your User Flows correlate to and make up outcomes. You can filter by specific outcomes, as well as select up to 3 different property keys to visualize in the treemap below. This can help you quickly find specific properties that are having outsized issues and reduce the space that you have to explore to find issues.
+
+Hovering your mouse over the treemap you'll see a tooltip that breaks down the distribution of User Flow outcomes for flows with that specific property value. By clicking on the cell, you'll see the instance list below filter just for that attribute so you can easily find some example sessions to dig into. 
+
 
 <!-- TODO: \[**IMAGE OF TREEMAP WITH DATA**]-->
 
@@ -94,6 +89,3 @@ You can find a filterable list of all instances of the User Flow at the bottom o
 
 <!-- TODO: \[**IMAGE OF INSTANCE LIST (Maybe a gif showing it taking you to UT??)**]-->
 
-## Filtering for User Flows in Other Pages
-
-<!-- TODO: \[**TBD WHAT MAKES IT**]-->
