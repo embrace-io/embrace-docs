@@ -6,6 +6,11 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+# 4.2.0
+*Jul 25, 2025*
+* Updated Embrace Android SDK to 7.7.0
+* Fixed w3cTraceparent header not being set in Dio/HttpClient requests when network spans forwarding enabled
+
 # 4.1.0
 *Apr 24, 2025*
 * Updated Embrace Android SDK to 7.3.0
