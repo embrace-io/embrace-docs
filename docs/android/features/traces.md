@@ -206,8 +206,6 @@ While than one exporter for each signal can be configured, be aware of the perfo
 
 If non-trivial work is being done in the configured exporters that do not need to block the instrumentation thread, consider doing the heavy-lifting asynchronously.
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 Embrace.getInstance().addSpanExporter(mySpanExporter)
 Embrace.getInstance().addLogRecordExporter(myLogExporter)
@@ -238,9 +236,6 @@ To prevent an infinite loop of network requests spans, any requests used to expo
 #### Send telemetry through GRPC
 
 To send telemetry via GRPC to a Collector endpoint, use the `OtlpGrpcSpanExporter` and specify the URL.
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
  //GRPC through an OTel Collector in a local docker image
