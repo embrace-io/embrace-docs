@@ -51,7 +51,6 @@ There are no limits to the number of child spans you can have per root span, pro
 #### Exceeding limits
 If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit to be exceeded.
 
-String values are truncated by taking the first N characters such that N is the limit minus 3 (e.g. for a span name, N is 125) and appending the 3-character token `...`.  This could result in unexpected behavior if the truncated name of two spans or attribute keys end up being the same. If you detect spans with truncated names and values, consider them bugs that should be fixed.
 
 Attributes and events are truncated by taking the first N values specified and dropping the rest such that N is the limit.
 
