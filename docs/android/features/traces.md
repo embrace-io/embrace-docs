@@ -9,6 +9,8 @@ sidebar_position: 2
 ## Overview
 
 Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+  
+See [this page](/docs/product/traces/technical-details.md) for technical details and terminology definitions.
 
 ## Feature Support
 
@@ -23,50 +25,48 @@ The Embrace Traces API allows you to:
     - To record past operations, you can specify the start and end times of your spans that you might have captured already.
     - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
 - Add child spans to a parent span to track sub-operations within an operation.
-- Attach attributes and span events to each span to give them further context
-    - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics
-    - Span events represent a point in time of the execution of the span and they can also have attributes
-
-There are no limits on the duration of a span as long as the app is running.
-
-There are also no limits to the number of child spans you can have per Root Span, provided the total number of spans does not exceed the per-session maximum.
+- Attach attributes, span events, and links to other spans to give a span further context.
+    - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics.
+    - Span events represent a point in time during the runtime of the span.
+      - Attributes on a span event can be used to store data and metadata about the event that describe it beyond its name.
+    - Links create unidirectional relationships between spans so that you can formally relate two spans that belong to different traces.
+      - Attributes on a link can be used to store data and metadata that further describes the relationship.
 
 ### Limits
 
-| Type  | Limit |
-| --- | --- |
-| Max number of spans per session  | 500 |
-| Max number of attributes per span | 50  |
-| Max number of events per span | 10 |
-| Max number of attributes per event  | 10 |
-| Length of attribute keys | 50 characters |
-| Length of attribute values | 200 characters |
-| Length of Span names | 50 characters |
-| Length of Event names | 100 characters |
+| Type                                    | Limit           |
+|-----------------------------------------|-----------------|
+| Max number of spans started per session | 500             |
+| Max number of attributes per span       | 100             |
+| Max number of events per span           | 10              |
+| Max number of attributes per event      | 10              |
+| Max number of links per span            | 10              |
+| Max length of attribute keys            | 128 characters  |
+| Max length of attribute values          | 1024 characters |
+| Max length of span names                | 128 characters  |
+| Max length of event names               | 128 characters  |
 
-:::warning Exceeding Limits
-If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.
-:::
+There are no limits to the number of child spans you can have per root span, provided the total number of spans does not exceed the per-session maximum.
 
-### Naming Conventions
+#### Exceeding Limits
+If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit to be exceeded.
 
-- Span Names are **case-sensitive** and are a **max of 50 characters.**
-- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric ASCII characters**
+String values are truncated by taking the first N characters such that N is the limit minus 3 (e.g. for a span name, N is 125) and appending the 3-character token `...`.  This could result in unexpected behavior if the truncated name of two spans or attribute keys end up being the same. If you detect spans with truncated names and values, consider them bugs that should be fixed.
+
+Attributes and events are truncated by taking the first N values specified and dropping the rest such that N is the limit.
+
+### Feature Details
+
+- Span Names are **case-sensitive**
+- Key Names are **case-sensitive** and are **alphanumeric ASCII characters**
+- There are no limits on the duration of a span as long as the app is running.
+- In the session timeline UI, a completed span will appear in the session in which it ended.
 
 :::warning Internal Prefixes
-The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes
+The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes. Behavior in such cases are undefined.
 :::
 
 ## Adding Traces To Your App
-
-To use this feature:
-
-1. Ensure you’re using a version of the Embrace SDK that supports Traces.
-2. (Optional) Enable API desugaring for your app if you want users running Android 5.x and 6.x to report traces.
-3. Instrument your app using the reference guide in this section to start adding spans to your operations, or refer to the [API docs](https://embrace-io.github.io/embrace-android-sdk/) for a more comprehensive description of the public API.
-4. See the spans in the Traces section of the Embrace dashboard.
-
-## API Usage Examples
 
 ### Create a Span
 
@@ -181,7 +181,7 @@ if (activityLoad != null) {
 ```kotlin
 val embrace = Embrace.getInstance()
 val activityLoad = embrace.startSpan("load-activity")
-val imageLoad = activityLoad?.let { embrace.startSpan("load-image", this) }
+val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this) }
 
 val image = fetchImage()
 
@@ -217,6 +217,24 @@ if (imageLoad != null) {
 
 </TabItem>
 </Tabs>
+
+### Add Links
+
+```kotlin
+val embrace = Embrace.getInstance()
+val activityLoad = embrace.startSpan("load-activity")
+
+displayLoader()
+
+val showLoader = embrace.startSpan("showLoader")?.apply {
+    if (activityLoad != null) {
+        activityLoad.addLink(
+            linkedSpan = this,
+            attributes = mapOf("triggered-action-type" to "LOADER")
+        )
+    }
+}
+```
 
 ### Stop Span For Operation That Ended Earlier
 
@@ -298,7 +316,7 @@ val embrace = Embrace.getInstance()
 val activityLoad = embrace.startSpan("load-activity")
 
 // create and start a child span if activityLoad is created and started successfully
-val imageLoad = activityLoad?.let { embrace.startSpan("load-image", it) }
+val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this) }
 ```
 
 </TabItem>
