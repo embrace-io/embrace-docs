@@ -5,6 +5,15 @@ sidebar_position: 4
 ---
 # React Native SDK Changelog
 
+## 6.2.0
+_July 28, 2025_
+* Updated Android native Embrace SDK dependency to [version 7.6.1](/android/changelog/#761)
+
+:::info Important
+With this update desugaring is required to support Android API levels < 26. Please see [this FAQ entry](/react-native/faq/#how-do-i-support-android-api-levels--26)
+for more details.
+:::
+
 ## 6.1.0
 _May 29, 2025_
 * Added an [Expo Config Plugin](/react-native/integration/add-embrace-sdk#expo-config-plugin) for automating native
