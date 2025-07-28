@@ -6,7 +6,7 @@ sidebar_position: 4
 # React Native SDK Changelog
 
 ## 6.2.0
-_July 28, 2025_
+_July 29, 2025_
 * Updated Android native Embrace SDK dependency to [version 7.6.1](/android/changelog/#761)
 
 :::info Important
