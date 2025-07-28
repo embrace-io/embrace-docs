@@ -31,12 +31,37 @@ Now you can view exactly how long it took your app to start up and then how long
 
 ![[startup-spans-5.png]]
 
-**FirstSceneLoaded**
-This child span measures how long it took starting from the OS registering your app with the system until the first scene was loaded including all assets and MonoBehaviors running their `Awake` functions.
+### Child Spans
 
-This is important because here you can see if you have some weighty scripts increasing your load time.
+Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app ==startup== trace, with the cold or warm root span as their parent.
 
-**LoadingComplete**
-This child span measures the time it took starting after your first scene was loaded until you called `EndAppStartup` in your code.
+#### emb-app-loaded
 
-This is important because you can see how long your plugins/addressables are taking to load and how long it takes for your user to actually interact with your app.
+- The time it took starting from the OS registering your app with the system until the first scene was loaded including all assets and MonoBehaviors running their `Awake` functions.
+- Only recorded for cold startups
+
+#### emb-embrace-init
+
+- The time it took for the Embrace SDK to initialize.
+- Only recorded for cold ==startup==s
+
+#### emb-app-init[​](https://embrace.io/docs/android/features/performance-instrumentation/?_highlight=startup#emb-activity-init "Direct link to emb-activity-init")
+
+- The time between when the first scene has loaded until `Embrace.Instance.EndAppStartup();` is called
+- Only recorded for cold startups
+
+### Sample Usage
+```
+private async void Start()
+{
+	// Start the Embrace SDK
+	Embrace.Instance.StartSDK();
+
+	// Wait for any other plugins to initialize
+	await InitializePlugins();
+  
+	// Now that the user is able to interact with the app, we can end the startup phase
+	Embrace.Instance.EndAppStartup();
+}
+```
+
