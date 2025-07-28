@@ -22,15 +22,13 @@ The startup spans are not fully automated. You will need to call `Embrace.Instan
 
 ## Viewing The Data
 
-In your Embrace dashboard you can see the span details by going to your sessions and looking at the root span `AppStartup` ![[startup-spans-3.png]]
-
+In your Embrace dashboard you can see the span details by going to your sessions and looking at the root span `emb-app-startup`
 Click the 'See Details' to get more information and to view the child spans
-![[startup-spans-4.png]]
+![[startup-spans2.png]]
 
 Now you can view exactly how long it took your app to start up and then how long it took to load plugins and assets.
 
-![[startup-spans-5.png]]
-
+![[startup-spans-5 1.png]]
 ### Child Spans
 
 Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app ==startup== trace, with the cold or warm root span as their parent.
