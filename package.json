@@ -22,7 +22,7 @@
     "@tabler/icons-react": "^3.34.1",
     "clsx": "2.1.1",
     "docusaurus-pushfeedback": "^1.0.8",
-    "pushfeedback-react": "^0.1.65",
+    "pushfeedback-react": "^0.1.70",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
