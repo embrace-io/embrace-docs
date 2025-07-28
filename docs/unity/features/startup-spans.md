@@ -45,7 +45,7 @@ Depending on the version of Android and other additional data your app provides,
 - The time it took for the Embrace SDK to initialize.
 - Only recorded for cold ==startup==s
 
-#### emb-app-init[​](https://embrace.io/docs/android/features/performance-instrumentation/?_highlight=startup#emb-activity-init "Direct link to emb-activity-init")
+#### emb-app-init
 
 - The time between when the first scene has loaded until `Embrace.Instance.EndAppStartup();` is called
 - Only recorded for cold startups
