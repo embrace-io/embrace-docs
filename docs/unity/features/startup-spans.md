@@ -32,7 +32,7 @@ Now you can view exactly how long it took your app to start up and then how long
 ![[startup-spans-5 1.png]]
 ### Child Spans
 
-Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app ==startup== trace, with the cold or warm root span as their parent.
+Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app startup trace, with the cold or warm root span as their parent.
 
 #### emb-app-loaded
 
