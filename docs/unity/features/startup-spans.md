@@ -23,6 +23,7 @@ The startup spans are not fully automated. You will need to call `Embrace.Instan
 ## Viewing The Data
 
 In your Embrace dashboard you can see the span details by going to your sessions and looking at the root span `emb-app-startup`
+
 Click the 'See Details' to get more information and to view the child spans
 ![[startup-spans2.png]]
 
@@ -41,7 +42,7 @@ Depending on the version of Android and other additional data your app provides,
 #### emb-embrace-init
 
 - The time it took for the Embrace SDK to initialize.
-- Only recorded for cold ==startup==s
+- Only recorded for cold startups
 
 #### emb-app-init
 
@@ -52,14 +53,14 @@ Depending on the version of Android and other additional data your app provides,
 ```
 private async void Start()
 {
-	// Start the Embrace SDK
-	Embrace.Instance.StartSDK();
+// Start the Embrace SDK
+Embrace.Instance.StartSDK();
 
-	// Wait for any other plugins to initialize
-	await InitializePlugins();
+// Wait for any other plugins to initialize
+await InitializePlugins();
   
-	// Now that the user is able to interact with the app, we can end the startup phase
-	Embrace.Instance.EndAppStartup();
+// Now that the user is able to interact with the app, we can end the startup phase
+Embrace.Instance.EndAppStartup();
 }
 ```
 
