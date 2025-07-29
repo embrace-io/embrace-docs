@@ -53,14 +53,14 @@ Depending on the version of Android and other additional data your app provides,
 ```
 private async void Start()
 {
-// Start the Embrace SDK
-Embrace.Instance.StartSDK();
+    // Start the Embrace SDK
+    Embrace.Instance.StartSDK();
 
-// Wait for any other plugins to initialize
-await InitializePlugins();
+    // Wait for any other plugins to initialize
+    await InitializePlugins();
   
-// Now that the user is able to interact with the app, we can end the startup phase
-Embrace.Instance.EndAppStartup();
+    // Now that the user is able to interact with the app, we can end the startup phase
+    Embrace.Instance.EndAppStartup();
 }
 ```
 
