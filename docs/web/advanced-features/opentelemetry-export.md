@@ -14,10 +14,10 @@ exporter capable of sending OTel signals to that destination.
 
 ## Setup custom exporters
 
-You can set up your own custom log and trace exporters and pass them in when initializing the SDK. For example if you
-wish to send telemetry to Grafana cloud using OTLP, and assuming you have installed the
-`@opentelemetry/exporter-logs-otlp-http` and `@opentelemetry/exporter-trace-otlp-http` packages, then you could do the
-following:
+You can set up your own custom log and trace exporters and pass them in when initializing the SDK. The exporters should
+be configured to point to an OTLP compatible endpoint and include any headers required for that endpoint, such as
+authorization. Since these export requests will be made from a browser it is also required that the endpoint return
+appropriate CORS headers in its responses:
 
 ```typescript
 import { OTLPLogExporter }   from '@opentelemetry/exporter-logs-otlp-http';
@@ -28,20 +28,25 @@ sdk.initSDK({
   appVersion: "YOUR_APP_VERSION",
   spanExporters: [
     new OTLPTraceExporter({
-      url: `GRANAFA_ENDPOINT/v1/traces`,
+      url: 'https://example.com/endpoint/for/traces',
       headers: {
-        'Authorization': 'Basic YOUR_GRAFANA_CLOUD_TOKEN'
+        'Authorization': 'Basic TOKEN'
       }
     }),
   ],
   logExporters: [
     new OTLPLogExporter({
-      url: `GRANAFA_ENDPOINT/v1/logs`,
+      url: 'https://example.com/endpoint/for/logs',
       headers: {
-        'Authorization': 'Basic YOUR_GRAFANA_CLOUD_TOKEN'
+        'Authorization': 'Basic TOKEN'
       }
     }),
-  ]
+  ],
+  defaultInstrumentationConfig: {
+    network: {
+      ignoreUrls: ['https://example.com/endpoint/for/traces', 'https://example.com/endpoint/for/logs'],
+    },
+  },
 });
 ```
 
@@ -50,8 +55,8 @@ Embrace automatically creates spans for network requests, however because the OT
 this can produce a cycle where the export's network request creates a span which is then exported which then creates
 another span, etc.
 
-To avoid this you can [configure the SDK's network monitoring](/docs/web/automatic-instrumentation/network-monitoring.md#configuration-options)
-to ignore the endpoint to which you are exporting.
+To avoid this you can configure the network instrumentation to ignore the URLs to which you are exporting as shown in
+the above snippet.
 :::
 
 ## Common Use Cases
