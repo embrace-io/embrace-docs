@@ -32,13 +32,12 @@ try Embrace
 If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytics so you will still have that data available in the Embrace dashboard.
 
 :::warning Important Considerations
-**We recommend using Embrace's built-in crash reporter for complete crash data and session context.** CrashlyticsReporter should only be used for gradual migration from Firebase Crashlytics.
+**We strongly recommend using Embrace's built-in crash reporter for complete crash data and session context.** However, if your team still decides to use CrashlyticsReporter, here are key limitations:
 
-**Key limitations when using CrashlyticsReporter:**
 - Embrace session properties are not included in crash reports
-- Embrace resources are not included in crash reports  
-- Last run state detection is unavailable
-- Depends on Firebase Crashlytics network requests for crash capture
+- Embrace resources are not included in crash reports
+- Last run state detection is not available
+- Crash capture depends on Firebase Crashlytics network requests
 - Some crashes may not be captured if Firebase Crashlytics fails
 
 CrashlyticsReporter intercepts Firebase Crashlytics network requests and captures the crash data that Firebase collects. It does not have access to Embrace's session metadata.
