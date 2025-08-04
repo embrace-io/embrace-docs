@@ -1,10 +1,10 @@
 ---
-title: View Tracking
+title: UIKit View Tracking
 description: Monitor UIViewController lifecycle and performance in your iOS app
 sidebar_position: 2
 ---
 
-# View Tracking
+# UIKit View Tracking
 
 The Embrace SDK's `ViewCaptureService` automatically instruments `UIViewController` load and render times, giving you visibility into screen performance and user experience.
 

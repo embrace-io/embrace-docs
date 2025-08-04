@@ -4,7 +4,7 @@ description: Automatically track network requests in your iOS app with Embrace
 sidebar_position: 1
 ---
 
-# Network Monitoring
+# Network Capture
 
 The Embrace SDK automatically monitors network requests made through `URLSession` in your application, providing visibility into network performance, errors, and behavior.
 

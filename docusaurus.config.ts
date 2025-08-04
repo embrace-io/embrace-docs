@@ -566,6 +566,10 @@ const config: Config = {
           to: "/dpa/",
         },
         {
+          label: "Trust Center",
+          to: "https://trust.embrace.io/",
+        },
+        {
           label: "Edit these docs",
           to: "https://github.com/embrace-io/embrace-docs/",
         },

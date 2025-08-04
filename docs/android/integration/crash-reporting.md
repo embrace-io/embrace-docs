@@ -16,23 +16,9 @@ The Embrace SDK will automatically capture crash reports, assuming you've initia
 
 You can test this out by triggering a crash:
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
 ```kotlin
 throw RuntimeException("This is a crash")
 ```
-</TabItem>
-<TabItem value="java" label="Java">
-```java
-throw new RuntimeException("This is a crash");
-```
-</TabItem>
-</Tabs>
 
 :::danger
 This will crash your app, so only use it for testing purposes.

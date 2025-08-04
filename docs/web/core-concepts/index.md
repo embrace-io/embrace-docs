@@ -18,6 +18,7 @@ background states
 2. **[Traces & Spans](./traces-spans.md)** - OpenTelemetry-based instrumentation for tracking operations and their
 performance
 3. **[Logs](./logs.md)** - Messages and events that provide contextual information about application state
+4. **[User Identification](./user-identification.md)** - Methods to identify users
 
 ## How These Concepts Work Together
 

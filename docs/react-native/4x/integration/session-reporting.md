@@ -155,7 +155,6 @@ For now, you can think of the startup moment as a timer that measures how long i
 Although in both Android and iOS the moment is started automatically, ending it is platform specific.
 
 For Android, the SDK will end the moment automatically.
-To end the startup moment when you React component mounts, see the [Android guide](/android/integration/session-reporting#end-the-startup-moment) to prevent the moment from ending automatically.
 
 The iOS SDK does not end the moment automatically.
 

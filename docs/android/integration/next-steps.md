@@ -22,7 +22,7 @@ our [Feature Reference](/android/features/).
 
 ## Sample Integration Apps
 
-For a sample integration, or to check out how you can use more advanced features of the SDK, take a look at the example apps in the <a href="https://github.com/embrace-io/embrace-android-sdk/tree/main/examples/" target="_blank">Embrace Android SDK repo</a> on GitHub.
+For a sample integration, or to check out how you can use more advanced features of the SDK, take a look at the example app in the <a href="https://github.com/embrace-io/embrace-android-sdk/tree/main/examples/" target="_blank">Embrace Android SDK repo</a> on GitHub.
 
 ## API Docs
 
@@ -30,7 +30,7 @@ To see the full list of methods that the Android Embrace SDK exposes, please see
 
 ## Configuration
 
-The SDK and associated Gradle plugin have configuration options that we have not explored as we get you onboarded.
+The SDK and associated Gradle plugin have configuration options that we have not explored during the onboarding.
 Explore the options available on the [SDK Configuration](/android/features/configuration-file/) page to see if any are useful to you in your
 application.
 

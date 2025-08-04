@@ -24,5 +24,5 @@ potential performance issues or errors within a session.
 
 ## Turning Off Capture
 
-Capture of clicks can be turned off following the process described in
-[Configuring Automatic Instrumentation](/docs/web/automatic-instrumentation/index.md#configuring-automatic-instrumentation).
+This instrumentation can be turned off altogether following the process described in [Configuring Automatic Instrumentation](/docs/web/automatic-instrumentation/index.md#configuring-automatic-instrumentation),
+or selectively for certain elements as described in [Security Considerations](/docs/web/best-practices/security-considerations/#configure-the-user-interaction-auto-instrumentation).

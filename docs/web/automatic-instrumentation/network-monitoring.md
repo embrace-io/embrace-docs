@@ -33,6 +33,9 @@ Specific configuration options can be found in the [@opentelemetry/instrumentati
 and [@opentelemetry/instrumentation-xml-http-request](https://github.com/open-telemetry/opentelemetry-js/blob/experimental/v0.57.0/experimental/packages/opentelemetry-instrumentation-xml-http-request/src/xhr.ts#L66)
 package documentations.
 
+In addition, to avoid having to set `ignoreUrls` twice the 'network' key can be used to configure both packages at the
+same time as described in [Security Considerations](/docs/web/best-practices/security-considerations.md#configure-the-network-monitoring-auto-instrumentation).
+
 ## Data Captured
 
 For each network request, the SDK captures:

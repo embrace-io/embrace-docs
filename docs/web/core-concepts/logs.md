@@ -43,8 +43,12 @@ custom logs:
 
 Embrace enforces certain limits on logs:
 
-- Maximum number of logs per session: 500
-- Maximum size of logs: 10,000 bytes
+- Maximum number of error logs per session: 500
+- Maximum number of warning logs per session: 200
+- Maximum number of info logs per session: 100
+- Maximum length of log messages: 128 characters
+- Maximum length for a log attribute key: 128 characters
+- Maximum length for a log attribute value: 256 characters
 
 ## Using the Log API
 
