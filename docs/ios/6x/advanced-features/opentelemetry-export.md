@@ -82,6 +82,188 @@ For specialized environments, you can implement custom exporters that:
 - Apply custom filtering or processing before export
 - Implement company-specific security or compliance requirements
 
-<!-- TODO: Add examples of implementing a custom exporter
-TODO: Include examples of configuring batching and sampling for performance optimization
-TODO: Show how to conditionally enable exporters based on build configuration (debug vs. release)  -->
+#### Implementing a Custom Log Exporter
+
+The Embrace iOS SDK supports custom log exporters through OpenTelemetry's [`LogRecordExporter`](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) protocol. Your custom exporter will run alongside Embrace's default storage exporter, giving you access to all log data while maintaining Embrace's core functionality.
+
+##### Basic Implementation
+
+```swift
+import Foundation
+import OpenTelemetrySdk
+
+class CustomLogExporter: LogRecordExporter {
+    
+    func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
+        // Your custom export logic here
+        for record in logRecords {
+            // Access log data
+            let message = record.body.description
+            let timestamp = record.timestamp
+            let attributes = record.attributes
+            let severity = record.severity
+            let resource = record.resource.attributes
+            
+            // Example implementations:
+            // - Send to remote API
+            // - Write to custom file format
+            // - Forward to analytics service
+            // - Apply custom filtering/transformation
+            
+            // Simple example - print to console
+            print("CUSTOM EXPORTER - Message: \(message), Timestamp: \(timestamp), Severity: \(String(describing: severity))")
+        }
+        return .success
+    }
+    
+    func forceFlush(explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
+        // Flush any pending logs (implement your flush logic)
+        print("CUSTOM EXPORTER - Force flush called")
+        return .success
+    }
+    
+    func shutdown(explicitTimeout: TimeInterval?) {
+        // Cleanup resources when SDK shuts down
+        print("CUSTOM EXPORTER - Shutdown called")
+    }
+}
+```
+
+##### Configuration
+
+```swift
+import EmbraceIO
+
+// Configure your custom exporter
+let customExporter = CustomLogExporter()
+
+// Set up Embrace options
+let options = Embrace.Options(
+    appId: "your-app-id",
+    export: OpenTelemetryExport(
+        spanExporter: nil, // Optional: add custom span exporter
+        logExporter: customExporter
+    )
+)
+
+// Initialize Embrace
+Embrace.setup(options: options)
+```
+
+##### Background Processing for Heavy Operations
+
+For exporters that need to perform heavy processing (file I/O, network calls, data transformation), use a dedicated dispatch queue to avoid blocking the logging pipeline:
+
+```swift
+import Foundation
+import OpenTelemetrySdk
+
+class CustomLogExporter: LogRecordExporter {
+    // Dedicated queue for heavy processing
+    private let processingQueue = DispatchQueue(label: "com.yourapp.log-exporter", qos: .utility)
+    
+    func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
+        // Return immediately to avoid blocking the logging pipeline
+        processingQueue.async {
+            // Perform heavy operations here
+            self.processLogsAsync(logRecords)
+        }
+        
+        return .success
+    }
+    
+    private func processLogsAsync(_ logRecords: [ReadableLogRecord]) {
+        for record in logRecords {
+            // Heavy processing examples:
+            // - Save to local database
+            // - Write to file system
+            // - Send to remote API
+            // - Complex data transformations
+            
+            self.saveToLocalFile(record)
+            self.sendToAnalyticsService(record)
+        }
+    }
+    
+    private func saveToLocalFile(_ record: ReadableLogRecord) {
+        // Example: Save to disk
+        let logData = [
+            "message": record.body.description,
+            "timestamp": record.timestamp.timeIntervalSince1970,
+            "severity": record.severity?.description ?? "unknown"
+        ]
+        
+        // Write to file, database, etc.
+        // This heavy I/O won't block the main logging thread
+    }
+    
+    private func sendToAnalyticsService(_ record: ReadableLogRecord) {
+        // Example: Network call
+        // Heavy network operations happen in background
+    }
+    
+    func forceFlush(explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
+        // Wait for background processing to complete if needed
+        processingQueue.sync { }
+        return .success
+    }
+    
+    func shutdown(explicitTimeout: TimeInterval?) {
+        // Cleanup queue and resources
+    }
+}
+```
+
+##### Available Log Data
+
+Each `ReadableLogRecord` provides:
+- `body` - Log message content
+- `timestamp` - When the log was created
+- `severity` - Log level (debug, info, warn, error, etc.)
+- `attributes` - Custom attributes attached to the log
+- `resource` - Resource information (app metadata, device info, etc.)
+- `instrumentationScopeInfo` - Information about the logging source
+- `spanContext` - Associated trace/span context if available
+
+##### Example Use Cases
+
+**Send to Remote API:**
+```swift
+func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
+    for record in logRecords {
+        let logData = [
+            "message": record.body.description,
+            "timestamp": record.timestamp.timeIntervalSince1970,
+            "severity": record.severity?.description ?? "unknown",
+            "attributes": record.attributes
+        ]
+        
+        // Send to your API endpoint
+        sendToAPI(logData)
+    }
+    return .success
+}
+```
+
+**Filter and Transform Logs:**
+```swift
+func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
+    let errorLogs = logRecords.filter { record in
+        record.severity == .error || record.severity == .fatal
+    }
+    
+    for record in errorLogs {
+        // Process only error/fatal logs
+        processErrorLog(record)
+    }
+    return .success
+}
+```
+
+##### Important Considerations
+
+1. **Dual Export**: Your exporter runs alongside Embrace's default exporter - both receive the same log data
+2. **Performance**: Implement efficient processing to avoid blocking the logging pipeline
+3. **Error Handling**: Return `.failure` from export methods if processing fails
+4. **Thread Safety**: Ensure your exporter is thread-safe as it may be called from multiple threads
+5. **Resource Management**: Clean up properly in the `shutdown` method
