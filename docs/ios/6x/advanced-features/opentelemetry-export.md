@@ -84,7 +84,7 @@ For specialized environments, you can implement custom exporters that:
 
 #### Implementing a Custom Log Exporter
 
-The Embrace iOS SDK supports custom log exporters through OpenTelemetry's `LogRecordExporter` protocol. Your custom exporter will run alongside Embrace's default storage exporter, giving you access to all log data while maintaining Embrace's core functionality.
+The Embrace iOS SDK supports custom log exporters through OpenTelemetry's [`LogRecordExporter`](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) protocol. Your custom exporter will run alongside Embrace's default storage exporter, giving you access to all log data while maintaining Embrace's core functionality.
 
 ##### Basic Implementation
 
