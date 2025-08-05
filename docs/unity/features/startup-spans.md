@@ -3,22 +3,26 @@
 
 Tracking app starting times is important to measure the performance of your app and to see how long your users are waiting before being able to actually interact with the app.
 
-## How it works
+## Getting Started
 
 Start by going to Tools > Embrace > Settings
 ![[startup-spans-1.png]]
 
 Under the Startup Tab enable:
-**Enable Startup Spans**
-**First Scene Loaded**
-**Loading Time**
+**emb-app-startup**
+**emb-app-loaded**
+**emb-app-time-to-interactive**
 
 ![[startup-spans-2.png]]
 
 Then click 'Apply Settings'.
-## Implementation
+#### Implementation
 
 The startup spans are not fully automated. You will need to call `Embrace.Instance.EndAppStartup();` after all your plugins and everything have finished loading. It's also important that you call `Embrace.Instance.StartSDK();` beforehand as well.
+
+#### Start
+
+#### End
 
 ## Viewing The Data
 
@@ -44,7 +48,7 @@ Depending on the version of Android and other additional data your app provides,
 - The time it took for the Embrace SDK to initialize.
 - Only recorded for cold startups
 
-#### emb-app-init
+#### emb-app-time-to-interactive
 
 - The time between when the first scene has loaded until `Embrace.Instance.EndAppStartup();` is called
 - Only recorded for cold startups
