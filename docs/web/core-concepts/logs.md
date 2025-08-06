@@ -46,7 +46,9 @@ Embrace enforces certain limits on logs:
 - Maximum number of error logs per session: 500
 - Maximum number of warning logs per session: 200
 - Maximum number of info logs per session: 100
+- Maximum number of exceptions logged per session: 500
 - Maximum length of log messages: 128 characters
+- Maximum length of an exception message: 1024 characters
 - Maximum length for a log attribute key: 128 characters
 - Maximum length for a log attribute value: 256 characters
 
