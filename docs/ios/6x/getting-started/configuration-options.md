@@ -46,7 +46,7 @@ Embrace.Options(
 Additional arguments from the [core Embrace.Options initializer](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BOptions.swift#L37) provide more flexibility:
 
 - **`captureServices`**: Out-of-the-box [`CaptureServices`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/CaptureServices.swift) that automatically capture mobile events like networking and memory warnings. When using the convenience initializers, the SDK includes services for URLSession network monitoring, view tracking, tap capture, WebView monitoring, and system events (but not push notifications, which must be added manually). You can extend the base `CaptureService` for new services that fit your use case.
-- **`crashReporter`**: By default, an [`EmbraceCrashReporter`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCrash/EmbraceCrashReporter.swift) is used, but you can customize this.
+- **`crashReporter`**: By default, an [`EmbraceCrashReporter`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Crash/EmbraceCrashReporter.swift) is used, but you can customize this.
 
 ## Using the SDK Without the Embrace Dashboard
 
