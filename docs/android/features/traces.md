@@ -335,7 +335,7 @@ if (activityLoad != null) {
 </TabItem>
 </Tabs>
 
-### Record a span for a operation that occurred in the past
+### Record a span for an operation that occurred in the past
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
