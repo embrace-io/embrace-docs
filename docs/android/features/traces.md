@@ -515,7 +515,7 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
 
 ### Avoiding sending telemetry to Embrace
 
-If you prefer to send telemetry only your custom OpenTelemetry Collectors and don't want to send data to Embrace, like if you are not an Embrace customer, do the following:
+If you prefer to send telemetry only to your custom OpenTelemetry Collectors and don't want to send data to Embrace, like if you are not an Embrace customer, do the following:
 
 1. Configure at least 1 span exporter or log exporter as described above.
 2. Remove the `app_id` and `api_token` fields from `app/src/main/embrace-config.json` if specified. You can still keep the file and use it to specify other configuration options.
