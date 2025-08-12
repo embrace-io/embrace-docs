@@ -514,7 +514,7 @@ const config: Config = {
     announcementBar: {
       id: 'new-structure-announcement-2', // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        'Embrace\'s docs are now open-source! Please open an issue or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in Github with any changes!</a>',
+        'Embrace\'s docs are now open-source! Please open an issue or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in GitHub with any changes!</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
