@@ -25,7 +25,14 @@ Sessions are automatically collected by the Embrace SDKs, ingested by Embrace's 
 
 ## Learn more
 
-Read about [Use Cases](/docs/product/sessions/use-cases.md) to learn more about how developers use Sessions to dig into user experiences.
+This walkthrough video will show you how developers use User Sessions to make sense of app activity:
 
-See these User Session topics:
+<div>
+    <iframe width="660" height="415" src="https://www.youtube.com/embed/uoiWh7ZEOtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+
+Additionally, you can learn about [Use Cases](/docs/product/sessions/use-cases.md) to learn more about how developers use Sessions to dig into user experiences.
+
+Finally, read about these User Session topics:
 - [Track complete user sessions to deliver optimal user experiences](https://embrace.io/blog/track-complete-user-sessions-to-deliver-optimal-mobile-experiences/)
