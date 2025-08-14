@@ -5,15 +5,12 @@ Tracking app starting times is important to measure the performance of your app 
 
 ## Getting Started
 
-Start by going to Tools > Embrace > Settings
-![[startup-spans-1.png]]
+Start by going to **Tools > Embrace > Settings**
 
-Under the Spans Tab / Startup Spans enable:
+Under the **Spans** Tab / **Startup Spans** enable:
 **emb-app-startup**
 **emb-app-loaded**
 **emb-app-time-to-interactive**
-
-![[startup-spans-4 1.png]]
 
 Then click 'Apply Settings'.
 #### Implementation
@@ -35,11 +32,9 @@ Also with this call you can pass in a `Dictionary<string, string>` for any custo
 In your Embrace dashboard you can see the span details by going to your sessions and looking at the root span `emb-app-startup`
 
 Click the 'See Details' to get more information and to view the child spans
-![[startup-spans2.png]]
 
 Now you can view exactly how long it took your app to start up and then how long it took to load plugins and assets.
 
-![[startup-spans-5 1.png]]
 ### Child Spans
 
 Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app startup trace, with the cold or warm root span as their parent.
