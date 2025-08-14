@@ -129,7 +129,7 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 #### iOS:
 
 If you used the automated installation script or followed the manual steps for setting up the iOS SDK then you can
-modify the setup in `EmbraceInitializer.swift` to remove the view capture service, see [Configuring the iOS SDK](/docs/ios/6x/getting-started/configuration-options.md)
+modify the setup in `EmbraceInitializer.swift` to remove the view capture service, see [Configuring the iOS SDK](/ios/6x/getting-started/configuration-options.md)
 for more details:
 
 ```swift

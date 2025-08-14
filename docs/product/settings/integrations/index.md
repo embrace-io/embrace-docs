@@ -7,6 +7,6 @@ Aside from its alertings, Embrace offers many kinds of integrations into your wo
 
 See how you can integrate using:
 
-- [Slack](/docs/product/settings/integrations/slack.md)
-- [Webhooks](/docs/product/settings/integrations/webhooks.md)
-- [Data Destinations](/docs/data-destinations/index.md)
+- [Slack](/product/settings/integrations/slack.md)
+- [Webhooks](/product/settings/integrations/webhooks.md)
+- [Data Destinations](/data-destinations/index.md)

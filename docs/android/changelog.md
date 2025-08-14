@@ -10,6 +10,23 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.8.0
+*August 11, 2025*
+
+- Update limits and truncation logic.
+  - Session/Log properties:
+    - Properties per Session/Log: 10 -> 100
+    - Value: 256 -> 1024 characters
+  - Spans:
+    - Name length: 50 -> 128 characters
+    - Custom attributes per span: 50 -> 100
+    - Attribute keys: 50 -> 128 characters
+    - Attribute values: 200 -> 1024 characters
+    - Event name length: 100 -> 128 characters
+  - Names, keys, and values that are too long will now be truncated automatically instead of failing the underlying operation.
+- Fix crash when a custom `URLStreamHandler` that doesn't implement the `openConnection()` method is used when `HttpsUrlConnection` instrumentation is enabled.
+- Update OpenTelemetry API and SDK to `1.52.0`
+
 ## 7.7.0
 *July 18, 2025*
 
@@ -22,7 +39,7 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 *July 17, 2025*
 
 :::info Important
-This version is identical to 7.6.0 except that the desugaring requirement if Android 7.x is supported will be verified at build time. 
+This version is identical to 7.6.0 except that the desugaring requirement if your app supports Android API levels < 26 will be verified at build time. 
 
 This patch is unnecessary if you are already running 7.6.0. But if you support Android 7.x, ensure that you have desugaring enabled or else the Embrace SDK will not start for apps running on those Android versions.
 :::
@@ -33,7 +50,7 @@ This patch is unnecessary if you are already running 7.6.0. But if you support A
 *June 25, 2025*
 
 :::warning Important
-This version requires desugaring if your app support Android 7.x. Previously, the requirement had been for support of Android 6.x or lower. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring) 
+This version requires desugaring if your app supports Android API levels < 26. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring) 
 :::
 
 - Fix a Dexguard issue when bundle and assemble are executed in the same Gradle command

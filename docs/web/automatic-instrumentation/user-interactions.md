@@ -16,7 +16,7 @@ the current session Span. Clicks are not reported if the HTML element being inte
 or if the click event had had its propagation stopped.
 
 The time of the click is captured along with a representation of the element being interacted with. In addition, if there
-is an [INP Web Vital](/docs/web/automatic-instrumentation/web-vitals.md) reported and the click is determined to have
+is an [INP Web Vital](/web/automatic-instrumentation/web-vitals.md) reported and the click is determined to have
 contributed to the score then it is associated with it.
 
 This data is shown as part of User Timelines in the Embrace Dashboard to help provide context of what actions led to 
@@ -24,5 +24,5 @@ potential performance issues or errors within a session.
 
 ## Turning Off Capture
 
-This instrumentation can be turned off altogether following the process described in [Configuring Automatic Instrumentation](/docs/web/automatic-instrumentation/index.md#configuring-automatic-instrumentation),
-or selectively for certain elements as described in [Security Considerations](/docs/web/best-practices/security-considerations/#configure-the-user-interaction-auto-instrumentation).
+This instrumentation can be turned off altogether following the process described in [Configuring Automatic Instrumentation](/web/automatic-instrumentation/index.md#configuring-automatic-instrumentation),
+or selectively for certain elements as described in [Security Considerations](/web/best-practices/security-considerations.md#configure-the-user-interaction-auto-instrumentation).

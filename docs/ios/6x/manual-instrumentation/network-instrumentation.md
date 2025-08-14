@@ -1,14 +1,14 @@
 ---
-title: Network Instrumentation
+title: Network instrumentation
 description: Manually instrument network requests from third-party libraries like gRPC
 sidebar_position: 3
 ---
 
-# Network Instrumentation
+# Network instrumentation
 
-While Embrace's [automatic instrumentation](../automatic-instrumentation/network-monitoring.md) captures URLSession requests out of the box, manual network instrumentation allows you to track requests made by third-party libraries like gRPC that don't use URLSession.
+While Embrace's [automatic instrumentation](../automatic-instrumentation/network-monitoring.md) captures [`URLSession`](https://developer.apple.com/documentation/foundation/urlsession) requests out of the box, manual network instrumentation allows you to track requests made by third-party libraries like gRPC that don't use URLSession.
 
-## When to Use Manual Network Instrumentation
+## When to use manual network instrumentation
 
 Consider manual network instrumentation when:
 
@@ -18,18 +18,18 @@ Consider manual network instrumentation when:
 - Adding business-specific context to network requests
 - Tracking network operations that bypass URLSession
 
-## Required Imports
+## Required imports
 
 ```swift
 import Foundation
 import EmbraceIO
 ```
 
-## gRPC Instrumentation
+## gRPC instrumentation
 
-Since gRPC libraries like `grpc-swift` don't use URLSession, their network requests aren't automatically captured. You can manually create spans that appear as HTTP requests in the Embrace dashboard.
+Since gRPC libraries like [`grpc-swift`](https://github.com/grpc/grpc-swift) don't use `URLSession`, their network requests aren't automatically captured. You can manually create spans that appear as HTTP requests in the [networking section](/product/network/index.md) of the Embrace dashboard.
 
-### Basic gRPC Span Creation
+### Basic gRPC span creation
 
 ```swift
 class GRPCInstrumentation {
@@ -90,7 +90,7 @@ class GRPCInstrumentation {
 }
 ```
 
-### Real-time gRPC Span Creation
+### Real-time gRPC span creation
 
 For ongoing gRPC requests, create spans that you can update during the call:
 
@@ -165,9 +165,9 @@ extension GRPCClient {
 }
 ```
 
-## Third-Party Library Instrumentation
+## Third-party library instrumentation
 
-### Alamofire Integration
+### Alamofire integration
 
 ```swift
 import Alamofire
@@ -211,18 +211,23 @@ extension Session {
 }
 ```
 
-## Required Attributes for Dashboard Appearance
+## Required information for manual networking
 
-To ensure your network spans appear as HTTP requests in the Embrace dashboard:
+To ensure your network spans appear as network requests in the Embrace dashboard, you should add all required information listed below. Additionally, you can include some optional attributes to the network spans to enrich the telemetry you gather.
 
-### Essential Attributes
+### Required information
+
+Span type must be **`.networkRequest`** for these spans to show as network requests. This is required for proper categorization on Embrace's backend.
+
+#### Required attributes
+
+Additionally, the following attributes are required on the span for your network request:
 
 - **`url.full`** - Complete URL or service identifier
-- **`http.request.method`** - HTTP method (GET, POST, etc.)
-- **`http.response.status_code`** - Response status code
-- **`.networkRequest` span type** - Critical for proper categorization
+- **`http.request.method`** - HTTP method (`GET`, `POST`, etc.)
+- **`http.response.status_code`** - Response status code (200, 403, etc.)
 
-### Optional Attributes
+### Optional attributes
 
 - **`http.request.body.size`** - Request payload size
 - **`http.response.body.size`** - Response payload size
@@ -230,13 +235,13 @@ To ensure your network spans appear as HTTP requests in the Embrace dashboard:
 - **`error.code`** - Error code
 - **`error.message`** - Error description
 
-### Naming Convention
+### Naming convention
 
-Use the format: `"{METHOD} {path}"` (e.g., "GET /api/users", "POST /UserService/GetUser")
+For the span's name, use the format: `"{METHOD} {path}"` (e.g., "GET /api/users", "POST /UserService/GetUser")
 
-## Best Practices
+## Best practices
 
-### 1. Consistent Naming
+### 1. Consistent naming
 Use the same service and method names as your API definitions:
 
 ```swift
@@ -247,7 +252,7 @@ span?.name = "POST /UserService/GetUser"
 span?.name = "user_fetch_operation"
 ```
 
-### 2. Include Timing
+### 2. Include timing
 Always record accurate start and end times:
 
 ```swift
@@ -267,7 +272,7 @@ embrace.recordCompletedSpan(
 )
 ```
 
-### 3. Error Handling
+### 3. Error handling
 Capture both network errors and business logic errors:
 
 ```swift
@@ -285,7 +290,7 @@ if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 4
 }
 ```
 
-### 4. Request/Response Sizes
+### 4. Request/response sizes
 Include payload sizes for performance analysis:
 
 ```swift
@@ -296,7 +301,7 @@ attributes["http.request.body.size"] = String(requestData.count)
 attributes["http.response.body.size"] = String(responseData.count)
 ```
 
-### 5. Parent Spans
+### 5. Parent spans
 Create parent spans for complex operations with multiple network calls:
 
 ```swift
@@ -318,9 +323,9 @@ let preferencesSpan = embrace.buildSpan(
 ).setParent(parentSpan).startSpan()
 ```
 
-## Common Patterns
+## Common patterns
 
-### Request Wrapper Function
+### Request wrapper function
 
 ```swift
 func trackNetworkRequest<T>(
@@ -360,7 +365,7 @@ let userData = try await trackNetworkRequest(
 }
 ```
 
-### Custom Protocol Instrumentation
+### Custom protocol instrumentation
 
 For WebSocket or other custom protocols:
 
@@ -399,5 +404,6 @@ class WebSocketInstrumentation {
     }
 }
 ```
+## Summary
 
-By following these patterns and examples, you can effectively instrument network requests from any third-party library to appear alongside your automatically captured URLSession requests in the Embrace dashboard.
+By following these patterns and examples, you can instrument network requests from any third-party library to appear alongside your automatically-captured `URLSession` requests in the Embrace dashboard.

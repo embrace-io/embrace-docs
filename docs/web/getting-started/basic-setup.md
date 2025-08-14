@@ -46,7 +46,7 @@ if (!!result) {
 
 At this point you should be able to rebuild your app and have Embrace begin collecting telemetry. Data should start to
 show up in the Embrace Dashboard once the SDK reports at least 1 completed session. You can learn more about how sessions
-are calculated [here](/docs/web/core-concepts/sessions.md).
+are calculated [here](/web/core-concepts/sessions.md).
 
 :::note 
 It may take a few minutes before the first sessions appear in your Embrace dashboard.
@@ -69,7 +69,7 @@ sdk.initSDK({
 ```
 
 Alternatively if your app version is generated as part of your CI/CD process, you can use our CLI tool to inject your
-app version into your bundle at build time. The process is done as part of [uploading sourcemaps](/docs/web/getting-started/sourcemap-uploads.md).
+app version into your bundle at build time. The process is done as part of [uploading sourcemaps](/web/getting-started/sourcemap-uploads.md).
 
 
 ## Including the SDK as a code snippet from CDN
@@ -139,7 +139,7 @@ The SDK may miss some early telemetry events emitted before the SDK is initializ
 
 If you'd prefer not to send data to Embrace you can simply omit the embrace app id when calling `initSDK`. Note that in
 this case at least one custom exporter needs to be configured following the steps
-from [OpenTelemetry Export](/docs/web/advanced-features/opentelemetry-export.md).
+from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
 ## Troubleshooting
 
@@ -176,8 +176,8 @@ sdk.initSDK({
 
 After basic setup, you can:
 
-- Configure [Sourcemap Upload](/docs/web/getting-started/sourcemap-uploads.md) to view symbolicated stack traces for
-- Learn about [Sessions](/docs/web/core-concepts/sessions.md) and how they track user activity
+- Configure [Sourcemap Upload](/web/getting-started/sourcemap-uploads.md) to view symbolicated stack traces for
+- Learn about [Sessions](/web/core-concepts/sessions.md) and how they track user activity
 exceptions and logs in the Embrace dashboard
-- Explore [Traces & Spans](/docs/web/core-concepts/traces-spans.md) for performance monitoring
-- Dig into what is available through [automatic instrumentation](/docs/web/automatic-instrumentation/index.md)
+- Explore [Traces & Spans](/web/core-concepts/traces-spans.md) for performance monitoring
+- Dig into what is available through [automatic instrumentation](/web/automatic-instrumentation/index.md)

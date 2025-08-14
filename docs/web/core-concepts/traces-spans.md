@@ -52,7 +52,7 @@ You should never create a name with these prefixes.
 
 ## Creating and Using Spans
 
-See our [guide on instrumentating Traces](/docs/web/manual-instrumentation/custom-traces.md) for examples on
+See our [guide on instrumentating Traces](/web/manual-instrumentation/custom-traces.md) for examples on
 how to instrument your application.
 
 ## Best Practices

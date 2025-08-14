@@ -135,10 +135,10 @@ You can register callbacks to be notified when crashes occur:
 
 ## Best Practices
 
-- **Always upload dSYMs** - Ensure your crash reports are symbolicated by [uploading dSYM files](/docs/ios/6x/getting-started/dsym-upload.md)
-- **Add context** - Use [breadcrumbs](/docs/ios/6x/manual-instrumentation/breadcrumbs.md) and custom attributes to provide context around crashes
-- **Test thoroughly** - Test [crash reporting](/docs/product/crashes/crash-reporting.md) in your development and staging environments
-- **Monitor regularly** - Set up [alerts](/docs/product/alerting.md) for new crash types or increased crash rates
+- **Always upload dSYMs** - Ensure your crash reports are symbolicated by [uploading dSYM files](/ios/6x/getting-started/dsym-upload.md)
+- **Add context** - Use [breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs.md) and custom attributes to provide context around crashes
+- **Test thoroughly** - Test [crash reporting](/product/crashes/crash-reporting.md) in your development and staging environments
+- **Monitor regularly** - Set up [alerts](/product/alerting.md) for new crash types or increased crash rates
 - **Prioritize fixes** - Focus on crashes that affect the most users or critical user flows
 
 ## Troubleshooting
@@ -156,12 +156,12 @@ If crashes aren't appearing in the dashboard:
 
 If crash reports show unsymbolicated addresses:
 
-1. Ensure dSYM files are uploaded - see [dSYM Upload Guide](/docs/ios/6x/getting-started/dsym-upload.md)
+1. Ensure dSYM files are uploaded - see [dSYM Upload Guide](/ios/6x/getting-started/dsym-upload.md)
 2. Verify the dSYM files match the crashed build
 3. Check that the build UUID matches between the crash and dSYM
 
 ## Next Steps
 
-- Learn about [Error Handling](/docs/ios/6x/manual-instrumentation/error-handling.md) for non-fatal errors
-- Set up [Breadcrumbs](/docs/ios/6x/manual-instrumentation/breadcrumbs.md) to add context to crash reports
-- Configure [Custom Logging](/docs/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information 
+- Learn about [Error Handling](/ios/6x/manual-instrumentation/error-handling.md) for non-fatal errors
+- Set up [Breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs.md) to add context to crash reports
+- Configure [Custom Logging](/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information 

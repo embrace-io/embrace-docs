@@ -242,9 +242,9 @@ The following features have been removed or significantly changed in 6.x:
 
 After migrating to the 6.x SDK, we recommend:
 
-1. Review the [Core Concepts](/docs/ios/6x/core-concepts/index.md) documentation to understand the new architecture
-2. Explore the new [Automatic Instrumentation](/docs/ios/6x/automatic-instrumentation/index.md) capabilities
-3. Learn about [Manual Instrumentation](/docs/ios/6x/manual-instrumentation/index.md) for custom traces and logs
+1. Review the [Core Concepts](/ios/6x/core-concepts/index.md) documentation to understand the new architecture
+2. Explore the new [Automatic Instrumentation](/ios/6x/automatic-instrumentation/index.md) capabilities
+3. Learn about [Manual Instrumentation](/ios/6x/manual-instrumentation/index.md) for custom traces and logs
 
 ## Need Help?
 

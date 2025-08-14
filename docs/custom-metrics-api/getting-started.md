@@ -9,7 +9,7 @@ sidebar_position: 4
 Embrace captures your mobile data, and aggregates it into time series data. This data is useful for monitoring the
 health
 of your system. By default, Embrace provides standard, out-of-the-box metrics by default. These can be consumed via the
-Metrics API or can be forwarded into your [Data Destination](/docs/data-destinations/index.md) of choice.
+Metrics API or can be forwarded into your [Data Destination](/data-destinations/index.md) of choice.
 
 Custom metrics allow you to define your own time series metrics with custom labels. This feature enables you to create
 specific metrics that suit your unique needs, beyond the default metrics provided.
@@ -28,7 +28,7 @@ amongst paying customers. You can then consume this metric in your datastore of 
 ## Creating Custom Metrics in Embrace 
 
 ### via Boards
-Some Widgets on [custom Boards](/docs/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.
+Some Widgets on [custom Boards](/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.
 
 Open the menu on a Widget, and click "Create Custom Metric".  This will open up a Custom Metric creation form, pre-populated with the same parameters as the Widget.
 
