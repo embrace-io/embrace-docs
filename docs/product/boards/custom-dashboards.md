@@ -130,7 +130,7 @@ Then you were to combine them in the formula field:
 
 ## Table of Issues
 
-Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) . You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/docs/product/crashes/crash-tagging.md)
+Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) . You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/crashes/crash-tagging.md)
 
 1. To get started, select the Table visualization option and Issues as the source when making a new Widget.
 2. Adjust the columns you want to display and how to filter the Issues.

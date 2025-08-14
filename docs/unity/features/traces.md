@@ -31,7 +31,7 @@ There are also no limits to the number of child spans you can have per Root Span
 
 ### Limits
 
-For limits pertaining to each platform, please see the Android limits [here](/android/features/traces/#limits), and the iOS limits [here](/docs/ios/6x/core-concepts/traces-spans.md).
+For limits pertaining to each platform, please see the Android limits [here](/android/features/traces/#limits), and the iOS limits [here](/ios/6x/core-concepts/traces-spans.md).
 
 :::warning Exceeding Limits
 If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.
@@ -52,7 +52,7 @@ To use this feature:
 
 1. **Ensure you're using Embrace Unity SDK version 1.26.0 or greater**.
 2. Instrument your app using the reference guide in this section to start adding spans to your operations.
-3. See the spans in the [Traces](/docs/product/traces/index.md) section of the Embrace dashboard.
+3. See the spans in the [Traces](/product/traces/index.md) section of the Embrace dashboard.
 
 ## API Usage Examples
 

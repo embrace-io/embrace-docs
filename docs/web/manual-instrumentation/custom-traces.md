@@ -8,7 +8,7 @@ sidebar_position: 1
 
 Custom traces allow you to measure the duration of specific operations in your app, providing insights into performance
 and behavior of code paths that matter to your business. See our
-[Core Concepts section on Traces & Spans](/docs/web/core-concepts/traces-spans.md) for a more detailed overview.
+[Core Concepts section on Traces & Spans](/web/core-concepts/traces-spans.md) for a more detailed overview.
 
 ## Creating Spans
 

@@ -68,5 +68,5 @@ Breadcrumbs are designed to be lightweight, but consider:
 
 ## Next Steps
 
-- Learn about [Custom Logging](/docs/web/manual-instrumentation/custom-logging.md) for more detailed logging
-- Explore [Custom Traces](/docs/web/manual-instrumentation/custom-traces.md) for performance monitoring
+- Learn about [Custom Logging](/web/manual-instrumentation/custom-logging.md) for more detailed logging
+- Explore [Custom Traces](/web/manual-instrumentation/custom-traces.md) for performance monitoring

@@ -57,4 +57,4 @@ To trigger a session upload during development, simply send the application to t
 
 Typically the SDK will be given sufficient time to upload the session, but sometimes the app is not able to complete the upload in the background. To ensure the session was uploaded, launch the application again, which will trigger the SDK to complete any pending uploads. Refresh the dashboard in your browser to see your session data.
 
-You can learn more about capturing specific moments and events in the [Core Concepts](/docs/ios/6x/core-concepts/index.md) section.
+You can learn more about capturing specific moments and events in the [Core Concepts](/ios/6x/core-concepts/index.md) section.

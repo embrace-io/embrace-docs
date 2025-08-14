@@ -1,6 +1,6 @@
 # Embrace Documentation
 
-This repository hosts the source code for the [Embrace documentation site](https://embrace.io/docs/). 
+This repository hosts the source code for the [Embrace documentation site](https://embrace.io/docs/).  
 
 The docs site is automatically deployed from this repository on a regular daily interval. We welcome all contributors who would like to grow knowledge and clarity regarding the Embrace mobile SDKs, dashboard, and data forwarding features. Please feel free to make a pull request to make an addition, or open an issue to make a suggestion of what might be change.
 
@@ -22,14 +22,15 @@ You can edit and build these docs on your local machine by pulling the repo and 
 
 ### Installation
 
-```
+```console
 $ npm i
 ```
+
 This command will install all node packages and their dependencies. This command is usually optional, as the packages are prebuilt in this repository.
 
-### Start 
+### Start  
 
-```
+```console
 $ npm start
 ```
 
@@ -37,7 +38,7 @@ This command starts a local development server and opens up a browser window. Mo
 
 ## Build
 
-```
+```console
 $ npm run build
 ```
 

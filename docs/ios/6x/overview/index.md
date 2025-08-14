@@ -8,7 +8,7 @@ sidebar_position: 0
 
 The Embrace 6.x Apple SDK is designed to provide first-class observability and diagnostic data collection to your mobile application. It supports multiple platforms including iOS, iPadOS, tvOS, macOS, and watchOS.
 
-Embrace's 6.x SDK is open-source and can be found on [GitHub](https://github.com/embrace-io/embrace-apple-sdk/). It has been designed so that any Apple developer can add the SDK to their app and transmit telemetry without using Embrace, or can use Embrace to gain the key mobile insights that we've cultivated in our [product](/docs/product/index.md).
+Embrace's 6.x SDK is open-source and can be found on [GitHub](https://github.com/embrace-io/embrace-apple-sdk/). It has been designed so that any Apple developer can add the SDK to their app and transmit telemetry without using Embrace, or can use Embrace to gain the key mobile insights that we've cultivated in our [product](/product/index.md).
 
 ## What is the Embrace iOS SDK?
 

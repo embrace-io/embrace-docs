@@ -24,9 +24,9 @@ The first User Session begin when a user launches the app to the foreground. Tha
 
 Sessions are automatically collected by the Embrace SDKs, ingested by Embrace's backend, and displayed in the Embrace dashboard. Once Sessions have been collected, they can be used in the dashboard a variety of ways:
 
-- [Stitched Sessions](/docs/product/sessions/stitched-sessions.md) let you see user activity over time for all users or specific cohorts of users.
-- [User Timelines](/docs/product/sessions/user-timeline.md) let you dig into the experience for individual users.
-- [Session Filters](/docs/product/sessions//filter-sessions.md) let you filter users into groups by experiments, real-world conditions, and any other dimensions you attach to users.
+- [Stitched Sessions](/product/sessions/stitched-sessions.md) let you see user activity over time for all users or specific cohorts of users.
+- [User Timelines](/product/sessions/user-timeline.md) let you dig into the experience for individual users.
+- [Session Filters](/product/sessions//filter-sessions.md) let you filter users into groups by experiments, real-world conditions, and any other dimensions you attach to users.
 
 ## Learn more
 
@@ -37,7 +37,7 @@ This walkthrough video will show you how developers use User Sessions to make se
 </div>
 
 
-Additionally, you can learn about [Use Cases](/docs/product/sessions/use-cases.md) to learn more about how developers use Sessions to dig into user experiences.
+Additionally, you can learn about [Use Cases](/product/sessions/use-cases.md) to learn more about how developers use Sessions to dig into user experiences.
 
 Finally, read about these User Session topics:
 - [Track complete user sessions to deliver optimal user experiences](https://embrace.io/blog/track-complete-user-sessions-to-deliver-optimal-mobile-experiences/)

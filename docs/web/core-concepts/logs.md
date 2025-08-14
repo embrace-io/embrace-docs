@@ -54,7 +54,7 @@ Embrace enforces certain limits on logs:
 
 ## Using the Log API
 
-See our [guide on instrumentating Logs](/docs/web/manual-instrumentation/custom-logging.md) for examples on
+See our [guide on instrumentating Logs](/web/manual-instrumentation/custom-logging.md) for examples on
 how to instrument your application.
 
 ## Logs vs Other Concepts

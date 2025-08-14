@@ -55,7 +55,7 @@ their place.
 
 ### Configure the Network Monitoring Auto-instrumentation
 
-The [Network Monitoring](/docs/web/automatic-instrumentation/network-monitoring.md) auto-instrumentation records spans
+The [Network Monitoring](/web/automatic-instrumentation/network-monitoring.md) auto-instrumentation records spans
 for network requests triggered by your application which include attributes for the URLs being requested. By default,
 sensitive tokens in these URLs are attempted to be redacted using the process described above in
 [Configure Attribute Scrubbers](#configure-attribute-scrubbers). In addition, you can also configure the network
@@ -78,7 +78,7 @@ sdk.initSDK({
 
 ### Configure the User Interaction Auto-instrumentation {#configure-the-user-interaction-auto-instrumentation}
 
-The [User Interactions](/docs/web/automatic-instrumentation/user-interactions.md) auto-instrumentation records a span
+The [User Interactions](/web/automatic-instrumentation/user-interactions.md) auto-instrumentation records a span
 event whenever a user clicks on an element in your application. This event contains the pixel coordinates of the
 click as well as a representation of the clicked element that uses its inner text. If this contains sensitive
 information you can configure the click instrumentation to avoid tracking particular elements using its `shouldTrack`
