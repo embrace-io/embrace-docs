@@ -28,7 +28,7 @@ You can also see, create, and modify rules in the Settings view.
 <img src={require('@site/static/images/tagging-ui-2.png').default} alt="rule-modal" width="500px"/>
 
 ### With a CODEOWNERS File
-POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, 
+POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`,  
 `token` (the symbol upload token used to upload symbols files) , `file` and `base_direcory`. The `base_directory` is the
 prefix that will be stripped from the stack frame file paths before matching.  This is useful for matching stack traces
 from React Native.

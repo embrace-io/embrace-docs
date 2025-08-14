@@ -164,4 +164,4 @@ If crash reports show unsymbolicated addresses:
 
 - Learn about [Error Handling](/ios/6x/manual-instrumentation/error-handling.md) for non-fatal errors
 - Set up [Breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs.md) to add context to crash reports
-- Configure [Custom Logging](/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information 
+- Configure [Custom Logging](/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information

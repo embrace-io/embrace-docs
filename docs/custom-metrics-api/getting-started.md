@@ -17,7 +17,7 @@ specific metrics that suit your unique needs, beyond the default metrics provide
 ## Custom vs Standard Metrics
 
 Embrace captures mobile data with many dimensions. In order for this data to be useful as time series data, it must be
-aggregated. We automatically aggregate your metrics into [Prometheus style metrics](https://prometheus.io/docs/concepts/data_model/) 
+aggregated. We automatically aggregate your metrics into [Prometheus style metrics](https://prometheus.io/docs/concepts/data_model/)  
 by default using some standard, common sense labels combinations. These are useful for common golden signals like app
 adoption over several app versions.
 
@@ -25,7 +25,7 @@ If a standard metric doesn’t suit your needs you can define a custom metric. F
 property to identify sessions associated with paying customers and filter for that session property to get app adoption
 amongst paying customers. You can then consume this metric in your datastore of choice.
 
-## Creating Custom Metrics in Embrace 
+## Creating Custom Metrics in Embrace  
 
 ### via Boards
 Some Widgets on [custom Boards](/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.

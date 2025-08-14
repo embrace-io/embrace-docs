@@ -51,7 +51,7 @@ If you are using Expo's `prebuild` system to manage your native files you can ma
 ```json
     "plugins": [
         ...
-        
+
         [
             "@embrace-io/react-native/lib/app.plugin.js",
             {

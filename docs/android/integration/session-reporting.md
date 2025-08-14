@@ -42,9 +42,9 @@ You can trigger a session upload by sending your app to the background, and rest
 your browser and you should now see that you've moved on to the next step.
 
 :::warning Important
-If you stop your application by either force killing it or using the Android Studio stop button, 
-the Embrace SDK will not be able to upload the session that was just completed until you restart 
-your application. During the next application launch the previous session will be immediately uploaded. 
+If you stop your application by either force killing it or using the Android Studio stop button,  
+the Embrace SDK will not be able to upload the session that was just completed until you restart  
+your application. During the next application launch the previous session will be immediately uploaded.  
 :::
 
 ---

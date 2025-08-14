@@ -16,7 +16,7 @@ Embrace can automatically add a unique identifier to **every** network request y
 
 <img src={require('@site/static/images/nsf-example.png').default} alt="traceparent example" />
 
-We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propagate through the traces products of Grafana Cloud, Honeycomb, Datadog, New Relic, Chronosphere, and others. 
+We use [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header) to create unique identifiers, which means they will automatically propagate through the traces products of Grafana Cloud, Honeycomb, Datadog, New Relic, Chronosphere, and others.  
 According to the w3c convention, you can use the [`trace-id`](https://www.w3.org/TR/trace-context-1/#examples-of-http-traceparent-headers) portion of the traceparent to find your forwarded traces in the destination product.
 
 Network Span Forwarding is configured remotely in the supported Embrace SDKs, so there is no client-side instrumentation to add once you have enabled the feature. You can determine what percentage of requests to send a traceparent for, and you can also specify the domains that Embrace should forward network spans for.
@@ -34,7 +34,7 @@ NSF is supported on the following SDK versions:
 * Android 6.0+
 * Flutter 3.0+
 * React Native 5.2+
-  
+
 Accounts must have a [Data Destination](/data-destinations/) set up.
 
 Accounts not matching either condition will see a checklist pop up when trying to enable.

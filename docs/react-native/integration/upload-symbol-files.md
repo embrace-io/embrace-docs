@@ -8,7 +8,7 @@ sidebar_position: 4
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
-For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android. 
+For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.  
 
 ## Uploading Native And Javascript Symbol Files
 
@@ -59,7 +59,7 @@ REACT_NATIVE_XCODE="$REACT_NATIVE_PATH/scripts/react-native-xcode.sh"
 
 :::info
 Note that for Expo apps this build phase looks quite different but the same process will work just make sure to add
-the new lines above the invocation of `react-native-xcode.sh` which on Expo will look something like 
+the new lines above the invocation of `react-native-xcode.sh` which on Expo will look something like  
 `"$NODE_BINARY" --print "require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'"`
 :::
 

@@ -96,7 +96,7 @@ Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please e
 
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
-A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events. 
+A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events.  
 
 Several customers have encountered the scenario in which they have mistakenly disabled the SDK's ability to listen for such events. In such cases, customer intervention is required to determine how the startup library was disabled and how to re-enable it.
 
@@ -104,7 +104,7 @@ Several customers have encountered the scenario in which they have mistakenly di
 
 When using a version of 'appCompat' ≥ 1.4.1, the 'androidx.startup' library is used to initialize lifecycle event listeners. This is the same library used by WorkManager on Android.
 
-In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described. 
+In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described.  
 
 If the following code block is present in your Manifest file, **Embrace SDK will not run.** This deactivates every initialization provider:
 
@@ -195,7 +195,7 @@ You also can pass a User ID to identify users through a set of methods related t
 
 `Embrace.getInstance().setUserIdentifier("internal_user_id_1234")`
 
-Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. We recommend including an anonymized user ID that only your agents can search for. 
+Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. We recommend including an anonymized user ID that only your agents can search for.  
 
 If no user identifier is set, Embrace sets a random string as the identifier, which is active and available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/android/features/identify-users.md).
 

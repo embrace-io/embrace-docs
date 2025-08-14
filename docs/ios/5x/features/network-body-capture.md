@@ -6,11 +6,11 @@ sidebar_position: 4
 ---
 # Network Body Capture
 
-Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers. 
+Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.  
 
 This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you.
 
-If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded. 
+If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.  
 
 In your `Embrace-Info.plist` file, first create a new Dictionary entry titled:
 

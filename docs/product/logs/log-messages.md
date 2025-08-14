@@ -11,7 +11,7 @@ sidebar_position: 2
 Try to make the log message short, yet informative.
 Don't pack details about the error into message, as those belong in Properties (see below).
 
-The alerting capability of log messages is why breaking details into properties is so important. If your log message is a string that says `"Main page took 2.45ms to render"`, you cannot configure any thresholds on this. If the log was instead `"Main page took too long to render"` with a property of `"rendertime"` set to `"> 2ms"`, now you can customize an email alert based on this event. You could configure the alerts so that any render times greater than 5 seconds are emailed directly to you. 
+The alerting capability of log messages is why breaking details into properties is so important. If your log message is a string that says `"Main page took 2.45ms to render"`, you cannot configure any thresholds on this. If the log was instead `"Main page took too long to render"` with a property of `"rendertime"` set to `"> 2ms"`, now you can customize an email alert based on this event. You could configure the alerts so that any render times greater than 5 seconds are emailed directly to you.  
 
 ## Properties
 

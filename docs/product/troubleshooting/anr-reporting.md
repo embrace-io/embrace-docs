@@ -8,7 +8,7 @@ sidebar_position: 1
 
 ## What is an ANR?
 ANRs (or Application Not Responding) are Android errors indicating that an app is stuck or frozen during a user interaction. It is triggered when the Main Thread (UI thread) of an Android app is blocked for too long. They are triggered mostly if the app does not respond to user input within 5 seconds.
-    
+
 But ANRs can also be caused by:
 - Slow services
 - Slow broadcast receivers
@@ -30,7 +30,7 @@ Embrace instantly auto-captures and detects a sample/snapshot of an ANR in produ
     - **First Sample**: Use the first sample taken when the ANR is detected. This is typically around 1 second after the main thread is blocked.
     - **Most Representative Sample**:Our SDK records multiple samples during an ANR and not just a single sample after 5 seconds. Select this option to use the sample that was most common during the ANR.
     - **Ad-Focused Sample**: Similar to Most Representative Sample, but this option only considers samples that contain at least one frame associated with an ad SDK.
-    
+
 ### ANR Flame Graph Troubleshooting View
 This page will help you understand which parts of your app contribute most to ANRs. You can get to this page from each issue in the summary table from the previous page
   - **Drilling down on notable frames:**  The same hierarchical view from the summary list gets transferred to the flame graph. For the selected issue on the flame graph, you can access and inspect all the significant branches for that specific method across different ANR samples
@@ -44,7 +44,7 @@ This page will help you understand which parts of your app contribute most to AN
       - **Collapse on:**  join similar method groups under one root package (either common categories or all). Probably the most useful view is when we collapse all the Android system packages, which reduces the noise in the flame graph quite a bit
       - **Focus on:** Gray out unimportant categories (android packages) and focus only on the ones that matter (i.e ads packages)
       - **Min Width:** the min % of method appearances on the samples needed to appear on the flame graph
-    
+
 ### ANR Method Troubleshooting View
 This graph is *anchored* around the selected method. This allows you to see all the code paths that lead to the selected method and the code paths following the method. Users can get to this page from branches in the flame graph and from the known issues list.
   - **Common Issues/Methods ANR contribution:** This view will break the percentage of appearances of the problematic methods across calling or being called by the selected one across the different samples

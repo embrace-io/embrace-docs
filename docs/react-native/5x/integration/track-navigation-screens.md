@@ -140,7 +140,7 @@ import EmbraceCrash
 @objcMembers class EmbraceInitializer: NSObject {
     static func start() -> Void {
         do {
-         
+
             try Embrace
                 .setup(
                     options: Embrace.Options(

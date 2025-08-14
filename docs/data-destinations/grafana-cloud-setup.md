@@ -14,7 +14,7 @@ sidebar_position: 4
 
 ### Pulling your Grafana Cloud API Key or Access Policy / Token
 
-Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies). 
+Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies).  
 It depends on your Grafana Cloud version the information that you need to share with us.
 
 > Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/authentication-and-permissions/cloud-roles/) for more information.
@@ -69,7 +69,7 @@ If you are using the Embrace Metrics API, ensure that you configure Grafana to t
 
 Embrace provides two main options for viewing metrics within Grafana: using the **Embrace Metrics API** (pull method) or setting up a **Data Destination** (push method).
 
-For Data Destination ensure that you are selecting the correct prometheus datasource. Ex: 
+For Data Destination ensure that you are selecting the correct prometheus datasource. Ex:  
 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_prometheus_data_source.png').default} alt="Image showing Grafana Cloud datasource" />
 
@@ -98,11 +98,11 @@ Supported options:
 - Aggregations. For example, if the metric is aggregated by `os_version` and `country` (e.g. `sum by(app_id, country, os_version, embrace_metric_name) (embrace_crash_hourly_total)`), Embrace will use those filters with the `equal` operator on the Embrace dashboard.
 
 Unsupported options:
-- The following aggregations are ignored when Embrace generates the dashboard backlink: 
-  - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_attribute_value`, `root_span_duration_bucket`, 
+- The following aggregations are ignored when Embrace generates the dashboard backlink:  
+  - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_attribute_value`, `root_span_duration_bucket`,  
   `session_property_value`, `status_code`, `tag_value`.
 - [Top N](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations that are converted:
-  - `device_model` converted to `model_market_name` (Model Name). 
+  - `device_model` converted to `model_market_name` (Model Name).  
   - `top_n_domain` converted to `domain`.
   - `top_n_market_name` converted to `model_market_name` (Model Name).
   - `top_n_path` converted to `path`.
@@ -112,9 +112,9 @@ Unsupported options:
 ### Configuring backlinks
 
 1. Go to the Grafana Dashboard where you visualize your Embrace metrics.
-2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink. 
-   1. Ensure that all Embrace metrics are aggregated by `app_id` and `embrace_metric_name`. Embrace uses those aggregations to generate 
-      the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this 
+2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink.  
+   1. Ensure that all Embrace metrics are aggregated by `app_id` and `embrace_metric_name`. Embrace uses those aggregations to generate  
+      the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this  
      (`sum by (os_version, app_id, embrace_metric_name) (embrace_session_hourly_total)`) works.
 3. Hover over the Grafana Visualization to reveal the three dot menu in the top-right and select "edit".
 4. In the right sidebar menu, scroll down to the "Data Links" section. Click the "+ Add link" button, and enter the following details:

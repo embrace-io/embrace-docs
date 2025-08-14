@@ -19,10 +19,10 @@ To query your desired unit, simply prefix the metric name with the unit, eg: `da
 | users_total    | Number of unique users | app_version, os_version, device_model | daily                      |
 
 :::info
-The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day. 
+The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day.  
 It is important to note that this metric is not designed for cumulative aggregation across days, as doing so would result in double-counting users.
 
-Summing the users metric across various dimensions within the same day does not yield the overall count of unique users per day. 
+Summing the users metric across various dimensions within the same day does not yield the overall count of unique users per day.  
 This discrepancy arises from the potential overlap of users across different dimensions; for instance, users who update the app version on the same day may be present in multiple dimensions.
 
 Nevertheless, summing the users metric across dimensions can still provide an estimate of the total user counts.
@@ -102,7 +102,7 @@ Currently, we roll together these long-tail device models into an "other" value.
 
 ## Metrics Availability
 
-This is the time when the metrics will be available to consume in the Embrace Metrics API. 
+This is the time when the metrics will be available to consume in the Embrace Metrics API.  
 
 - Five minute metrics will be available to consume in about 4 minutes. Data point calculated at `2024-11-25 00:05:00` will be available to consume after `2024-11-25 00:10:00`.
 - Hourly metrics will be available to consume in about 15 minutes. Data point calculated at `2024-11-25 01:00:00` will be available to consume after `2024-11-25 01:14:00`.

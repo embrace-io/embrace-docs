@@ -19,7 +19,7 @@ The time of the click is captured along with a representation of the element bei
 is an [INP Web Vital](/web/automatic-instrumentation/web-vitals.md) reported and the click is determined to have
 contributed to the score then it is associated with it.
 
-This data is shown as part of User Timelines in the Embrace Dashboard to help provide context of what actions led to 
+This data is shown as part of User Timelines in the Embrace Dashboard to help provide context of what actions led to  
 potential performance issues or errors within a session.
 
 ## Turning Off Capture

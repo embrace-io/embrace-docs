@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let e {
             print("Error starting Embrace \(e.localizedDescription)")
         }
-        
+
         return true
     }
 }

@@ -252,7 +252,7 @@ Please update to the latest version.
 * Updated iOS SDK to version 5.21.0
 
 ## 1.14.1
-*June 16, 2023* 
+*June 16, 2023*  
 
 * Updated iOS SDK to version 5.20.1
 
@@ -284,7 +284,7 @@ Please update to the latest version.
 ## 1.12.0
 *April 11, 2023*
 
-* Improved Embrace configuration editor UI 
+* Improved Embrace configuration editor UI  
 * Removed editor UI assets from runtime resources
 * Updated Android SDK to version 5.16.0
 
@@ -305,7 +305,7 @@ Please update to the latest version.
     - com.unity.modules.androidjni
     - com.unity.modules.jsonserialize
     - com.unity.ugui
-    - com.unity.modules.unitywebrequest 
+    - com.unity.modules.unitywebrequest  
 
 ## 1.10.0
 *February 13, 2023*
@@ -558,8 +558,8 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 ## 1.3.2
 *October 18, 2021*
 
-* Added editor windows to improve the SDK experience. 
-* Enabled users to configure both Android and iOS at the same time using the new Embrace editor window. 
+* Added editor windows to improve the SDK experience.  
+* Enabled users to configure both Android and iOS at the same time using the new Embrace editor window.  
 * Welcome window informs users of important changes, new features or warns them of potential issues.
 
 ## 1.3.1

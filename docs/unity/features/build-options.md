@@ -21,7 +21,7 @@ Some applications have complex build pipelines.  For example, it's common practi
 
 <img src={require('@site/static/images/unity-configuration-editor.png').default} />
 
-Using this list you can easily add, rename, or remove configurations as needed.  Each configuration will create an Android and iOS configuration file stored in the Embrace data directory. The names of these configurations are only used to identify them in the Unity editor, and will not be replicated in the Embrace dashboard. 
+Using this list you can easily add, rename, or remove configurations as needed.  Each configuration will create an Android and iOS configuration file stored in the Embrace data directory. The names of these configurations are only used to identify them in the Unity editor, and will not be replicated in the Embrace dashboard.  
 
 You can select and edit each configuration by clicking on the toggle to the left of each list item in the **Settings** window, or by selecting a configuration from the **Getting Started** window.
 

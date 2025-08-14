@@ -1,5 +1,5 @@
 ---
-title: Network Grouping Rules 
+title: Network Grouping Rules  
 sidebar_position: 2
 ---
 
@@ -30,7 +30,7 @@ We currently provide the following patterns:
 
 ### Collapsing High Cardinality Fields
 If you have an endpoint with a high cardinality field, such as a UUID, you may want to collapse all requests to that
-endpoint into a single group. You can achieve this by using the `«wildcard»` rule to collapse all the requests into a 
+endpoint into a single group. You can achieve this by using the `«wildcard»` rule to collapse all the requests into a  
 single group.
 
 ```shell
@@ -60,7 +60,7 @@ Since the last rule wins, this setup will collapse all endpoints except for the 
 
 ### Collapse CDN Images
 You can collapse endpoints for third-party SDKs into a single groups. For example, CDNs will have a large number of
-path segments with a common prefix. 
+path segments with a common prefix.  
 
 ```shell
 my.cdn.domain/images/0x0/b/d/123x123/bd1234c-cb6f-4c9f-9df6-6787903c5442/file.jpg

@@ -22,7 +22,7 @@ In the above example, a Breadcrumb is being logged when a prop named "show" chan
 This event is not otherwise shown in the session and can be important depending on what the user does next.
 
 :::info
-For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs/) page. 
+For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs/) page.  
 :::
 
 ---

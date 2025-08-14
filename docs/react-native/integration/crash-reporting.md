@@ -4,7 +4,7 @@ description: Upload crash reports for both native and JavaScript exceptions from
 sidebar_position: 6
 ---
 
-# Collect your first crash report 
+# Collect your first crash report  
 
 If you've been following along, you should be setup to collect crashes, otherwise take a look at the previous pages
 for [Uploading Symbol Files](/react-native/integration/upload-symbol-files) and [Session Reporting

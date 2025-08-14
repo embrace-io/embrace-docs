@@ -34,15 +34,15 @@ Create graphs monitoring Spans performance. You can filter and group by name, ou
 
 You can also create Combined graphs in Line vizualizations. With Combined graphs, you can visualize up to 10 time series together and optionally create a custom time series using arithmetic operators.
 
-**NOTE:** as of 2025-05-20, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts. 
+**NOTE:** as of 2025-05-20, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts.  
 
 ### Adding Formulas to Graphs
 For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relatve to your total sessions, grouped by App Version. To do this:
 
 1. For the inital query A, select Crashes as the source, Crash Count as the metric, and App Version in the group by field.\
     a. You can also add a group by here. For this example, we group by App Version. See more on grouping functionality below.\
-    b. Formulas and multiple queries are only supported on line charts currently. 
-2. On query A, click the Filter By button below the query details and filter for State = foreground. 
+    b. Formulas and multiple queries are only supported on line charts currently.  
+2. On query A, click the Filter By button below the query details and filter for State = foreground.  
 3. Create a second query (B) by clicking the "Add query" button. Select ANR's as the source, ANR count as the metric, and again group by App Version.\
     a. On query B, filter for Duration Bucket (milliseconds) = 3500 - 10000.
 4. Create a third query (C) for your Session Count grouped by App Version and filter for foreground sessions using the same process as in query A.
@@ -64,47 +64,47 @@ When you combine time series that have groupings defined with a formula, it’s 
 As a rule, if you have **two timeseries that both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
 
 #### **Valid Groupings:**
-  
+
 - Grouping only on one time series
 
-    - `A`: *grouped by* `[”App Version”]` 
+    - `A`: *grouped by* `[”App Version”]`  
         - Returns values for each distinct, non-empty `App Version`.
     - `B`: *grouped by* `[]`
         - Returns 10
-    - `A` has a grouping and `B` does not. Their common join key is the empty set. 
+    - `A` has a grouping and `B` does not. Their common join key is the empty set.  
 
-| Dimension | A | B | A + B | 
+| Dimension | A | B | A + B |  
 | :--------------: | :---------------: | :---------------: |:---------------: |
 | `{"App Version": "1.0"}` | 100 | 10 | 110 |
 | `{"App Version": "2.0"}` | 50 | 10 | 60 |
- 
+
 - Grouping on both time series
 
     - `A`: *grouped by* `[”App Version”, “Country”]`
-        - Returns values for each distinct, non-empty combination of grouping dimensions. 
+        - Returns values for each distinct, non-empty combination of grouping dimensions.  
     - `B`: *grouped by* `[”App Version”]`
         - Returns values for each distinct, non-empty `App Version`.
     - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
 
-| Dimension | A | B | A + B | 
+| Dimension | A | B | A + B |  
 | :--------------: | :---------------: | :---------------: |:---------------: |
-| `{"App Version": "1.0", "Country": "US"}` | 100 | 10 | 110 | 
+| `{"App Version": "1.0", "Country": "US"}` | 100 | 10 | 110 |  
 | `{"App Version": "1.0", "Country": "MEX"}` | 30 | 10 | 40 |
 | `{"App Version": "2.0", "Country": "US"}` | 50 | 20 | 70 |
 | `{"App Version": "2.0", "Country": "MEX"}` | 60 | 20 | 80 |
 
 - No groupings
 
-    - `A`: *grouped by* `[]` 
-    - `B`: *grouped by* `[]` 
+    - `A`: *grouped by* `[]`  
+    - `B`: *grouped by* `[]`  
     - `A` and `B` have no groupings. Their common join key is the empty set.
- 
+
 #### **Invalid Groupings:**
 
 - Grouping with no overlapping set
 
-    - `A`: *grouped by* `[”App Version”]` 
-    - `B`: *grouped by* `[”OS Version”]` 
+    - `A`: *grouped by* `[”App Version”]`  
+    - `B`: *grouped by* `[”OS Version”]`  
     - Both have groupings but neither is a subset of the other.
 
 - Grouping with similar Attributes, but no overlapping data
@@ -117,14 +117,14 @@ As a rule, if you have **two timeseries that both have groupings**, the grouping
 
 Additionally, order of operations matters. Consider a situation where you create three queries:
 
-- `A` grouped by `["App Version", "OS Version"]` 
-- `B` grouped by `["App Version"]` 
-- `C` grouped by `["OS Version"]` 
+- `A` grouped by `["App Version", "OS Version"]`  
+- `B` grouped by `["App Version"]`  
+- `C` grouped by `["OS Version"]`  
 
 Then you were to combine them in the formula field:
 
 - **Valid:** `(A + B) + C`: `A` and `B` share a grouping dimension and can combine, then combine with `C`.
-- **Invalid:** `A + (B + C)`: `B` and `C` do not share a group-by dimension and therefore fail. 
+- **Invalid:** `A + (B + C)`: `B` and `C` do not share a group-by dimension and therefore fail.  
 
 <img src={require('@site/static/images/custom_dashboards/Grouping_Error.png').default} style={{ width: '75%', height: '75%' }} alt="Example of Grouping Error" />
 
@@ -140,9 +140,9 @@ Our Issues Widget, lets you specify how to list a table of [Issues](/product/iss
 
 ## Emailing Custom Dashboards
 
-You can also email your Custom Dashboards to yourself or your team. 
+You can also email your Custom Dashboards to yourself or your team.  
 
-Click on the "Create Report" button in the top right of your dashboard. 
+Click on the "Create Report" button in the top right of your dashboard.  
 <img src={require('@site/static/images/custom_dashboards/Create_Email_Report.png').default} style={{ width: '75%', height: '75%' }} alt="Create Report button" />
 
 You can set a title for your report, add the recipients, and set the frequency of the report. Frequency options include daily and weekly. You can also set the time of day you'd like to receive the report. You can update any of these options after the report is created.
@@ -155,7 +155,7 @@ Before sending the report, you can send a test email to the recipients to ensure
 
 You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
 
-This is especially useful if you’re tagging Sessions, Logs, Spans or other events with multiple values and want to break them out into individual groups. 
+This is especially useful if you’re tagging Sessions, Logs, Spans or other events with multiple values and want to break them out into individual groups.  
 For example, if a Session has a property like BRANCH=["master", "develop", "main", "staging"], you can group by `BRANCH`, and each of those values will be treated as its own group.
 
 To group by an exploded property:

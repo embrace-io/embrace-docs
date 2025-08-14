@@ -1,5 +1,5 @@
 ---
-title: Traces 
+title: Traces  
 description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---

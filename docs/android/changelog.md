@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
-:::info Important 
+:::info Important  
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
@@ -39,7 +39,7 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 *July 17, 2025*
 
 :::info Important
-This version is identical to 7.6.0 except that the desugaring requirement if your app supports Android API levels < 26 will be verified at build time. 
+This version is identical to 7.6.0 except that the desugaring requirement if your app supports Android API levels < 26 will be verified at build time.  
 
 This patch is unnecessary if you are already running 7.6.0. But if you support Android 7.x, ensure that you have desugaring enabled or else the Embrace SDK will not start for apps running on those Android versions.
 :::
@@ -50,7 +50,7 @@ This patch is unnecessary if you are already running 7.6.0. But if you support A
 *June 25, 2025*
 
 :::warning Important
-This version requires desugaring if your app supports Android API levels < 26. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring) 
+This version requires desugaring if your app supports Android API levels < 26. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring)  
 :::
 
 - Fix a Dexguard issue when bundle and assemble are executed in the same Gradle command
@@ -129,7 +129,7 @@ This version has an issue where JVM symbol mapping files are sometimes not being
     - OpenTelemetry API and SDK to `1.46.0`
     - OpenTelemetry Semantic Conventions to `1.29.0-alpha`
     - AndroidX Lifecycle to `2.7.0`
-    - Moshi to `1.15.2`    
+    - Moshi to `1.15.2`  
 
 
 ## 6.14.0
@@ -164,7 +164,7 @@ This version has an issue where JVM symbol mapping files are sometimes not being
 :::info Important
 This version contains a bug where obfuscating Embrace classes will lead to JVM crashes not being recorded and failed requests to Embrace not being retried after that app process terminates.
 
-*This version should not be used*, but you can workaround this by adding the following keep rule to your Proguard file so R8 will bypass obfuscation for the matched code: 
+*This version should not be used*, but you can workaround this by adding the following keep rule to your Proguard file so R8 will bypass obfuscation for the matched code:  
 
 `-keep class io.embrace.android.embracesdk.** { *; }`
 :::
@@ -203,7 +203,7 @@ This version contains a bug where obfuscating Embrace classes will lead to JVM c
 - Fix session recording after app backgrounding if Background Activity is disabled.
 
 :::warning Important
-Version 6.9.0 and 6.9.1 have an issue recording sessions after an app backgrounds if Background Activity is disabled. 
+Version 6.9.0 and 6.9.1 have an issue recording sessions after an app backgrounds if Background Activity is disabled.  
 
 Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 :::
@@ -215,8 +215,8 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 ## 6.9.0
 *July 4, 2024*
 - OpenTelemetry compatibility improvements:
-    - Provide implementation of the [OpenTelemetry Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/). 
-        - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Traces API. 
+    - Provide implementation of the [OpenTelemetry Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/).  
+        - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Traces API.  
         - This can be obtained through the `getOpenTelemetry()` method, which will return working implementations for methods involving tracing. Methods involving Logs and Metrics are no-ops at the current time.
     - Stopping spans through the Embrace Traces API no longer implicitly sets Status to `OK`.
     - Add `telemetry.distro.*` resource attributes to exported signals.
@@ -277,7 +277,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 *March 6, 2024*
 - Traces improvements
     - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
-    - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations. 
+    - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations.  
         - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
     - Increase per-session limit of spans to 500 in total.
     - New methods added:
@@ -290,7 +290,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
     - Note: only run Android system tracing on release builds running on real devices. Debug builds and emulators will not yield accurate data.
 - Optimize React Native JavaScript bundleId retrieval to better support CodePush (React Native only)
 - Allow configuration cache to be enabled for Gradle 8.3+
-    - Note: for Gradle 8.3+, running Embrace Gradle plugin will invalidate the configuration cache 
+    - Note: for Gradle 8.3+, running Embrace Gradle plugin will invalidate the configuration cache  
 
 ## 6.3.2
 *February 23, 2024*
@@ -357,12 +357,12 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 
 ## 5.25.1
 *December 7, 2023*
-- Fixed a validation issue when calling deprecated method logNetworkRequest. 
+- Fixed a validation issue when calling deprecated method logNetworkRequest.  
 
 ## 5.25.0
 *October 10, 2023*
 - Added support for tap tracking on Jetpack Compose elements.
-- Added support for the Network Span Forwarding feature that enables the propagate of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers. 
+- Added support for the Network Span Forwarding feature that enables the propagate of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers.  
 - Fixed propagation of error type and message when recording incomplete network requests.
 - The SDK now captures ANR data using the ApplicationExitInfo API for Android 11+.
 - Fixed a rare issue when network logging was being done on a URLConnection whose Response is no longer accessible.
@@ -401,8 +401,8 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 *June 16, 2023*
 - Fixed false positive ANR
 - Improvements in AppExitInfo capture logic
-- Fixed bug for network bodies using gzip compression 
-- Added additional logging for unwinding native crashes 
+- Fixed bug for network bodies using gzip compression  
+- Added additional logging for unwinding native crashes  
 - Fixed get obj folder swazzler issue, we changed our way of getting .so files
 
 ## 5.19.0
@@ -415,7 +415,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 
 ## 5.18.1
 *May 5, 2023*
-- Fixed a build time error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies. 
+- Fixed a build time error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies.  
 
 ## 5.18.0
 *May 4, 2023*
@@ -425,7 +425,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.17.1
 *Apr 27, 2023*
 - Upgrade compileSDK to 33
-- Improvements on our CPU usage and data consumption of our delivery layer 
+- Improvements on our CPU usage and data consumption of our delivery layer  
 
 ## 5.16.0
 *Apr 04, 2023*
@@ -434,7 +434,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 
 ## 5.15.2
 *Mar 21, 2023*
-- Fix an error from `5.15.1` around identifying users. 
+- Fix an error from `5.15.1` around identifying users.  
 - Improvements in how data is collected after session ends, to avoid extending the app process duration.
 
 ## 5.15.1
@@ -461,7 +461,7 @@ swazzler {
 ## 5.13.0
 *Jan 27, 2023*
 - Reduced ANRs being generated by EmbraceLogger class.
-- Added feature to capture network body information. 
+- Added feature to capture network body information.  
 
 ## 5.12.0
 *Jan 19, 2023*
@@ -609,8 +609,8 @@ This version has a known issue with Gradle < 6.1
 
 *Jun 10, 2022*
 
-* Added support for symbols upload in Unity 2020, 2021, 2022. 
-* Fixed symbols upload failure while searching .so files in a folder with another folder inside. 
+* Added support for symbols upload in Unity 2020, 2021, 2022.  
+* Fixed symbols upload failure while searching .so files in a folder with another folder inside.  
 * Added extra logging for NDK layer.
 * Fixed bytecode transformation with ASM.
 * Added improvement in order to skip swazzling if it's disabled for variant in old transform API.
@@ -621,7 +621,7 @@ This version has a known issue with Gradle < 6.1
 
 * Added extra logging for NDK crash.
 * Prevented NPE in native crash loading.
-* Fixed an issue in gradle task registration that was not letting the symbols files to upload. 
+* Fixed an issue in gradle task registration that was not letting the symbols files to upload.  
 * React Native - Fixed an issue with the set of the bundle ID for OTA releases like CodePush
 
 ## 5.0.4
@@ -715,7 +715,7 @@ This version has known issues and should not be used
 *Aug 16, 2021*
 
 * Added support for custom Unity symbols archive name
-* Improved handling of JAR files that could not be swazzled 
+* Improved handling of JAR files that could not be swazzled  
 
 
 ## 4.9.3
@@ -932,7 +932,7 @@ This version has known issues and should not be used
 * Capture user info for NDK crashes
 * Enable ANR stacktrace capture by default for all users
 * Fixed issue with ANR stacktrace capture that could attribute an ANR to the session after it occurred
-* Fixed issue with Proguard/R8 upload that could prevent upload of mapping files for flavors 
+* Fixed issue with Proguard/R8 upload that could prevent upload of mapping files for flavors  
 
 ## 4.5.1
 
@@ -945,7 +945,7 @@ This version has known issues and should not be used
 *July 24, 2020*
 
 * Added configuration to disable swazzling for specific build types
-* Fixed bug introduced in 4.4.1 that prevented upload of Proguard files 
+* Fixed bug introduced in 4.4.1 that prevented upload of Proguard files  
 
 ## 4.4.1
 *July 14, 2020*
@@ -973,7 +973,7 @@ This version has known issues and should not be used
 *May 15, 2020*
 
 * Added option to disable capture of app disk usage. This could be excessively slow on older devices with large numbers of files in the app directory.
-* Disabled capturing network request and response sizes for native requests by default. 
+* Disabled capturing network request and response sizes for native requests by default.  
 
 ## 4.2.7
 *April 27, 2020*
@@ -1021,9 +1021,9 @@ This version has known issues and should not be used
 ## 4.1.0
 *March 3, 2020*
 
-- Added support to capture fragments manually 
-- Removed incorrect build-time logs that referenced the usage of deprecated features 
-- Added validations to handle usage of API-level-restricted functions 
+- Added support to capture fragments manually  
+- Removed incorrect build-time logs that referenced the usage of deprecated features  
+- Added validations to handle usage of API-level-restricted functions  
 
 ## 4.0.1
 *January 16, 2020*
@@ -1033,8 +1033,8 @@ This version has known issues and should not be used
 ## 4.0.0
 *January 14, 2020*
 
-- Added a more flexible configuration approach that simplifies how custom configurations can be set up for different build variants 
-- Added user info association that is set during a session even if it was cleared before the session ended 
+- Added a more flexible configuration approach that simplifies how custom configurations can be set up for different build variants  
+- Added user info association that is set during a session even if it was cleared before the session ended  
 - Added optional argument to `endSession` method to clear user info when ending the session
 - Added ability to ignore non-serializable log and event properties
 - Fixed crash caused by trying to capture null headers from network requests.
@@ -1049,9 +1049,9 @@ This version has known issues and should not be used
 ##  3.7.1
 *October 22, 2019*
 
-- Improves capture of React Native crashes. 
+- Improves capture of React Native crashes.  
 
-## 3.7.0 
+## 3.7.0  
 *October 21, 2019*
 
 - Added option to disable capture of tap coordinates.
@@ -1060,7 +1060,7 @@ This version has known issues and should not be used
 - Added support for upload of React Native source maps to the upload script.
 - Fixed bug that could cause failure in reading the swazzling cache.
 
-## 3.6.2 
+## 3.6.2  
 *September 8, 2019*
 
 - Fixed issue that prevented uploading of mapping info when using r8
@@ -1102,7 +1102,7 @@ This version has known issues and should not be used
 
 - Fixed typos in methods to set bytes in and out for manually-captured requests
 
-##  3.4.0 
+##  3.4.0  
 *July 22, 2019*
 
 - Added support for manual capture of network requests. The SDK is capable of automatically capturing the majority of REST network calls made by applications, but this new method allows recording of network requests that are not automatically captured, such as gRPC requests.

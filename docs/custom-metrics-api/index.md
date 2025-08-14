@@ -22,7 +22,7 @@ All the endpoints have the same authentication, authorization method, url and pa
 ### Request
 
 Headers:
-- `Authorization`: we are going to use a Bearer token to authorize and authenticate our requests. 
+- `Authorization`: we are going to use a Bearer token to authorize and authenticate our requests.  
 i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
 
 URL Params:

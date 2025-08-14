@@ -25,7 +25,7 @@ Major dimensions include properties for:
 * ANRs
 
 ## Advanced Filters
-To combine various logical conditions, you can use Advanced Filters. Advanced filters allow you to chain logical statements, using `AND` or `OR`. These statements are composable: you can also nest components, chain nested components, and nest chained components. 
+To combine various logical conditions, you can use Advanced Filters. Advanced filters allow you to chain logical statements, using `AND` or `OR`. These statements are composable: you can also nest components, chain nested components, and nest chained components.  
 
 <img src={require('@site/static/images/advanced-filters.png').default} alt="Screenshot of Advanced Filter on Sessions page" />
 

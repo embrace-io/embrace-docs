@@ -20,7 +20,7 @@ To narrow down the spans that are summarized in this view, you can apply the fol
 ## Root Span Summary View
 By clicking on the name of a Root Span in the Root Spans View, you can see a partial listing of all the instances of that Root Span.
 
-Each row represents a specific instance of that Root Span being recorded. You can see its status, unique Span ID, and duration, in addition to start and end times. All of these columns other than the Span ID is sortable. 
+Each row represents a specific instance of that Root Span being recorded. You can see its status, unique Span ID, and duration, in addition to start and end times. All of these columns other than the Span ID is sortable.  
 
 Clicking on the instance will open up an in-line preview of the details of that instance, including the child spans that it has, their duration, and whether they were completed successfully.
 
@@ -57,7 +57,7 @@ You can create Boards, Alerts, and Custom Metrics based on span data.
 
 ## Slow Root Spans
 With the Slow Root Spans feature, you can identify performance bottlenecks and prioritize your optimization efforts.
-Slow Root Spans are instances with both significant occurrences (100 over the last two days) and durations surpassing the 95th percentile of successful spans bearing the same name. 
+Slow Root Spans are instances with both significant occurrences (100 over the last two days) and durations surpassing the 95th percentile of successful spans bearing the same name.  
 You can get the slow Root Spans on the issues page.
 
 <img src={require('@site/static/images/slow-root-spans.png').default} alt="Slow traces"/>

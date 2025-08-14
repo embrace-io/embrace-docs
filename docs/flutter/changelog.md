@@ -102,13 +102,13 @@ sidebar_position: 4
 - Updated Embrace Android SDK to 5.13.0
 - Updated Embrace iOS SDK to 5.16.1
 
-# 0.3.2 
+# 0.3.2  
 *Jan 23, 2023*
 - Flutter exceptions are now taken into account when calculating the percentage of error-free sessions.
 - Updated Embrace Android SDK to 5.12.0
 - Updated Embrace iOS SDK to 5.15.0
 
-# 0.3.1 
+# 0.3.1  
 *Dec 8, 2022*
 - Updated Embrace Android SDK to 5.10.0
 - Updated Embrace iOS SDK to 5.12.4

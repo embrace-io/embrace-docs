@@ -100,7 +100,7 @@ To examine the payload that is being sent, use the [webhook.site](https://webhoo
 Invalid Webhooks will also trigger an email alert. For example, you will get an email alert similar to this:
 
 <img src={require('@site/static/images/webhooks/image11.png').default} />
- 
+
 After 2 failed email notifications, you will get a final email alert:
 
 <img src={require('@site/static/images/webhooks/image12.png').default} />

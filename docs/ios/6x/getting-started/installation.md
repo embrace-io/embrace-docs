@@ -55,7 +55,7 @@ tuist clean
 :::
 
 :::info Additional Notes / Troubleshooting
-Even when the SDK targets use `-ObjC`, your app target (and any intermediate frameworks) must also include `-ObjC` in `Other Linker Flags`. 
+Even when the SDK targets use `-ObjC`, your app target (and any intermediate frameworks) must also include `-ObjC` in `Other Linker Flags`.  
 This is required when linking static libraries.
 
 Also, ensure that any `.xcconfig` files:
@@ -84,7 +84,7 @@ pod 'EmbraceIO', '~> 6.9.1'
 
 By default, this command installs all the necessary components to use the SDK.
 
-:::info 
+:::info  
 If you wish to continue using Crashlytics as your primary crash reporter while also
 having those crashes reported to the Embrace Dashboard and using all associated features,
 you will need to install an additional pod:
@@ -95,11 +95,11 @@ pod 'EmbraceIO/EmbraceCrashlyticsSupport'
 
 ## Known Issues
 
-- **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/). 
+- **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/).  
 We have forked the Datadog SDK and created a version that can integrate better with other frameworks. It can be found in [our public repository](https://github.com/embrace-io/dd-sdk-ios).
 
 - **SwiftUI Hosting Controllers**: Some very short-lived view controllers, particularly in hosting controllers acting as internal bridges in SwiftUI, may experience issues. These have been addressed in recent versions.
 
 ## Next Steps
 
-After installing the Embrace SDK, you need to [set up and configure](/ios/6x/getting-started/basic-setup.md) it in your application code. 
+After installing the Embrace SDK, you need to [set up and configure](/ios/6x/getting-started/basic-setup.md) it in your application code.

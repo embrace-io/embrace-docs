@@ -4,11 +4,11 @@ description: Upload crash reports for both native and JavaScript exceptions from
 sidebar_position: 6
 ---
 
-# Collect your first crash report 
+# Collect your first crash report  
 
 ## Setting up the Crash Reporter
 
-If you've been following along, you should be setup to collect native crash reports. 
+If you've been following along, you should be setup to collect native crash reports.  
 To upload crash reports from unhandled JavaScript exceptions, add the following in the entrypoint of the React app.
 
 ```javascript
@@ -54,7 +54,7 @@ Play Store, you will
 need to point the Embrace SDK to where the most up to date bundle is installed
 on the device. Otherwise, the stack traces will not be translated properly.
 If you use CodePush, this is done automatically and there is no need to point
-the Embrace SDK to where CodePush downloads the latest JavaScript bundle. 
+the Embrace SDK to where CodePush downloads the latest JavaScript bundle.  
 
 <Tabs groupId="rn-language" queryString="rn-language">
 <TabItem value="javascript" label="JavaScript">

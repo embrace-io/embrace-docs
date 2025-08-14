@@ -370,7 +370,7 @@ These implementation patterns showcase best practices for:
 - Organizing view names for better analytics
 - Tracking multi-step user flows with parent/child spans
 - Analyzing API performance by endpoint category
-- Consistent error tracking and categorization 
+- Consistent error tracking and categorization  
 - Feature flag impact tracking
 - Dependency injection for testing
 - Asynchronous operation tracing

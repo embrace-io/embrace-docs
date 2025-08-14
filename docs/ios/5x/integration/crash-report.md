@@ -4,7 +4,7 @@ description: Upload crash reports from your iOS application using the Embrace SD
 sidebar_position: 6
 ---
 
-# Collect your first crash report 
+# Collect your first crash report  
 
 ## Setting up the Crash Reporter
 
@@ -24,7 +24,7 @@ This is a string value. You can set this to one of the following options:
 * `crashlytics` - Set this value if you intend to use Crashlytics as your main crash reporter. Embrace will still attempt to mirror reports sent to Crashlytics so you will still have that data available in the Embrace Dashboard.
 * `none` - This option completely turns off all crash reporting from Embrace but the rest of the SDK will continue to work as normal.
 
-The values are case insensitive. 
+The values are case insensitive.  
 
 
 ## Debuggers
@@ -78,4 +78,4 @@ Additionally your crash is visible in the crashes section of the dashboard.
 
 ---
 
-In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 
+In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions.  

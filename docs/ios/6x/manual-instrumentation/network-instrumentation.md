@@ -44,10 +44,10 @@ class GRPCInstrumentation {
         error: Error? = nil
     ) {
         guard let embrace = Embrace.client else { return }
-        
+
         // Create a URL-like identifier for the gRPC call
         let grpcURL = "grpc://\(service)/\(method)"
-        
+
         // Build attributes using HTTP semantic conventions
         var attributes: [String: String] = [
             "url.full": grpcURL,
@@ -55,26 +55,26 @@ class GRPCInstrumentation {
             "rpc.service": service,
             "rpc.method": method
         ]
-        
+
         if let requestSize = requestSize {
             attributes["http.request.body.size"] = String(requestSize)
         }
-        
+
         if let statusCode = statusCode {
             attributes["http.response.status_code"] = String(statusCode)
         }
-        
+
         if let responseSize = responseSize {
             attributes["http.response.body.size"] = String(responseSize)
         }
-        
+
         if let error = error {
             let nsError = error as NSError
             attributes["error.type"] = nsError.domain
             attributes["error.code"] = String(nsError.code)
             attributes["error.message"] = error.localizedDescription
         }
-        
+
         // Record the span
         embrace.recordCompletedSpan(
             name: "POST /\(service)/\(method)",
@@ -97,7 +97,7 @@ For ongoing gRPC requests, create spans that you can update during the call:
 ```swift
 func startGRPCSpan(service: String, method: String) -> Span? {
     guard let embrace = Embrace.client else { return nil }
-    
+
     let grpcURL = "grpc://\(service)/\(method)"
     let attributes = [
         "url.full": grpcURL,
@@ -105,7 +105,7 @@ func startGRPCSpan(service: String, method: String) -> Span? {
         "rpc.service": service,
         "rpc.method": method
     ]
-    
+
     return embrace.buildSpan(
         name: "POST /\(service)/\(method)",
         type: .networkRequest,
@@ -138,23 +138,23 @@ extension GRPCClient {
     ) {
         let startTime = Date()
         let span = startGRPCSpan(service: "YourService", method: path)
-        
+
         // Make the actual gRPC call
         let call = makeUnaryCall(
             path: path,
             request: request,
             callOptions: callOptions
         )
-        
+
         call.response.whenComplete { result in
             let endTime = Date()
-            
+
             switch result {
             case .success(let response):
                 span?.setAttribute(key: "http.response.status_code", value: "200")
                 span?.end()
                 handler(response)
-                
+
             case .failure(let error):
                 span?.setAttribute(key: "error.type", value: String(describing: type(of: error)))
                 span?.setAttribute(key: "error.message", value: error.localizedDescription)
@@ -185,7 +185,7 @@ extension Session {
             name: "\(method.rawValue) \(url)",
             type: .networkRequest
         )?.startSpan()
-        
+
         let request = self.request(
             url,
             method: method,
@@ -193,13 +193,13 @@ extension Session {
             encoding: encoding,
             headers: headers
         )
-        
+
         return request.responseData { response in
             // Add response details to span
             if let statusCode = response.response?.statusCode {
                 span?.setAttribute(key: "http.response.status_code", value: String(statusCode))
             }
-            
+
             if let error = response.error {
                 span?.setAttribute(key: "error.message", value: error.localizedDescription)
                 span?.end(errorCode: .failure)
@@ -342,7 +342,7 @@ func trackNetworkRequest<T>(
             "http.request.method": method
         ]
     )?.startSpan()
-    
+
     do {
         let result = try await operation()
         span?.setAttribute(key: "http.response.status_code", value: "200")
@@ -372,7 +372,7 @@ For WebSocket or other custom protocols:
 ```swift
 class WebSocketInstrumentation {
     private var connectionSpan: Span?
-    
+
     func startConnection(url: String) {
         connectionSpan = Embrace.client?.buildSpan(
             name: "WebSocket Connection",
@@ -383,7 +383,7 @@ class WebSocketInstrumentation {
             ]
         )?.startSpan()
     }
-    
+
     func recordMessage(direction: String, size: Int) {
         connectionSpan?.addEvent(
             name: "websocket.message",
@@ -393,7 +393,7 @@ class WebSocketInstrumentation {
             ]
         )
     }
-    
+
     func endConnection(error: Error? = nil) {
         if let error = error {
             connectionSpan?.setAttribute(key: "error.message", value: error.localizedDescription)

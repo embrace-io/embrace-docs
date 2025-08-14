@@ -10,7 +10,7 @@ sidebar_position: 1
 
 We'll be guiding you through integrating Embrace into your iOS application
 with a series of articles. We recommend going through them in order, although
-you are free to skip around. 
+you are free to skip around.  
 
 ## The XCFramework transition
 
@@ -33,7 +33,7 @@ make to help guide your process:
 Thinking about the above questions will help to define the path you will take
 through this documentation.
 
-If you are starting a new application, are thinking about Embrace and unsure what package manager to choose, 
+If you are starting a new application, are thinking about Embrace and unsure what package manager to choose,  
 CocoaPods is a very popular choice among developers, but we invite you to take a moment to evaluate all options and pick the one that better suits your needs.
 
 If you have an established application then follow the path that most closely

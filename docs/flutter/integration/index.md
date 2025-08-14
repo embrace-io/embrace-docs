@@ -10,7 +10,7 @@ description: Get started with integrating Embrace into your Flutter application
 
 We'll be guiding you through integrating Embrace into your Flutter application
 with a series of articles. We recommend going through them in order, although
-you are free to skip around. 
+you are free to skip around.  
 
 ## Requirements
 

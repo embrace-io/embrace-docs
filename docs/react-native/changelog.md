@@ -43,7 +43,7 @@ _February 03, 2025_
 ## 5.2.0
 _January 06, 2025_
 * Published new `@embrace-io/react-native-otlp` package that allows sending data to a Backend of preference (besides Embrace) following the OTLP-http protocols.
-* `@embrace-io/react-native` now supports [Network Span Forwarding](/react-native/features/network-spans-forwarding.md) 
+* `@embrace-io/react-native` now supports [Network Span Forwarding](/react-native/features/network-spans-forwarding.md)  
 * Updated iOS native Embrace SDK dependency to [version 6.6.0](/ios/changelog/#660)
 ## 5.1.0
 _December 16, 2024_
@@ -109,7 +109,7 @@ _March 6, 2024_
 _January 25, 2024_
 * [The React Native SDK is now open source! Check it out and let us know what you think!](https://github.com/embrace-io/embrace-react-native-sdk)
 * Before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
-  - Please note we've changed the package so you will need to re-install the Embrace SDK - [see details here](/react-native/integration/add-embrace-sdk/) 
+  - Please note we've changed the package so you will need to re-install the Embrace SDK - [see details here](/react-native/integration/add-embrace-sdk/)  
 * Updated Android native Embrace SDK dependency to 6.2.1.
 * Updated iOS native Embrace SDK dependency to 5.24.3.
 ## 3.16.0
@@ -125,10 +125,10 @@ _September 28, 2023_
 ## 3.14.0
 _Aug 8, 2023_
 * Reduce severity from Warn to Info (log) in the success message in the React Navigation Tracker (v0.2.14).
-* Fix a bug in React Navigation Tracker (v0.2.14) if the plugin was started with a null Navigation reference. 
+* Fix a bug in React Navigation Tracker (v0.2.14) if the plugin was started with a null Navigation reference.  
 _Jul 26, 2023_
 * Fixed Android install script. Now it supports new projects created with RN 0.71+.
-* Changed the way we add swazzler dependency, now it will grab the swazzler version from a file. 
+* Changed the way we add swazzler dependency, now it will grab the swazzler version from a file.  
 **You need to update it manually. Please visit [add embrace sdk](/react-native/integration/add-embrace-sdk/?rn-platform=android&platform=android#manually) for more information**
 * Fix Redux Action Tracker, it was catching any error produced in reducers
 * Updated Android native Embrace SDK dependency to 5.22.0.
@@ -181,7 +181,7 @@ _February 16, 2023_
 Note: It requires at least Android SDK 5.13.0
 
 
-## 3.10.6 
+## 3.10.6  
 
 _December 19, 2022_
 * Added React Navigation Screen Tracker version 0.1.1
@@ -267,7 +267,7 @@ _February 12, 2021_
 
 _December 17, 2020_
 
-* Update function signatures to use typed object instead of Map for properties. 
+* Update function signatures to use typed object instead of Map for properties.  
 
 ## 3.6.2
 

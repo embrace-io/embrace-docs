@@ -13,7 +13,7 @@
 
 ## iOS SDK Code Initialization
 
-The Embrace Unity SDK internally depends on the Embrace Apple SDK. As a result, from 6.0.0 onwards the SDK no longer uses a .plist file to hold Embrace-specific configuration. 
+The Embrace Unity SDK internally depends on the Embrace Apple SDK. As a result, from 6.0.0 onwards the SDK no longer uses a .plist file to hold Embrace-specific configuration.  
 
 You should continue to configure the Embrace Unity SDK on iOS the same as before, but now requiring that you pass the `App Id` via `EmbraceStartupArgs` when calling `StartSDK`
 

@@ -27,7 +27,7 @@ receives the metric name as `embrace_sessions_total_five_minute` but it converts
 
 All data destinations receive the following Standard metrics:
 
-| Data Destinations | Metric Names                                                                                                           |                                                                                                                        
+| Data Destinations | Metric Names                                                                                                           |  
 |-------------------|------------------------------------------------------------------------------------------------------------------------|
 | Grafana Cloud     | embrace_crash_five_minute_total, embrace_session_five_minute_total, embrace_crash_free_user_five_minute_total          |
 | Grafana Cloud     | embrace_crash_hourly_total, embrace_session_hourly_total, embrace_crash_free_user_hourly_total                         |
