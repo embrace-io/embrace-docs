@@ -3,6 +3,7 @@ title: Current Device ID API
 sidebar_position: 4
 description: Get the Device ID.
 ---
+
 # Current Device ID API
 
 ```javascript

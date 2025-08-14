@@ -242,6 +242,7 @@ For the span's name, use the format: `"{METHOD} {path}"` (e.g., "GET /api/users"
 ## Best practices
 
 ### 1. Consistent naming
+
 Use the same service and method names as your API definitions:
 
 ```swift
@@ -253,6 +254,7 @@ span?.name = "user_fetch_operation"
 ```
 
 ### 2. Include timing
+
 Always record accurate start and end times:
 
 ```swift
@@ -273,6 +275,7 @@ embrace.recordCompletedSpan(
 ```
 
 ### 3. Error handling
+
 Capture both network errors and business logic errors:
 
 ```swift
@@ -291,6 +294,7 @@ if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 4
 ```
 
 ### 4. Request/response sizes
+
 Include payload sizes for performance analysis:
 
 ```swift
@@ -302,6 +306,7 @@ attributes["http.response.body.size"] = String(responseData.count)
 ```
 
 ### 5. Parent spans
+
 Create parent spans for complex operations with multiple network calls:
 
 ```swift
@@ -404,6 +409,7 @@ class WebSocketInstrumentation {
     }
 }
 ```
+
 ## Summary
 
 By following these patterns and examples, you can instrument network requests from any third-party library to appear alongside your automatically-captured `URLSession` requests in the Embrace dashboard.

@@ -173,6 +173,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 ```
 
 #### Response
+
 Status codes: `200`, `400`, `409` and `500`.
 
 #### OK (200)
@@ -207,6 +208,7 @@ curl -X DELETE --location 'https://api.embrace.io/custom-metrics/api/v1/app/appI
 ```
 
 #### Response
+
 Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 
 #### OK (204), body is empty
@@ -217,7 +219,9 @@ Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 ```
 
 ### Get metrics and parameters supported
+
 To determine which metrics and parameters are supported for creation using the API, you can utilize the following request:
+
 #### Request
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
@@ -229,6 +233,7 @@ Refer to this [page](/custom-metrics-api/supported_metrics) if you want to see s
 :::
 
 #### Query Parameter
+
 `name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
 
 Example URL:
@@ -238,6 +243,7 @@ https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameter
 If the name is not provided or the metric is not supported, the endpoint will return all the supported metrics and parameters.
 
 #### Response
+
 Status codes: `200` and `500`.
 
 #### OK (200)

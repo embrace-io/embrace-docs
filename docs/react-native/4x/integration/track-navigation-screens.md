@@ -110,6 +110,7 @@ Currently we are only supporting 'React Native Navigation SDK' and 'React Naviga
 Embrace automatically collects the native screens, if you do not want to see them in the session you can disable it.
 
 #### Android:
+
 Go to your embrace-config.json inside android/app/src/main and add the sdk_config, your file should be like this
 
 ```javascript

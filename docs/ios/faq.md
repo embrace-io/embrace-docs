@@ -200,6 +200,7 @@ With a possible fully generated path as this
 ```
 /graphql/Notifications
 ```
+
 ### **How much delay does swizzling add to network calls?**
 
 We measured an average delay of 0.7ms and a peak of 1.2ms on an iPhone 5s (old device).

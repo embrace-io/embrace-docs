@@ -72,6 +72,7 @@ export default App
 :::info Note for initialize method
 The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else.  
 :::
+
 ## Starting Embrace SDK from Android / iOS
 
 :::info

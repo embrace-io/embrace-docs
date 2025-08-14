@@ -13,6 +13,7 @@ sidebar_position: 3
 default APM integration setup already).
 
 ## Get Secret Token for APM
+
 If you have set a [secret token already](https://www.elastic.co/guide/server/current/secret-token.html) you can use that
 token. Otherwise, you can use the default token in your integration. The instructions below are for the default token.
 
@@ -22,6 +23,7 @@ token. Otherwise, you can use the default token in your integration. The instruc
 1. Scroll down to the Agent authorization section and select the secret token.
 
 ## Find Server URL
+
 If you have an APM server URL already configured you can use that. Otherwise, you can use the default server URL in your
 integration. The instructions below are for the default server URLs.
 

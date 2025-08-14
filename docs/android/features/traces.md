@@ -49,6 +49,7 @@ The Embrace Traces API allows you to:
 There are no limits to the number of child spans you can have per root span, provided the total number of spans does not exceed the per-session maximum.
 
 #### Exceeding limits
+
 If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit to be exceeded.
 
 

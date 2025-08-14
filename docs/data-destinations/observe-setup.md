@@ -18,6 +18,7 @@ https://<customer_id>.collect.observeinc.com
 # Example:
 https://123456789012.collect.observeinc.com
 ```
+
 ## Create Observe Data Destination
 
 1. Navigate to the [Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations) and select

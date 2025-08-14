@@ -29,6 +29,7 @@ Nevertheless, summing the users metric across dimensions can still provide an es
 :::
 
 ### Deprecated metrics after 2023-10-17:
+
 We have deprecated the following metrics in favor of the new metrics mentioned above.
 All the information provided by these metrics can now be obtained using the new metrics (refer to the Sample Queries section below).
 These deprecated metrics will remain available for retrieving historical data prior to October 30, 2023.
@@ -107,4 +108,3 @@ This is the time when the metrics will be available to consume in the Embrace Me
 - Five minute metrics will be available to consume in about 4 minutes. Data point calculated at `2024-11-25 00:05:00` will be available to consume after `2024-11-25 00:10:00`.
 - Hourly metrics will be available to consume in about 15 minutes. Data point calculated at `2024-11-25 01:00:00` will be available to consume after `2024-11-25 01:14:00`.
 - Daily metrics will be available to consume in about 14 hours. Data point calculated at `2024-11-25 00:00:00` will be available to consume after `2024-11-25 14:00:00`.
-

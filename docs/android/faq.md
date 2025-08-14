@@ -148,6 +148,7 @@ In other instances, a library may disable the initializer. In such a scenario, t
 *Please contact us if you have any questions or require help.*
 
 ### **How do I override the version of OkHttp to be lower than the one Embrace specifies?**
+
 By default, your app will choose the latest version of a particular dependency if multiple versions are transitively specified due to your app's explicit dependencies. If you wish to use a version of a dependency like OkHttp that is lower than what Embrace uses, you can follow the instructions [here](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:enforcing_dependency_version).
 
 Note that Embrace does not support versions of dependencies lower than what has been specified, so doing this kind of override may lead to unspecified behaviors. Only do this if it cannot be avoided and thoroughly test that it does not conflict with Embrace or any other SDKs that may also dependent on it.
@@ -292,26 +293,33 @@ This ANR (Application Not Responding) happens because a long-running operation i
 ### What’s happening behind the scenes?
 
 #### Unity’s Android architecture
+
 Every Unity Android app includes `UnityPlayerActivity`, a Java class that runs on the Android UI thread. It manages the app’s lifecycle and acts as a bridge between the OS and the Unity runtime, which runs on a separate thread.
 
 #### How pausing works
+
 When the OS tells your app to pause (e.g., the user switches apps), that request goes to `UnityPlayerActivity.onPause` on the UI thread. To complete the pause process, the activity needs to notify the Unity engine (running on another thread) to trigger `OnApplicationPause` and suspend the game loop.
 
 Since this requires coordination between threads, `onPause` must **wait** for a synchronization point at the end of Unity’s frame loop. This wait happens via `java.util.concurrent.Semaphore.tryAcquire`, which is what you see in the ANR stack trace.
 
 ### Why does this cause an ANR?
+
 Normally, this wait lasts just a few milliseconds. However, if the Unity thread is already **blocked** by a long-running operation (such as synchronous asset loading or heavy computation), the pause request gets stuck waiting—leading to an ANR.
 
 ### Example scenario
+
 Let’s say your game loads a large 3D environment when the user taps a button in the main menu. If the scene loads **synchronously** and takes several seconds (especially on a low-end device), the user usually just waits for it to complete. But if the OS happens to pause the app during this process (e.g., the user switches apps), the ongoing load delays the pause process, and boom—ANR.
 
 ### How to prevent this?
 
 #### Identify long-running synchronous operations
+
 Use [Traces](/android/features/traces) to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
 
 #### Optimize your game loop
+
 Where possible, move heavy operations **off the main Unity thread** or make them **asynchronous** to avoid blocking the pause request.
 
 ### Key takeaway
+
 The `Semaphore.tryAcquire` ANR isn’t caused by `OnApplicationPause`—it’s caused by other long-running tasks in your game that prevent Unity from handling the pause in time. By reducing these blocking operations, you can avoid this issue and improve your app’s responsiveness.

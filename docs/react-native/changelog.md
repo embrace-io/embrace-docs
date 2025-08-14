@@ -3,9 +3,11 @@ title: React Native SDK Changelog
 description: Changelog for the React Native Embrace SDK
 sidebar_position: 4
 ---
+
 # React Native SDK Changelog
 
 ## 6.2.0
+
 _July 29, 2025_
 * Updated Android native Embrace SDK dependency to [version 7.6.1](/android/changelog/#761)
 
@@ -15,21 +17,25 @@ for more details.
 :::
 
 ## 6.1.0
+
 _May 29, 2025_
 * Added an [Expo Config Plugin](/react-native/integration/add-embrace-sdk#expo-config-plugin) for automating native
 setup on Expo projects
 
 ## 6.0.2
+
 _May 05, 2025_
 * Updated iOS native Embrace SDK dependency to [version 6.8.5](/ios/changelog/#685)
 
 ## 6.0.1
+
 _March 11, 2025_
 * Updated iOS native Embrace SDK dependency to [version 6.8.1](/ios/changelog/#681)
 * Updated Android native Embrace SDK dependency to [version 7.2.0](/android/changelog/#720)
 * Improved debug logging for the `@embrace-io/react-native-navigation` package
 
 ## 6.0.0
+
 _February 03, 2025_
 * This major version focuses on bringing the SDK up to OpenTelemetry standards including:
   * Export of Traces and Logs to non-Embrace OTLP endpoints without requiring an Embrace application ID
@@ -41,24 +47,33 @@ _February 03, 2025_
 * Updated Android native Embrace SDK dependency to [version 7.0.0](/android/changelog/#700)
 
 ## 5.2.0
+
 _January 06, 2025_
 * Published new `@embrace-io/react-native-otlp` package that allows sending data to a Backend of preference (besides Embrace) following the OTLP-http protocols.
 * `@embrace-io/react-native` now supports [Network Span Forwarding](/react-native/features/network-spans-forwarding.md)  
 * Updated iOS native Embrace SDK dependency to [version 6.6.0](/ios/changelog/#660)
+
 ## 5.1.0
+
 _December 16, 2024_
 * Updated Android native Embrace SDK dependency to version 6.14.0
 * Log component tree stack during rendering errors, see the [feature description](/react-native/features/render-errors.md) for more details
 * Guard against possible unhandled exceptions
 * Provide a default bundle path on iOS
 * Internal refactor and dependency updates to make packages that deal with native code more consistent
+
 ## 5.0.2
+
 _October 31, 2024_
 * Updated iOS native Embrace SDK dependency to 6.5.1.
+
 ## 5.0.1
+
 _October 9, 2024_
 * Updated iOS native Embrace SDK dependency to 6.4.2.
+
 ## 5.0.0
+
 _September 26, 2024_
 :::warning Important
 This version has a known issue related to the iOS Native SDK, which has been fixed in version 5.0.1. We highly recommend upgrading to the latest.
@@ -66,7 +81,9 @@ This version has a known issue related to the iOS Native SDK, which has been fix
 * This new major version includes several backwards incompatible change, before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
 * Updated iOS native Embrace SDK dependency to 6.4.1.
 * Deprecation of Moments in favor of Traces
+
 ## 4.3.0
+
 _September 13, 2024_
 * Fixed Android sourcemap upload issue for RN 0.72+
 * Updated Android native Embrace SDK dependency to version 6.13.0
@@ -75,54 +92,76 @@ _September 13, 2024_
   * compileSdkVersion is now 34 or higher
   * Android Gradle Plugin (AGP) version 7.2.2 or higher is required
   * Gradle version 7.5.1 or higher is required
+
 ## 4.2.0
+
 _July 04, 2024_
 * Made timeStampMS in addSpanEventToSpan mandatory
 * Added support for Kotlin and Swift to the install scripts
 * Added startTimeMs in startSpan
 * Added endTimeMs in stopSpan
 * Updated iOS native Embrace SDK dependency to 5.25.2.
+
 ## 4.1.3
+
 _December 17, 2024_
 * Log component tree stack during rendering errors, see the [feature description](/react-native/features/render-errors.md) for more details
+
 ## 4.1.2
+
 _Jun 11, 2024_
 * Fixed a bug related to upload sourcemap in RN 0.71+.
 * Updated iOS script to upload sourcemap. Please [update your implementation](/react-native/integration/upload-symbol-files/)
 * Updated Android native Embrace SDK dependency to 6.8.2.
+
 ## 4.1.1
+
 _April 15, 2024_
 * Fix a minor bug related to matching bundle.js with its corresponding source map.
 * Updated iOS native Embrace SDK dependency to 5.25.1.
+
 ## 4.1.0
+
 _March 8, 2024_
 * [New Feature Traces](/react-native/features/traces/)
 * Updated iOS native Embrace SDK dependency to 5.25.0.
+
 ## 4.0.4
+
 _March 7, 2024_
 * Fix a bug that prevent we loggin Screens
+
 ## 4.0.3
+
 _March 6, 2024_
 * Improve performance.
 * Updated Android native Embrace SDK dependency to 6.4.0.
+
 ## 4.0.1
+
 _January 25, 2024_
 * [The React Native SDK is now open source! Check it out and let us know what you think!](https://github.com/embrace-io/embrace-react-native-sdk)
 * Before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
   - Please note we've changed the package so you will need to re-install the Embrace SDK - [see details here](/react-native/integration/add-embrace-sdk/)  
 * Updated Android native Embrace SDK dependency to 6.2.1.
 * Updated iOS native Embrace SDK dependency to 5.24.3.
+
 ## 3.16.0
+
 _December 11, 2023_
 * Updated Android native Embrace SDK dependency to 5.25.1.
 * Updated iOS native Embrace SDK dependency to 5.24.0.
+
 ## 3.15.0
+
 _September 28, 2023_
 * New method to [get the current session id](/react-native/features/session-metadata/#current-session-id)
 * New method to [get the last run end state](/react-native/features/session-metadata/#last-run-end-state) of a session
 * Updated Android native Embrace SDK dependency to 5.24.0.
 * Updated iOS native Embrace SDK dependency to 5.23.1.
+
 ## 3.14.0
+
 _Aug 8, 2023_
 * Reduce severity from Warn to Info (log) in the success message in the React Navigation Tracker (v0.2.14).
 * Fix a bug in React Navigation Tracker (v0.2.14) if the plugin was started with a null Navigation reference.  
@@ -133,31 +172,43 @@ _Jul 26, 2023_
 * Fix Redux Action Tracker, it was catching any error produced in reducers
 * Updated Android native Embrace SDK dependency to 5.22.0.
 * Updated iOS native Embrace SDK dependency to 5.21.1.
+
 ## 3.13.1
+
 _Jun 21, 2023_
 * Fixed iOS install script. Now it supports new projects created with RN 0.71+.
 * Updated Android native Embrace SDK dependency to 5.20.0.
 * Updated iOS native Embrace SDK dependency to 5.20.1.
+
 ## 3.13.0
+
 _May 30, 2023_
 * Fix a bug when the app crash with a Javascript error.
 * Update Android SDK to 5.19.0
 * Update iOS SDK to 5.19.4
+
 ## 3.12.1
+
 _May 10, 2023_
 * Added React Native Screen Orientation Tracker
+
 ## 3.12.0
+
 _May 4, 2023_
 * Integration: The script now says which steps it couldn't finish and shows the url of the documentation where it explains how to do that step manually.
 * Added the ability to capture core web vitals for web view experiences in your app.
 * Update Android SDK to 5.18.0
 * Update iOS SDK to 5.19.2
+
 ## 3.11.0
+
 _April 5, 2023_
 * Update the install script to recognize native folders instead of a fixed path
 * Update Android SDK to 5.16.0
 * Update iOS SDK to 5.17.1
+
 ## 3.10.9
+
 _March 29, 2023_
 
 :::warning Important
@@ -167,12 +218,14 @@ This version has known issues and should not be used
 * Added two new scripts, one to install the dependencies for Androd and the other for iOS
 
 ## 3.10.8
+
 _March 8, 2023_
 * Added React Native Navigation Screen Tracker version 0.2.7
 * Update Android SDK to 5.14.2
 * Update iOS SDK to 5.16.2
 
 ## 3.10.7
+
 _February 26, 2023_
 * Fixed a small bug on the React Native Screen Tracker when the navigation's reference is null. New version 0.2.4
 
@@ -186,6 +239,7 @@ Note: It requires at least Android SDK 5.13.0
 _December 19, 2022_
 * Added React Navigation Screen Tracker version 0.1.1
 * Fixed a small bug when users use a recent React Native SDK with an old Android SDK
+
 ## 3.10.5
 
 _December 16, 2022_
@@ -208,11 +262,13 @@ _August 29, 2022_
 * Fixed setup script.
 * Upgraded to latest Android SDK version
 * Upgraded to latest iOS SDK version
+
 ## 3.9.2
 
 _June 9, 2022_
 
 * Added `getDeviceId` to get the Embrace ID
+
 ## 3.9.1
 
 _April 8, 2022_
