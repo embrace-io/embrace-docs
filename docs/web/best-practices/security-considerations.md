@@ -76,7 +76,7 @@ sdk.initSDK({
 });
 ```
 
-### Configure the User Interaction Auto-instrumentation
+### Configure the User Interaction Auto-instrumentation {#configure-the-user-interaction-auto-instrumentation}
 
 The [User Interactions](/docs/web/automatic-instrumentation/user-interactions.md) auto-instrumentation records a span
 event whenever a user clicks on an element in your application. This event contains the pixel coordinates of the
