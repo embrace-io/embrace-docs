@@ -44,10 +44,10 @@ From there, follow the rest of the Custom Metric create flow by selecting a (opt
 Go to the Settings page in the Embrace Dashboard and click on the Custom Metrics tab. Here you can create, view, and
 delete custom metrics. When you define a custom metric, you can specify:
 
-* Metric - The aggregation you want to track.
-* Name - The name of the metric. Must conform to the Prometheus spec.
-* Filter - (Optional) Aggregate only a subset of the data.
-* Group By - (Optional) Group the data by a set of dimensions. These will become the labels in your time series data.
+- Metric - The aggregation you want to track.
+- Name - The name of the metric. Must conform to the Prometheus spec.
+- Filter - (Optional) Aggregate only a subset of the data.
+- Group By - (Optional) Group the data by a set of dimensions. These will become the labels in your time series data.
 
 <img src={require('@site/static/images/custom-metrics-definition.png').default} alt="Screenshot of custom metrics definition tab" />
 

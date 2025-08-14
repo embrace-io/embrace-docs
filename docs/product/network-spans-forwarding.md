@@ -33,10 +33,10 @@ To request Network Span Forwarding be turned on, simply click the "enable" butto
 ### Requirements
 
 NSF is supported on the following SDK versions:
-* iOS 6.0+
-* Android 6.0+
-* Flutter 3.0+
-* React Native 5.2+
+- iOS 6.0+
+- Android 6.0+
+- Flutter 3.0+
+- React Native 5.2+
 
 Accounts must have a [Data Destination](/data-destinations/) set up.
 

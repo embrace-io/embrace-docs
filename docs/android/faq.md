@@ -78,9 +78,9 @@ We proactively profile the impact of instrumentation on the app. Spans generally
 ### **What determines if a session is classified as prod or dev?**
 
 A session is classified as dev if all of the following are true:
-* The `buildType` has the `debuggable` flag set to `true` in the `app/build.gradle` file.
-* The optional `enableIntegrationTesting` value passed to the SDK start method is `true`.
-* The debugger is attached (meaning you're running the app on a device or simulator with the Android Studio debugger attached).
+- The `buildType` has the `debuggable` flag set to `true` in the `app/build.gradle` file.
+- The optional `enableIntegrationTesting` value passed to the SDK start method is `true`.
+- The debugger is attached (meaning you're running the app on a device or simulator with the Android Studio debugger attached).
 
 ### **How can I define custom app IDs for different build types?**
 
@@ -224,8 +224,8 @@ Yes, we have multiple customers that use GraphQL. See the [GraphQL guide](/best-
 
 All network calls are automatically tracked without any code changes. Network calls are tracked if you use one or more of the following network libraries:
 
-* OkHttp3 (including support for Retrofit)
-* Http(s)URLConnection
+- OkHttp3 (including support for Retrofit)
+- Http(s)URLConnection
 
 If you use a library not listed or do not see expected network calls, please contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
 
@@ -239,13 +239,13 @@ that our SDK captures network requests.
 
 This could be due to one of the following reasons:
 
-* We currently do not automatically capture WebSocket requests.
-* The networking library you're using isn't one of the supported ones.
-* You may use a CDN like Cloudflare, which can change your networking under-the-hood. Here's a list of CDNs that are verified to be compatible:
-  * Akamai
-  * Cloudflare
-  * PacketZoom
-* If you are using `OkHttp3`, make sure to get an instance of `OkHttpClient` by calling the builder:
+- We currently do not automatically capture WebSocket requests.
+- The networking library you're using isn't one of the supported ones.
+- You may use a CDN like Cloudflare, which can change your networking under-the-hood. Here's a list of CDNs that are verified to be compatible:
+  - Akamai
+  - Cloudflare
+  - PacketZoom
+- If you are using `OkHttp3`, make sure to get an instance of `OkHttpClient` by calling the builder:
 
     ```kotlin
         val myOkHttpClient = OkHttpClient.Builder().build()

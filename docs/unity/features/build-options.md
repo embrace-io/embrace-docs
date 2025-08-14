@@ -42,7 +42,7 @@ Out-of-range indices will result in build failure.
 :::
 
 ```EMBRACE_ENVIRONMENTS_NAME```
-* Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
+- Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
 
 :::warning Important
   We only support the use of a single environment variable to specify an Embrace configuration. Please be aware that defining both variables at build-time will result in a failed build.

@@ -543,7 +543,7 @@ swazzler {
 ## 5.9.3
 
 *Nov 20, 2022*
-* It fixes a Gradle issue on anyone running Gradle < 6.2
+- It fixes a Gradle issue on anyone running Gradle < 6.2
 
 ## 5.9.2
 
@@ -551,48 +551,48 @@ swazzler {
 :::info Important
 This version has a known issue with Gradle < 6.2
 :::
-* Improved Embrace startup time
+- Improved Embrace startup time
 
 ## 5.9.1
 
 *Nov 14, 2022*
-* Fixed an internal exception when trying to access the jailbroken status of the device.
+- Fixed an internal exception when trying to access the jailbroken status of the device.
 
 ## 5.9.0
 
 *Nov 03, 2022*
-* Improve NDK service logs to work with strict and integration mode
-* Improved the EmbraceSamples.verify() method
-* Added Profile Installer to support Baseline Profiles.
+- Improve NDK service logs to work with strict and integration mode
+- Improved the EmbraceSamples.verify() method
+- Added Profile Installer to support Baseline Profiles.
 
 ## 5.8.0
 
 *Oct 20, 2022*
 
-* Fixed message for Ironsource and Moshi known issues.
-* Automate disabling dependency injection when using EDM4U.
-* Automate NDK Enabling for Unity and Native projects when value is default.
-* Added integration mode to identify potential issues with the SDK integration.
-* Rolled back the use of DefaultLifecycleObserver
+- Fixed message for Ironsource and Moshi known issues.
+- Automate disabling dependency injection when using EDM4U.
+- Automate NDK Enabling for Unity and Native projects when value is default.
+- Added integration mode to identify potential issues with the SDK integration.
+- Rolled back the use of DefaultLifecycleObserver
 
 ## 5.7.1
 
 *Oct 18, 2022*
 
-* Fixed an ANR occurring in React Native projects using a custom Javascript bundle URL.
+- Fixed an ANR occurring in React Native projects using a custom Javascript bundle URL.
 
 ## 5.7.0
 
 *Oct 03, 2022*
 
-* New mechanism to auto-install Embrace dependencies. If you prefer to use the old mechanism, the new API can be disabled by setting the `useNewDependencyInstaller` property to false.
+- New mechanism to auto-install Embrace dependencies. If you prefer to use the old mechanism, the new API can be disabled by setting the `useNewDependencyInstaller` property to false.
 
 ## 5.6.2
 
 *Oct 03, 2022*
 
-* Fixed a lost backward compatibility with previous Unity SDK versions.
-* Fixed internal exception triggered when used androidX startup library in Unity builds.
+- Fixed a lost backward compatibility with previous Unity SDK versions.
+- Fixed internal exception triggered when used androidX startup library in Unity builds.
 
 ## 5.6.1
 
@@ -602,42 +602,42 @@ This version has a known issue with Gradle < 6.2
 This version has a known backward compatibility issue between the Unity SDK and the Android SDK
 :::
 
-* Removed capture_google attribute from the embrace-config.json file.
+- Removed capture_google attribute from the embrace-config.json file.
 
 ## 5.6.0
 
 *Sep 20, 2022*
 
-* Prevent disk i/o strict mode violations for session caching.
-* Added a step to the automatic verification that validates that the SDK is receiving lifecycle events
-* Increment network timeout when uploading large mapping files.
+- Prevent disk i/o strict mode violations for session caching.
+- Added a step to the automatic verification that validates that the SDK is receiving lifecycle events
+- Increment network timeout when uploading large mapping files.
 
 ## 5.5.4
 
 *Aug 30, 2022*
 
-* Performance improvement: moved some disk I/O operations on startup to a worker thread.
+- Performance improvement: moved some disk I/O operations on startup to a worker thread.
 
 ## 5.5.3
 
 *Aug 25, 2022*
 
-* Fixed a logic bug in how the previous signal handler was called that prevented native tombstones from being captured by the Android OS.
-* Fixed an issue that prevented the Swazzler to build on AGP versions greater or equal than 7.2.
+- Fixed a logic bug in how the previous signal handler was called that prevented native tombstones from being captured by the Android OS.
+- Fixed an issue that prevented the Swazzler to build on AGP versions greater or equal than 7.2.
 
 ## 5.5.2
 
 *Aug 17, 2022*
 
-* Fixes a bug in our gradle plugin where the build sometimes failed with duplicate resource files
-* Fixes a minor bug where network intercepting triggers a log when it tries to intercept calls before Embrace is started.
-* Improve NDK crash report quality when other signal handlers are installed after Embrace has initialized
+- Fixes a bug in our gradle plugin where the build sometimes failed with duplicate resource files
+- Fixes a minor bug where network intercepting triggers a log when it tries to intercept calls before Embrace is started.
+- Improve NDK crash report quality when other signal handlers are installed after Embrace has initialized
 
 ## 5.5.1
 
 *Aug 03, 2022*
 
-* Fixes an issue where customers were having ClassNotFoundException: BuildEventsListenerRegistry for gradle versions < 6.1
+- Fixes an issue where customers were having ClassNotFoundException: BuildEventsListenerRegistry for gradle versions < 6.1
 
 ## 5.5.0
 
@@ -647,9 +647,9 @@ This version has a known backward compatibility issue between the Unity SDK and 
 This version has a known issue with Gradle < 6.1
 :::
 
-* Added Hermes support
-* Automatic integration: We added a method that does everything necessary to verify an integration in one call.
-* Added a feature flag that controls beta features. This can be manually disabled from the configuration.
+- Added Hermes support
+- Automatic integration: We added a method that does everything necessary to verify an integration in one call.
+- Added a feature flag that controls beta features. This can be manually disabled from the configuration.
 
 
 ## 5.4.0
@@ -660,9 +660,9 @@ This version has a known issue with Gradle < 6.1
 This version has a known issue with Gradle < 6.1
 :::
 
-* Strict Mode was added to automatically capture serious local error logs to be sent as part of the session payload.
-* The background ANRs are not displayed by default anymore. They should be manually enabled through remote configuration.
-* Fixed an issue where the ANR duration was incorrectly reported with 1 second less.
+- Strict Mode was added to automatically capture serious local error logs to be sent as part of the session payload.
+- The background ANRs are not displayed by default anymore. They should be manually enabled through remote configuration.
+- Fixed an issue where the ANR duration was incorrectly reported with 1 second less.
 
 ## 5.3.0
 
@@ -672,99 +672,99 @@ This version has a known issue with Gradle < 6.1
 This version has a known issue with Gradle < 6.1
 :::
 
-* ASM bytecode transformation API is now the default api.
+- ASM bytecode transformation API is now the default api.
 
 ## 5.2.0
 
 *Jun 10, 2022*
 
-* Added support for symbols upload in Unity 2020, 2021, 2022.  
-* Fixed symbols upload failure while searching .so files in a folder with another folder inside.  
-* Added extra logging for NDK layer.
-* Fixed bytecode transformation with ASM.
-* Added improvement in order to skip swazzling if it's disabled for variant in old transform API.
+- Added support for symbols upload in Unity 2020, 2021, 2022.  
+- Fixed symbols upload failure while searching .so files in a folder with another folder inside.  
+- Added extra logging for NDK layer.
+- Fixed bytecode transformation with ASM.
+- Added improvement in order to skip swazzling if it's disabled for variant in old transform API.
 
 ## 5.1.0
 
 *May 27, 2022*
 
-* Added extra logging for NDK crash.
-* Prevented NPE in native crash loading.
-* Fixed an issue in gradle task registration that was not letting the symbols files to upload.  
-* React Native - Fixed an issue with the set of the bundle ID for OTA releases like CodePush
+- Added extra logging for NDK crash.
+- Prevented NPE in native crash loading.
+- Fixed an issue in gradle task registration that was not letting the symbols files to upload.  
+- React Native - Fixed an issue with the set of the bundle ID for OTA releases like CodePush
 
 ## 5.0.4
 
 *May 4, 2022*
 
-* Fixed an issue where "Bytes in" and "Bytes out" where shown reversed when logging network requests manually.
+- Fixed an issue where "Bytes in" and "Bytes out" where shown reversed when logging network requests manually.
 
 ## 5.0.3
 
 *May 2, 2022*
 
-* Fixed a race condition that could lead to exceptions during SDK initialization.
+- Fixed a race condition that could lead to exceptions during SDK initialization.
 
 ## 5.0.2
 
 *April 22, 2022*
 
-* Fixed an issue that prevented the SDK to use the traffic settings override for specific app versions.
+- Fixed an issue that prevented the SDK to use the traffic settings override for specific app versions.
 
 ## 5.0.1
 
 *April 08, 2022*
 
-* Added backward compatibility up to AGP 3.4.0
-* Changed build ID resource injection to keep unchanged on non-minified builds.
-* Migrated to task configuration avoidance API's for task registration
-* Added improvements to SDK startup time
-* Upgrade Gson to 2.9.0.
+- Added backward compatibility up to AGP 3.4.0
+- Changed build ID resource injection to keep unchanged on non-minified builds.
+- Migrated to task configuration avoidance API's for task registration
+- Added improvements to SDK startup time
+- Upgrade Gson to 2.9.0.
 
 ## 4.15.0
 
 *Feb 07, 2022*
 
-* Updated Kotlin to 1.4.32
-* Fixed stacktrace capture for React Native and Unity log messages
-* Added improvements to SDK startup time
-* Added support for encoding file names when unpacking jars to prevent clashes in case-insensitive file systems
+- Updated Kotlin to 1.4.32
+- Fixed stacktrace capture for React Native and Unity log messages
+- Added improvements to SDK startup time
+- Added support for encoding file names when unpacking jars to prevent clashes in case-insensitive file systems
 
 ## 4.14.0
 
 *Dec 21, 2021*
 
-* Screenshots aren't captured by default. They should be manually requested by calling the proper methods of the SDK.
+- Screenshots aren't captured by default. They should be manually requested by calling the proper methods of the SDK.
 
 ## 4.13.0
 
 *Nov 19, 2021*
 
-* Upgrade Gson to 2.8.9
-* Added a new EmbraceCustomPathException to capture the proper custom path on connectivity errors
+- Upgrade Gson to 2.8.9
+- Added a new EmbraceCustomPathException to capture the proper custom path on connectivity errors
 
 ## 4.12.0
 
 *Oct 29, 2021*
 
-* Added swazzling class skipping support for AGP 4.2+
-* Added swazzling rules generation support for AGP 4.2+
-* Fix an issue with ANRs caused while capturing network calls in the session
+- Added swazzling class skipping support for AGP 4.2+
+- Added swazzling rules generation support for AGP 4.2+
+- Fix an issue with ANRs caused while capturing network calls in the session
 
 ## 4.11.3
 
 *Oct 18, 2021*
 
-* Fix an issue with missing network calls in the session
+- Fix an issue with missing network calls in the session
 
 ## 4.11.2
 
 *Oct 5, 2021*
 
-* Added option to specify API key as an environment variable instead of in the config file
-* Cache device-related values that could take a long time to fetch on certain device types, to prevent ANRs.
-* Rolled back swazzling class skipping support from 4.11.0, which could cause certain network calls and taps to not be captured.
-* Removed ANDROID_ID as an input to the hashing function used create the device identifier.
+- Added option to specify API key as an environment variable instead of in the config file
+- Cache device-related values that could take a long time to fetch on certain device types, to prevent ANRs.
+- Rolled back swazzling class skipping support from 4.11.0, which could cause certain network calls and taps to not be captured.
+- Removed ANDROID_ID as an input to the hashing function used create the device identifier.
 
 ## 4.11.0
 
@@ -774,141 +774,141 @@ This version has a known issue with Gradle < 6.1
 This version has known issues and should not be used
 :::
 
-* Fixed a race-condition issue with the NDK crash capture that could lead to incomplete stacktrace capture
-* Added nullability decorators to improve usage from Kotlin
-* Added swazzling class skipping support for AGP 4.2+
+- Fixed a race-condition issue with the NDK crash capture that could lead to incomplete stacktrace capture
+- Added nullability decorators to improve usage from Kotlin
+- Added swazzling class skipping support for AGP 4.2+
 
 
 ## 4.10.0
 
 *Aug 16, 2021*
 
-* Added support for custom Unity symbols archive name
-* Improved handling of JAR files that could not be swazzled  
+- Added support for custom Unity symbols archive name
+- Improved handling of JAR files that could not be swazzled  
 
 
 ## 4.9.3
 
 *July 29, 2021*
 
-* Fixed issue that could cause an ANR when capturing memory warnings.
-* Fixed issue that could cause SDK to start during an app cold start even when remote config should have disabled it.
+- Fixed issue that could cause an ANR when capturing memory warnings.
+- Fixed issue that could cause SDK to start during an app cold start even when remote config should have disabled it.
 
 ## 4.9.2
 
 *July 15, 2021*
 
-* Fixed compatibility issue with androidx.lifecycle 2.3.0+ when not starting the SDK on the main thread.
+- Fixed compatibility issue with androidx.lifecycle 2.3.0+ when not starting the SDK on the main thread.
 
 ## 4.9.1
 
 *July 13, 2021*
 
-* Fixed issue that could prevent capture of OkHTTP- and Volley-based network calls for certain configurations.
-* Prevent multiple attempts to add Embrace SDK dependency for certain configurations.  
+- Fixed issue that could prevent capture of OkHTTP- and Volley-based network calls for certain configurations.
+- Prevent multiple attempts to add Embrace SDK dependency for certain configurations.  
 
 ## 4.9.0
 
 *July 1, 2021*
 
-* Fixed how SDK dependencies are injected, which could cause build errors for certain Gradle configurations.
-* Handle case where a project provides the same JAR twice to Gradle our Gradle transformer.
-* Fixed issue where a class could not be processed by our Gradle transformer when it contains a reference to an optional dependency that is not present in the app.
+- Fixed how SDK dependencies are injected, which could cause build errors for certain Gradle configurations.
+- Handle case where a project provides the same JAR twice to Gradle our Gradle transformer.
+- Fixed issue where a class could not be processed by our Gradle transformer when it contains a reference to an optional dependency that is not present in the app.
 
 ## 4.8.10
 
 *May 27, 2021*
 
-* Fixed issue with NDK crash stack trace parsing that could fail for certain stack traces
-* Track JNI thread attachment for Unity
+- Fixed issue with NDK crash stack trace parsing that could fail for certain stack traces
+- Track JNI thread attachment for Unity
 
 ## 4.8.9
 
 *May 25, 2021*
 
-* Removed all dependencies on JCenter
-* Added support for symbol upload for Unity 2020 non-exported apps
+- Removed all dependencies on JCenter
+- Added support for symbol upload for Unity 2020 non-exported apps
 
 ## 4.8.8
 
 *May 17, 2021*
 
-* Fixed an issue with registering build tasks for React Native apps.
+- Fixed an issue with registering build tasks for React Native apps.
 
 ## 4.8.7
 
 *May 11, 2021*
 
-* Fixed an issue where HTTP network calls made using the Java library could get disrupted during capture. This issue did not affect HTTPS calls or those made with Volley or OkHttp.
+- Fixed an issue where HTTP network calls made using the Java library could get disrupted during capture. This issue did not affect HTTPS calls or those made with Volley or OkHttp.
 
 ## 4.8.6
 
 *May 10, 2021*
 
-* Fixed a compatibility issue with gradle 7.x.
-* Added support for automatic upload of NDK symbols for unexported Unity projects.
+- Fixed a compatibility issue with gradle 7.x.
+- Added support for automatic upload of NDK symbols for unexported Unity projects.
 
 ## 4.8.5
 
 *May 6, 2021*
 
-* Fixed issue with bytes-in/-out values for manually recorded network calls on Unity.
-* Added exception message to manually-recorded network calls on Unity for network calls that had an error.
+- Fixed issue with bytes-in/-out values for manually recorded network calls on Unity.
+- Added exception message to manually-recorded network calls on Unity for network calls that had an error.
 
 ## 4.8.4
 
 *May 4, 2021*
 
-* Added more flexible support for disabling swazzling based on variant.
+- Added more flexible support for disabling swazzling based on variant.
 
 ## 4.8.3
 
 *April 30, 2021*
 
-* Added support for Unity unhandled exceptions
-* Fixed issue with the upload of NDK symbols for Unity 2018 and injection of references to the symbols into the SDK
+- Added support for Unity unhandled exceptions
+- Fixed issue with the upload of NDK symbols for Unity 2018 and injection of references to the symbols into the SDK
 
 ## 4.8.2
 
 *April 22, 2021*
 
-* Moved from JCenter to Maven Central
+- Moved from JCenter to Maven Central
 
 ## 4.8.0
 
 *April 9, 2021*
 
-* Added method to allow overriding of the configured app ID to be overridden at runtime.
-* Modified Gradle plugin to use original JARs when no changes were needed to them. This addresses an issue with the `kotlin-reflect` module for Kotlin 1.4.10 and newer.
-* Improved Gradle plugin dependency injection approach to address rare race condition.
-* Fixed issue with parsing of config file that could cause changes to it to only be picked up on clean builds.
-* Fixed JSON parsing issue that could cause NDK crashes in Unity apps to be corrupted
+- Added method to allow overriding of the configured app ID to be overridden at runtime.
+- Modified Gradle plugin to use original JARs when no changes were needed to them. This addresses an issue with the `kotlin-reflect` module for Kotlin 1.4.10 and newer.
+- Improved Gradle plugin dependency injection approach to address rare race condition.
+- Fixed issue with parsing of config file that could cause changes to it to only be picked up on clean builds.
+- Fixed JSON parsing issue that could cause NDK crashes in Unity apps to be corrupted
 
 ## 4.7.1
 
 *March 18, 2021*
 
-* Modified capture_request_content_length setting to also affect requests made with OkHTTP
-* Fixed issue that would remove Content-Length and Content-Encoding from certain captured requests
-* Send startup moment even if the app is in the foreground when the SDK is started
-* Support manual network request capture in Unity apps
-* Build will not complete if a corrupted Embrace configuration file is used and improved error output to simplify debugging of config issue
+- Modified capture_request_content_length setting to also affect requests made with OkHTTP
+- Fixed issue that would remove Content-Length and Content-Encoding from certain captured requests
+- Send startup moment even if the app is in the foreground when the SDK is started
+- Support manual network request capture in Unity apps
+- Build will not complete if a corrupted Embrace configuration file is used and improved error output to simplify debugging of config issue
 
 ## 4.7.0
 
 *February 22, 2021*
 
-* Added limits for number of logs per session: 250 error, 100 warning, 100 info (contact support to have these increased for your app).
-* Limit how many breadcrumbs are captured for a session at capture time rather than at the completion of a session. This limits the memory used to store breadcrumbs for a session.
-* Improved accuracy of startup moment timing by moving the start of the timer to earlier in the SDK startup process.
-* Fixed compatibility issues with AGP 4.1.x.
-* Added setting to allow disabling of automatic injection of SDK dependencies by the Gradle plugin. This is only needed for certain Unity build configurations.
+- Added limits for number of logs per session: 250 error, 100 warning, 100 info (contact support to have these increased for your app).
+- Limit how many breadcrumbs are captured for a session at capture time rather than at the completion of a session. This limits the memory used to store breadcrumbs for a session.
+- Improved accuracy of startup moment timing by moving the start of the timer to earlier in the SDK startup process.
+- Fixed compatibility issues with AGP 4.1.x.
+- Added setting to allow disabling of automatic injection of SDK dependencies by the Gradle plugin. This is only needed for certain Unity build configurations.
 
 ## 4.6.7
 
 *February 18, 2021*
 
-* Reverted relaxed AndroidX version requirements introduced in 4.6.6. since AndroidX 2.3.0+ caused issues.
+- Reverted relaxed AndroidX version requirements introduced in 4.6.6. since AndroidX 2.3.0+ caused issues.
 
 ## 4.6.6
 
@@ -918,78 +918,78 @@ This version has known issues and should not be used
 This version has known issues and should not be used
 :::
 
-* Relaxed version requirements for AndroidX components
+- Relaxed version requirements for AndroidX components
 
 ## 4.6.5
 
 *February 2, 2021*
 
-* Improved SDK startup time.
-* Added Gradle task dependencies to support a single flavor anchoring tests for other variants.
+- Improved SDK startup time.
+- Added Gradle task dependencies to support a single flavor anchoring tests for other variants.
 
 
 ## 4.6.4
 
 *January 22, 2021*
 
-* Fixed issue that could cause session message to not be sent when the device had been in airplane mode and NDK crash support is enabled.
+- Fixed issue that could cause session message to not be sent when the device had been in airplane mode and NDK crash support is enabled.
 
 
 ## 4.6.3
 
 *January 14, 2021*
 
-* Fixed device ID generation to allow it to be used in automated tests.
+- Fixed device ID generation to allow it to be used in automated tests.
 
 
 ## 4.6.2
 
 *January 12, 2021*
 
-* Added configuration setting to disable capture of native network requests.
+- Added configuration setting to disable capture of native network requests.
 
 
 ## 4.6.1
 
 *January 11, 2021*
 
-* Added support for configuration files for product flavors.
-* Fixed bug that could cause a crash when network request size capture was enabled for native requests.
+- Added support for configuration files for product flavors.
+- Fixed bug that could cause a crash when network request size capture was enabled for native requests.
 
 
 ## 4.6.0
 
 *December 14, 2020*
 
-* Added support for Unity applications.
-* Added debug logging mode.
+- Added support for Unity applications.
+- Added debug logging mode.
 
 
 ## 4.5.6
 
 *October 21, 2020*
 
-* Fixed dependency resolution issues with AGP 4.1.0+.
+- Fixed dependency resolution issues with AGP 4.1.0+.
 
 ## 4.5.5
 
 *October 1, 2020*
 
-* Fixed capture of ANR stacktraces for Android 7 and earlier.
-* Fixed Gradle plugin compatibility with AGP 4.1.0-rc1.
+- Fixed capture of ANR stacktraces for Android 7 and earlier.
+- Fixed Gradle plugin compatibility with AGP 4.1.0-rc1.
 
 ## 4.5.4
 
 *September 17, 2020*
 
-* Added options to disable capture of web views and web view query parameters.
-* Truncate ANR stack traces to 100 lines.
+- Added options to disable capture of web views and web view query parameters.
+- Truncate ANR stack traces to 100 lines.
 
 ## 4.5.3
 
 *September 9, 2020*
 
-* Fixed issue with setting user identity on clean installs (introduced in 4.5.2)
+- Fixed issue with setting user identity on clean installs (introduced in 4.5.2)
 
 ## 4.5.2
 
@@ -997,58 +997,58 @@ This version has known issues and should not be used
 
 *September 2, 2020*
 
-* Capture additional metrics
-* Capture user info for NDK crashes
-* Enable ANR stacktrace capture by default for all users
-* Fixed issue with ANR stacktrace capture that could attribute an ANR to the session after it occurred
-* Fixed issue with Proguard/R8 upload that could prevent upload of mapping files for flavors  
+- Capture additional metrics
+- Capture user info for NDK crashes
+- Enable ANR stacktrace capture by default for all users
+- Fixed issue with ANR stacktrace capture that could attribute an ANR to the session after it occurred
+- Fixed issue with Proguard/R8 upload that could prevent upload of mapping files for flavors  
 
 ## 4.5.1
 
 *August 10, 2020*
 
-* Added build option to disable swazzling of specific classes and/or jars
-* Improved performance of serializing sessions with large numbers of recorded network calls
+- Added build option to disable swazzling of specific classes and/or jars
+- Improved performance of serializing sessions with large numbers of recorded network calls
 
 ## 4.5.0
 
 *July 24, 2020*
 
-* Added configuration to disable swazzling for specific build types
-* Fixed bug introduced in 4.4.1 that prevented upload of Proguard files  
+- Added configuration to disable swazzling for specific build types
+- Fixed bug introduced in 4.4.1 that prevented upload of Proguard files  
 
 ## 4.4.1
 
 *July 14, 2020*
 
-* Fixed bug where cached sessions were not sent if NDK crash support was not enabled
-* Fixed bug where only the first 3 ANR intervals were captured
+- Fixed bug where cached sessions were not sent if NDK crash support was not enabled
+- Fixed bug where only the first 3 ANR intervals were captured
 
 ## 4.4.0
 
 *July 2, 2020*
 
-* Added NDK crash reporting
+- Added NDK crash reporting
 
 ## 4.2.10
 
 *June 18, 2020*
 
-* Fixed a concurrency bug that could trigger when making network calls shortly after startup
-* Added nullability annotations to improve Kotlin integration experience
+- Fixed a concurrency bug that could trigger when making network calls shortly after startup
+- Added nullability annotations to improve Kotlin integration experience
 
 ## 4.2.9
 
 *May 26, 2020*
 
-* Fixed an issue with capturing network request and response sizes for gzipped native requests when the content type header was lowercase.
+- Fixed an issue with capturing network request and response sizes for gzipped native requests when the content type header was lowercase.
 
 ## 4.2.8
 
 *May 15, 2020*
 
-* Added option to disable capture of app disk usage. This could be excessively slow on older devices with large numbers of files in the app directory.
-* Disabled capturing network request and response sizes for native requests by default.  
+- Added option to disable capture of app disk usage. This could be excessively slow on older devices with large numbers of files in the app directory.
+- Disabled capturing network request and response sizes for native requests by default.  
 
 ## 4.2.7
 

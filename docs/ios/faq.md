@@ -42,10 +42,10 @@ The Embrace SDK should be started on the main thread to ensure that data is cons
 ### **Can I initialize Embrace outside of didFinishLaunchingWithOptions or on a background thread?**
 
 You can, but we highly recommend against it. There are some complications that may occur:
-* Embrace may not receive all session outcomes, including crashes
-* Embrace will not track the abandonment, stalls and durations of startups correctly
-* Embrace may not track the foreground and background states effectively on app start
-* Embrace may not track Views correctly as it may miss the first view loaded
+- Embrace may not receive all session outcomes, including crashes
+- Embrace will not track the abandonment, stalls and durations of startups correctly
+- Embrace may not track the foreground and background states effectively on app start
+- Embrace may not track Views correctly as it may miss the first view loaded
 
 ## Users and sessions {#users-and-sessions}
 

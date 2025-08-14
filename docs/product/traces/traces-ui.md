@@ -10,11 +10,11 @@ The primary page shows all root spans in your app, as well as summary metrics li
 <img src={require('@site/static/images/traces-page.png').default} alt="Traces"/>
 
 To narrow down the spans that are summarized in this view, you can apply the following filters on the root span as well as the child spans:
-* Name
-* Duration*
-* Outcome
-* Attributes keys and values
-* Span event names
+- Name
+- Duration*
+- Outcome
+- Attributes keys and values
+- Span event names
 
 *failed Spans are not included for duration aggregates, they are displayed as `0`
 
@@ -74,13 +74,13 @@ Once you click on a Slow Root Span, you can see specific instances of that span.
 ## Span Instances Filters
 
 Filter your instances by durantion or outcome with these filters:
-  * **All**: all instances displayed
-  * **Slowest**: instances completed successfully with duration > p95.
-  * **Fastest**: instances completed successfully and not slow (with duration < p95).
-  * **Unsuccessful**:
-    * **Erro**r: instances encountered an error.
-    * **Unknown**: insufficient data to determine instance outcome.
-    * **User Abandon**: user navigated away before instance completion.
+  - **All**: all instances displayed
+  - **Slowest**: instances completed successfully with duration > p95.
+  - **Fastest**: instances completed successfully and not slow (with duration < p95).
+  - **Unsuccessful**:
+    - **Erro**r: instances encountered an error.
+    - **Unknown**: insufficient data to determine instance outcome.
+    - **User Abandon**: user navigated away before instance completion.
 
 ## Implementation Details
 - [**Android**](/android/features/traces)

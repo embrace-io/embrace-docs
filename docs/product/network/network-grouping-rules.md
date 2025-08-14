@@ -22,9 +22,9 @@ Custom rules are applied on the backend on a going forward basis.
 
 We currently provide the following patterns:
 
-* `«wildcard»` - Matches any single path segment
-* `«**»` - Matches any number of path segments
-* `«ext:file_extension»` - Matches a string ending with a period and a 2 to 5 character extension.
+- `«wildcard»` - Matches any single path segment
+- `«**»` - Matches any number of path segments
+- `«ext:file_extension»` - Matches a string ending with a period and a 2 to 5 character extension.
 
 # Sample Use Cases
 
