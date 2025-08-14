@@ -8,12 +8,12 @@ Tracking app starting times is important to measure the performance of your app 
 Start by going to Tools > Embrace > Settings
 ![[startup-spans-1.png]]
 
-Under the Startup Tab enable:
+Under the Spans Tab / Startup Spans enable:
 **emb-app-startup**
 **emb-app-loaded**
 **emb-app-time-to-interactive**
 
-![[startup-spans-2.png]]
+![[startup-spans-4 1.png]]
 
 Then click 'Apply Settings'.
 #### Implementation
@@ -21,8 +21,14 @@ Then click 'Apply Settings'.
 The startup spans are not fully automated. You will need to call `Embrace.Instance.EndAppStartup();` after all your plugins and everything have finished loading. It's also important that you call `Embrace.Instance.StartSDK();` beforehand as well.
 
 #### Start
+Once the first scene has loaded a parent span is created `emb-app-startup`. Using the Startup API you can:
+- Add your own custom child span by calling `EmbraceStartupSpans.StartChildSpan(string spanId);`
+- Stop a custom child span by calling `EmbraceStartupSpans.StopChildSpan(string spanId);` (Please note that any child span that is not stopped before `EndAppStartup` is called will not be recorded. In the release of the Unity SDK 2.7.0 we will automatically stop child spans that were not explicitly stopped)
 
 #### End
+To end the Startup phase you'll need to call `Embrace.Instance.EndAppStartup();` in your code. Usually you want to call this sometime after your app has finished loading and the user is ready to interact with it. 
+
+Also with this call you can pass in a `Dictionary<string, string>` for any custom attributes you want to be reported along with the parent span.
 
 ## Viewing The Data
 
