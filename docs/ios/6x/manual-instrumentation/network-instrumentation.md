@@ -27,7 +27,7 @@ import EmbraceIO
 
 ## gRPC instrumentation
 
-Since gRPC libraries like [`grpc-swift`](https://github.com/grpc/grpc-swift) don't use `URLSession`, their network requests aren't automatically captured. You can manually create spans that appear as HTTP requests in the [networking section](/docs/product/network/index.md) of the Embrace dashboard.
+Since gRPC libraries like [`grpc-swift`](https://github.com/grpc/grpc-swift) don't use `URLSession`, their network requests aren't automatically captured. You can manually create spans that appear as HTTP requests in the [networking section](/product/network/index.md) of the Embrace dashboard.
 
 ### Basic gRPC span creation
 

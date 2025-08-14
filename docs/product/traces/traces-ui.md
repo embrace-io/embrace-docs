@@ -76,7 +76,7 @@ Filter your instances by durantion or outcome with these filters:
 
 ## Implementation Details
 - [**Android**](/android/features/traces)
-- [**iOS**](/docs/ios/6x/core-concepts/traces-spans.md)
+- [**iOS**](/ios/6x/core-concepts/traces-spans.md)
 - [**Unity**](/unity/features/traces)
 - [**React Native**](/react-native/features/traces)
 - [**Flutter**](/flutter/features/traces)

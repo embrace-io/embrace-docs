@@ -36,7 +36,7 @@ configuration.
 * iOS 13.0
 * Swift 5
 * Known incompatibilities
-  * `@datadog/mobile-react-native`. More details [here](/docs/ios/6x/getting-started/installation.md#known-issues).
+  * `@datadog/mobile-react-native`. More details [here](/ios/6x/getting-started/installation.md#known-issues).
 
 ### Supported versions of React Native
 

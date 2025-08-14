@@ -56,7 +56,7 @@ You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-r
 
 ## Javascript Exceptions
 
-Exceptions are available for apps instrumented with the Embrace Web SDK, with entries pointing to the function or module responsible for the exception. You can see more information about trends over time and exception grouping in the [Exceptions](/docs/product/troubleshooting/js-exceptions.md) page in the Troubleshooting tab.
+Exceptions are available for apps instrumented with the Embrace Web SDK, with entries pointing to the function or module responsible for the exception. You can see more information about trends over time and exception grouping in the [Exceptions](/product/troubleshooting/js-exceptions.md) page in the Troubleshooting tab.
 
 ---
 

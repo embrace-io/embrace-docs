@@ -14,8 +14,8 @@ search results. The metrics collected are:
 
 ## Implementation and use
 
-Core Web Vitals are automatically collected by the [Embrace Web SDK](/docs/web/getting-started/index.md). 
+Core Web Vitals are automatically collected by the [Embrace Web SDK](/web/getting-started/index.md). 
 
-Core Web Vitals are available in context with the other technical operations of a user's session in the [User Timeline](/docs/product/sessions/user-timeline.md). For a given Core Web Vital, Embrace displays the element that is most responsible for creating the Core Web Vital calculation.
+Core Web Vitals are available in context with the other technical operations of a user's session in the [User Timeline](/product/sessions/user-timeline.md). For a given Core Web Vital, Embrace displays the element that is most responsible for creating the Core Web Vital calculation.
 
-Core Web Vitals for pages can also be aggregated and analyzed across all users with [Custom Dashboards](/docs/product/boards/custom-dashboards.md). 
+Core Web Vitals for pages can also be aggregated and analyzed across all users with [Custom Dashboards](/product/boards/custom-dashboards.md). 

@@ -10,7 +10,7 @@ sidebar_position: 2
 
 Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
   
-See [this page](/docs/product/traces/technical-details.md) for technical details and terminology definitions.
+See [this page](/product/traces/technical-details.md) for technical details and terminology definitions.
 
 ## Feature support
 

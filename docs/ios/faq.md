@@ -80,7 +80,7 @@ Both user personas and session properties are custom additions to an integration
 
 For example, a user persona is attached to a user and could be a "payer," "heavy user," "buyer," or "seller," whereas a session property is attached to the session and describe session characteristics such as "dark mode," "purchase made," or "no internet connection."  User personas are assigned when a user logs in and are cleared when the user logs out, and session properties are assigned upon session start (session property persistence is determined by the 'permanent' parameter).
 
-For more information and specifics, read about [user identification on iOS](/docs/ios/6x/core-concepts/user-identification.md)
+For more information and specifics, read about [user identification on iOS](/ios/6x/core-concepts/user-identification.md)
 
 ## Crashes
 
@@ -172,7 +172,7 @@ This depends on the app's implementation of gRPC.
 
 - If your gRPC implementation is built using `URLSession`, requests will automatically be tracked in Embrace's networking page. 
 
-- If the implementation does NOT use `URLSession`, you should use manual instrumentation to create spans with all the necessary information about your gRPC requests. Please see our page on [capturing other forms of networking](/docs/ios/6x/manual-instrumentation/network-instrumentation.md) for more information.
+- If the implementation does NOT use `URLSession`, you should use manual instrumentation to create spans with all the necessary information about your gRPC requests. Please see our page on [capturing other forms of networking](/ios/6x/manual-instrumentation/network-instrumentation.md) for more information.
 
 ### **Do you support GraphQL?**
 

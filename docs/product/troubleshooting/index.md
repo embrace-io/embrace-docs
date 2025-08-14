@@ -7,11 +7,11 @@ Embrace allows developers to find the root cause of production issues in their a
 
 The dashboard places problems in context of the specific user's session, then aggregates them to let developers triage and prioritize issues before solving them. These troubleshooting mechanisms include:
 
-- [Crashes](/docs/product/crashes/index.md), a prominent source of user frustration.
-- [Error Logs](/docs/product/troubleshooting/error-logs.md) point developers to severe issues.
-- [ANR Reporting](/docs/product//troubleshooting/anr-reporting.md) point to Android apps "hanging" or not responding.
-- [Release Health](/docs/product//troubleshooting/release-health.md) to measure rollout viability from one version to the next.
-- [Compare Issues](/docs/product//troubleshooting/compare.md) lets you see how you've resolved issues before.
-- [User Terminated](/docs/product//troubleshooting/user-termination.md) indicate user terminations.
-- [Uncategorized Exit](/docs/product//troubleshooting/uncategorized-exit.md) indicate uncategorized exits.
-- [Out of Memory](/docs/product//troubleshooting/out-of-memory.md) indicate out of memory issues.
+- [Crashes](/product/crashes/index.md), a prominent source of user frustration.
+- [Error Logs](/product/troubleshooting/error-logs.md) point developers to severe issues.
+- [ANR Reporting](/product//troubleshooting/anr-reporting.md) point to Android apps "hanging" or not responding.
+- [Release Health](/product//troubleshooting/release-health.md) to measure rollout viability from one version to the next.
+- [Compare Issues](/product//troubleshooting/compare.md) lets you see how you've resolved issues before.
+- [User Terminated](/product//troubleshooting/user-termination.md) indicate user terminations.
+- [Uncategorized Exit](/product//troubleshooting/uncategorized-exit.md) indicate uncategorized exits.
+- [Out of Memory](/product//troubleshooting/out-of-memory.md) indicate out of memory issues.

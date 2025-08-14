@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Embrace's logging capabilities allow you to capture log messages with different severity levels, providing valuable
 context for troubleshooting and debugging issues in your app. See our
-[Core Concepts section on Logs](/docs/web/core-concepts/logs.md) for a more detailed overview.
+[Core Concepts section on Logs](/web/core-concepts/logs.md) for a more detailed overview.
 
 ## Basic Logging
 
@@ -85,7 +85,7 @@ session so be mindful of excessive logging in performance-critical paths as it c
 data transmission.
 
 If you simply want to note that an event occurred within a user's session and don't require the full grouping and
-querying capabilities provided by logs then [Breadcrumbs](/docs/web/manual-instrumentation/breadcrumbs.md) may be a
+querying capabilities provided by logs then [Breadcrumbs](/web/manual-instrumentation/breadcrumbs.md) may be a
 better lightweight option.
 
 ### Sensitive Information

@@ -40,7 +40,7 @@ The timeline details table presents an ordered list of every event within the ti
 
 <img src={require('@site/static/images/features/user-session-insights/user-session-insights-3.png').default} alt="Timeline Details" />
 
-Scrolling through the Timeline Details section combines the activity for this user across [Stitched Sessions](/docs/product/sessions/stitched-sessions.md).
+Scrolling through the Timeline Details section combines the activity for this user across [Stitched Sessions](/product/sessions/stitched-sessions.md).
 
 ### Search for Timeline events
 Timeline details can be quickly searched using the search bar in the upper right.  This searches on top-level text across all events, eg: network calls, breadcrumbs, taps, traces, etc.  Each search will highlight all found events, which can be navigated using the arrows in the search bar.

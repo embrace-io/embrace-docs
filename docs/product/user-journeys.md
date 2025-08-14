@@ -78,4 +78,4 @@ Hovering your mouse over the treemap you'll see a tooltip that breaks down the d
 
 ## Instance List
 
-You can find a filterable list of all instances of the User Flow at the bottom of the page. Clicking any of these instances will take you to the [User Timeline](/docs/product/sessions/user-timeline.md) for further investigation as you need it.
+You can find a filterable list of all instances of the User Flow at the bottom of the page. Clicking any of these instances will take you to the [User Timeline](/product/sessions/user-timeline.md) for further investigation as you need it.
