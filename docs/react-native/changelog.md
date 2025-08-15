@@ -233,7 +233,6 @@ _February 16, 2023_
 - Added React Redux's Actions Tracker version 0.2.2
 Note: It requires at least Android SDK 5.13.0
 
-
 ## 3.10.6  
 
 _December 19, 2022_

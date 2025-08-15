@@ -221,7 +221,6 @@ export EMBRACE_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 The Embrace SDK will automatically read these environment variables at runtime.
 
-
 ### With a config file
 
 :::warning

@@ -129,4 +129,3 @@ Column(
 :::warning Important
 If you are facing issues at runtime, we can turn off Jetpack Compose instrumentation remotely. Please, contact us: [support@embrace.com](mailto:support@embrace.com)
 :::
-

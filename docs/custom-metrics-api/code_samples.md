@@ -4,7 +4,6 @@ description: Learn how to create custom metrics using the Custom Metrics API
 sidebar_position: 2
 ---
 
-
 ## Python Example
 
 This example shows how to create custom metrics across multiple applications.

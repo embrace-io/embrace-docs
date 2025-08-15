@@ -16,7 +16,6 @@ const myMethod = () =>{
 }
 ```  
 
-
 import GetSessionId from '@site/shared/get-session-id.md';
 
 <GetSessionId />

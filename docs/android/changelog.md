@@ -6,7 +6,7 @@ sidebar_position: 4
 
 # Android SDK Changelog
 
-:::info Important  
+:::info Important
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
@@ -42,7 +42,7 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 *July 17, 2025*
 
 :::info Important
-This version is identical to 7.6.0 except that the desugaring requirement if your app supports Android API levels < 26 will be verified at build time.  
+This version is identical to 7.6.0 except that the desugaring requirement if your app supports Android API levels < 26 will be verified at build time.
 
 This patch is unnecessary if you are already running 7.6.0. But if you support Android 7.x, ensure that you have desugaring enabled or else the Embrace SDK will not start for apps running on those Android versions.
 :::
@@ -54,7 +54,7 @@ This patch is unnecessary if you are already running 7.6.0. But if you support A
 *June 25, 2025*
 
 :::warning Important
-This version requires desugaring if your app supports Android API levels < 26. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring)  
+This version requires desugaring if your app supports Android API levels < 26. For more information, please see [Google's documentation here](https://developer.android.com/studio/write/java8-support#library-desugaring)
 :::
 
 - Fix a Dexguard issue when bundle and assemble are executed in the same Gradle command
@@ -121,26 +121,25 @@ This version has an issue where JVM symbol mapping files are sometimes not being
 :::
 
 - API and functional changes in this major release are documented in the [Upgrade Guide](/android/upgrading/). Key ones to be aware of include:
-    - Moments feature and API have been removed in favor of [Traces](/android/features/traces/), which should be used instead to track how long workflows in the app took to complete.
-    - Public API methods are all implemented in Kotlin, so passing in nulls in Java for parameters annotated with `@NonNull` will cause a runtime exception and could cause a crash.
-    - Firebase Cloud Messaging and Compose tap instrumentation require explicit inclusion of modules in your Gradle files.
-    - Remove support for deprecated properties in `embrace-config.json` and the Embrace Gradle plugin.
+  - Moments feature and API have been removed in favor of [Traces](/android/features/traces/), which should be used instead to track how long workflows in the app took to complete.
+  - Public API methods are all implemented in Kotlin, so passing in nulls in Java for parameters annotated with `@NonNull` will cause a runtime exception and could cause a crash.
+  - Firebase Cloud Messaging and Compose tap instrumentation require explicit inclusion of modules in your Gradle files.
+  - Remove support for deprecated properties in `embrace-config.json` and the Embrace Gradle plugin.
 
 - New features and other changes in this release include:
-    - Customizable, automatic instrumentation of Activity load and Jetpack Compose Navigation (requires opt-in for now)
-    - Auto-termination of spans based on navigation
-    - Customization of app startup trace through custom attributes and child spans
-    - Public API to get the timestamp used by the SDK so custom spans for app startup and UI load traces can be in sync with other spans in the trace
-    - API to disable data export at programmatically for the currently running instance of the app
-    - Associate native crashes with the device and app metadata at the time of crash instead of the time of reporting
-    - Configuration setting to enable Network Span Forwarding traceparent injection into network request spans for non-Embrace users
+  - Customizable, automatic instrumentation of Activity load and Jetpack Compose Navigation (requires opt-in for now)
+  - Auto-termination of spans based on navigation
+  - Customization of app startup trace through custom attributes and child spans
+  - Public API to get the timestamp used by the SDK so custom spans for app startup and UI load traces can be in sync with other spans in the trace
+  - API to disable data export at programmatically for the currently running instance of the app
+  - Associate native crashes with the device and app metadata at the time of crash instead of the time of reporting
+  - Configuration setting to enable Network Span Forwarding traceparent injection into network request spans for non-Embrace users
 
 - Dependency updates:
-    - OpenTelemetry API and SDK to `1.46.0`
-    - OpenTelemetry Semantic Conventions to `1.29.0-alpha`
-    - AndroidX Lifecycle to `2.7.0`
-    - Moshi to `1.15.2`  
-
+  - OpenTelemetry API and SDK to `1.46.0`
+  - OpenTelemetry Semantic Conventions to `1.29.0-alpha`
+  - AndroidX Lifecycle to `2.7.0`
+  - Moshi to `1.15.2`
 
 ## 6.14.0
 
@@ -149,7 +148,7 @@ This version has an issue where JVM symbol mapping files are sometimes not being
 - Extensive improvements to the resiliency and performance of telemetry persistence and delivery, especially under adverse device and network conditions.
 - Fixed issue where feature flags were not being cached and applied consistently.
 - New runtime dependency: OkHttp 4.12.
-    - See the FAQ [here](/android/faq/#how-do-i-override-the-version-of-okhttp-to-be-lower-than-the-one-embrace-specifies) if you want to use a lower version at runtime (not recommend or supported).
+  - See the FAQ [here](/android/faq/#how-do-i-override-the-version-of-okhttp-to-be-lower-than-the-one-embrace-specifies) if you want to use a lower version at runtime (not recommend or supported).
 
 ## 6.13.0
 
@@ -179,7 +178,7 @@ This version has an issue where JVM symbol mapping files are sometimes not being
 :::info Important
 This version contains a bug where obfuscating Embrace classes will lead to JVM crashes not being recorded and failed requests to Embrace not being retried after that app process terminates.
 
-*This version should not be used*, but you can workaround this by adding the following keep rule to your Proguard file so R8 will bypass obfuscation for the matched code:  
+*This version should not be used*, but you can workaround this by adding the following keep rule to your Proguard file so R8 will bypass obfuscation for the matched code:
 
 `-keep class io.embrace.android.embracesdk.** { *; }`
 :::
@@ -204,15 +203,15 @@ This version contains a bug where obfuscating Embrace classes will lead to JVM c
 
 - Support Android 15 and devices that use 16KB native page size.
 - Updated minimum requirements to the following:
-    - JDK 11
-    - Android SDK Platform 34
-    - Gradle 7.5.1
-    - AGP 7.4.2
-    - Kotlin 1.8.22
+  - JDK 11
+  - Android SDK Platform 34
+  - Gradle 7.5.1
+  - AGP 7.4.2
+  - Kotlin 1.8.22
 - Improve R8 ruleset to further reduce the size of the SDK binary.
 - Upload native symbols by default during the build process unless explicitly disabled.
 - Split main SDK module (`io.embrace.embrace-android-sdk`) into several modules.
-    - This is an internal change and has no direct user impact. App dependencies on Embrace remain unchanged.
+  - This is an internal change and has no direct user impact. App dependencies on Embrace remain unchanged.
 - `Embrace.getDeviceId()` and `Embrace.getLastEndState()` only accessible as functions but not as properties in Kotlin.
 
 ## 6.9.2
@@ -221,7 +220,7 @@ This version contains a bug where obfuscating Embrace classes will lead to JVM c
 - Fix session recording after app backgrounding if Background Activity is disabled.
 
 :::warning Important
-Version 6.9.0 and 6.9.1 have an issue recording sessions after an app backgrounds if Background Activity is disabled.  
+Version 6.9.0 and 6.9.1 have an issue recording sessions after an app backgrounds if Background Activity is disabled.
 
 Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 :::
@@ -235,18 +234,18 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 
 *July 4, 2024*
 - OpenTelemetry compatibility improvements:
-    - Provide implementation of the [OpenTelemetry Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/).  
-        - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Traces API.  
-        - This can be obtained through the `getOpenTelemetry()` method, which will return working implementations for methods involving tracing. Methods involving Logs and Metrics are no-ops at the current time.
-    - Stopping spans through the Embrace Traces API no longer implicitly sets Status to `OK`.
-    - Add `telemetry.distro.*` resource attributes to exported signals.
-    - Update OpenTelemetry SDK dependency to version 1.38 of the [OpenTelemetry BOM](https://github.com/open-telemetry/opentelemetry-java?tab=readme-ov-file#bill-of-material).
-    - Consume semantic conventions from [OTel Semantic Conventions for Java](https://github.com/open-telemetry/semantic-conventions-java).
+  - Provide implementation of the [OpenTelemetry Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/).
+    - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Traces API.
+    - This can be obtained through the `getOpenTelemetry()` method, which will return working implementations for methods involving tracing. Methods involving Logs and Metrics are no-ops at the current time.
+  - Stopping spans through the Embrace Traces API no longer implicitly sets Status to `OK`.
+  - Add `telemetry.distro.*` resource attributes to exported signals.
+  - Update OpenTelemetry SDK dependency to version 1.38 of the [OpenTelemetry BOM](https://github.com/open-telemetry/opentelemetry-java?tab=readme-ov-file#bill-of-material).
+  - Consume semantic conventions from [OTel Semantic Conventions for Java](https://github.com/open-telemetry/semantic-conventions-java).
 - Enhance Traces API to support behavior exposed via the OpenTelemetry Tracing API.
 - Change internal endpoint to which session data is sent (no user-facing behavior changes).
 - Issue build warning for apps that have minSdk < 24 and are using AGP < 8.3.
-    - If minSdk is lower than 24 (i.e. Android 5 and/or 6 is supported by the app), AGP version 8.3+ must be used so the app can be desugared with the proper setting.
-    - See [this question](/android/faq/#the-sdk-should-support-api-level-21-but-i-get-an-error-saying-i-need-to-set-androidusefullclasspathfordexingtransformapi) in the FAQ for details.
+  - If minSdk is lower than 24 (i.e. Android 5 and/or 6 is supported by the app), AGP version 8.3+ must be used so the app can be desugared with the proper setting.
+  - See [this question](/android/faq/#the-sdk-should-support-api-level-21-but-i-get-an-error-saying-i-need-to-set-androidusefullclasspathfordexingtransformapi) in the FAQ for details.
 - Fix DexGuard support.
 
 ## 6.8.3
@@ -273,11 +272,10 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 - Fix the location we look for flavor-specific Embrace configuration files during the build.
 - Remove excessive SDK logging.
 
-
 ## 6.7.0
 
 *April 22, 2024*
- - Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
+- Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
 
 ## 6.6.0
 
@@ -304,21 +302,21 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 
 *March 6, 2024*
 - Traces improvements
-    - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
-    - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations.  
-        - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
-    - Increase per-session limit of spans to 500 in total.
-    - New methods added:
-        - "getSpan" that returns a reference to an active or recently ended EmbraceSpan.
-        - "startSpan" that creates and starts a span directly.
-    - New functionality for existing methods:
-        - Allow custom timestamps to be specified when starting and stopping a span.
-        - Support adding attributes and span events to "recordSpan".
+  - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
+  - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations.
+    - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
+  - Increase per-session limit of spans to 500 in total.
+  - New methods added:
+    - "getSpan" that returns a reference to an active or recently ended EmbraceSpan.
+    - "startSpan" that creates and starts a span directly.
+  - New functionality for existing methods:
+    - Allow custom timestamps to be specified when starting and stopping a span.
+    - Support adding attributes and span events to "recordSpan".
 - Increase transparency of SDK startup by adding custom sections to traces recorded using Android system tracing libraries like androidx.tracing.
-    - Note: only run Android system tracing on release builds running on real devices. Debug builds and emulators will not yield accurate data.
+  - Note: only run Android system tracing on release builds running on real devices. Debug builds and emulators will not yield accurate data.
 - Optimize React Native JavaScript bundleId retrieval to better support CodePush (React Native only)
 - Allow configuration cache to be enabled for Gradle 8.3+
-    - Note: for Gradle 8.3+, running Embrace Gradle plugin will invalidate the configuration cache  
+  - Note: for Gradle 8.3+, running Embrace Gradle plugin will invalidate the configuration cache
 
 ## 6.3.2
 
@@ -346,12 +344,12 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 :::
 
 - A plethora of performance and reliability improvements!
-    - Increased speed and efficiency of data serialization and persistence
-    - Reduced amount of disk space used to save data not-yet delivered
-    - Optimized thread usage for background work
-    - Eliminated network requests sent when starting new sessions
-    - Improved handling of network retries when the backend is too busy
-    - Prioritized session delivery over other payloads
+  - Increased speed and efficiency of data serialization and persistence
+  - Reduced amount of disk space used to save data not-yet delivered
+  - Optimized thread usage for background work
+  - Eliminated network requests sent when starting new sessions
+  - Improved handling of network retries when the backend is too busy
+  - Prioritized session delivery over other payloads
 - Capture thermal status change events by default
 - Capture CPU and GPU info by default
 - Enable all tracing functionality when SDK startup is complete
@@ -379,7 +377,7 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 
 *October 26, 2023*
 - Removal of deprecated methods
-    - Check our [upgrading guide](/android/upgrading/)
+  - Check our [upgrading guide](/android/upgrading/)
 - Increase our minSdkVersion to API 21
 - Increase our minimum AGP to 4.0.0
 - Increase our minimum Gradle version to 6.1.1
@@ -392,13 +390,13 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.25.1
 
 *December 7, 2023*
-- Fixed a validation issue when calling deprecated method logNetworkRequest.  
+- Fixed a validation issue when calling deprecated method logNetworkRequest.
 
 ## 5.25.0
 
 *October 10, 2023*
 - Added support for tap tracking on Jetpack Compose elements.
-- Added support for the Network Span Forwarding feature that enables the propagate of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers.  
+- Added support for the Network Span Forwarding feature that enables the propagate of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers.
 - Fixed propagation of error type and message when recording incomplete network requests.
 - The SDK now captures ANR data using the ApplicationExitInfo API for Android 11+.
 - Fixed a rare issue when network logging was being done on a URLConnection whose Response is no longer accessible.
@@ -429,7 +427,6 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 - Fixed a bug that caused coordinates on Jetpack Compose view to be incorrectly set at 0,0.
 - Fixed an issue in the network capture feature for customers using OkHttp3 where the empty request body was not being handled correctly.
 
-
 ## 5.21.0
 
 *June 27, 2023*
@@ -442,8 +439,8 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 *June 16, 2023*
 - Fixed false positive ANR
 - Improvements in AppExitInfo capture logic
-- Fixed bug for network bodies using gzip compression  
-- Added additional logging for unwinding native crashes  
+- Fixed bug for network bodies using gzip compression
+- Added additional logging for unwinding native crashes
 - Fixed get obj folder swazzler issue, we changed our way of getting .so files
 
 ## 5.19.0
@@ -459,19 +456,19 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.18.1
 
 *May 5, 2023*
-- Fixed a build time error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies.  
+- Fixed a build time error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies.
 
 ## 5.18.0
 
 *May 4, 2023*
-- Core Web vitals capture from web views
+- Core Web vitals capture from web views.
 - The encoding for extracted file names is enabled for builds that use Android Gradle Plugin 4.2.1 and below. This handles build issues caused by 3rd party plugins that minify classes during the build phase.
 
 ## 5.17.1
 
 *Apr 27, 2023*
-- Upgrade compileSDK to 33
-- Improvements on our CPU usage and data consumption of our delivery layer  
+- Upgrade compileSDK to 33.
+- Improvements on our CPU usage and data consumption of our delivery layer.
 
 ## 5.16.0
 
@@ -482,7 +479,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.15.2
 
 *Mar 21, 2023*
-- Fix an error from `5.15.1` around identifying users.  
+- Fix an error from `5.15.1` around identifying users.
 - Improvements in how data is collected after session ends, to avoid extending the app process duration.
 
 ## 5.15.1
@@ -507,12 +504,11 @@ swazzler {
 - Fixes a timing bug with ANR intervals where a check on monitorThreadLag was setting the start time to be in the beginning of an ANR interval.
 - Ignore useNewDependencyInstaller property from the `swazzler` block. It's now used as the unique mechanism to inject dependencies, so it's safe to remove it from your `app/build.gradle` file
 
-
 ## 5.13.0
 
 *Jan 27, 2023*
 - Reduced ANRs being generated by EmbraceLogger class.
-- Added feature to capture network body information.  
+- Added feature to capture network body information.
 
 ## 5.12.0
 
@@ -651,7 +647,6 @@ This version has a known issue with Gradle < 6.1
 - Automatic integration: We added a method that does everything necessary to verify an integration in one call.
 - Added a feature flag that controls beta features. This can be manually disabled from the configuration.
 
-
 ## 5.4.0
 
 *Jul 18, 2022*
@@ -678,8 +673,8 @@ This version has a known issue with Gradle < 6.1
 
 *Jun 10, 2022*
 
-- Added support for symbols upload in Unity 2020, 2021, 2022.  
-- Fixed symbols upload failure while searching .so files in a folder with another folder inside.  
+- Added support for symbols upload in Unity 2020, 2021, 2022.
+- Fixed symbols upload failure while searching .so files in a folder with another folder inside.
 - Added extra logging for NDK layer.
 - Fixed bytecode transformation with ASM.
 - Added improvement in order to skip swazzling if it's disabled for variant in old transform API.
@@ -690,7 +685,7 @@ This version has a known issue with Gradle < 6.1
 
 - Added extra logging for NDK crash.
 - Prevented NPE in native crash loading.
-- Fixed an issue in gradle task registration that was not letting the symbols files to upload.  
+- Fixed an issue in gradle task registration that was not letting the symbols files to upload.
 - React Native - Fixed an issue with the set of the bundle ID for OTA releases like CodePush
 
 ## 5.0.4
@@ -778,14 +773,12 @@ This version has known issues and should not be used
 - Added nullability decorators to improve usage from Kotlin
 - Added swazzling class skipping support for AGP 4.2+
 
-
 ## 4.10.0
 
 *Aug 16, 2021*
 
-- Added support for custom Unity symbols archive name
-- Improved handling of JAR files that could not be swazzled  
-
+- Added support for custom Unity symbols archive name.
+- Improved handling of JAR files that could not be swazzled.
 
 ## 4.9.3
 
@@ -805,7 +798,7 @@ This version has known issues and should not be used
 *July 13, 2021*
 
 - Fixed issue that could prevent capture of OkHTTP- and Volley-based network calls for certain configurations.
-- Prevent multiple attempts to add Embrace SDK dependency for certain configurations.  
+- Prevent multiple attempts to add Embrace SDK dependency for certain configurations.
 
 ## 4.9.0
 
@@ -819,15 +812,15 @@ This version has known issues and should not be used
 
 *May 27, 2021*
 
-- Fixed issue with NDK crash stack trace parsing that could fail for certain stack traces
-- Track JNI thread attachment for Unity
+- Fixed issue with NDK crash stack trace parsing that could fail for certain stack traces.
+- Track JNI thread attachment for Unity.
 
 ## 4.8.9
 
 *May 25, 2021*
 
-- Removed all dependencies on JCenter
-- Added support for symbol upload for Unity 2020 non-exported apps
+- Removed all dependencies on JCenter.
+- Added support for symbol upload for Unity 2020 non-exported apps.
 
 ## 4.8.8
 
@@ -927,13 +920,11 @@ This version has known issues and should not be used
 - Improved SDK startup time.
 - Added Gradle task dependencies to support a single flavor anchoring tests for other variants.
 
-
 ## 4.6.4
 
 *January 22, 2021*
 
 - Fixed issue that could cause session message to not be sent when the device had been in airplane mode and NDK crash support is enabled.
-
 
 ## 4.6.3
 
@@ -941,13 +932,11 @@ This version has known issues and should not be used
 
 - Fixed device ID generation to allow it to be used in automated tests.
 
-
 ## 4.6.2
 
 *January 12, 2021*
 
 - Added configuration setting to disable capture of native network requests.
-
 
 ## 4.6.1
 
@@ -956,14 +945,12 @@ This version has known issues and should not be used
 - Added support for configuration files for product flavors.
 - Fixed bug that could cause a crash when network request size capture was enabled for native requests.
 
-
 ## 4.6.0
 
 *December 14, 2020*
 
 - Added support for Unity applications.
 - Added debug logging mode.
-
 
 ## 4.5.6
 
@@ -1048,7 +1035,7 @@ This version has known issues and should not be used
 *May 15, 2020*
 
 - Added option to disable capture of app disk usage. This could be excessively slow on older devices with large numbers of files in the app directory.
-- Disabled capturing network request and response sizes for native requests by default.  
+- Disabled capturing network request and response sizes for native requests by default.
 
 ## 4.2.7
 
@@ -1064,8 +1051,8 @@ This version has known issues and should not be used
 
 *April 15, 2020*
 
-- New config property `sessions.disabled_url_patterns` filters network requests entirely from session
-- Added more logging around which embrace-config.json file is used and which paths were scanned
+- New config property `sessions.disabled_url_patterns` filters network requests entirely from session.
+- Added more logging around which embrace-config.json file is used and which paths were scanned.
 
 ## 4.2.4
 
@@ -1103,9 +1090,9 @@ This version has known issues and should not be used
 
 *March 3, 2020*
 
-- Added support to capture fragments manually  
-- Removed incorrect build-time logs that referenced the usage of deprecated features  
-- Added validations to handle usage of API-level-restricted functions  
+- Added support to capture fragments manually
+- Removed incorrect build-time logs that referenced the usage of deprecated features
+- Added validations to handle usage of API-level-restricted functions
 
 ## 4.0.1
 
@@ -1117,8 +1104,8 @@ This version has known issues and should not be used
 
 *January 14, 2020*
 
-- Added a more flexible configuration approach that simplifies how custom configurations can be set up for different build variants  
-- Added user info association that is set during a session even if it was cleared before the session ended  
+- Added a more flexible configuration approach that simplifies how custom configurations can be set up for different build variants
+- Added user info association that is set during a session even if it was cleared before the session ended
 - Added optional argument to `endSession` method to clear user info when ending the session
 - Added ability to ignore non-serializable log and event properties
 - Fixed crash caused by trying to capture null headers from network requests.
@@ -1135,7 +1122,7 @@ This version has known issues and should not be used
 
 *October 22, 2019*
 
-- Improves capture of React Native crashes.  
+- Improves capture of React Native crashes.
 
 ## 3.7.0  
 

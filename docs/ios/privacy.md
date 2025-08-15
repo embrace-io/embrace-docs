@@ -59,7 +59,6 @@ As such, if you're planing on collecting any other type of information including
 
 You can find more information on [Apple's Documentation](https://developer.apple.com/app-store/app-privacy-details/#data-collection).
 
-
 ## Where to find more information
 
 You can learn more about privacy disclosure on Apple's website. Here's some Apple links that might come in handy:

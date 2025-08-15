@@ -29,7 +29,6 @@ the session that is still ending. You might need to delay the call or obtain the
 lifecycle to make sure the session ID you get is the one you are looking for.
 :::
 
-
 ## Last Run End State
 
 ```javascript
@@ -57,7 +56,6 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 7. App exits cleanly
 8. App is relaunched
 9. `getLastRunEndState` returns "clean exit"
-
 
 **Important Notes**
 

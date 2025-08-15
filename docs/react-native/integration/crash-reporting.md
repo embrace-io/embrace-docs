@@ -63,4 +63,3 @@ initialize({
 ---
 
 In the next guide, you'll learn how to add context to your sessions using Breadcrumb Logs.
-

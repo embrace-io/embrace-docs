@@ -138,7 +138,6 @@ For some custom metrics the API allows you to filter data based on the `duration
 | 10000ms to 15000ms              | 10000           |
 | Greater than 15000ms            | 15000           |
 
-
 **Caution:** When filtering with conditions such as `duration_bucket` < 1100, please be aware that the behavior is based on the order of conditions and the first condition that matches.
 In this case, if `duration_bucket` is less than 1100, it will match the condition `duration_bucket` < 1000, and the `duration` filter will be < 2000. Ensure that your conditions are structured to achieve your intended filtering accurately.
 
@@ -162,7 +161,6 @@ If you want to group by on the property "city" and "state" for `session_property
   "group_by": ["session_property.city", "session.property.state"]
 }
 ```
-
 
 ### Get custom metrics
 

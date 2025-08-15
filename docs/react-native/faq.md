@@ -52,7 +52,6 @@ Not currently. Please contact us at [support@embrace.com](mailto:support@embrace
 
 Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please ensure that you are using at least version 0.71 of React Native when utilizing Hermes.
 
-
 ## Users
 
 ### **If a user registered in a later session, are previous sessions still linked to that user?**

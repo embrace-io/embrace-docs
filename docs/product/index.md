@@ -25,4 +25,3 @@ These features include:
 Embrace's dashboard also provides a broad set of capabilities for engineering team management and collaboration.
 
 These features include:
-

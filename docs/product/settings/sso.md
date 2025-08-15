@@ -67,11 +67,11 @@ Embrace application is published in Okta's Integration Network, which simplifies
 1. Use **Browse App Catalog** to locate Embrace's application.
 2. Select the **Sign On** tab, go to **Sign on methods > SAML 2.0 > Metadata details**, and copy the SAML **Metadata URL** URL.
 3. Navigate to to [dash.embrace.io](https://dash.embrace.io) SSO settings screen using any user wih Embrace "admin" privileges:
-  - Click **Settings Page** (gear icon on the top right hand corner of the dashboard).
-  - Select the **SSO** on the left.
-  - On the **SSO Configuration**, choose `URL` and enter your **Metadata URL**.
-  - Click **Save Changes**.
-  - Navigate to **Provider Information** tab and copy your **Org ID**.
+   - Click **Settings Page** (gear icon on the top right hand corner of the dashboard).
+   - Select the **SSO** on the left.
+   - On the **SSO Configuration**, choose `URL` and enter your **Metadata URL**.
+   - Click **Save Changes**.
+   - Navigate to **Provider Information** tab and copy your **Org ID**.
 4. Within Okta's app configuration's **General Settings**, provide the **Org ID** obtained above; click Save.
 
 ### SP-initiated SSO

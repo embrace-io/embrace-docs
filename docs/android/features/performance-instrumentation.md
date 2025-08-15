@@ -221,7 +221,6 @@ Custom child spans can be added to the root span of the trace by using the `addL
 
 To ensure the timestamps of the custom spans are in sync with the timestamps of the other spans in the trace, use the `getSdkCurrentTimeMs()` method to obtain it from the same clock instance the SDK uses. This clock instance is locked after the SDK starts up and will not change even if the system clock changes.
 
-
 #### Configure Activities to be instrumented
 
 The default configuration of the SDK is to trace the loading of all Activities after app startup, cold or warm. If you do not wish to use this instrumentation, you can turn off the feature entirely in `embrace-config.json`.
@@ -229,15 +228,14 @@ The default configuration of the SDK is to trace the loading of all Activities a
 If you wish to only have the instrumentation enabled for a subset of Activities, you can do so by disabling all by default and enabling it for a select few. Alternatively, you can enable the feature for all Activities by default and then disable it for a select few.
 
 - Disabling all Activity load instrumentation
-	- Set the configuration property `ui_load_tracing_disabled` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`
+  - Set the configuration property `ui_load_tracing_disabled` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`
 
 - Explicitly enabling select Activities
-	- Set the configuration property `ui_load_tracing_selected_only` in `embrace-config.json` in the section `sdk_config.ui_load_tracing_selected_only` to `true`
-	- Annotate each Activity that you want to instrument with `@LoadTracedActivity` or `@CustomLoadTracedActivity`
+  - Set the configuration property `ui_load_tracing_selected_only` in `embrace-config.json` in the section `sdk_config.ui_load_tracing_selected_only` to `true`
+  - Annotate each Activity that you want to instrument with `@LoadTracedActivity` or `@CustomLoadTracedActivity`
 
 - Explicitly disabling select Activities
-	- Annotate each Activity that you do not want to instrument with `@NotTracedActivity`
-
+  - Annotate each Activity that you do not want to instrument with `@NotTracedActivity`
 
 ### Code Example
 
