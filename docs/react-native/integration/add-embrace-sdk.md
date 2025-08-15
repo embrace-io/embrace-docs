@@ -195,13 +195,13 @@ See [this GitHub issue](https://github.com/expo/expo/issues/17705) for more deta
 
 In your `android/app/build.gradle` if you have
 
-```
+```text
 apply from react.gradle
 ```
 
 try replacing it with:
 
-```
+```text
 apply plugin: "com.facebook.react"
 ```
 

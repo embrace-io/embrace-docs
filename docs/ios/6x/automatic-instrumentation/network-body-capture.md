@@ -34,7 +34,7 @@ openssl rsa -in private.pem -pubout -out public.pem
 
 The file public.pem contains the public key. Use the command `cat public.pem` to view the key. Below is an example we generated while writing this documentation. Remember: it is completely safe to share public keys. Only the private key needs to be protected.
 
-```
+```text
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2st+1ouwmsYLOF+kZ/LE
 uZ+jzFuMv+AatKYWXQCwOWP9U02gbXDDOw1rvpeXFUapF1iGF9SASsyBZj4uTfJH
@@ -51,7 +51,7 @@ Above is an example of a valid, public RSA key in text form. Each aspect of that
 ### OpenTelemetry Format
 
 After the Embrace SDK encrypts the network data, it sends it as an OpenTelemetry log containing the following attributes:
-```
+```json
 {
     "key": "emb.type",
     "value": "sys.network_capture"
@@ -96,7 +96,7 @@ The network data is encrypted using the `aes-256-cbc` algorithm using a randomly
 
 Here's an example script to achieve this:
 
-```
+```sh
 #!/bin/bash
 
 POSITIONAL_ARGS=()
@@ -178,7 +178,7 @@ Example usage: `sh decrypt.sh -in encrypted_payload.txt -k encrypted_key.txt -iv
 
 Once decrypted, the payload will be a json containing the following keys:
 
-```
+```text
 {
     url                 // url of the network request (string)
     http-method         // http method of the network request (string)

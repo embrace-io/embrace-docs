@@ -87,7 +87,7 @@ A [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logreco
 
 Injecting a [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) will allow you to see your telemetry in the logcat.
 
-```
+```text
 2024-03-05 14:15:15.342 29672-29756 System.out     io.embrace.mysampleapp          I  1970-01-01T00:00:00Z INFO 'Default log'
 ```
 

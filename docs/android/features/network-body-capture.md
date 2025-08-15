@@ -27,7 +27,7 @@ If your application handles sensitive or private data of any kind, you can prote
 
 In your `embrace-config.json` file, first create a new property entry titled:
 
-```
+```json
   ...
   "sdk_config": {
     "networking": {
@@ -58,7 +58,7 @@ openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 
 The file public.pem contains the public key. Use the command `cat public.pem` to view the key. Below is an example we generated while writing this documentation. Remember: it is completely safe to share public keys. Only the private key needs to be protected.
 
-```
+```text
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2st+1ouwmsYLOF+kZ/LE
 uZ+jzFuMv+AatKYWXQCwOWP9U02gbXDDOw1rvpeXFUapF1iGF9SASsyBZj4uTfJH

@@ -86,7 +86,7 @@ class MyApplication : Application() {
 Now you're ready to build and run the application. Assuming the app launches correctly,
 pay attention to the system logging and look for Embrace to print its version number.
 
-```
+```text
 Embrace Flutter SDK Version: {{ embrace_sdk_version platform="flutter" }}
 ```
 
@@ -96,9 +96,9 @@ If you encounter any errors, please get in touch on Slack and we can assist you.
 
 ## Trigger a Session Upload
 
-To trigger a session upload, simply send the application to the background. Typically the SDK  
-will be given sufficient time to upload the session, but sometimes the app is not able to complete  
-the upload in the background. To ensure the session was uploaded, launch the application again.  
+To trigger a session upload, simply send the application to the background. Typically the SDK
+will be given sufficient time to upload the session, but sometimes the app is not able to complete
+the upload in the background. To ensure the session was uploaded, launch the application again.
 Refresh the dashboard in your browser and you should now see that you've moved on to the next step.
 
 ---

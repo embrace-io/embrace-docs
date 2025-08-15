@@ -38,9 +38,8 @@ As you can see there are many properties available. Even so most apps that use E
 
 Determines which type of crash reporting embrace uses. It accepts three values
 - `embrace` - this is the default value and enables embraces internal crash reporting
-- `crashlytics` - this enables the crashlytics support for crash reporting, this must be the value if you intended to use both embrace and crashlytics together.  
-- `none` - this completely turns off all crashes reporting for embrace, but other functionality, like view tracking, continues to work
-the values are case insensitive.  
+- `crashlytics` - this enables the crashlytics support for crash reporting, this must be the value if you intended to use both embrace and crashlytics together.
+- `none` - this completely turns off all crashes reporting for embrace, but other functionality, like view tracking, continues to work the values are case insensitive.
 
 If omitted, Embrace attempts to guess the right configuration by looking at the runtime classes.
 
@@ -143,6 +142,7 @@ Here is an example use case
 <img src={require('@site/static/images/ios-custom-header-example.png').default} />
 
 This is a resulting Relative URL with above use case
-```
+
+```text
 /graphql/Notifications
 ```

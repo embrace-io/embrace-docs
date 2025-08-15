@@ -37,7 +37,7 @@ Please ensure that the upload script is the **last step** in the build phase. Pl
 
 To prevent race conditions and ensure dSYMs are generated before upload, add these **Input Files** to your Run Script phase:
 
-```
+```text
 $(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)/Contents/Resources/DWARF/$(PRODUCT_NAME)
 $(DWARF_DSYM_FOLDER_PATH)/$(DWARF_DSYM_FILE_NAME)
 ```

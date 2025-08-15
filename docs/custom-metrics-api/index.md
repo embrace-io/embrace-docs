@@ -235,9 +235,11 @@ Refer to this [page](/custom-metrics-api/supported_metrics) if you want to see s
 `name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
 
 Example URL:
-```
+
+```text
 https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters?name=sessions_total
 ```
+
 If the name is not provided or the metric is not supported, the endpoint will return all the supported metrics and parameters.
 
 #### Response
