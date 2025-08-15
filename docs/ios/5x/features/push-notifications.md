@@ -47,6 +47,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     completionHandler(.newData)
 }
 ```
+
 </TabItem>
 
 <TabItem value="objectivec" label="Objective-C">
@@ -73,6 +74,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     completionHandler(UIBackgroundFetchResultNewData);
 }
 ```
+
 </TabItem>
 
 </Tabs>

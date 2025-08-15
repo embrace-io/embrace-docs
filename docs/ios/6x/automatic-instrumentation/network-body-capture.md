@@ -22,6 +22,7 @@ There are many ways to generate working key pairs. For these instructions we wil
 ```shell-session
 openssl genrsa -out private.pem 2048
 ```
+
 The file you just made should never be shared with anyone outside your organization and should be kept in a safe place. This file is required to decrypt network body data captured by Embrace. Embrace will not have a copy of this. Only you can decrypt the files, and if you lose the private key you also lose the ability to decrypt any data captured by the SDK.
 
 You'll be providing Embrace a public version of the key. This is a derived key that you can safely distribute. Anyone, including Embrace, can use the public key to encrypt data into a form that only your private key can decrypt -- even Embrace cannot read the contents of the encrypted data.
@@ -51,6 +52,7 @@ Above is an example of a valid, public RSA key in text form. Each aspect of that
 ### OpenTelemetry Format
 
 After the Embrace SDK encrypts the network data, it sends it as an OpenTelemetry log containing the following attributes:
+
 ```json
 {
     "key": "emb.type",

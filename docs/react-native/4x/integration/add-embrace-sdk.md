@@ -31,6 +31,7 @@ project to add the native dependencies. The setup scripts can be found in your
 `node_modules` folder at `node_modules/@embrace-io/dist/scripts/setup`
 
 **Run the setup script**
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
 ```
@@ -41,9 +42,11 @@ node node_modules/@embrace-io/react-native/lib/scripts/setup/installIos.js
 
 :::info Clean Up Embrace implementation
 If you need to clean up an Embrace implementation added manually or by our scripts you can use our uninstall script
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/uninstall.js
 ```
+
 :::
 
 You can use git to see the changes that the script made.
@@ -63,6 +66,7 @@ correctly.
 You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 
 1. Create a file called `Embrace-Info.plist` with the following content.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -75,6 +79,7 @@ You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
   </dict>
 </plist>
 ```
+
 :::info Note for iOS
 If you'd like to use Embrace's internal crash reporter,
 set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
@@ -83,6 +88,7 @@ If you're using Crashlytics, set this value to false.
 :::
 
 2. Identify your root iOS Project.
+
 <img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
 
 3. Right click on that project and select `Add Files to YOUR_PROJECT`.
@@ -117,6 +123,7 @@ target 'MyApp' do
   pod 'RNEmbrace', :path => '../node_modules/@embrace-io/react-native'
 end
 ```
+
 Then, install the pod.
 
 ```shell-session

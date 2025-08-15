@@ -34,6 +34,7 @@ Your crash is also visible in the crashes section of the dashboard.
 For iOS Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't
 want to interfere with you can disable this. If you used the automated installation script or followed the manual steps
 for setting up the iOS SDK then you can modify the setup in `EmbraceInitializer.swift` to remove the crash reporter:
+
 ```swift
 try Embrace
     .setup(
@@ -49,6 +50,7 @@ try Embrace
 
 If instead you only initialized the SDK through JS then the `disableCrashReporter` property can be set during the
 call to initialize the SDK:
+
 ```javascript
 initialize({
   sdkConfig: {

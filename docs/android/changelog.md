@@ -217,6 +217,7 @@ This version contains a bug where obfuscating Embrace classes will lead to JVM c
 ## 6.9.2
 
 *August 1, 2024*
+
 - Fix session recording after app backgrounding if Background Activity is disabled.
 
 :::warning Important
@@ -228,11 +229,13 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 ## 6.9.1
 
 *July 10, 2024*
+
 - Fix the SDK version sent in session payloads
 
 ## 6.9.0
 
 *July 4, 2024*
+
 - OpenTelemetry compatibility improvements:
   - Provide implementation of the [OpenTelemetry Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/).
     - Spans recorded through this API and implementation are equivalent to those recorded using the Embrace Traces API.
@@ -251,21 +254,25 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 ## 6.8.3
 
 *July 17, 2024*
+
 - No change to functionality. Remove error log integration verification explicitly for apps that don't use R8 to strip out unreferenced classes.
 
 ## 6.8.2
 
 *June 7, 2024*
+
 - Remove dependency on the configuration attribute `enable_automatic_activity_capture` for manually capturing views
 
 ## 6.8.1
 
 *June 4, 2024*
+
 - Fix a build error while reading the api_token from an environment variable.
 
 ## 6.8.0
 
 *May 28, 2024*
+
 - Complete migration to OpenTelemetry, which means all app data recorded by the SDK can be sent directly to OpenTelemetry Collectors from the app.
 - Allow the SDK to be used without being an Embrace customer, so data is only sent to OpenTelemetry Collectors and not to Embrace.
 - Verify as part of the build that desugaring is enabled for apps supporting Android versions less than 7.0 (i.e. `minSdkVerion` < 24).
@@ -275,6 +282,7 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 ## 6.7.0
 
 *April 22, 2024*
+
 - Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
 
 ## 6.6.0
@@ -293,6 +301,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 
 *March 14, 2024*
 :::info Important
+
 - Increase our minimum Gradle version to 6.5.1
 :::
 - Fully support configuration cache on all Gradle versions.
@@ -301,6 +310,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 ## 6.4.0
 
 *March 6, 2024*
+
 - Traces improvements
   - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
   - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations.
@@ -321,6 +331,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 ## 6.3.2
 
 *February 23, 2024*
+
 - Improved performance and stability of NDK serialization while the app is under memory pressure
 - Added back support of OkHttp 3.13.0+, which was initially removed in this major version
 
@@ -357,6 +368,7 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 ## 6.2.0
 
 *December 13, 2023*
+
 - Removed the capture of unused beta features: strict mode violation, activity lifecycle,
 - Improved the delivery of session messages with changes in the DeliveryService class
 - Removed unused ANR process errors
@@ -367,6 +379,7 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 ## 6.1.0
 
 *November 24, 2023*
+
 - Enabled [Traces](/android/features/traces/) by default
 - Improved build performance of the Gradle plugin
 - Improved session data delivery retries
@@ -376,6 +389,7 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 ## 6.0.0
 
 *October 26, 2023*
+
 - Removal of deprecated methods
   - Check our [upgrading guide](/android/upgrading/)
 - Increase our minSdkVersion to API 21
@@ -390,11 +404,13 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.25.1
 
 *December 7, 2023*
+
 - Fixed a validation issue when calling deprecated method logNetworkRequest.
 
 ## 5.25.0
 
 *October 10, 2023*
+
 - Added support for tap tracking on Jetpack Compose elements.
 - Added support for the Network Span Forwarding feature that enables the propagate of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers.
 - Fixed propagation of error type and message when recording incomplete network requests.
@@ -405,6 +421,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.24.0
 
 *September 21, 2023*
+
 - Renamed several API interfaces to standardize naming between our SDKs to better reflect what each API does.
 - Added new API method to get the current session ID.
 - Set custom folders for native symbols to upload during build process.
@@ -414,6 +431,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.23.0
 
 *August 09, 2023*
+
 - Bug fix on retryLock function. Now the ANR monitoring is Serialized to work on a single background executor.
 - Fixed missing Unity ANR
 - Added Plugins DSL support. Please note that embrace-swazzler plugin name changed to "io.embrace.swazzler" when declared through Plugins DSL. Legacy buildscript block declaration remains as "embrace-swazzler".
@@ -423,6 +441,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.22.0
 
 *July 12, 2023*
+
 - Implemented CPU and EGL device information for devices with NDK enabled.
 - Fixed a bug that caused coordinates on Jetpack Compose view to be incorrectly set at 0,0.
 - Fixed an issue in the network capture feature for customers using OkHttp3 where the empty request body was not being handled correctly.
@@ -430,6 +449,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.21.0
 
 *June 27, 2023*
+
 - Added the method getLastRunEndState() to check whether the last execution crashed or was a clean exit.
 - Fixed a duplicate resources error that failed the build in some scenarios.
 - Fixed a build-time issue reported when using Gradle 8 and configuration cache.
@@ -437,6 +457,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.20.0
 
 *June 16, 2023*
+
 - Fixed false positive ANR
 - Improvements in AppExitInfo capture logic
 - Fixed bug for network bodies using gzip compression
@@ -446,45 +467,53 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 ## 5.19.0
 
 *May 24, 2023*
+
 - Added support for Gradle 8
 
 ## 5.18.2
 
 *May 11, 2023*
+
 - Fixed a build time error related to `disableDependencyInjection` property.
 
 ## 5.18.1
 
 *May 5, 2023*
+
 - Fixed a build time error at build time for versions `5.17.1` and `5.18.0` in some specific scenarios and related with `com.squareup.okhttp3:okhttp` and `com.android.volley:volley` dependencies.
 
 ## 5.18.0
 
 *May 4, 2023*
+
 - Core Web vitals capture from web views.
 - The encoding for extracted file names is enabled for builds that use Android Gradle Plugin 4.2.1 and below. This handles build issues caused by 3rd party plugins that minify classes during the build phase.
 
 ## 5.17.1
 
 *Apr 27, 2023*
+
 - Upgrade compileSDK to 33.
 - Improvements on our CPU usage and data consumption of our delivery layer.
 
 ## 5.16.0
 
 *Apr 04, 2023*
+
 - Added the name and message of the Exception if it is used on logError or logHandledException methods.
 - Deprecated the current logPushNotification method and introduced a new one that fix  compatibility issues.
 
 ## 5.15.2
 
 *Mar 21, 2023*
+
 - Fix an error from `5.15.1` around identifying users.
 - Improvements in how data is collected after session ends, to avoid extending the app process duration.
 
 ## 5.15.1
 
 *Mar 17, 2023*
+
 - Improvements in how data is collected after session ends, to avoid extending the app process duration.
 
 ## 5.14.2
@@ -498,6 +527,7 @@ swazzler {
     instrumentFirebaseMessaging = false
 }
 ```
+
 :::
 
 - Fix first activity repeated in the timeline
@@ -507,18 +537,21 @@ swazzler {
 ## 5.13.0
 
 *Jan 27, 2023*
+
 - Reduced ANRs being generated by EmbraceLogger class.
 - Added feature to capture network body information.
 
 ## 5.12.0
 
 *Jan 19, 2023*
+
 - Fixed an issue on ndk symbols.
 - Fixed an ndk issue when building.
 
 ## 5.11.0
 
 *Jan 11, 2023*
+
 - Capture CPU number of cores
 - Compress Proguard/R8 mapping files before uploading
 - Added logHandledException method
@@ -526,6 +559,7 @@ swazzler {
 ## 5.10.0
 
 *Dec 07, 2022*
+
 - Automatically capture push notifications when the app is on foreground.
 - Added the ability to manually log push notifications.
 - Capture background activity
@@ -534,11 +568,13 @@ swazzler {
 ## 5.9.4
 
 *Dec 05, 2022*
+
 - Added the ability to report the version of the Embrace React Native SDK being used.
 
 ## 5.9.3
 
 *Nov 20, 2022*
+
 - It fixes a Gradle issue on anyone running Gradle < 6.2
 
 ## 5.9.2
@@ -552,11 +588,13 @@ This version has a known issue with Gradle < 6.2
 ## 5.9.1
 
 *Nov 14, 2022*
+
 - Fixed an internal exception when trying to access the jailbroken status of the device.
 
 ## 5.9.0
 
 *Nov 03, 2022*
+
 - Improve NDK service logs to work with strict and integration mode
 - Improved the EmbraceSamples.verify() method
 - Added Profile Installer to support Baseline Profiles.

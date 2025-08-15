@@ -68,11 +68,13 @@ artifact in this case.
 
 First edit or create a `Cartfile` at the root of your project, add a line to file
 as follows:
+
 ```text
 binary "https://downloads.embrace.io/embrace-apple-sdk.json"
 ```
 
 If you also have an Apple TV target in your project, also add this to your `Cartfile`:
+
 ```text
 binary "https://downloads.embrace.io/embrace-apple-tvos-sdk.json"
 ```
@@ -148,9 +150,11 @@ Here is the general process we will be following:
 1. Import Embrace and perform a test build
 
 First we must download the latest Embrace release which you can do using the following command:
+
 ```shell-session
 curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://downloads.embrace.io/embrace_{{ embrace_sdk_version platform="ios" }}.zip
 ```
+
 After downloading the zip, extract it into a location within your project. If you
 don't already have a spot for third party frameworks, we recommend following the
 file structure shown here:

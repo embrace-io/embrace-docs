@@ -20,6 +20,7 @@ On any Crash, you can directly create a rule in the stack frame.  Click on the e
 <img src={require('@site/static/images/tagging-ui-3.png').default} alt="rules-in-settings" width="500px"/>
 
 You can also see, create, and modify rules in the Settings view.
+
 1. Click on the Settings icon in the lower right hand corner of the dashboard.
 2. Under the "Projects and Apps" section, select the app you want to create
    rules for.

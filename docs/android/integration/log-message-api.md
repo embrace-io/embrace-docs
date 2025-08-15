@@ -67,6 +67,7 @@ You can also adjust the severity of the log by either calling the `logWarning` o
 Embrace.getInstance().logWarning("User attempted expired credit card")
 Embrace.getInstance().logInfo("User has entered checkout flow")
 ```
+
 :::
 
 import LogLimit from '@site/shared/log-limit.md';

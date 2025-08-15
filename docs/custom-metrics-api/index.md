@@ -17,6 +17,7 @@ Any Custom Metrics you create are available via the [Metrics API](/embrace-api),
 ## API Endpoints
 
 All the endpoints have the same authentication, authorization method, url and parameters. Use the Custom Metrics API token provided by an Embrace onboarding specialist to create custom metrics.
+
 - `URL`: `https://api.embrace.io/custom-metrics`
 
 ### Request
@@ -35,12 +36,14 @@ Body Params:
 - `group_by`: list of group by that we are going to use to group the metric. It can be empty.
   i.e.: `["os_version", "app_version"]`.
 - `filters` list of filters that we are going to apply on the metric. It can be empty. i.e.:
+
 ```json
 {
   "op": "and",
   "children": [{"field_op": "eq", "key": "os_version", "val": "12"}]
 }
 ```
+
 - `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
   is turned on. i.e.: `["five_minute", "hourly", "daily"]`
 - `data_destination`: list of data destination to which we are going to send this metric. If it is empty, by default metrics_api
@@ -83,6 +86,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 Status codes: `200`, `400`, `403`, `409` and `500`.
 
 #### OK
+
 ```json 
 {
   "custom_metric_id": "y8vayvn",
@@ -100,6 +104,7 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
 ```
 
 #### Error (500)
+
 ```json
 {"message": "we had an internal error, please try again later"}
 ```
@@ -165,6 +170,7 @@ If you want to group by on the property "city" and "state" for `session_property
 ### Get custom metrics
 
 #### Request
+
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
@@ -175,6 +181,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 Status codes: `200`, `400`, `409` and `500`.
 
 #### OK (200)
+
 ```json
 {
   "results": [
@@ -193,6 +200,7 @@ Status codes: `200`, `400`, `409` and `500`.
 ```
 
 #### Error (400)
+
 ```json
 {"message": "app id can't be empty"}
 ```
@@ -200,6 +208,7 @@ Status codes: `200`, `400`, `409` and `500`.
 ### Delete custom metrics
 
 #### Request
+
 ```bash
 curl -X DELETE --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/sessions_total_v1' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
@@ -212,6 +221,7 @@ Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 #### OK (204), body is empty
 
 #### Error (404)
+
 ```json
 {"message": "metric sessions_total_v1 doesn't exist"}
 ```
@@ -221,6 +231,7 @@ Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 To determine which metrics and parameters are supported for creation using the API, you can utilize the following request:
 
 #### Request
+
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
@@ -247,6 +258,7 @@ If the name is not provided or the metric is not supported, the endpoint will re
 Status codes: `200` and `500`.
 
 #### OK (200)
+
 ```json
 [
   {
@@ -260,6 +272,7 @@ Status codes: `200` and `500`.
 ```
 
 #### Error (500)
+
 ```json
 {"message": "we had an internal error, please try again later"}
 ```

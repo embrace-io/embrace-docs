@@ -96,6 +96,7 @@ mind as you refer to further instructions:
    ```
 
 2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
+
 bundled with your code, instead you will need to make sure to pass in your app version when initializing the sdk as in
 the following example:
 
@@ -110,6 +111,7 @@ the following example:
 
 If you prefer to load the SDK asynchronously to avoid blocking the rendering of your page, you'll need to add the
 following snippet to your HTML file. Remember to replace `X.X.X` with the version of the SDK you want to include:
+
 ```html
 <script>
    !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();

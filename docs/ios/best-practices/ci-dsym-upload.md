@@ -25,6 +25,7 @@ Here are quick links to documentation for storing artifacts in common mobile CI 
 Most CI systems operate via a build "job", where that job consists of multiple "steps". These jobs run on an "agent" - an environment to host this process. These build jobs become very customizable and very different but for the sake of this document we will focus on the following example workflow:
 
 The following is a pseudo job declaration syntax:
+
 ```text
 Build Job
   1. Checkout Repository

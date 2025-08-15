@@ -21,6 +21,7 @@ This feature can only be enabled by your Embrace CS representative, so reach out
   }
 }
 ```
+
 You can check the [configuration file documentation](/android/features/configuration-file)  for more information.
 
 If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.  

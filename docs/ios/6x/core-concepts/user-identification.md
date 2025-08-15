@@ -90,16 +90,19 @@ try? Embrace.client?.metadata.addProperty(key: "launch_type", value: "normal", l
 Each piece of metadata can have one of three lifespans:
 
 1. **Session**: Tied to a single user session and automatically cleared when the session ends
+
    ```swift
    try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
    ```
 
 2. **Process**: Scoped to the lifetime of the application process and cleared if the app restarts
+
    ```swift
    try? Embrace.client?.metadata.add(persona: "first_launch", lifespan: .process)
    ```
 
 3. **Permanent**: Remains associated with the user across multiple sessions until explicitly removed
+
    ```swift
    try? Embrace.client?.metadata.add(persona: "vip", lifespan: .permanent)
    ```
