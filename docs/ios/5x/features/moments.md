@@ -83,11 +83,11 @@ Embrace.sharedInstance().endMoment(withName: "add_item")
 
 Once you start a moment, a timer is started.
 If you end the moment within a configurable threshold, then the timer ends and the client's measurement is used to report performance.
-You can end the moment from multiple locations in your app, or from multiple threads. 
+You can end the moment from multiple locations in your app, or from multiple threads.  
 
 ## Tracking Abandonment
 
-In addition to performance, moments also measure abandonment by default. 
+In addition to performance, moments also measure abandonment by default.  
 Moments measure abandonment by default. If the moment never completes, because:
 
 - the user exits the app before the moment ends

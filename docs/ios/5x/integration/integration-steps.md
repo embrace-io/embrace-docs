@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Integration Steps
 
-Getting started with Embrace is very easy. We’ve designed our documentation to guide you through the process. 
+Getting started with Embrace is very easy. We’ve designed our documentation to guide you through the process.  
 Following these simple steps will ensure you have a solid foundation for monitoring your application in production.
 
 Regardless of the path you choose, you will be performing the following common

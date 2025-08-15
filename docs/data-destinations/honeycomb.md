@@ -19,7 +19,7 @@ In the left navigation bar under the Honeycomb logo, select the Environments ban
 <img src={require('@site/static/images/data-destinations/honeycomb_manage_environments.png').default} alt="Image showing list of existing Environments" />
 3. Select **Manage Environments**. The next screen displays a list of Environments and details about each Environment.
 <img src={require('@site/static/images/data-destinations/honeycomb_manage_environments_2.png').default} alt="Image showing list of existing Environments and details about each one of them" />
-4. Select **View API Keys** in the row corresponding to the environment you wish to use for receiving metrics. 
+4. Select **View API Keys** in the row corresponding to the environment you wish to use for receiving metrics.  
 5. Click on **Create API Key**:
 
 <img src={require('@site/static/images/data-destinations/honeycomb_create_api_key.png').default} alt="Image showing create api key button" />
@@ -29,7 +29,7 @@ In the left navigation bar under the Honeycomb logo, select the Environments ban
    - Enable
    - Send events
    - Create datasets
-      
+
 <img src={require('@site/static/images/data-destinations/honeycomb_api_key_modal.png').default} alt="Image showing api key modal" />
 
 6. The next screen lists the API Keys associated with the Environment (and the one you already created).

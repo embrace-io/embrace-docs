@@ -51,7 +51,7 @@ If you are using Expo's `prebuild` system to manage your native files you can ma
 ```json
     "plugins": [
         ...
-        
+
         [
             "@embrace-io/react-native/lib/app.plugin.js",
             {
@@ -161,8 +161,8 @@ Your API ID and token are available on the Embrace dashboard.
 :::info
 You’ll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
 
-* `android.permission.INTERNET`
-* `android.permission.ACCESS_NETWORK_STATE`
+- `android.permission.INTERNET`
+- `android.permission.ACCESS_NETWORK_STATE`
 :::
 
 </TabItem>

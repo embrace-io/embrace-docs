@@ -8,7 +8,7 @@ sidebar_position: 4
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
-For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android. 
+For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.  
 
 :::info
 If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/5x/integration/add-embrace-sdk) page these changes has already been made for you.
@@ -104,8 +104,8 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 <img src={require('@site/static/images/ios-xcode-organizer.png').default} />
 
-Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility. 
- 
+Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility.  
+
 The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
@@ -137,7 +137,7 @@ react-native bundle \
 ios/Pods/EmbraceIO/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle ./build/main.jsbundle --rn-map ./build/main.map
 ```
 
---- 
+---  
 
 dSYMs are complicated, but ensuring that Embrace has them will make the data you collect much more useful. Please reach out if you have any trouble with this process.
 </TabItem>

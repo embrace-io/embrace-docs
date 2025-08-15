@@ -1,5 +1,5 @@
 ---
-title: Network Grouping Rules 
+title: Network Grouping Rules  
 sidebar_position: 2
 ---
 
@@ -22,15 +22,16 @@ Custom rules are applied on the backend on a going forward basis.
 
 We currently provide the following patterns:
 
-* `«wildcard»` - Matches any single path segment
-* `«**»` - Matches any number of path segments
-* `«ext:file_extension»` - Matches a string ending with a period and a 2 to 5 character extension.
+- `«wildcard»` - Matches any single path segment
+- `«**»` - Matches any number of path segments
+- `«ext:file_extension»` - Matches a string ending with a period and a 2 to 5 character extension.
 
 # Sample Use Cases
 
 ### Collapsing High Cardinality Fields
+
 If you have an endpoint with a high cardinality field, such as a UUID, you may want to collapse all requests to that
-endpoint into a single group. You can achieve this by using the `«wildcard»` rule to collapse all the requests into a 
+endpoint into a single group. You can achieve this by using the `«wildcard»` rule to collapse all the requests into a  
 single group.
 
 ```shell
@@ -46,6 +47,7 @@ my.api.domain/v1/users/test-user/messages
 ```
 
 ### Preventing Collapsing of Specific Endpoints
+
 You may have a specific endpoint that you do not want to collapse at all. In our previous example we may not want to
 collapse the `test-user` endpoint since we use that for testing purposes. We can achieve this by adding a rule that
 exactly matches the endpoint and placing it after the wildcard rule.
@@ -59,8 +61,9 @@ Since the last rule wins, this setup will collapse all endpoints except for the 
 
 
 ### Collapse CDN Images
+
 You can collapse endpoints for third-party SDKs into a single groups. For example, CDNs will have a large number of
-path segments with a common prefix. 
+path segments with a common prefix.  
 
 ```shell
 my.cdn.domain/images/0x0/b/d/123x123/bd1234c-cb6f-4c9f-9df6-6787903c5442/file.jpg
@@ -75,4 +78,3 @@ You can collapse all the requests to the CDN into a single group by using the
 ```
 my.cdn.domain/images/«**»/«ext:jpg»
 ```
-

@@ -3,6 +3,7 @@ title: Session Properties
 sidebar_position: 5
 description: Get to know the users of your Android application with the Embrace SDK
 ---
+
 # Session Properties
 
 Session Properties are another way to annotate the session.

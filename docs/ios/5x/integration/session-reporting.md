@@ -58,13 +58,13 @@ import Embrace
 Now we're going to add a new file to our project. Embrace has many optional
 features and configuration options that you may want to use. It is best to
 start your integration with an Embrace configuration file so it's easy to add
-those options later. 
+those options later.  
 
 Make a new file in the root of your project called `Embrace-Info.plist` and ensure
 that it is included in your target.
 
 <img src={require('@site/static/images/ios-embrace-info-plist.png').default} />
- 
+
 For now, you can just add one entry to this file: `"API_KEY"`. Be sure to fill in your real key from the Embrace Dashboard.
 
 :::info
@@ -192,7 +192,7 @@ Embrace.sharedInstance().endAppStartup();
 </Tabs>
 
 :::info Note On Ensuring the Start Moment Ends
-This moment is used to track launch performance, but also launch abandonment. This is the 
+This moment is used to track launch performance, but also launch abandonment. This is the  
 number of users who close the app before the launch finishes. To correctly track this
 it is critical that all code paths end the startup moment eventually. For example if your
 app can launch via a push notification, ensure that path also ends the startup moment or you
@@ -223,10 +223,10 @@ Dashboard.
 ## Trigger a session upload
 
 To trigger a session upload, simply send the application to the background by pressing
-the simulators 'home' button or swipe up, depending on the simulator you're running, or press Cmd+Shift+H on your keyboard. 
-Typically the SDK will be given sufficient time to upload 
-the session, but sometimes the app is not able to complete the upload in the background. 
-To ensure the session was uploaded, launch the application again. Refresh the dashboard in 
+the simulators 'home' button or swipe up, depending on the simulator you're running, or press Cmd+Shift+H on your keyboard.  
+Typically the SDK will be given sufficient time to upload  
+the session, but sometimes the app is not able to complete the upload in the background.  
+To ensure the session was uploaded, launch the application again. Refresh the dashboard in  
 your browser and you should now see that you've moved on to the next step.
 
 ---

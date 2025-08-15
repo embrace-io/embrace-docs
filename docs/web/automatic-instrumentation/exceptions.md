@@ -4,7 +4,7 @@ description: Automatically capture unhandled exceptions in your web app with Emb
 sidebar_position: 2
 ---
 
-# Exceptions 
+# Exceptions  
 
 The Embrace SDK automatically captures unhandled exceptions that occur in your application providing visibility into
 where and how often these are being triggered by your users.

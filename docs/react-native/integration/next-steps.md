@@ -8,14 +8,14 @@ sidebar_position: 9
 
 ## Wrapping Up
 
-Congratulations on completing the React Native integration guide! 
+Congratulations on completing the React Native integration guide!  
 
 If you found anything confusing or have suggestions on improving the docs,
 please don't hesitate to reach out to us at [support@embrace.com](mailto:support@embrace.com) or on Slack.
 
 ## Feature Reference
 
-Embrace includes many optional advanced features that can help you figure out some of 
+Embrace includes many optional advanced features that can help you figure out some of  
 the most challenging issues. Learn about these features, and how to enable them, in
 our [Feature Reference](/react-native/features/).
 

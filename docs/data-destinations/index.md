@@ -9,15 +9,15 @@ sidebar_position: 0
 As part of our Metrics Forwarding package, Embrace offers a number of Data Destinations to deliver your metrics to your
 cross-platform observability tool of choice:
 
-* [Chronosphere integration guide](/data-destinations/chronosphere-setup.md)
-* [Datadog integration guide](/data-destinations/data-dog-setup.md)
-* [Elastic integration guide](/data-destinations/elastic-setup.md)
-* [Grafana Cloud integration guide](/data-destinations/grafana-cloud-setup.md)
-    * [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
-* [Honeycomb integration guide](/data-destinations/honeycomb.md)
-* [New Relic integration guide](/data-destinations/new-relic-setup.md)
-* [Observe integration guide](/data-destinations/observe-setup.md)
-* [Splunk integration guide](/data-destinations/splunk.md)
+- [Chronosphere integration guide](/data-destinations/chronosphere-setup.md)
+- [Datadog integration guide](/data-destinations/data-dog-setup.md)
+- [Elastic integration guide](/data-destinations/elastic-setup.md)
+- [Grafana Cloud integration guide](/data-destinations/grafana-cloud-setup.md)
+    - [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
+- [Honeycomb integration guide](/data-destinations/honeycomb.md)
+- [New Relic integration guide](/data-destinations/new-relic-setup.md)
+- [Observe integration guide](/data-destinations/observe-setup.md)
+- [Splunk integration guide](/data-destinations/splunk.md)
 
 ## Metrics
 
@@ -27,7 +27,7 @@ receives the metric name as `embrace_sessions_total_five_minute` but it converts
 
 All data destinations receive the following Standard metrics:
 
-| Data Destinations | Metric Names                                                                                                           |                                                                                                                        
+| Data Destinations | Metric Names                                                                                                           |  
 |-------------------|------------------------------------------------------------------------------------------------------------------------|
 | Grafana Cloud     | embrace_crash_five_minute_total, embrace_session_five_minute_total, embrace_crash_free_user_five_minute_total          |
 | Grafana Cloud     | embrace_crash_hourly_total, embrace_session_hourly_total, embrace_crash_free_user_hourly_total                         |

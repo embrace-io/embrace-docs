@@ -4,7 +4,7 @@ description: Automatic instrumentation for React Router using Embrace Web SDK
 sidebar_position: 1
 ---
 
-The React Router automatic instrumentation provides an easy way to track navigation events in your React application. 
+The React Router automatic instrumentation provides an easy way to track navigation events in your React application.  
 It captures route changes and sends them as spans to Embrace, allowing you to monitor user navigation patterns and performance.
 A span is automatically created when the user navigates to a new route or the application is loaded. Then the span is ended when the route changes again or the session ends.
 
@@ -147,6 +147,6 @@ const customNavigationHandler = () => {
 
 ### Configuration
 
-You can configure the React Router instrumentation by passing options to the `createReactRouterNavigationInstrumentation` function. 
+You can configure the React Router instrumentation by passing options to the `createReactRouterNavigationInstrumentation` function.  
 For now, the only option available is `shouldCleanupPathOptionsFromRouteName`.
 If set to `true`, the instrumentation will remove path options from the route name, e.g. it will convert `/order/:orderState(pending|shipped|delivered)` to `/order/:orderState`.

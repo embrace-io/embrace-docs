@@ -7,11 +7,11 @@ sidebar_position: 1
 
 Embrace's User Sessions allow developers to recreate user activity with detailed data, helping identify and resolve issues efficiently.
 
-User Sessions give you every technical detail for every session that users were in your app. User Sessions are crucial for modeling and debugging app behavior, as they capture everything a user does from app launch to termination, including user actions and technical events. 
+User Sessions give you every technical detail for every session that users were in your app. User Sessions are crucial for modeling and debugging app behavior, as they capture everything a user does from app launch to termination, including user actions and technical events.  
 
 ## What is a User Session?
 
-User Sessions are an encapsulation of all app activity a specific user had during one use of the app. The User Session creates a picture that includes all app lifecycle and user interface details, business logic and networking, and other technical details that occurred in your app while it was in the foreground or background. It also includes key metadata for the session including device info, user personas, 
+User Sessions are an encapsulation of all app activity a specific user had during one use of the app. The User Session creates a picture that includes all app lifecycle and user interface details, business logic and networking, and other technical details that occurred in your app while it was in the foreground or background. It also includes key metadata for the session including device info, user personas,  
 
 The first User Session begin when a user launches the app to the foreground. That foreground session can end or terminate in a variety of states:
 

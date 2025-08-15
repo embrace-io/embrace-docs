@@ -5,9 +5,9 @@ sidebar_position: 11
 
 # Command Line Tool
 
-In order to ease the process of configuring the Xcode project for use with the 
-Embrace SDK. We provide a CLI tool that you can use to help validate your 
-project. 
+In order to ease the process of configuring the Xcode project for use with the  
+Embrace SDK. We provide a CLI tool that you can use to help validate your  
+project.  
 
 Feel free to [download the tool](https://downloads.embrace.io/embtool/embtool-latest.pkg).
 

@@ -183,4 +183,4 @@ Embrace.client?.add(event: .breadcrumb("Profile viewed", properties: ["user_type
 
 - Learn about [Custom Logging](/ios/6x/manual-instrumentation/custom-logging) for more detailed logging
 - Explore [Custom Traces](/ios/6x/manual-instrumentation/custom-traces) for performance monitoring
-- Check out [Best Practices](/ios/6x/best-practices/common-patterns) for optimal breadcrumb usage patterns 
+- Check out [Best Practices](/ios/6x/best-practices/common-patterns) for optimal breadcrumb usage patterns

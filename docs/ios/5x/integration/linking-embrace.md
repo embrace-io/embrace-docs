@@ -141,7 +141,7 @@ Finally you should now see the Embrace package has been added to your project an
 ## Manual
 
 Although adding a new framework to your project manually may seem difficult, the process
-is actually pretty straightforward in recent Xcode releases. Just follow along 
+is actually pretty straightforward in recent Xcode releases. Just follow along  
 with the screenshots and reach out on Slack if you want any help during the process.
 
 Here is the general process we will be following:

@@ -3,9 +3,10 @@ title: Network Body Capture
 description: Embrace can capture network body requests and responses
 sidebar_position: 14
 ---
+
 # Network Body Capture
 
-Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers. 
+Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.  
 
 This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you. Please make sure you have the following property set as `true` in your `embrace-config.json` file:
 
@@ -22,7 +23,7 @@ This feature can only be enabled by your Embrace CS representative, so reach out
 ```
 You can check the [configuration file documentation](/android/features/configuration-file)  for more information.
 
-If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded. 
+If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.  
 
 In your `embrace-config.json` file, first create a new property entry titled:
 

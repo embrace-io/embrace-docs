@@ -84,7 +84,7 @@ let result = Embrace.recordSpan(
 }
 ```
 
-**Important:** 
+**Important:**  
 - The `span` parameter in the closure is optional (`Span?`), so always use optional chaining (`span?.setAttribute`) when calling methods on it.
 - **Never call `span?.end()` within a `recordSpan` closure** - the span is automatically ended when the closure completes. Calling `end()` manually can cause undefined behavior.
 
@@ -318,12 +318,12 @@ func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile,
         completion(.failure(APIError.instrumentationUnavailable))
         return
     }
-    
+
     let span = embrace.buildSpan(
         name: "api_fetch_user_profile", 
         type: .performance
     ).startSpan()
-    
+
     span.setAttribute(key: "user_id", value: userId)
 
     apiClient.get("/users/\(userId)") { result in
@@ -379,7 +379,7 @@ func processFeed(posts: [Post]) -> [ProcessedPost] {
         return performFeedProcessing(posts)
     }
     defer { span.end() }
-    
+
     span.setAttribute(key: "post_count", value: posts.count.description)
 
     // Measure the main processing algorithm
@@ -400,7 +400,7 @@ Track user navigation through your app with hierarchical spans:
 ```swift
 class NavigationFlowTracker {
     private var userJourneySpan: Span?
-    
+
     func startUserJourney(from startScreen: String) {
         userJourneySpan = Embrace.client?.buildSpan(
             name: "user_journey",
@@ -411,7 +411,7 @@ class NavigationFlowTracker {
             ]
         ).startSpan()
     }
-    
+
     func trackScreenTransition(from: String, to: String) {
         Embrace.recordSpan(
             name: "screen_transition",
@@ -424,10 +424,10 @@ class NavigationFlowTracker {
         ) { transitionSpan in
             // Add transition-specific events
             transitionSpan?.addEvent(name: "transition_started")
-            
+
             // Simulate transition work
             let success = performTransition(from: from, to: to)
-            
+
             if success {
                 transitionSpan?.addEvent(name: "transition_completed")
             } else {
@@ -436,7 +436,7 @@ class NavigationFlowTracker {
             }
         }
     }
-    
+
     func endUserJourney(reason: String) {
         userJourneySpan?.setAttribute(key: "journey.end_reason", value: reason)
         userJourneySpan?.end()
@@ -454,7 +454,7 @@ class GameFlowTracker {
     private var gameSpan: Span?
     private var roundSpan: Span?
     private var currentRound = 0
-    
+
     func startGame(gameType: String) {
         gameSpan = Embrace.client?.buildSpan(
             name: "game_session",
@@ -465,13 +465,13 @@ class GameFlowTracker {
             ]
         ).startSpan()
     }
-    
+
     func startRound() {
         currentRound += 1
-        
+
         // End previous round if exists
         roundSpan?.end()
-        
+
         // Start new round as child of game span
         roundSpan = Embrace.client?.buildSpan(
             name: "game_round",
@@ -482,7 +482,7 @@ class GameFlowTracker {
             ]
         ).startSpan()
     }
-    
+
     func recordUserAction(action: String, isCorrect: Bool, reactionTime: TimeInterval) {
         Embrace.recordSpan(
             name: "user_action",
@@ -500,19 +500,19 @@ class GameFlowTracker {
             }
         }
     }
-    
+
     func endRound(score: Int, success: Bool) {
         roundSpan?.setAttribute(key: "round.score", value: String(score))
         roundSpan?.setAttribute(key: "round.success", value: String(success))
-        
+
         if !success {
             roundSpan?.setAttribute(key: "round.failure_reason", value: "round_failed")
         }
-        
+
         roundSpan?.end()
         roundSpan = nil
     }
-    
+
     func endGame(finalScore: Int, totalRounds: Int) {
         gameSpan?.setAttribute(key: "game.final_score", value: String(finalScore))
         gameSpan?.setAttribute(key: "game.total_rounds", value: String(totalRounds))
@@ -530,7 +530,7 @@ Track a complete user purchase journey:
 ```swift
 class CheckoutFlowTracker {
     private var checkoutSpan: Span?
-    
+
     func startCheckout(cartValue: Double, itemCount: Int) {
         checkoutSpan = Embrace.client?.buildSpan(
             name: "checkout_flow",
@@ -542,7 +542,7 @@ class CheckoutFlowTracker {
             ]
         ).startSpan()
     }
-    
+
     func trackCheckoutStep(step: String, duration: TimeInterval? = nil) {
         return Embrace.recordSpan(
             name: "checkout_step",
@@ -559,7 +559,7 @@ class CheckoutFlowTracker {
             return stepSpan
         }
     }
-    
+
     func trackPaymentFlow(paymentMethod: String) {
         Embrace.recordSpan(
             name: "payment_processing",
@@ -578,12 +578,12 @@ class CheckoutFlowTracker {
                 // Simulate validation work
                 Thread.sleep(forTimeInterval: 2.0)
             }
-            
+
             // Track payment completion
             paymentSpan?.setAttribute(key: "payment.status", value: "completed")
         }
     }
-    
+
     func completeCheckout(orderId: String, success: Bool, error: Error? = nil) {
         if success {
             checkoutSpan?.setAttribute(key: "checkout.order_id", value: orderId)
@@ -596,7 +596,7 @@ class CheckoutFlowTracker {
                 return
             }
         }
-        
+
         checkoutSpan?.end()
         checkoutSpan = nil
     }
@@ -611,7 +611,7 @@ Track navigation in SwiftUI apps with automatic and manual instrumentation:
 struct ShoppingAppView: View {
     @State private var selectedTab = 0
     @State private var showingProductDetail = false
-    
+
     var body: some View {
         TabView(selection: $selectedTab) {
             ProductListView()
@@ -620,7 +620,7 @@ struct ShoppingAppView: View {
                 .onAppear {
                     trackTabSelection("products")
                 }
-            
+
             CartView()
                 .tabItem { Label("Cart", systemImage: "cart") }
                 .tag(1)
@@ -632,7 +632,7 @@ struct ShoppingAppView: View {
             trackTabChange(to: newTab)
         }
     }
-    
+
     private func trackTabSelection(_ tabName: String) {
         Embrace.recordSpan(
             name: "tab_selection",
@@ -645,12 +645,12 @@ struct ShoppingAppView: View {
             // Tab tracking logic here
         }
     }
-    
+
     private func trackTabChange(to newTab: Int) {
         let tabNames = ["products", "cart"]
         guard newTab < tabNames.count,
               let client = Embrace.client else { return }
-        
+
         try? client.metadata.addProperty(
             key: "current_tab",
             value: tabNames[newTab],

@@ -290,7 +290,7 @@ page for more details.
 <TabItem value="ios" label="iOS">
 
 When initializing in the JS layer you can simply include the `disabledUrlPatterns` key, in the above example if you were
-exporting to Grafana you would add the following in the `SDK_CONFIG`: 
+exporting to Grafana you would add the following in the `SDK_CONFIG`:  
 
 ```json
 "disabledUrlPatterns": [

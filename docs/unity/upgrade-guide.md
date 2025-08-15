@@ -13,7 +13,7 @@
 
 ## iOS SDK Code Initialization
 
-The Embrace Unity SDK internally depends on the Embrace Apple SDK. As a result, from 6.0.0 onwards the SDK no longer uses a .plist file to hold Embrace-specific configuration. 
+The Embrace Unity SDK internally depends on the Embrace Apple SDK. As a result, from 6.0.0 onwards the SDK no longer uses a .plist file to hold Embrace-specific configuration.  
 
 You should continue to configure the Embrace Unity SDK on iOS the same as before, but now requiring that you pass the `App Id` via `EmbraceStartupArgs` when calling `StartSDK`
 
@@ -96,4 +96,5 @@ After this is complete, you can re-install the [Embrace SDK from the unitypackag
 - Please refer to the Embrace Apple SDK [Upgrade Guide](/ios/6x/getting-started/migration-guide.md) for as of yet unsupported features on iOS
 
 ## Potential Gradle Issues
+
 Unity SDK 2.x requires a later version of Gradle for Android Builds. If you try to build but are getting Gradle errors it is recommended you update to the latest LTS version of your current Unity version (for example Unity 2021.3.37f to Unity 2021.3.48f). A later version of Unity should include the latest gradle tools. If you are unable to update Unity versions you will need to download Gradle and setup your Unity editor to point to it using Settings > External Tools.

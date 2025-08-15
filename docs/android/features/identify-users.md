@@ -3,9 +3,10 @@ title: Identify Your Users
 sidebar_position: 4
 description: Get to know the users of your Android application with the Embrace SDK
 ---
+
 # Know Your Users
 
-Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
+Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find  
 sessions for an unhappy user.
 
 - [**User Personas and Identifiers**](/android/features/identify-users#user-personas). This is data you can set and update about the user of a session.
@@ -41,7 +42,7 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 :::
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, see the [API docs](/api/android/). 
+For more methods on setting user values, see the [API docs](/api/android/).  
 
 You can also set customized values for specific use cases or segments of users.
 

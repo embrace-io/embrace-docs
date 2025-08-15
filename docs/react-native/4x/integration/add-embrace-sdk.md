@@ -22,7 +22,7 @@ npm install @embrace-io/react-native --save
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
 
-# Adding the SDK 
+# Adding the SDK  
 
 ## Setup Script
 
@@ -97,7 +97,7 @@ If you're using Crashlytics, set this value to false.
 ## React Native Version < 0.60
 
 If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
-to set up the native modules. 
+to set up the native modules.  
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -188,8 +188,8 @@ Your API ID and token are available on the Embrace dashboard.
 :::info
 You’ll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
 
-* `android.permission.INTERNET`
-* `android.permission.ACCESS_NETWORK_STATE`
+- `android.permission.INTERNET`
+- `android.permission.ACCESS_NETWORK_STATE`
 :::
 
 </TabItem>

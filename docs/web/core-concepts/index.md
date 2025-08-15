@@ -38,4 +38,4 @@ The Embrace web SDK is built on the OpenTelemetry framework, an industry-standar
 - The SDK follows established patterns for instrumentation
 
 By learning these core concepts, you'll gain the knowledge needed to effectively use the more advanced features of the
-SDK covered in later sections. 
+SDK covered in later sections.  

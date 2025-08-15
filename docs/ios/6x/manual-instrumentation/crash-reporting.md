@@ -34,9 +34,11 @@ If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytic
 First, add the Crashlytics support module:
 
 #### Swift Package Manager
+
 Import `EmbraceCrashlyticsSupport` when using Swift Package Manager
 
 #### CocoaPods
+
 Add `pod 'EmbraceIO/EmbraceCrashlyticsSupport'` to your Podfile
 
 Then, configure the SDK to use Crashlytics:
@@ -164,4 +166,4 @@ If crash reports show unsymbolicated addresses:
 
 - Learn about [Error Handling](/ios/6x/manual-instrumentation/error-handling.md) for non-fatal errors
 - Set up [Breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs.md) to add context to crash reports
-- Configure [Custom Logging](/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information 
+- Configure [Custom Logging](/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information

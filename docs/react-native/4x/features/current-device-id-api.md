@@ -3,6 +3,7 @@ title: Current Device ID API
 sidebar_position: 9
 description: Get the Device ID.
 ---
+
 # Current Device ID API
 
 import GetSessionId from '@site/shared/get-session-id.md';

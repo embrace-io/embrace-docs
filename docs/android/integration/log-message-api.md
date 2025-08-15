@@ -6,15 +6,15 @@ description: Trigger alerts for your Android application using logs with the Emb
 
 # Adding Logs
 
-Typically the Embrace SDK uploads data at the end of a session. However, some situations 
-might require instant feedback, such as hunting an especially difficult bug, troubleshooting 
+Typically the Embrace SDK uploads data at the end of a session. However, some situations  
+might require instant feedback, such as hunting an especially difficult bug, troubleshooting  
 on behalf of high-value users, or monitoring a new version rollout.
 
 You can leverage the log message API for this.
 
 ## Using the Log Message API
 
-The Log Message API enables you to log a message instantly. 
+The Log Message API enables you to log a message instantly.  
 
 Depending on your requirements, you can choose from three severity types: `logInfo`, `logWarning`, and `logError`.
 

@@ -70,8 +70,9 @@ export default App
 </Tabs>
 
 :::info Note for initialize method
-The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
+The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else.  
 :::
+
 ## Starting Embrace SDK from Android / iOS
 
 :::info
@@ -199,7 +200,7 @@ As useEffect does not block the render thread, unlike componentDidMount, it migh
 </Tabs>
 
 
-End the startup moment as soon as your users are able to interact with the application. 
+End the startup moment as soon as your users are able to interact with the application.  
 
 ## Build and Run the Application
 
