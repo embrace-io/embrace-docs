@@ -75,6 +75,7 @@ Below is a list of everything that has changed and how to address it in your cod
   - **Action**: If you notice changes in NDK crash reports, you can re-enable this behavior with `sdk_config.sig_handler_detection = true`.
 
 :::info Summary
+
 - Remove deprecated properties from your Gradle files.  
 - Replace usage of any deprecated methods (see table below).  
 - Remove references to internal symbols that were previously exposed.
@@ -104,6 +105,7 @@ val span = Embrace.getInstance().startSpan("my-identifier") // start span
 // add events and attributes to span
 span?.stop() // stop span
 ```
+
 </TabItem>
 </Tabs>
 

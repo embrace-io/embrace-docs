@@ -11,17 +11,17 @@ Embrace's SDK uploads basic information about network requests into your session
 
 This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you.
 
-If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.  
+If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.
 
 In your `Embrace-Info.plist` file, first create a new Dictionary entry titled:
 
-```
+```text
 NETWORK
 ```
 
 Within that dictionary, place a new string entry with the key titled:
 
-```
+```text
 CAPTURE_PUBLIC_KEY
 ```
 
@@ -47,7 +47,7 @@ openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 
 The file public.pem contains the public key. Use the command `cat public.pem` to view the key. Below is an example we generated while writing this documentation. Remember: it is completely safe to share public keys. Only the private key needs to be protected.
 
-```
+```text
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2st+1ouwmsYLOF+kZ/LE
 uZ+jzFuMv+AatKYWXQCwOWP9U02gbXDDOw1rvpeXFUapF1iGF9SASsyBZj4uTfJH

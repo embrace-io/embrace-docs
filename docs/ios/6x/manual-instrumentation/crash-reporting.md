@@ -81,11 +81,13 @@ Obviously, this function will crash your app. Use it for testing purposes and be
 :::
 
 ### Swift
+
 ```swift
 Embrace.client?.crash()
 ```
 
 ### Objective-C
+
 ```objc
 [[Embrace client] crash];
 ```

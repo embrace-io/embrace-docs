@@ -12,6 +12,7 @@ Embrace Android SDK Version: [7.3.0](https://embrace.io/docs/android/changelog/#
 Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *June 16, 2025*
+
 - Modified Android SDK interface startup so it is more verbose
 - Modified iOS SDK interface for improved stability and verbosity
 - Patched out two warnings from the Unity SDK
@@ -23,6 +24,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 ## 2.4.0
 
 *April 10, 2025*
+
 - Upgraded Embrace Android Dependency to 7.3.0
 - Upgraded Embrace iOS Dependency to 6.8.4
 - Removed Unity ANR Capture Feature
@@ -32,6 +34,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 ## 2.3.0
 
 *February 11, 2025*
+
 - Upgraded Embrace Android dependency to 7.1.0
 - Upgraded Embrace iOS dependency to 6.8.0
 - Changed Unity Swift code to local Swift Package
@@ -40,6 +43,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 ## 2.2.0
 
 *January 27, 2025*
+
 - Upgraded Embrace iOS dependency to 6.7.1
 - Swapped iOS dependency map method from xcframeworks to SPM
 
@@ -65,6 +69,7 @@ You should [remove the Embrace scoped registry](/unity/upgrade-guide/#remove-sco
 ## 2.1.1
 
 *November 26, 2024*
+
 - Restoration of meta files and patch to local asset path issues
 
 ## 2.1.0
@@ -80,11 +85,13 @@ This version of the SDK has been retracted due to local mapping issues with the 
 ## 2.0.2
 
 *October 22, 2024*
+
 - Patch regarding Unity interaction with disabled Android Native SDK and sampling rate
 
 ## 2.0.1
 
 *October 11th, 2024*
+
 - Android patch of null map argument
 - Upgrade of Embrace iOS SDK to 6.4.2
 - Patch of issue when starting spans
@@ -107,6 +114,7 @@ Additionally, with the update to Embrace Android 6.13, the SDK now requires Grad
 ## 1.26.1
 
 *August 12th, 2024*
+
 - NPE patch for null EmbraceSpanEvents
 - Improvement of AndroidJavaObject memory disposal
 
@@ -130,17 +138,20 @@ For 2022, please see [this](https://docs.unity3d.com/2022.3/Documentation/Manual
 ## 1.25.3
 
 *June 24, 2024*
+
 - Patch to PBXProject generation on 2021 and later around linker phase construction.
 - Patch to iOS xcframework and framework plugin matrix platform labeling.
 
 ## 1.25.2
 
 *May 23, 2024*
+
 - Defensive patch of null case provider issue.
 
 ## 1.25.1
 
 *April 25, 2024*
+
 - Patch of issue on newer versions of Unity iOS that involved double injecting into the linker phase.
 
 ## 1.25.0
@@ -202,6 +213,7 @@ This version also has an issue on newer versions of Unity iOS where the linker p
 ## 1.19.0
 
 *December 20th, 2023*
+
 - This version of the SDK had a build blocking issue for customers using EDM. Please update to the latest version.
 - Added support on Unity Android for the Embrace Android Bug Shake feature! Available for users who have Embrace Bug Shake accounts.
 - Updated iOS SDK to 5.24.2
@@ -225,6 +237,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 This version of the Unity SDK has two issues:
 - Build blocking issue on iOS around the current session ID API
 - Build blocking issue on iOS regarding code signature issues with XCode 15
+
 Please update to the latest version.
 :::
 

@@ -32,11 +32,13 @@ are surfaced in-context in the User Timeline.
 ### What to Log as Breadcrumbs
 
 **Good candidates for breadcrumbs:**
+
 - User interactions
 - Important application state changes
 - Business logic milestones
 
 **Avoid logging as breadcrumbs:**
+
 - Sensitive user data (passwords, personal information)
 - High-frequency events (scroll events, timer ticks)
 - Large data payloads

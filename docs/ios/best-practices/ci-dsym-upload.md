@@ -25,7 +25,8 @@ Here are quick links to documentation for storing artifacts in common mobile CI 
 Most CI systems operate via a build "job", where that job consists of multiple "steps". These jobs run on an "agent" - an environment to host this process. These build jobs become very customizable and very different but for the sake of this document we will focus on the following example workflow:
 
 The following is a pseudo job declaration syntax:
-```
+
+```text
 Build Job
   1. Checkout Repository
   2. Run Tests
@@ -39,7 +40,7 @@ The "Deploy App" step is very team dependent. It may be an automated deployment 
 
 Let's update the above job to account for these missing dSYMs.
 
-```
+```text
 Build Job
   1. Checkout Repository
   2. Run Tests
@@ -68,7 +69,7 @@ Keep in mind that these settings are available in an Xcode build context, so you
 Let's break down that `DWARF_DSYM_FOLDER_PATH` value:
 
 - `~/Library/Developer/Xcode/DerivedData`. A path to the Xcode DerivedData directory. This is the location Xcode uses as a build cache. You may have some experience deleting this directory when Xcode is having one of those days.
--  `MyProject-csghshgvxlwqxigvbxpltluvkykv`. This is a project specific folder. It appends a seemingly random hash to the end
+- `MyProject-csghshgvxlwqxigvbxpltluvkykv`. This is a project specific folder. It appends a seemingly random hash to the end
 - `Build/Products/`. This subpath is the location for finalized build artifacts.
 - `Release-iphoneos`. This path is a combination of the Build Configuration and the SDK used. Artifacts will differ based on build configuration (Debug/Release) and the platform (iphoneos, iphonesimulator, etc.). In a CI environment, its likely that a specific step would build a single build configuration.
 
@@ -166,6 +167,7 @@ EMBRACE_ID='USE_YOUR_KEY' EMBRACE_TOKEN='USE_YOUR_TOKEN' "path/to/EmbraceIO/run.
 If you would prefer to keep this specific to CI builds, its possible to add a [custom build script for Xcode Cloud](https://developer.apple.com/documentation/xcode/writing-custom-build-scripts). When running `xcodebuild archive` Xcode Cloud will automatically store an xcarchive bundle as part of the Build's Artifacts. Your `ci_post_xcodebuild.sh` script can then read dSYMs from this archive and upload them manually.
 
 Here's a basic shell script that you can use as an example:
+
 ```sh
 # ci_scripts/ci_post_xcodebuild.sh
 

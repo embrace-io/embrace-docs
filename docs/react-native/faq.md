@@ -17,7 +17,7 @@ or email us at [support@embrace.com](mailto:support@embrace.com).
 Desugaring is required to support Android API levels < 26. To enable, the following is required in your app's
 `android/app/build.gradle`:
 
-```
+```text
 android {
    ...  
     compileOptions {
@@ -34,7 +34,7 @@ dependencies {
 
 In addition, in your `android/gradle.properties` you must set
 
-```
+```text
 android.useFullClasspathForDexingTransform=true
 ```
 

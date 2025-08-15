@@ -53,21 +53,25 @@ Refer to this [documentation](/custom-metrics-api/supported_metrics) to know the
 ## Sample PromQL queries
 
 - Sessions grouped by devices for a given app version
+
 ```promql
 sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
 ```
 
 - Sessions grouped by session property city and session property state for a given app version
+
 ```promql
 sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (city, state)
 ```
 
 - Percentage of crash free sessions by devices.
+
 ```promql
 1 - sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessions_total{app_id="$app_id"}) by (device_model) * 100
 ```
 
 - Percentage of crash sessions by devices.
+
 ```promql
 sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessions_total{app_id="$app_id"}) by (device_model) * 100
 ```
@@ -75,16 +79,19 @@ sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessi
 Also, you can pull data for one, multiple, or all of your organization's apps in a single query.
 
 - To pull for a single app, include the `app_id` in the PromQL filter,
+
 ```promql
 sum(hourly_custom_metric_sessions_total{app_id="a1b2C3"})
 ```
 
 - To pull for multiple apps, include a pipe-delimited array in the filter,
+
 ```promql
 sum(hourly_custom_metric_sessions_total{app_id=~"a1b2C3|Z9Y8x7"}) 
 ```
 
 - To pull for all apps, do not include any app ID in the filter,
+
 ```promql
 sum(hourly_custom_metric_sessions_total{})
 ```

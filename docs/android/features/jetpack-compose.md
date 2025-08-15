@@ -64,7 +64,7 @@ dependencies {
 
 In order to prevent code obfuscation, the following rule must be added into your R8/ProGuard rules:
 
-```
+```text
 -keep class androidx.compose.ui.platform.AndroidComposeView {
     <fields>;
     <methods>;

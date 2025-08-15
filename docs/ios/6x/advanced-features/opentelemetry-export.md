@@ -228,6 +228,7 @@ Each `ReadableLogRecord` provides:
 ##### Example Use Cases
 
 **Send to Remote API:**
+
 ```swift
 func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
     for record in logRecords {
@@ -246,6 +247,7 @@ func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: T
 ```
 
 **Filter and Transform Logs:**
+
 ```swift
 func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
     let errorLogs = logRecords.filter { record in

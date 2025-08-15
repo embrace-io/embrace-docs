@@ -50,14 +50,14 @@ module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 ```
 
 - **`keep_classnames: true` and `keep_fnames: true`**: These options ensure that class names and function names are
-preserved during the minification process.  
-- **`mangle`**: Prevents the renaming of class and function names.  
+preserved during the minification process.
+- **`mangle`**: Prevents the renaming of class and function names.
 
 Though note that these settings will likely increase your bundle size. If you apply these then we strongly recommend
 testing your project to confirm that any added bundle size due to this configuration is acceptable.
 To analyze the bundle size, run the following command:
 
-```bash
+```shell-session
 npx react-native bundle \
   --platform <platform> \
   --dev false \

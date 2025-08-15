@@ -133,6 +133,7 @@ Only disable the WorkManager initializer. This will allow the Embrace SDK to fun
         tools:node="remove" />
 </provider>
 ```
+
 :::
 
 In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, the initialization provider should be added explicitly:
@@ -256,6 +257,7 @@ This could be due to one of the following reasons:
     ```kotlin
         val myOkHttpClient = OkHttpClient()
     ```
+
     Our SDK instruments the `build()` method, so it will only track network requests with the first approach. 
 
 ### **What does Embrace use to hook into network calls on Android apps?**

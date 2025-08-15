@@ -26,6 +26,7 @@ Embrace supports multiple log severity levels:
 - **Warning**: Potential issues that didn't prevent functionality
 - **Error**: Issues that affected functionality but didn't cause an exception to be thrown. See
 [Logging Handled Exceptions](#logging-handled-exceptions) below for dealing with actual Error  
+
 objects
 
 :::info

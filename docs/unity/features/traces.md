@@ -13,6 +13,7 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 ## Feature Support
 
 :::info Minimum Requirements
+
 - **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
 :::
 
@@ -121,6 +122,7 @@ Embrace.Instance.RecordCompletedSpan(
 ```
 
 :::info Minimum Requirements
+
 - In order for a child span to be recorded, you must stop it before stopping the parent span.
 :::
 

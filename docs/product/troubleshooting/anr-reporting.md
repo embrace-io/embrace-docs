@@ -36,6 +36,7 @@ Embrace instantly auto-captures and detects a sample/snapshot of an ANR in produ
 ### ANR Flame Graph Troubleshooting View
 
 This page will help you understand which parts of your app contribute most to ANRs. You can get to this page from each issue in the summary table from the previous page
+
 - **Drilling down on notable frames:**  The same hierarchical view from the summary list gets transferred to the flame graph. For the selected issue on the flame graph, you can access and inspect all the significant branches for that specific method across different ANR samples
 - **Common Issues:**  The user can explore different branches of the issue tree in the flame graph while seeing on the right side a list of possible known issues to explore
 - **Sample Sessions:** We know the importance of referring to specific sessions that were affected by ANRs. In this case, the user will have a list of sessions with ANRs that present the issue selected
@@ -51,5 +52,6 @@ This page will help you understand which parts of your app contribute most to AN
 ### ANR Method Troubleshooting View
 
 This graph is *anchored* around the selected method. This allows you to see all the code paths that lead to the selected method and the code paths following the method. Users can get to this page from branches in the flame graph and from the known issues list.
+
 - **Common Issues/Methods ANR contribution:** This view will break the percentage of appearances of the problematic methods across calling or being called by the selected one across the different samples
 - **Sample Sessions:**  same as above, users will have access to “Sample Sessions” from this issue's detailed view

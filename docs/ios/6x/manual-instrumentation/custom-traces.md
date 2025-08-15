@@ -85,6 +85,7 @@ let result = Embrace.recordSpan(
 ```
 
 **Important:**  
+
 - The `span` parameter in the closure is optional (`Span?`), so always use optional chaining (`span?.setAttribute`) when calling methods on it.
 - **Never call `span?.end()` within a `recordSpan` closure** - the span is automatically ended when the closure completes. Calling `end()` manually can cause undefined behavior.
 
@@ -176,6 +177,7 @@ span.end()
 ```
 
 **Best Practices:**
+
 - Use the **attributes dictionary** for static values known at span creation
 - Use **setAttribute()** for dynamic values computed during span execution
 - **Attribute values must be strings** - convert numbers and booleans to strings

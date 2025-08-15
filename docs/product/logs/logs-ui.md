@@ -83,6 +83,7 @@ For each log, this page displays:
 - **Message**: raw log message.
 
 > When expanding each log, its properties and its associated stack trace (only for error and warning logs) are displayed
+> 
 > - You can customize columns:  
 > - You can hide/display preferred columns and reorder them
 > - You can filter logs with and without associated timeline details

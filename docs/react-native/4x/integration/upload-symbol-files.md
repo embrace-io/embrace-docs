@@ -54,6 +54,7 @@ If you used the setup script mentioned on the [Adding the Embrace SDK](/react-na
           devDisabledIn<customVariant>: true,
   ]
   ```
+
   This creates a bundle and sets the debuggable flag to false.
 </TabItem>
 </Tabs>
@@ -155,6 +156,7 @@ If you use [App Center CodePush](https://docs.microsoft.com/en-us/appcenter/dist
 you'll need to upload those source maps to Embrace using the upload script that ships with the iOS SDK.
 
 For CodePush, you'll need to generate the bundle and source map to be uploaded.
+
 ```shell-session
 appcenter codepush release-react -a MyApp --output-dir ./build --sourcemap-output ./map
 ``` 

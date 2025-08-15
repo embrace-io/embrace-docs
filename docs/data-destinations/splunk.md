@@ -14,6 +14,7 @@ sidebar_position: 6
 
 1. Log into your Splunk account.
 2. Locate your Access Tokens:
+
 In the left navigation bar select Settings, then select Access Tokens menu item. A page with your Access tokens appears.
 <img src={require('@site/static/images/data-destinations/splunk_access_tokens.png').default} alt="Image showing access tokens Menu" />
 
@@ -36,6 +37,7 @@ In the left navigation bar select Settings, then select Access Tokens menu item.
 
 1. Log into your Splunk account.
 2. Locate your Profile:
+
 In the left navigation bar select Settings, than press **View Profile** button. A page with your profile appears appears.
 <img src={require('@site/static/images/data-destinations/splunk_access_tokens.png').default} alt="Image showing view profile button" />
 

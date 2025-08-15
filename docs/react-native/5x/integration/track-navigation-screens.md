@@ -164,6 +164,7 @@ import EmbraceCrash
 
 If instead you only initialized the SDK through JS then the `disableAutomaticViewCapture` property can be set during the
 call to initialize the SDK:
+
 ```javascript
 initialize({
   sdkConfig: {

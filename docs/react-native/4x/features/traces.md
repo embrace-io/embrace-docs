@@ -13,6 +13,7 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 ## Feature Support
 
 :::info Minimum Requirements
+
 - **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/4x/integration/add-embrace-sdk/).
 :::
 
@@ -208,6 +209,7 @@ stopSpan(parentSpanId)
 ```
 
 :::info Minimum Requirements
+
 - In order for a child span to be recorded, you must stop it before stopping the parent span.
 :::
 

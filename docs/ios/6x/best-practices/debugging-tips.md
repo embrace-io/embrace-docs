@@ -213,7 +213,7 @@ Set breakpoints in your integration code to inspect the SDK's state:
 
 2. Use the debugger console to inspect SDK state:
 
-```
+```text
 po Embrace.client.isStarted
 po Embrace.client.currentSessionId
 ```

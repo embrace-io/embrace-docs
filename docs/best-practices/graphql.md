@@ -42,6 +42,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="ios-language" queryString="ios-language">
 
 <TabItem value="swift-ios-6" label="Swift (6.X)">
+
 ```swift
 import EmbraceIO
 
@@ -71,9 +72,11 @@ let options = Embrace.Options(
                 // ...
               )
 ```
+
 </TabItem>
 
 <TabItem value="swift" label="Swift (5.X)">
+
 ```swift
 import Foundation
 import Apollo

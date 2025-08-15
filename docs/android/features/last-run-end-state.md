@@ -36,22 +36,27 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 // The SDK must be started before checking the last run end state
 val didLastRunCrash = Embrace.getInstance().lastRunEndState == LastRunEndState.CRASH
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 // The SDK must be started before checking the last run end state
 boolean didLastRunCrash = Embrace.getInstance().getLastRunEndState() == LastRunEndState.CRASH;
 ```
+
 </TabItem>
 </Tabs>
 
 **Important Notes**
 
 :::warning Important
+
 - The API can only be called after the SDK has been started. If a call is made prior to starting the Embrace SDK you will get a response of `LastRunEndState.INVALID`
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
 :::

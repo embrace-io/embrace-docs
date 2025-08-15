@@ -37,13 +37,13 @@ To use the External Dependency Manager you must be using:
 - At least version `4.7.0` of the Android Swazzler Plugin
 :::
 
-If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.  
+If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.
 
 Embrace fully supports the External Dependency Manager. Our dependencies are defined in `<plugin root>/Editor/EmbraceSDKDependencies.xml`. You can disable the Embrace automatic EDM support from `Tools -> Settings -> Advanced -> Use External Dependency Manager`. **Warning**, disabling EDM support may cause a `RuntimeException` due to duplicated classes at build time.
 
 In case that you decided to disable the EDM support from Settings and the build failed because the `Duplicated Classes RuntimeException`, you can still disable the Embrace Dependencies Injection manually by adding the following setting to the root level of your `launcherTemplate.gradle` to prevents the error:
 
-```
+```text
 swazzler {
     disableDependencyInjection = true
 }
@@ -76,6 +76,7 @@ After creating or finding these template files in your project, make the followi
 1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below.
 
 Add the following block to the top of your `baseProjectTemplate.gradle` file.
+
 ```groovy
     buildscript {
         dependencies {
@@ -83,7 +84,9 @@ Add the following block to the top of your `baseProjectTemplate.gradle` file.
         }
     }
 ```
+
 Example:
+
 ```groovy
     buildscript {
         dependencies {
@@ -105,9 +108,11 @@ Example:
         delete rootProject.buildDir
     }
 ```
+
 Under `settingsTemplate.gradle` file, ensure that the `mavenCentral()` repositories exists.
 
 Example:
+
 ```groovy
     pluginManagement {
         repositories {
@@ -140,7 +145,7 @@ Example:
  apply plugin: 'embrace-swazzler'
  ```
 
-3.  in `gradleTemplate.properties`, add the following if not present:
+3. In `gradleTemplate.properties`, add the following if not present:
 
  ```gradle
  android.useAndroidX=true
@@ -153,6 +158,6 @@ Finally, if you export your Android build from Unity then you must ensure that t
 
 <img src={require('@site/static/images/unity-android-build-settings.png').default} />
 
----  
+---
 
 Now that you've configured the Android platform, it's time to login to the Embrace dashboard.
