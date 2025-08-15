@@ -79,7 +79,6 @@ REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map
 You can configure the phase to only run on builds you want symbols uploaded to Embrace for, and skip the step on internal
 only builds to save time.
 
-
 </TabItem>
 <TabItem value="android" label="Android">
 Proguard files will be uploaded automatically. If you don’t see symbolicated crashes while using Proguard, reach out to

@@ -47,7 +47,6 @@ for you.
 If you have an existing project, then use your existing `PodFile` for the
 following steps:
 
-
 1. Open your `PodFile` in a text editor and add this entry to your target: `"pod 'EmbraceIO'"`. Make sure to include Embrace in any other variants, such as QA or Dev builds.
 1. Save and close your `PodFile`.
 1. Run the command `pod update` and your new dependency will be automatically integrated.
@@ -68,7 +67,6 @@ retain more control over how your project is built and linked. Note that
 Embrace is distributed as a binary artifact, so Carthage is only downloading the
 artifact in this case.
 
-
 First edit or create a `Cartfile` at the root of your project, add a line to file
 as follows:
 ```
@@ -79,7 +77,6 @@ If you also have an Apple TV target in your project, also add this to your `Cart
 ```
 binary "https://downloads.embrace.io/embrace-apple-tvos-sdk.json"
 ```
-
 
 Now run `carthage update` from the root and carthage will download and prepare
 the Embrace framework for integration:

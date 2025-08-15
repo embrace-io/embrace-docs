@@ -219,7 +219,6 @@ Please verify that the Embrace SDK is initialized before the app initializes any
 The most common scenario is that there are multiple locations in your app where a startup could end.
 You should add multiple `endAppStartup` calls and ensures that you don't see erroneous failed startups on your dashboard in the event that a code path is followed where the startup is not ended.
 
-
 ### **How do you measure activities running in parallel?**
 
 You can use an ID for a moment to prevent naming collisions.
@@ -241,7 +240,6 @@ Yes. You can add the following method to your view controller to have a custom n
 :::warning Important
 Names longer than 64 characters will be truncated.
 :::
-
 
 ### **Can I ignore views that should not be captured?**
 

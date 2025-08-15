@@ -22,7 +22,6 @@ yarn add @embrace-io/web-sdk
 For CDN installs, see [Including the SDK as a code snippet from CDN](#including-the-sdk-as-a-code-snippet-from-cdn).
 :::
 
-
 ## Initialize the SDK
 
 Once you've created an Embrace web application you can initialize the SDK using the appID you were given along with
@@ -70,7 +69,6 @@ sdk.initSDK({
 
 Alternatively if your app version is generated as part of your CI/CD process, you can use our CLI tool to inject your
 app version into your bundle at build time. The process is done as part of [uploading sourcemaps](/web/getting-started/sourcemap-uploads.md).
-
 
 ## Including the SDK as a code snippet from CDN
 

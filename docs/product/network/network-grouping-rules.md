@@ -59,7 +59,6 @@ my.api.domain/v1/users/test-user/messages
 
 Since the last rule wins, this setup will collapse all endpoints except for the `test-user` endpoint.
 
-
 ### Collapse CDN Images
 
 You can collapse endpoints for third-party SDKs into a single groups. For example, CDNs will have a large number of

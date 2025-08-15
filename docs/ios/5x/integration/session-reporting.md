@@ -16,11 +16,11 @@ Embrace always uploads sessions on subsequent launches. This means the general p
 1. [**Add a start call to the Embrace SDK**](/ios/5x/integration/session-reporting#add-a-start-call)
 1. [**End the Startup Moment**](/ios/5x/integration/session-reporting#end-the-startup-moment)
 1. [**Build and run our application**](/ios/5x/integration/session-reporting#build-and-run-your-application)
-    1. Verify Embrace started via the logs
+   1. Verify Embrace started via the logs
 1. [**Trigger a session upload**](/ios/5x/integration/session-reporting#trigger-a-session-upload)
-    1. Close, or send the application to the background
-    1. Launch the application to the foreground
-    1. Verify that our first session was uploaded to Embrace by checking the Dashboard
+   1. Close, or send the application to the background
+   1. Launch the application to the foreground
+   1. Verify that our first session was uploaded to Embrace by checking the Dashboard
 
 ## Import Embrace
 

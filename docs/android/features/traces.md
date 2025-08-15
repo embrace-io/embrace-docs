@@ -21,16 +21,16 @@ See [this page](/product/traces/technical-details.md) for technical details and 
 The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record data for past operations.
-    - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
-    - To record past operations, you can specify the start and end times of your spans that you might have captured already.
-    - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
+  - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
+  - To record past operations, you can specify the start and end times of your spans that you might have captured already.
+  - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
 - Add child spans to a parent span to track sub-operations within an operation.
 - Attach attributes, span events, and links to other spans to give a span further context.
-    - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics.
-    - Span events represent a point in time during the runtime of the span.
-      - Attributes on a span event can be used to store data and metadata about the event that describe it beyond its name.
-    - Links create unidirectional relationships between spans so that you can formally relate two spans that belong to different traces.
-      - Attributes on a link can be used to store data and metadata that further describes the relationship.
+  - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics.
+  - Span events represent a point in time during the runtime of the span.
+    - Attributes on a span event can be used to store data and metadata about the event that describe it beyond its name.
+  - Links create unidirectional relationships between spans so that you can formally relate two spans that belong to different traces.
+    - Attributes on a link can be used to store data and metadata that further describes the relationship.
 
 ### Limits
 
@@ -51,7 +51,6 @@ There are no limits to the number of child spans you can have per root span, pro
 #### Exceeding limits
 
 If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit to be exceeded.
-
 
 Attributes and events are truncated by taking the first N values specified and dropping the rest such that N is the limit.
 

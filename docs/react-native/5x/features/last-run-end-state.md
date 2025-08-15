@@ -30,7 +30,6 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 8. App is relaunched
 9. `getLastRunEndState` returns "clean exit"
 
-
 **Important Notes**
 
 :::warning Important

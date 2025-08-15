@@ -35,4 +35,3 @@ See these tracing topics:
 - [Building Dashboards, Alerts, and Widgets with spans and traces](https://embrace.io/blog/spans-in-custom-dashboards-alerts/)
 - [View active network requests in traces](https://embrace.io/blog/network-spans-in-traces/)
 - [How to optimize mobile performance using traces](https://embrace.io/blog/mobile-performance-tracing/)
-

@@ -1,0 +1,40 @@
+[global]
+disable = ["MD013", "MD033"]
+
+include = [
+    "docs/**/*.md",
+    "README.md"
+]
+
+exclude = [
+    ".git",
+    ".github",
+    "node_modules",
+    "build"
+]
+
+respect_gitignore = true
+
+# [MD003]
+# style = "atx"  # Heading style (atx, atx_closed, setext)
+
+# [MD004]
+# style = "asterisk"  # Unordered list style (asterisk, plus, dash, consistent)
+
+# [MD007]
+# indent = 4  # Unordered list indentation
+
+# [MD013]
+# line_length = 100  # Line length
+# code_blocks = false  # Exclude code blocks from line length check
+# tables = false  # Exclude tables from line length check
+# headings = true  # Include headings in line length check
+
+#[MD044]
+#names = ["GitHub", "iOS", "Xcode", "macOS", "Node.js", "JavaScript"]
+#code_blocks = false
+#html_elements = false
+#html_comments = false
+
+[MD004]
+style = "dash"

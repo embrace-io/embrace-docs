@@ -25,4 +25,3 @@ Embrace's SDKs are all available on GitHub. You can find them here:
 :::info Note
 Embrace's SDKs can also be found via platform-specific distributions. You can browse the pages for each platform in the left-side navigation to find out more.
 :::
-

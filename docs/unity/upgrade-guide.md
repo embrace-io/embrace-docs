@@ -42,14 +42,14 @@ For usage, please refer to our documentation on [Traces](/unity/features/traces.
 
 - Embrace Android Bug Shake API removed
 - `logUnhandledUnityException`
-    - Use `LogUnhandledUnityException` instead
+  - Use `LogUnhandledUnityException` instead
 - `LogMessage` with the `allowScreenshot` argument
-    - Remove the `allowScreenshot` bool from all `LogMessage` calls
+  - Remove the `allowScreenshot` bool from all `LogMessage` calls
 - `IMoments` API removed
 - `LogNetworkRequest` and `RecordNetworkRequest` removed
-    - Use `RecordCompleteNetworkRequest` and `RecordIncompleteNetworkRequest` instead
+  - Use `RecordCompleteNetworkRequest` and `RecordIncompleteNetworkRequest` instead
 - `SetUserPersona` removed
-    - Use `AddUserPersona` instead
+  - Use `AddUserPersona` instead
 
 ## Remove deprecated properties from Gradle file
 

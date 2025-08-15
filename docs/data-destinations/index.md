@@ -13,7 +13,7 @@ cross-platform observability tool of choice:
 - [Datadog integration guide](/data-destinations/data-dog-setup.md)
 - [Elastic integration guide](/data-destinations/elastic-setup.md)
 - [Grafana Cloud integration guide](/data-destinations/grafana-cloud-setup.md)
-    - [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
+  - [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
 - [Honeycomb integration guide](/data-destinations/honeycomb.md)
 - [New Relic integration guide](/data-destinations/new-relic-setup.md)
 - [Observe integration guide](/data-destinations/observe-setup.md)
@@ -44,4 +44,3 @@ in the dashboard and setup your first data destination:
 
 <img src={require('@site/static/images/data-destinations/settings_page_example.png').default} alt="Image showing the
 settings page for data destinations" />
-

@@ -26,7 +26,6 @@ This is a string value. You can set this to one of the following options:
 
 The values are case insensitive.  
 
-
 ## Debuggers
 
 Before we actually trigger a crash, we need to talk about debuggers.

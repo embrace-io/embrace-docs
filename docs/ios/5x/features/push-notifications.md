@@ -77,7 +77,6 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 </Tabs>
 
-
 :::info
 If you want to prevent any data inside the notifications from being captured, you can set the local config `ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE` to `NO`.
 :::

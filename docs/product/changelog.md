@@ -6,16 +6,13 @@ sidebar_position: 100
 
 # Embrace Dashboard Changelog
 
-
 ## July 2025
 - [**User Journeys**](https://embrace.io/blog/user-journeys-walkthrough/): Embrace released the first feature of our User Journeys platform initiative, [User Flows](/product/user-journeys.md), which allows engineers to define and track custom intervals of app activity.
-
 
 ## June 2025
 
 - [**Embrace Web RUM**](https://embrace.io/blog/introducing-embrace-web-rum/): Embrace now supports performance monitoring for websites and web apps  
 - **Highlight and Zoom**: New dashboard visualization feature to allow users to highlight and zoom in on one particular interval within a chart.  
-
 
 ## May 2025
 
@@ -24,7 +21,6 @@ sidebar_position: 100
 - **Greater availability of Profile Groups**: Profile Groups are available for charting, alerting, and building custom metrics  
 - **Removal of 14-day query restriction**: Users can now select any date range within their retention period when querying data, not just the last 14 days.  
 - **Embrace is [Okta-verified](/product/settings/sso.md#okta)**: Embrace is now listed in [Okta’s SSO directory](https://www.okta.com/integrations/embrace/), allowing enterprise customers to easily configure Single Sign On with Embrace.  
-
 
 ## April 2025
 

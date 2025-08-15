@@ -43,4 +43,3 @@ to sending to Embrace or optionally bypassing us entirely.
 | Crash              | Log                    |
 | Exception          | Log                    |
 | Network request    | Span + Span attributes |
-

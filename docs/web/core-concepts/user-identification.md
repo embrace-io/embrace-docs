@@ -49,7 +49,6 @@ user.clearUserId();
 - **Protect privacy**: Avoid storing PII directly; use IDs, hashes, or references instead
 - **Update when needed**: Change user context when user status changes (e.g., after login/logout)
 
-
 :::info Mixing user identifiers
 Embrace sets the user identifier property on sessions and spans when they end. If you change the user identifier during a session, the new identifier will be used for all subsequent spans and logs. You may [manually end the current session](./sessions.md#what-is-a-session) to ensure that you don't have mixed user activities in the same session with different user identifiers.
 :::

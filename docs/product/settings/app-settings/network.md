@@ -15,5 +15,3 @@ Once First Party calls are identified, you will be able to filter by "First Part
     a. The domain field also accepts wildcarding, such as `<<wildcard>>.nps.gov`
 
 <img src={require('@site/static/images/settings/First-Party-Domains.png').default} style={{ width: '75%', height: '75%' }} alt="Creating first-party domains" />
-
-

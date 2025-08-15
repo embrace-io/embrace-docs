@@ -19,11 +19,11 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 The Embrace Traces API allows you to:
 
 - Create record data for past operations.
-    - To record past operations, you can specify the start and end times of your spans that you might have captured already.
+  - To record past operations, you can specify the start and end times of your spans that you might have captured already.
 - Add child spans to a parent span to track sub-operations within an operation.
 - Attach attributes and span events to each span to give them further context
-    - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics
-    - Span events represent a point in time of the execution of the span and they can also have attributes
+  - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics
+  - Span events represent a point in time of the execution of the span and they can also have attributes
 
 There are no limits on the duration of a span as long as the app is running.
 

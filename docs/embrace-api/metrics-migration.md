@@ -22,7 +22,6 @@ To build this rate, you can update your query:
 
 `daily_crash_free_session_rate` => `1 - daily_crashes_total / daily_sessions_total`
 
-
 ### sessions_by_device_model_total
 
 "_by_device_" is now supported by _ALL_ Metrics.

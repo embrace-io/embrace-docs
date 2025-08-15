@@ -10,7 +10,6 @@ sidebar_position: 5
 
 - Have an active Honeycomb account and an environment created.
 
-
 ## Pulling your Honeycomb API Key ([Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/settings/api-keys/))
 
 1. Log into your Honeycomb account.
@@ -24,11 +23,11 @@ In the left navigation bar under the Honeycomb logo, select the Environments ban
 
 <img src={require('@site/static/images/data-destinations/honeycomb_create_api_key.png').default} alt="Image showing create api key button" />
 
- - At least you must enable the following permissions:
-   - Visible to team members
-   - Enable
-   - Send events
-   - Create datasets
+- At least you must enable the following permissions:
+  - Visible to team members
+  - Enable
+  - Send events
+  - Create datasets
 
 <img src={require('@site/static/images/data-destinations/honeycomb_api_key_modal.png').default} alt="Image showing api key modal" />
 

@@ -138,7 +138,7 @@ sidebar_position: 4
 - Added `debugEmbraceOverride` to allow `Embrace.instance` to be mocked for testing.
 - Updated Embrace Android SDK to 5.9.0
 - Updated Embrace iOS SDK to 5.12.2
-    - Fixed an issue in the dSYM upload tool that could cause some uploads to fail
+  - Fixed an issue in the dSYM upload tool that could cause some uploads to fail
 
 # 0.2.0
 
@@ -152,17 +152,16 @@ sidebar_position: 4
 - Updated Embrace Android SDK to 5.8.0
 - Updated Embrace iOS SDK to 5.12.0
 
-
 # 0.1.0
 
 > Initial release of the Embrace SDK for Flutter. This is a development version and not intended for general use.
 - This release introduces support for the following features:
-    - Native crash reporting with symbolication
-    - Breadcrumbs API
-    - Error and warning logs
-    - Exception logs
-    - User ID
-    - Moments
-    - Manual network logging
-    - Manual view logging
-    - User personas
+  - Native crash reporting with symbolication
+  - Breadcrumbs API
+  - Error and warning logs
+  - Exception logs
+  - User ID
+  - Moments
+  - Manual network logging
+  - Manual view logging
+  - User personas

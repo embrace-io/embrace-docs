@@ -14,7 +14,6 @@ The stitched sessions list presents a chronological compilation of all user sess
 
 <img src={require('@site/static/images/features/user-session-insights/user-session-insights-1.png').default} alt="Stitched Sessions List" />
 
-
 Click on any session to delve into the [User Timeline](/product/sessions/user-timeline.md).
 
 <!-- TODO: What are the indicators in the Stitched Session view

@@ -49,7 +49,6 @@ boolean didLastRunCrash = Embrace.getInstance().getLastRunEndState() == LastRunE
 </TabItem>
 </Tabs>
 
-
 **Important Notes**
 
 :::warning Important
