@@ -28,6 +28,7 @@ amongst paying customers. You can then consume this metric in your datastore of 
 ## Creating Custom Metrics in Embrace  
 
 ### via Boards
+
 Some Widgets on [custom Boards](/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.
 
 Open the menu on a Widget, and click "Create Custom Metric".  This will open up a Custom Metric creation form, pre-populated with the same parameters as the Widget.
@@ -39,13 +40,14 @@ Open the menu on a Widget, and click "Create Custom Metric".  This will open up 
 From there, follow the rest of the Custom Metric create flow by selecting a (optional) Data Destination and measurement time interval.
 
 ### via Settings
+
 Go to the Settings page in the Embrace Dashboard and click on the Custom Metrics tab. Here you can create, view, and
 delete custom metrics. When you define a custom metric, you can specify:
 
-* Metric - The aggregation you want to track.
-* Name - The name of the metric. Must conform to the Prometheus spec.
-* Filter - (Optional) Aggregate only a subset of the data.
-* Group By - (Optional) Group the data by a set of dimensions. These will become the labels in your time series data.
+- Metric - The aggregation you want to track.
+- Name - The name of the metric. Must conform to the Prometheus spec.
+- Filter - (Optional) Aggregate only a subset of the data.
+- Group By - (Optional) Group the data by a set of dimensions. These will become the labels in your time series data.
 
 <img src={require('@site/static/images/custom-metrics-definition.png').default} alt="Screenshot of custom metrics definition tab" />
 

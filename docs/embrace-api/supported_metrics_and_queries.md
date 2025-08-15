@@ -29,6 +29,7 @@ Nevertheless, summing the users metric across dimensions can still provide an es
 :::
 
 ### Deprecated metrics after 2023-10-17:
+
 We have deprecated the following metrics in favor of the new metrics mentioned above.
 All the information provided by these metrics can now be obtained using the new metrics (refer to the Sample Queries section below).
 These deprecated metrics will remain available for retrieving historical data prior to October 30, 2023.
@@ -51,39 +52,39 @@ Refer to this [documentation](/custom-metrics-api/supported_metrics) to know the
 
 ## Sample PromQL queries
 
-* Sessions grouped by devices for a given app version
+- Sessions grouped by devices for a given app version
 ```promql
 sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (device_model)
 ```
 
-* Sessions grouped by session property city and session property state for a given app version
+- Sessions grouped by session property city and session property state for a given app version
 ```promql
 sum(daily_sessions_total{app_id="<app ID>", app_version="1.2.3"}) by (city, state)
 ```
 
-* Percentage of crash free sessions by devices.
+- Percentage of crash free sessions by devices.
 ```promql
 1 - sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessions_total{app_id="$app_id"}) by (device_model) * 100
 ```
 
-* Percentage of crash sessions by devices.
+- Percentage of crash sessions by devices.
 ```promql
 sum(hourly_crashes_total{app_id="$app_id"}) by (device_model) / sum(hourly_sessions_total{app_id="$app_id"}) by (device_model) * 100
 ```
 
 Also, you can pull data for one, multiple, or all of your organization's apps in a single query.
 
-* To pull for a single app, include the `app_id` in the PromQL filter,
+- To pull for a single app, include the `app_id` in the PromQL filter,
 ```promql
 sum(hourly_custom_metric_sessions_total{app_id="a1b2C3"})
 ```
 
-* To pull for multiple apps, include a pipe-delimited array in the filter,
+- To pull for multiple apps, include a pipe-delimited array in the filter,
 ```promql
 sum(hourly_custom_metric_sessions_total{app_id=~"a1b2C3|Z9Y8x7"}) 
 ```
 
-* To pull for all apps, do not include any app ID in the filter,
+- To pull for all apps, do not include any app ID in the filter,
 ```promql
 sum(hourly_custom_metric_sessions_total{})
 ```
@@ -107,4 +108,3 @@ This is the time when the metrics will be available to consume in the Embrace Me
 - Five minute metrics will be available to consume in about 4 minutes. Data point calculated at `2024-11-25 00:05:00` will be available to consume after `2024-11-25 00:10:00`.
 - Hourly metrics will be available to consume in about 15 minutes. Data point calculated at `2024-11-25 01:00:00` will be available to consume after `2024-11-25 01:14:00`.
 - Daily metrics will be available to consume in about 14 hours. Data point calculated at `2024-11-25 00:00:00` will be available to consume after `2024-11-25 14:00:00`.
-

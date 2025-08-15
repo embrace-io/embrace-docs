@@ -29,9 +29,9 @@ In iOS 6.X, you can hook into a callback that lets you modify the captured reque
 :::warning Important
 **The x-emb-path value must meet the following requirements or it will be ignored.**
 
-* Must be a string with a length in the range from 1 to 1024 characters
-* Must start with a /
-* Must only contain ASCII characters
+- Must be a string with a length in the range from 1 to 1024 characters
+- Must start with a /
+- Must only contain ASCII characters
 :::
 
 ```mdx-code-block

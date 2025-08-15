@@ -34,9 +34,11 @@ If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytic
 First, add the Crashlytics support module:
 
 #### Swift Package Manager
+
 Import `EmbraceCrashlyticsSupport` when using Swift Package Manager
 
 #### CocoaPods
+
 Add `pod 'EmbraceIO/EmbraceCrashlyticsSupport'` to your Podfile
 
 Then, configure the SDK to use Crashlytics:

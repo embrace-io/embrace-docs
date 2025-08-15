@@ -11,6 +11,7 @@ To get started, click on "Add new widget" in the menu by your dashboard name.
 <img src={require('@site/static/images/custom_dashboards/Add_Widget_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
 ## Creating a Chart
+
 You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
 
 | Chart Type | Crashes | Network | Logs | Issues | Moments | Sessions | Spans | Historical | Multi-query |
@@ -37,6 +38,7 @@ You can also create Combined graphs in Line vizualizations. With Combined graphs
 **NOTE:** as of 2025-05-20, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts.  
 
 ### Adding Formulas to Graphs
+
 For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relatve to your total sessions, grouped by App Version. To do this:
 
 1. For the inital query A, select Crashes as the source, Crash Count as the metric, and App Version in the group by field.\

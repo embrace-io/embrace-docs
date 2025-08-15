@@ -9,6 +9,7 @@ sidebar_position: 7
 *If you're upgrading from `v1.5.10` or earlier, please note that configuration data will no longer be embedded in our SDK package directory, and instead relocated to your project's Assets folder under `Assets/Embrace`.  Any previously defined configurations will be automatically converted at installation time to the updated format described in this document.*
 
 ## SDK Configuration Options
+
 The behavior of the Embrace Unity SDK can be customized through the same list of configuration options as the Android and iOS SDKs.
 
 Configuration options can be accessed in the **Configurations** tab of the **Settings** window. This window can be opened through the top-level menu **Tools > Embrace > Settings** or by clicking on the **Customize SDK Configuration** button from the **Getting Started** window.
@@ -41,7 +42,7 @@ Out-of-range indices will result in build failure.
 :::
 
 ```EMBRACE_ENVIRONMENTS_NAME```
-* Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
+- Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
 
 :::warning Important
   We only support the use of a single environment variable to specify an Embrace configuration. Please be aware that defining both variables at build-time will result in a failed build.

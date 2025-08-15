@@ -17,6 +17,7 @@ These traces can be augmented with additional attributes and child spans, as wel
 Both [cold](https://developer.android.com/topic/performance/vitals/launch-time#cold) and [warm](https://developer.android.com/topic/performance/vitals/launch-time#warm) app startups will generate traces that track the time between when the app is launched in the foreground and when the designated Activity shows up on screen. Depending on which Android version the app is running on, the start and end times of the trace and what child spans and metadata on the root span that are recorded may differ.
 
 ### Start
+
 Cold startups generate a trace with a root span called `emb-app-startup-cold`. Warm startups generate a trace with a root span called `emb-app-startup-warm`.  
 
 The cold startup trace usually begins at the best estimated time of when the app process is created and specialized for the app. On Android versions before 7, it begins when the Embrace SDK starts, which is recommended to be the first line of the `onCreate()` method of the app's `Application` object.  
@@ -24,6 +25,7 @@ The cold startup trace usually begins at the best estimated time of when the app
 The warm startup trace begins at the best estimated time of when the first Activity is beginning to be instantiated.  
 
 ### End
+
 For both app startup traces, you can configure the SDK so they are ended programmatically (see [Configuration](#configuration)). Otherwise, they will end automatically when the first frame of the startup Activity has been fully rendered, if it can be detected. If not, the time of the Activity's first draw will be used. For Android 5.x, the time when the Activity has reached the `RESUMED` state of its lifecycle will be used instead.
 
 If the app is backgrounded or terminated before startup completes, the trace will end automatically but be marked as abandoned or failed, respectively,
@@ -71,6 +73,7 @@ It's difficult for the SDK to programmatically determine precisely when the app'
 As such, the `applicationInitEnd()` method can be used to notify the SDK when this happens, which will allow it to more accurately assess whether an app startup is cold or warm.
 
 ### Child Spans
+
 Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app startup trace, with the cold or warm root span as their parent.
 
 #### emb-process-init

@@ -23,20 +23,20 @@ configuration.
 
 ### Android
 
-* Android: Android 7.0 (API 24)
-* `minSdkVersion`: 24 or higher
-* `compileSdkVersion`: 34 or higher
-* Java 1.8
-* Kotlin 1.8.22
-* Gradle 7.5.1
-* AGP (Android Gradle Build Tools Plugin) 7.4.2
+- Android: Android 7.0 (API 24)
+- `minSdkVersion`: 24 or higher
+- `compileSdkVersion`: 34 or higher
+- Java 1.8
+- Kotlin 1.8.22
+- Gradle 7.5.1
+- AGP (Android Gradle Build Tools Plugin) 7.4.2
 
 ### iOS
 
-* iOS 13.0
-* Swift 5
-* Known incompatibilities
-  * `@datadog/mobile-react-native`. More details [here](/ios/6x/getting-started/installation.md#known-issues).
+- iOS 13.0
+- Swift 5
+- Known incompatibilities
+  - `@datadog/mobile-react-native`. More details [here](/ios/6x/getting-started/installation.md#known-issues).
 
 ### Supported versions of React Native
 

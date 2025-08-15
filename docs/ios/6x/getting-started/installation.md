@@ -59,9 +59,9 @@ Even when the SDK targets use `-ObjC`, your app target (and any intermediate fra
 This is required when linking static libraries.
 
 Also, ensure that any `.xcconfig` files:
-* Use `+=` instead of `=`.
-* Include `$(inherited)` properly.
-* Apply the flag to both Debug and Release configurations.
+- Use `+=` instead of `=`.
+- Include `$(inherited)` properly.
+- Apply the flag to both Debug and Release configurations.
 
 You can confirm this by using:
 ```bash

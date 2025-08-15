@@ -7,6 +7,7 @@ sidebar_position: 1
 # ANR Reporting
 
 ## What is an ANR?
+
 ANRs (or Application Not Responding) are Android errors indicating that an app is stuck or frozen during a user interaction. It is triggered when the Main Thread (UI thread) of an Android app is blocked for too long. They are triggered mostly if the app does not respond to user input within 5 seconds.
 
 But ANRs can also be caused by:
@@ -17,6 +18,7 @@ But ANRs can also be caused by:
 - When the app is unresponsive the user is presented with an ANR dialog that gives them the option to force quit the application. ANRs may not cause your app to crash but are just as disruptive as crashes to the user experience
 
 ## How does Embrace capture ANRs?
+
 Embrace instantly auto-captures and detects a sample/snapshot of an ANR in production every 100ms as soon as the main thread is not responding for 1 second and until the ANR interval is over
 
 ## Troubleshooting your ANRs
@@ -32,6 +34,7 @@ Embrace instantly auto-captures and detects a sample/snapshot of an ANR in produ
     - **Ad-Focused Sample**: Similar to Most Representative Sample, but this option only considers samples that contain at least one frame associated with an ad SDK.
 
 ### ANR Flame Graph Troubleshooting View
+
 This page will help you understand which parts of your app contribute most to ANRs. You can get to this page from each issue in the summary table from the previous page
   - **Drilling down on notable frames:**  The same hierarchical view from the summary list gets transferred to the flame graph. For the selected issue on the flame graph, you can access and inspect all the significant branches for that specific method across different ANR samples
   - **Common Issues:**  The user can explore different branches of the issue tree in the flame graph while seeing on the right side a list of possible known issues to explore
@@ -46,6 +49,7 @@ This page will help you understand which parts of your app contribute most to AN
       - **Min Width:** the min % of method appearances on the samples needed to appear on the flame graph
 
 ### ANR Method Troubleshooting View
+
 This graph is *anchored* around the selected method. This allows you to see all the code paths that lead to the selected method and the code paths following the method. Users can get to this page from branches in the flame graph and from the known issues list.
   - **Common Issues/Methods ANR contribution:** This view will break the percentage of appearances of the problematic methods across calling or being called by the selected one across the different samples
   - **Sample Sessions:**  same as above, users will have access to “Sample Sessions” from this issue's detailed view

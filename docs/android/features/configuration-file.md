@@ -262,24 +262,24 @@ It is possible to specify build type-, flavor-, and [variant](https://developer.
 
 The order of evaluation is as follows. The first option that is found will be used
 
-* Variant -- `app/src/<variant>/embrace-config.json`
-* Flavor -- `app/src/<flavor>/embrace-config.json`
-* Build type -- `app/src/<build type>/embrace-config.json`
-* Default -- `app/src/main/embrace-config.json`
+- Variant -- `app/src/<variant>/embrace-config.json`
+- Flavor -- `app/src/<flavor>/embrace-config.json`
+- Build type -- `app/src/<build type>/embrace-config.json`
+- Default -- `app/src/main/embrace-config.json`
 
 Note that if you have a project without any flavors configured, then your variant and build type names will be the same.
 
 Let's consider a project with the following structure:
 
-* Two flavors -- `paid` and `free`
-* Two build types -- `debug` and `release`
+- Two flavors -- `paid` and `free`
+- Two build types -- `debug` and `release`
 
 and the following configuration files
 
-* Variant file located at `app/src/paidRelease/embrace-config.json`
-* Flavor file location at `app/src/paid/embrace-config.json`
-* Build type file at `app/src/release/embrace-config.json`
-* Default at `app/src/main/embrace-config.json`
+- Variant file located at `app/src/paidRelease/embrace-config.json`
+- Flavor file location at `app/src/paid/embrace-config.json`
+- Build type file at `app/src/release/embrace-config.json`
+- Default at `app/src/main/embrace-config.json`
 
 | Variant     | Config Used                               | Reason                                                                                          |
 |-------------|-------------------------------------------|-------------------------------------------------------------------------------------------------|

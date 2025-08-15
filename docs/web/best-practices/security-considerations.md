@@ -18,8 +18,8 @@ contained in these attributes should be scrubbed before being exported. By defau
 will check particular attributes related to URL information and redact sensitive tokens following recommendations from
 the [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/3b64cb31022feaacb410bfd6e571c1f19b5fbce0/docs/registry/attributes/url.md?plain=1#L34),
 in particular they will:
-* Redact credentials in URLs passed in the form of `https://username:password@www.example.com/`
-* Redact any query string values for keys that are considered sensitive (defined in the SDK as
+- Redact credentials in URLs passed in the form of `https://username:password@www.example.com/`
+- Redact any query string values for keys that are considered sensitive (defined in the SDK as
 [`DEFAULT_SENSITIVE_TOKENS`](https://github.com/embrace-io/embrace-web-sdk/blob/5020e9ca919e7088a7ef42cc6ac9caaebfd1f370/src/sdk/defaultAttributeScrubbers.ts#L12))
 
 This process can be customized by specifying additional sensitive query string keys to check for with

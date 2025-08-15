@@ -96,4 +96,5 @@ After this is complete, you can re-install the [Embrace SDK from the unitypackag
 - Please refer to the Embrace Apple SDK [Upgrade Guide](/ios/6x/getting-started/migration-guide.md) for as of yet unsupported features on iOS
 
 ## Potential Gradle Issues
+
 Unity SDK 2.x requires a later version of Gradle for Android Builds. If you try to build but are getting Gradle errors it is recommended you update to the latest LTS version of your current Unity version (for example Unity 2021.3.37f to Unity 2021.3.48f). A later version of Unity should include the latest gradle tools. If you are unable to update Unity versions you will need to download Gradle and setup your Unity editor to point to it using Settings > External Tools.
