@@ -80,11 +80,9 @@ Initializing the Embrace SDK from React Native (Javascript) will initialize the 
 
 :::
 
-
 Start by importing the Embrace native SDK in the file that applies for each platform.
 
 <Tabs groupId="platform" queryString="platform">
-
 
 <TabItem value="ios" label="iOS">
 
@@ -198,7 +196,6 @@ As useEffect does not block the render thread, unlike componentDidMount, it migh
 :::
 </TabItem>
 </Tabs>
-
 
 End the startup moment as soon as your users are able to interact with the application.  
 

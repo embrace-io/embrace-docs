@@ -15,18 +15,17 @@ The logs section gives you access to all logs emitted by your application. Embra
 - **Advanced filters**: our advanced filtering capabilities let you filter logs by various attributes about the app, user, device, operating system, session, etc. You could, for example, search for logs from a specific device model used by users in the UK, you can rapidly filter to those logs and then view the correlated sessions. You can also save your filter combinations for reuse them later.
 - **Free-Text Search**: navigate through your logs quickly with our enhanced text search.
 - **Severity level** - Hide/show logs based on the severity level you want to focus on.
-    - **Error**: Indicates critical issues that prevent the app from
+  - **Error**: Indicates critical issues that prevent the app from
     functioning correctly.
-    - **Warning**: Highlights potential problems that could lead to errors
+  - **Warning**: Highlights potential problems that could lead to errors
     in the future.
-    - **Info**: Provides informational messages about normal app activity.
-    - **System**: Shows internal system logs, helpful for advanced
+  - **Info**: Provides informational messages about normal app activity.
+  - **System**: Shows internal system logs, helpful for advanced
     debugging. (iOS Only)
 
 ## Aggregated Logs
 
 <img src={require('@site/static/images/features/logs-aggegated-image.png').default} alt="logs-aggregated" width="700"/>
-
 
 For each log group, this page displays:
 

@@ -21,11 +21,11 @@ Release Health currently supports insights into the following issue types:
 For each issue type, we provide:
 
 - Overall Impact Metrics:
-    - % of affected users
-    - % of affected sessions
+  - % of affected users
+  - % of affected sessions
 - Detailed Breakdown:
-    - Impact per issue type
-    - Comparison delta between selected versions
+  - Impact per issue type
+  - Comparison delta between selected versions
 
 All metrics are computed as a comparison between two groups:
 

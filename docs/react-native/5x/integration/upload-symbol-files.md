@@ -42,7 +42,6 @@ export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/main.jsbundle.map"; <-- Add this
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
-
 </TabItem>
 <TabItem value="android" label="Android">
   By default, source maps are uploaded only for the release variant.

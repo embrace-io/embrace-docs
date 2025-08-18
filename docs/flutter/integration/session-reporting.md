@@ -21,7 +21,6 @@ Here are the steps you'll be taking to create your first session.
 1. [**Build and run the application**](#build-and-run-the-application)
 1. [**Trigger a session upload**](#trigger-a-session-upload)
 
-
 ## Import Embrace
 
 Start by importing Embrace in the file where your `main()` function exists.

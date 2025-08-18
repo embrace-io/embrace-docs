@@ -19,7 +19,6 @@ sidebar_position: 1
 
 <img src={require('@site/static/images/span-relationships.png').default} alt="Spans: Parent-Child Relationship"/>
 
-
 ### Span Outcomes
 
 - **Successful** (definition and if it’s auto or manual set)

@@ -152,7 +152,6 @@ This version of the Unity SDK requires a later version than 2021.3.16f1. It is t
 
 - Upgrade Embrace Android Plugin to Android 6.5.0
 
-
 ## 1.24.0
 
 *March 17, 2024*
@@ -318,7 +317,7 @@ Please update to the latest version.
 
 *April 11, 2023*
 
-- Improved Embrace configuration editor UI  
+- Improved Embrace configuration editor UI
 - Removed editor UI assets from runtime resources
 - Updated Android SDK to version 5.16.0
 
@@ -338,10 +337,10 @@ Please update to the latest version.
 
 - Fixed automatic network capture beta failing to resolve assemblies in some scenarios when the project contains pre-compiled DLLs.
 - The Embrace Unity SDK now explicitly declares dependencies on the following built-in Unity packages:
-    - com.unity.modules.androidjni
-    - com.unity.modules.jsonserialize
-    - com.unity.ugui
-    - com.unity.modules.unitywebrequest  
+  - com.unity.modules.androidjni
+  - com.unity.modules.jsonserialize
+  - com.unity.ugui
+  - com.unity.modules.unitywebrequest
 
 ## 1.10.0
 
@@ -403,9 +402,9 @@ Please update to the latest version.
 - Added support for selecting environment configurations at build time by setting the `EMBRACE_ENVIRONMENTS_NAME` or `EMBRACE_ENVIRONMENTS_INDEX` environment variable
 - Updated Android SDK to version 5.9.0
 - Updated iOS SDK to version 5.12.1
-    - Improved reliability of exception logs on iOS when app is immediately terminated after the exception
-    - Fixed app freezing when encountering a native crash
-    - Fixed some dSYMs failing to upload
+  - Improved reliability of exception logs on iOS when app is immediately terminated after the exception
+  - Fixed app freezing when encountering a native crash
+  - Fixed some dSYMs failing to upload
 
 ## 1.7.6
 
