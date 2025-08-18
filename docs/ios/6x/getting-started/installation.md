@@ -48,10 +48,12 @@ tuist generate
 
 :::tip
 If Embrace doesn't link properly at first, make sure to clean caches and then install and generate the xcodeproj:
+
 ```bash
 rm -rf ~/Library/Developer/Xcode/DerivedData
 tuist clean
 ```
+
 :::
 
 :::info Additional Notes / Troubleshooting
@@ -64,9 +66,11 @@ Also, ensure that any `.xcconfig` files:
 - Apply the flag to both Debug and Release configurations.
 
 You can confirm this by using:
+
 ```bash
 xcodebuild -showBuildSettings -target YourAppTarget
 ```
+
 And checking that `OTHER_LDFLAGS` includes `-ObjC`.
 :::
 
@@ -88,14 +92,17 @@ By default, this command installs all the necessary components to use the SDK.
 If you wish to continue using Crashlytics as your primary crash reporter while also
 having those crashes reported to the Embrace Dashboard and using all associated features,
 you will need to install an additional pod:
+
 ```ruby
 pod 'EmbraceIO/EmbraceCrashlyticsSupport'
 ```
+
 :::
 
 ## Known Issues
 
 - **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/).  
+
 We have forked the Datadog SDK and created a version that can integrate better with other frameworks. It can be found in [our public repository](https://github.com/embrace-io/dd-sdk-ios).
 
 - **SwiftUI Hosting Controllers**: Some very short-lived view controllers, particularly in hosting controllers acting as internal bridges in SwiftUI, may experience issues. These have been addressed in recent versions.

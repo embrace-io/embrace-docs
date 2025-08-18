@@ -60,6 +60,7 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 **Important Notes**
 
 :::warning Important
+
 - The API can only be called after the SDK has been started. If a call is made prior to starting the Embrace SDK you will get a response of `INVALID`
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
 :::

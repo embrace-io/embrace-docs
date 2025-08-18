@@ -175,7 +175,7 @@ let GRAFANA_LOGS_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/
 
 Similar to iOS, if you already ran the install script you will see the following line already in place in your `MainApplication` file:
 
-```
+```text
 Embrace.getInstance().start(this)
 ```
 
@@ -290,7 +290,7 @@ page for more details.
 <TabItem value="ios" label="iOS">
 
 When initializing in the JS layer you can simply include the `disabledUrlPatterns` key, in the above example if you were
-exporting to Grafana you would add the following in the `SDK_CONFIG`:  
+exporting to Grafana you would add the following in the `SDK_CONFIG`:
 
 ```json
 "disabledUrlPatterns": [

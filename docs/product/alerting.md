@@ -99,6 +99,7 @@ This is the format of a Slack message for an alert:
 ### Webhook
 
 Here's a sample webhook data for an alert:
+
 ```json
 {
   "msg": "",

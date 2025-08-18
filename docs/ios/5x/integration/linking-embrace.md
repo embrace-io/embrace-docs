@@ -15,8 +15,7 @@ We support four methods for accomplishing that:
 - [**Swift Package Manager.**](/ios/5x/integration/linking-embrace/#swift-package-manager) Use Xcode to manage the Embrace dependency for you.
 - [**Manual.**](/ios/5x/integration/linking-embrace/#manual) You will download the framework directly and manually link it with your project.
 
-We’ve broken out the integration for each method individually below.
-You only need to look at the section relevant to your application and can safely skip the other 3.  
+We’ve broken out the integration for each method individually below. You only need to look at the section relevant to your application and can safely skip the other 3.
 
 Make sure to continue reading after linking to learn how to open and use the Embrace Dashboard.
 
@@ -69,12 +68,14 @@ artifact in this case.
 
 First edit or create a `Cartfile` at the root of your project, add a line to file
 as follows:
-```
+
+```text
 binary "https://downloads.embrace.io/embrace-apple-sdk.json"
 ```
 
 If you also have an Apple TV target in your project, also add this to your `Cartfile`:
-```
+
+```text
 binary "https://downloads.embrace.io/embrace-apple-tvos-sdk.json"
 ```
 
@@ -93,7 +94,7 @@ Carthage update
 <img src={require('@site/static/images/carthage-download-example.png').default} />
 
 At this point Carthage has downloaded the Embrace binary artifact and placed it
-in a folder at the root of your project.  
+in a folder at the root of your project.
 
 To continue with your integration, find that framework and have its location
 open in a finder window. Also, open your project or workspace in xcode. From
@@ -138,7 +139,7 @@ Finally you should now see the Embrace package has been added to your project an
 ## Manual
 
 Although adding a new framework to your project manually may seem difficult, the process
-is actually pretty straightforward in recent Xcode releases. Just follow along  
+is actually pretty straightforward in recent Xcode releases. Just follow along
 with the screenshots and reach out on Slack if you want any help during the process.
 
 Here is the general process we will be following:
@@ -149,9 +150,11 @@ Here is the general process we will be following:
 1. Import Embrace and perform a test build
 
 First we must download the latest Embrace release which you can do using the following command:
+
 ```shell-session
 curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://downloads.embrace.io/embrace_{{ embrace_sdk_version platform="ios" }}.zip
 ```
+
 After downloading the zip, extract it into a location within your project. If you
 don't already have a spot for third party frameworks, we recommend following the
 file structure shown here:

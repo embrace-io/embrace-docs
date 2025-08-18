@@ -28,7 +28,7 @@ Anything taking place exclusively within the WebView is not captured.
 
 ### **I don't want to capture query params for webviews. How can I turn that off?**
 
-In SDK version 3.2.6 and higher, you can set the `WEBVIEW_STRIP_QUERYPARAMS` boolean field in the `Embrace-Info.plist` to true.  
+In SDK version 3.2.6 and higher, you can set the `WEBVIEW_STRIP_QUERYPARAMS` boolean field in the `Embrace-Info.plist` to true.
 
 ### **Can you embed Embrace in a separate Framework?**
 
@@ -98,9 +98,9 @@ If you have Bitcode-enabled builds, the dSYMs generated during the build process
 
 ### dSYM generation not enabled
 
-If you have not enabled dSYM generation for your target and build type, you will get a warning message in your build log.  
+If you have not enabled dSYM generation for your target and build type, you will get a warning message in your build log.
 
-```
+```text
 DEBUG_INFORMATION_FORMAT set to 'dwarf'. Skipping upload. 
 Set to 'dwarf-with-dsym' to generate a dSYM for your application
 ```
@@ -150,7 +150,7 @@ dSYM debug mode allows you to view all the upload-related logs in the Xcode buil
 
 To enable debug mode, set the environment variable `EMBRACE_DEBUG_DSYM=1`, e.g. your build step would have this format
 
-```
+```shell-session
 EMBRACE_DEBUG_DSYM=1 EMBRACE_ID=NNNNN EMBRACE_TOKEN=0123456789abcdef0123456789abcdef "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 
@@ -170,8 +170,7 @@ We use this approach to restrict the impact to the user if too much data was col
 
 This depends on the app's implementation of gRPC.
 
-- If your gRPC implementation is built using `URLSession`, requests will automatically be tracked in Embrace's networking page.  
-
+- If your gRPC implementation is built using `URLSession`, requests will automatically be tracked in Embrace's networking page.
 - If the implementation does NOT use `URLSession`, you should use manual instrumentation to create spans with all the necessary information about your gRPC requests. Please see our page on [capturing other forms of networking](/ios/6x/manual-instrumentation/network-instrumentation.md) for more information.
 
 ### **Do you support GraphQL?**
@@ -193,11 +192,14 @@ The above example is for Apollo's GraphQL implementation. As you can see there a
 2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
 
 The the format for the above example will be this
-``` 
+
+```text
 /graphql/(value for X-APOLLO-OPERATION-NAME header)
 ```
+
 With a possible fully generated path as this
-```
+
+```text
 /graphql/Notifications
 ```
 

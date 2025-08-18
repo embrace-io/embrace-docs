@@ -43,14 +43,18 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 Embrace.getInstance().startMoment("addItem")
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 Embrace.getInstance().startMoment("addItem");
 ```
+
 </TabItem>
 </Tabs>
 
@@ -69,14 +73,18 @@ Next, here's how you end a moment.
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 Embrace.getInstance().endMoment("addItem")
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 Embrace.getInstance().endMoment("addItem");
 ```
+
 </TabItem>
 </Tabs>
 

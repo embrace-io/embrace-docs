@@ -42,6 +42,7 @@ export default class App extends Component {
   }
 }
 ```
+
 </TabItem>
 <TabItem value="hooks" label="Hooks">
 
@@ -87,6 +88,7 @@ Start by importing the Embrace native SDK in the file that applies for each plat
 <TabItem value="ios" label="iOS">
 
 Open the `AppDelegate.m` file (usually located at `<project root>/ios/<MyApp>/AppDelegate.m`) and import Embrace.
+
 ```objectivec
 #import <Embrace/Embrace.h>
 ```
@@ -189,6 +191,7 @@ const App = ()=> {
 }
 export default App
 ```
+
 :::info
 
 As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your background process are finished and the user is able to interact with the application.

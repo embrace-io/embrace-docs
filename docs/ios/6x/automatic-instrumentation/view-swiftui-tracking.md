@@ -99,6 +99,7 @@ The macro is only available through Swift Package Manager.
 Apply view tracing by adding a modifier to any view.
 
 **Parameters**
+
 - **name** (*required*): Automatically detected in macro.
 - **attributes** (*optional*):  
 Custom attributes to add additional context to the created spans.

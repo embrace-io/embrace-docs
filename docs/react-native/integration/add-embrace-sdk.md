@@ -80,6 +80,7 @@ project to add the native dependencies. The setup scripts can be found in your
 `node_modules` folder at `node_modules/@embrace-io/dist/scripts/setup`
 
 **Run the setup script**
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
 ```
@@ -90,9 +91,11 @@ node node_modules/@embrace-io/react-native/lib/scripts/setup/installIos.js
 
 :::info Clean Up Embrace implementation
 If you need to clean up an Embrace implementation added manually or by our scripts you can use our uninstall script
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/uninstall.js
 ```
+
 :::
 
 You can use git to see the changes that the script made.
@@ -195,13 +198,13 @@ See [this GitHub issue](https://github.com/expo/expo/issues/17705) for more deta
 
 In your `android/app/build.gradle` if you have
 
-```
+```text
 apply from react.gradle
 ```
 
 try replacing it with:
 
-```
+```text
 apply plugin: "com.facebook.react"
 ```
 

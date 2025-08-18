@@ -8,7 +8,7 @@ sidebar_position: 6
 
 ## Create your first session
 
-Now that you've got Embrace linked and know how to login to the Embrace dashboard, it's time to collect your first session.  
+Now that you've got Embrace linked and know how to login to the Embrace dashboard, it's time to collect your first session.
 
 Embrace always uploads sessions on subsequent launches. This means the general
 process we're going to follow to collect our first session is:
@@ -36,14 +36,15 @@ You will then access the shared instance of this class from anywhere in your pro
 Embrace.Instance.
 ```
 
-From there you can call any public method on the API.  
+From there you can call any public method on the API.
 
 Our SDK has three runtime modes:
+
 1. `Android` - in this mode Embrace logs to logcat. This mode is only activated if your build target is currently Android.
 2. `iOS` - in this mode Embrace logs to the system console. This mode is only activated in your build target is iOS.
 3. `Editor` - in this mode Embrace logs to the Unity console. This mode is active when you run inside the editor regardless of build target. Embrace only logs the actions it would perform. No data is uploaded while running in the editor.
 
-   For all other build targets, the result of Embrace API calls are no-ops. You can make calls to the Embrace SDK in shared code, but on platforms like Windows or macOS those calls will do nothing and no data is uploaded to Embrace.
+For all other build targets, the result of Embrace API calls are no-ops. You can make calls to the Embrace SDK in shared code, but on platforms like Windows or macOS those calls will do nothing and no data is uploaded to Embrace.
 
 ## Add a start call
 

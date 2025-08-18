@@ -13,7 +13,7 @@ Embrace will automatically track those threads and add logs to your session when
 
 When JavaScript threads terminate, your users see a blank white view where your content used to be. Embrace can automatically reload your content if you set this flag in your `Embrace-Info.plist` file:
 
-```
+```text
 ENABLE_WK_AUTO_RELOAD
 ```
 

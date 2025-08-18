@@ -23,16 +23,20 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 Embrace.getInstance().addUserPersona("internal_user")
 Embrace.getInstance().setUserIdentifier("internal_user_id_123")
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 Embrace.getInstance().addUserPersona("internal_user");
 Embrace.getInstance().setUserIdentifier("internal_user_id_123")
 ```
+
 </TabItem>
 </Tabs>
 
@@ -48,14 +52,18 @@ You can also set customized values for specific use cases or segments of users.
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 Embrace.getInstance().addUserPersona("high_value_cart")
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 Embrace.getInstance().addUserPersona("high_value_cart");
 ```
+
 </TabItem>
 </Tabs>
 

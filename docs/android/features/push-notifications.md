@@ -45,6 +45,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 val isNotification = true
 val hasData = true
@@ -59,8 +60,10 @@ Embrace.getInstance().logPushNotification(
     hasData
 )
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 boolean isNotification = true
 boolean hasData = true
@@ -75,5 +78,6 @@ Embrace.getInstance().logPushNotification(
     hasData
 );
 ```
+
 </TabItem>
 </Tabs>

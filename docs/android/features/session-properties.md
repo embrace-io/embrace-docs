@@ -19,14 +19,18 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false)
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false);
 ```
+
 </TabItem>
 </Tabs>
 

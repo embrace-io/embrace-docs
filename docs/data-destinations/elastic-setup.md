@@ -35,7 +35,9 @@ integration. The instructions below are for the default server URLs.
 ## Create Elastic Data Destination
 
 1. Navigate to the [Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations) and select
+
 Add Data Destination.  
+
 1. Select Elastic in the dropdown and the apps that you want to forward.
 1. Input the secret token and server URL.
 

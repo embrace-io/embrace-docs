@@ -3,6 +3,7 @@
 # Upgrading from 1.x to 2.x
 
 :::info Summary
+
 - On iOS, Embrace Unity SDK requires additional initialization step via code.
 - Moments have been replaced by Traces
 - Some deprecated features have been removed

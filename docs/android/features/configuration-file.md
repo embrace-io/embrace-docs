@@ -187,8 +187,10 @@ Disable capture of network length which can interfere with certain streaming net
 #### networking - disabled_url_patterns *string array*
 
 Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
-```
+
 Example: 
+
+```text
 "disabled_url_patterns": [".*"], // Will disable network calls for all URLs
 ```
 
@@ -207,7 +209,8 @@ Declares the key that should be used to capture network request bodies, if any.
 #### sensitive_keys_denylist *string array*
 
 List of keys that will be redacted from any key-value pair sent by the SDK, such as event attributes, span attributes, log attributes, and session properties. Values for keys present in this list will be replaced by a `<redacted>` string
-```
+
+```text
 Example: 
 "sensitive_keys_denylist": ["secret"] // Will change to <redacted> any value tied to a "secret" key
 ```
