@@ -144,7 +144,9 @@ In other instances, a library may disable the initializer. In such a scenario, t
 </provider>
 ```
 
-_Note: Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change._
+:::info Note
+Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.
+:::
 
 _Please contact us if you have any questions or require help._
 
