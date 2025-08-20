@@ -3,7 +3,7 @@ title: Network
 sidebar_position: 3
 ---
 
-## Adding First Party Domains
+# Adding First Party Domains
 
 By default, Embrace has no way of knowing which of your calls are First Party. However, you can set this up easily in the Settings page.
 

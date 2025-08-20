@@ -144,9 +144,9 @@ In other instances, a library may disable the initializer. In such a scenario, t
 </provider>
 ```
 
-*Note: Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.*
+_Note: Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change._
 
-*Please contact us if you have any questions or require help.*
+_Please contact us if you have any questions or require help._
 
 ### **How do I override the version of OkHttp to be lower than the one Embrace specifies?**
 
@@ -233,7 +233,7 @@ If you use a library not listed or do not see expected network calls, please con
 ### **Compatibility with Akamai, Cloudflare, PacketZoom and Other Networking Services**
 
 Embrace is compatible with SDKs that optimize networking, such as those from Akamai, Cloudflare, and PacketZoom.
-However, it is important that the Embrace SDK is initialized *after* any of these types of SDKs are initialized to ensure
+However, it is important that the Embrace SDK is initialized _after_ any of these types of SDKs are initialized to ensure
 that our SDK captures network requests.
 
 ### **My network calls are not being captured. What could be going wrong?**
@@ -286,7 +286,7 @@ Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in
 Trace IDs longer than 64 characters will be truncated
 :::
 
-# Unity
+## Unity
 
 ## Why am I seeing a `Semaphore.tryAcquire` ANR in `UnityPlayerActivity.onPause`?
 

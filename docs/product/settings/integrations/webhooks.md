@@ -8,7 +8,7 @@ The Embrace Webhooks feature is an outgoing webhook sent by Embrace  when an ale
 
 <img src={require('@site/static/images/webhooks/image1.png').default} />
 
-## Generic Webhook
+# Generic Webhook
 
 In order to see a sample of the payload sent by the Embrace dash, you can setup a test webhook with [webhook.site](https://webhook.site/):
 

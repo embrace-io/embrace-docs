@@ -4,7 +4,7 @@ description: Setting up the Embrace Web SDK in your application
 sidebar_position: 1
 ---
 
-## Install the package
+# Install the package
 
 npm:
 

@@ -35,7 +35,7 @@ Embrace is configured via an `Embrace-Info.plist` file placed at the root of the
 
 As you can see there are many properties available. Even so most apps that use Embrace do not include this file at the start. The common setup options are all available via API. You will only require this file if you intend to use one of our more advanced configuration options.
 
-#### CRASH_REPORT_PROVIDER *string, optional*
+### CRASH_REPORT_PROVIDER *string, optional*
 
 Determines which type of crash reporting embrace uses. It accepts three values
 

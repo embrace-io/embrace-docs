@@ -28,7 +28,7 @@ This discrepancy arises from the potential overlap of users across different dim
 Nevertheless, summing the users metric across dimensions can still provide an estimate of the total user counts.
 :::
 
-### Deprecated metrics after 2023-10-17:
+### Deprecated metrics after 2023-10-17
 
 We have deprecated the following metrics in favor of the new metrics mentioned above.
 All the information provided by these metrics can now be obtained using the new metrics (refer to the Sample Queries section below).

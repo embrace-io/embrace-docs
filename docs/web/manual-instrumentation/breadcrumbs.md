@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Breadcrumbs are a lightweight way to add context to user activity in a session.
 
-### Basic Breadcrumb Usage
+## Basic Breadcrumb Usage
 
 Here's how you add a breadcrumb to the session:
 

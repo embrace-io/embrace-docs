@@ -1,6 +1,6 @@
 # Upgrade guide
 
-# Upgrading from 3.x to 4.x
+## Upgrading from 3.x to 4.x
 
 The Android SDK has been updated to the latest major version. This has changes that affect all Flutter users:
 
@@ -15,7 +15,7 @@ The Android SDK has been updated to the latest major version. This has changes t
 
 If you have written additional Android code as part of your integration you may need to perform additional migrations. Please see the [Android](https://embrace.io/docs/android/upgrading/) upgrade guide for further information.
 
-# Upgrading from 2.0.0 to 3.0.0
+## Upgrading from 2.0.0 to 3.0.0
 
 Replace the contents of your iOS `AppDelegate` with the [new approach](/flutter/integration/add-embrace-sdk/#ios-setup) of initializing the Embrace SDK. If you have custom configuration or have written Swift/Obj-C code that invokes Embrace, please also follow the [iOS upgrade guide](/ios/6x/getting-started/migration-guide.md).
 
@@ -23,7 +23,7 @@ Replace the contents of your iOS `AppDelegate` with the [new approach](/flutter/
 
 `Embrace.instance.getSessionProperties` is removed.
 
-# Upgrading from 1.5.0 to 2.0.0
+## Upgrading from 1.5.0 to 2.0.0
 
 The methods marked as deprecated in 1.5.0 have been removed from this release.
 
@@ -39,7 +39,7 @@ buildscript {
 
 Please refer to the [Android setup guide](/flutter/integration/add-embrace-sdk/#android-setup) for further information.
 
-# Upgrading from 1.4.0 to 1.5.0
+## Upgrading from 1.4.0 to 1.5.0
 
 Version 1.5.0 of the Embrace Flutter SDK renames some functions. This has been done to reduce
 confusion and increase consistency across our SDKs.

@@ -4,7 +4,7 @@ description: Recommendations and best practices around Sampling in the Embrace S
 sidebar_position: 2
 ---
 
-## Limiting Traffic in Embrace
+# Limiting Traffic in Embrace
 
 Developers familiar with observability may wish to sample their telemetry from the Embrace SDKs. As a practice, sampling makes sense in traditional monitoring:
 

@@ -75,7 +75,7 @@ In order to prevent code obfuscation, the following rule must be added into your
 
 `onClickLabel` or `contentDescription` must be added to have a proper way to identify a clicked element. Remember that `onClickLabel` will have more priority if both properties are set.
 
-#### onClickLabel:
+#### onClickLabel
 
 Clickable modifier to define a label and the onClick callback:
 
@@ -100,7 +100,7 @@ IconToggleButton(
 ){ ... }
 ```
 
-#### contentDescription:
+#### contentDescription
 
 Content description will be considered only if the element contains an OnClick modifier.
 

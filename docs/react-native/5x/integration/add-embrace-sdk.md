@@ -33,7 +33,7 @@ For iOS you will also need to install the pod:
 cd ios && pod install --repo-update
 ```
 
-# Adding the SDK  
+## Adding the SDK
 
 ## Setup Script
 

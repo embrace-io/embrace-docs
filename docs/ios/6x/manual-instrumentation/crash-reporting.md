@@ -244,7 +244,7 @@ If crashes aren't appearing in the dashboard:
 3. Check that dSYM files are uploaded for proper symbolication
 4. Verify your App ID is correct
 
-**For CrashlyticsReporter specifically:**
+   **For CrashlyticsReporter specifically:**
 
 5. Ensure Firebase Crashlytics is properly configured and working
 6. Verify Firebase Crashlytics network requests are being made
@@ -266,9 +266,9 @@ If using CrashlyticsReporter and experiencing issues:
 3. **Network dependency**: CrashlyticsReporter requires network connectivity to capture crashes from Firebase requests
 4. **Firebase SDK issues**: CrashlyticsReporter depends on Firebase Crashlytics SDK functionality, which Embrace cannot control
 
-:::info Firebase Dependency Considerations
-CrashlyticsReporter relies on Firebase Crashlytics SDK functionality. If Firebase has issues, bugs, or breaking changes, it may affect crash capture. For complete control over crash reporting, we recommend using EmbraceCrashReporter.
-:::
+   :::info Firebase Dependency Considerations
+   CrashlyticsReporter relies on Firebase Crashlytics SDK functionality. If Firebase has issues, bugs, or breaking changes, it may affect crash capture. For complete control over crash reporting, we recommend using EmbraceCrashReporter.
+   :::
 
 ### Symbolication Issues
 

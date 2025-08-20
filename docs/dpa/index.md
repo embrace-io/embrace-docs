@@ -72,11 +72,11 @@ This DPA is effective upon the Effective Date of the Agreement and will continue
 
 ### Part A
 
-*Data exporter:*
+_Data exporter:_
 
 Contact details shall be found in the Customer's Agreement, account, and/or Order Form. The signature and date shall be the date of the Agreement incorporating this DPA.
 
-*Data importer:*
+_Data importer:_
 
 Contact details: support@embrace.io, 1901 Avenue of the Stars, Suite 200, Los Angeles, CA 90067
 

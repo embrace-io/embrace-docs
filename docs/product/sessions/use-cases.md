@@ -3,7 +3,7 @@ title: Use Cases
 sidebar_position: 3
 ---
 
-## Dig into user activities
+# Dig into user activities
 
 ## Pinpoint where something went wrong
 
