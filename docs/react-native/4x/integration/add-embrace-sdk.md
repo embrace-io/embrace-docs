@@ -22,7 +22,7 @@ npm install @embrace-io/react-native --save
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
 
-# Adding the SDK  
+## Adding the SDK
 
 ## Setup Script
 

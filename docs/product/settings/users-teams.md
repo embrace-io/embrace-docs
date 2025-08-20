@@ -5,7 +5,7 @@ sidebar_position: 2
 
 Roles categorize users and define what permissions those users have in the Embrace dashboard, such as what projects they can read or what settings they can modify.
 
-## 1. Organization Roles
+# 1. Organization Roles
 
 To configure roles for your organization:
 
@@ -13,7 +13,7 @@ To configure roles for your organization:
 2. Click on the [Users & Teams](https://dash.embrace.io/settings/organization/users-and-teams/users) tab on the left hand navigation bar.
 3. On this page you can add, remove, and edit user roles & teams.
 
-### Adding New Users
+## Adding New Users
 - New users are added as members by default
 - Only Admins can change the roles of users
 
@@ -67,9 +67,7 @@ Projects can also be configured to allow default access for all org members for 
 - Regular: All members have regular access
 - Restricted: Only specified users & teams have access to the project
 
-
 ---
-
 
 ## 4. Example Org and Project Configuration
 

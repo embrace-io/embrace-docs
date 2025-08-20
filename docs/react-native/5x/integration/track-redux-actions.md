@@ -40,7 +40,7 @@ import {buildEmbraceMiddleware} from '@embrace-io/react-native-action-tracker';
 import myReducer from './reducers/MyReducer';
 import otherMiddleware from './middlewares/OtherMiddleware';
 
-//Add the embrace middleware 'buildEmbraceMiddleware' an
+// Add the Embrace middleware 'buildEmbraceMiddleware' an
 const middlewareEnhancer = applyMiddleware(otherMiddleware(), buildEmbraceMiddleware());
 
 const composedEnhancers = compose(middlewareEnhancer);

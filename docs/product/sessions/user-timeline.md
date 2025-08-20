@@ -4,11 +4,11 @@ description: User Timeline
 sidebar_position: 1
 ---
 
-## User Timeline
+# User Timeline
 
 The User Timeline offers a granular view of each user's session, showcasing every interaction, network request, and crash.
 
-### Page Elements
+## Page Elements
 
 The User Timeline page provides developers with a glimpse of an individual user's activity. This page include three sections:
 
@@ -29,7 +29,7 @@ Views
 Web Views
 You can filter these items. -->
 
-###  Timeline
+### Timeline
 
 The horizontal timeline provides an overview of the session, highlighting different events such as network requests, crashes, and user interactions. Hovering over the timeline reveals details of activities at specific times. You can customize your view by filtering out events as per your preference.
 

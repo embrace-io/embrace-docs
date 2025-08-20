@@ -33,7 +33,7 @@ For iOS you will also need to install the pod:
 cd ios && pod install --repo-update
 ```
 
-# Adding the SDK  
+## Adding the SDK
 
 ## Setup Script
 
@@ -149,9 +149,7 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 
 ---
 
-There's a little more configuration we have to do to set up the uploading of symbol files.
-You'll be learning about that next.
-
+There's a little more configuration we have to do to set up the uploading of symbol files. You'll be learning about that next.
 
 ## Troubleshooting
 

@@ -5,7 +5,7 @@ sidebar_position: 4
 
 The Javascript Exceptions page gives an overview of all handled and unhandled exceptions on web pages captured by Embrace.
 
-## Exceptions Summary and List
+# Exceptions Summary and List
 
 The Exceptions page provides a summary of all exceptions encountered, the total unique exceptions encountered, and the number of users that have been affected by these exceptions.
 

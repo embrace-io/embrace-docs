@@ -23,7 +23,7 @@ You can edit and build these docs on your local machine by pulling the repo and 
 ### Installation
 
 ```console
-$ npm i
+npm i
 ```
 
 This command will install all node packages and their dependencies. This command is usually optional, as the packages are prebuilt in this repository.
@@ -31,7 +31,7 @@ This command will install all node packages and their dependencies. This command
 ### Start  
 
 ```console
-$ npm start
+npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live when a file is saved, without having to restart the server.
@@ -39,7 +39,7 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 ```console
-$ npm run build
+npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.

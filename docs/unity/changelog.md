@@ -51,7 +51,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *December 12, 2024*
 :::warning Info
-Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the current Unity build pipeline. To handle this issue, after creating your XCode project, add a Dummy Swift file to the UnityFramework target. This will adjust the linker pipeline to invoke Swift appropriately.
+Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the current Unity build pipeline. To handle this issue, after creating your Xcode project, add a Dummy Swift file to the UnityFramework target. This will adjust the linker pipeline to invoke Swift appropriately.
 
 For further information, please refer to this discussion: https://github.com/CocoaPods/CocoaPods/issues/11960
 :::
@@ -219,7 +219,7 @@ This version also has an issue on newer versions of Unity iOS where the linker p
 - Updated iOS SDK to 5.24.2
 - Updated Android SDK to 6.1.0 (Bug Shake uses the Bug Shake Plugin version 0.9.0)
 - Patched iOS SDK specific issue involving Current Session ID API
-- Patched code signature issue on iOS for XCode 15
+- Patched code signature issue on iOS for Xcode 15
 - Increase our minSdkVersion to API 21
 - Increase our minimum AGP to 4.0.0
 - Increase our minimum Gradle version to 6.1.1
@@ -236,7 +236,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 :::warning Important
 This version of the Unity SDK has two issues:
 - Build blocking issue on iOS around the current session ID API
-- Build blocking issue on iOS regarding code signature issues with XCode 15
+- Build blocking issue on iOS regarding code signature issues with Xcode 15
 
 Please update to the latest version.
 :::
@@ -260,7 +260,7 @@ Please update to the latest version.
 - Embrace.Instance now has a .IsStarted boolean property that reports if the Embrace SDK has finished starting/initializing.
 - Support for uploading il2cpp metadata for symbolication Unity C# code
 - Added more obvious in-window reports indicating incomplete integration of Embrace Unity SDK
-- Fixed: XCode Symbol Upload Build Phase now uses unix newline character instead of current environment line ending
+- Fixed: Xcode Symbol Upload Build Phase now uses unix newline character instead of current environment line ending
 - Fixed: Automatic Network Capture reporting connection error when result was protocol error.
 - Updated internal iOS Embrace SDK to 5.23.2
 - Updated internal Android Embrace SDK to 5.25.0
@@ -458,7 +458,7 @@ This version includes a compatibility issue with Embrace Android SDK versions 5.
 
 - Updated Android SDK to version 5.6.1
 - Updated iOS SDK to version 5.9.3
-- Fixed a UI bug with the Getting Started and Embrace Settings windows that occured when the Environments object was deleted from embrace data directory manually.
+- Fixed a UI bug with the Getting Started and Embrace Settings windows that occured when the Environments object was deleted from Embrace data directory manually.
 
 ## 1.7.2
 
@@ -600,7 +600,7 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 *February 11, 2022*
 
 - Fixes TimeUtil main thread bug.
-- Updated android config settings.
+- Updated Android config settings.
 - Upgrades native Android SDK to 4.15.0 for builds using the external dependency manager.
 
 ## 1.3.7
@@ -657,7 +657,7 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 *September 17, 2021*
 
-- Improved how configuration files are handled for both IOS and Android.
+- Improved how configuration files are handled for both iOS and Android.
 
 ## 1.2.13
 
@@ -709,14 +709,14 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 *May 27, 2021*
 
-- Update android dependency to 4.8.10
+- Update Android dependency to 4.8.10
 - Ensure JNI is always attached to current thread before usage
 
 ## 1.2.5
 
 *May 17, 2021*
 
-- Update android dependency to 4.8.7
+- Update Android dependency to 4.8.7
 
 ## 1.2.4
 

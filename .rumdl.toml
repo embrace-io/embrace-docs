@@ -1,5 +1,5 @@
 [global]
-disable = ["MD013", "MD033", "MD036"]
+disable = ["MD013", "MD033", "MD034", "MD036", "MD044"]
 
 include = [
     "docs/**/*.md",
@@ -27,11 +27,11 @@ respect_gitignore = true
 # tables = false  # Exclude tables from line length check
 # headings = true  # Include headings in line length check
 
-#[MD044]
-#names = ["GitHub", "iOS", "Xcode", "macOS", "Node.js", "JavaScript", "OpenTelemetry", "OTel", "New Relic", "Datadog", "Honeycomb", "Embrace"]
-#code_blocks = false
-#html_elements = false
-#html_comments = false
+[MD044]
+names = ["GitHub", "iOS", "Xcode", "macOS", "Node.js", "JavaScript", "OpenTelemetry", "OTel", "New Relic", "Datadog", "Honeycomb", "Embrace", "SDK", "API"]
+code_blocks = false
+# html_elements = false
+html_comments = false
 
 [MD004]
 style = "dash"

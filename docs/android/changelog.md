@@ -1150,13 +1150,13 @@ This version has known issues and should not be used
 - Fixed a network path override issue when network requests ended in connection errors.
 - Improved sourcemap upload task for React Native
 
-##  3.7.2
+## 3.7.2
 
 *November 7, 2019*
 
 - Added a config setting to allow disabling of gunzipping of requests made with the native Android network request framework. By default the SDK handles the gunzipping to allow response size to be computed, but this can interfere with certain services.
 
-##  3.7.1
+## 3.7.1
 
 *October 22, 2019*
 
@@ -1178,13 +1178,13 @@ This version has known issues and should not be used
 
 - Fixed issue that prevented uploading of mapping info when using r8
 
-##  3.6.1
+## 3.6.1
 
 *September 13, 2019*
 
 - Added option to allow startup screenshots to be disabled
 
-##  3.6.0
+## 3.6.0
 
 *September 10, 2019*
 
@@ -1192,14 +1192,14 @@ This version has known issues and should not be used
 - Fixed bug that could cause an exception when using other SDKs that monitor network traffic
 - Fixed bug that prevented connection error types from being correctly reported
 
-##  3.5.1
+## 3.5.1
 
 *August 12, 2019*
 
 - Handles attempt to set trace ID before SDK initialization
 - Re-added removed `logNetworkCall` and `logNetworkClientError` methods
 
-##  3.5.0
+## 3.5.0
 
 *August 9, 2019*
 
@@ -1214,13 +1214,13 @@ This version has known issues and should not be used
 - Switched from using API to implementation for dependencies
 - Added missing public event-related methods to match the iOS SDK
 
-##  3.4.1
+## 3.4.1
 
 *July 22, 2019*
 
 - Fixed typos in methods to set bytes in and out for manually-captured requests
 
-##  3.4.0  
+## 3.4.0
 
 *July 22, 2019*
 

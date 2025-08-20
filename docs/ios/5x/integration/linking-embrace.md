@@ -97,7 +97,7 @@ At this point Carthage has downloaded the Embrace binary artifact and placed it
 in a folder at the root of your project.
 
 To continue with your integration, find that framework and have its location
-open in a finder window. Also, open your project or workspace in xcode. From
+open in a finder window. Also, open your project or workspace in Xcode. From
 here you should follow the Carthage integration documentation for adding
 frameworks to a project, which you can find [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 
@@ -190,7 +190,5 @@ curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://downloads.embra
    At this point you've completed the manual integration of Embrace. You can now
    import the Embrace module into your application and perform a test build to make
    sure this all worked.
-
-   ---
 
    Next, let's look at how sessions are sent to Embrace.

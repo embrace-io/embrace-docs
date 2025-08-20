@@ -3,9 +3,9 @@ title: Technical Details
 sidebar_position: 1
 ---
 
-## Technical Details for Performance Tracing
+# Technical Details for Performance Tracing
 
-### Definitions
+## Definitions
 
 **Trace**: Describes the end-to-end journey of one or more connected spans.
 
@@ -32,7 +32,7 @@ sidebar_position: 1
 - **Slowest Spans**: Spans completed successfully with duration > p95.
 - **Fastest Spans**: Spans completed successfully and not slow (with duration < p95).
 
-### Types of Unsuccessful Spans:
+### Types of Unsuccessful Spans
 
 - **Error**: Spans encountered an error.
 - **Unknown**: Insufficient data to determine outcome.

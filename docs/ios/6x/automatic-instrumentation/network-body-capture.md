@@ -13,7 +13,7 @@ This feature can only be enabled by your Embrace CS representative, so reach out
 
 Since this data can be sensitive, the Embrace SDK will encrypt the data before uploading it to our servers. You'll have to provide to your Embrace CS representative a public key that will be used to encrypt the captured data before being stored.
 
-### Generating a Public Key
+## Generating a Public Key
 
 RSA encryption uses two keys: a private and a public key. You may already be familiar with this protocol and the security team in your organization may already have public keys available for you to use. Before generating new keys, check with your organization.  
 

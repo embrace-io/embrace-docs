@@ -34,14 +34,16 @@ You can select and edit each configuration by clicking on the toggle to the left
 
 The Embrace SDK also supports specifying a configuration at build-time through the use of environment variables defined at the OS level. This feature can enable a CI/CD pipeline to define which configuration to build with. We support the follwing definitions:
 
-```EMBRACE_ENVIRONMENTS_INDEX```
-* Define this variable with the index number of an existing Embrace configuration.
+`EMBRACE_ENVIRONMENTS_INDEX`
+
+- Define this variable with the index number of an existing Embrace configuration.
 
 :::warning Important
 Out-of-range indices will result in build failure.
 :::
 
-```EMBRACE_ENVIRONMENTS_NAME```
+`EMBRACE_ENVIRONMENTS_NAME`
+
 - Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
 
 :::warning Important
@@ -55,18 +57,30 @@ For example, let's assume the following configurations are defined ("Dev", "Stag
 If you'd like to specify "Staging" via it's index, you would define the following:
 
 **macOS/Linux:**
-```$ export EMBRACE_ENVIRONMENTS_INDEX=1```
+
+```shell-session
+export EMBRACE_ENVIRONMENTS_INDEX=1
+```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONMENTS_INDEX=1```
+
+```shell-session
+SET EMBRACE_ENVIRONMENTS_INDEX=1
+```
 
 Alternatively, to specify by the name "Staging":
 
 **macOS/Linux:**
-```$ export EMBRACE_ENVIRONMENTS_NAME=Staging```
+
+```shell-session
+export EMBRACE_ENVIRONMENTS_NAME=Staging
+```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONMENTS_NAME=Staging```
+
+```shell-session
+SET EMBRACE_ENVIRONMENTS_NAME=Staging
+```
 
 ## Configuration Output
 

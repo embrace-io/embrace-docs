@@ -23,7 +23,7 @@ Embrace instantly auto-captures and detects a sample/snapshot of an ANR in produ
 
 ## Troubleshooting your ANRs
 
-  ### Issue Summary List
+### Issue Summary List
 - **Issue Prioritization**: Is done as a combination of the number of occurrences, and user and session impact
 - **Issue Categories**: Ad SDK, Android, Java, and IO.
 - **Drilling down on notable frames**: by being able to inspect significant frames in the stack trace under this method, which could be one of the root causes of the ANRs

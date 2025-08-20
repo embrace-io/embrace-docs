@@ -26,7 +26,7 @@ We currently provide the following patterns:
 - `«**»` - Matches any number of path segments
 - `«ext:file_extension»` - Matches a string ending with a period and a 2 to 5 character extension.
 
-# Sample Use Cases
+## Sample Use Cases
 
 ### Collapsing High Cardinality Fields
 

@@ -10,7 +10,7 @@ Embrace provides an easy UI for filtering and querying your Sessions. You can ad
 
 Sessions are displayed from most recent, with summary statistics, issue indicators, and background/foreground context.
 
-# Filter dimensions
+## Filter dimensions
 
 To find Sessions matching specific conditions, Embrace provides a variety of fields for filtering.  
 

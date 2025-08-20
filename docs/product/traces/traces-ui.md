@@ -3,7 +3,7 @@ title: Traces UI
 sidebar_position: 2
 ---
 
-## Root Spans View
+# Root Spans View
 
 The primary page shows all root spans in your app, as well as summary metrics like count, error rate, percentiles of duration, and changes from a previous version.
 

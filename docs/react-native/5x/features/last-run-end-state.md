@@ -38,7 +38,7 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
 :::
 
-### Possible Values
+## Possible Values
 
 ```typescript
 /// Used to represent the end state of the last run of the application.

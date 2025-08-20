@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 The Embrace Unity SDK includes an editor script to assist with properly linking the SDK, and collecting and uploading debug information for symbolication. That component requires configuration prior to building. If your project ships on both Android and iOS make sure to configure both platforms using the Embrace editor window.
 
-# Configure the Android platform
+## Configure the Android platform
 
 Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace editor window. Select the Android tab and fill in your unique `App ID` and `Symbol Upload API Token`. You can get the correct values from the settings page in your dash.
 
@@ -21,7 +21,7 @@ Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace 
 
 On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be adding some new dependencies to Unity's Gradle templates. Unity has already given us ways to customize the Gradle configuration via templates accessible from the `Player Settings` menu.
 
-# Minimum Gradle and Android Gradle Plugin Versions
+## Minimum Gradle and Android Gradle Plugin Versions
 
 To use the latest version of the Embrace Unity SDK you must be using:
 - At least version `7.5.1` of Gradle
@@ -29,7 +29,7 @@ To use the latest version of the Embrace Unity SDK you must be using:
 
 If your version of Unity does not come with supported versions of Gradle and AGP, you may need to upgrade them. See [this page](https://docs.unity3d.com/Manual/android-gradle-overview.html) for more information. Alternatively, see the instructions on [this page](https://developers.google.com/admob/unity/gradle) regarding how to upgrade these inside Unity. Please note that in upgrading, you may have to update values in the generated template files we require as they may still point to the older values.  
 
-# External Dependency Manager - Android Resolver
+## External Dependency Manager - Android Resolver
 
 :::info Notes on minimum versions**
 To use the External Dependency Manager you must be using:
@@ -58,7 +58,7 @@ Please note that in order for the `Patch mainTemplate.gradle` setting to take ef
 
 Whether you use the resolver or not, make sure to also continue with the steps below to complete the configuration.
 
-# Customize Gradle Templates
+## Customize Gradle Templates
 
 <img src={require('@site/static/images/unity-android-gradle-templates.png').default} />
 
@@ -152,12 +152,8 @@ Embrace needs the following templates present in your project:
  android.enableJetifier=true
  ```
 
-   ---
-
    Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings. Then, you can save the zip file at the root of your project. We will grab the `symbols.zip` file automatically.
 
    <img src={require('@site/static/images/unity-android-build-settings.png').default} />
-
-   ---
 
    Now that you've configured the Android platform, it's time to login to the Embrace dashboard.

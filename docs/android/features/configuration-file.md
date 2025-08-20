@@ -100,11 +100,11 @@ Explanations for each of the fields are provided below.
 }
 ```
 
-#### app_id *string, required*
+## app_id *string, required*
 
 Your 5 character app ID.
 
-#### api_token *string, required*
+### api_token *string, required*
 
 Your API 32-hexdigit token.
 

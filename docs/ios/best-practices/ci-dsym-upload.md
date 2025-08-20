@@ -10,7 +10,7 @@ Most common CI providers (Bitrise, Buildkite, CircleCI, GitHub Actions, etc.) ha
 
 Similarly, it is recommended to store any dSYM files created during the build. In this article, we'll walk through where dSYM files are generated and provide some quick scripts to use to easily collect and store these artifacts.
 
-### Storing Artifacts by CI Provider
+## Storing Artifacts by CI Provider
 
 Here are quick links to documentation for storing artifacts in common mobile CI providers.
 
@@ -52,7 +52,7 @@ Build Job
 
 This added fifth step asks an important question. Where do dSYM files live? Where can I find them? We'll answer these in the following section.
 
-# Finding dSYMs
+## Finding dSYMs
 
 So where do dSYM files live? Xcode refers to the location of the dSYM files as the `DWARF_DSYM_FOLDER_PATH`. There are a couple of build settings that relate to dSYMs that are useful to know about, even if you have no intention of overriding them.
 
@@ -185,6 +185,6 @@ then
 fi
 ```
 
-# dSYM Upload
+## dSYM Upload
 
 If you haven't already, check out our [dSYM Upload Integration Document](/ios/6x/getting-started/dsym-upload). This document walks through the Xcode project configuration that allows for the automatic upload of dSYM files to the Embrace dashboard.
