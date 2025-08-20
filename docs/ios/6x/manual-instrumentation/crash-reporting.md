@@ -244,11 +244,11 @@ If crashes aren't appearing in the dashboard:
 3. Check that dSYM files are uploaded for proper symbolication
 4. Verify your App ID is correct
 
-   **For CrashlyticsReporter specifically:**
+For CrashlyticsReporter specifically:
 
-5. Ensure Firebase Crashlytics is properly configured and working
-6. Verify Firebase Crashlytics network requests are being made
-7. Check that Firebase Crashlytics is capturing the crash in Firebase Console
+1. Ensure Firebase Crashlytics is properly configured and working
+2. Verify Firebase Crashlytics network requests are being made
+3. Check that Firebase Crashlytics is capturing the crash in Firebase Console
 
 ### Session Properties Not Appearing
 

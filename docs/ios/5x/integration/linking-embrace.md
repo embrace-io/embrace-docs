@@ -191,6 +191,6 @@ curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://downloads.embra
    import the Embrace module into your application and perform a test build to make
    sure this all worked.
 
----
+   ---
 
    Next, let's look at how sessions are sent to Embrace.
