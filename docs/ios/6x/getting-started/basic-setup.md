@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let e {
             print("Error starting Embrace \(e.localizedDescription)")
         }
-        
+
         return true
     }
 }
@@ -120,6 +120,7 @@ span?.end()
 Once `setup` has succeeded, you can access the Embrace instance in two ways:
 
 1. Store a reference from the setup call:
+
 ```swift
 let embrace = try Embrace
     .setup(options: embraceOptions)
@@ -130,6 +131,7 @@ embrace.buildSpan(name: "my-operation", type: .performance).startSpan()
 ```
 
 2. Use the static client property:
+
 ```swift
 // After setup has been called
 Embrace.client?.buildSpan(name: "my-operation", type: .performance).startSpan()

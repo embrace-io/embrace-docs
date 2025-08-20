@@ -62,6 +62,7 @@ If localStorage is unavailable (such as in private or incognito mode), permanent
 ### Adding and Removing Properties
 
 To add a property to the current session:
+
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
@@ -69,6 +70,7 @@ session.addProperty("my-custom-property", "some value");
 ```
 
 To add a permanent property to current and future sessions in all tabs and windows:
+
 ```typescript
 session.addProperty("my-custom-property", "some value", {
   lifespan: 'permanent'
@@ -76,15 +78,16 @@ session.addProperty("my-custom-property", "some value", {
 ```
 
 To remove a property:
+
 ```typescript
 session.removeProperty("my-custom-property");
 ```
 
 ### Limits on Properties
 
-* Property keys have a limit of 128 characters.
-* Property values have a limit of 256 characters.
-* There can be a maximum of 100 properties per session.
+- Property keys have a limit of 128 characters.
+- Property values have a limit of 256 characters.
+- There can be a maximum of 100 properties per session.
 
 ## Sessions vs Other Concepts
 

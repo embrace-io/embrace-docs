@@ -35,10 +35,7 @@
     "import/newline-after-import": "error",
     "react-hooks/exhaustive-deps": "off",
     "react/jsx-props-no-spreading": "error",
-    "react/jsx-fragments": [
-      2,
-      "syntax"
-    ],
+    "react/jsx-fragments": [2, "syntax"],
     "react/prop-types": "off",
     "no-control-regex": "off",
     "eqeqeq": [
@@ -80,37 +77,22 @@
     ],
     "no-console": "warn",
     // Configure this properly
-    "import/no-unresolved": [
-      "off"
-    ],
-    "import/extensions": [
-      "off"
-    ],
-    "import/no-named-as-default": [
-      "off"
-    ],
-    "import/named": [
-      "off"
-    ],
-    "import/namespace": [
-      "off"
-    ]
+    "import/no-unresolved": ["off"],
+    "import/extensions": ["off"],
+    "import/no-named-as-default": ["off"],
+    "import/named": ["off"],
+    "import/namespace": ["off"]
     // Configure this properly
   },
   "overrides": [
     {
-      "files": [
-        "**/*.jsx"
-      ],
+      "files": ["**/*.jsx"],
       "rules": {
         "react/prop-types": 1
       }
     },
     {
-      "files": [
-        "**/*.tsx",
-        "**/*.ts"
-      ],
+      "files": ["**/*.tsx", "**/*.ts"],
       "extends": [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
@@ -120,26 +102,17 @@
         "plugin:@typescript-eslint/recommended",
         "prettier"
       ],
-      "plugins": [
-        "@typescript-eslint"
-      ],
+      "plugins": ["@typescript-eslint"],
       "parserOptions": {
-        "project": [
-          "./tsconfig.json"
-        ]
+        "project": ["./tsconfig.json"]
       },
       "rules": {
         "react/prop-types": "off",
         "import/no-named-as-default": "off",
-        "@typescript-eslint/consistent-type-definitions": [
-          "error",
-          "type"
-        ],
+        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
         "@typescript-eslint/no-empty-function": "off",
         // Configure this properly
-        "import/no-unresolved": [
-          "off"
-        ],
+        "import/no-unresolved": ["off"],
         "@typescript-eslint/consistent-type-assertions": "error",
         "@typescript-eslint/consistent-type-exports": "error",
         "@typescript-eslint/consistent-indexed-object-style": "error",

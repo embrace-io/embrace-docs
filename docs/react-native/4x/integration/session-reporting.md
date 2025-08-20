@@ -10,10 +10,10 @@ Now that you’ve added the Embrace SDK to your project and can login to the Emb
 Here are the steps you’ll be taking to create your first session.
 
 1. [Initialize Embrace](/react-native/4x/integration/session-reporting#initialize-embrace-sdk)
-1. [Add a start call to the Embrace SDK](/react-native/4x/integration/session-reporting#add-the-start-call)
-1. [End the Startup Moment](/react-native/4x/integration/session-reporting#end-the-startup-moment)
-1. [Build and run the application](/react-native/4x/integration/session-reporting#build-and-run-the-application)
-1. [Trigger a session upload](/react-native/4x/integration/session-reporting#trigger-a-session-upload)
+2. [Add a start call to the Embrace SDK](/react-native/4x/integration/session-reporting#add-the-start-call)
+3. [End the Startup Moment](/react-native/4x/integration/session-reporting#end-the-startup-moment)
+4. [Build and run the application](/react-native/4x/integration/session-reporting#build-and-run-the-application)
+5. [Trigger a session upload](/react-native/4x/integration/session-reporting#trigger-a-session-upload)
 
 ## Initialize Embrace SDK
 
@@ -42,6 +42,7 @@ export default class App extends Component {
   }
 }
 ```
+
 </TabItem>
 <TabItem value="hooks" label="Hooks">
 
@@ -70,8 +71,9 @@ export default App
 </Tabs>
 
 :::info Note for initialize method
-The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
+The initialize method will apply the interceptors that we need to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else.  
 :::
+
 ## Starting Embrace SDK from Android / iOS
 
 :::info
@@ -79,15 +81,14 @@ Initializing the Embrace SDK from React Native (Javascript) will initialize the 
 
 :::
 
-
 Start by importing the Embrace native SDK in the file that applies for each platform.
 
 <Tabs groupId="platform" queryString="platform">
 
-
 <TabItem value="ios" label="iOS">
 
 Open the `AppDelegate.m` file (usually located at `<project root>/ios/<MyApp>/AppDelegate.m`) and import Embrace.
+
 ```objectivec
 #import <Embrace/Embrace.h>
 ```
@@ -190,6 +191,7 @@ const App = ()=> {
 }
 export default App
 ```
+
 :::info
 
 As useEffect does not block the render thread, unlike componentDidMount, it might be necessary to add a variable such as isReady to wait until all your background process are finished and the user is able to interact with the application.
@@ -198,8 +200,7 @@ As useEffect does not block the render thread, unlike componentDidMount, it migh
 </TabItem>
 </Tabs>
 
-
-End the startup moment as soon as your users are able to interact with the application. 
+End the startup moment as soon as your users are able to interact with the application.  
 
 ## Build and Run the Application
 

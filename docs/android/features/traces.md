@@ -9,7 +9,7 @@ sidebar_position: 2
 ## Overview
 
 Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
-  
+
 See [this page](/product/traces/technical-details.md) for technical details and terminology definitions.
 
 ## Feature support
@@ -21,16 +21,16 @@ See [this page](/product/traces/technical-details.md) for technical details and 
 The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record data for past operations.
-    - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
-    - To record past operations, you can specify the start and end times of your spans that you might have captured already.
-    - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
+  - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
+  - To record past operations, you can specify the start and end times of your spans that you might have captured already.
+  - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
 - Add child spans to a parent span to track sub-operations within an operation.
 - Attach attributes, span events, and links to other spans to give a span further context.
-    - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics.
-    - Span events represent a point in time during the runtime of the span.
-      - Attributes on a span event can be used to store data and metadata about the event that describe it beyond its name.
-    - Links create unidirectional relationships between spans so that you can formally relate two spans that belong to different traces.
-      - Attributes on a link can be used to store data and metadata that further describes the relationship.
+  - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics.
+  - Span events represent a point in time during the runtime of the span.
+    - Attributes on a span event can be used to store data and metadata about the event that describe it beyond its name.
+  - Links create unidirectional relationships between spans so that you can formally relate two spans that belong to different traces.
+    - Attributes on a link can be used to store data and metadata that further describes the relationship.
 
 ### Limits
 
@@ -49,8 +49,8 @@ The Embrace Traces API allows you to:
 There are no limits to the number of child spans you can have per root span, provided the total number of spans does not exceed the per-session maximum.
 
 #### Exceeding limits
-If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit to be exceeded.
 
+If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit to be exceeded.
 
 Attributes and events are truncated by taking the first N values specified and dropping the rest such that N is the limit.
 
@@ -200,7 +200,7 @@ embrace.getSpan(activityLoadSpanId)?.stop()
 
 ## Export to OpenTelemetry Collectors
 
-Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded. 
+Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded.  
 
 While than one exporter for each signal can be configured, be aware of the performance impact on the instrumentation of each additional exporter given that they run serially and will block the instrumentation thread.
 
@@ -219,11 +219,11 @@ Please note that exporters must be configured *before* the Embrace SDK is starte
 
 To see your recorded telemetry locally during developement, use [LoggingSpanExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/LoggingSpanExporter.java) and [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) to see spans and logs in logcat, respectively. Do not deploy these types of debugging exporters in production for performance reasons.
 
-```
+```text
 2024-03-05 14:15:15.342 29672-29756 LoggingSpanExporter     io.embrace.mysampleapp          I  'emb-startup-moment' : d38b4ac26baf1a862ed4a028af7d08ac e3e82dd0f86c0eed INTERNAL [tracer: io.embrace.android.embracesdk:={{ embrace_sdk_version platform="android" }}] AttributesMap{data={emb.sequence_id=4, emb.type=PERFORMANCE, emb.key=true}, capacity=128, totalAddedValues=3}
 ```
 
-### Sending to OpenTelemetry Collectors 
+### Sending to OpenTelemetry Collectors  
 
 You can send all or some of your telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) by using existing Android-compatible exporters or writing your own. Note that not all Java exporters can be used on Android.
 
@@ -233,12 +233,12 @@ You can send all or some of your telemetry to any [OpenTelemetry Collector](http
 To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disabled_url_patterns` setting in the Embrace Configuration file. See [this page](/android/features/configuration-file/#networking---disabled_url_patterns-string-array) for details.
 :::
 
-#### Send telemetry through GRPC
+#### Send telemetry through gRPC
 
-To send telemetry via GRPC to a Collector endpoint, use the `OtlpGrpcSpanExporter` and specify the URL.
+To send telemetry via gRPC to a Collector endpoint, use the `OtlpGrpcSpanExporter` and specify the URL.
 
 ```kotlin
- //GRPC through an OTel Collector in a local docker image
+// gRPC through an OTel Collector in a local container
 val customDockerExporter = OtlpGrpcSpanExporter.builder()
     .setEndpoint("https://otel-collector.mydomain.com:4317")
     .build()
@@ -251,7 +251,7 @@ Embrace.getInstance().addSpanExporter(customDockerExporter)
 To send telemetry to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/), set up the Collector and add an authorization token as a header.
 
 ```kotlin
-//HTTPS to an OTel Collector in Grafana Cloud
+// HTTPS to an OTel Collector in Grafana Cloud
 val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
     .addHeader("Authorization", "YourToken")
@@ -266,4 +266,4 @@ If you prefer to send telemetry only to your custom OpenTelemetry Collectors and
 
 1. Configure at least 1 span exporter or log exporter as described above.
 2. Remove the `app_id` and `api_token` fields from `app/src/main/embrace-config.json` if specified. You can still keep the file and use it to specify other configuration options.
-3. Add `embrace.disableMappingFileUpload=true` to your `gradle.properties` file so any artifacts generated by the build will not be sent to Embrace (e.g. symbol mapping files used for deobfuscation of stacktraces). 
+3. Add `embrace.disableMappingFileUpload=true` to your `gradle.properties` file so any artifacts generated by the build will not be sent to Embrace (e.g. symbol mapping files used for deobfuscation of stacktraces).

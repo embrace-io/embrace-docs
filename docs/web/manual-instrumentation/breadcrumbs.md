@@ -8,7 +8,7 @@ sidebar_position: 3
 
 Breadcrumbs are a lightweight way to add context to user activity in a session.
 
-### Basic Breadcrumb Usage
+## Basic Breadcrumb Usage
 
 Here's how you add a breadcrumb to the session:
 
@@ -32,11 +32,13 @@ are surfaced in-context in the User Timeline.
 ### What to Log as Breadcrumbs
 
 **Good candidates for breadcrumbs:**
+
 - User interactions
 - Important application state changes
 - Business logic milestones
 
 **Avoid logging as breadcrumbs:**
+
 - Sensitive user data (passwords, personal information)
 - High-frequency events (scroll events, timer ticks)
 - Large data payloads

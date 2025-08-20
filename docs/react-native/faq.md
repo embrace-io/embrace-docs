@@ -17,7 +17,7 @@ or email us at [support@embrace.com](mailto:support@embrace.com).
 Desugaring is required to support Android API levels < 26. To enable, the following is required in your app's
 `android/app/build.gradle`:
 
-```
+```text
 android {
    ...  
     compileOptions {
@@ -34,7 +34,7 @@ dependencies {
 
 In addition, in your `android/gradle.properties` you must set
 
-```
+```text
 android.useFullClasspathForDexingTransform=true
 ```
 
@@ -51,7 +51,6 @@ Not currently. Please contact us at [support@embrace.com](mailto:support@embrace
 ### **Does Embrace support Hermes for React Native?**
 
 Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please ensure that you are using at least version 0.71 of React Native when utilizing Hermes.
-
 
 ## Users
 
@@ -71,9 +70,9 @@ Please make sure that Embrace is initialized after any 3rd party networking libr
 We are consistently discovering new APIs and libraries for which we need to add support.
 Please contact us via email or Slack with the information.
 
-### **Do you support GRPC?**
+### **Do you support gRPC?**
 
-Yes. Please contact us for the steps to track GRPC.
+Yes. Please contact us for the steps to track gRPC.
 
 ### **Do you support GraphQL?**
 

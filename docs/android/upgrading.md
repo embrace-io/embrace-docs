@@ -75,8 +75,9 @@ Below is a list of everything that has changed and how to address it in your cod
   - **Action**: If you notice changes in NDK crash reports, you can re-enable this behavior with `sdk_config.sig_handler_detection = true`.
 
 :::info Summary
+
 - Remove deprecated properties from your Gradle files.  
-- Replace usage of any deprecated methods (see table below). 
+- Replace usage of any deprecated methods (see table below).  
 - Remove references to internal symbols that were previously exposed.
 - Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
 :::
@@ -98,12 +99,13 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
-  
+
 ```kotlin
 val span = Embrace.getInstance().startSpan("my-identifier") // start span
 // add events and attributes to span
 span?.stop() // stop span
 ```
+
 </TabItem>
 </Tabs>
 

@@ -9,6 +9,7 @@ sidebar_position: 7
 *If you're upgrading from `v1.5.10` or earlier, please note that configuration data will no longer be embedded in our SDK package directory, and instead relocated to your project's Assets folder under `Assets/Embrace`.  Any previously defined configurations will be automatically converted at installation time to the updated format described in this document.*
 
 ## SDK Configuration Options
+
 The behavior of the Embrace Unity SDK can be customized through the same list of configuration options as the Android and iOS SDKs.
 
 Configuration options can be accessed in the **Configurations** tab of the **Settings** window. This window can be opened through the top-level menu **Tools > Embrace > Settings** or by clicking on the **Customize SDK Configuration** button from the **Getting Started** window.
@@ -21,7 +22,7 @@ Some applications have complex build pipelines.  For example, it's common practi
 
 <img src={require('@site/static/images/unity-configuration-editor.png').default} />
 
-Using this list you can easily add, rename, or remove configurations as needed.  Each configuration will create an Android and iOS configuration file stored in the Embrace data directory. The names of these configurations are only used to identify them in the Unity editor, and will not be replicated in the Embrace dashboard. 
+Using this list you can easily add, rename, or remove configurations as needed.  Each configuration will create an Android and iOS configuration file stored in the Embrace data directory. The names of these configurations are only used to identify them in the Unity editor, and will not be replicated in the Embrace dashboard.  
 
 You can select and edit each configuration by clicking on the toggle to the left of each list item in the **Settings** window, or by selecting a configuration from the **Getting Started** window.
 
@@ -33,15 +34,17 @@ You can select and edit each configuration by clicking on the toggle to the left
 
 The Embrace SDK also supports specifying a configuration at build-time through the use of environment variables defined at the OS level. This feature can enable a CI/CD pipeline to define which configuration to build with. We support the follwing definitions:
 
-```EMBRACE_ENVIRONMENTS_INDEX```
-* Define this variable with the index number of an existing Embrace configuration.
+`EMBRACE_ENVIRONMENTS_INDEX`
+
+- Define this variable with the index number of an existing Embrace configuration.
 
 :::warning Important
 Out-of-range indices will result in build failure.
 :::
 
-```EMBRACE_ENVIRONMENTS_NAME```
-* Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
+`EMBRACE_ENVIRONMENTS_NAME`
+
+- Define this variable with the name of an existing configuration (e.g. "Dev", "Staging", or "Prod");
 
 :::warning Important
   We only support the use of a single environment variable to specify an Embrace configuration. Please be aware that defining both variables at build-time will result in a failed build.
@@ -54,18 +57,30 @@ For example, let's assume the following configurations are defined ("Dev", "Stag
 If you'd like to specify "Staging" via it's index, you would define the following:
 
 **macOS/Linux:**
-```$ export EMBRACE_ENVIRONMENTS_INDEX=1```
+
+```shell-session
+export EMBRACE_ENVIRONMENTS_INDEX=1
+```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONMENTS_INDEX=1```
+
+```shell-session
+SET EMBRACE_ENVIRONMENTS_INDEX=1
+```
 
 Alternatively, to specify by the name "Staging":
 
 **macOS/Linux:**
-```$ export EMBRACE_ENVIRONMENTS_NAME=Staging```
+
+```shell-session
+export EMBRACE_ENVIRONMENTS_NAME=Staging
+```
 
 **Windows:**
-```C:\> SET EMBRACE_ENVIRONMENTS_NAME=Staging```
+
+```shell-session
+SET EMBRACE_ENVIRONMENTS_NAME=Staging
+```
 
 ## Configuration Output
 

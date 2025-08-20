@@ -43,9 +43,9 @@ NSDictionary *properties = @{@"property_a": @"value_a", @"property_b": @"value_b
 
 Let's examine the method call from above to understand the arguments involved:
 
-- **logMessage**: The first argument is a string and represents the message itself. 
+- **logMessage**: The first argument is a string and represents the message itself.  
 - **with**: This is the severity of the event. Typically we use this mechanism for errors and warnings and occasionally for tracing purposes, but that is better left to [breadcrumbs](/ios/5x/integration/breadcrumbs).
-- **properties**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
+- **properties**: This is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values.  
 
 import LogLimit from '@site/shared/log-limit.md';
 

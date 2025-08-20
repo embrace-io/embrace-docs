@@ -120,4 +120,4 @@ After configuring the SDK, you should explore:
 
 - [Migration from 5.x](/ios/6x/getting-started/migration-guide.md) if you're upgrading
 - Core concepts to understand how the SDK works
-- Automatic instrumentation for built-in monitoring capabilities 
+- Automatic instrumentation for built-in monitoring capabilities  

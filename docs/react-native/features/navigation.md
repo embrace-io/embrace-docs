@@ -14,7 +14,7 @@ Embrace can collect basic session data and crashes as you've already seen in the
 Embrace can also collect the screens that your app opened and include it as context within your sessions.
 Here's how you add the screen tracker to the session.
 
-#### Install the Package
+### Install the Package
 
 npm:
 
@@ -446,4 +446,3 @@ Navigation.registerComponent(
 
 </TabItem>
 </Tabs>
-

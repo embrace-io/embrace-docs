@@ -34,4 +34,4 @@ The Embrace iOS SDK 6.x is built on the OpenTelemetry framework, an industry-sta
 - Data can be exported to other OpenTelemetry-compatible systems
 - The SDK follows established patterns for instrumentation
 
-By learning these core concepts, you'll gain the knowledge needed to effectively use the more advanced features of the SDK covered in later sections. 
+By learning these core concepts, you'll gain the knowledge needed to effectively use the more advanced features of the SDK covered in later sections.  

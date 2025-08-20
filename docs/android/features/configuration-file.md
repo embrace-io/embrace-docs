@@ -100,11 +100,11 @@ Explanations for each of the fields are provided below.
 }
 ```
 
-#### app_id *string, required*
+## app_id *string, required*
 
 Your 5 character app ID.
 
-#### api_token *string, required*
+### api_token *string, required*
 
 Your API 32-hexdigit token.
 
@@ -187,8 +187,10 @@ Disable capture of network length which can interfere with certain streaming net
 #### networking - disabled_url_patterns *string array*
 
 Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
-```
-Example: 
+
+Example:
+
+```text
 "disabled_url_patterns": [".*"], // Will disable network calls for all URLs
 ```
 
@@ -207,7 +209,8 @@ Declares the key that should be used to capture network request bodies, if any.
 #### sensitive_keys_denylist *string array*
 
 List of keys that will be redacted from any key-value pair sent by the SDK, such as event attributes, span attributes, log attributes, and session properties. Values for keys present in this list will be replaced by a `<redacted>` string
-```
+
+```text
 Example: 
 "sensitive_keys_denylist": ["secret"] // Will change to <redacted> any value tied to a "secret" key
 ```
@@ -262,24 +265,24 @@ It is possible to specify build type-, flavor-, and [variant](https://developer.
 
 The order of evaluation is as follows. The first option that is found will be used
 
-* Variant -- `app/src/<variant>/embrace-config.json`
-* Flavor -- `app/src/<flavor>/embrace-config.json`
-* Build type -- `app/src/<build type>/embrace-config.json`
-* Default -- `app/src/main/embrace-config.json`
+- Variant -- `app/src/<variant>/embrace-config.json`
+- Flavor -- `app/src/<flavor>/embrace-config.json`
+- Build type -- `app/src/<build type>/embrace-config.json`
+- Default -- `app/src/main/embrace-config.json`
 
 Note that if you have a project without any flavors configured, then your variant and build type names will be the same.
 
 Let's consider a project with the following structure:
 
-* Two flavors -- `paid` and `free`
-* Two build types -- `debug` and `release`
+- Two flavors -- `paid` and `free`
+- Two build types -- `debug` and `release`
 
 and the following configuration files
 
-* Variant file located at `app/src/paidRelease/embrace-config.json`
-* Flavor file location at `app/src/paid/embrace-config.json`
-* Build type file at `app/src/release/embrace-config.json`
-* Default at `app/src/main/embrace-config.json`
+- Variant file located at `app/src/paidRelease/embrace-config.json`
+- Flavor file location at `app/src/paid/embrace-config.json`
+- Build type file at `app/src/release/embrace-config.json`
+- Default at `app/src/main/embrace-config.json`
 
 | Variant     | Config Used                               | Reason                                                                                          |
 |-------------|-------------------------------------------|-------------------------------------------------------------------------------------------------|

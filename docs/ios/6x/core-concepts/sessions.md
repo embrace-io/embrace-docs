@@ -114,17 +114,17 @@ class SessionManager {
     func handleUserLogin(userId: String) {
         // Start a new session for the logged-in user
         Embrace.client?.endCurrentSession()
-        
+
         // Set user identification for the new session
         Embrace.client?.metadata.userIdentifier = userId
         try? Embrace.client?.metadata.add(
             persona: PersonaTag("authenticated"),
             lifespan: .session
         )
-        
+
         // Start new session with user context
         Embrace.client?.startNewSession()
-        
+
         // Log session start for analytics
         Embrace.client?.log(
             "New user session started",
@@ -135,7 +135,7 @@ class SessionManager {
             ]
         )
     }
-    
+
     func handleUserLogout() {
         // Log session end
         Embrace.client?.log(
@@ -146,13 +146,13 @@ class SessionManager {
                 "session.duration": String(getCurrentSessionDuration())
             ]
         )
-        
+
         // Clear user context and start anonymous session
         Embrace.client?.metadata.clearUserProperties()
         Embrace.client?.endCurrentSession()
         Embrace.client?.startNewSession()
     }
-    
+
     private func getCurrentSessionDuration() -> TimeInterval {
         // Calculate session duration based on your app's logic
         return Date().timeIntervalSince(sessionStartTime)
@@ -173,14 +173,14 @@ class SessionEnrichment {
             value: Bundle.main.bundleIdentifier?.contains("debug") == true ? "debug" : "release",
             lifespan: .permanent
         )
-        
+
         // Add process-level properties
         try? Embrace.client?.metadata.addProperty(
             key: "app.version",
             value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown",
             lifespan: .process
         )
-        
+
         // Add session-specific properties
         try? Embrace.client?.metadata.addProperty(
             key: "session.start_method",
@@ -188,7 +188,7 @@ class SessionEnrichment {
             lifespan: .session
         )
     }
-    
+
     func updateSessionContext(userTier: String, feature: String) {
         // Update session context as user progresses through the app
         try? Embrace.client?.metadata.updateProperty(
@@ -196,20 +196,20 @@ class SessionEnrichment {
             value: userTier,
             lifespan: .session
         )
-        
+
         try? Embrace.client?.metadata.addProperty(
             key: "current.feature",
             value: feature,
             lifespan: .session
         )
-        
+
         // Add persona tags for segmentation
         try? Embrace.client?.metadata.add(
             persona: PersonaTag(userTier.lowercased()),
             lifespan: .session
         )
     }
-    
+
     func trackBusinessContext(context: [String: String]) {
         // Add business-specific context to sessions
         for (key, value) in context {
@@ -220,7 +220,7 @@ class SessionEnrichment {
             )
         }
     }
-    
+
     private func determineStartMethod() -> String {
         // Determine how the app was started
         if ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil {
@@ -231,7 +231,7 @@ class SessionEnrichment {
             return "development"
         }
     }
-    
+
     private func isAppStoreReceipt() -> Bool {
         guard let receiptURL = Bundle.main.appStoreReceiptURL else { return false }
         return receiptURL.lastPathComponent == "receipt"
@@ -255,9 +255,9 @@ class SessionEventTracker {
                 "milestone.timestamp": ISO8601DateFormatter().string(from: Date())
             ].merging(metadata) { _, new in new }
         )
-        
+
         Embrace.client?.add(event: event)
-        
+
         // Also log for detailed tracking
         Embrace.client?.log(
             "Session milestone reached",
@@ -267,23 +267,23 @@ class SessionEventTracker {
             ].merging(metadata) { _, new in new }
         )
     }
-    
+
     func trackUserFlow(step: String, totalSteps: Int, currentStep: Int) {
         // Track user progress through multi-step flows
         let progressPercentage = Int((Double(currentStep) / Double(totalSteps)) * 100)
-        
+
         try? Embrace.client?.metadata.addProperty(
             key: "flow.current_step",
             value: "\(currentStep)/\(totalSteps)",
             lifespan: .session
         )
-        
+
         try? Embrace.client?.metadata.addProperty(
             key: "flow.progress_percentage",
             value: String(progressPercentage),
             lifespan: .session
         )
-        
+
         Embrace.client?.log(
             "User flow progress",
             severity: .info,
@@ -295,11 +295,11 @@ class SessionEventTracker {
             ]
         )
     }
-    
+
     func trackFeatureUsage(feature: String, action: String) {
         // Track feature usage within sessions
         let featureKey = "feature.\(feature.lowercased()).usage_count"
-        
+
         // Increment feature usage counter
         let currentCount = getCurrentUsageCount(for: featureKey)
         try? Embrace.client?.metadata.updateProperty(
@@ -307,7 +307,7 @@ class SessionEventTracker {
             value: String(currentCount + 1),
             lifespan: .session
         )
-        
+
         // Log the specific action
         Embrace.client?.log(
             "Feature action performed",
@@ -319,7 +319,7 @@ class SessionEventTracker {
             ]
         )
     }
-    
+
     private func getCurrentUsageCount(for key: String) -> Int {
         // In a real implementation, you'd retrieve this from your metadata storage
         // For this example, we'll return 0
@@ -336,7 +336,7 @@ Monitor session health and performance:
 class SessionPerformanceMonitor {
     private let startTime = Date()
     private var lastMemoryCheck = Date()
-    
+
     func monitorSessionHealth() {
         // Check session duration
         let sessionDuration = Date().timeIntervalSince(startTime)
@@ -350,18 +350,18 @@ class SessionPerformanceMonitor {
                 ]
             )
         }
-        
+
         // Check memory usage periodically
         if Date().timeIntervalSince(lastMemoryCheck) > 300 { // Every 5 minutes
             checkMemoryUsage()
             lastMemoryCheck = Date()
         }
     }
-    
+
     private func checkMemoryUsage() {
         let memoryUsage = getCurrentMemoryUsage()
         let memoryMB = Double(memoryUsage) / 1024 / 1024
-        
+
         if memoryMB > 500 { // Warn if over 500MB
             Embrace.client?.log(
                 "High memory usage detected",
@@ -372,7 +372,7 @@ class SessionPerformanceMonitor {
                 ]
             )
         }
-        
+
         // Update session property with current memory usage
         try? Embrace.client?.metadata.updateProperty(
             key: "session.peak_memory_mb",
@@ -380,17 +380,17 @@ class SessionPerformanceMonitor {
             lifespan: .session
         )
     }
-    
+
     private func getCurrentMemoryUsage() -> UInt64 {
         var info = mach_task_basic_info()
         var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.size)/4
-        
+
         let kerr: kern_return_t = withUnsafeMutablePointer(to: &info) {
             $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
                 task_info(mach_task_self_, task_flavor_t(MACH_TASK_BASIC_INFO), $0, &count)
             }
         }
-        
+
         return kerr == KERN_SUCCESS ? info.resident_size : 0
     }
 }

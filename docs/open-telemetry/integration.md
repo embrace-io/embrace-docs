@@ -50,7 +50,7 @@ Please note that exporters must be configured _before_ the Embrace Android SDK i
 
 To see this working locally, [LoggingSpanExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/LoggingSpanExporter.java) and [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) can be used to output to logcat.
 
-```
+```text
 2024-03-05 14:15:15.342 29672-29756 LoggingSpanExporter     io.embrace.mysampleapp          I  'emb-startup-moment' : d38b4ac26baf1a862ed4a028af7d08ac e3e82dd0f86c0eed INTERNAL [tracer: io.embrace.android.embracesdk:={{ embrace_sdk_version platform="android" }}] AttributesMap{data={emb.sequence_id=4, emb.type=PERFORMANCE, emb.key=true}, capacity=128, totalAddedValues=3}
 ```
 
@@ -62,7 +62,7 @@ You can send your data to any generic OpenTelemetry Collector by using any Andro
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// gRPC through an OTel Collector in a local docker image
+// gRPC through an OTel Collector in a local container
 val customDockerExporter = OtlpGrpcSpanExporter.builder()
     .setEndpoint("https://otel-collector.mydomain.com:4317")
     .build()
@@ -74,7 +74,7 @@ Embrace.getInstance().addSpanExporter(customDockerExporter)
 <TabItem value="java" label="Java">
 
 ```java
- // gRPC through an OTel Collector in a local docker image
+// gRPC through an OTel Collector in a local container
 OtlpGrpcSpanExporter customDockerExporter = OtlpGrpcSpanExporter.builder()
     .setEndpoint("https://otel-collector.mydomain.com:4317")
     .build();
@@ -99,7 +99,7 @@ To send telemetry to [Grafana Cloud](https://grafana.com/docs/opentelemetry/coll
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// HTTPS to an OTEL Collector in Grafana Cloud
+// HTTPS to an OTel Collector in Grafana Cloud
 val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
     .addHeader("Authorization", "YourToken")
@@ -112,7 +112,7 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter)
 <TabItem value="java" label="Java">
 
 ```java
-// HTTPS to an OTEL Collector in Grafana Cloud
+// HTTPS to an OTel Collector in Grafana Cloud
 OtlpHttpSpanExporter grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
     .addHeader("Authorization", "YourToken")
@@ -129,10 +129,10 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
 In the Embrace Apple SDK, exporters are configured at the same time that the SDK itself is configured. Any [Swift-language OTel exporter](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) can be attached as an optional value when the SDK is set up in Embrace Options. Multiple span exporters can be attached during configuration by using the [`otel-swift MultiSpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/MultiSpanExporter.swift).
 
 ```swift
-// logging span exporter outputting to the Xcode console
+// logging span exporter output to the Xcode console
 var loggingSpanExporter = StdoutExporter()
 
-// gRPC span exporter to an OTel Collector in a local docker image
+// gRPC span exporter to an OTel Collector in a local container
 var otelCollectorSpanExporter: OtlpTraceExporter {
     let config = ClientConnection.Configuration.default(
         target: ConnectionTarget.hostAndPort("localhost", 4317),

@@ -4,7 +4,7 @@ description: Upload crash reports from your Flutter application using the Embrac
 sidebar_position: 6
 ---
 
-# Collect Your First Crash Report 
+# Collect Your First Crash Report  
 
 ## Debuggers
 
@@ -33,4 +33,4 @@ Once uploaded, you will notice that your session is marked with the "crashed" ic
 
 ---
 
-In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 
+In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions.  

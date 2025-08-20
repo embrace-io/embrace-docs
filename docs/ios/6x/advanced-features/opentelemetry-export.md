@@ -93,7 +93,7 @@ import Foundation
 import OpenTelemetrySdk
 
 class CustomLogExporter: LogRecordExporter {
-    
+
     func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
         // Your custom export logic here
         for record in logRecords {
@@ -103,25 +103,25 @@ class CustomLogExporter: LogRecordExporter {
             let attributes = record.attributes
             let severity = record.severity
             let resource = record.resource.attributes
-            
+
             // Example implementations:
             // - Send to remote API
             // - Write to custom file format
             // - Forward to analytics service
             // - Apply custom filtering/transformation
-            
+
             // Simple example - print to console
             print("CUSTOM EXPORTER - Message: \(message), Timestamp: \(timestamp), Severity: \(String(describing: severity))")
         }
         return .success
     }
-    
+
     func forceFlush(explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
         // Flush any pending logs (implement your flush logic)
         print("CUSTOM EXPORTER - Force flush called")
         return .success
     }
-    
+
     func shutdown(explicitTimeout: TimeInterval?) {
         // Cleanup resources when SDK shuts down
         print("CUSTOM EXPORTER - Shutdown called")
@@ -161,17 +161,17 @@ import OpenTelemetrySdk
 class CustomLogExporter: LogRecordExporter {
     // Dedicated queue for heavy processing
     private let processingQueue = DispatchQueue(label: "com.yourapp.log-exporter", qos: .utility)
-    
+
     func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
         // Return immediately to avoid blocking the logging pipeline
         processingQueue.async {
             // Perform heavy operations here
             self.processLogsAsync(logRecords)
         }
-        
+
         return .success
     }
-    
+
     private func processLogsAsync(_ logRecords: [ReadableLogRecord]) {
         for record in logRecords {
             // Heavy processing examples:
@@ -179,12 +179,12 @@ class CustomLogExporter: LogRecordExporter {
             // - Write to file system
             // - Send to remote API
             // - Complex data transformations
-            
+
             self.saveToLocalFile(record)
             self.sendToAnalyticsService(record)
         }
     }
-    
+
     private func saveToLocalFile(_ record: ReadableLogRecord) {
         // Example: Save to disk
         let logData = [
@@ -192,22 +192,22 @@ class CustomLogExporter: LogRecordExporter {
             "timestamp": record.timestamp.timeIntervalSince1970,
             "severity": record.severity?.description ?? "unknown"
         ]
-        
+
         // Write to file, database, etc.
         // This heavy I/O won't block the main logging thread
     }
-    
+
     private func sendToAnalyticsService(_ record: ReadableLogRecord) {
         // Example: Network call
         // Heavy network operations happen in background
     }
-    
+
     func forceFlush(explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
         // Wait for background processing to complete if needed
         processingQueue.sync { }
         return .success
     }
-    
+
     func shutdown(explicitTimeout: TimeInterval?) {
         // Cleanup queue and resources
     }
@@ -228,6 +228,7 @@ Each `ReadableLogRecord` provides:
 ##### Example Use Cases
 
 **Send to Remote API:**
+
 ```swift
 func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
     for record in logRecords {
@@ -237,7 +238,7 @@ func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: T
             "severity": record.severity?.description ?? "unknown",
             "attributes": record.attributes
         ]
-        
+
         // Send to your API endpoint
         sendToAPI(logData)
     }
@@ -246,12 +247,13 @@ func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: T
 ```
 
 **Filter and Transform Logs:**
+
 ```swift
 func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
     let errorLogs = logRecords.filter { record in
         record.severity == .error || record.severity == .fatal
     }
-    
+
     for record in errorLogs {
         // Process only error/fatal logs
         processErrorLog(record)

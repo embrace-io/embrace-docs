@@ -4,7 +4,7 @@ description: Upload Sourcemaps files to symbolicate exceptions and logs from you
 sidebar_position: 2
 ---
 
-## Setup
+# Setup
 
 In order to view symbolicated stack traces for exceptions in Embrace you must first upload your bundle and sourcemap
 files. You can do so using our CLI tool, if you haven't already you can install it using:
@@ -48,7 +48,7 @@ Line and column numbers, along with file names, will always be symbolicated to t
 ## When including the SDK from CDN
 
 Our CLI looks for a special placeholder string to replace with the real ID of the uploaded bundle files. When our SDK is
-not bundled with your code you will need to provide this placeholder string when initializing the sdk as in the
+not bundled with your code you will need to provide this placeholder string when initializing the SDK as in the
 following example:
 
    ```javascript

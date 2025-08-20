@@ -4,11 +4,11 @@ description: Upload crash reports for both native and JavaScript exceptions from
 sidebar_position: 6
 ---
 
-# Collect your first crash report 
+# Collect your first crash report  
 
 ## Setting up the Crash Reporter
 
-If you've been following along, you should be setup to collect native crash reports. 
+If you've been following along, you should be setup to collect native crash reports.  
 To upload crash reports from unhandled JavaScript exceptions, add the following in the entrypoint of the React app.
 
 ```javascript
@@ -23,7 +23,7 @@ initialize().then(hasStarted=>{
 ```
 
 :::info Note for initialize method
-The initialize method will apply the interceptors needed to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
+The initialize method will apply the interceptors needed to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else.  
 :::
 
 This will setup a hook that gets called and uploads a crash report when the application crashes because of an unhandled JavaScript exception.
@@ -39,6 +39,7 @@ initialize({patch: 'v1'});
 Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't want
 to interfere with you can disable this. If you used the automated installation script or followed the manual steps for
 setting up the iOS SDK then you can modify the setup in `EmbraceInitializer.swift` to remove the crash reporter:
+
 ```swift
 try Embrace
     .setup(
@@ -54,6 +55,7 @@ try Embrace
 
 If instead you only initialized the SDK through JS then the `disableCrashReporter` property can be set during the
 call to initialize the SDK:
+
 ```javascript
 initialize({
   sdkConfig: {
@@ -78,7 +80,7 @@ Play Store, you will
 need to point the Embrace SDK to where the most up to date bundle is installed
 on the device. Otherwise, the stack traces will not be translated properly.
 If you use CodePush, this is done automatically and there is no need to point
-the Embrace SDK to where CodePush downloads the latest JavaScript bundle. 
+the Embrace SDK to where CodePush downloads the latest JavaScript bundle.  
 
 <Tabs groupId="rn-language" queryString="rn-language">
 <TabItem value="javascript" label="JavaScript">

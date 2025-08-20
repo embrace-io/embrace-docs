@@ -6,15 +6,15 @@ description: Trigger alerts for your Android application using logs with the Emb
 
 # Adding Logs
 
-Typically the Embrace SDK uploads data at the end of a session. However, some situations 
-might require instant feedback, such as hunting an especially difficult bug, troubleshooting 
+Typically the Embrace SDK uploads data at the end of a session. However, some situations
+might require instant feedback, such as hunting an especially difficult bug, troubleshooting
 on behalf of high-value users, or monitoring a new version rollout.
 
 You can leverage the log message API for this.
 
 ## Using the Log Message API
 
-The Log Message API enables you to log a message instantly. 
+The Log Message API enables you to log a message instantly.
 
 Depending on your requirements, you can choose from three severity types: `logInfo`, `logWarning`, and `logError`.
 
@@ -67,6 +67,7 @@ You can also adjust the severity of the log by either calling the `logWarning` o
 Embrace.getInstance().logWarning("User attempted expired credit card")
 Embrace.getInstance().logInfo("User has entered checkout flow")
 ```
+
 :::
 
 import LogLimit from '@site/shared/log-limit.md';
@@ -87,7 +88,7 @@ A [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logreco
 
 Injecting a [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) will allow you to see your telemetry in the logcat.
 
-```
+```text
 2024-03-05 14:15:15.342 29672-29756 System.out     io.embrace.mysampleapp          I  1970-01-01T00:00:00Z INFO 'Default log'
 ```
 
@@ -96,7 +97,7 @@ Injecting a [SystemOutLogRecordExporter](https://github.com/open-telemetry/opent
 You can send your data to a custom [OTel Collector](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/otlp/all/src/main/java/io/opentelemetry/exporter/otlp/logs/OtlpGrpcLogRecordExporter.java):
 
 ```kotlin
- //grpc through an otel collector in a local docker image
+// gRPC through an OTel collector in a local container
 val customDockerLogRecordExporter = OtlpGrpcLogRecordExporter.builder()
     .setEndpoint("http://10.0.2.2:4317")
     .build()
@@ -107,7 +108,7 @@ val customDockerLogRecordExporter = OtlpGrpcLogRecordExporter.builder()
 Embrace Logs can be exported to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/) using an OTel Collector.
 
 ```kotlin
-//... or directly to grafana cloud
+//... or directly to Grafana Cloud
 val grafanaCloudLogRecordExporter = OtlpHttpLogRecordExporter.builder()
     .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
     .addHeader("Authorization", "YourToken")

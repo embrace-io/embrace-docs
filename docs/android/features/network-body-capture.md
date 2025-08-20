@@ -3,9 +3,10 @@ title: Network Body Capture
 description: Embrace can capture network body requests and responses
 sidebar_position: 14
 ---
+
 # Network Body Capture
 
-Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers. 
+Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.  
 
 This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you. Please make sure you have the following property set as `true` in your `embrace-config.json` file:
 
@@ -20,13 +21,14 @@ This feature can only be enabled by your Embrace CS representative, so reach out
   }
 }
 ```
+
 You can check the [configuration file documentation](/android/features/configuration-file)  for more information.
 
-If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded. 
+If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.  
 
 In your `embrace-config.json` file, first create a new property entry titled:
 
-```
+```json
   ...
   "sdk_config": {
     "networking": {
@@ -57,7 +59,7 @@ openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 
 The file public.pem contains the public key. Use the command `cat public.pem` to view the key. Below is an example we generated while writing this documentation. Remember: it is completely safe to share public keys. Only the private key needs to be protected.
 
-```
+```text
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2st+1ouwmsYLOF+kZ/LE
 uZ+jzFuMv+AatKYWXQCwOWP9U02gbXDDOw1rvpeXFUapF1iGF9SASsyBZj4uTfJH

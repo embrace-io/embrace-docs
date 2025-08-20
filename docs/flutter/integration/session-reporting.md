@@ -16,11 +16,10 @@ Now that you’ve added the Embrace SDK to your project and can login to the Emb
 Here are the steps you'll be taking to create your first session.
 
 1. [**Import Embrace**](#import-embrace)
-1. [**Add the Flutter SDK start call**](#add-the-flutter-sdk-start-call)
-1. [**Add the Android SDK start call**](#add-the-android-sdk-start-call)
-1. [**Build and run the application**](#build-and-run-the-application)
-1. [**Trigger a session upload**](#trigger-a-session-upload)
-
+2. [**Add the Flutter SDK start call**](#add-the-flutter-sdk-start-call)
+3. [**Add the Android SDK start call**](#add-the-android-sdk-start-call)
+4. [**Build and run the application**](#build-and-run-the-application)
+5. [**Trigger a session upload**](#trigger-a-session-upload)
 
 ## Import Embrace
 
@@ -87,7 +86,7 @@ class MyApplication : Application() {
 Now you're ready to build and run the application. Assuming the app launches correctly,
 pay attention to the system logging and look for Embrace to print its version number.
 
-```
+```text
 Embrace Flutter SDK Version: {{ embrace_sdk_version platform="flutter" }}
 ```
 
@@ -97,9 +96,9 @@ If you encounter any errors, please get in touch on Slack and we can assist you.
 
 ## Trigger a Session Upload
 
-To trigger a session upload, simply send the application to the background. Typically the SDK 
-will be given sufficient time to upload the session, but sometimes the app is not able to complete 
-the upload in the background. To ensure the session was uploaded, launch the application again. 
+To trigger a session upload, simply send the application to the background. Typically the SDK
+will be given sufficient time to upload the session, but sometimes the app is not able to complete
+the upload in the background. To ensure the session was uploaded, launch the application again.
 Refresh the dashboard in your browser and you should now see that you've moved on to the next step.
 
 ---

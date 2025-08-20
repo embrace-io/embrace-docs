@@ -31,12 +31,26 @@ try Embrace
 
 If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytics so you will still have that data available in the Embrace dashboard.
 
+:::warning Important Considerations
+**We strongly recommend using Embrace's built-in crash reporter for complete crash data and session context.** However, if your team still decides to use CrashlyticsReporter, here are key limitations:
+
+- Embrace session properties are not included in crash reports
+- Embrace resources are not included in crash reports
+- Last run state detection is not available
+- Crash capture depends on Firebase Crashlytics network requests
+- Some crashes may not be captured if Firebase Crashlytics fails
+
+CrashlyticsReporter intercepts Firebase Crashlytics network requests and captures the crash data that Firebase collects. It does not have access to Embrace's session metadata.
+:::
+
 First, add the Crashlytics support module:
 
 #### Swift Package Manager
+
 Import `EmbraceCrashlyticsSupport` when using Swift Package Manager
 
 #### CocoaPods
+
 Add `pod 'EmbraceIO/EmbraceCrashlyticsSupport'` to your Podfile
 
 Then, configure the SDK to use Crashlytics:
@@ -54,6 +68,62 @@ try Embrace
     )
     .start()
 ```
+
+## Choosing the Right Crash Reporter
+
+Embrace offers two crash reporting options with different capabilities and data collection:
+
+### EmbraceCrashReporter (Recommended)
+
+**Features:**
+
+- Built on KSCrash for comprehensive crash detection
+- Includes all Embrace session properties and resources in crash reports
+- Supports last run state detection (crash vs. clean exit)
+- Complete crash context with full stack traces and system information
+- Works offline - crashes are captured locally and uploaded on next launch
+- Configurable signal filtering (SIGTERM blocked by default)
+- Optional MetricKit integration
+
+**Best for:**
+
+- New implementations
+- Applications requiring complete session context in crash reports
+- Offline-capable crash reporting
+
+### CrashlyticsReporter (Migration Tool)
+
+**Features:**
+
+- Intercepts Firebase Crashlytics network requests
+- Captures crash data that Firebase Crashlytics collects
+- Supports custom crash properties via `appendCrashInfo()`
+- Automatically disables MetricKit reports to avoid conflicts
+
+**Limitations:**
+
+- Does not include Embrace session properties or resources
+- Last run state always returns "unavailable"
+- Depends on Firebase Crashlytics for crash detection
+- Limited crash context compared to KSCrash
+- Requires network connectivity for crash capture
+
+**Best for:**
+
+- Gradual migration from Firebase Crashlytics
+- Teams that must maintain Firebase Crashlytics for other purposes
+
+### Data Comparison
+
+| Feature | EmbraceCrashReporter | CrashlyticsReporter |
+|---------|---------------------|-------------------|
+| **Session Properties** | ✅ Included | ❌ Not included |
+| **Resources** | ✅ Included | ❌ Not included |
+| **Custom Crash Info** | ✅ Via `appendCrashInfo()` | ✅ Via `appendCrashInfo()` |
+| **Last Run State** | ✅ Crash/Clean Exit detection | ❌ Always unavailable |
+| **Full Stack Traces** | ✅ Complete KSCrash data | ⚠️ Limited to Firebase data |
+| **Offline Support** | ✅ Local crash capture | ❌ Requires network |
+| **MetricKit Integration** | ✅ Configurable | ❌ Disabled |
 
 ### Disabling Crash Reporting
 
@@ -79,11 +149,13 @@ Obviously, this function will crash your app. Use it for testing purposes and be
 :::
 
 ### Swift
+
 ```swift
 Embrace.client?.crash()
 ```
 
 ### Objective-C
+
 ```objc
 [[Embrace client] crash];
 ```
@@ -116,13 +188,33 @@ When a crash occurs, Embrace captures:
 
 ### Custom Crash Attributes
 
-You can add custom attributes that will be included with crash reports:
+You can add custom data that will be included with crash reports using two different approaches:
+
+#### Session Properties (EmbraceCrashReporter only)
+
+Session properties are automatically included in crash reports when using EmbraceCrashReporter:
 
 ```swift
-// Add custom attributes before a potential crash
-Embrace.client?.metadata.customProperties["user_action"] = "checkout_attempt"
-Embrace.client?.metadata.customProperties["cart_items"] = "3"
+// Add session properties that will be included in crash reports
+try Embrace.client?.metadata.addProperty(key: "user_tier", value: "premium", lifespan: .session)
+try Embrace.client?.metadata.addProperty(key: "feature_flags", value: "checkout_v2", lifespan: .session)
+try Embrace.client?.metadata.addProperty(key: "experiment_group", value: "control", lifespan: .session)
 ```
+
+**Note:** Session properties are only included when using `EmbraceCrashReporter`. They are not available with `CrashlyticsReporter`.
+
+#### Custom Crash Info (Both crash reporters)
+
+Both crash reporters support adding custom key-value pairs directly to crash reports:
+
+```swift
+// Add custom crash info that will be included in the crash report
+try Embrace.client?.appendCrashInfo(key: "user_action", value: "checkout_attempt")
+try Embrace.client?.appendCrashInfo(key: "cart_items", value: "3")
+try Embrace.client?.appendCrashInfo(key: "screen_name", value: "payment_form")
+```
+
+This method works with both `EmbraceCrashReporter` and `CrashlyticsReporter`.
 
 ### Crash Callbacks
 
@@ -152,6 +244,32 @@ If crashes aren't appearing in the dashboard:
 3. Check that dSYM files are uploaded for proper symbolication
 4. Verify your App ID is correct
 
+For CrashlyticsReporter specifically:
+
+1. Ensure Firebase Crashlytics is properly configured and working
+2. Verify Firebase Crashlytics network requests are being made
+3. Check that Firebase Crashlytics is capturing the crash in Firebase Console
+
+### Session Properties Not Appearing
+
+If session properties are missing from crash reports:
+
+1. **Using CrashlyticsReporter**: Session properties are not supported. Use `appendCrashInfo()` instead or switch to `EmbraceCrashReporter`
+2. **Using EmbraceCrashReporter**: Verify properties were added with `.session` lifespan before the crash occurred
+
+### CrashlyticsReporter Specific Issues
+
+If using CrashlyticsReporter and experiencing issues:
+
+1. **Crashes not captured**: Ensure Firebase Crashlytics is functioning properly - test crash reporting in Firebase Console
+2. **Missing context**: CrashlyticsReporter only includes data that Firebase Crashlytics captures. Use `appendCrashInfo()` for custom data
+3. **Network dependency**: CrashlyticsReporter requires network connectivity to capture crashes from Firebase requests
+4. **Firebase SDK issues**: CrashlyticsReporter depends on Firebase Crashlytics SDK functionality, which Embrace cannot control
+
+   :::info Firebase Dependency Considerations
+   CrashlyticsReporter relies on Firebase Crashlytics SDK functionality. If Firebase has issues, bugs, or breaking changes, it may affect crash capture. For complete control over crash reporting, we recommend using EmbraceCrashReporter.
+   :::
+
 ### Symbolication Issues
 
 If crash reports show unsymbolicated addresses:
@@ -164,4 +282,4 @@ If crash reports show unsymbolicated addresses:
 
 - Learn about [Error Handling](/ios/6x/manual-instrumentation/error-handling.md) for non-fatal errors
 - Set up [Breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs.md) to add context to crash reports
-- Configure [Custom Logging](/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information 
+- Configure [Custom Logging](/ios/6x/manual-instrumentation/custom-logging.md) for additional debugging information

@@ -10,7 +10,7 @@ If you are using React Router to control navigation in your web application we p
 to emit telemetry automatically as users navigate your app. If you are using a different navigation method that we do
 not currently provide a helper for you can still instrument navigation manually by following the steps below.
 
-### Manual Instrumentation
+## Manual Instrumentation
 
 The first step is to set up the navigation instrumentation when you init the Embrace Web SDK:
 

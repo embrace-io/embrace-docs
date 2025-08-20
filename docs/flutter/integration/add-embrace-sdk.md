@@ -51,7 +51,7 @@ Embrace uploads the dSYM symbol files of your application using a script bundled
 
 On the Xcode Build Phase tab, add a new run script. You can find your 5-character app ID and API token in the Embrace dashboard:
 
-```
+```shell-session
 EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 

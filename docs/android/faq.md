@@ -78,9 +78,9 @@ We proactively profile the impact of instrumentation on the app. Spans generally
 ### **What determines if a session is classified as prod or dev?**
 
 A session is classified as dev if all of the following are true:
-* The `buildType` has the `debuggable` flag set to `true` in the `app/build.gradle` file.
-* The optional `enableIntegrationTesting` value passed to the SDK start method is `true`.
-* The debugger is attached (meaning you're running the app on a device or simulator with the Android Studio debugger attached).
+- The `buildType` has the `debuggable` flag set to `true` in the `app/build.gradle` file.
+- The optional `enableIntegrationTesting` value passed to the SDK start method is `true`.
+- The debugger is attached (meaning you're running the app on a device or simulator with the Android Studio debugger attached).
 
 ### **How can I define custom app IDs for different build types?**
 
@@ -96,7 +96,7 @@ Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please e
 
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
-A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events. 
+A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events.  
 
 Several customers have encountered the scenario in which they have mistakenly disabled the SDK's ability to listen for such events. In such cases, customer intervention is required to determine how the startup library was disabled and how to re-enable it.
 
@@ -104,7 +104,7 @@ Several customers have encountered the scenario in which they have mistakenly di
 
 When using a version of 'appCompat' ≥ 1.4.1, the 'androidx.startup' library is used to initialize lifecycle event listeners. This is the same library used by WorkManager on Android.
 
-In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described. 
+In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described.  
 
 If the following code block is present in your Manifest file, **Embrace SDK will not run.** This deactivates every initialization provider:
 
@@ -133,6 +133,7 @@ Only disable the WorkManager initializer. This will allow the Embrace SDK to fun
         tools:node="remove" />
 </provider>
 ```
+
 :::
 
 In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, the initialization provider should be added explicitly:
@@ -143,11 +144,14 @@ In other instances, a library may disable the initializer. In such a scenario, t
 </provider>
 ```
 
-*Note: Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.*
+:::info Note
+Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.
+:::
 
-*Please contact us if you have any questions or require help.*
+_Please contact us if you have any questions or require help._
 
 ### **How do I override the version of OkHttp to be lower than the one Embrace specifies?**
+
 By default, your app will choose the latest version of a particular dependency if multiple versions are transitively specified due to your app's explicit dependencies. If you wish to use a version of a dependency like OkHttp that is lower than what Embrace uses, you can follow the instructions [here](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:enforcing_dependency_version).
 
 Note that Embrace does not support versions of dependencies lower than what has been specified, so doing this kind of override may lead to unspecified behaviors. Only do this if it cannot be avoided and thoroughly test that it does not conflict with Embrace or any other SDKs that may also dependent on it.
@@ -195,7 +199,7 @@ You also can pass a User ID to identify users through a set of methods related t
 
 `Embrace.getInstance().setUserIdentifier("internal_user_id_1234")`
 
-Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. We recommend including an anonymized user ID that only your agents can search for. 
+Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. We recommend including an anonymized user ID that only your agents can search for.  
 
 If no user identifier is set, Embrace sets a random string as the identifier, which is active and available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/android/features/identify-users.md).
 
@@ -223,28 +227,28 @@ Yes, we have multiple customers that use GraphQL. See the [GraphQL guide](/best-
 
 All network calls are automatically tracked without any code changes. Network calls are tracked if you use one or more of the following network libraries:
 
-* OkHttp3 (including support for Retrofit)
-* Http(s)URLConnection
+- OkHttp3 (including support for Retrofit)
+- Http(s)URLConnection
 
 If you use a library not listed or do not see expected network calls, please contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
 
 ### **Compatibility with Akamai, Cloudflare, PacketZoom and Other Networking Services**
 
 Embrace is compatible with SDKs that optimize networking, such as those from Akamai, Cloudflare, and PacketZoom.
-However, it is important that the Embrace SDK is initialized *after* any of these types of SDKs are initialized to ensure
+However, it is important that the Embrace SDK is initialized _after_ any of these types of SDKs are initialized to ensure
 that our SDK captures network requests.
 
 ### **My network calls are not being captured. What could be going wrong?**
 
 This could be due to one of the following reasons:
 
-* We currently do not automatically capture WebSocket requests.
-* The networking library you're using isn't one of the supported ones.
-* You may use a CDN like Cloudflare, which can change your networking under-the-hood. Here's a list of CDNs that are verified to be compatible:
-  * Akamai
-  * Cloudflare
-  * PacketZoom
-* If you are using `OkHttp3`, make sure to get an instance of `OkHttpClient` by calling the builder:
+- We currently do not automatically capture WebSocket requests.
+- The networking library you're using isn't one of the supported ones.
+- You may use a CDN like Cloudflare, which can change your networking under-the-hood. Here's a list of CDNs that are verified to be compatible:
+  - Akamai
+  - Cloudflare
+  - PacketZoom
+- If you are using `OkHttp3`, make sure to get an instance of `OkHttpClient` by calling the builder:
 
     ```kotlin
         val myOkHttpClient = OkHttpClient.Builder().build()
@@ -255,6 +259,7 @@ This could be due to one of the following reasons:
     ```kotlin
         val myOkHttpClient = OkHttpClient()
     ```
+
     Our SDK instruments the `build()` method, so it will only track network requests with the first approach. 
 
 ### **What does Embrace use to hook into network calls on Android apps?**
@@ -283,7 +288,7 @@ Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in
 Trace IDs longer than 64 characters will be truncated
 :::
 
-# Unity
+## Unity
 
 ## Why am I seeing a `Semaphore.tryAcquire` ANR in `UnityPlayerActivity.onPause`?
 
@@ -292,26 +297,33 @@ This ANR (Application Not Responding) happens because a long-running operation i
 ### What’s happening behind the scenes?
 
 #### Unity’s Android architecture
+
 Every Unity Android app includes `UnityPlayerActivity`, a Java class that runs on the Android UI thread. It manages the app’s lifecycle and acts as a bridge between the OS and the Unity runtime, which runs on a separate thread.
 
 #### How pausing works
+
 When the OS tells your app to pause (e.g., the user switches apps), that request goes to `UnityPlayerActivity.onPause` on the UI thread. To complete the pause process, the activity needs to notify the Unity engine (running on another thread) to trigger `OnApplicationPause` and suspend the game loop.
 
 Since this requires coordination between threads, `onPause` must **wait** for a synchronization point at the end of Unity’s frame loop. This wait happens via `java.util.concurrent.Semaphore.tryAcquire`, which is what you see in the ANR stack trace.
 
 ### Why does this cause an ANR?
+
 Normally, this wait lasts just a few milliseconds. However, if the Unity thread is already **blocked** by a long-running operation (such as synchronous asset loading or heavy computation), the pause request gets stuck waiting—leading to an ANR.
 
 ### Example scenario
+
 Let’s say your game loads a large 3D environment when the user taps a button in the main menu. If the scene loads **synchronously** and takes several seconds (especially on a low-end device), the user usually just waits for it to complete. But if the OS happens to pause the app during this process (e.g., the user switches apps), the ongoing load delays the pause process, and boom—ANR.
 
 ### How to prevent this?
 
 #### Identify long-running synchronous operations
+
 Use [Traces](/android/features/traces) to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
 
 #### Optimize your game loop
+
 Where possible, move heavy operations **off the main Unity thread** or make them **asynchronous** to avoid blocking the pause request.
 
 ### Key takeaway
+
 The `Semaphore.tryAcquire` ANR isn’t caused by `OnApplicationPause`—it’s caused by other long-running tasks in your game that prevent Unity from handling the pause in time. By reducing these blocking operations, you can avoid this issue and improve your app’s responsiveness.

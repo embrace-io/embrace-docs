@@ -27,7 +27,7 @@ In this DPA,
 - "Data Subject" means the individual whose Personal Data is Processed, including a "Data Subject" as defined by GDPR and a "Consumer" as defined by CCPA.
 - "GDPR" means the a) General Data Protection Regulation (Regulation (EU) 2016/279) and b) the General Data Protection Regulation 2016/679 as amended and incorporated into United Kingdom law under the UK European Union (Withdrawal) Act 2018, and applicable secondary legislation made under that Act.
 - "Personal Data" means any "Personal Data", "Personal Information", or similar term as defined under Data Protection Legislation, or, where undefined, information that relates, directly or indirectly, to an identified or identifiable Individual, processed by Embrace on behalf of Customer under the Agreement.
-- "Processing" means any operation performed on Personal Data, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction. 
+- "Processing" means any operation performed on Personal Data, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction.  
 - "appropriate technical and organizational measures" shall be interpreted in accordance with applicable Data Protection Legislation.
 - "Standard Contractual Clauses" means the relevant standard contractual clauses approved under applicable Data Protection Legislation to enable the cross-border transfer of Personal Data, including any approved amendments, updates or replacements thereof that may be issued by the relevant authority (e.g., European Commission in the EEA). Specifically, it refers to the Standard Contractual Clauses approved by the European Commission in decision 2021/914, with the following modifications to each Module as applicable: 1) Clause 7 shall not apply; 2) Option B shall be selected for Clause 9; 3) The optional language of Clause 11 shall be removed; 4) For any blank sections where an EAA member state must be specified, Ireland shall be selected. Annex 1 of this DPA shall serve as Annex I; Annex 2 shall serve as Annex II. In addition, where applicable for transfers from the United Kingdom, the Standard Contractual Clauses will include the mandatory clauses of addendum required for data transfers governed by United Kingdom's Data Protection Legislation ("UK Addendum"). For purposes of the UK Addendum, the information required for Tables 1 to 3 of Part 1 is set forth in Annex A of this DPA, as applicable, and for Table 4 of Part 1 of the UK Addendum, "neither party" is selected.
 - "Business", "Consumer", "Sale", "Sell" and "Share" have the meaning set forth in the CCPA.
@@ -72,11 +72,11 @@ This DPA is effective upon the Effective Date of the Agreement and will continue
 
 ### Part A
 
-*Data exporter:*
+_Data exporter:_
 
 Contact details shall be found in the Customer's Agreement, account, and/or Order Form. The signature and date shall be the date of the Agreement incorporating this DPA.
 
-*Data importer:*
+_Data importer:_
 
 Contact details: support@embrace.io, 1901 Avenue of the Stars, Suite 200, Los Angeles, CA 90067
 

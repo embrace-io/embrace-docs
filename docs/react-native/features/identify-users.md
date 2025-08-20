@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Identify Users
 
-Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find 
+Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find  
 sessions for an unhappy user.
 
 - [**User Personas**](/react-native/features/identify-users#user-personas). This is data you can set and update about the user of a session.

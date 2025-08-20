@@ -136,7 +136,7 @@ import OpenTelemetryApi
 
 // New object definition
 class MyClass {
-    
+
     // Create a Span property that will be available across the object
     var activitySpan: Span? = nil // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
 

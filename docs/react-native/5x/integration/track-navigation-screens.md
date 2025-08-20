@@ -109,7 +109,8 @@ Currently we are only supporting 'React Native Navigation SDK' and 'React Naviga
 
 Embrace automatically collects the native screens, if you do not want to see them in the session you can disable it.
 
-#### Android:
+#### Android
+
 Go to your embrace-config.json inside android/app/src/main and add the sdk_config, your file should be like this
 
 ```javascript
@@ -126,7 +127,7 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 }
 ```
 
-#### iOS:
+#### iOS
 
 If you used the automated installation script or followed the manual steps for setting up the iOS SDK then you can
 modify the setup in `EmbraceInitializer.swift` to remove the view capture service, see [Configuring the iOS SDK](/ios/6x/getting-started/configuration-options.md)
@@ -140,7 +141,7 @@ import EmbraceCrash
 @objcMembers class EmbraceInitializer: NSObject {
     static func start() -> Void {
         do {
-         
+
             try Embrace
                 .setup(
                     options: Embrace.Options(
@@ -163,6 +164,7 @@ import EmbraceCrash
 
 If instead you only initialized the SDK through JS then the `disableAutomaticViewCapture` property can be set during the
 call to initialize the SDK:
+
 ```javascript
 initialize({
   sdkConfig: {

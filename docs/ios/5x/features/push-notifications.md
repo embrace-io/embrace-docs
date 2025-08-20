@@ -47,6 +47,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     completionHandler(.newData)
 }
 ```
+
 </TabItem>
 
 <TabItem value="objectivec" label="Objective-C">
@@ -73,10 +74,10 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
     completionHandler(UIBackgroundFetchResultNewData);
 }
 ```
+
 </TabItem>
 
 </Tabs>
-
 
 :::info
 If you want to prevent any data inside the notifications from being captured, you can set the local config `ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE` to `NO`.

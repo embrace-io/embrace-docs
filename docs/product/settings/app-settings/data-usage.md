@@ -4,13 +4,13 @@ description: Recommendations and best practices around Sampling in the Embrace S
 sidebar_position: 2
 ---
 
-## Limiting Traffic in Embrace
+# Limiting Traffic in Embrace
 
 Developers familiar with observability may wish to sample their telemetry from the Embrace SDKs. As a practice, sampling makes sense in traditional monitoring:
 
-* By grabbing a few elements from all available data, you can form conclusions about the whole set of data.
-* Sampling is configurable from a central dashboard on-demand.
-* It really keeps costs down!
+- By grabbing a few elements from all available data, you can form conclusions about the whole set of data.
+- Sampling is configurable from a central dashboard on-demand.
+- It really keeps costs down!
 
 Application sampling is usually a sampling of key signals like logs and traces. Embrace usage is billed at the level of the Session, each of which can contain tens or even hundreds of those signals. Therefore, in the mobile context, "sampling" might mean throwing away entire user experiences.
 

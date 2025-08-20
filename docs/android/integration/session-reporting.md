@@ -6,7 +6,7 @@ description: Upload session reports from your Android application using the Embr
 
 # Session Reporting
 
-Now that you've added the Embrace SDK to your project and can login to the Embrace dashboard, you're ready to create your first session.
+Now that you've added the Embrace SDK to your project and can login to the Embrace dashboard, you are ready to create your first session.
 
 ## Start the Embrace SDK
 
@@ -25,10 +25,10 @@ We recommend to start the SDK on the main thread to ensure you're capturing mobi
 
 ## Build and Run the Application
 
-Now you're ready to build and run the application. Assuming the app launches correctly,
+Now you are ready to build and run the application. Assuming the app launches correctly,
 pay attention to the system logging and confirm Embrace prints its version number:
 
-```
+```text
 Embrace SDK version X.Y.Z started for appId = xxxxx
 ```
 
@@ -42,9 +42,9 @@ You can trigger a session upload by sending your app to the background, and rest
 your browser and you should now see that you've moved on to the next step.
 
 :::warning Important
-If you stop your application by either force killing it or using the Android Studio stop button, 
-the Embrace SDK will not be able to upload the session that was just completed until you restart 
-your application. During the next application launch the previous session will be immediately uploaded. 
+If you stop your application by either force killing it or using the Android Studio stop button,
+the Embrace SDK will not be able to upload the session that was just completed until you restart
+your application. During the next application launch the previous session will be immediately uploaded.
 :::
 
 ---

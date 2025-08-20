@@ -4,7 +4,7 @@ description: Upload crash reports from your iOS application using the Embrace SD
 sidebar_position: 6
 ---
 
-# Collect your first crash report 
+# Collect your first crash report  
 
 ## Setting up the Crash Reporter
 
@@ -15,17 +15,16 @@ Embrace can either use its own internal crash reporting logic or work alongside 
 The first step in initializing crash reporting is configuring which mode you want Embrace to operate in.
 Open the `Embrace-Info.plist` file you added to the project in the [Session Reporting](/ios/5x/integration/session-reporting) step. Add the following new key to that file.
 
-```
+```text
 CRASH_REPORT_PROVIDER
 ```
 
 This is a string value. You can set this to one of the following options:
-* `embrace` - This is the default value which uses Embrace's internal crash reporting
-* `crashlytics` - Set this value if you intend to use Crashlytics as your main crash reporter. Embrace will still attempt to mirror reports sent to Crashlytics so you will still have that data available in the Embrace Dashboard.
-* `none` - This option completely turns off all crash reporting from Embrace but the rest of the SDK will continue to work as normal.
+- `embrace` - This is the default value which uses Embrace's internal crash reporting
+- `crashlytics` - Set this value if you intend to use Crashlytics as your main crash reporter. Embrace will still attempt to mirror reports sent to Crashlytics so you will still have that data available in the Embrace Dashboard.
+- `none` - This option completely turns off all crash reporting from Embrace but the rest of the SDK will continue to work as normal.
 
-The values are case insensitive. 
-
+The values are case insensitive.
 
 ## Debuggers
 
@@ -78,4 +77,4 @@ Additionally your crash is visible in the crashes section of the dashboard.
 
 ---
 
-In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 
+In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions.

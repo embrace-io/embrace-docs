@@ -6,7 +6,6 @@ description: How Embrace SDKs Transfer Data from Devices to Our Servers
 
 # Data Marshaling and Transmission
 
-
 ## Overview
 
 Embrace is designed to be a “good citizen” within your mobile application. We’re aware that many of our customers have critical user journeys (such as completing a transaction) that cannot be interrupted or slowed by non-essential network activity. To address these concerns:
