@@ -26,6 +26,7 @@ sidebar_position: 6
    - Ingests
 
    <img src={require('@site/static/images/data-destinations/splunk_create_token_dialog.png').default} alt="Image showing Access Token modal" />
+
 4. Click on **Create** button and the new token will appear in the table on the screen.
 5. Click on the name of an Access Token.
 6. Click on **Show token button** (located right behind the name). And **Copy** the generated token.
