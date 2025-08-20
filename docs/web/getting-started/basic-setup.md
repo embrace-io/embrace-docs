@@ -88,7 +88,7 @@ that makes use of the sdk.
 The rest of this documentation assumes using the SDK from an NPM installation, here are some required changes to keep in
 mind as you refer to further instructions:
 
-1) Importing the sdk from node modules is no longer valid. Instead, reference it from the global `window` object:
+1) Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
 
    ```diff
    - import { sdk } from '@embrace-io/web-sdk';
@@ -97,7 +97,7 @@ mind as you refer to further instructions:
 
 2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
 
-bundled with your code, instead you will need to make sure to pass in your app version when initializing the sdk as in
+bundled with your code, instead you will need to make sure to pass in your app version when initializing the SDK as in
 the following example:
 
    ```javascript
@@ -137,7 +137,7 @@ The SDK may miss some early telemetry events emitted before the SDK is initializ
 
 ## Using the SDK without the Embrace Dashboard
 
-If you'd prefer not to send data to Embrace you can simply omit the embrace app id when calling `initSDK`. Note that in
+If you'd prefer not to send data to Embrace you can simply omit the Embrace app id when calling `initSDK`. Note that in
 this case at least one custom exporter needs to be configured following the steps
 from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
@@ -146,8 +146,8 @@ from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 ### Compatibility with OTel packages
 
 The SDK is built on top of OpenTelemetry and as such it is possible to use it alongside other OTel libraries. If you
-wish to customize the sdk behaviour by configuring custom resources, exporters, processors or instrumentations you
-should make sure to use versions of the OTel packages that are compatible with what the SDK uses. this table
+wish to customize the SDK behavior by configuring custom resources, exporters, processors or instrumentations you
+should make sure to use versions of the OTel packages that are compatible with what the SDK uses. This table
 summarizes those compatible versions of the OTel packages:
 
 | Open Telemetry APIs | Core  | Instrumentations & Contrib |
@@ -177,7 +177,6 @@ sdk.initSDK({
 After basic setup, you can:
 
 - Configure [Sourcemap Upload](/web/getting-started/sourcemap-uploads.md) to view symbolicated stack traces for
-- Learn about [Sessions](/web/core-concepts/sessions.md) and how they track user activity
-exceptions and logs in the Embrace dashboard
+- Learn about [Sessions](/web/core-concepts/sessions.md) and how they track user activity exceptions and logs in the Embrace dashboard
 - Explore [Traces & Spans](/web/core-concepts/traces-spans.md) for performance monitoring
 - Dig into what is available through [automatic instrumentation](/web/automatic-instrumentation/index.md)

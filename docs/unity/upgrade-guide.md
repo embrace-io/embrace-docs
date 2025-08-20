@@ -14,7 +14,7 @@
 
 ## iOS SDK Code Initialization
 
-The Embrace Unity SDK internally depends on the Embrace Apple SDK. As a result, from 6.0.0 onwards the SDK no longer uses a .plist file to hold Embrace-specific configuration.  
+The Embrace Unity SDK internally depends on the Embrace Apple SDK. As a result, from 6.0.0 onwards the SDK no longer uses a .plist file to hold Embrace-specific configuration.
 
 You should continue to configure the Embrace Unity SDK on iOS the same as before, but now requiring that you pass the `App Id` via `EmbraceStartupArgs` when calling `StartSDK`
 
@@ -58,7 +58,7 @@ Please refer to the [list](/android/upgrading/#remove-deprecated-properties-from
 
 ## AGP Version dependency has been bumped
 
-Unity has updated the internal android build tools, Gradle plugin, and Android Gradle plugin. We target those new values as our minimums on the Embrace Android SDK, and therefore also the Embrace Unity SDK on Android. For further information, please look at Unity's documentation [here](https://docs.unity3d.com/2021.3/Documentation/Manual/android-gradle-overview.html). Specific patch versions of Unity with this support differ by major Unity version; make sure to double check your version of Unity against the correct documentation.
+Unity has updated the internal Android build tools, Gradle plugin, and Android Gradle plugin. We target those new values as our minimums on the Embrace Android SDK, and therefore also the Embrace Unity SDK on Android. For further information, please look at Unity's documentation [here](https://docs.unity3d.com/2021.3/Documentation/Manual/android-gradle-overview.html). Specific patch versions of Unity with this support differ by major Unity version; make sure to double check your version of Unity against the correct documentation.
 
 Please note that in upgrading, you may have to update values in the generated template files we require as they may still point to the older values. Please refer to the link to Unity's documentation above regarding supported Android Gradle versions for what these should be.
 
@@ -66,7 +66,7 @@ Please note that in upgrading, you may have to update values in the generated te
 
 Currently the latest version of Xcode and Unity's iOS build pipeline have an issue where including a Swift library (such as the Embrace Apple SDK) does not result in Xcode invoking its linker toolchain correctly. This can block builds and will generally involve messages mentioning symbols such as `swift_FORCE_LOAD_$_swiftCompatibility`. The issue is rather recent, and listed [here](https://forums.developer.apple.com/forums/thread/762854).
 
-The easiest solution to this is to add a Dummy Swift file in the exported Xcode project out of Unity by right clicking the `Unity-iPhone` xcode project in the Project Navigator and selecting the `New File from Template` option. When doing this make sure to add the Swift file to the UnityFramework in Xcode. Make sure to add the file to BOTH the game target AND the UnityFramework target. Then, make sure to create the bridging heading. There's no need to add any code. The sole purpose of the file is to provide Xcode the necessary hints so that it invokes its toolchain correctly.
+The easiest solution to this is to add a Dummy Swift file in the exported Xcode project out of Unity by right clicking the `Unity-iPhone` Xcode project in the Project Navigator and selecting the `New File from Template` option. When doing this make sure to add the Swift file to the UnityFramework in Xcode. Make sure to add the file to BOTH the game target AND the UnityFramework target. Then, make sure to create the bridging heading. There's no need to add any code. The sole purpose of the file is to provide Xcode the necessary hints so that it invokes its toolchain correctly.
 
 ## Remove scoped registry
 

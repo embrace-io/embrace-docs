@@ -19,7 +19,7 @@ or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## What do we collect and why?
 
-### **Data collected by default and disclosed on our "PrivacyInfo.xcprivacy" Privacy file **
+### **Data collected by default and disclosed on our "PrivacyInfo.xcprivacy" Privacy file**
 
 #### **Identifiers:**
 - Device ID

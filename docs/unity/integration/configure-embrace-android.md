@@ -152,12 +152,12 @@ Embrace needs the following templates present in your project:
  android.enableJetifier=true
  ```
 
-   ---
+---
 
    Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings. Then, you can save the zip file at the root of your project. We will grab the `symbols.zip` file automatically.
 
    <img src={require('@site/static/images/unity-android-build-settings.png').default} />
 
-   ---
+---
 
    Now that you've configured the Android platform, it's time to login to the Embrace dashboard.

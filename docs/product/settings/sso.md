@@ -30,7 +30,7 @@ Users can start from Embrace's [dashboard](https://dash.embrace.io) by providing
 
 ## Configuring SAML 2.0 SSO
 
-### Prerequisites
+### Requirements
 
 - Enterprise-level Embrace account with SSO feature enabled.
 - Username and password for Embrace user with administrator access.
@@ -74,7 +74,7 @@ Embrace application is published in Okta's Integration Network, which simplifies
    - Navigate to **Provider Information** tab and copy your **Org ID**.
 4. Within Okta's app configuration's **General Settings**, provide the **Org ID** obtained above; click Save.
 
-### SP-initiated SSO
+### SP-initiated Configuration
 
 - Navigate to Embrace dashboard home page at [https://dash.embrace.io](https://dash.embrace.io)
 - Click **Continue with SSO**

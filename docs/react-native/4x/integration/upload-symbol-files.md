@@ -8,7 +8,7 @@ sidebar_position: 4
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
-For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.  
+For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.
 
 ## Uploading Source Maps
 
@@ -178,7 +178,7 @@ ios/Pods/EmbraceIO/upload --app <your app ID> --token <your token> --rn-bundle .
 ```
 
 :::info
-The android map is generated with a different name, but the tool to upload is the same as iOS
+The Android map is generated with a different name, but the tool to upload is the same as iOS
 :::
 
 </TabItem>
