@@ -5,9 +5,7 @@ The AutoViewCapture component will automatically track views that get disabled/e
 
 ## Setup
 
-On the component you want to track (typically a base UI component) attach the AutoViewCapture component and ensure it's enabled.
-
-![[AutoViewCapture-1.png]]
+On the component you want to track (typically a base UI component) attach the `AutoViewCapture` component and ensure it's enabled.
 
 Next up fill in the View Name with the name of the view you are capture. If left blank it will use the GameObject's name.
 
