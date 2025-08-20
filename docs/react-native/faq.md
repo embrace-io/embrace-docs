@@ -70,9 +70,9 @@ Please make sure that Embrace is initialized after any 3rd party networking libr
 We are consistently discovering new APIs and libraries for which we need to add support.
 Please contact us via email or Slack with the information.
 
-### **Do you support GRPC?**
+### **Do you support gRPC?**
 
-Yes. Please contact us for the steps to track GRPC.
+Yes. Please contact us for the steps to track gRPC.
 
 ### **Do you support GraphQL?**
 

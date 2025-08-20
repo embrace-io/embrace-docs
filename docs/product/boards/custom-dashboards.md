@@ -49,11 +49,11 @@ For example, you want to get a rate over the last 24 hours of the sum of crashes
     a. On query B, filter for Duration Bucket (milliseconds) = 3500 - 10000.
 4. Create a third query (C) for your Session Count grouped by App Version and filter for foreground sessions using the same process as in query A.
 5. Hide queries A, B, and C by clicking the eye symbols at the right side of each query row.
-5. In the Formula field at the bottom, enter `(A+B) / C`. You can optionally multiply this by 100 to get a y-axis as a percentage (`((A+B) / C) * 100`).\
+6. In the Formula field at the bottom, enter `(A+B) / C`. You can optionally multiply this by 100 to get a y-axis as a percentage (`((A+B) / C) * 100`).\
     a. The Formula field accepts the operators: `+, -, *, /`.\
     b. Order of operations follows standard PEMDAS.
 
-<img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
+   <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
 
 ### Multiple Combined Time Series without a Formula
 
@@ -138,7 +138,7 @@ Our Issues Widget, lets you specify how to list a table of [Issues](/product/iss
 2. Adjust the columns you want to display and how to filter the Issues.
 3. Then once you save, you'll see this table on your dashboard! Issues are sorted by percentage of users impacted in descending order.
 
-<img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
+   <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
 
 ## Emailing Custom Dashboards
 
@@ -164,8 +164,8 @@ To group by an exploded property:
 
 1. When adding or editing a Widget, go to the Group By section.
 2. Start typing the name of the property you want to use—exploded properties will appear just like any other attribute.
-<img src={require('@site/static/images/exploded-properties/group_by.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
+   <img src={require('@site/static/images/exploded-properties/group_by.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
 3. Select the property. If it's a multi-value field, we'll automatically explode it for you.
-<img src={require('@site/static/images/exploded-properties/table.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
+   <img src={require('@site/static/images/exploded-properties/table.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
 
-In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.
+   In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.

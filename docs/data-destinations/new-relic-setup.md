@@ -16,7 +16,7 @@ sidebar_position: 5
 2. Navigate to your [API Keys](https://one.newrelic.com/admin-portal/api-keys/home).
 3. Search the "INGEST-LICENSE" type key (if you don't have one, you need to create a new one)
 4. Click on the "..." button
-<img src={require('@site/static/images/data-destinations/new_relic_api_keys.png').default} alt="Image showing New Relic field needed" />
+   <img src={require('@site/static/images/data-destinations/new_relic_api_keys.png').default} alt="Image showing New Relic field needed" />
 5. Click on the "Copy key" button
 
 ## Pulling your New Relic Region ([New Relic documentation](https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/))

@@ -10,10 +10,10 @@ Now that you’ve added the Embrace SDK to your project and can login to the Emb
 Here are the steps you’ll be taking to create your first session.
 
 1. [Initialize Embrace](/react-native/4x/integration/session-reporting#initialize-embrace-sdk)
-1. [Add a start call to the Embrace SDK](/react-native/4x/integration/session-reporting#add-the-start-call)
-1. [End the Startup Moment](/react-native/4x/integration/session-reporting#end-the-startup-moment)
-1. [Build and run the application](/react-native/4x/integration/session-reporting#build-and-run-the-application)
-1. [Trigger a session upload](/react-native/4x/integration/session-reporting#trigger-a-session-upload)
+2. [Add a start call to the Embrace SDK](/react-native/4x/integration/session-reporting#add-the-start-call)
+3. [End the Startup Moment](/react-native/4x/integration/session-reporting#end-the-startup-moment)
+4. [Build and run the application](/react-native/4x/integration/session-reporting#build-and-run-the-application)
+5. [Trigger a session upload](/react-native/4x/integration/session-reporting#trigger-a-session-upload)
 
 ## Initialize Embrace SDK
 

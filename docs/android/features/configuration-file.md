@@ -188,7 +188,7 @@ Disable capture of network length which can interfere with certain streaming net
 
 Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
 
-Example: 
+Example:
 
 ```text
 "disabled_url_patterns": [".*"], // Will disable network calls for all URLs

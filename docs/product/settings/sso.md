@@ -49,9 +49,9 @@ Once you have obtained those two pieces of information, any user with Embrace "a
 3. On the **SSO Configuration**, choose `URL` and enter your **Metadata URL**, or choose `File` and upload your **Metadata XML File**.
 4. Enter your company's **Domain**.
 5. Select whether you wish to **Make SSO Optional** or not. You should keep this option turned `on` until you have fully verified that your SSO flow is working for all of your users. Afterwards, you can toggle this option to `off` to require SSO and disable email + password login process for all users.
-5. Click **Save Changes**.
+6. Click **Save Changes**.
 
-If necessary, the Embrace logo icon can be downloaded in [svg](https://embrace.io/embrace.svg), [png](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/android-icon-192x192.png) or [ico](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/favicon.ico) format.
+   If necessary, the Embrace logo icon can be downloaded in [svg](https://embrace.io/embrace.svg), [png](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/android-icon-192x192.png) or [ico](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/favicon.ico) format.
 
 ### Okta {#okta}
 

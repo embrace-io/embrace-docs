@@ -13,10 +13,8 @@ concepts will help you better utilize the SDK's capabilities and interpret the d
 
 The Embrace SDK is built on several key concepts:
 
-1. **[Sessions](./sessions.md)** - Comprehensive records of user interactions during app usage, both in foreground and
-background states
-2. **[Traces & Spans](./traces-spans.md)** - OpenTelemetry-based instrumentation for tracking operations and their
-performance
+1. **[Sessions](./sessions.md)** - Comprehensive records of user interactions during app usage, both in foreground and background states
+2. **[Traces & Spans](./traces-spans.md)** - OpenTelemetry-based instrumentation for tracking operations and their performance
 3. **[Logs](./logs.md)** - Messages and events that provide contextual information about application state
 4. **[User Identification](./user-identification.md)** - Methods to identify users
 
@@ -38,4 +36,4 @@ The Embrace web SDK is built on the OpenTelemetry framework, an industry-standar
 - The SDK follows established patterns for instrumentation
 
 By learning these core concepts, you'll gain the knowledge needed to effectively use the more advanced features of the
-SDK covered in later sections.  
+SDK covered in later sections.

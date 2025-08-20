@@ -69,13 +69,13 @@ Embrace needs the following templates present in your project:
 3. `gradleTemplate.properties`
 4. `settingsTemplate.gradle`
 
-If your project already modifies these files, then apply the changes below to your existing files. If you do not customize the template currently, add a customization and then modify them as described below.
+   If your project already modifies these files, then apply the changes below to your existing files. If you do not customize the template currently, add a customization and then modify them as described below.
 
-After creating or finding these template files in your project, make the following changes:
+   After creating or finding these template files in your project, make the following changes:
 
-1. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below.
+5. In `baseProjectTemplate.gradle`, add the swazzler as a dependency. Also, ensure you have Maven Central defined as repositories as shown below.
 
-Add the following block to the top of your `baseProjectTemplate.gradle` file.
+   Add the following block to the top of your `baseProjectTemplate.gradle` file.
 
 ```groovy
     buildscript {
@@ -85,7 +85,7 @@ Add the following block to the top of your `baseProjectTemplate.gradle` file.
     }
 ```
 
-Example:
+   Example:
 
 ```groovy
     buildscript {
@@ -109,9 +109,9 @@ Example:
     }
 ```
 
-Under `settingsTemplate.gradle` file, ensure that the `mavenCentral()` repositories exists.
+   Under `settingsTemplate.gradle` file, ensure that the `mavenCentral()` repositories exists.
 
-Example:
+   Example:
 
 ```groovy
     pluginManagement {
@@ -139,25 +139,25 @@ Example:
     }
 ```
 
-2. In `launcherTemplate.gradle`, add the `embrace-swazzler` plugin.
+6. In `launcherTemplate.gradle`, add the `embrace-swazzler` plugin.
 
  ```gradle
  apply plugin: 'embrace-swazzler'
  ```
 
-3. In `gradleTemplate.properties`, add the following if not present:
+7. In `gradleTemplate.properties`, add the following if not present:
 
  ```gradle
  android.useAndroidX=true
  android.enableJetifier=true
  ```
 
----
+   ---
 
-Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings. Then, you can save the zip file at the root of your project. We will grab the `symbols.zip` file automatically.
+   Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings. Then, you can save the zip file at the root of your project. We will grab the `symbols.zip` file automatically.
 
-<img src={require('@site/static/images/unity-android-build-settings.png').default} />
+   <img src={require('@site/static/images/unity-android-build-settings.png').default} />
 
----
+   ---
 
-Now that you've configured the Android platform, it's time to login to the Embrace dashboard.
+   Now that you've configured the Android platform, it's time to login to the Embrace dashboard.

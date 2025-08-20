@@ -80,25 +80,25 @@ You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 </plist>
 ```
 
-:::info Note for iOS
-If you'd like to use Embrace's internal crash reporter,
-set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
-described in the [Adding the Embrace SDK](/flutter/integration/add-embrace-sdk) page).
-If you're using Crashlytics, set this value to false.
-:::
+   :::info Note for iOS
+   If you'd like to use Embrace's internal crash reporter,
+   set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
+   described in the [Adding the Embrace SDK](/flutter/integration/add-embrace-sdk) page).
+   If you're using Crashlytics, set this value to false.
+   :::
 
 2. Identify your root iOS Project.
 
-<img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
+   <img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
 
 3. Right click on that project and select `Add Files to YOUR_PROJECT`.
-<img src={require('@site/static/images/addEmbraceInfo-2.png').default} />
+   <img src={require('@site/static/images/addEmbraceInfo-2.png').default} />
 
 4. Select `Embrace-Info.plist` and click on `Add`. Do not forget to select which `Targets` you are using.
-<img src={require('@site/static/images/addEmbraceInfo-3.png').default} />
+   <img src={require('@site/static/images/addEmbraceInfo-3.png').default} />
 
 5. Check if the file appears inside YOUR_PROJECT.
-<img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
+   <img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
 
 ## React Native Version < 0.60
 

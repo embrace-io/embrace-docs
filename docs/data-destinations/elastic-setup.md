@@ -17,31 +17,31 @@ default APM integration setup already).
 If you have set a [secret token already](https://www.elastic.co/guide/server/current/secret-token.html) you can use that
 token. Otherwise, you can use the default token in your integration. The instructions below are for the default token.
 
-1. Click the hamburger menu to open the menu and select "Management".  
-1. Select "Fleet", then "Agent policies". You should see a default policy.
-1. Click into the default policy, and select the "Elastic APM integration policy".
-1. Scroll down to the Agent authorization section and select the secret token.
+1. Click the hamburger menu to open the menu and select "Management".
+2. Select "Fleet", then "Agent policies". You should see a default policy.
+3. Click into the default policy, and select the "Elastic APM integration policy".
+4. Scroll down to the Agent authorization section and select the secret token.
 
 ## Find Server URL
 
 If you have an APM server URL already configured you can use that. Otherwise, you can use the default server URL in your
 integration. The instructions below are for the default server URLs.
 
-1. Click the hamburger menu to open the menu and select Management.  
-1. Select Fleet, then Agent policies. You should see a default policy.
-1. Click into the default policy, and select the Elastic APM integration policy.
-1. Select the APM Agents tab, and scroll down to the OpenTelemetry section. Use the value for the `OTEL_EXPORTER_OTLP_ENDPOINT`.
+1. Click the hamburger menu to open the menu and select Management.
+2. Select Fleet, then Agent policies. You should see a default policy.
+3. Click into the default policy, and select the Elastic APM integration policy.
+4. Select the APM Agents tab, and scroll down to the OpenTelemetry section. Use the value for the `OTEL_EXPORTER_OTLP_ENDPOINT`.
 
 ## Create Elastic Data Destination
 
 1. Navigate to the [Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations) and select
 
-Add Data Destination.  
+   Add Data Destination.
 
-1. Select Elastic in the dropdown and the apps that you want to forward.
-1. Input the secret token and server URL.
+2. Select Elastic in the dropdown and the apps that you want to forward.
+3. Input the secret token and server URL.
 
-<img src={require('@site/static/images/data-destinations/elastic_config.png').default} alt="Image showing Elastic data destination form" width="50%"/>
+   <img src={require('@site/static/images/data-destinations/elastic_config.png').default} alt="Image showing Elastic data destination form" width="50%"/>
 
 ## Querying Your Metrics
 
@@ -53,6 +53,6 @@ Your metrics will be prefixed with `embrace.`. You can visualize your data using
 ## Querying Your Network Spans
 
 You can explore your forwarded spans under the APM page under the Observability section. You should see `embrace-trace-forwarder`
-as the service.  
+as the service.
 
 <img src={require('@site/static/images/data-destinations/elastic_traces.png').default} alt="Image showing Traces in Elastic dashboard" />
