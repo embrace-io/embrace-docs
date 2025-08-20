@@ -19,4 +19,4 @@ how your application is performing in production.
 - [**C# Symbolication.**](/unity/features/csharp-symbolication/) Translate C++ stack frames from il2cpp builds back to the C# source.
 - [**Build Options.**](/unity/features/build-options/) The Embrace Unity Editor Windows have options that can modify the build process.
 - [**User Opt Out.**](/unity/features/user-opt-out/) Allow your users to opt out of data collection.
-- **[[auto-view-capture|Auto View Capture.]]** Automatically track the showing and hiding of views in your app.
+- [**Auto View Capture**](/unity/features/auto-view-capture) Automatically track the showing and hiding of views in your app.
