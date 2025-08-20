@@ -20,3 +20,4 @@ how your application is performing in production.
 - [**Build Options.**](/unity/features/build-options/) The Embrace Unity Editor Windows have options that can modify the build process.
 - [**User Opt Out.**](/unity/features/user-opt-out/) Allow your users to opt out of data collection.
 - [**Auto View Capture**](/unity/features/auto-view-capture) Automatically track the showing and hiding of views in your app.
+- [**Startup Spans**](/unity/features/startup-spans) Track details about the startup times of your app and identify any bottlenecks in startup performance.
