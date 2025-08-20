@@ -76,6 +76,7 @@ Embrace offers two crash reporting options with different capabilities and data 
 ### EmbraceCrashReporter (Recommended)
 
 **Features:**
+
 - Built on KSCrash for comprehensive crash detection
 - Includes all Embrace session properties and resources in crash reports
 - Supports last run state detection (crash vs. clean exit)
@@ -85,6 +86,7 @@ Embrace offers two crash reporting options with different capabilities and data 
 - Optional MetricKit integration
 
 **Best for:**
+
 - New implementations
 - Applications requiring complete session context in crash reports
 - Offline-capable crash reporting
@@ -92,12 +94,14 @@ Embrace offers two crash reporting options with different capabilities and data 
 ### CrashlyticsReporter (Migration Tool)
 
 **Features:**
+
 - Intercepts Firebase Crashlytics network requests
 - Captures crash data that Firebase Crashlytics collects
 - Supports custom crash properties via `appendCrashInfo()`
 - Automatically disables MetricKit reports to avoid conflicts
 
 **Limitations:**
+
 - Does not include Embrace session properties or resources
 - Last run state always returns "unavailable"
 - Depends on Firebase Crashlytics for crash detection
@@ -105,6 +109,7 @@ Embrace offers two crash reporting options with different capabilities and data 
 - Requires network connectivity for crash capture
 
 **Best for:**
+
 - Gradual migration from Firebase Crashlytics
 - Teams that must maintain Firebase Crashlytics for other purposes
 
@@ -240,6 +245,7 @@ If crashes aren't appearing in the dashboard:
 4. Verify your App ID is correct
 
 **For CrashlyticsReporter specifically:**
+
 5. Ensure Firebase Crashlytics is properly configured and working
 6. Verify Firebase Crashlytics network requests are being made
 7. Check that Firebase Crashlytics is capturing the crash in Firebase Console

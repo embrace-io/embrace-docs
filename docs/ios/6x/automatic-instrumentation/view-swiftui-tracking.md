@@ -102,7 +102,9 @@ Apply view tracing by adding a modifier to any view.
 
 - **name** (*required*): Automatically detected in macro.
 - **attributes** (*optional*):  
+
 Custom attributes to add additional context to the created spans.
+
 - **contentComplete** (*optional*): An `Equatable` value that triggers the end of the "time to first content complete" span when changed. Behaves the same as the `onChange` view modifier.
 
 ```swift

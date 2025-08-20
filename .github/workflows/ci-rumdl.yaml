@@ -1,0 +1,39 @@
+name: CI - Markdown Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  rumdl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install rumdl
+        run: pip install -r requirements.txt
+
+      - name: Run rumdl linter
+        run: rumdl check --output-format github || exit 0
+
+      - name: Generate statistics
+        run: |
+          echo '# Summary - Markdown Lint' > rumdl.md
+          echo >> rumdl.md
+          echo '```' >> rumdl.md
+          rumdl check --statistics | sed -n '/^Rule Violation Statistics:/,$p' | grep -v 'Rule Violation Statistics:' >> rumdl.md
+          echo '```' >> rumdl.md
+
+      - name: Add output as PR comment
+        uses: embrace-io/actions-comment-pull-request@v2
+        with:
+          comment_tag: rumdl
+          filePath: rumdl.md

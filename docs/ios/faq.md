@@ -115,7 +115,7 @@ To enable dSYMs generation in Xcode:
 6. Search for `debug information format`
 7. Modify both the `Debug`and `Release` settings as needed to select `DWARF with dSYM File`. If dSYM generation is not enabled for debug builds, the Embrace dashboard will not show symbolicated crashes and log stack traces for sessions from these builds.
 
-<img src={require('@site/static/images/ios-dsym-enable.png').default} />
+   <img src={require('@site/static/images/ios-dsym-enable.png').default} />
 
 ### Verifying dSYM upload and viewing the associated logs
 
@@ -191,13 +191,13 @@ The above example is for Apollo's GraphQL implementation. As you can see there a
 1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
 2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
 
-The the format for the above example will be this
+   The the format for the above example will be this
 
 ```text
 /graphql/(value for X-APOLLO-OPERATION-NAME header)
 ```
 
-With a possible fully generated path as this
+   With a possible fully generated path as this
 
 ```text
 /graphql/Notifications
@@ -267,7 +267,7 @@ You can also API to pause and resume capture during sensitive user interactions 
 
 You can capture trace IDs in two ways:
 1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value.
-1. If the ID is already present in the request as a different header, set the name of the header in the `Embrace-Info.plist` file with the `TRACE_ID_HEADER_NAME` field.
+2. If the ID is already present in the request as a different header, set the name of the header in the `Embrace-Info.plist` file with the `TRACE_ID_HEADER_NAME` field.
 
 ## Miscellaneous {#miscellaneous}
 

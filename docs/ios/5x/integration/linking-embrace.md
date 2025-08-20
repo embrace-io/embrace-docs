@@ -47,15 +47,15 @@ If you have an existing project, then use your existing `PodFile` for the
 following steps:
 
 1. Open your `PodFile` in a text editor and add this entry to your target: `"pod 'EmbraceIO'"`. Make sure to include Embrace in any other variants, such as QA or Dev builds.
-1. Save and close your `PodFile`.
-1. Run the command `pod update` and your new dependency will be automatically integrated.
-1. From now on you will open the xcworkspace associated with your project and not the older xcproject file.
+2. Save and close your `PodFile`.
+3. Run the command `pod update` and your new dependency will be automatically integrated.
+4. From now on you will open the xcworkspace associated with your project and not the older xcproject file.
 
-<img src={require('@site/static/images/sample-podfile.png').default} />
+   <img src={require('@site/static/images/sample-podfile.png').default} />
 
-<img src={require('@site/static/images/pod-update.png').default} />
+   <img src={require('@site/static/images/pod-update.png').default} />
 
-<img src={require('@site/static/images/pod-update-workspace.png').default} />
+   <img src={require('@site/static/images/pod-update-workspace.png').default} />
 
 ## Carthage
 
@@ -145,52 +145,52 @@ with the screenshots and reach out on Slack if you want any help during the proc
 Here is the general process we will be following:
 
 1. Download the Embrace SDK distribution
-1. Add the Embrace framework to our project
-1. Setup embedding so the framework is included with builds
-1. Import Embrace and perform a test build
+2. Add the Embrace framework to our project
+3. Setup embedding so the framework is included with builds
+4. Import Embrace and perform a test build
 
-First we must download the latest Embrace release which you can do using the following command:
+   First we must download the latest Embrace release which you can do using the following command:
 
 ```shell-session
 curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://downloads.embrace.io/embrace_{{ embrace_sdk_version platform="ios" }}.zip
 ```
 
-After downloading the zip, extract it into a location within your project. If you
-don't already have a spot for third party frameworks, we recommend following the
-file structure shown here:
+   After downloading the zip, extract it into a location within your project. If you
+   don't already have a spot for third party frameworks, we recommend following the
+   file structure shown here:
 
-<img src={require('@site/static/images/ios-download-embrace-sdk.png').default} title="Download Embrace SDK" caption="The Embrace SDK was extracted into a folder called third_party. Setting up a good folder structure now will help as your project grows in complexity." />
+   <img src={require('@site/static/images/ios-download-embrace-sdk.png').default} title="Download Embrace SDK" caption="The Embrace SDK was extracted into a folder called third_party. Setting up a good folder structure now will help as your project grows in complexity." />
 
-Next open your project file and a finder window showing the Embrace framework,
-it should look something like this:
+   Next open your project file and a finder window showing the Embrace framework,
+   it should look something like this:
 
-<img src={require('@site/static/images/ios-prepare-manual-linking.png').default} alt="Preparation for the manual linking step" title="Manual linking" caption="Preparation for the manual linking step" />
+   <img src={require('@site/static/images/ios-prepare-manual-linking.png').default} alt="Preparation for the manual linking step" title="Manual linking" caption="Preparation for the manual linking step" />
 
-Now move to the ‘Build Phases’ tab in Xcode and expand the “Link Binary with
-Libraries” phase.
+   Now move to the ‘Build Phases’ tab in Xcode and expand the “Link Binary with
+   Libraries” phase.
 
-<img src={require('@site/static/images/ios-build-phase-tab.png').default} alt="Build Phases tab" title="Build Phases tab" caption="On the Build Phases tab with the the Linking phase expanded" />
+   <img src={require('@site/static/images/ios-build-phase-tab.png').default} alt="Build Phases tab" title="Build Phases tab" caption="On the Build Phases tab with the the Linking phase expanded" />
 
-We’re going to drag the Embrace.framework into the Linking phase in Xcode. Make
-sure to drag the .framework and not the outer folder containing the readme file.
+   We’re going to drag the Embrace.framework into the Linking phase in Xcode. Make
+   sure to drag the .framework and not the outer folder containing the readme file.
 
-<img src={require('@site/static/images/ios-xcode-group.png').default} alt="Drag in framework" title="Drag into Xcode" caption="After dragging in the framework, Xcode automatically created a group for it in the project." />
+   <img src={require('@site/static/images/ios-xcode-group.png').default} alt="Drag in framework" title="Drag into Xcode" caption="After dragging in the framework, Xcode automatically created a group for it in the project." />
 
-We’re almost done. Our framework is now being linked when we build. However, it
-will not be automatically included in our App Store release unless we also embed
-the framework. There are a number of ways to accomplish this; if you are already
-using a technique, please continue. We recommend using the General tab's linking
-and embedding settings. Make sure to choose "Embed without signing" as the
-Embrace binary is distributed in an already signed format.
+   We’re almost done. Our framework is now being linked when we build. However, it
+   will not be automatically included in our App Store release unless we also embed
+   the framework. There are a number of ways to accomplish this; if you are already
+   using a technique, please continue. We recommend using the General tab's linking
+   and embedding settings. Make sure to choose "Embed without signing" as the
+   Embrace binary is distributed in an already signed format.
 
-<img src={require('@site/static/images/ios-embed-framework.png').default} alt="Using the General tab" title="General tab" caption="Using the General tab to configure embedding the Embrace framework" />
+   <img src={require('@site/static/images/ios-embed-framework.png').default} alt="Using the General tab" title="General tab" caption="Using the General tab to configure embedding the Embrace framework" />
 
-For Apple TV targets repeat the above steps using the Embrace framework found in the `tvos` folder.
+   For Apple TV targets repeat the above steps using the Embrace framework found in the `tvos` folder.
 
-At this point you've completed the manual integration of Embrace. You can now
-import the Embrace module into your application and perform a test build to make
-sure this all worked.
+   At this point you've completed the manual integration of Embrace. You can now
+   import the Embrace module into your application and perform a test build to make
+   sure this all worked.
 
----
+   ---
 
-Next, let's look at how sessions are sent to Embrace.
+   Next, let's look at how sessions are sent to Embrace.

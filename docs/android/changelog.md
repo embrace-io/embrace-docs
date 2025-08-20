@@ -373,7 +373,7 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 - Improved the delivery of session messages with changes in the DeliveryService class
 - Removed unused ANR process errors
 - Gzip encode HTTP requests via stream
-- Prioritize most recent api calls when limit is reached.
+- Prioritize most recent API calls when limit is reached.
 - Avoid dropping session when endSession called
 
 ## 6.1.0
@@ -1211,7 +1211,7 @@ This version has known issues and should not be used
 - We added a method to get the Embrace-assigned device ID from the SDK.
 - We now allow trace IDs to be captured from network requests and sent to Embrace.
 - Gracefully handle multiple attempts to start the SDK
-- Switched from using api to implementation for dependencies
+- Switched from using API to implementation for dependencies
 - Added missing public event-related methods to match the iOS SDK
 
 ##  3.4.1

@@ -16,10 +16,10 @@ Now that you’ve added the Embrace SDK to your project and can login to the Emb
 Here are the steps you'll be taking to create your first session.
 
 1. [**Import Embrace**](#import-embrace)
-1. [**Add the Flutter SDK start call**](#add-the-flutter-sdk-start-call)
-1. [**Add the Android SDK start call**](#add-the-android-sdk-start-call)
-1. [**Build and run the application**](#build-and-run-the-application)
-1. [**Trigger a session upload**](#trigger-a-session-upload)
+2. [**Add the Flutter SDK start call**](#add-the-flutter-sdk-start-call)
+3. [**Add the Android SDK start call**](#add-the-android-sdk-start-call)
+4. [**Build and run the application**](#build-and-run-the-application)
+5. [**Trigger a session upload**](#trigger-a-session-upload)
 
 ## Import Embrace
 

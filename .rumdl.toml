@@ -1,5 +1,5 @@
 [global]
-disable = ["MD013", "MD033"]
+disable = ["MD013", "MD033", "MD036"]
 
 include = [
     "docs/**/*.md",
@@ -18,9 +18,6 @@ respect_gitignore = true
 # [MD003]
 # style = "atx"  # Heading style (atx, atx_closed, setext)
 
-# [MD004]
-# style = "asterisk"  # Unordered list style (asterisk, plus, dash, consistent)
-
 # [MD007]
 # indent = 4  # Unordered list indentation
 
@@ -31,7 +28,7 @@ respect_gitignore = true
 # headings = true  # Include headings in line length check
 
 #[MD044]
-#names = ["GitHub", "iOS", "Xcode", "macOS", "Node.js", "JavaScript"]
+#names = ["GitHub", "iOS", "Xcode", "macOS", "Node.js", "JavaScript", "OpenTelemetry", "OTel", "New Relic", "Datadog", "Honeycomb", "Embrace"]
 #code_blocks = false
 #html_elements = false
 #html_comments = false

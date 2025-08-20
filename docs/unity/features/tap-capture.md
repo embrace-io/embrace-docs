@@ -8,7 +8,7 @@ sidebar_position: 15
 
 ## Overview
 
-As part of the Unity SDK, we are providing an initial release of the Unity contextualized auto-instrumented tap capture. 
+As part of the Unity SDK, we are providing an initial release of the Unity contextualized auto-instrumented tap capture.
 
 To enable tap capture auto-instrumentation in production, all you have to do is replace your current `InputModule` (usually the [Standalone Input Module](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/script-StandaloneInputModule.html)) with our custom Embrace override: the `EmbraceStandaloneInputModule`:
 
