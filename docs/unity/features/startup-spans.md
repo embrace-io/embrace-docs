@@ -1,4 +1,8 @@
-
+---
+title: Startup Spans
+description: Startup Spans for the Embrace Unity SDK
+sidebar_position: 18
+---
 ## Overview
 
 Tracking app starting times is important to measure the performance of your app and to see how long your users are waiting before being able to actually interact with the app.
