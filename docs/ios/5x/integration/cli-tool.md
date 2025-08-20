@@ -5,9 +5,9 @@ sidebar_position: 11
 
 # Command Line Tool
 
-In order to ease the process of configuring the Xcode project for use with the 
-Embrace SDK. We provide a CLI tool that you can use to help validate your 
-project. 
+In order to ease the process of configuring the Xcode project for use with the
+Embrace SDK. We provide a CLI tool that you can use to help validate your
+project.
 
 Feel free to [download the tool](https://downloads.embrace.io/embtool/embtool-latest.pkg).
 
@@ -16,20 +16,20 @@ By default, the package installer will install the binary into your
 confirm the installation by using:
 
 ```shell-session
-$ which embtool
+which embtool
 /usr/local/bin/embtool
 
-$ embtool --help
+embtool --help
 OVERVIEW: A command line tool to help with Embrace integration
 ```
 
 There are a few subcommands to be aware of when using this tool.
 
-### Project Validation
+## Project Validation
 
 ```shell-session
-$ embtool project validate --help
-$ embtool project validate <path-to-xcodeproj>
+embtool project validate --help
+embtool project validate <path-to-xcodeproj>
 ```
 
 The `project validate` subcommand is useful to verify your project's
@@ -46,8 +46,8 @@ or if an issue occurs and you'd like to provide context to the Embrace support t
 ### Project Installation
 
 ```shell-session
-$ embtool project install --help
-$ embtool project install --api-key <api-key> --token <token> <path-to-xcodeproj>
+embtool project install --help
+embtool project install --api-key <api-key> --token <token> <path-to-xcodeproj>
 ```
 
 The `project install` subcommand is great when you are first integrating with
@@ -66,8 +66,8 @@ made so it is very clear what changes the install command makes.
 ### dSYM Lookup
 
 ```shell-session
-$ embtool dsym lookup --help
-$ embtool dsym lookup --scheme <my-scheme> <path-to-xcodeproj>
+embtool dsym lookup --help
+embtool dsym lookup --scheme <my-scheme> <path-to-xcodeproj>
 ```
 
 The `dsym lookup` command will search for dSYM files in your

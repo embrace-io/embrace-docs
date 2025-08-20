@@ -12,7 +12,7 @@ Traces are a powerful feature in the Embrace Web SDK that give you complete visi
 
 In the Embrace SDK (built on OpenTelemetry):
 
-- A **trace** represents an entire operation or workflow in your application 
+- A **trace** represents an entire operation or workflow in your application  
 - A **span** represents a single unit of work within that trace
 - Spans can be nested, forming parent-child relationships to create a trace
 
@@ -52,7 +52,7 @@ You should never create a name with these prefixes.
 
 ## Creating and Using Spans
 
-See our [guide on instrumentating Traces](/docs/web/manual-instrumentation/custom-traces.md) for examples on
+See our [guide on instrumentating Traces](/web/manual-instrumentation/custom-traces.md) for examples on
 how to instrument your application.
 
 ## Best Practices

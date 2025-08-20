@@ -26,7 +26,7 @@ const viewSpan = startView(tracer, 'MyView');
 viewSpan.end();
 ```  
 
-### Breadcrumbs as a lighter weight option
+## Breadcrumbs as a lighter weight option
 
 Logging a breadcrumb with the name of the component could be helpful as a lightweight option to record when components
 become visible if you don't care about the duration:

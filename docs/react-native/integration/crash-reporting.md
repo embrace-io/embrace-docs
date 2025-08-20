@@ -4,13 +4,12 @@ description: Upload crash reports for both native and JavaScript exceptions from
 sidebar_position: 6
 ---
 
-# Collect your first crash report 
+# Collect your first crash report
 
 If you've been following along, you should be setup to collect crashes, otherwise take a look at the previous pages
-for [Uploading Symbol Files](/react-native/integration/upload-symbol-files) and [Session Reporting
-](/react-native/integration/session-reporting).
+for [Uploading Symbol Files](/react-native/integration/upload-symbol-files) and [Session Reporting](/react-native/integration/session-reporting).
 
-### Triggering a Crash
+## Triggering a Crash
 
 Now we're ready to trigger a crash.
 Either crash the app organically, or add the following code to make it crash.
@@ -34,6 +33,7 @@ Your crash is also visible in the crashes section of the dashboard.
 For iOS Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't
 want to interfere with you can disable this. If you used the automated installation script or followed the manual steps
 for setting up the iOS SDK then you can modify the setup in `EmbraceInitializer.swift` to remove the crash reporter:
+
 ```swift
 try Embrace
     .setup(
@@ -49,6 +49,7 @@ try Embrace
 
 If instead you only initialized the SDK through JS then the `disableCrashReporter` property can be set during the
 call to initialize the SDK:
+
 ```javascript
 initialize({
   sdkConfig: {
@@ -63,4 +64,3 @@ initialize({
 ---
 
 In the next guide, you'll learn how to add context to your sessions using Breadcrumb Logs.
-

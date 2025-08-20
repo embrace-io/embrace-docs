@@ -75,15 +75,16 @@ Below is a list of everything that has changed and how to address it in your cod
   - **Action**: If you notice changes in NDK crash reports, you can re-enable this behavior with `sdk_config.sig_handler_detection = true`.
 
 :::info Summary
+
 - Remove deprecated properties from your Gradle files.  
-- Replace usage of any deprecated methods (see table below). 
+- Replace usage of any deprecated methods (see table below).  
 - Remove references to internal symbols that were previously exposed.
 - Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
 :::
 
 ## Moments have been superseded by Traces
 
-[Traces](/docs/android/features/traces.md) serve the same purposes as [Moments](/docs/android/features/moments.md), with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
+[Traces](/android/features/traces.md) serve the same purposes as [Moments](/android/features/moments.md), with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
 
 A span is simply an operation occurring over a period of time. Using spans, you can track how long operations within the app take, and more. Note that, in building on existing OTel APIs, the Embrace Android SDK does not have instrumentation for an object called a "trace". Instead, a trace is the root span for a given workflow.
 
@@ -98,16 +99,17 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
-  
+
 ```kotlin
 val span = Embrace.getInstance().startSpan("my-identifier") // start span
 // add events and attributes to span
 span?.stop() // stop span
 ```
+
 </TabItem>
 </Tabs>
 
-For more detail on the additional things you can do with spans please see the [Traces](/docs/android/features/traces.md) documentation.
+For more detail on the additional things you can do with spans please see the [Traces](/android/features/traces.md) documentation.
 
 ## Remove deprecated properties from your build.gradle
 

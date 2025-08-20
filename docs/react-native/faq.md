@@ -12,6 +12,38 @@ or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
 
+### **How do I support Android API levels < 26?**
+
+Desugaring is required to support Android API levels < 26. To enable, the following is required in your app's
+`android/app/build.gradle`:
+
+```text
+android {
+   ...  
+    compileOptions {
+        ...
+        coreLibraryDesugaringEnabled true   
+    }
+}
+
+dependencies {
+    ...
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3' // 2.0.3 or higher
+}
+```
+
+In addition, in your `android/gradle.properties` you must set
+
+```text
+android.useFullClasspathForDexingTransform=true
+```
+
+Note that these settings require higher versions of Android tooling than is set by default in older versions of React
+Native application templates, specifically Gradle 8.4+ and AGP 8.3.0+. For RN versions below 0.73 you may also need to point
+to a newer version of the React Native gradle plugin. To see all the required changes you can review our
+[integration application template](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates)
+for the React Native version you are using in your application.
+
 ### **Does Embrace work with Buck / OKBuck?**
 
 Not currently. Please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
@@ -19,7 +51,6 @@ Not currently. Please contact us at [support@embrace.com](mailto:support@embrace
 ### **Does Embrace support Hermes for React Native?**
 
 Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please ensure that you are using at least version 0.71 of React Native when utilizing Hermes.
-
 
 ## Users
 
@@ -39,9 +70,9 @@ Please make sure that Embrace is initialized after any 3rd party networking libr
 We are consistently discovering new APIs and libraries for which we need to add support.
 Please contact us via email or Slack with the information.
 
-### **Do you support GRPC?**
+### **Do you support gRPC?**
 
-Yes. Please contact us for the steps to track GRPC.
+Yes. Please contact us for the steps to track gRPC.
 
 ### **Do you support GraphQL?**
 

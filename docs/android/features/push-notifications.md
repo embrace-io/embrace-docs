@@ -8,7 +8,7 @@ sidebar_position: 8
 
 The Embrace SDK is able to automatically capture Firebase push notifications received by your app.
 
-## Configuration 
+## Configuration  
 
 Push Notifications Capture is disabled by default.
 
@@ -34,7 +34,7 @@ If you want to capture data from inside the notifications then you can set the c
 
 ## Usage
 
-If your configuration is correct, you don't need to do anything else, you are already capturing notifications automatically. They will appear in your dashboard within the user session timeline. 
+If your configuration is correct, you don't need to do anything else, you are already capturing notifications automatically. They will appear in your dashboard within the user session timeline.  
 
 If you don't want the notifications to get captured automatically, then you can avoid the setup from the previous section and when you receive a notification in your code, make the following call manually:
 
@@ -45,6 +45,7 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 val isNotification = true
 val hasData = true
@@ -59,8 +60,10 @@ Embrace.getInstance().logPushNotification(
     hasData
 )
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 boolean isNotification = true
 boolean hasData = true
@@ -75,5 +78,6 @@ Embrace.getInstance().logPushNotification(
     hasData
 );
 ```
+
 </TabItem>
 </Tabs>

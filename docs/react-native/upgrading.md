@@ -240,7 +240,7 @@ Caused by: java.lang.IllegalArgumentException: No appId supplied in embrace-conf
 
 The application will still work but the Embrace SDK won't initialize, causing unexpected issues. To resolve this please ensure you have the required minimum versions set in your Android build files ([more details here](/react-native/integration/))
 
-### Removed APIs
+### Deprecated APIs
 
 | Old API                | Comments                                    |
 | ---------------------- | ------------------------------------------- |

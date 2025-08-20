@@ -33,7 +33,7 @@ For iOS you will also need to install the pod:
 cd ios && pod install --repo-update
 ```
 
-# Adding the SDK 
+## Adding the SDK
 
 ## Setup Script
 
@@ -42,6 +42,7 @@ project to add the native dependencies. The setup scripts can be found in your
 `node_modules` folder at `node_modules/@embrace-io/dist/scripts/setup`
 
 **Run the setup script**
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
 ```
@@ -52,9 +53,11 @@ node node_modules/@embrace-io/react-native/lib/scripts/setup/installIos.js
 
 :::info Clean Up Embrace implementation
 If you need to clean up an Embrace implementation added manually or by our scripts you can use our uninstall script
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/uninstall.js
 ```
+
 :::
 
 You can use git to see the changes that the script made.
@@ -137,8 +140,8 @@ Your API ID and token are available on the Embrace dashboard.
 :::info
 You’ll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
 
-* `android.permission.INTERNET`
-* `android.permission.ACCESS_NETWORK_STATE`
+- `android.permission.INTERNET`
+- `android.permission.ACCESS_NETWORK_STATE`
 :::
 
 </TabItem>
@@ -146,9 +149,7 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 
 ---
 
-There's a little more configuration we have to do to set up the uploading of symbol files.
-You'll be learning about that next.
-
+There's a little more configuration we have to do to set up the uploading of symbol files. You'll be learning about that next.
 
 ## Troubleshooting
 

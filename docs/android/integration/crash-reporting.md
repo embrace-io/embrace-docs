@@ -6,7 +6,7 @@ description: Upload crash reports from your Android application using the Embrac
 
 # Collect Your First Crash Report
 
-##  Setting up the Crash Reporter
+## Setting up the Crash Reporter
 
 :::info
 See our [FAQ](/android/faq#crashes-and-anrs) for details on compatibility with other crash reporters.

@@ -18,8 +18,8 @@ contained in these attributes should be scrubbed before being exported. By defau
 will check particular attributes related to URL information and redact sensitive tokens following recommendations from
 the [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/3b64cb31022feaacb410bfd6e571c1f19b5fbce0/docs/registry/attributes/url.md?plain=1#L34),
 in particular they will:
-* Redact credentials in URLs passed in the form of `https://username:password@www.example.com/`
-* Redact any query string values for keys that are considered sensitive (defined in the SDK as
+- Redact credentials in URLs passed in the form of `https://username:password@www.example.com/`
+- Redact any query string values for keys that are considered sensitive (defined in the SDK as
 [`DEFAULT_SENSITIVE_TOKENS`](https://github.com/embrace-io/embrace-web-sdk/blob/5020e9ca919e7088a7ef42cc6ac9caaebfd1f370/src/sdk/defaultAttributeScrubbers.ts#L12))
 
 This process can be customized by specifying additional sensitive query string keys to check for with
@@ -55,7 +55,7 @@ their place.
 
 ### Configure the Network Monitoring Auto-instrumentation
 
-The [Network Monitoring](/docs/web/automatic-instrumentation/network-monitoring.md) auto-instrumentation records spans
+The [Network Monitoring](/web/automatic-instrumentation/network-monitoring.md) auto-instrumentation records spans
 for network requests triggered by your application which include attributes for the URLs being requested. By default,
 sensitive tokens in these URLs are attempted to be redacted using the process described above in
 [Configure Attribute Scrubbers](#configure-attribute-scrubbers). In addition, you can also configure the network
@@ -76,9 +76,9 @@ sdk.initSDK({
 });
 ```
 
-### Configure the User Interaction Auto-instrumentation
+### Configure the User Interaction Auto-instrumentation {#configure-the-user-interaction-auto-instrumentation}
 
-The [User Interactions](/docs/web/automatic-instrumentation/user-interactions.md) auto-instrumentation records a span
+The [User Interactions](/web/automatic-instrumentation/user-interactions.md) auto-instrumentation records a span
 event whenever a user clicks on an element in your application. This event contains the pixel coordinates of the
 click as well as a representation of the clicked element that uses its inner text. If this contains sensitive
 information you can configure the click instrumentation to avoid tracking particular elements using its `shouldTrack`

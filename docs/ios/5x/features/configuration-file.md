@@ -32,15 +32,16 @@ Embrace is configured via an `Embrace-Info.plist` file placed at the root of the
 </dict>
 </plist>
 ```
+
 As you can see there are many properties available. Even so most apps that use Embrace do not include this file at the start. The common setup options are all available via API. You will only require this file if you intend to use one of our more advanced configuration options.
 
-#### CRASH_REPORT_PROVIDER *string, optional*
+### CRASH_REPORT_PROVIDER *string, optional*
 
-Determines which type of crash reporting embrace uses. It accepts three values
-* `embrace` - this is the default value and enables embraces internal crash reporting
-* `crashlytics` - this enables the crashlytics support for crash reporting, this must be the value if you intended to use both embrace and crashlytics together. 
-* `none` - this completely turns off all crashes reporting for embrace, but other functionality, like view tracking, continues to work
-the values are case insensitive. 
+Determines which type of crash reporting Embrace uses. It accepts three values
+
+- `embrace` - this is the default value and enables embraces internal crash reporting
+- `crashlytics` - this enables the Crashlytics support for crash reporting, this must be the value if you intended to use both Embrace and Crashlytics together.
+- `none` - this completely turns off all crashes reporting for embrace, but other functionality, like view tracking, continues to work the values are case insensitive.
 
 If omitted, Embrace attempts to guess the right configuration by looking at the runtime classes.
 
@@ -64,11 +65,11 @@ Controls Embrace's automatic view capture service. When enabled Embrace will aut
 
 Embrace can perform some automatic webkit management for you. This is off by default as not all apps can safely use it. You can read more about this feature here: [**Web Thread Monitoring**](/ios/5x/features/web-thread-monitoring)
 
-#### DISABLED_URL_PATTERNS *array[string], optional*
+#### DISABLED_URL_PATTERNS *array\[string\], optional*
 
 Use this field to specify an array of regex strings that prevent network requests with matching URLs from being captured. Whenever a URL is captured by Embrace, we check it against all the regexes in this array. If any match, we will not record that request in the session. Use this to filter noisy URLs from your sessions or protect PII from being uploaded to Embrace's servers.
 
-#### URLSESSION_CAPTURE_FILTERS *array[string], optional*
+#### URLSESSION_CAPTURE_FILTERS *array\[string\], optional*
 
 This field can be used to make Embrace ignore certain URLSessions entirely. Classes who's names match the regex strings in this array are not swizzled.
 
@@ -92,9 +93,9 @@ The `NETWORK` dictionary can be added to the plist to allow more fine grained co
 
 Sets a default limit for how many instances of any given domain to capture in a single session. The value can then be overridden on a domain-by-domain basis below.
 
-##### NETWORK:DOMAINS *dictionary[string, int], optional*
+##### NETWORK:DOMAINS *dictionary\[string, int\], optional*
 
-This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the [**DEFAULT_CAPTURE_LIMIT**](#network-int-optional).
+This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the DEFAULT_CAPTURE_LIMIT.
 
 ##### NETWORK:CAPTURE_PUBLIC_KEY *string, optional*
 
@@ -119,8 +120,8 @@ Embrace adds a header to all network requests to allow us to track that request 
 #### PUSH_NOTIFICATIONS_CAPTURE_MODE *string, optional*
 
 Defines the capture mode for push notifications. Possible values:
-* `manual` (default) - to use the manual mode you'll have to make some calls to the Embrace class. For more information about this feature read here: [**Push Notifications**](/ios/5x/features/push-notifications)
-* `automatic` - no extra steps needed with this mode.
+- `manual` (default) - to use the manual mode you'll have to make some calls to the Embrace class. For more information about this feature read here: [**Push Notifications**](/ios/5x/features/push-notifications)
+- `automatic` - no extra steps needed with this mode.
 
 #### ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE *boolean, optional*
 
@@ -134,6 +135,7 @@ This is a dictionary that contains Two Keys.
 
 - `HEADER` - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
 - `RELATIVE_URL_PATH` - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash, in the following format:
+
 ```swift
 /(`RELATIVE_URL_PATH` value)/(value for http header thats name is equal to the value of HEADER)
 ```
@@ -143,6 +145,7 @@ Here is an example use case
 <img src={require('@site/static/images/ios-custom-header-example.png').default} />
 
 This is a resulting Relative URL with above use case
-```
+
+```text
 /graphql/Notifications
 ```

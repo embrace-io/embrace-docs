@@ -4,7 +4,7 @@ description: Upload crash reports from your Unity application using the Embrace 
 sidebar_position: 7
 ---
 
-# Collect Your First Crash Report 
+# Collect Your First Crash Report  
 
 ## Debuggers
 
@@ -37,7 +37,7 @@ UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCate
 
 ---
 
-In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions. 
+In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions.  
 
 ## iOS Crash Report Settings
 

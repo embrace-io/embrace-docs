@@ -12,6 +12,7 @@ Embrace tags each stack frame by the most specific matching condition in your CO
 ## Create Tag Rules
 
 ### Directly in the Dashboard
+
 On any Crash, you can directly create a rule in the stack frame.  Click on the edit icon and fill out the modal with any RE2 regex rule and your desired tag.
 
 <img src={require('@site/static/images/tagging-ui-1.png').default} alt="edit-in-stack" width="500px"/>
@@ -19,6 +20,7 @@ On any Crash, you can directly create a rule in the stack frame.  Click on the e
 <img src={require('@site/static/images/tagging-ui-3.png').default} alt="rules-in-settings" width="500px"/>
 
 You can also see, create, and modify rules in the Settings view.
+
 1. Click on the Settings icon in the lower right hand corner of the dashboard.
 2. Under the "Projects and Apps" section, select the app you want to create
    rules for.
@@ -28,7 +30,8 @@ You can also see, create, and modify rules in the Settings view.
 <img src={require('@site/static/images/tagging-ui-2.png').default} alt="rule-modal" width="500px"/>
 
 ### With a CODEOWNERS File
-POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`, 
+
+POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`,  
 `token` (the symbol upload token used to upload symbols files) , `file` and `base_direcory`. The `base_directory` is the
 prefix that will be stripped from the stack frame file paths before matching.  This is useful for matching stack traces
 from React Native.

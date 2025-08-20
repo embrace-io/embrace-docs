@@ -76,7 +76,7 @@ Embrace.sharedInstance().setUserPersona("high_value_cart");
 </Tabs>
 
 The session is annotated with `"high_value_cart"` in the above example.
-This property helps you to identify users who have a certain dollar value in their shopping cart so 
+This property helps you to identify users who have a certain dollar value in their shopping cart so  
 you can prioritize fixing bugs that affect such users.
 
 ## Session Properties

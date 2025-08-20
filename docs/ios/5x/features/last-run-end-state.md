@@ -57,7 +57,7 @@ In order to use this feature, you will need to follow two steps:
 EMBLastRunEndState lastEndState = [Embrace sharedInstance].lastRunEndState;
 if(lastEndState == EMBLastRunEndStateInvalid)
 {
-    NSLog(@"We have misused the api either by calling it before start, or by trying to use it with crashlytics.");
+    NSLog(@"We have misused the API either by calling it before start, or by trying to use it with crashlytics.");
 } else if (lastEndState == EMBLastRunEndStateCrash)
 {
     NSLog(@"There was a crash last run.");
@@ -72,7 +72,7 @@ if(lastEndState == EMBLastRunEndStateInvalid)
 ```swift
 switch Embrace.sharedInstance().lastRunEndState {
     case .invalid:
-        print("We have misused the api either by calling it before start, or by trying to use it with crashlytics.")
+        print("We have misused the API either by calling it before start, or by trying to use it with crashlytics.")
     case .crash:
         print("There was a crash last run.")
     case .cleanExit:

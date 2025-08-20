@@ -8,19 +8,19 @@ sidebar_position: 6
 
 ## Create your first session
 
-Now that you've got Embrace linked and know how to login to the Embrace dashboard, it's time to collect your first session. 
+Now that you've got Embrace linked and know how to login to the Embrace dashboard, it's time to collect your first session.
 
 Embrace always uploads sessions on subsequent launches. This means the general
 process we're going to follow to collect our first session is:
 
 1. [**Import the Embrace module**](/unity/integration/session-reporting#import-embrace)
-1. [**Add a start call to the Embrace SDK**](/unity/integration/session-reporting#add-a-start-call)
-1. [**Build and run our application**](/unity/integration/session-reporting#build-and-run-your-application)
-    1. Verify Embrace started via the logs
-1. [**Trigger a session upload**](/unity/integration/session-reporting#trigger-a-session-upload)
-    1. Close or send the application to the background
-    1. Launch the application to the foreground
-    1. Verify that our first session was uploaded to Embrace by checking the dashboard
+2. [**Add a start call to the Embrace SDK**](/unity/integration/session-reporting#add-a-start-call)
+3. [**Build and run our application**](/unity/integration/session-reporting#build-and-run-your-application)
+   1. Verify Embrace started via the logs
+4. [**Trigger a session upload**](/unity/integration/session-reporting#trigger-a-session-upload)
+   1. Close or send the application to the background
+   2. Launch the application to the foreground
+   3. Verify that our first session was uploaded to Embrace by checking the dashboard
 
 ## Import Embrace
 
@@ -36,14 +36,15 @@ You will then access the shared instance of this class from anywhere in your pro
 Embrace.Instance.
 ```
 
-From there you can call any public method on the API. 
+From there you can call any public method on the API.
 
 Our SDK has three runtime modes:
-1. `Android` - in this mode Embrace logs to logcat. This mode is only activated if your build target is currently Android.
-1. `iOS` - in this mode Embrace logs to the system console. This mode is only activated in your build target is iOS.
-1. `Editor` - in this mode Embrace logs to the Unity console. This mode is active when you run inside the editor regardless of build target. Embrace only logs the actions it would perform. No data is uploaded while running in the editor.
 
-For all other build targets, the result of Embrace API calls are no-ops. You can make calls to the Embrace SDK in shared code, but on platforms like Windows or MacOS those calls will do nothing and no data is uploaded to Embrace.
+1. `Android` - in this mode Embrace logs to logcat. This mode is only activated if your build target is currently Android.
+2. `iOS` - in this mode Embrace logs to the system console. This mode is only activated in your build target is iOS.
+3. `Editor` - in this mode Embrace logs to the Unity console. This mode is active when you run inside the editor regardless of build target. Embrace only logs the actions it would perform. No data is uploaded while running in the editor.
+
+For all other build targets, the result of Embrace API calls are no-ops. You can make calls to the Embrace SDK in shared code, but on platforms like Windows or macOS those calls will do nothing and no data is uploaded to Embrace.
 
 ## Add a start call
 
@@ -63,7 +64,7 @@ It is important that this call be made as early as possible in the lifecycle of 
 
 You're now ready to build and run your application. Assuming the app launches correctly, pay attention to the system logging and look for Embrace to print out its version number.
 
-```
+```text
 [Embrace] Embrace SDK enabled. Version: {{ embrace_sdk_version platform="unity" }}
 ```
 

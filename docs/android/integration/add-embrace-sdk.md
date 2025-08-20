@@ -8,7 +8,7 @@ description: Add the Embrace SDK as a dependency to your Android application
 
 ## Add Embrace as a dependency
 
-### If you are using Version Catalogs:
+### If you are using Version Catalogs
 
 Add our gradle plugin to your `libs.versions.toml` file
 
@@ -29,7 +29,7 @@ plugins {
 }
 ```
 
-### If you are not using Version Catalogs:
+### If you are not using Version Catalogs
 
 Add the following to your `settings.gradle`:
 
@@ -167,16 +167,16 @@ apply(plugin = "embrace-swazzler")
 </Tabs>
 
 The Embrace Gradle Plugin performs a few key functions:
-* Adds the Embrace SDK to your app's dependency list.
-* Injects configuration info the SDK reads at run time.
-* Instruments bytecode to insert SDK hooks that capture telemetry.
-* Uploads mapping files to get human-readable stacktraces in production.
+- Adds the Embrace SDK to your app's dependency list.
+- Injects configuration info the SDK reads at run time.
+- Instruments bytecode to insert SDK hooks that capture telemetry.
+- Uploads mapping files to get human-readable stacktraces in production.
 
 :::info Note on Permissions
 Embrace automatically adds the following permissions so that it can make HTTP requests to deliver captured data.
 
-* `android.permission.INTERNET`
-* `android.permission.ACCESS_NETWORK_STATE`
+- `android.permission.INTERNET`
+- `android.permission.ACCESS_NETWORK_STATE`
 
 :::
 
@@ -220,7 +220,6 @@ export EMBRACE_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 The Embrace SDK will automatically read these environment variables at runtime.
-
 
 ### With a config file
 

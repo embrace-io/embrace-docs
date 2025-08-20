@@ -115,8 +115,8 @@ Whether the Embrace Gradle Plugin should automatically add the embrace-android-c
 
 Path to a directory containing architecture subdirectories (e.g., arm64-v8a/, x86/, etc.) with .so files to be used for crash symbolication
 This could be:
-    - An **absolute path**, like: "/Users/yourname/project/app/src/main/symbols".
-    - A **path relative to the module's root directory** such as: "app/src/main/embrace/symbols".
+- An **absolute path**, like: "/Users/yourname/project/app/src/main/symbols".
+- A **path relative to the module's root directory** such as: "app/src/main/embrace/symbols".
 
 #### telemetryEnabled
 

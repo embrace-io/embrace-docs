@@ -21,7 +21,7 @@ Embrace.instance.setUserIdentifier('internal_random_id_1234');
 ```
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, see the [API docs](/api/flutter/). 
+For more methods on setting user values, see the [API docs](/api/flutter/).  
 
 :::warning Important
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.

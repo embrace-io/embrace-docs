@@ -13,17 +13,18 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 ## Feature Support
 
 :::info Minimum Requirements
+
 - **We recommend using the latest Embrace React Native SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace React Native versions 4.1.0 and above](/react-native/4x/integration/add-embrace-sdk/).
 :::
 
 The Embrace Traces API allows you to:
 
 - Create record data for past operations.
-    - To record past operations, you can specify the start and end times of your spans that you might have captured already.
+  - To record past operations, you can specify the start and end times of your spans that you might have captured already.
 - Add child spans to a parent span to track sub-operations within an operation.
 - Attach attributes and span events to each span to give them further context
-    - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics
-    - Span events represent a point in time of the execution of the span and they can also have attributes
+  - Attributes allow you to specify string key-value pairs that can be useful for filtering, grouping, and deriving custom metrics
+  - Span events represent a point in time of the execution of the span and they can also have attributes
 
 There are no limits on the duration of a span as long as the app is running.
 
@@ -61,7 +62,7 @@ To use this feature:
 
 1. **Ensure you're using Embrace React Native version 4.1.0 or greater**.
 2. Instrument your app using the reference guide in this section to start adding traces to your operations.
-3. See the traces in the [Traces](/docs/product/traces/index.md) section of the Embrace dashboard.
+3. See the traces in the [Traces](/product/traces/index.md) section of the Embrace dashboard.
 
 ### Install the component
 
@@ -208,6 +209,7 @@ stopSpan(parentSpanId)
 ```
 
 :::info Minimum Requirements
+
 - In order for a child span to be recorded, you must stop it before stopping the parent span.
 :::
 

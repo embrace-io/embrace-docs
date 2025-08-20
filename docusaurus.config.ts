@@ -1,12 +1,14 @@
 import * as process from "node:process";
 
-import { type Config } from "@docusaurus/types";
+import { themes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
 
-const lightCodeTheme = require("prism-react-renderer").themes.github;
-const darkCodeTheme = require("prism-react-renderer").themes.dracula;
+import embraceSdkVersion from "./src/remark/embrace-sdk-version";
+
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 // Embrace Remark Plugins
-const embraceSdkVersion = require("./src/remark/embrace-sdk-version");
 
 const config: Config = {
   title: "Embrace Documentation",
@@ -463,13 +465,14 @@ const config: Config = {
     ],
 
     [
-      'docusaurus-pushfeedback',{
-        project: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
-        buttonPosition: 'center-right',
-        modalPosition: 'sidebar-right',
-        buttonStyle: 'dark',
-        modalTitle: 'Share your thoughts'
-      }
+      "docusaurus-pushfeedback",
+      {
+        project: process.env.PUSHFEEDBACK_TOKEN ?? "no-api-token",
+        buttonPosition: "center-right",
+        modalPosition: "sidebar-right",
+        buttonStyle: "dark",
+        modalTitle: "Share your thoughts",
+      },
     ],
   ],
 
@@ -512,9 +515,9 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: 'new-structure-announcement', // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20250812", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        'Embrace\'s documentation has changed! Please open an issue or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in Github with any changes!</a>',
+        'Embrace\'s docs are now open-source! Please open an issue or make pull requests <a target="_blank" href="https://github.com/embrace-io/embrace-docs">in GitHub with any changes!</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
@@ -574,8 +577,7 @@ const config: Config = {
           to: "https://github.com/embrace-io/embrace-docs/",
         },
         {
-          html:
-            'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://community.embrace.io/">Slack</a>',
+          html: 'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://community.embrace.io/">Slack</a>',
         },
       ],
 
@@ -598,9 +600,9 @@ const config: Config = {
       ],
     },
     customFields: {
-      pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
+      pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? "no-api-token",
     },
   },
 };
 
-module.exports = config;
+export default config;

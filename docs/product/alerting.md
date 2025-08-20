@@ -77,6 +77,7 @@ To provide a clear understanding of the data over time, our system visualizes tw
 This approach enables users to compare the state of the data during alert processing with the fuller picture that becomes available later. These comparisons help illustrate the impact of delayed data on analytics and ensure transparency in alerting decisions.
 
 ### Why is my alert inactive?
+
 Your alert is inactive because one or more of the following conditions are met:
 - The email notification is using a disabled email.
 - No notification methods (email or Slack) are configured.
@@ -84,17 +85,21 @@ Your alert is inactive because one or more of the following conditions are met:
 To activate the alert, ensure notification methods are enabled and thresholds/percentages are properly configured for monitoring.
 
 ### Email
+
 Here's how an alert email looks:
 
 <img src={require('@site/static/images/features/alerting/alerting-4.png').default} alt="Triggered Alerts" />
 
 ### Slack Message
+
 This is the format of a Slack message for an alert:
 
 <img src={require('@site/static/images/features/alerting/alerting-5.png').default} alt="Triggered Alerts" />
 
 ### Webhook
+
 Here's a sample webhook data for an alert:
+
 ```json
 {
   "msg": "",

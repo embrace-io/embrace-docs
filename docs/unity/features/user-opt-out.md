@@ -4,7 +4,7 @@ description: Allow users to opt out of data collection
 sidebar_position: 16
 ---
 
-## Overview
+# Overview
 
 Sometimes you want users to be able to opt out of data collection for privacy reasons.
 

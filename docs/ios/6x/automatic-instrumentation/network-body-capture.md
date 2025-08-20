@@ -4,15 +4,16 @@ description: Embrace can capture network body requests and responses
 sidebar_position: 5
 
 ---
+
 # Network Body Capture
 
-Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers. 
+Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.  
 
 This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you.
 
 Since this data can be sensitive, the Embrace SDK will encrypt the data before uploading it to our servers. You'll have to provide to your Embrace CS representative a public key that will be used to encrypt the captured data before being stored.
 
-### Generating a Public Key
+## Generating a Public Key
 
 RSA encryption uses two keys: a private and a public key. You may already be familiar with this protocol and the security team in your organization may already have public keys available for you to use. Before generating new keys, check with your organization.  
 
@@ -21,6 +22,7 @@ There are many ways to generate working key pairs. For these instructions we wil
 ```shell-session
 openssl genrsa -out private.pem 2048
 ```
+
 The file you just made should never be shared with anyone outside your organization and should be kept in a safe place. This file is required to decrypt network body data captured by Embrace. Embrace will not have a copy of this. Only you can decrypt the files, and if you lose the private key you also lose the ability to decrypt any data captured by the SDK.
 
 You'll be providing Embrace a public version of the key. This is a derived key that you can safely distribute. Anyone, including Embrace, can use the public key to encrypt data into a form that only your private key can decrypt -- even Embrace cannot read the contents of the encrypted data.
@@ -33,7 +35,7 @@ openssl rsa -in private.pem -pubout -out public.pem
 
 The file public.pem contains the public key. Use the command `cat public.pem` to view the key. Below is an example we generated while writing this documentation. Remember: it is completely safe to share public keys. Only the private key needs to be protected.
 
-```
+```text
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2st+1ouwmsYLOF+kZ/LE
 uZ+jzFuMv+AatKYWXQCwOWP9U02gbXDDOw1rvpeXFUapF1iGF9SASsyBZj4uTfJH
@@ -50,7 +52,8 @@ Above is an example of a valid, public RSA key in text form. Each aspect of that
 ### OpenTelemetry Format
 
 After the Embrace SDK encrypts the network data, it sends it as an OpenTelemetry log containing the following attributes:
-```
+
+```json
 {
     "key": "emb.type",
     "value": "sys.network_capture"
@@ -95,7 +98,7 @@ The network data is encrypted using the `aes-256-cbc` algorithm using a randomly
 
 Here's an example script to achieve this:
 
-```
+```sh
 #!/bin/bash
 
 POSITIONAL_ARGS=()
@@ -177,7 +180,7 @@ Example usage: `sh decrypt.sh -in encrypted_payload.txt -k encrypted_key.txt -iv
 
 Once decrypted, the payload will be a json containing the following keys:
 
-```
+```text
 {
     url                 // url of the network request (string)
     http-method         // http method of the network request (string)
