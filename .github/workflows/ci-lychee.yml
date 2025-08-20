@@ -25,6 +25,8 @@ jobs:
           args: "--verbose --no-progress --cache --max-cache-age 1d docs/"
           fail: true
 
+      - run: sed -i 's/Summary/Summary - Link Checker/' lychee/out.md
+
       - name: Add output as PR comment
         uses: embrace-io/actions-comment-pull-request@v2
         with:
