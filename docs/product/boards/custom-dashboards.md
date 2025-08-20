@@ -15,9 +15,9 @@ To get started, click on "Add new widget" in the menu by your dashboard name.
 You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
 
 | Chart Type | Crashes | Network | Logs | Issues | Moments | Sessions | Spans | Historical | Multi-query |
-| ---------- | ------- | ------- | ---- | ------ | ------- | -------- | ----- | ---------- | ----------- |
+| ----------|-------|-------|----|------|-------|--------|-----|----------|----------- |
 | Line | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Table | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x:
+| Table | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
 | Bar | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
 | Pie | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
 
@@ -76,7 +76,7 @@ As a rule, if you have **two timeseries that both have groupings**, the grouping
   - `A` has a grouping and `B` does not. Their common join key is the empty set.
 
 | Dimension | A | B | A + B |
-| :--------------: | :---------------: | :---------------: |:---------------: |
+| :--------------:|:---------------:|:---------------:|:---------------: |
 | `{"App Version": "1.0"}` | 100 | 10 | 110 |
 | `{"App Version": "2.0"}` | 50 | 10 | 60 |
 
@@ -89,7 +89,7 @@ As a rule, if you have **two timeseries that both have groupings**, the grouping
   - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
 
 | Dimension | A | B | A + B |
-| :--------------: | :---------------: | :---------------: |:---------------: |
+| :--------------:|:---------------:|:---------------:|:---------------: |
 | `{"App Version": "1.0", "Country": "US"}` | 100 | 10 | 110 |
 | `{"App Version": "1.0", "Country": "MEX"}` | 30 | 10 | 40 |
 | `{"App Version": "2.0", "Country": "US"}` | 50 | 20 | 70 |
@@ -158,7 +158,7 @@ Before sending the report, you can send a test email to the recipients to ensure
 You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
 
 This is especially useful if you’re tagging Sessions, Logs, Spans or other events with multiple values and want to break them out into individual groups.
-For example, if a Session has a property like BRANCH=["master", "develop", "main", "staging"], you can group by `BRANCH`, and each of those values will be treated as its own group.
+For example, if a Session has a property like `BRANCH=["master", "develop", "main", "staging"]`, you can group by `BRANCH`, and each of those values will be treated as its own group.
 
 To group by an exploded property:
 

@@ -48,7 +48,7 @@ Line and column numbers, along with file names, will always be symbolicated to t
 ## When including the SDK from CDN
 
 Our CLI looks for a special placeholder string to replace with the real ID of the uploaded bundle files. When our SDK is
-not bundled with your code you will need to provide this placeholder string when initializing the sdk as in the
+not bundled with your code you will need to provide this placeholder string when initializing the SDK as in the
 following example:
 
    ```javascript

@@ -31,6 +31,10 @@ jobs:
           echo '```' >> rumdl.md
           rumdl check --statistics | sed -n '/^Rule Violation Statistics:/,$p' | grep -v 'Rule Violation Statistics:' >> rumdl.md
           echo '```' >> rumdl.md
+          echo >> rumdl.md
+          echo 'You can find an explanation of all linting rules [here](https://github.com/rvben/rumdl/blob/main/docs/RULES.md).'
+          echo >> rumdl.md
+          echo 'Run `rumdl check` locally, use `--fix` to fix issues automatically where possible.'
 
       - name: Add output as PR comment
         uses: embrace-io/actions-comment-pull-request@v2

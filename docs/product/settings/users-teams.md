@@ -67,9 +67,7 @@ Projects can also be configured to allow default access for all org members for 
 - Regular: All members have regular access
 - Restricted: Only specified users & teams have access to the project
 
-
 ---
-
 
 ## 4. Example Org and Project Configuration
 

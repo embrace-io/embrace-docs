@@ -7,8 +7,7 @@ sidebar_position: 6
 # Collect your first crash report
 
 If you've been following along, you should be setup to collect crashes, otherwise take a look at the previous pages
-for [Uploading Symbol Files](/react-native/integration/upload-symbol-files) and [Session Reporting
-](/react-native/integration/session-reporting).
+for [Uploading Symbol Files](/react-native/integration/upload-symbol-files) and [Session Reporting](/react-native/integration/session-reporting).
 
 ## Triggering a Crash
 

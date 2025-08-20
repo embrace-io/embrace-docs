@@ -89,7 +89,7 @@ sidebar_position: 4
 
 *May 19, 2025*
 
--  Fixes
+- Fixes
   - Fixed a crash that could occur when capturing data from requests (#217).
   - Fixed an issue that prevented the Network Payload Capture feature from properly capturing request/response bodies.
   - Reduced overhead and memory usage when capturing response bodies in most common use cases.
@@ -709,7 +709,7 @@ This version has known issues and should not be used
 *October 6th, 2022*
 
 - Fixes bug in crash handler introduced in 5.9.3.
-- Adds unity sdk version property.
+- Adds Unity SDK version property.
 
 ## 5.10.0
 
@@ -759,9 +759,9 @@ This version has known issues and should not be used
 
 *May 31st, 2022*
 
-- Fix crash report enabled property. The remote config can't re-enable it
+- Fix crash report enabled property; the remote config can't re-enable it
 - Fix for Embrace delegate callback not happening
-- Added property for whether or not the sdk has started
+- Added property for whether or not the SDK has started
 - Fix for very rare edge case of properties dictionary trying to be serialized when changed
 
 ## 5.7.7
@@ -774,8 +774,8 @@ This version has known issues and should not be used
 
 *March 14th, 2022*
 
-- Fixed for missing some network requests metrics.
-- Fix potential ANR on launch that could cause a crash in some situations
+- Fixed for missing some network requests metrics
+- Fixed potential ANR on launch that could cause a crash in some situations
 - Added Log Message variants that allow for logging caught exceptions
 
 ## 5.7.5
@@ -813,7 +813,7 @@ This version has known issues and should not be used
 
 *November 24th, 2021*
 
-- Ensure embrace always receives crashes first.
+- Ensure Embrace always receives crashes first
 - Updated carthage integration to work with newer format
 - Fix for bug introduced by apple involving low power mode
 - Fix for network domain dictionary crash
@@ -854,7 +854,7 @@ This version has known issues and should not be used
 *July 27th, 2021*
 
 - Fixed memory leak that occured during startup
-- Fix for missing sessions on upgrading between v4 of sdk to v5
+- Fix for missing sessions on upgrading between v4 of SDK to v5
 
 ## 5.5.3
 
@@ -1013,7 +1013,7 @@ This version has known issues and should not be used
 *Sep 30, 2020*
 
 - Change how failed events are queued to fix perf and OOM issues
-- Update code for xcode 12 standards
+- Update code for Xcode 12 standards
 
 ## 5.1.3
 

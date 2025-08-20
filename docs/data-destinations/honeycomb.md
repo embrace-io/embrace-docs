@@ -27,6 +27,7 @@ sidebar_position: 5
    <img src={require('@site/static/images/data-destinations/honeycomb_create_api_key.png').default} alt="Image showing create API key button" />
 
    At least you must enable the following permissions:
+
    - Visible to team members
    - Enable
    - Send events
