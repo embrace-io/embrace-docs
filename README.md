@@ -1,6 +1,6 @@
 # Embrace Documentation
 
-This repository hosts the source code for the [Embrace documentation site](https://embrace.io/docs/).  
+This repository hosts the source code for the [Embrace documentation site](https://embrace.io/docs/).
 
 The docs site is automatically deployed from this repository on a regular daily interval. We welcome all contributors who would like to grow knowledge and clarity regarding the Embrace mobile SDKs, dashboard, and data forwarding features. Please feel free to make a pull request to make an addition, or open an issue to make a suggestion of what might be change.
 
@@ -44,6 +44,22 @@ npm run build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 You can serve contents of that static directory using `npm run serve`
+
+## Linting
+
+We use [rumdl](https://github.com/rvben/rumdl) to enforce standard lint (formatting) rules on all markdown files. A summary of lint results will be posted as a comment in your pull request. You must resolve all lint violations before you merge your change. Most of them can be automatically fixed using `rumdl check --fix`.
+
+You should install and run the linter before comitting your changes:
+
+```console
+brew tap rvben/rumdl
+brew install rumdl
+
+rumdl check --statistics
+rumdl --fix
+```
+
+PS. You can also install rumdl as a Python package using `uv pip install rumdl`
 
 ## Embrace Customizations
 
