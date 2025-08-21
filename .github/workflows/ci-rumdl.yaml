@@ -22,14 +22,22 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run rumdl linter
-        run: rumdl check --output-format github || exit 0
+        run: |
+          rumdl check --output-format github || echo ""
 
       - name: Generate statistics
         run: |
           echo '# Summary - Markdown Lint' > rumdl.md
           echo >> rumdl.md
           echo '```' >> rumdl.md
-          rumdl check --statistics | sed -n '/^Rule Violation Statistics:/,$p' | grep -v 'Rule Violation Statistics:' >> rumdl.md
+
+          rumdl check --statistics > output.md || echo ""
+
+          if grep 'Rule Violation Statistics:' output.md > /dev/null; then
+            cat output.md | sed -n '/^Rule Violation Statistics:/,$p' | grep -v 'Rule Violation Statistics:' >> rumdl.md
+          else
+            grep '^Success:' output.md >> rumdl.md
+          fi
           echo '```' >> rumdl.md
           echo >> rumdl.md
           echo 'You can find an explanation of all linting rules [here](https://github.com/rvben/rumdl/blob/main/docs/RULES.md).' >> rumdl.md
@@ -41,3 +49,7 @@ jobs:
         with:
           comment_tag: rumdl
           filePath: rumdl.md
+
+      - name: Fail on lint violations
+        run: |
+          grep '^Success:' output.md
