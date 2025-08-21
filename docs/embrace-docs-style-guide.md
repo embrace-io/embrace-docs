@@ -6,7 +6,7 @@ description: Style Guide for Public Documentation
 
 # Embrace docs style guide
 
-### Key takeaways
+## Key takeaways
 
 - Write in **second person** and **active voice** to ensure clarity.
   - Be declarative about what a developer can **DO** with Embrace
@@ -146,4 +146,3 @@ struct NewEmbraceApp: App {
    - Show how to confirm a successful setup (e.g., checking logs).
 5. **Troubleshooting**
    - Summarize common issues and solutions.
-
