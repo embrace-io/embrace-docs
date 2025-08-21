@@ -1,5 +1,5 @@
 
-## Overview
+# Overview
 
 The AutoViewCapture component will automatically track views that get disabled/enabled and report them to the Embrace dashboard.
 
@@ -13,7 +13,7 @@ Next up fill in the View Name with the name of the view you are capture. If left
 
 The AutoViewCapture component has 2 virtual functions you can extend into your own classes if you'd like:
 
-```
+```csharp
 public virtual void HideView()
 public virtual void ShowView()
 ```
