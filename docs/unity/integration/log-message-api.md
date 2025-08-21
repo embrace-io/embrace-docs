@@ -26,6 +26,13 @@ Let's examine the method call above to understand the arguments involved:
 - This is the severity of the event. Typically we use this mechanism for errors, warnings, and occasionally for tracing purposes, but [breadcrumbs](/ios/5x/integration/breadcrumbs) are better for that purpose.
 - The third argument is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values.  
 
+## Log Limits per Session
+
+- **Info and Warning Logs**: The default limit is set to 100 logs per session.
+- **Error Logs**: A higher limit of 250 logs per session is allowed to accommodate more critical information.
+
+If you encounter the message `[Embrace]: Warning Log limit has been reached`, it indicates that the maximum number of logs for a given category has been exceeded within a single session. For use cases requiring more logs, please contact support to discuss your needs, which may include recommendations for alternative solutions such as using breadcrumbs.
+
 import LogLimit from '@site/shared/log-limit.md';
 
 <LogLimit />
