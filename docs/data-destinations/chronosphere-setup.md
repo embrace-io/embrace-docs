@@ -28,6 +28,7 @@ sidebar_position: 1
 <img src={require('@site/static/images/data-destinations/chronosphere_tenant_id.png').default} alt="Image showing Chronosphere field needed" />
 
 ## Querying your Metrics
+
 <img src={require('@site/static/images/data-destinations/Chronosphere.png').default} alt="Screenshot of Chronosphere UI" />
 
 To start analyzing your Embrace data in Chronosphere: open a Dashboard panel, and in the "metrics" field start typing "embrace".  All Metrics will be prefaced with `embrace_`.

@@ -22,9 +22,9 @@ Embrace.Instance.LogMessage("error log", EMBSeverity.Error, new Dictionary<strin
 
 Let's examine the method call above to understand the arguments involved:
 
-- The first argument is a string and represents the message itself. 
+- The first argument is a string and represents the message itself.  
 - This is the severity of the event. Typically we use this mechanism for errors, warnings, and occasionally for tracing purposes, but [breadcrumbs](/ios/5x/integration/breadcrumbs) are better for that purpose.
-- The third argument is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values. 
+- The third argument is a dictionary of key-value pairs. When logging an event, break out any details into this dictionary and you will be able to categorize and filter on those values.  
 
 import LogLimit from '@site/shared/log-limit.md';
 
@@ -41,7 +41,7 @@ This can have a negative effect on your application's performance or battery lif
 It can also be an invaluable tool for getting information about your application quickly.
 
 :::info
-For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages.md).
+For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/product/logs/log-messages.md).
 :::
 
 ---

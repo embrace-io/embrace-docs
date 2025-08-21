@@ -11,6 +11,7 @@ import GetSessionId from '@site/shared/get-session-id.md';
 <GetSessionId />
 
 :::warning Important
+
 - If you use the Session ID to form a `URL` that points to the session view in our dashboard, please consider that the URL is suitable to be updated at any time.
 :::
 

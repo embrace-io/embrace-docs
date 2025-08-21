@@ -3,6 +3,7 @@ title: Session Properties
 sidebar_position: 5
 description: Get to know the users of your Android application with the Embrace SDK
 ---
+
 # Session Properties
 
 Session Properties are another way to annotate the session.
@@ -18,14 +19,18 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false)
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false);
 ```
+
 </TabItem>
 </Tabs>
 

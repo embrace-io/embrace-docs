@@ -16,4 +16,4 @@ these best practices will ensure optimal performance, security, and user experie
 - **[Debugging Tips](./debugging-tips.md)** - Strategies for troubleshooting issues with the SDK
 
 By following these best practices, you'll maximize the value of the Embrace SDK while minimizing any potential negative
-impact on your application's performance or user experience. 
+impact on your application's performance or user experience.  

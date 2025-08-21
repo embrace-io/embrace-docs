@@ -12,7 +12,7 @@ Traces are a powerful feature in the Embrace Web SDK that give you complete visi
 
 In the Embrace SDK (built on OpenTelemetry):
 
-- A **trace** represents an entire operation or workflow in your application 
+- A **trace** represents an entire operation or workflow in your application  
 - A **span** represents a single unit of work within that trace
 - Spans can be nested, forming parent-child relationships to create a trace
 
@@ -29,17 +29,16 @@ With the Embrace Traces API, you can:
 
 ## Trace Limits
 
-| Type                               | Limit          |
-| ---------------------------------- | -------------- |
-| Max number of spans per session    | 100            |
-| Max number of spans per Root Span  | 10             |
-| Max number of attributes per span  | 50             |
-| Max number of events per span      | 10             |
-| Max number of attributes per event | 10             |
-| Length of attribute keys           | 50 characters  |
-| Length of attribute values         | 200 characters |
-| Length of Span names               | 50 characters  |
-| Length of Event names              | 100 characters |
+| Type                               | Limit           |
+| ---------------------------------- |-----------------|
+| Max number of spans per session    | 1,000           |
+| Max number of attributes per span  | 50              |
+| Max number of events per span      | 10              |
+| Max number of attributes per event | 10              |
+| Length of attribute keys           | 50 characters   |
+| Length of attribute values         | 1024 characters |
+| Length of Span names               | 50 characters   |
+| Length of Event names              | 100 characters  |
 
 ## Naming Conventions
 
@@ -53,7 +52,7 @@ You should never create a name with these prefixes.
 
 ## Creating and Using Spans
 
-See our [guide on instrumentating Traces](/docs/web/manual-instrumentation/custom-traces.md) for examples on
+See our [guide on instrumentating Traces](/web/manual-instrumentation/custom-traces.md) for examples on
 how to instrument your application.
 
 ## Best Practices

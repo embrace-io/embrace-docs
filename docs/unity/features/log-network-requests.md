@@ -35,7 +35,7 @@ var client = new HttpClient(handler);
 
 ## Automatic Network Capture (BETA)
 
-The Embrace Unity SDK includes a compilation post-processor that can weave code to automatically capture all network requests sent through `UnityWebRequest` and `HttpClient`. 
+The Embrace Unity SDK includes a compilation post-processor that can weave code to automatically capture all network requests sent through `UnityWebRequest` and `HttpClient`.  
 
 :::warning Important
 Internally, the Embrace weaver uses `Mono.Cecil` to inspect and modify CIL assemblies. The Embrace package resolves this dependency through the Unity Package Manager. If your project already includes `Mono.Cecil` from another source, we recommend switching to the package manager version to avoid conflicts.
@@ -43,7 +43,7 @@ Internally, the Embrace weaver uses `Mono.Cecil` to inspect and modify CIL assem
 
 ### Enabling Automatic Network Capture Weaving
 
-Automatic network capture weaving can be enabled in the **Network Capture** tab of the Embrace settings window (**Tools > Embrace > Settings**). 
+Automatic network capture weaving can be enabled in the **Network Capture** tab of the Embrace settings window (**Tools > Embrace > Settings**).  
 
 <img src={require('@site/static/images/unity-network-capture-settings.png').default} />
 

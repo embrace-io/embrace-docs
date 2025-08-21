@@ -15,7 +15,7 @@ The following tips will help you make the most of Breadcrumbs.
 
 Think carefully about the logging that you add.
 Remember that you will be looking at these logs days after a problem session occurred, and without access to the user who created the session.
-Your logs must be detailed enough to help you generate a reproducible use-case, but light enough that they don’t distract you or cause you to read redundant information. 
+Your logs must be detailed enough to help you generate a reproducible use-case, but light enough that they don’t distract you or cause you to read redundant information.  
 
 For example, Embrace already collects all networking events by default.
 Before you add logging around these events, take a look at one of your sessions in the Embrace Dashboard.

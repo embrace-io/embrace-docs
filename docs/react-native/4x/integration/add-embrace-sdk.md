@@ -22,7 +22,7 @@ npm install @embrace-io/react-native --save
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
 
-# Adding the SDK 
+## Adding the SDK
 
 ## Setup Script
 
@@ -31,6 +31,7 @@ project to add the native dependencies. The setup scripts can be found in your
 `node_modules` folder at `node_modules/@embrace-io/dist/scripts/setup`
 
 **Run the setup script**
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
 ```
@@ -41,9 +42,11 @@ node node_modules/@embrace-io/react-native/lib/scripts/setup/installIos.js
 
 :::info Clean Up Embrace implementation
 If you need to clean up an Embrace implementation added manually or by our scripts you can use our uninstall script
+
 ```shell-session
 node node_modules/@embrace-io/react-native/lib/scripts/setup/uninstall.js
 ```
+
 :::
 
 You can use git to see the changes that the script made.
@@ -63,6 +66,7 @@ correctly.
 You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 
 1. Create a file called `Embrace-Info.plist` with the following content.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -75,29 +79,31 @@ You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
   </dict>
 </plist>
 ```
-:::info Note for iOS
-If you'd like to use Embrace's internal crash reporter,
-set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
-described in the [Adding the Embrace SDK](/flutter/integration/add-embrace-sdk) page).
-If you're using Crashlytics, set this value to false.
-:::
+
+   :::info Note for iOS
+   If you'd like to use Embrace's internal crash reporter,
+   set the `CRASH_REPORT_ENABLED` field to true in the `Embrace-Info.plist` file that you created earlier (as
+   described in the [Adding the Embrace SDK](/flutter/integration/add-embrace-sdk) page).
+   If you're using Crashlytics, set this value to false.
+   :::
 
 2. Identify your root iOS Project.
-<img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
+
+   <img src={require('@site/static/images/addEmbraceInfo-1.png').default} />
 
 3. Right click on that project and select `Add Files to YOUR_PROJECT`.
-<img src={require('@site/static/images/addEmbraceInfo-2.png').default} />
+   <img src={require('@site/static/images/addEmbraceInfo-2.png').default} />
 
 4. Select `Embrace-Info.plist` and click on `Add`. Do not forget to select which `Targets` you are using.
-<img src={require('@site/static/images/addEmbraceInfo-3.png').default} />
+   <img src={require('@site/static/images/addEmbraceInfo-3.png').default} />
 
 5. Check if the file appears inside YOUR_PROJECT.
-<img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
+   <img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
 
 ## React Native Version < 0.60
 
 If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
-to set up the native modules. 
+to set up the native modules.  
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -117,6 +123,7 @@ target 'MyApp' do
   pod 'RNEmbrace', :path => '../node_modules/@embrace-io/react-native'
 end
 ```
+
 Then, install the pod.
 
 ```shell-session
@@ -188,8 +195,8 @@ Your API ID and token are available on the Embrace dashboard.
 :::info
 You’ll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
 
-* `android.permission.INTERNET`
-* `android.permission.ACCESS_NETWORK_STATE`
+- `android.permission.INTERNET`
+- `android.permission.ACCESS_NETWORK_STATE`
 :::
 
 </TabItem>

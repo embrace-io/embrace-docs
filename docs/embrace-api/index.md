@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: Learn about the Embrace API to pull data 
+description: Learn about the Embrace API to pull data  
 sidebar_position: 0
 ---
 

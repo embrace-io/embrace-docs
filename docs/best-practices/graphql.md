@@ -29,9 +29,9 @@ In iOS 6.X, you can hook into a callback that lets you modify the captured reque
 :::warning Important
 **The x-emb-path value must meet the following requirements or it will be ignored.**
 
-* Must be a string with a length in the range from 1 to 1024 characters
-* Must start with a /
-* Must only contain ASCII characters
+- Must be a string with a length in the range from 1 to 1024 characters
+- Must start with a /
+- Must only contain ASCII characters
 :::
 
 ```mdx-code-block
@@ -42,6 +42,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="ios-language" queryString="ios-language">
 
 <TabItem value="swift-ios-6" label="Swift (6.X)">
+
 ```swift
 import EmbraceIO
 
@@ -71,9 +72,11 @@ let options = Embrace.Options(
                 // ...
               )
 ```
+
 </TabItem>
 
 <TabItem value="swift" label="Swift (5.X)">
+
 ```swift
 import Foundation
 import Apollo

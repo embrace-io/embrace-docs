@@ -15,4 +15,4 @@ This section provides guidelines and recommendations to help you get the most ou
 - **[Debugging Tips](./debugging-tips.md)** - Strategies for troubleshooting issues with the SDK
 - **[Common Patterns](./common-patterns.md)** - Recommended implementation patterns for different scenarios
 
-By following these best practices, you'll maximize the value of the Embrace SDK while minimizing any potential negative impact on your application's performance or user experience. 
+By following these best practices, you'll maximize the value of the Embrace SDK while minimizing any potential negative impact on your application's performance or user experience.  

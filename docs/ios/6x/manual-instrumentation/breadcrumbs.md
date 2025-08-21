@@ -50,6 +50,7 @@ Embrace.client?.add(
 ### Breadcrumbs in Different Contexts
 
 #### User Actions
+
 ```swift
 // User interface interactions
 Embrace.client?.add(event: .breadcrumb("User opened settings screen"))
@@ -58,6 +59,7 @@ Embrace.client?.add(event: .breadcrumb("User logged out"))
 ```
 
 #### Application State Changes
+
 ```swift
 // App lifecycle events
 Embrace.client?.add(event: .breadcrumb("App entered background"))
@@ -66,6 +68,7 @@ Embrace.client?.add(event: .breadcrumb("Memory warning received"))
 ```
 
 #### Business Logic Events
+
 ```swift
 // Important business events
 Embrace.client?.add(event: .breadcrumb("Cart updated", properties: ["items": "5"]))
@@ -78,6 +81,7 @@ Embrace.client?.add(event: .breadcrumb("Filter applied", properties: ["category"
 ### What to Log as Breadcrumbs
 
 **Good candidates for breadcrumbs:**
+
 - User interactions (button taps, screen transitions)
 - Important application state changes
 - Business logic milestones
@@ -85,6 +89,7 @@ Embrace.client?.add(event: .breadcrumb("Filter applied", properties: ["category"
 - Error conditions that don't crash the app
 
 **Avoid logging as breadcrumbs:**
+
 - Sensitive user data (passwords, personal information)
 - High-frequency events (scroll events, timer ticks)
 - Large data payloads
@@ -155,6 +160,7 @@ Breadcrumbs appear in several places in the Embrace dashboard:
 ## Common Use Cases
 
 ### E-commerce App
+
 ```swift
 Embrace.client?.add(event: .breadcrumb("Product search", properties: ["category": "shoes"]))
 Embrace.client?.add(event: .breadcrumb("Product viewed", properties: ["product_id": "12345"]))
@@ -164,6 +170,7 @@ Embrace.client?.add(event: .breadcrumb("Payment completed"))
 ```
 
 ### Media App
+
 ```swift
 Embrace.client?.add(event: .breadcrumb("Content browsing", properties: ["section": "trending"]))
 Embrace.client?.add(event: .breadcrumb("Video selected", properties: ["duration": "120s"]))
@@ -172,6 +179,7 @@ Embrace.client?.add(event: .breadcrumb("Playback paused", properties: ["position
 ```
 
 ### Social App
+
 ```swift
 Embrace.client?.add(event: .breadcrumb("Feed refreshed"))
 Embrace.client?.add(event: .breadcrumb("Post liked", properties: ["post_type": "image"]))
@@ -183,4 +191,4 @@ Embrace.client?.add(event: .breadcrumb("Profile viewed", properties: ["user_type
 
 - Learn about [Custom Logging](/ios/6x/manual-instrumentation/custom-logging) for more detailed logging
 - Explore [Custom Traces](/ios/6x/manual-instrumentation/custom-traces) for performance monitoring
-- Check out [Best Practices](/ios/6x/best-practices/common-patterns) for optimal breadcrumb usage patterns 
+- Check out [Best Practices](/ios/6x/best-practices/common-patterns) for optimal breadcrumb usage patterns

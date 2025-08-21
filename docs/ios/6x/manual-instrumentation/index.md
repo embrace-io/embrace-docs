@@ -24,6 +24,7 @@ Embrace provides several APIs for manual instrumentation:
 
 - **[Custom Traces](./custom-traces.md)** - Measure the duration of custom operations with spans
 - **[Custom Logging](./custom-logging.md)** - Capture log messages at various severity levels
+- **[Network Instrumentation](./network-instrumentation.md)** - Manually instrument network requests from third-party libraries like gRPC
 - **[Error Handling](./error-handling.md)** - Record and track errors that occur in your app
 - **[Performance Monitoring](./performance-monitoring.md)** - Track performance metrics for critical operations
 - **[Crash Reporting](./crash-reporting.md)** - Configure crash reporting and integrate with Crashlytics
@@ -39,6 +40,7 @@ Consider adding manual instrumentation when:
 - You want to add custom context to your telemetry data
 - You need to capture application-specific events
 - You want to track third-party SDK interactions
+- You're using network libraries that don't use URLSession (like gRPC)
 
 ## Basic Principles
 

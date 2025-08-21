@@ -3,6 +3,7 @@ title: Current Session ID API
 sidebar_position: 5
 description: Track the current Embrace session by getting its ID.
 ---
+
 # Current Session ID API
 
 ```javascript
@@ -14,7 +15,6 @@ const myMethod = () =>{
     })
 }
 ```  
-
 
 import GetSessionId from '@site/shared/get-session-id.md';
 

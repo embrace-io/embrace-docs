@@ -8,11 +8,11 @@ description: Add the Embrace SDK as a dependency to your Android application
 
 ## Add Embrace as a dependency
 
-### If you are using Version Catalogs:
+### If you are using Version Catalogs
 
 Add our gradle plugin to your `libs.versions.toml` file
 
-```
+```toml
 [versions]
 embrace = "{{ embrace_sdk_version platform="android" }}"
 ...
@@ -29,7 +29,7 @@ plugins {
 }
 ```
 
-### If you are not using Version Catalogs:
+### If you are not using Version Catalogs
 
 Add the following to your `settings.gradle`:
 
@@ -48,7 +48,7 @@ pluginManagement {
     }
 
     plugins {
-        id 'io.embrace.swazzler' version "${swazzler_version}" apply false
+        id 'io.embrace.swazzler' version "${embrace_version}" apply false
     }
 }
 ```
@@ -62,9 +62,9 @@ pluginManagement {
     repositories {
         mavenCentral()
     }
-    val swazzler_version: String by settings
+    val embrace_version: String by settings
     plugins {
-        id("io.embrace.swazzler") version "${swazzler_version}" apply false
+        id("io.embrace.swazzler") version "${embrace_version}" apply false
     }
 }
 ```
@@ -72,10 +72,10 @@ pluginManagement {
 </TabItem>
 </Tabs>
 
-Include `swazzler_version` in your `gradle.properties` file:
+Include `embrace_version` in your `gradle.properties` file:
 
 ```groovy
-swazzler_version={{ embrace_sdk_version platform="android" }}
+embrace_version={{ embrace_sdk_version platform="android" }}
 ```
 
 Then add the following at the top of your `app/build.gradle`:
@@ -136,7 +136,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath("io.embrace:embrace-swazzler:$swazzler_version")
+        classpath("io.embrace:embrace-swazzler:$embrace_version")
     }
 }
 ```
@@ -144,7 +144,7 @@ buildscript {
 </TabItem>
 </Tabs>
 
-Then apply the plugin in your `app/build.gradle` file & ensure you specify Java 8 in `compileOptions`:
+Then apply the plugin in your `app/build.gradle` file:
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="groovy" label="Groovy">
@@ -152,13 +152,6 @@ Then apply the plugin in your `app/build.gradle` file & ensure you specify Java 
 ```groovy
 apply plugin: 'com.android.application'
 apply plugin: 'embrace-swazzler'
-
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-}
 ```
 
 </TabItem>
@@ -168,29 +161,22 @@ android {
 ```kotlin
 apply(plugin = "com.android.application")
 apply(plugin = "embrace-swazzler")
-
-android {
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-}
 ```
 
 </TabItem>
 </Tabs>
 
 The Embrace Gradle Plugin performs a few key functions:
-* Adds the Embrace SDK to your app's dependency list.
-* Injects configuration info the SDK reads at run time.
-* Instruments bytecode to insert SDK hooks that capture telemetry.
-* Uploads mapping files to get human-readable stacktraces in production.
+- Adds the Embrace SDK to your app's dependency list.
+- Injects configuration info the SDK reads at run time.
+- Instruments bytecode to insert SDK hooks that capture telemetry.
+- Uploads mapping files to get human-readable stacktraces in production.
 
 :::info Note on Permissions
 Embrace automatically adds the following permissions so that it can make HTTP requests to deliver captured data.
 
-* `android.permission.INTERNET`
-* `android.permission.ACCESS_NETWORK_STATE`
+- `android.permission.INTERNET`
+- `android.permission.ACCESS_NETWORK_STATE`
 
 :::
 
@@ -218,7 +204,28 @@ implementation("io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="
 
 You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
 
-## Add the config file
+## Set your app ID and API token
+
+:::info
+Your app ID and API token are available on the Embrace dashboard.
+:::
+
+### With environment variables (recommended)
+
+Set the following environment variables in your development environment:
+
+```bash
+export EMBRACE_APP_ID="xxxxx"
+export EMBRACE_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+The Embrace SDK will automatically read these environment variables at runtime.
+
+### With a config file
+
+:::warning
+Hardcoding access tokens in your source code might lead to security issues. We recommend using environment variables.
+:::
 
 Add a file at `app/src/main/embrace-config.json` with the following contents:
 
@@ -233,24 +240,14 @@ Add a file at `app/src/main/embrace-config.json` with the following contents:
 Further configuration options are documented [here](/android/features/configuration-file/).
 :::
 
-:::warning
-It's not recommended to directly hardcode access tokens into your source code. Instead, you can add it as an environment variable like `EMBRACE_API_TOKEN` and reference that.
-:::
-
-:::info
-Your app ID and API token are available on the Embrace dashboard.
-:::
-
 ---
 
 ## NDK crash capture
 
-If you want to capture NDK crash reports from your app add the `ndk_enabled` setting to your config file:
+If you want to capture NDK crash reports from your app add the `ndk_enabled` setting to your `app/src/main/embrace-config.json` file:
 
 ```json
 {
-  "app_id": "xxxxx",
-  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "ndk_enabled": true
 }
 ```

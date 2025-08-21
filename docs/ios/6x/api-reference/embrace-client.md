@@ -555,7 +555,6 @@ case .stopped:
 // Manual session control
 Embrace.client?.endCurrentSession()
 Embrace.client?.startNewSession()
-
 // Stop the SDK entirely (cannot be restarted)
 try Embrace.client?.stop()
 ```

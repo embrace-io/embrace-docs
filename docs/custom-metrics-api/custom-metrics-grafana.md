@@ -4,7 +4,7 @@ description: Access your Custom Metrics via your Grafana dashboards
 sidebar_position: 2
 ---
 
-# Custom Metrics 
+# Custom Metrics  
 
 Custom Metrics that you create in Embrace are available for use in Grafana.
 
@@ -20,7 +20,6 @@ Thereafter, every Custom Metric you create will automatically be available when 
       <img src="https://cdn.loom.com/sessions/thumbnails/13877a04b6bb47409ea87bd702815da9-with-play.gif"/>
     </a>
   </div>
-
 
 <br/>
 <br/>

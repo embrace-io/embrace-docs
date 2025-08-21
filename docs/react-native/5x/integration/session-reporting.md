@@ -10,9 +10,9 @@ Now that you’ve added the Embrace SDK to your project and can login to the Emb
 Here are the steps you’ll be taking to create your first session.
 
 1. [Initialize Embrace](/react-native/5x/integration/session-reporting#initialize-embrace-sdk)
-1. [Add a start call to the Embrace SDK (optional)](/react-native/5x/integration/session-reporting#starting-embrace-sdk-from-android--ios)
-1. [Build and run the application](/react-native/5x/integration/session-reporting#build-and-run-the-application)
-1. [Trigger a session upload](/react-native/5x/integration/session-reporting#trigger-a-session-upload)
+2. [Add a start call to the Embrace SDK (optional)](/react-native/5x/integration/session-reporting#starting-embrace-sdk-from-android--ios)
+3. [Build and run the application](/react-native/5x/integration/session-reporting#build-and-run-the-application)
+4. [Trigger a session upload](/react-native/5x/integration/session-reporting#trigger-a-session-upload)
 
 ## Initialize Embrace SDK
 
@@ -129,7 +129,7 @@ import EmbraceIO
 
 :::warning
 Once the iOS SDK is being initialized in this way any configuration any parameters passed through the JS side with
-`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK in the [configuration steps](/docs/ios/6x/api-reference/configuration.md).
+`sdkConfig.ios` are ignored. Additional configuration can be applied when setting up the iOS SDK in the [configuration steps](/ios/6x/api-reference/configuration.md).
 :::
 
 If your app delegate is in Swift you can then simply add a call `EmbraceInitializer.start()` to the start of the

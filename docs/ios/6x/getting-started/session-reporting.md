@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## Understanding Sessions
 
-Once Embrace is configured and started in your app, it automatically starts capturing user sessions. 
+Once Embrace is configured and started in your app, it automatically starts capturing user sessions.  
 
 A session is any length of user experience that occurs while the app is in the foreground or background. Note that foreground sessions and background sessions behave differently, and are recorded separately. This means that, for example, opening a push notification from your app will end a foreground session and start a background session.
 
@@ -57,4 +57,4 @@ To trigger a session upload during development, simply send the application to t
 
 Typically the SDK will be given sufficient time to upload the session, but sometimes the app is not able to complete the upload in the background. To ensure the session was uploaded, launch the application again, which will trigger the SDK to complete any pending uploads. Refresh the dashboard in your browser to see your session data.
 
-You can learn more about capturing specific moments and events in the [Core Concepts](/docs/ios/6x/core-concepts/index.md) section.
+You can learn more about capturing specific moments and events in the [Core Concepts](/ios/6x/core-concepts/index.md) section.

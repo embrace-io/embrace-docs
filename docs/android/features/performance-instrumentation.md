@@ -17,13 +17,15 @@ These traces can be augmented with additional attributes and child spans, as wel
 Both [cold](https://developer.android.com/topic/performance/vitals/launch-time#cold) and [warm](https://developer.android.com/topic/performance/vitals/launch-time#warm) app startups will generate traces that track the time between when the app is launched in the foreground and when the designated Activity shows up on screen. Depending on which Android version the app is running on, the start and end times of the trace and what child spans and metadata on the root span that are recorded may differ.
 
 ### Start
-Cold startups generate a trace with a root span called `emb-app-startup-cold`. Warm startups generate a trace with a root span called `emb-app-startup-warm`. 
 
-The cold startup trace usually begins at the best estimated time of when the app process is created and specialized for the app. On Android versions before 7, it begins when the Embrace SDK starts, which is recommended to be the first line of the `onCreate()` method of the app's `Application` object. 
+Cold startups generate a trace with a root span called `emb-app-startup-cold`. Warm startups generate a trace with a root span called `emb-app-startup-warm`.  
 
-The warm startup trace begins at the best estimated time of when the first Activity is beginning to be instantiated. 
+The cold startup trace usually begins at the best estimated time of when the app process is created and specialized for the app. On Android versions before 7, it begins when the Embrace SDK starts, which is recommended to be the first line of the `onCreate()` method of the app's `Application` object.  
+
+The warm startup trace begins at the best estimated time of when the first Activity is beginning to be instantiated.  
 
 ### End
+
 For both app startup traces, you can configure the SDK so they are ended programmatically (see [Configuration](#configuration)). Otherwise, they will end automatically when the first frame of the startup Activity has been fully rendered, if it can be detected. If not, the time of the Activity's first draw will be used. For Android 5.x, the time when the Activity has reached the `RESUMED` state of its lifecycle will be used instead.
 
 If the app is backgrounded or terminated before startup completes, the trace will end automatically but be marked as abandoned or failed, respectively,
@@ -42,12 +44,12 @@ Note: Be mindful of when these customization methods are invoked. They will only
 
 #### End startup programmatically
 
-If you want something other than an Activity rendering to end a startup trace, you can configure the SDK so that it waits for the app to manually end it. 
+If you want something other than an Activity rendering to end a startup trace, you can configure the SDK so that it waits for the app to manually end it.  
 
-To do that, first set the configuration property `end_startup_with_app_ready` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`. Then, in your app code, call the method `appReady()` when you wish to signal that app startup has ended successfully. 
+To do that, first set the configuration property `end_startup_with_app_ready` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`. Then, in your app code, call the method `appReady()` when you wish to signal that app startup has ended successfully.  
 
 :::tip Synchronize with Android metrics
-If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see [this section](#mapping-to-android-startup-metrics). 
+If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see [this section](#mapping-to-android-startup-metrics).  
 :::
 
 #### Ignore interstitial Activities during app startup
@@ -71,6 +73,7 @@ It's difficult for the SDK to programmatically determine precisely when the app'
 As such, the `applicationInitEnd()` method can be used to notify the SDK when this happens, which will allow it to more accurately assess whether an app startup is cold or warm.
 
 ### Child Spans
+
 Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app startup trace, with the cold or warm root span as their parent.
 
 #### emb-process-init
@@ -196,7 +199,7 @@ Note: Be mindful of when these customization methods are invoked. Doing so on a 
 
 #### Custom end event
 
-If you don't want to consider when the UI first loads as the end time for your Activity load traces, you can end it with manually instead by invoking the `activityLoad()` method. This is useful, for instance, if you want to end the trace when `reportFullyDrawn()` is reported for the Activity. 
+If you don't want to consider when the UI first loads as the end time for your Activity load traces, you can end it with manually instead by invoking the `activityLoad()` method. This is useful, for instance, if you want to end the trace when `reportFullyDrawn()` is reported for the Activity.  
 
 To use this configuration, annotate the Activity class with `@CustomLoadTracedActivity`.
 
@@ -218,7 +221,6 @@ Custom child spans can be added to the root span of the trace by using the `addL
 
 To ensure the timestamps of the custom spans are in sync with the timestamps of the other spans in the trace, use the `getSdkCurrentTimeMs()` method to obtain it from the same clock instance the SDK uses. This clock instance is locked after the SDK starts up and will not change even if the system clock changes.
 
-
 #### Configure Activities to be instrumented
 
 The default configuration of the SDK is to trace the loading of all Activities after app startup, cold or warm. If you do not wish to use this instrumentation, you can turn off the feature entirely in `embrace-config.json`.
@@ -226,15 +228,14 @@ The default configuration of the SDK is to trace the loading of all Activities a
 If you wish to only have the instrumentation enabled for a subset of Activities, you can do so by disabling all by default and enabling it for a select few. Alternatively, you can enable the feature for all Activities by default and then disable it for a select few.
 
 - Disabling all Activity load instrumentation
-	- Set the configuration property `ui_load_tracing_disabled` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`
+  - Set the configuration property `ui_load_tracing_disabled` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`
 
 - Explicitly enabling select Activities
-	- Set the configuration property `ui_load_tracing_selected_only` in `embrace-config.json` in the section `sdk_config.ui_load_tracing_selected_only` to `true`
-	- Annotate each Activity that you want to instrument with `@LoadTracedActivity` or `@CustomLoadTracedActivity`
+  - Set the configuration property `ui_load_tracing_selected_only` in `embrace-config.json` in the section `sdk_config.ui_load_tracing_selected_only` to `true`
+  - Annotate each Activity that you want to instrument with `@LoadTracedActivity` or `@CustomLoadTracedActivity`
 
 - Explicitly disabling select Activities
-	- Annotate each Activity that you do not want to instrument with `@NotTracedActivity`
-
+  - Annotate each Activity that you do not want to instrument with `@NotTracedActivity`
 
 ### Code Example
 

@@ -90,16 +90,19 @@ try? Embrace.client?.metadata.addProperty(key: "launch_type", value: "normal", l
 Each piece of metadata can have one of three lifespans:
 
 1. **Session**: Tied to a single user session and automatically cleared when the session ends
+
    ```swift
    try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
    ```
 
 2. **Process**: Scoped to the lifetime of the application process and cleared if the app restarts
+
    ```swift
    try? Embrace.client?.metadata.add(persona: "first_launch", lifespan: .process)
    ```
 
 3. **Permanent**: Remains associated with the user across multiple sessions until explicitly removed
+
    ```swift
    try? Embrace.client?.metadata.add(persona: "vip", lifespan: .permanent)
    ```
@@ -134,13 +137,13 @@ class AuthenticationFlow {
     func handleSignUp(email: String, userTier: String) async throws {
         // Track signup attempt
         Embrace.client?.log("User signup initiated", severity: .info)
-        
+
         do {
             let user = try await performSignUp(email: email)
-            
+
             // Set user identification immediately after signup (use anonymized ID)
             Embrace.client?.metadata.userIdentifier = user.anonymizedId
-            
+
             // Add personas for new user
             try? Embrace.client?.metadata.add(
                 persona: PersonaTag("new_user"), 
@@ -150,7 +153,7 @@ class AuthenticationFlow {
                 persona: PersonaTag(userTier.lowercased()), 
                 lifespan: .permanent
             )
-            
+
             // Track successful signup
             Embrace.client?.log(
                 "User signup completed",
@@ -160,7 +163,7 @@ class AuthenticationFlow {
                     "user.tier": userTier
                 ]
             )
-            
+
         } catch {
             Embrace.client?.log(
                 "User signup failed",
@@ -172,14 +175,14 @@ class AuthenticationFlow {
             throw error
         }
     }
-    
+
     func handleLogin(credentials: LoginCredentials) async throws {
         do {
             let user = try await performLogin(credentials)
-            
+
             // Update user identification for returning user (use anonymized ID)
             Embrace.client?.metadata.userIdentifier = user.anonymizedId
-            
+
             // Remove new_user persona if present, add authenticated
             try? Embrace.client?.metadata.remove(
                 persona: PersonaTag("new_user"), 
@@ -189,13 +192,13 @@ class AuthenticationFlow {
                 persona: PersonaTag("authenticated"), 
                 lifespan: .session
             )
-            
+
             // Add user tier information
             try? Embrace.client?.metadata.add(
                 persona: PersonaTag(user.tier.lowercased()), 
                 lifespan: .permanent
             )
-            
+
             // Track login success
             Embrace.client?.log(
                 "User login successful",
@@ -206,7 +209,7 @@ class AuthenticationFlow {
                     "user.tier": user.tier
                 ]
             )
-            
+
         } catch let authError as AuthenticationError {
             // Track failed login attempts with privacy-safe info
             Embrace.client?.log(
@@ -220,7 +223,7 @@ class AuthenticationFlow {
             throw authError
         }
     }
-    
+
     func handleLogout() {
         // Log logout with session context
         if let userId = Embrace.client?.metadata.userIdentifier {
@@ -232,10 +235,10 @@ class AuthenticationFlow {
                 ]
             )
         }
-        
+
         // Clear user identification but preserve some anonymous analytics
         Embrace.client?.metadata.clearUserProperties()
-        
+
         // Remove authenticated persona, keep anonymous tracking
         try? Embrace.client?.metadata.remove(
             persona: PersonaTag("authenticated"), 
@@ -257,7 +260,7 @@ Use user identification for feature access control and testing:
 class FeatureGateManager {
     func checkFeatureAccess(feature: String) -> Bool {
         let hasAccess = determineFeatureAccess(feature: feature)
-        
+
         // Track feature access attempts
         Embrace.client?.log(
             "Feature access check",
@@ -268,7 +271,7 @@ class FeatureGateManager {
                 "user.authenticated": String(isUserAuthenticated())
             ]
         )
-        
+
         if hasAccess {
             // Add persona for feature usage
             try? Embrace.client?.metadata.add(
@@ -276,10 +279,10 @@ class FeatureGateManager {
                 lifespan: .session
             )
         }
-        
+
         return hasAccess
     }
-    
+
     func enrollInExperiment(experimentId: String, variant: String) {
         // Track A/B test enrollment
         try? Embrace.client?.metadata.addProperty(
@@ -287,7 +290,7 @@ class FeatureGateManager {
             value: variant,
             lifespan: .session
         )
-        
+
         // Add experiment personas
         try? Embrace.client?.metadata.add(
             persona: PersonaTag("experiment_\(experimentId)"), 
@@ -297,7 +300,7 @@ class FeatureGateManager {
             persona: PersonaTag("variant_\(variant)"), 
             lifespan: .session
         )
-        
+
         Embrace.client?.log(
             "User enrolled in experiment",
             severity: .info,
@@ -308,11 +311,11 @@ class FeatureGateManager {
             ]
         )
     }
-    
+
     private func isUserAuthenticated() -> Bool {
         return Embrace.client?.metadata.userIdentifier != nil
     }
-    
+
     private func getCurrentExperimentCount() -> Int {
         // Implementation would count active experiments for this user
         return 0
@@ -328,28 +331,28 @@ Track user progression through onboarding and feature adoption:
 class UserJourneyTracker {
     func trackOnboardingProgress(step: OnboardingStep, completed: Bool) {
         let stepName = step.rawValue
-        
+
         // Update onboarding progress
         try? Embrace.client?.metadata.addProperty(
             key: "onboarding.current_step",
             value: stepName,
             lifespan: .session
         )
-        
+
         if completed {
             try? Embrace.client?.metadata.addProperty(
                 key: "onboarding.completed_steps",
                 value: getCompletedStepsString(),
                 lifespan: .permanent
             )
-            
+
             // Add milestone personas
             try? Embrace.client?.metadata.add(
                 persona: PersonaTag("onboarding_\(stepName)_completed"), 
                 lifespan: .permanent
             )
         }
-        
+
         // Check if onboarding is complete
         if isOnboardingComplete() {
             try? Embrace.client?.metadata.add(
@@ -361,7 +364,7 @@ class UserJourneyTracker {
                 lifespan: .session
             )
         }
-        
+
         Embrace.client?.log(
             "Onboarding step update",
             severity: .info,
@@ -372,7 +375,7 @@ class UserJourneyTracker {
             ]
         )
     }
-    
+
     func trackFeatureAdoption(feature: String, adopted: Bool) {
         if adopted {
             // Track feature adoption
@@ -381,12 +384,12 @@ class UserJourneyTracker {
                 value: getAdoptedFeaturesString(),
                 lifespan: .permanent
             )
-            
+
             try? Embrace.client?.metadata.add(
                 persona: PersonaTag("\(feature)_adopter"), 
                 lifespan: .permanent
             )
-            
+
             // Check for power user status
             if getAdoptedFeaturesCount() >= 5 {
                 try? Embrace.client?.metadata.add(
@@ -395,7 +398,7 @@ class UserJourneyTracker {
                 )
             }
         }
-        
+
         Embrace.client?.log(
             "Feature adoption update",
             severity: .info,
@@ -406,14 +409,14 @@ class UserJourneyTracker {
             ]
         )
     }
-    
+
     func trackUserMilestone(milestone: UserMilestone) {
         // Add milestone persona
         try? Embrace.client?.metadata.add(
             persona: PersonaTag(milestone.rawValue), 
             lifespan: .permanent
         )
-        
+
         // Update user level/tier if applicable
         if let newTier = milestone.associatedTier {
             try? Embrace.client?.metadata.addProperty(
@@ -422,7 +425,7 @@ class UserJourneyTracker {
                 lifespan: .permanent
             )
         }
-        
+
         Embrace.client?.log(
             "User milestone achieved",
             severity: .info,
@@ -433,7 +436,7 @@ class UserJourneyTracker {
             ]
         )
     }
-    
+
     // Helper methods
     private func isOnboardingComplete() -> Bool { /* Implementation */ return false }
     private func getOnboardingProgress() -> Int { /* Implementation */ return 0 }
@@ -456,7 +459,7 @@ enum UserMilestone: String {
     case tenth_session = "tenth_session"
     case feature_expert = "feature_expert"
     case community_contributor = "community_contributor"
-    
+
     var category: String {
         switch self {
         case .first_purchase: return "commerce"
@@ -464,7 +467,7 @@ enum UserMilestone: String {
         case .feature_expert, .community_contributor: return "expertise"
         }
     }
-    
+
     var associatedTier: String? {
         switch self {
         case .first_purchase: return "customer"
@@ -486,23 +489,23 @@ class PrivacySafeUserIdentification {
         // Use hashed identifiers for privacy
         let hashedEmail = email.sha256
         Embrace.client?.metadata.userIdentifier = hashedEmail
-        
+
         // Set privacy level as metadata
         try? Embrace.client?.metadata.addProperty(
             key: "user.privacy_consent_level",
             value: consentLevel.rawValue,
             lifespan: .permanent
         )
-        
+
         // Note: Email storage should only be done if user explicitly consented
         // and your privacy policy allows it. Consider using hashed identifiers instead.
-        
+
         // Add privacy-aware personas
         try? Embrace.client?.metadata.add(
             persona: PersonaTag("consent_\(consentLevel.rawValue)"), 
             lifespan: .permanent
         )
-        
+
         Embrace.client?.log(
             "User identification set with privacy controls",
             severity: .info,
@@ -512,7 +515,7 @@ class PrivacySafeUserIdentification {
             ]
         )
     }
-    
+
     func updateConsentLevel(newLevel: ConsentLevel) {
         // Update consent level
         try? Embrace.client?.metadata.updateProperty(
@@ -520,10 +523,10 @@ class PrivacySafeUserIdentification {
             value: newLevel.rawValue,
             lifespan: .permanent
         )
-        
+
         // Clear any stored personal data if consent was withdrawn
         // (implementation depends on what data you're storing)
-        
+
         // Update personas
         try? Embrace.client?.metadata.removeAllPersonas(lifespans: [.permanent])
         try? Embrace.client?.metadata.add(
@@ -537,7 +540,7 @@ enum ConsentLevel: String {
     case minimal = "minimal"
     case analytics = "analytics"  
     case full = "full"
-    
+
     var allowsEmailStorage: Bool {
         return self == .full
     }

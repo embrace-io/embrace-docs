@@ -35,10 +35,10 @@ If the Embrace SDK is setup and started within the `appDidFinishLaunching` metho
 On top of this, the `emb-sdk-setup` and `emb-sdk-start` spans will be created to measure the Embrace SDK initialization process.
 
 :::warning
-Note that in order for these spans to be included, the Embrace SDK has to be setup and started within the `appDidFinishLaunching` method. 
+Note that in order for these spans to be included, the Embrace SDK has to be setup and started within the `appDidFinishLaunching` method.  
 :::
 
-# Manual Instrumentation
+## Manual Instrumentation
 
 You can add your own child spans and attributes to the startup traces through the Embrace client public API.
 

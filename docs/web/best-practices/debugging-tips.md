@@ -102,7 +102,7 @@ If your custom traces aren't appearing:
    const span = trace.startSpan("span-name");
 
    // ... operations ...
-   
+
    // span.end() never called, the span will not be reported
    ```
 

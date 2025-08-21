@@ -16,7 +16,6 @@ Embrace automatically logs all unhandled exceptions thrown by your application, 
 
 By default, only exceptions thrown on the main Unity thread are captured automatically. To automatically capture exceptions thrown from background threads, enable the **Capture Multi-Threaded Log Exceptions** in the Embrace settings window (**Tools > Embrace > Settings > General**).
 
-
 ## Manual Exception Logging
 
 Exceptions can be manually sent to Embrace via the `Embrace.Instance.LogUnhandledUnityException` and `Embrace.Instance.LogHandledUnityException` methods. Using these methods to record an exception that is also logged by Unity's debug logger will result in double capture, so it is recommended to use `Embrace.Instance.LogHandledUnityException` in place of `UnityEngine.Debug.LogException` for handled exceptions.

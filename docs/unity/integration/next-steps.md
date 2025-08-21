@@ -15,8 +15,8 @@ please don't hesitate to reach out to us at [support@embrace.com](mailto:support
 
 ## Feature Reference
 
-Embrace includes many optional advanced features that can help you figure out some of 
-the most challenging issues. 
+Embrace includes many optional advanced features that can help you figure out some of  
+the most challenging issues.  
 
 Depending on the platform you are targeting you may want to read one or both of these sections:
 

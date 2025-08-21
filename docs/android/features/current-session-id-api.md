@@ -3,6 +3,7 @@ title: Current Session ID API
 sidebar_position: 9
 description: Track the current Embrace session by getting its ID.
 ---
+
 # Current Session ID API
 
 import GetSessionId from '@site/shared/get-session-id.md';
@@ -23,14 +24,18 @@ import TabItem from '@theme/TabItem';
 
 <Tabs groupId="android-language" queryString="android-language">
 <TabItem value="kotlin" label="Kotlin">
+
 ```kotlin
 Embrace.getInstance().currentSessionId
 ```
+
 </TabItem>
 <TabItem value="java" label="Java">
+
 ```java
 Embrace.getInstance().getCurrentSessionId();
 ```
+
 </TabItem>
 </Tabs>
 

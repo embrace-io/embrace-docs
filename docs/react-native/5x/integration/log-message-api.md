@@ -31,7 +31,7 @@ Here's a breakdown of the arguments being passed to the `logMessage` function.
 
 - **The message.** The string of the log message. Make this short yet informative.
 - **Severity.** Other options include `WARNING` and `INFO`.
-- **Properties.** A map of key-value pairs you can use to categorize and filter log messages with. 
+- **Properties.** A map of key-value pairs you can use to categorize and filter log messages with.  
 
 import LogLimit from '@site/shared/log-limit.md';
 
@@ -49,7 +49,7 @@ Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
 :::info
-For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/docs/product/logs/log-messages.md).
+For more tips on making the most of the Log Message API, check out the [Dashboard section on Logs](/product/logs/log-messages.md).
 :::
 
 ---

@@ -10,7 +10,7 @@ sidebar_position: 1
 
 We'll be guiding you through integrating Embrace into your iOS application
 with a series of articles. We recommend going through them in order, although
-you are free to skip around. 
+you are free to skip around.  
 
 ## The XCFramework transition
 
@@ -26,15 +26,15 @@ Before you dive into integrating Embrace there are a few decisions you should
 make to help guide your process:
 
 1. Are you integrating a new App or an existing application?
-1. Are you replacing an existing automated debugging SDK?
-1. Do you plan to use multiple automated debugging SDKs?
-1. What integration path makes sense for you?  CocoaPods, Carthage, SPM or Manual?
+2. Are you replacing an existing automated debugging SDK?
+3. Do you plan to use multiple automated debugging SDKs?
+4. What integration path makes sense for you?  CocoaPods, Carthage, SPM or Manual?
 
-Thinking about the above questions will help to define the path you will take
-through this documentation.
+   Thinking about the above questions will help to define the path you will take
+   through this documentation.
 
-If you are starting a new application, are thinking about Embrace and unsure what package manager to choose, 
-CocoaPods is a very popular choice among developers, but we invite you to take a moment to evaluate all options and pick the one that better suits your needs.
+   If you are starting a new application, are thinking about Embrace and unsure what package manager to choose,  
+   CocoaPods is a very popular choice among developers, but we invite you to take a moment to evaluate all options and pick the one that better suits your needs.
 
-If you have an established application then follow the path that most closely
-matches the processes you are already using to build your application.
+   If you have an established application then follow the path that most closely
+   matches the processes you are already using to build your application.

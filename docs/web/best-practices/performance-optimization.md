@@ -31,7 +31,7 @@ Use logs strategically and avoid excessive logging, particularly for high-freque
 onTableScroll(() => {
   // Don't do this:
   log.message('User scrolled table view', 'info');
-  
+
   // Instead, maybe log only significant scroll events
   if (reachedBottom) {
     log.message('User reached end of content', 'info');
@@ -52,7 +52,7 @@ const processItems = items => {
   items.forEach(item => {
     processItem(item);
   });
-  
+
   // End the parent span
   parentSpan.end()
 };
@@ -65,16 +65,16 @@ For very high-volume operations, consider implementing trace sampling to reduce 
 ```typescript
 // Only trace some percentage of a high-frequency operation
 function highFrequencyOperation() {
-  
+
   // Simple sampling approach
   const shouldTrace = math.random() < 0.1; // 10% sample rate
 
   if (shouldTrace) {
     const span = trace.startSpan("high-frequency-operation");
-    
+
     // Perform operation
     // ...
-    
+
     span.end()
   } else {
     // Just perform operation without tracing

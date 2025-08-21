@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let e {
             print("Error starting Embrace \(e.localizedDescription)")
         }
-        
+
         return true
     }
 }
@@ -120,6 +120,7 @@ span?.end()
 Once `setup` has succeeded, you can access the Embrace instance in two ways:
 
 1. Store a reference from the setup call:
+
 ```swift
 let embrace = try Embrace
     .setup(options: embraceOptions)
@@ -130,6 +131,7 @@ embrace.buildSpan(name: "my-operation", type: .performance).startSpan()
 ```
 
 2. Use the static client property:
+
 ```swift
 // After setup has been called
 Embrace.client?.buildSpan(name: "my-operation", type: .performance).startSpan()
@@ -156,7 +158,7 @@ case .notInitialized, nil:
 
 After basic setup, you can:
 
-- [Configure additional options](/docs/ios/6x/getting-started/configuration-options.md) to customize the SDK's behavior
-- Learn about [Sessions](/docs/ios/6x/core-concepts/sessions.md) and how they track user activity
-- Explore [Traces & Spans](/docs/ios/6x/core-concepts/traces-spans.md) for performance monitoring
-- Set up [automatic instrumentation](/docs/ios/6x/automatic-instrumentation/index.md) for network monitoring and other features
+- [Configure additional options](/ios/6x/getting-started/configuration-options.md) to customize the SDK's behavior
+- Learn about [Sessions](/ios/6x/core-concepts/sessions.md) and how they track user activity
+- Explore [Traces & Spans](/ios/6x/core-concepts/traces-spans.md) for performance monitoring
+- Set up [automatic instrumentation](/ios/6x/automatic-instrumentation/index.md) for network monitoring and other features

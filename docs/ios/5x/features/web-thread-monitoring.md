@@ -4,6 +4,7 @@ description: Embrace can monitor the JavaScript threads in your WKWebViews
 sidebar_position: 3
 
 ---
+
 # Web Thread Monitoring
 
 WKWebView allows your application to display HTML and JavaScript content using the full power of the Safari browser engine. To make this work, Apple uses out-of-process threads to optimize the performance of these views and protect your application from crashes. You can read more about how this works on our [our blog](https://blog.embrace.io/webview-thread-terminations/).
@@ -12,7 +13,7 @@ Embrace will automatically track those threads and add logs to your session when
 
 When JavaScript threads terminate, your users see a blank white view where your content used to be. Embrace can automatically reload your content if you set this flag in your `Embrace-Info.plist` file:
 
-```
+```text
 ENABLE_WK_AUTO_RELOAD
 ```
 

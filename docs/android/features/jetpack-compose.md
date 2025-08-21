@@ -64,7 +64,7 @@ dependencies {
 
 In order to prevent code obfuscation, the following rule must be added into your R8/ProGuard rules:
 
-```
+```text
 -keep class androidx.compose.ui.platform.AndroidComposeView {
     <fields>;
     <methods>;
@@ -75,7 +75,7 @@ In order to prevent code obfuscation, the following rule must be added into your
 
 `onClickLabel` or `contentDescription` must be added to have a proper way to identify a clicked element. Remember that `onClickLabel` will have more priority if both properties are set.
 
-#### onClickLabel:
+#### onClickLabel
 
 Clickable modifier to define a label and the onClick callback:
 
@@ -86,7 +86,7 @@ Row(
 ){ ... }
 ```
 
-Clickable element that already defines the onClick action under the hood. 
+Clickable element that already defines the onClick action under the hood.  
 
 The following example shows how to add a modifier onClick to override the label but not the actual action, so for the action, it passes null:
 
@@ -100,7 +100,7 @@ IconToggleButton(
 ){ ... }
 ```
 
-#### contentDescription:
+#### contentDescription
 
 Content description will be considered only if the element contains an OnClick modifier.
 
@@ -129,4 +129,3 @@ Column(
 :::warning Important
 If you are facing issues at runtime, we can turn off Jetpack Compose instrumentation remotely. Please, contact us: [support@embrace.com](mailto:support@embrace.com)
 :::
-
