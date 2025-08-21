@@ -110,6 +110,10 @@ const sidebars: SidebarsConfig = {
           type: "doc",
           id: "dpa/index",
         },
+        {
+          type: "doc",
+          id: "embrace-docs-style-guide",
+        },
       ],
     },
   ],
