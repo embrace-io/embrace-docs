@@ -27,6 +27,12 @@ Embrace supports multiple log severity levels:
 - **Error**: Errors that affected functionality but didn't crash the app
 - **Debug**: Detailed information for debugging (not visible in production by default)
 
+### Log Limits per Session
+
+- **Info and Warning Logs**: The default limit is set to 100 logs per session.
+- **Error Logs**: A higher limit of 250 logs per session is allowed to accommodate more critical information.
+
+If you encounter the message `[Embrace]: Warning Log limit has been reached`, it indicates that the maximum number of logs for a given category has been exceeded within a single session. For use cases requiring more logs, please contact support to discuss your needs, which may include recommendations for alternative solutions such as using breadcrumbs.
 ## Basic Logging
 
 The simplest way to log a message is with the `logMessage` method:
