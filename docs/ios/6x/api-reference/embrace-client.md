@@ -74,6 +74,7 @@ func stop() throws -> Embrace
 - Won't do anything if the SDK was already stopped
 
 **Example**:
+
 ```swift
 // Stop the SDK (e.g., user opted out)
 try Embrace.client?.stop()
