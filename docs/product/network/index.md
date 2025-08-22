@@ -17,3 +17,9 @@ In the dashboard, developers can see a comprehensive view of network requests, a
 - [Group Network Requests by Path](/product/network/network-grouping-rules.md) to dig deeper into correlated issues.
 
 ## Learn more
+
+This walkthrough video will show you how developers make sense of networking in Embrace's dashboard:
+
+<div>
+    <iframe width="660" height="415" src="https://www.youtube.com/embed/3FR3dRDxZVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
