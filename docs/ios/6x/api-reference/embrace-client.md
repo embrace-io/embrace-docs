@@ -53,6 +53,38 @@ func start() throws -> Embrace
 
 **Throws**: An error if the SDK cannot be started properly.
 
+#### `stop()`
+
+Stops the Embrace SDK from capturing and generating data.
+
+```swift
+func stop() throws -> Embrace
+```
+
+**Returns**: The same `Embrace` instance for method chaining.
+
+**Throws**: An error if the method is not called from the main thread.
+
+**Important Notes**:
+- Must be called from the main thread
+- The SDK cannot be restarted once stopped
+- All active spans will be automatically ended
+- All capture services and session tracking will be stopped
+- This method is typically used when users opt out of monitoring
+- Won't do anything if the SDK was already stopped
+
+**Example**:
+
+```swift
+// Stop the SDK (e.g., user opted out)
+try Embrace.client?.stop()
+
+// Check that SDK is stopped
+if Embrace.client?.state == .stopped {
+    print("Embrace SDK has been stopped")
+}
+```
+
 #### `state`
 
 Returns the current state of the SDK.
@@ -524,4 +556,6 @@ case .stopped:
 // Manual session control
 Embrace.client?.endCurrentSession()
 Embrace.client?.startNewSession()
+// Stop the SDK entirely (cannot be restarted)
+try Embrace.client?.stop()
 ```
