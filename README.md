@@ -59,6 +59,13 @@ rumdl check --statistics
 rumdl --fix
 ```
 
+You can enable pre-commit hook so that validation is done before you can commit your changes.
+
+```console
+brew install pre-commit
+pre-commit install
+```
+
 PS. You can also install rumdl as a Python package using `uv pip install rumdl`
 
 ## Embrace Customizations

@@ -35,14 +35,16 @@ jobs:
 
           if grep 'Rule Violation Statistics:' output.md > /dev/null; then
             cat output.md | sed -n '/^Rule Violation Statistics:/,$p' | grep -v 'Rule Violation Statistics:' >> rumdl.md
+            echo '```' >> rumdl.md
+            echo >> rumdl.md
+            echo 'Details for results above can be reviewed via [Actions job summary](https://github.com/embrace-io/embrace-docs/actions/runs/${{ github.run_id }}).' >> rumdl.md
+            echo >> rumdl.md
+            echo 'You can find an explanation of all linting rules [here](https://github.com/rvben/rumdl/blob/main/docs/RULES.md).' >> rumdl.md
+            echo 'Run `rumdl check` locally, use `--fix` to fix issues automatically where possible.' >> rumdl.md
           else
             grep '^Success:' output.md >> rumdl.md
+            echo '```' >> rumdl.md
           fi
-          echo '```' >> rumdl.md
-          echo >> rumdl.md
-          echo 'You can find an explanation of all linting rules [here](https://github.com/rvben/rumdl/blob/main/docs/RULES.md).' >> rumdl.md
-          echo >> rumdl.md
-          echo 'Run `rumdl check` locally, use `--fix` to fix issues automatically where possible.' >> rumdl.md
 
       - name: Add output as PR comment
         uses: embrace-io/actions-comment-pull-request@v2
