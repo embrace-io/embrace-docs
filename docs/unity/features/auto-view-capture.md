@@ -1,3 +1,8 @@
+---
+title: Auto View Capture
+description: Auto View Capture component for the Embrace Unity SDK
+sidebar_position: 17
+---
 
 # Overview
 
