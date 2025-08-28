@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Dashboards
 
-Embrace's boards allow you to turn any app information into a visualization.
+Embrace's boards allow you to turn any app information into a visualization. Using a combination of pre-built boards for common topics like Crashes and Networking, developers can create boards to further analyze what was happening to users.
 
 ## Details
 
@@ -23,4 +23,4 @@ This walkthrough video will show you how developers turn their app telemetry int
     <iframe width="560" height="315" src="https://www.youtube.com/embed/wWUnqLlheSA?si=-udHrlujEMiTsOuV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-See these topics and tutorials:
+<!-- TODO: See these topics and tutorials: -->
