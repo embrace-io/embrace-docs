@@ -6,20 +6,24 @@ sidebar_position: 19
 
 # Overview
 
-In mobile games and apps it is crucial to know when/if your app is having FPS issues. Typically you want a target minimum frame rate for your app and our automatic FPS capture tool will log periodically how your app is doing and if you went below a target threshold.
+In mobile games and apps, it is crucial to know when or if your app is having frame rate issues. Typically, you want to determine a target minimum frames per second (FPS) for your app. Our automatic FPS capture tool will log periodically how your app is doing, and if you went below that target threshold.
 
 ## Getting Started
 
-Start by going to **Tools > Embrace > Settings**
+In the Unity editor start by going to **Tools > Embrace > Settings**
 
 Under the **Settings** Tab enable:
 **Auto Instrumentation FPS Capture**
 
 Please note this is an opt-in feature.
 
+::: Note 
+FPS capture is an opt-in feature, meaning it will only work if you enable it using the steps above
+:::
+
 ### Implementation
 
-The FPS Capture tool is automatically added to your application as soon as it starts. If you want to change your target threshold go to Embrace SDK > Resources > EmbraceFrameMeasurer.prefab and modify the `Target Frame Rate` value.
+The FPS Capture tool is automatically added to your application as soon as it starts, however you won't start getting any logs until the Embrace SDK is started. If you want to change your target threshold go to Embrace SDK > Resources > EmbraceFrameMeasurer.prefab and modify the `Target Frame Rate` value.
 
 ### Start
 
