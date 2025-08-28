@@ -17,8 +17,8 @@ Under the **Settings** Tab enable:
 
 Please note this is an opt-in feature.
 
-::: Note 
-FPS capture is an opt-in feature, meaning it will only work if you enable it using the steps above
+::: Note
+FPS capture is an opt-in feature, meaning it will only work if you enable it using the steps above.
 :::
 
 ### Implementation
