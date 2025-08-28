@@ -26,7 +26,7 @@ configuration.
 - Android: Android 7.0 (API 24)
 - `minSdkVersion`: 24 or higher
 - `compileSdkVersion`: 34 or higher
-- Java 1.8
+- Java 11
 - Kotlin 1.8.22
 - Gradle 7.5.1
 - AGP (Android Gradle Build Tools Plugin) 7.4.2
