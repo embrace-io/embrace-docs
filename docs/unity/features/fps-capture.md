@@ -15,8 +15,6 @@ In the Unity editor start by going to **Tools > Embrace > Settings**
 Under the **Settings** Tab enable:
 **Auto Instrumentation FPS Capture**
 
-Please note this is an opt-in feature.
-
 ::: Note
 FPS capture is an opt-in feature, meaning it will only work if you enable it using the steps above.
 :::
