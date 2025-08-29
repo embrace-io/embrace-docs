@@ -10,7 +10,7 @@ sidebar_position: 16
 
 The Unity SDK provides a simple system for capturing memory pressure statistics from the device at runtime.
 
-To enable, simply hit the checkbox for `Auto Instrumentation Memory Monitor` in your Unity SDK Settings Menu in Unity under `Scripting Define Symbols`. 
+To enable, simply hit the checkbox for `Auto Instrumentation Memory Monitor` in your Unity SDK Settings Menu in Unity under `Scripting Define Symbols`.
 
 <img src = {require('@site/static/images/unity-memory-pressure-menu.png').default} />
 
