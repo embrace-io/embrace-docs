@@ -21,3 +21,4 @@ how your application is performing in production.
 - [**User Opt Out.**](/unity/features/user-opt-out/) Allow your users to opt out of data collection.
 - [**Auto View Capture**](/unity/features/auto-view-capture) Automatically track the showing and hiding of views in your app.
 - [**Startup Spans**](/unity/features/startup-spans) Track details about the startup times of your app and identify any bottlenecks in startup performance.
+- [**FPS Capture**](/unity/features/fps-capture) Automatic instrumentation for capturing frame rate and detecting low frame rate
