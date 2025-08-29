@@ -10,7 +10,11 @@ sidebar_position: 16
 
 The Unity SDK provides a simple system for capturing memory pressure statistics from the device at runtime.
 
-To enable, simply hit the checkbox for `Auto Instrumentation Memory Monitor` in your Unity SDK Settings Menu in Unity under `Scripting Define Symbols`. After hitting the checkbox, the object will be automatically generated at runtime. You will need to set custom thresholds for the object via the provided prefab in the package as well. And that's it! That's all there is to it!
+To enable, simply hit the checkbox for `Auto Instrumentation Memory Monitor` in your Unity SDK Settings Menu in Unity under `Scripting Define Symbols`. 
+
+<img src = {require('@site/static/images/unity-memory-pressure-menu.png').default} />
+
+After hitting the checkbox, the object will be automatically generated at runtime. If you need to customize your thresholds to better fit your application (recommended), feel free to do by creating a child of our provided prefab. Otherwise, we provide reasonable defaults for a wide array of applications.
 
 ## What about the overhead?
 
