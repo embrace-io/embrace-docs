@@ -1,6 +1,6 @@
 ## Checklist before you pull:
 
-- [ ] Double-check that any changes fit the [Embrace Docs Style Guide](https://embraceio.notion.site/Embrace-Public-Docs-Style-Guide-19f7e3c99852804abd7deacc2b14cc14).
+- [ ] Double-check that any changes fit the [Embrace Docs Style Guide](https://embrace.io/docs/embrace-docs-style-guide/).
 
 - [ ] Please ensure that there is no customer-identifying information in text or images.
 
