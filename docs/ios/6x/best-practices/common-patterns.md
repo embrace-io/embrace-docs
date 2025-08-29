@@ -74,13 +74,13 @@ class CheckoutCoordinator {
 
         // Log a business event
         if success {
-            Embrace.client.logMessage("Checkout completed successfully", 
-                                      severity: .info,
-                                      attributes: ["order_id": orderId])
+            Embrace.client?.log("Checkout completed successfully", 
+                               severity: .info,
+                               attributes: ["order_id": orderId])
         } else {
-            Embrace.client.logMessage("Checkout failed", 
-                                      severity: .warning,
-                                      attributes: ["failure_reason": failureReason])
+            Embrace.client?.log("Checkout failed", 
+                               severity: .warning,
+                               attributes: ["failure_reason": failureReason])
         }
 
         // End the parent span
@@ -163,9 +163,9 @@ extension AppError {
         }
 
         // Log the error with consistent formatting
-        Embrace.client.logError(errorName, 
-                                message: errorMessage, 
-                                attributes: attributes)
+        Embrace.client.log(errorMessage, 
+                           severity: .error,
+                           attributes: attributes)
     }
 }
 
@@ -218,45 +218,45 @@ Create an abstraction for the Embrace SDK to facilitate testing:
 
 ```swift
 protocol AnalyticsProvider {
-    func logMessage(_ message: String, severity: LogSeverity, attributes: [String: Any]?)
-    func startSpan(name: String, parent: Span?) -> Span
-    func addSessionAttribute(key: String, value: Any)
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String]?)
+    func buildSpan(name: String, type: SpanType) -> SpanBuilder
+    func addSessionProperty(key: String, value: String, permanent: Bool)
     // Other methods...
 }
 
 // Production implementation
 class EmbraceAnalyticsProvider: AnalyticsProvider {
-    func logMessage(_ message: String, severity: LogSeverity, attributes: [String: Any]?) {
-        Embrace.client.logMessage(message, severity: severity, attributes: attributes)
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String]?) {
+        Embrace.client?.log(message, severity: severity, attributes: attributes ?? [:])
     }
 
-    func startSpan(name: String, parent: Span?) -> Span {
-        return Embrace.client.startSpan(name: name, parent: parent)
+    func buildSpan(name: String, type: SpanType) -> SpanBuilder {
+        return Embrace.client?.buildSpan(name: name, type: type) ?? EmptySpanBuilder()
     }
 
-    func addSessionAttribute(key: String, value: Any) {
-        Embrace.client.addSessionAttribute(key: key, value: value)
+    func addSessionProperty(key: String, value: String, permanent: Bool) {
+        Embrace.client?.metadata?.addProperty(key: key, value: value, lifespan: permanent ? .permanent : .session)
     }
     // Implement other methods...
 }
 
 // Mock implementation for testing
 class MockAnalyticsProvider: AnalyticsProvider {
-    var loggedMessages: [(message: String, severity: LogSeverity, attributes: [String: Any]?)] = []
-    var startedSpans: [(name: String, parent: Span?)] = []
-    var sessionAttributes: [String: Any] = [:]
+    var loggedMessages: [(message: String, severity: LogSeverity, attributes: [String: String]?)] = []
+    var builtSpans: [(name: String, type: SpanType)] = []
+    var sessionProperties: [String: String] = [:]
 
-    func logMessage(_ message: String, severity: LogSeverity, attributes: [String: Any]?) {
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String]?) {
         loggedMessages.append((message, severity, attributes))
     }
 
-    func startSpan(name: String, parent: Span?) -> Span {
-        startedSpans.append((name, parent))
-        return MockSpan(name: name)
+    func buildSpan(name: String, type: SpanType) -> SpanBuilder {
+        builtSpans.append((name, type))
+        return MockSpanBuilder(name: name)
     }
 
-    func addSessionAttribute(key: String, value: Any) {
-        sessionAttributes[key] = value
+    func addSessionProperty(key: String, value: String, permanent: Bool) {
+        sessionProperties[key] = value
     }
     // Implement other methods...
 }
@@ -270,9 +270,9 @@ class AppFeature {
     }
 
     func performAction() {
-        let span = analytics.startSpan(name: "perform_action")
+        let span = analytics.buildSpan(name: "perform_action", type: .performance).startSpan()
         // Do something
-        analytics.logMessage("Action performed", severity: .info, attributes: nil)
+        analytics.log("Action performed", severity: .info, attributes: nil)
         span.end()
     }
 }
@@ -327,17 +327,17 @@ For monitoring background tasks:
 class BackgroundTaskManager {
     func beginBackgroundTask(identifier: String) {
         // Log the start of a background task
-        Embrace.client.logMessage("Background task started", 
-                                   severity: .info,
-                                   attributes: ["task_id": identifier])
+        Embrace.client?.log("Background task started", 
+                           severity: .info,
+                           attributes: ["task_id": identifier])
 
         // Begin UIApplication background task
         var backgroundTaskID = UIBackgroundTaskIdentifier.invalid
         backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: identifier) {
             // Log when the background task is about to expire
-            Embrace.client.logMessage("Background task expiring", 
-                                       severity: .warning,
-                                       attributes: ["task_id": identifier])
+            Embrace.client?.log("Background task expiring", 
+                               severity: .warning,
+                               attributes: ["task_id": identifier])
 
             UIApplication.shared.endBackgroundTask(backgroundTaskID)
         }
@@ -350,9 +350,9 @@ class BackgroundTaskManager {
         guard let taskID = backgroundTaskIDs[identifier] else { return }
 
         // Log the completion of a background task
-        Embrace.client.logMessage("Background task completed", 
-                                   severity: .info,
-                                   attributes: ["task_id": identifier])
+        Embrace.client?.log("Background task completed", 
+                           severity: .info,
+                           attributes: ["task_id": identifier])
 
         // End the UIApplication background task
         UIApplication.shared.endBackgroundTask(taskID)
