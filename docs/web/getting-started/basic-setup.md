@@ -29,9 +29,9 @@ the app version of your application. The following should be done as early in yo
 capturing telemetry:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-const result = sdk.initSDK({
+const result = initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
 });
@@ -61,7 +61,7 @@ value when initializing the SDK (assuming that your bundler provides a method fo
 ```typescript
 import * as packageInfo from "../<some-path>/package.json";
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: packageInfo.version,
 });
@@ -91,8 +91,8 @@ mind as you refer to further instructions:
 1) Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
 
    ```diff
-   - import { sdk } from '@embrace-io/web-sdk';
-   + const { sdk } = window.EmbraceWebSdk;
+   - import { initSDK } from '@embrace-io/web-sdk';
+   + const { initSDK } = window.EmbraceWebSdk;
    ```
 
 2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
@@ -101,7 +101,7 @@ bundled with your code, instead you will need to make sure to pass in your app v
 the following example:
 
    ```javascript
-   sdk.initSDK({
+   initSDK({
      appVersion: '0.0.1',
      /*...*/
    });
@@ -122,7 +122,7 @@ By deferring the loading of the SDK, any early calls to the SDK need to be wrapp
 
 ```javascript
 window.EmbraceWebSdkOnReady.onReady(() => {
-   window.EmbraceWebSdk.sdk.initSDK({
+   window.EmbraceWebSdk.initSDK({
       appVersion: '0.0.1',
       /*...*/
    });
@@ -163,12 +163,12 @@ By default, the SDK will only send error level logs to the console. The log leve
 initializing as follows:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
-  logLevel: sdk.DiagLogLevel.INFO,
+  logLevel: DiagLogLevel.INFO,
 });
 ```
 

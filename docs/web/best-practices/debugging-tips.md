@@ -14,12 +14,12 @@ practices for debugging and troubleshooting when integrating or using the SDK.
 For debugging purposes, increase the log level during development to see detailed SDK operations:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
-  logLevel: sdk.DiagLogLevel.INFO,
+  logLevel: DiagLogLevel.INFO,
 });
 ```
 
@@ -30,9 +30,9 @@ If you're experiencing issues with SDK initialization:
 1. Check that the SDK initialization was successful:
 
    ```typescript
-   import { sdk } from '@embrace-io/web-sdk';
+   import { initSDK } from '@embrace-io/web-sdk';
 
-   const result = sdk.initSDK({
+   const result = initSDK({
      appID: "YOUR_EMBRACE_APP_ID",
      appVersion: "YOUR_APP_VERSION",
    });

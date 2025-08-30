@@ -20,10 +20,11 @@ authorization. Since these export requests will be made from a browser it is als
 appropriate CORS headers in its responses:
 
 ```typescript
+import { initSDK } from '@embrace-io/web-sdk';
 import { OTLPLogExporter }   from '@opentelemetry/exporter-logs-otlp-http';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   spanExporters: [
