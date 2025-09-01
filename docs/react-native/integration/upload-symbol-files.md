@@ -67,7 +67,7 @@ Now we will add a new phase:
 
 <img src={require('@site/static/images/ios-xcode-build-phase.png').default} />
 
-Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "[Embrace] Upload Symbols Map".
+Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "Embrace Symbol Uploads".
 
 This phase is going to be calling Embrace's `run.sh` upload script which is distributed alongside the @embrace-io/react-native package.
 Use the following command for the build phase:
