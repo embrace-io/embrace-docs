@@ -105,9 +105,11 @@ git diff
 ```
 
 Compare the changes to the manual setup step to verify the changes were made
-correctly.
+correctly. 
 
 ### Manually
+
+Most of the changes needed to initialize Embrace natively are done by the install scripts, but there is a detailed step-by-step in the [Session Reporting](/react-native/integration/session-reporting/) section.
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
@@ -115,6 +117,49 @@ correctly.
 Configuration for iOS is handled in code when initializing the SDK which we will cover in the next step. The native module
 should be setup using [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
 so you're good to go!
+
+Since [6.3.0](/react-native/changelog/#630) there are a few changes required in the Podfile of the application.
+
+### Embrace Apple SDK depends on KSCrash
+
+KSCrash needs to enable modular headers to be able to build. In order to support this Pod, the Podfile in the iOS project needs to add the following line before the target is declared:
+
+```ruby
+pod 'KSCrash', :modular_headers => true # insert this line here to enable modular headers only for KSCrash
+
+target 'ProjectName' do
+  config = use_native_modules!
+  flags = get_default_flags()
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    ...
+```
+
+If the application implements `react-native-flipper` it needs a few extra changes in the Podfile due some incompatibility issues between Flipper and KSCrash itself.
+To skip those issues we delivered a module that patches some headers in order to avoid those issues and it needs to be run as part of the `post_install` block.
+To be able to use the module it needs first to be loaded. For it you need to require it at the top of your file:
+
+```ruby
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+... # other requires if they exist
+require_relative '../node_modules/@embrace-io/react-native/ios/lib/cocoapods-rn-embrace-sdk' # insert this line to load the module
+```
+
+The module needs to run from `post_install` block as mentioned previously:
+
+```ruby
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      :mac_catalyst_enabled => false,
+      ... # other configs if they exist
+    )
+    
+    RNEmbraceIOKSCrashHeadersPatch.run(installer) # insert this line here to run the module
+  end
+```
 </TabItem>
 
 <TabItem value="android" label="Android">

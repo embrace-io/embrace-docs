@@ -67,13 +67,13 @@ Now we will add a new phase:
 
 <img src={require('@site/static/images/ios-xcode-build-phase.png').default} />
 
-Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "Embrace Symbol Uploads".
+Use the "+" button on this tab to add a new "Run Script" phase. Name the phase "[Embrace] Upload Symbols Map".
 
-This phase is going to be calling Embrace's `run.sh` upload script which is distributed alongside the Embrace CocoaPod.
+This phase is going to be calling Embrace's `run.sh` upload script which is distributed alongside the @embrace-io/react-native package.
 Use the following command for the build phase:
 
 ```shell
-REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
+REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "$SRCROOT/../node_modules/@embrace-io/react-native/ios/scripts/run.sh"
 ```
 
 You can configure the phase to only run on builds you want symbols uploaded to Embrace for, and skip the step on internal
@@ -101,8 +101,10 @@ First you must upload source maps for the new bundle using the upload script dis
 
 ```shell
 # For macOS, use arch "darwin", for Linux use "linux.arm64" or "linux.amd64" (depending on your CPU)
-ios/Pods/EmbraceIO/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle path/to/main.jsbundle --rn-map path/to/main.jsbundle.map
+node_modules/@embrace-io/react-native/ios/scripts/embrace_symbol_upload.<arch> --app <your app ID> --token <your token> --rn-bundle path/to/main.jsbundle --rn-map path/to/main.jsbundle.map
 ```
+
+If you need to perform these step from the CI you can take a look at the [Upload Symbols to Embrace](https://github.com/marketplace/actions/upload-symbols-to-embrace) GH Action in Marketplace.
 
 Next you must tell the Embrace SDK the location where it can find the downloaded bundle on the device when there are updates:
 
