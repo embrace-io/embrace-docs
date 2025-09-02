@@ -21,7 +21,7 @@ Scene Load Spans is an opt-in feature, meaning it will only work if you enable i
 
 ### Implementation
 
-Scene loading spans are entirely automated. We use an internal scene tracking to automatically track spans as soon as the app is loaded.
+Scene loading spans are entirely automated. We use an internal span tracker to automatically track spanIds as soon as the app is loaded.
 
 ### Allow List
 
