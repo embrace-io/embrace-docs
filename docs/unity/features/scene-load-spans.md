@@ -34,4 +34,5 @@ After you run your application on a device you can then check the Embrace dashbo
 In your session details you should see spans with the format `scene-{sceneName}-loaded`.
 
 ### Notice
+
 As part of this feature we override the SceneManagerAPI. If your application is already overriding the SceneManagerAPI then you won't be able to track scene load spans.
