@@ -13,10 +13,10 @@ A span is automatically created when the user navigates to a new route or the ap
 To instrument React Router, add the React Router navigation instrumentation when you init the Embrace Web SDK.
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 import { createReactRouterNavigationInstrumentation } from '@embrace-io/web-sdk/react-instrumentation';
 
-sdk.initSDK({
+initSDK({
   // ...Other configs
   instrumentations: [
     createReactRouterNavigationInstrumentation(),

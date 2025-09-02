@@ -38,9 +38,9 @@ The instrumentations are configured when you initialize the Embrace SDK. You can
 behavior by passing a `defaultInstrumentationConfig` object when initializing the SDK:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -61,9 +61,9 @@ While the built-in instrumentations cover many common scenarios, you can also cr
 other packages to instrument specific aspects of your application:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   instrumentations: [myCustomInstrumentation],

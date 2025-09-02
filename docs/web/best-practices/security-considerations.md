@@ -26,9 +26,9 @@ This process can be customized by specifying additional sensitive query string k
 `additionalQueryParamsToScrub`:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   additionalQueryParamsToScrub: ['my-senstive-key', 'foo-token']
@@ -38,9 +38,9 @@ sdk.initSDK({
 Custom attribute scrubbers can also be supplied to perform redactions on other attributes:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   attributeScrubbers: [
@@ -63,9 +63,9 @@ instrumentation to avoid tracking particular URLs altogether either by regex or 
 option:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -85,9 +85,9 @@ information you can configure the click instrumentation to avoid tracking partic
 option:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -102,9 +102,9 @@ Alternatively you can still track the click but remove any sensitive data that m
 particular element using its `innerTextForElement` option:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -160,7 +160,7 @@ Consider implementing mechanisms to respect user privacy choices:
 function updatePrivacyConsent(userConsented: boolean) {
     if (userConsented) {
       // Start Embrace with user consent
-      sdk.initSDK({
+      initSDK({
         appID: "YOUR_EMBRACE_APP_ID",
         appVersion: "YOUR_APP_VERSION",
       });
