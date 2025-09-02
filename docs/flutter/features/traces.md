@@ -122,5 +122,5 @@ try Embrace
 ```
 
 :::info
-Please note the OpenTelemetry-Swift repository does not support Cocoapods, so you will be unable to import ready-made exporters directly. We recommend adding a new file that implements a Swift [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) directly, and using the ready-made exporters as reference implementations.
+Please note the OpenTelemetry-Swift repository does not support Cocoapods, so you will be unable to import ready-made exporters directly. We recommend adding a new file that implements a Swift [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) directly, and using the ready-made exporters as reference implementations.
 :::

@@ -36,7 +36,7 @@ Whenever a Session starts, as we can see in the [`SessionController`](https://gi
     }
 ```
 
-And if we dig in a little farther, we'll see that [`EmbraceOTel`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceOTelInternal/EmbraceOTel.swift) object exists, in part, to hold an [OTel tracer](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetryApi/Trace/Tracer.swift):
+And if we dig in a little farther, we'll see that [`EmbraceOTel`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceOTelInternal/EmbraceOTel.swift) object exists, in part, to hold an [OTel tracer](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetryApi/Trace/Tracer.swift):
 
 ```swift
     internal var tracer: Tracer {
