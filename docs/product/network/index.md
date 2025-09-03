@@ -13,8 +13,9 @@ Embrace's SDKs provide automatic tracking of all network requests.
 
 In the dashboard, developers can see a comprehensive view of network requests, allowing them to assess the performance of each request and its impact on your users. Developers can:
 
-- [Monitor Network Calls](/product/network/network-monitoring.md).
-- [Group Network Requests by Path](/product/network/network-grouping-rules.md) to dig deeper into correlated issues.
+- [Monitor network calls](/product/network/network-monitoring.md).
+- [Group network requests by path](/product/network/network-grouping-rules.md) to dig deeper into correlated issues.
+- [Enable first-party domains](/docs/product/settings/app-settings/network.md) to prioritize requests to known sources, such as your app's backend.
 
 ## Learn more
 
