@@ -16,6 +16,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 - Auto-Instrumentation for: 
   - Memory pressure
   - Scene loading
+
 Both options are opt-in and low overhead. Please try them!
 
 ## 2.6.0
@@ -30,7 +31,9 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
   - Tap capture
   - View capture
   - Frames-per-second logging
+
 All are opt-in and low overhead. Please try them out!
+
 - Updated Embrace Android SDK dependency to 7.5.0
 
 ## 2.5.0
