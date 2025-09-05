@@ -126,7 +126,7 @@ Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
 
 ### Apple
 
-In the Embrace Apple SDK, exporters are configured at the same time that the SDK itself is configured. Any [Swift-language OTel exporter](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) can be attached as an optional value when the SDK is set up in Embrace Options. Multiple span exporters can be attached during configuration by using the [`otel-swift MultiSpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/MultiSpanExporter.swift).
+In the Embrace Apple SDK, exporters are configured at the same time that the SDK itself is configured. Any [Swift-language OTel exporter](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) can be attached as an optional value when the SDK is set up in Embrace Options. Multiple span exporters can be attached during configuration by using the [`otel-swift MultiSpanExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Trace/Export/MultiSpanExporter.swift).
 
 ```swift
 // logging span exporter output to the Xcode console

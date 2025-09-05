@@ -10,9 +10,29 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.9.1
+
+*August 29, 2025*
+
+- Restore the minimum Java runtime compatibility version to 1.8
+
+## 7.9.0
+
+*August 27, 2025*
+
+:::info Important
+This release bumped the minimum runtime Java version to 11. Compatibility with 1.8 is restored in 7.9.1.
+:::
+
+- Fix transitive dependency issue to restore the minimum Kotlin version to 1.8.22.
+
 ## 7.8.0
 
 *August 11, 2025*
+
+:::info Important
+This release bumped the minimum supported version of Kotlin to 2.0. If you need to use an older version, compatibility with 1.8.22 is restored in Embrace 7.9.0.
+:::
 
 - Update limits and truncation logic.
   - Session/Log properties:
@@ -31,6 +51,10 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 ## 7.7.0
 
 *July 18, 2025*
+
+:::info Important
+This release bumped the minimum supported version of Kotlin to 2.0. If you need to use an older version, compatibility with 1.8.22 is restored in Embrace 7.9.0.
+:::
 
 - Improve cold startup trace by automatically instrumenting `Application.onCreate()` invocation
 - Add `session.id` attribute to all Spans that denotes the session in which a Span started in
