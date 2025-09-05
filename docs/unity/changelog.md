@@ -13,7 +13,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *September 4, 2025*
 
-- Auto-Instrumentation for: 
+- Auto-Instrumentation for:
   - Memory pressure
   - Scene loading
 
@@ -27,7 +27,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 *August 14, 2025*
 
 - Added support for custom symbols path on Android platforms
-- Auto Instrumentation for: 
+- Auto Instrumentation for:
   - Tap capture
   - View capture
   - Frames-per-second logging
