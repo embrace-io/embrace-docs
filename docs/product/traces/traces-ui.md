@@ -68,7 +68,7 @@ Slow root spans are fully customizable, allowing you to define performance thres
 
 **Setting Custom Thresholds**
 
-- Configure millisecond-based thresholds for any span in the Root Span Summary
+- Configure millisecond-based thresholds for any span in the Root Span Summary page.
 - Historical threshold tracking for performance trend analysis
 
 **Where You'll See Slow Spans**
