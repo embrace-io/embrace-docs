@@ -75,8 +75,9 @@ Slow root spans are fully customizable, allowing you to define performance thres
 
 - **Root Span Summary**: Slow Span indicator if span instance took longer than defined threshold.
 - **Sessions**: Issue indicators when sessions contain slow spans
-- **Release Health**: Expandable slow root spans cards with detailed metrics
 - **User Timeline**: Dedicated slow span issue type rows
+- **Release Health**: Expandable slow root spans cards with detailed metrics
+- **Issues**: Root spans with at least one instance exceeding the slowness threshold
 - **Filtering**: New "Has Slow Root Span" session attribute
 
 **Alerting & Monitoring**
