@@ -64,12 +64,27 @@ You can create Boards, Alerts, and Custom Metrics based on span data.
 ## Slow Root Spans
 
 With the Slow Root Spans feature, you can identify performance bottlenecks and prioritize your optimization efforts.
-Slow Root Spans are instances with both significant occurrences (100 over the last two days) and durations surpassing the 95th percentile of successful spans bearing the same name.  
-You can get the slow Root Spans on the issues page.
+Slow root spans are fully customizable, allowing you to define performance thresholds based on your specific SLOs and business objectives rather than relying solely on percentile calculations.
 
-<img src={require('@site/static/images/slow-root-spans.png').default} alt="Slow traces"/>
+**Setting Custom Thresholds**
 
-Once you click on a Slow Root Span, you can see specific instances of that span.
+- Configure millisecond-based thresholds for any span in the Root Span Summary page.
+- Historical threshold tracking for performance trend analysis
+
+**Where You'll See Slow Spans**
+
+- **Root Span Summary**: Slow Span indicator if span instance took longer than defined threshold.
+- [**Sessions**](/product/sessions): Issue indicators when sessions contain slow spans
+- [**User Timeline**](/product/sessions/user-timeline): Dedicated slow span issue type rows
+- [**Release Health**](/product/troubleshooting/release-health): Expandable slow root spans cards with detailed metrics
+- [**Issues**](/product/issue-monitoring-and-work-flow): Root spans with at least one instance exceeding the slowness threshold
+- [**Filtering**](/product/sessions/filter-sessions): New "Has Slow Root Span" session attribute
+
+**Alerting & Monitoring**
+
+- New alert type: "Root Span Slowness Percentage"
+- Integration with existing dashboard widgets
+- Custom aggregations and filters
 
 ## Span Instances Filters
 
