@@ -79,7 +79,7 @@ class CheckoutCoordinator {
                                attributes: ["order_id": orderId])
         } else {
             Embrace.client?.log("Checkout failed", 
-                               severity: .warning,
+                               severity: .warn,
                                attributes: ["failure_reason": failureReason])
         }
 
