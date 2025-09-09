@@ -92,7 +92,7 @@ protocol EmbraceLog {
     var message: String { get }
     var severity: LogSeverity { get }
     var timestamp: Date { get }
-    var attributes: [String: String]? { get }
+    var attributes: [String: String] { get }
 }
 ```
 
