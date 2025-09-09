@@ -218,7 +218,7 @@ Create an abstraction for the Embrace SDK to facilitate testing:
 
 ```swift
 protocol AnalyticsProvider {
-    func log(_ message: String, severity: LogSeverity, attributes: [String: String]?)
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String])
     func buildSpan(name: String, type: SpanType) -> SpanBuilder
     func addSessionProperty(key: String, value: String, permanent: Bool)
     // Other methods...
