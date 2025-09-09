@@ -336,7 +336,7 @@ class BackgroundTaskManager {
         backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: identifier) {
             // Log when the background task is about to expire
             Embrace.client?.log("Background task expiring", 
-                               severity: .warning,
+                               severity: .warn,
                                attributes: ["task_id": identifier])
 
             UIApplication.shared.endBackgroundTask(backgroundTaskID)
