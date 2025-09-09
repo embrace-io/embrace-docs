@@ -242,7 +242,7 @@ class EmbraceAnalyticsProvider: AnalyticsProvider {
 
 // Mock implementation for testing
 class MockAnalyticsProvider: AnalyticsProvider {
-    var loggedMessages: [(message: String, severity: LogSeverity, attributes: [String: String]?)] = []
+    var loggedMessages: [(message: String, severity: LogSeverity, attributes: [String: String])] = []
     var builtSpans: [(name: String, type: SpanType)] = []
     var sessionProperties: [String: String] = [:]
 
