@@ -36,7 +36,7 @@ The simplest way to log a message is with the `logMessage` method:
 Embrace.client?.log("User viewed product details", severity: .info)
 
 // Log a warning
-Embrace.client?.log("Image failed to load but fallback displayed", severity: .warning)
+Embrace.client?.log("Image failed to load but fallback displayed", severity: .warn)
 
 // Log an error
 Embrace.client?.log("Payment processing failed", severity: .error)
