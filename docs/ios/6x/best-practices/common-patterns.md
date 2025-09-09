@@ -226,7 +226,7 @@ protocol AnalyticsProvider {
 
 // Production implementation
 class EmbraceAnalyticsProvider: AnalyticsProvider {
-    func log(_ message: String, severity: LogSeverity, attributes: [String: String]?) {
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String] = [:]) {
         Embrace.client?.log(message, severity: severity, attributes: attributes ?? [:])
     }
 
