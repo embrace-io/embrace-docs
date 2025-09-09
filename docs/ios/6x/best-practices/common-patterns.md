@@ -246,7 +246,7 @@ class MockAnalyticsProvider: AnalyticsProvider {
     var builtSpans: [(name: String, type: SpanType)] = []
     var sessionProperties: [String: String] = [:]
 
-    func log(_ message: String, severity: LogSeverity, attributes: [String: String]?) {
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String] = [:] {
         loggedMessages.append((message, severity, attributes))
     }
 
