@@ -45,6 +45,7 @@ let urlConfig = URLSessionConfiguration.default
 urlConfig.httpAdditionalHeaders = ["Authorization": "Basic \(grafanaCloudTokenString)"]
 let session = URLSession(configuration: urlConfig)
 let client = BaseHTTPClient(session: session)
+
 try? Embrace
     .setup(
         options: Embrace.Options(
