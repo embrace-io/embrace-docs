@@ -272,7 +272,7 @@ class AppFeature {
     func performAction() {
         let span = analytics.buildSpan(name: "perform_action", type: .performance).startSpan()
         // Do something
-        analytics.log("Action performed", severity: .info, attributes: nil)
+        analytics.log("Action performed", severity: .info, attributes: [:])
         span.end()
     }
 }
