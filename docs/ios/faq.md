@@ -39,6 +39,8 @@ Make sure to put the `Embrace-Info.plist` in the main bundle. (Embrace takes the
 
 The Embrace SDK should be started on the main thread to ensure that data is consistently captured. We do not test the SDK's behavior when not started on the main thread.
 
+### ** ### **Does the SDK have to be started on the main thread?**
+
 ### **Can I initialize Embrace outside of didFinishLaunchingWithOptions or on a background thread?**
 
 You can, but we highly recommend against it. There are some complications that may occur:
