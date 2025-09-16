@@ -4,7 +4,8 @@ exclude = [
     '^https://webhook\.site',
     'https://discussions.unity.com/t/how-to-set-up-a-fastlane-gymfile-and-multiple-provisioning-profiles/711408',
     'https://opentelemetry.io/docs',
-    'https://opentelemetry.io'
+    'https://opentelemetry.io',
+    'https://cocoapods.org/'
 ]
 max_cache_age = "1d"
 accept = ["200", "429"]
