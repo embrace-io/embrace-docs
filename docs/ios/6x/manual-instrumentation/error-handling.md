@@ -45,9 +45,10 @@ Add properties to provide more context:
 do {
     try uploadImage(image: image)
 } catch let error {
-    Embrace.client?.logError(
-        error,
-        properties: [
+    Embrace.client?.log(
+        "Failed to upload image: \(error.localizedDescription)",
+        severity: .error,
+        attributes: [
             "image_size": "\(image.size.width)x\(image.size.height)",
             "file_size": "\(imageData.count) bytes",
             "format": "jpeg"
@@ -73,9 +74,10 @@ do {
     span?.end()
 
     // Also log the error
-    Embrace.client?.logError(
-        error,
-        properties: [
+    Embrace.client?.log(
+        "Authentication failed: \(error.localizedDescription)",
+        severity: .error,
+        attributes: [
             "username": username,
             "authentication_method": "password"
         ]
@@ -94,9 +96,10 @@ func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
         if let error = error {
             // Log network error
-            Embrace.client?.logError(
-                error,
-                properties: [
+            Embrace.client?.log(
+                "Network request failed: \(error.localizedDescription)",
+                severity: .error,
+                attributes: [
                     "url": url.absoluteString,
                     "method": "GET"
                 ]
@@ -107,7 +110,10 @@ func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
 
         guard let httpResponse = response as? HTTPURLResponse else {
             let error = NSError(domain: "NetworkService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])
-            Embrace.client?.logError(error)
+            Embrace.client?.log(
+                "Invalid network response: \(error.localizedDescription)",
+                severity: .error
+            )
             completion(.failure(error))
             return
         }
@@ -122,9 +128,10 @@ func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
                 ]
             )
 
-            Embrace.client?.logError(
-                error,
-                properties: [
+            Embrace.client?.log(
+                "HTTP error: \(error.localizedDescription)",
+                severity: .error,
+                attributes: [
                     "url": url.absoluteString,
                     "status_code": String(httpResponse.statusCode),
                     "response_headers": httpResponse.allHeaderFields.description
@@ -137,7 +144,10 @@ func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
 
         guard let data = data else {
             let error = NSError(domain: "NetworkService", code: -2, userInfo: [NSLocalizedDescriptionKey: "No data received"])
-            Embrace.client?.logError(error)
+            Embrace.client?.log(
+                "No data received: \(error.localizedDescription)",
+                severity: .error
+            )
             completion(.failure(error))
             return
         }
@@ -159,9 +169,10 @@ func parseUserProfile(data: Data) -> Result<UserProfile, Error> {
         return .success(userProfile)
     } catch let error {
         // Log JSON parsing error with details
-        Embrace.client?.logError(
-            error,
-            properties: [
+        Embrace.client?.log(
+            "JSON parsing failed: \(error.localizedDescription)",
+            severity: .error,
+            attributes: [
                 "data_length": data.count.description,
                 "error_type": "json_parsing",
                 "object_type": String(describing: UserProfile.self)
@@ -171,7 +182,7 @@ func parseUserProfile(data: Data) -> Result<UserProfile, Error> {
         if let dataString = String(data: data, encoding: .utf8) {
             // If data is small enough, include a preview
             if dataString.count < 100 {
-                Embrace.client?.logMessage(
+                Embrace.client?.log(
                     "Failed to parse JSON data: \(dataString)",
                     severity: .error
                 )
@@ -192,9 +203,10 @@ func saveContext() {
         do {
             try context.save()
         } catch let error as NSError {
-            Embrace.client?.logError(
-                error,
-                properties: [
+            Embrace.client?.log(
+                "Core Data save failed: \(error.localizedDescription)",
+                severity: .error,
+                attributes: [
                     "operation": "core_data_save",
                     "entity_count": context.insertedObjects.count.description,
                     "updated_count": context.updatedObjects.count.description,
@@ -204,10 +216,10 @@ func saveContext() {
 
             // Optional: Log specific entity errors
             for (entity, error) in error.userInfo[NSDetailedErrorsKey] as? [NSManagedObject: NSError] ?? [:] {
-                Embrace.client?.logMessage(
+                Embrace.client?.log(
                     "Entity save error: \(entity.entity.name ?? "Unknown entity")",
                     severity: .error,
-                    properties: [
+                    attributes: [
                         "error_code": error.code.description,
                         "entity_id": entity.objectID.uriRepresentation().absoluteString
                     ]
@@ -240,24 +252,34 @@ func processPayment() {
         // Handle and log specific payment errors
         switch error {
         case .insufficientFunds:
-            Embrace.client?.logError(error, properties: ["error_type": "payment_insufficient_funds"])
+            Embrace.client?.log(
+                "Payment failed: Insufficient funds",
+                severity: .error,
+                attributes: ["error_type": "payment_insufficient_funds"]
+            )
 
         case .invalidPaymentMethod:
-            Embrace.client?.logError(error, properties: ["error_type": "payment_invalid_method"])
+            Embrace.client?.log(
+                "Payment failed: Invalid payment method",
+                severity: .error,
+                attributes: ["error_type": "payment_invalid_method"]
+            )
 
         case .transactionDeclined(let code):
-            Embrace.client?.logError(
-                error,
-                properties: [
+            Embrace.client?.log(
+                "Payment failed: Transaction declined",
+                severity: .error,
+                attributes: [
                     "error_type": "payment_declined",
                     "decline_code": code
                 ]
             )
 
         case .serverError(let message):
-            Embrace.client?.logError(
-                error,
-                properties: [
+            Embrace.client?.log(
+                "Payment failed: Server error",
+                severity: .error,
+                attributes: [
                     "error_type": "payment_server_error",
                     "server_message": message
                 ]
@@ -265,9 +287,10 @@ func processPayment() {
         }
     } catch let error {
         // Handle and log other unexpected errors
-        Embrace.client?.logError(
-            error,
-            properties: [
+        Embrace.client?.log(
+            "Payment failed: \(error.localizedDescription)",
+            severity: .error,
+            attributes: [
                 "error_type": "payment_unknown_error"
             ]
         )
@@ -284,9 +307,10 @@ Use consistent naming and grouping for related errors:
 ```swift
 // Add consistent properties for all network errors
 func logNetworkError(_ error: Error, endpoint: String, method: String) {
-    Embrace.client?.logError(
-        error,
-        properties: [
+    Embrace.client?.log(
+        "Network error: \(error.localizedDescription)",
+        severity: .error,
+        attributes: [
             "error_category": "network",
             "endpoint": endpoint,
             "method": method,
@@ -302,9 +326,10 @@ Add details that will help with debugging:
 
 ```swift
 // Log detailed info about the state when the error occurred
-Embrace.client?.logError(
-    error,
-    properties: [
+Embrace.client?.log(
+    "Error occurred: \(error.localizedDescription)",
+    severity: .error,
+    attributes: [
         "user_state": userState.rawValue,
         "network_status": networkReachability.currentStatus.rawValue,
         "cache_status": cache.isFull ? "full" : "available",
@@ -321,7 +346,10 @@ Don't log the same error multiple times:
 ```swift
 // Only log errors that meet certain criteria
 if shouldLogError(error, retryCount: currentRetryCount) {
-    Embrace.client?.logError(error)
+    Embrace.client?.log(
+        "Error: \(error.localizedDescription)",
+        severity: .error
+    )
 }
 
 func shouldLogError(_ error: Error, retryCount: Int) -> Bool {
@@ -355,11 +383,15 @@ enum ErrorCategory: String {
     case externalService = "external_service"
 }
 
-func logCategorizedError(_ error: Error, category: ErrorCategory, properties: [String: String] = [:]) {
-    var allProperties = properties
-    allProperties["error_category"] = category.rawValue
+func logCategorizedError(_ error: Error, category: ErrorCategory, attributes: [String: String] = [:]) {
+    var allAttributes = attributes
+    allAttributes["error_category"] = category.rawValue
 
-    Embrace.client?.logError(error, properties: allProperties)
+    Embrace.client?.log(
+        "\(category.rawValue.capitalized) error: \(error.localizedDescription)",
+        severity: .error,
+        attributes: allAttributes
+    )
 }
 ```
 
@@ -383,7 +415,11 @@ func logErrorWithUserContext(_ error: Error) {
         properties["last_user_action"] = lastAction
     }
 
-    Embrace.client?.logError(error, properties: properties)
+    Embrace.client?.log(
+        "Error after user action: \(error.localizedDescription)",
+        severity: .error,
+        attributes: properties
+    )
 }
 ```
 

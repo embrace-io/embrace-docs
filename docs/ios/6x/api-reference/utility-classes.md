@@ -92,7 +92,7 @@ protocol EmbraceLog {
     var message: String { get }
     var severity: LogSeverity { get }
     var timestamp: Date { get }
-    var properties: [String: String]? { get }
+    var attributes: [String: String] { get }
 }
 ```
 
@@ -231,10 +231,10 @@ span?.end()
 
 ```swift
 // Log an informational message
-Embrace.client?.logMessage(
+Embrace.client?.log(
     "User completed checkout",
     severity: .info,
-    properties: [
+    attributes: [
         "order_id": orderId,
         "user_id": userId
     ]
@@ -244,9 +244,10 @@ Embrace.client?.logMessage(
 do {
     try performRiskyOperation()
 } catch let error {
-    Embrace.client?.logError(
-        error,
-        properties: [
+    Embrace.client?.log(
+        "Risky operation failed: \(error.localizedDescription)",
+        severity: .error,
+        attributes: [
             "operation": "risky-operation",
             "context": "checkout-flow"
         ]
