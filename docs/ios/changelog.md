@@ -9,6 +9,7 @@ sidebar_position: 4
 ## 6.13.1
 
 *Aug 29, 2025*
+
 - Fixes
     - Made some helpers public to allow building `CaptureServices`.
     - Prevent crashes related to not being able to load the persistence layer (e.g. when disk is full)
