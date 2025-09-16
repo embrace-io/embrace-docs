@@ -9,12 +9,12 @@ sidebar_position: 4
 ## 6.13.1
 
 *Aug 29, 2025*
-* Fixes
-    * Made some helpers public to allow building `CaptureServices`.
-    * Prevent crashes related to not being able to load the persistence layer (e.g. when disk is full)
-* Improvements
-    * Bumped OpenTelemetry to 2.0.2, which includes minor changes.
-    * Updated documentation to mark `addResource` as internal-use only.
+- Fixes
+    - Made some helpers public to allow building `CaptureServices`.
+    - Prevent crashes related to not being able to load the persistence layer (e.g. when disk is full)
+- Improvements
+    - Bumped OpenTelemetry to 2.0.2, which includes minor changes.
+    - Updated documentation to mark `addResource` as internal-use only.
 
 ## 6.13.0
 
