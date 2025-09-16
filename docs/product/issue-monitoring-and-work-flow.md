@@ -57,8 +57,7 @@ Unity exceptions are also represented on the Issues page for Unity applications 
 
 Slow Instances serve as a valuable tool for pinpointing performance bottlenecks swiftly.  
 
-They're grouped by Root Span name and comprise instances with both significant occurrences (100 over the last two days)
-and durations surpassing the 95th percentile of successful root spans bearing the same name.
+They're grouped by Root Span name and comprise instances with durations surpassing the defined threshold of successful root spans bearing the same name.
 You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-root-spans).
 
 ## Javascript Exceptions

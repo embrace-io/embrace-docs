@@ -12,7 +12,7 @@ To send traces and logs from the SDK to your collector or vendor of choice, you 
 
 ## Direct Exporters
 
-Some collectors have built or presently support direct export of traces or logs in Swift. In theory, any implementation of [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) that can point to the location of the collector should be able to send, respectively, spans and logs.
+Some collectors have built or presently support direct export of traces or logs in Swift. In theory, any implementation of [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) that can point to the location of the collector should be able to send, respectively, spans and logs.
 
 The OpenTelemetry-Swift repository lists [`publicly-available exporters`](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) that can be added directly to your Embrace configuration. For example, here is an SDK configuration that adds a Jaeger exporter for traces:
 
@@ -43,6 +43,8 @@ For example, Grafana Cloud allows you to [generate a token](/data-destinations/g
 let grafanaCloudTokenString = //String generated from your account
 let urlConfig = URLSessionConfiguration.default
 urlConfig.httpAdditionalHeaders = ["Authorization": "Basic \(grafanaCloudTokenString)"]
+let session = URLSession(configuration: urlConfig)
+let client = BaseHTTPClient(session: session)
 
 try? Embrace
     .setup(
@@ -52,11 +54,11 @@ try? Embrace
             export: OpenTelemetryExport(
                 spanExporter: OtlpHttpTraceExporter(
                     endpoint: URL(string: "https://otlp-gateway-prod-us-west-0.grafana.net/otlp/v1/traces")!,
-                    useSession: URLSession(configuration: urlConfig)
+                    httpClient: client
                 ),
                 logExporter: OtlpHttpLogExporter(
                     endpoint: URL(string: "https://otlp-gateway-prod-us-west-0.grafana.net/otlp/v1/logs")!,
-                    useSession: URLSession(configuration: urlConfig)
+                    httpClient: client
                 )
             )
         )

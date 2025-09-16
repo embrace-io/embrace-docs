@@ -33,7 +33,7 @@ and project throughout. You can find that project on [GitHub](https://github.com
 ## CocoaPods
 
 CocoaPods is a dependency management system for iOS; You can learn more about it
-[here](https://cocoapods.org). You'll work with CocoaPods from the command line via
+[here](https://cocoapods.org/). You'll work with CocoaPods from the command line via
 the `pod` command, and you'll configure it via a `PodFile` at the root of your
 project.
 
