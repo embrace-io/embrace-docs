@@ -29,9 +29,15 @@ To add Traces to your application, use the detailed instrumentation instructions
 
 ## Learn more
 
-See these tracing topics:
+Read about these tracing topics:
 
 - [What is Performance Tracing?](https://embrace.io/blog/what-is-performance-tracing/)
 - [Building Dashboards, Alerts, and Widgets with spans and traces](https://embrace.io/blog/spans-in-custom-dashboards-alerts/)
 - [View active network requests in traces](https://embrace.io/blog/network-spans-in-traces/)
 - [How to optimize mobile performance using traces](https://embrace.io/blog/mobile-performance-tracing/)
+
+This walkthrough video will show you how developers use tracing to make sense of app activity in Embrace's dashboard:
+
+<div>
+    <iframe width="660" height="415" src="https://www.youtube.com/embed/rkVM5J3PKco" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
