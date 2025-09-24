@@ -515,9 +515,9 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20250821", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20250924", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        'Join us for a webinar on Sept 16: Exploring Embrace\'s <a target="_blank" href="https://embrace.io/docs/product/user-journeys/">User Journeys</a> product suite. <a target="_blank" href="https://get.embrace.io/user-journeys-webinar?utm_source=website&utm_medium=docs&utm_campaign=docs-top-banner">Sign up here!</a>.',
+        '<a target="_blank" href="https://get.embrace.io/fall-otel-panel?utm_source=website&utm_medium=website&utm_campaign=docs-banner">WEBINAR Oct 8\: Pumpkin spice and OpenTelemetry for mobile. Hear from Android and Swift SIG leaders on advancing mobile support in OpenTelemetry.</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
