@@ -3,6 +3,8 @@ title: Core Web Vitals
 sidebar_position: 5
 ---
 
+# Core Web Vitals
+
 Embrace collects and captures [Core Web Vital](https://developers.google.com/search/docs/appearance/core-web-vitals) scores for each page of your web application. These scores provide insight into key aspects of your site performance.
 
 Core Web Vitals are defined by Google to measure user experience in production and can impact how a site is ranked in
@@ -19,3 +21,11 @@ Core Web Vitals are automatically collected by the [Embrace Web SDK](/web/gettin
 Core Web Vitals are available in context with the other technical operations of a user's session in the [User Timeline](/product/sessions/user-timeline.md). For a given Core Web Vital, Embrace displays the element that is most responsible for creating the Core Web Vital calculation.
 
 Core Web Vitals for pages can also be aggregated and analyzed across all users with [Custom Dashboards](/product/boards/custom-dashboards.md).
+
+## Learn more
+
+This walkthrough video will show you how to diagnose Core Web Vitals in Embrace's dashboard:
+
+<div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Hp12jazFkjE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
