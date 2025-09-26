@@ -14,7 +14,7 @@ search results. The metrics collected are:
 - Interaction to Next Paint (**INP**), which measures page responsiveness.
 - Cumulative Layout Shift (**CLS**), which measures the visual stability of elements in the page.
 
-# Implementation and use
+## Implementation and use
 
 Core Web Vitals are automatically collected by the [Embrace Web SDK](/web/getting-started/index.md).  
 
