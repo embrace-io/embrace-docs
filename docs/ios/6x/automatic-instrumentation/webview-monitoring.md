@@ -179,6 +179,7 @@ WebView navigation is captured as OpenTelemetry spans with the following attribu
 - `emb.webview.js_errors`: Count of JavaScript errors (if JavaScript error capture is enabled)
 
 For resource loads (when enabled), child spans are created with:
+
 - `http.url`: The resource URL
 - `emb.webview.resource_type`: The type of resource (image, script, stylesheet, etc.)
 - `emb.webview.resource_size`: Size of the resource in bytes

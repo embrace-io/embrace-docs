@@ -60,6 +60,7 @@ EMBRACE_ID=YOUR_APP_ID EMBRACE_TOKEN=YOUR_API_TOKEN "${SRCROOT}/path/to/your/run
 ```
 
 Replace `path/to/your/` with the actual path where you placed the scripts. For example:
+
 - `"${SRCROOT}/Scripts/embrace/run.sh"`
 - `"${SRCROOT}/third_party/embrace/run.sh"`
 - `"${SRCROOT}/embrace_support/run.sh"`

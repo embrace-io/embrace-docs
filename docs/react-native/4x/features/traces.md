@@ -146,7 +146,6 @@ stopSpan(spanId)
 
 ### Stop Span For Operation That Ended Earlier
 
-
 ```javascript
 // Stopping a specific span
 
@@ -189,7 +188,6 @@ try{
 ```
 
 ### Add a Child Span If the Parent Started Properly
-
 
 ```javascript
 import { startSpan, stopSpan } from '@embrace-io/react-native-spans';

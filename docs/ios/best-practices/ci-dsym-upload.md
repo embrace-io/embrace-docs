@@ -20,7 +20,7 @@ Here are quick links to documentation for storing artifacts in common mobile CI 
 - [Github Actions](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#about-workflow-artifacts)
 - **Xcode Cloud** - As of writing, does not support storing custom artifacts. If using Xcode Cloud [see this section below](#working-with-xcode-cloud) for more specific instructions.
 
-# Summary
+## Summary
 
 Most CI systems operate via a build "job", where that job consists of multiple "steps". These jobs run on an "agent" - an environment to host this process. These build jobs become very customizable and very different but for the sake of this document we will focus on the following example workflow:
 

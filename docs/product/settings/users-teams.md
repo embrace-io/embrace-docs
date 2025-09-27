@@ -14,6 +14,7 @@ To configure roles for your organization:
 3. On this page you can add, remove, and edit user roles & teams.
 
 ## Adding New Users
+
 - New users are added as members by default
 - Only Admins can change the roles of users
 

@@ -219,6 +219,7 @@ class CustomLogExporter: LogRecordExporter {
 ##### Available Log Data
 
 Each `ReadableLogRecord` provides:
+
 - `body` - Log message content
 - `timestamp` - When the log was created
 - `severity` - Log level (debug, info, warn, error, etc.)

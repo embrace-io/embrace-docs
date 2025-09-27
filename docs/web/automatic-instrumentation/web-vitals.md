@@ -35,6 +35,7 @@ For each Web Vital, the SDK captures:
 ## Integration with Other Features
 
 Web Vitals integrates with other Embrace features:
+
 - Web Vital reports are associated with the current session and, if possible, correlated with page load information
 and user interactions
 - Performance dashboards monitor Web Vitals and surface issues on particular pages

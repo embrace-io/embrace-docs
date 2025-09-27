@@ -20,6 +20,7 @@ let options = Embrace.Options(
 ```
 
 The available log levels are:
+
 - `.none`: No logs will be printed
 - `.error`: Only error messages are printed
 - `.warning`: Errors and warnings are printed

@@ -27,6 +27,7 @@ viewing them in the Embrace Dashboard ensure that you have properly uploaded sou
 ## Integration with Other Features
 
 Exception tracking integrates with other Embrace features:
+
 - Exceptions are associated with the current session
 - Individual exception instances are grouped together in the Embrace Dashboard if they are triggered by the same
 underlying code
