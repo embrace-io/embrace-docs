@@ -42,6 +42,7 @@ The Embrace SDK should be started on the main thread to ensure that data is cons
 ### **Can I initialize Embrace outside of didFinishLaunchingWithOptions or on a background thread?**
 
 You can, but we highly recommend against it. There are some complications that may occur:
+
 - Embrace may not receive all session outcomes, including crashes
 - Embrace will not track the abandonment, stalls and durations of startups correctly
 - Embrace may not track the foreground and background states effectively on app start
@@ -188,6 +189,7 @@ Yes there is, you can set a value in the Embrace-Info.plist in your main bundle 
 <img src={require('@site/static/images/ios-custom-header-example.png').default} />
 
 The above example is for Apollo's GraphQL implementation. As you can see there are two Keys:
+
 1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
 2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
 
@@ -266,6 +268,7 @@ You can also API to pause and resume capture during sensitive user interactions 
 ### **Can trace IDs for network requests be captured?**
 
 You can capture trace IDs in two ways:
+
 1. Add a trace ID to a request by adding the `x-emb-trace-id` header with the trace ID value.
 2. If the ID is already present in the request as a different header, set the name of the header in the `Embrace-Info.plist` file with the `TRACE_ID_HEADER_NAME` field.
 

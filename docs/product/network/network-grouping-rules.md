@@ -18,7 +18,7 @@ the first|last match wins.
 
 Custom rules are applied on the backend on a going forward basis.
 
-# Rules Reference
+## Rules Reference
 
 We currently provide the following patterns:
 

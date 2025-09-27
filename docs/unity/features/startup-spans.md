@@ -26,6 +26,7 @@ The startup spans are not fully automated. You will need to call `Embrace.Instan
 #### Start
 
 Once the first scene has loaded a parent span is created `emb-app-startup`. Using the Startup API you can:
+
 - Add your own custom child span by calling `EmbraceStartupSpans.StartChildSpan(string spanId);`
 - Stop a custom child span by calling `EmbraceStartupSpans.StopChildSpan(string spanId);` (Please note that any child span that is not stopped before `EndAppStartup` is called will not be recorded. In the release of the Unity SDK 2.7.0 we will automatically stop child spans that were not explicitly stopped)
 

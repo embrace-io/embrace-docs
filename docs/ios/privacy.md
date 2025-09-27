@@ -22,18 +22,22 @@ or email us at [support@embrace.com](mailto:support@embrace.com).
 ### **Data collected by default and disclosed on our "PrivacyInfo.xcprivacy" Privacy file**
 
 #### **Identifiers:**
+
 - Device ID
 
 #### **Usage Data:**
+
 - Product Interaction
 
 #### **Diagnostics:**
+
 - Crash Data
 - Performance Data
 - Other Diagnostic Data
   - Such as, but not limited to, Device type, battery level and charging state, OS version.  
 
 #### **Location:**
+
 - Coarse Location  
   - While we DO NOT use location services, we do temporarily record, and then discard, a partial IP address that we use to determine the user's coarse location. For more information, refer to the [Additional Guidance](https://developer.apple.com/app-store/app-privacy-details/#additional-guidance) section on Apple's Privacy Details documentation.
 

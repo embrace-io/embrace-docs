@@ -7,6 +7,7 @@ sidebar_position: 100
 # Embrace Dashboard Changelog
 
 ## July 2025
+
 - [**User Journeys**](https://embrace.io/blog/user-journeys-walkthrough/): Embrace released the first feature of our User Journeys platform initiative, [User Flows](/product/user-journeys.md), which allows engineers to define and track custom intervals of app activity.
 
 ## June 2025

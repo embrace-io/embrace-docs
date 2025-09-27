@@ -43,6 +43,7 @@ struct NetworkCaptureServiceOptions {
 ```
 
 **Parameters**:
+
 - `captureRequestHeaders`: Whether to capture request headers.
 - `captureResponseHeaders`: Whether to capture response headers.
 - `captureBodies`: Options for capturing request and response bodies.
@@ -84,6 +85,7 @@ struct ViewCaptureServiceOptions {
 ```
 
 **Parameters**:
+
 - `captureFrameRates`: Whether to capture frame rate information.
 - `viewNameProvider`: Custom function for providing view names.
 - `viewAttributesProvider`: Custom function for providing additional view attributes.
@@ -108,6 +110,7 @@ struct TapCaptureServiceOptions {
 ```
 
 **Parameters**:
+
 - `captureCoordinates`: Whether to capture tap coordinates.
 - `targetProvider`: Custom function for providing tap target identifiers.
 - `viewFilter`: Filter function to determine which views to track taps for.
@@ -130,6 +133,7 @@ struct WebViewCaptureServiceOptions {
 ```
 
 **Parameters**:
+
 - `captureJavaScriptErrors`: Whether to capture JavaScript errors.
 - `captureJavaScriptLogs`: Whether to capture JavaScript console logs.
 
@@ -151,6 +155,7 @@ struct PushNotificationCaptureServiceOptions {
 ```
 
 **Parameters**:
+
 - `captureNotificationContent`: Whether to capture notification content.
 - `payloadAttributesFilter`: Filter for notification payload attributes to capture.
 

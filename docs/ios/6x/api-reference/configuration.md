@@ -30,6 +30,7 @@ Embrace.Options(
 ```
 
 **Parameters**:
+
 - `appId`: The App ID for your Embrace application. This is the only required field.
 - `appGroupId`: The ID for the Apple App Group that your app belongs to, if any.
 - `platform`: The mobile platform that the current application is running in.
@@ -55,6 +56,7 @@ Embrace.Options(
 ```
 
 **Parameters**:
+
 - `export`: The OpenTelemetry exporter configuration (required).
 - `captureServices`: The capture services to enable for automatic data collection.
 - `crashReporter`: The crash reporter to use for crash reporting.
@@ -93,6 +95,7 @@ struct Endpoints {
 ```
 
 **Parameters**:
+
 - `baseURL`: The base URL for the Embrace data collector.
 - `developmentBaseURL`: The base URL for development environments.
 - `configBaseURL`: The base URL for fetching configuration.
@@ -160,6 +163,7 @@ struct OpenTelemetryExport {
 ```
 
 **Parameters**:
+
 - `spanExporter`: The exporter for OpenTelemetry spans.
 - `logExporter`: The exporter for OpenTelemetry logs.
 

@@ -15,6 +15,7 @@ Sessions are displayed from most recent, with summary statistics, issue indicato
 To find Sessions matching specific conditions, Embrace provides a variety of fields for filtering.  
 
 Major dimensions include properties for:
+
 - App
 - Device
 - User

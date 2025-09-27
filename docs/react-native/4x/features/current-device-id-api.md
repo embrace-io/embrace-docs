@@ -17,7 +17,6 @@ In order to use this feature, you will need to follow two steps:
 1. Make sure your app is using at least version `4.0.0` of the Embrace SDK.
 2. Implement the API call to obtain the current Device ID.
 
-
 ```javascript
 import {getDeviceId} from '@embrace-io/react-native';
 

@@ -11,6 +11,7 @@ The Embrace SDK's `TapCaptureService` automatically instruments tap events throu
 ## How Tap Capture Works
 
 The tap capture service monitors user tap events in your app and creates OpenTelemetry spans for each interaction. These spans capture:
+
 - The time of tap
 - The view that was tapped
 - Optional tap coordinates
@@ -68,6 +69,7 @@ TapCaptureService.Options(
 ```
 
 When enabled, tap coordinates will be included as attributes in the generated spans:
+
 - `emb.tap.x`: X-coordinate of the tap
 - `emb.tap.y`: Y-coordinate of the tap
 

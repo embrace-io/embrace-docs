@@ -11,6 +11,7 @@ sidebar_position: 1
 ANRs (or Application Not Responding) are Android errors indicating that an app is stuck or frozen during a user interaction. It is triggered when the Main Thread (UI thread) of an Android app is blocked for too long. They are triggered mostly if the app does not respond to user input within 5 seconds.
 
 But ANRs can also be caused by:
+
 - Slow services
 - Slow broadcast receivers
 - Foreground services not started correctly
@@ -24,6 +25,7 @@ Embrace instantly auto-captures and detects a sample/snapshot of an ANR in produ
 ## Troubleshooting your ANRs
 
 ### Issue Summary List
+
 - **Issue Prioritization**: Is done as a combination of the number of occurrences, and user and session impact
 - **Issue Categories**: Ad SDK, Android, Java, and IO.
 - **Drilling down on notable frames**: by being able to inspect significant frames in the stack trace under this method, which could be one of the root causes of the ANRs

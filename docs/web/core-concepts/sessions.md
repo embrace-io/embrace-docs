@@ -15,6 +15,7 @@ A session is a comprehensive record of user interaction that occurs within your 
 automatically when your app is started and the SDK is initialized.
 
 A new session starts when your web app is loaded in a user's browser tab and is ended when any of the following occurs:
+
 - The tab or browser is closed or refreshed
 - The user switches to another tab or the browser's window loses focuses. If background sessions are enabled this also
 starts a new background session

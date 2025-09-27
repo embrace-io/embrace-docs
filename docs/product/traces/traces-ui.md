@@ -10,6 +10,7 @@ The primary page shows all root spans in your app, as well as summary metrics li
 <img src={require('@site/static/images/traces-page.png').default} alt="Traces"/>
 
 To narrow down the spans that are summarized in this view, you can apply the following filters on the root span as well as the child spans:
+
 - Name
 - Duration*
 - Outcome
@@ -89,6 +90,7 @@ Slow root spans are fully customizable, allowing you to define performance thres
 ## Span Instances Filters
 
 Filter your instances by durantion or outcome with these filters:
+
 - **All**: all instances displayed
 - **Slowest**: instances completed successfully with duration > p95.
 - **Fastest**: instances completed successfully and not slow (with duration < p95).
@@ -98,6 +100,7 @@ Filter your instances by durantion or outcome with these filters:
   - **User Abandon**: user navigated away before instance completion.
 
 ## Implementation Details
+
 - [**Android**](/android/features/traces)
 - [**iOS**](/ios/6x/core-concepts/traces-spans.md)
 - [**Unity**](/unity/features/traces)

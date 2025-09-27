@@ -167,6 +167,7 @@ apply(plugin = "embrace-swazzler")
 </Tabs>
 
 The Embrace Gradle Plugin performs a few key functions:
+
 - Adds the Embrace SDK to your app's dependency list.
 - Injects configuration info the SDK reads at run time.
 - Instruments bytecode to insert SDK hooks that capture telemetry.

@@ -84,6 +84,7 @@ Embrace.Options(
 ```
 
 Available log levels include:
+
 - `.none` - No logging
 - `.trace`, `.debug`, `.info`, `.warning`, `.error` - Increasing levels of severity
 - `.default` - Uses `.debug` in DEBUG builds, `.error` in RELEASE builds
