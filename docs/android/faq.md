@@ -78,6 +78,7 @@ We proactively profile the impact of instrumentation on the app. Spans generally
 ### **What determines if a session is classified as prod or dev?**
 
 A session is classified as dev if all of the following are true:
+
 - The `buildType` has the `debuggable` flag set to `true` in the `app/build.gradle` file.
 - The optional `enableIntegrationTesting` value passed to the SDK start method is `true`.
 - The debugger is attached (meaning you're running the app on a device or simulator with the Android Studio debugger attached).

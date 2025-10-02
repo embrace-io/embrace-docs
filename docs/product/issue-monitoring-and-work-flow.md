@@ -22,6 +22,7 @@ Our workflow feature set is diverse for crashes. Unlike other traditional crash 
 ### **Resolve**
 
 Resolve will close out the selected crash grouping(s). You can Resolve crash grouping(s) by selecting one of two options:  
+
 - **Now** - Close until we receive another crash instance.
 - **Next** - Close until we receive a crash instance from a later version.
 

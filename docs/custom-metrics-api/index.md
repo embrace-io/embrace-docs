@@ -23,14 +23,17 @@ All the endpoints have the same authentication, authorization method, url and pa
 ### Request
 
 Headers:
+
 - `Authorization`: we are going to use a Bearer token to authorize and authenticate our requests.  
 i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
 
 URL Params:
+
 - `app_id`: application id in which we are going to manage the custom metrics. i.e.: `appID1`
 - `custom_metric_name`: custom metric name that we use to identify it. i.e.: `my_custom_metric_name`
 
 Body Params:
+
 - `name`: name you want to provide this new metric i.e.: `my_custom_metric_name`
 - `metric`: base Embrace metric this new metric will be built from. i.e.: `sessions_total`.
 - `group_by`: list of group by that we are going to use to group the metric. It can be empty.
@@ -52,9 +55,11 @@ Body Params:
 ### Response
 
 Body Params:
+
 - `custom_metric_id`: the unique ID for the metric created. i.e.: `XZ5BDQk`
 
 Status codes:
+
 - `200`: request was successful and we return a body with new information.
 - `204`: request was successful and we don't return a body.
 - `400`: the url params and body were not correct.

@@ -11,10 +11,12 @@ Custom traces allow you to measure the duration of specific operations in your a
 ## What are Traces and Spans?
 
 In OpenTelemetry:
+
 - A **trace** represents the entire journey of a request or operation through your system
 - **Spans** are the building blocks of a trace, representing individual units of work or operations
 
 Each span:
+
 - Has a name and type
 - Tracks when the operation started and ended
 - Can include attributes (key-value pairs) that provide context
@@ -35,6 +37,7 @@ import OpenTelemetryApi  // Only required for parent-child span relationships
 ```
 
 **Note:** The `OpenTelemetryApi` import is only required when:
+
 - Creating parent-child span relationships using `.setParent()`
 - Storing spans as class properties or variables with explicit `Span` type annotations
 - Using advanced span manipulation methods
@@ -232,6 +235,7 @@ span.end()
 ```
 
 Available span types include:
+
 - `.performance` - For performance monitoring *(default if not specified)*
 - `.ux` - For user experience tracking
 - `.system` - For system-level operations
@@ -264,11 +268,13 @@ span?.end()
 ### Naming Conventions
 
 Use clear, descriptive names for your spans. Consider a naming convention such as:
+
 - Use camelCase for span names to maintain consistency with Swift naming conventions
 - Include the general category followed by the specific operation
 - Be consistent across your codebase
 
 Good examples:
+
 - `networkFetchUserProfile`
 - `databaseSavePreferences`
 - `renderingProductList`
@@ -276,6 +282,7 @@ Good examples:
 ### Granularity
 
 Choose an appropriate level of granularity for your spans:
+
 - Too coarse: `app_startup` (better to break into component parts)
 - Too fine-grained: `increment_counter` (likely too small to be useful)
 - Just right: `image_cache_lookup`, `user_authentication`

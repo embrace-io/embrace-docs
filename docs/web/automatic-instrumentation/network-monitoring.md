@@ -50,6 +50,7 @@ For each network request, the SDK captures:
 ## Integration with Other Features
 
 Network monitoring integrates with other Embrace features:
+
 - Network spans are associated with the current session
 - Custom dashboards can be built to monitor response times to identify slow endpoints
 - Alerts can be set on error rates to surface problematic services

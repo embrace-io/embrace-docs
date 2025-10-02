@@ -21,6 +21,7 @@ static func setup(options: Embrace.Options) throws -> Embrace
 ```
 
 **Parameters**:
+
 - `options`: An instance of `Embrace.Options` that configures the SDK.
 
 **Returns**: An instance of `Embrace` that can be used to start the SDK and interact with it.
@@ -66,6 +67,7 @@ func stop() throws -> Embrace
 **Throws**: An error if the method is not called from the main thread.
 
 **Important Notes**:
+
 - Must be called from the main thread
 - The SDK cannot be restarted once stopped
 - All active spans will be automatically ended
@@ -94,6 +96,7 @@ var state: EmbraceSDKState { get }
 ```
 
 **Returns**: The current SDK state, which can be:
+
 - `.notInitialized` - SDK hasn't been set up yet
 - `.initialized` - SDK is set up but not started
 - `.started` - SDK is running and collecting data
@@ -179,6 +182,7 @@ func log(
 ```
 
 **Parameters**:
+
 - `message`: Body of the log.
 - `severity`: `LogSeverity` for the log (`.info`, `.warning`, `.error`, etc.).
 - `type`: The type of log (defaults to `.message`).
@@ -278,6 +282,7 @@ func buildSpan(
 ```
 
 **Parameters**:
+
 - `name`: The name of the span.
 - `type`: The type of span (defaults to `.performance`).
 - `attributes`: A dictionary of attributes to set on the span.
@@ -300,6 +305,7 @@ static func recordSpan<T>(
 ```
 
 **Parameters**:
+
 - `name`: The name of the span.
 - `parent`: The parent `Span`, if this span is a child.
 - `type`: The type of the span.
@@ -336,6 +342,7 @@ func flush(_ span: Span)
 ```
 
 **Parameters**:
+
 - `span`: A `Span` object that implements `ReadableSpan`.
 
 #### Adding Events to Spans

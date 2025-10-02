@@ -55,6 +55,7 @@ Once your alert is set up, you'll find it listed under "Manage Alerts". Here, yo
 <img src={require('@site/static/images/features/alerting/alerting-3.png').default} alt="Triggered Alerts" />
 
 ### Statuses
+
 - Normal: No issues; alert has recovered or conditions are within thresholds.
 - Warning: Alert has hit warning thresholds; no critical issues in progress.
 - Error: Critical issue in progress; error thresholds exceeded.
@@ -79,6 +80,7 @@ This approach enables users to compare the state of the data during alert proces
 ### Why is my alert inactive?
 
 Your alert is inactive because one or more of the following conditions are met:
+
 - The email notification is using a disabled email.
 - No notification methods (email or Slack) are configured.
 

@@ -120,6 +120,7 @@ Each piece of metadata can have one of three lifespans:
 ## Implementation Timing
 
 Implement user identification:
+
 - After a user logs in
 - When a user completes an important action (e.g., makes a purchase)
 - When a user's status changes (e.g., becomes a VIP)

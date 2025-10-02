@@ -120,6 +120,7 @@ Embrace adds a header to all network requests to allow us to track that request 
 #### PUSH_NOTIFICATIONS_CAPTURE_MODE *string, optional*
 
 Defines the capture mode for push notifications. Possible values:
+
 - `manual` (default) - to use the manual mode you'll have to make some calls to the Embrace class. For more information about this feature read here: [**Push Notifications**](/ios/5x/features/push-notifications)
 - `automatic` - no extra steps needed with this mode.
 

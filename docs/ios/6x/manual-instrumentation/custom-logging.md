@@ -11,6 +11,7 @@ Embrace's logging capabilities allow you to capture log messages with different 
 ## Understanding Logging in Embrace
 
 Logs in Embrace serve several purposes:
+
 - Providing context about what happened during a session
 - Highlighting important application events
 - Capturing debug information for troubleshooting
@@ -260,6 +261,7 @@ class APIClient {
 ### Log Levels
 
 Use appropriate log levels:
+
 - **Debug**: Detailed technical information, visible only in development builds
 - **Info**: General operational information
 - **Warning**: Unexpected behavior that doesn't impact functionality
@@ -268,6 +270,7 @@ Use appropriate log levels:
 ### Contextual Information
 
 Include relevant context in logs:
+
 - User actions that preceded the log
 - Relevant IDs (user ID, session ID, request ID)
 - State information that helps understand the context
@@ -276,6 +279,7 @@ Include relevant context in logs:
 ### Performance Considerations
 
 Be mindful of logging frequency:
+
 - Avoid excessive logging in performance-critical paths as it can impact app performance and increase data transmission
 - Consider batching logs for high-frequency events to reduce overhead
 - Use debug logs for verbose information that's only needed during development
@@ -284,6 +288,7 @@ Be mindful of logging frequency:
 ### Sensitive Information
 
 Never log sensitive data:
+
 - Authentication credentials
 - Personal identifiable information (PII)
 - Payment information
@@ -292,6 +297,7 @@ Never log sensitive data:
 ### Structured Logging
 
 Use a consistent structure for log messages:
+
 - Start with the event or action being logged
 - Use properties for structured data rather than concatenating into the message
 - Group related logs using consistent naming

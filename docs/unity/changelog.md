@@ -89,6 +89,7 @@ For further information, please refer to this discussion: https://github.com/Coc
 :::warning Info
 You should [remove the Embrace scoped registry](/unity/upgrade-guide/#remove-scoped-registry) from your project if it was added by a previous version of the Embrace SDK.
 :::
+
 - Upgrade of Embrace iOS dependency to 6.6.0
 - Removal of automated scoped registry functionality
 - Removal of integration guide steps in lieu of documentation
@@ -108,6 +109,7 @@ You should [remove the Embrace scoped registry](/unity/upgrade-guide/#remove-sco
 :::warning Important
 This version of the SDK has been retracted due to local mapping issues with the export.
 :::
+
 - Upgrade of Embrace Android dependency to 6.14.0
 - Upgrade of Embrace iOS dependency to 6.5.2
 - Removal of Scoped Registry functionality, as well as included automation to remove it from existing projects. This was causing immutability issues with the package in some cases.
@@ -160,6 +162,7 @@ Please be sure to match the appropriate desugaring library with your version of 
 For 2021, please see [this](https://docs.unity3d.com/2021.3/Documentation/Manual/android-gradle-overview.html).
 For 2022, please see [this](https://docs.unity3d.com/2022.3/Documentation/Manual/android-gradle-overview.html)
 :::
+
 - Addition of Traces Support
 - Upgrade of Embrace iOS SDK dependency to 5.25.3
 - Update Embrace Android SDK dependency to 6.8.3
@@ -265,6 +268,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 *December 7th 2023*
 :::warning Important
 This version of the Unity SDK has two issues:
+
 - Build blocking issue on iOS around the current session ID API
 - Build blocking issue on iOS regarding code signature issues with Xcode 15
 

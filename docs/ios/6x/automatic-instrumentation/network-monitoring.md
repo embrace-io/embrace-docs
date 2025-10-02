@@ -11,6 +11,7 @@ The Embrace SDK automatically monitors network requests made through `URLSession
 ## How Network Monitoring Works
 
 The `URLSessionCaptureService` captures `URLSession` network requests and generates OpenTelemetry spans that:
+
 - Start when a `URLSessionTask` is created
 - End when the task receives a response or errors out
 - Include attributes like URL, status code, and timing information
@@ -129,6 +130,7 @@ For each network request, the SDK captures:
 ## Integration with Other Features
 
 Network monitoring integrates with other Embrace features:
+
 - Network spans are associated with the current session
 - Network errors can trigger log events
 - View loads can be correlated with network activity

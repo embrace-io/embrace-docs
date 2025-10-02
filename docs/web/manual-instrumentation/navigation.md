@@ -29,7 +29,6 @@ initSDK({
 Then hook into your navigation tooling and let the instrumentation know when a route changes through the
 `setCurrentRoute` method:
 
-
 ```typescript
 import { getNavigationInstrumentation } from '@embrace-io/web-sdk';
 

@@ -77,33 +77,41 @@ As such, the `applicationInitEnd()` method can be used to notify the SDK when th
 Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app startup trace, with the cold or warm root span as their parent.
 
 #### emb-process-init
+
 - The time between when the app process is created and specialized and when the `Application` object has been created.
 - Only recorded for cold startups AND if `applicationInitEnd()` was invoked.
 
 #### emb-embrace-init
+
 - The time it took for the Embrace SDK to initialize.
 - Only recorded for cold startups
 
 #### emb-activity-init-delay
+
 - The time between the last known time during the `Application` object creation process and when the first sign of Activity initialization is detected.
 - Only recorded for cold startups
 
 #### emb-activity-init
+
 - The time between when the startup Activity initialization begins and when it has completed (i.e. when it has fully reached the `STARTED` stage of its lifecycle).
 
 #### emb-activity-render
+
 - The time between when the startup Activity has been initialized and when the first frame has been delivered.
 - Only recorded for Android 10, 11, and 13+.
 
 #### emb-activity-first-draw
+
 - The time between when the startup Activity has been initialized and when the first draw of the Activity has been detected.
 - Only recorded for Android 6-9 and 12.
 
 #### emb-activity-load
+
 - The time between when the startup Activity has been initialized and when it has fully reached the `RESUMED` stage of its lifecycle
 - Only recorded for Android 5.
 
 #### emb-app-ready
+
 - The time between when the trace would have ended automatically and when `appReady()` was called.
 - Only recorded if the startup traces are configured to end programmatically.
 

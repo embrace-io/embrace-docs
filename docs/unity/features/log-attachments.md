@@ -11,6 +11,7 @@ sidebar_position: 15
 A new addition to the Embrace Unity SDK, the Log Attachments API allows binary attachments to be added to log messages. This can be useful if you wish to add arbitrary binary blobs that describe your application's state (such as game state) at a given point in time.
 
 There are two ways to add attachments to the log message:  
+
 - by uploading the attachment to Embrace
 - by uploading the attachment to a 3rd party file host and appending the URL for that attachment to your call to the Log Attachments API.
 

@@ -13,6 +13,7 @@ and behavior of code paths that matter to your business. See our
 ## Creating Spans
 
 Each span:
+
 - Has a name
 - Tracks when the operation started and ended
 - Can include attributes (key-value pairs) that provide context
@@ -107,6 +108,7 @@ trace.startSpan("span-name", {
 ### Naming Conventions
 
 Use clear, descriptive names for your spans. Consider a naming convention such as:
+
 - Using consistent casing for span names and attributes
 - Including the general category followed by the specific operation
 - Being consistent across your codebase
@@ -114,6 +116,7 @@ Use clear, descriptive names for your spans. Consider a naming convention such a
 ### Granularity
 
 Choose an appropriate level of granularity for your spans:
+
 - Too coarse: `app-startup` (better to break into component parts)
 - Too fine-grained: `increment-counter` (likely too small to be useful)
 - Just right: `user-authentication`
