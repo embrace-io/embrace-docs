@@ -42,6 +42,7 @@ For each document load, the SDK captures:
 ## Integration with Other Features
 
 Document Load monitoring integrates with other Embrace features:
+
 - Document Load spans are associated with the current session and combined with any relevant LCP Web Vital reports
 - Custom dashboards can be built to monitor aggregate document load metrics
 - Alerts can be set on load times exceeding specific thresholds

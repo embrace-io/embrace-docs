@@ -74,6 +74,7 @@ try {
 ### Contextual Information
 
 Include relevant context in logs:
+
 - User actions that preceded the log
 - Relevant IDs (user ID, session ID, request ID)
 - State information that helps understand the context
@@ -92,6 +93,7 @@ better lightweight option.
 ### Sensitive Information
 
 Never log sensitive data:
+
 - Authentication credentials
 - Personal identifiable information (PII)
 - Payment information
@@ -100,6 +102,7 @@ Never log sensitive data:
 ### Structured Logging
 
 Use a consistent structure for log messages:
+
 - Start with the event or action being logged
 - Use properties for structured data rather than concatenating into the message
 - Group related logs using consistent naming

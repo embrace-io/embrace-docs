@@ -22,6 +22,7 @@ Our workflow feature set is diverse for crashes. Unlike other traditional crash 
 ### **Resolve**
 
 Resolve will close out the selected crash grouping(s). You can Resolve crash grouping(s) by selecting one of two options:  
+
 - **Now** - Close until we receive another crash instance.
 - **Next** - Close until we receive a crash instance from a later version.
 
@@ -57,8 +58,7 @@ Unity exceptions are also represented on the Issues page for Unity applications 
 
 Slow Instances serve as a valuable tool for pinpointing performance bottlenecks swiftly.  
 
-They're grouped by Root Span name and comprise instances with both significant occurrences (100 over the last two days)
-and durations surpassing the 95th percentile of successful root spans bearing the same name.
+They're grouped by Root Span name and comprise instances with durations surpassing the defined threshold of successful root spans bearing the same name.
 You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-root-spans).
 
 ## Javascript Exceptions

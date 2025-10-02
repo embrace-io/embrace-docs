@@ -13,6 +13,7 @@ Sessions are a fundamental concept in the Embrace iOS SDK that help you understa
 A session is a comprehensive record of user interaction that occurs while your app is in either the foreground or background state. Embrace automatically captures sessions when your app is initialized and started.
 
 Key points about sessions:
+
 - Foreground sessions capture user interaction while the app is actively being used
 - Background sessions capture processes that occur while the app is in the background
 - Sessions transition when the app changes state (foreground to background or vice versa)
@@ -22,6 +23,7 @@ Key points about sessions:
 When you initialize the Embrace SDK in your app, it automatically begins capturing session data. Sessions are recorded as OpenTelemetry spans with attributes and span events for various app lifecycle events, user experiences, and device information.
 
 Sessions contain important information such as:
+
 - App lifecycle events (start, foreground, background, terminate)
 - Device information (model, OS version, memory usage)
 - Network activity

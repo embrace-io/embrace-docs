@@ -607,6 +607,7 @@ swazzler {
 :::info Important
 This version has a known issue with Gradle < 6.2
 :::
+
 - Improved Embrace startup time
 
 ## 5.9.1

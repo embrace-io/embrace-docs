@@ -17,7 +17,6 @@ In order to use this feature, you will need to follow two steps:
 1. Make sure your app is using at least version `3.15.0` of the Embrace SDK.
 2. Implement the API call to obtain the current Session ID. The method will return either a `String` that is the SessionId, or null if there is no active session.
 
-
 ```javascript
 import {getCurrentSessionId} from '@embrace-io/react-native';
 

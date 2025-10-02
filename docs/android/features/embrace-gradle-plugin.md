@@ -9,6 +9,7 @@ sidebar_position: 20
 ## Overview
 
 The Embrace Gradle Plugin performs several functions:
+
 - It uploads mapping files to the Embrace backend that are required to get readable stacktraces from production apps
 - It instruments your app's bytecode to insert SDK hooks that capture telemetry out-of-the-box
 - It adds Embrace dependencies to your project's compile classpath
@@ -115,6 +116,7 @@ Whether the Embrace Gradle Plugin should automatically add the embrace-android-c
 
 Path to a directory containing architecture subdirectories (e.g., arm64-v8a/, x86/, etc.) with .so files to be used for crash symbolication
 This could be:
+
 - An **absolute path**, like: "/Users/yourname/project/app/src/main/symbols".
 - A **path relative to the module's root directory** such as: "app/src/main/embrace/symbols".
 

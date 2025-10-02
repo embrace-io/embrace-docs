@@ -17,6 +17,7 @@ Embrace offers all the same active products, features, support offerings, and pe
 Access to the Embrace EU region requires the latest versions of our SDKs.
 
 Minimum SDK version required:
+
 - iOS 6.x
 - Android 7.x
 

@@ -15,10 +15,10 @@ not currently provide a helper for you can still instrument navigation manually 
 The first step is to set up the navigation instrumentation when you init the Embrace Web SDK:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 import { getNavigationInstrumentation } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   // ...Other configs
   instrumentations: [
     getNavigationInstrumentation(),
@@ -28,7 +28,6 @@ sdk.initSDK({
 
 Then hook into your navigation tooling and let the instrumentation know when a route changes through the
 `setCurrentRoute` method:
-
 
 ```typescript
 import { getNavigationInstrumentation } from '@embrace-io/web-sdk';

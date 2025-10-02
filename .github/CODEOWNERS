@@ -13,6 +13,7 @@ docs/flutter @embrace-io/opensource-flutter
 docs/ios @embrace-io/opensource-ios
 docs/react-native @embrace-io/opensource-react-native
 docs/unity @embrace-io/opensource-unity
+docs/web @embrace-io/opensource-web
 
 # docs/best-practices
 docs/embrace-api @embrace-io/opensource-backend

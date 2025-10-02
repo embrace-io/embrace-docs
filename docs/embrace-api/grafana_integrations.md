@@ -14,6 +14,7 @@ sidebar_position: 1
 ## Setting Up Embrace as a Data Source
 
 Follow these steps to add Prometheus as a data source in the Grafana dashboard:
+
 1. Click the "Open Menu" icon to go to the "Connections -> Data sources" page.  
 2. Click the "Add new data source" button on the top right page and select "Prometheus".
 3. Configure it with the following fields:

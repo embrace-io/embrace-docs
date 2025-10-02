@@ -18,6 +18,7 @@ contained in these attributes should be scrubbed before being exported. By defau
 will check particular attributes related to URL information and redact sensitive tokens following recommendations from
 the [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/3b64cb31022feaacb410bfd6e571c1f19b5fbce0/docs/registry/attributes/url.md?plain=1#L34),
 in particular they will:
+
 - Redact credentials in URLs passed in the form of `https://username:password@www.example.com/`
 - Redact any query string values for keys that are considered sensitive (defined in the SDK as
 [`DEFAULT_SENSITIVE_TOKENS`](https://github.com/embrace-io/embrace-web-sdk/blob/5020e9ca919e7088a7ef42cc6ac9caaebfd1f370/src/sdk/defaultAttributeScrubbers.ts#L12))
@@ -26,9 +27,9 @@ This process can be customized by specifying additional sensitive query string k
 `additionalQueryParamsToScrub`:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   additionalQueryParamsToScrub: ['my-senstive-key', 'foo-token']
@@ -38,9 +39,9 @@ sdk.initSDK({
 Custom attribute scrubbers can also be supplied to perform redactions on other attributes:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   attributeScrubbers: [
@@ -63,9 +64,9 @@ instrumentation to avoid tracking particular URLs altogether either by regex or 
 option:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -85,9 +86,9 @@ information you can configure the click instrumentation to avoid tracking partic
 option:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -102,9 +103,9 @@ Alternatively you can still track the click but remove any sensitive data that m
 particular element using its `innerTextForElement` option:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -160,7 +161,7 @@ Consider implementing mechanisms to respect user privacy choices:
 function updatePrivacyConsent(userConsented: boolean) {
     if (userConsented) {
       // Start Embrace with user consent
-      sdk.initSDK({
+      initSDK({
         appID: "YOUR_EMBRACE_APP_ID",
         appVersion: "YOUR_APP_VERSION",
       });

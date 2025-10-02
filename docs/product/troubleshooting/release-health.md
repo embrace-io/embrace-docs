@@ -17,6 +17,7 @@ Release Health currently supports insights into the following issue types:
 - ANRs
 - Exceptions
 - Error Logs
+- Slow Spans
 
 For each issue type, we provide:
 

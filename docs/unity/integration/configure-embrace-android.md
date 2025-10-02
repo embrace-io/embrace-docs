@@ -24,6 +24,7 @@ On Android, Unity builds are handled by Gradle. To integrate Embrace, we'll be a
 ## Minimum Gradle and Android Gradle Plugin Versions
 
 To use the latest version of the Embrace Unity SDK you must be using:
+
 - At least version `7.5.1` of Gradle
 - At least version `7.4.2` of the Android Gradle Plugin (classpath `com.android.tools.build:gradle`)
 
@@ -33,6 +34,7 @@ If your version of Unity does not come with supported versions of Gradle and AGP
 
 :::info Notes on minimum versions**
 To use the External Dependency Manager you must be using:
+
 - At least version `1.0.13` of the Unity SDK
 - At least version `4.7.0` of the Android Swazzler Plugin
 :::

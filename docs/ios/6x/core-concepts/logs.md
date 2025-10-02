@@ -95,6 +95,7 @@ Embrace.client?.log(
 ```
 
 Limitations for Embrace-hosted attachments:
+
 - Maximum of 5 attachments per session
 - Maximum attachment size of 1 MiB (1048576 bytes)
 

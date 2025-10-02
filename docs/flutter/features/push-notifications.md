@@ -63,4 +63,4 @@ Push notifications can also be manually logged from the Flutter SDK. This could 
   });
 ```
 
-The `title` and `body` parameters will be common to all push notifications. The parameters `subtitle`, `badge` and `category` are exclusive to iOS notifications, while the rest are exclusive are exclusive to Android notifications. The parameters `hasNotification` and `hasData` correspond to the FCM distinction between `notification` and `data` messages (as described in the [Firebase documentation](https://firebase.google.com/docs/cloud-messaging/concept-options))
+The `title` and `body` parameters will be common to all push notifications. The parameters `subtitle`, `badge` and `category` are exclusive to iOS notifications, while the rest are exclusive are exclusive to Android notifications. The parameters `hasNotification` and `hasData` correspond to the FCM distinction between `notification` and `data` messages (as described in the [Firebase documentation](https://firebase.google.com/docs/cloud-messaging/customize-messages/set-message-type))

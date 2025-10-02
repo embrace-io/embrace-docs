@@ -23,6 +23,7 @@ class SpanBuilder {
 ```
 
 **Methods**:
+
 - `setAttribute(_:value:)`: Sets a single attribute on the span.
 - `setAttributes(_:)`: Sets multiple attributes on the span.
 - `startSpan()`: Creates and starts the span with the configured attributes.
@@ -49,6 +50,7 @@ protocol Span {
 ```
 
 **Methods**:
+
 - `setAttribute(_:value:)`: Sets a single attribute on the span.
 - `end(at:)`: Ends the span, optionally at a specific time.
 - `addEvent(_:attributes:)`: Adds an event to the span with optional attributes.
@@ -92,7 +94,7 @@ protocol EmbraceLog {
     var message: String { get }
     var severity: LogSeverity { get }
     var timestamp: Date { get }
-    var properties: [String: String]? { get }
+    var attributes: [String: String] { get }
 }
 ```
 
@@ -111,6 +113,7 @@ class SessionSpanUtils {
 ```
 
 **Methods**:
+
 - `getSessionId(from:)`: Extracts the session ID from a span.
 - `setSessionId(_:on:)`: Sets the session ID on a span.
 - `getSessionProperties(from:)`: Gets the session properties from a span.
@@ -131,6 +134,7 @@ struct HeaderFilterKeys {
 ```
 
 **Parameters**:
+
 - `requestHeadersBlocklist`: List of request header keys to block from capture.
 - `responseHeadersBlocklist`: List of response header keys to block from capture.
 
@@ -150,6 +154,7 @@ struct OpenTelemetryExport {
 ```
 
 **Parameters**:
+
 - `spanExporter`: Exporter for OpenTelemetry spans.
 - `logExporter`: Exporter for OpenTelemetry logs.
 
@@ -168,6 +173,7 @@ protocol CrashReporter {
 ```
 
 **Methods**:
+
 - `install()`: Installs the crash reporter.
 - `updateAppState(_:)`: Updates the app state in the crash reporter.
 - `updateAttributes(_:)`: Updates custom attributes in the crash reporter.
@@ -204,6 +210,7 @@ struct SymbolUpload {
 ```
 
 **Methods**:
+
 - `uploadSymbols(appId:token:dsymURLs:baseURL:completion:)`: Uploads debug symbols to the Embrace backend.
 
 ## Code Examples
@@ -231,10 +238,10 @@ span?.end()
 
 ```swift
 // Log an informational message
-Embrace.client?.logMessage(
+Embrace.client?.log(
     "User completed checkout",
     severity: .info,
-    properties: [
+    attributes: [
         "order_id": orderId,
         "user_id": userId
     ]
@@ -244,9 +251,10 @@ Embrace.client?.logMessage(
 do {
     try performRiskyOperation()
 } catch let error {
-    Embrace.client?.logError(
-        error,
-        properties: [
+    Embrace.client?.log(
+        "Risky operation failed: \(error.localizedDescription)",
+        severity: .error,
+        attributes: [
             "operation": "risky-operation",
             "context": "checkout-flow"
         ]

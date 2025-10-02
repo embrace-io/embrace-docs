@@ -50,6 +50,7 @@ struct NewEmbraceApp: App {
 ```
 
 For more information, see:
+
 - [Basic Setup](/ios/6x/getting-started/basic-setup.md)
 - [Configuration Options](/ios/6x/getting-started/configuration-options.md)
 
@@ -58,6 +59,7 @@ For more information, see:
 Moments have been replaced by Traces in the 6.x SDK. This change is part of our migration to build on top of OpenTelemetry APIs and standardize telemetry.
 
 Traces, built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), provide enhanced capabilities:
+
 - They capture end-to-end journeys composed of multiple spans
 - Traces can contain many spans as "children"
 - They support attributes and events for flexibility and aggregation
@@ -231,6 +233,7 @@ Many methods from the 5.x SDK have been replaced with new equivalents in 6.x:
 ## Removed and Deprecated Features
 
 The following features have been removed or significantly changed in 6.x:
+
 - NSURLConnection capture
 - Screenshots
 - App disk usage monitoring (including free disk space and CPU "spike" detection)

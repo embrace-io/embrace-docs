@@ -11,6 +11,7 @@ The Embrace SDK's `ViewCaptureService` automatically instruments `UIViewControll
 ## How View Tracking Works
 
 The view tracking service monitors the lifecycle of `UIViewController` instances in your app and generates OpenTelemetry spans for key events such as:
+
 - View loading time
 - Render time (time to first render)
 - Time to interactive
@@ -48,6 +49,7 @@ try Embrace
 ### Screen Visibility Tracking
 
 When `instrumentVisibility` is enabled, the service generates spans that:
+
 - Start when a `UIViewController` appears (`viewDidAppear`)
 - End when it disappears (`viewDidDisappear`)
 
@@ -56,10 +58,12 @@ This provides insights into how long users spend on each screen and their naviga
 ### Time to First Render
 
 When `instrumentFirstRender` is enabled, the service generates spans that:
+
 - Start when a `UIViewController` is loaded (`viewDidLoad`)
 - End when it becomes visible for the first time (`viewDidAppear`)
 
 The service also creates child spans for each stage in the process:
+
 - `viewDidLoad`
 - `viewWillAppear`
 - `viewIsAppearing` (including animations)
