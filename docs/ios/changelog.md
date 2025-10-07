@@ -13,7 +13,6 @@ sidebar_position: 4
 - Fixes
   - Fixed `autoTerminationCode` being missing from Spans.
   - Bumped OTel version to OTel Core 2.1.1.
-  - Renamed `EmbraceKSCrashSupport` back to `EmbraceCrash`.
   - Fixed wrong OS Variant being added to logs/traces.
   - Fixed Background App Launches being detected as a Foreground Session which produced long sessions to apps without Background Session support enabled.
 - Improvements
