@@ -6,6 +6,22 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.14.0
+
+*Oct 7, 2025**
+
+- Fixes
+  - Fixed `autoTerminationCode` being missing from Spans.
+  - Bumped OTel version to OTel Core 2.1.1.
+  - Renamed `EmbraceKSCrashSupport` back to `EmbraceCrash`.
+  - Fixed wrong OS Variant being added to logs/traces.
+  - Fixed Background App Launches being detected as a Foreground Session which produced long sessions to apps without Background Session support enabled.
+- Improvements
+  - Added Capture Service to detect "Hangs", akin to Android ANRs.
+  - Backtrace and Symbolication: Added ability for users to pass their own versions, using KSCrash as default.
+  - Added profiling to Main Thread for Hang detection. 
+  - General internal stability improvements.
+
 ## 6.13.1
 
 *Aug 29, 2025*
