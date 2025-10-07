@@ -18,7 +18,7 @@ sidebar_position: 4
 - Improvements
   - Added Capture Service to detect App Hangs.
   - Backtrace and Symbolication: Added ability for users to pass their own versions, using KSCrash as default.
-  - Added profiling to Main Thread for Hang detection. 
+  - Added profiling to Main Thread for Hang detection.
   - General internal stability improvements.
 
 ## 6.13.1
