@@ -16,7 +16,7 @@ sidebar_position: 4
   - Fixed wrong OS Variant being added to logs/traces.
   - Fixed Background App Launches being detected as a Foreground Session which produced long sessions to apps without Background Session support enabled.
 - Improvements
-  - Added Capture Service to detect "Hangs", akin to Android ANRs.
+  - Added Capture Service to detect App Hangs.
   - Backtrace and Symbolication: Added ability for users to pass their own versions, using KSCrash as default.
   - Added profiling to Main Thread for Hang detection. 
   - General internal stability improvements.
