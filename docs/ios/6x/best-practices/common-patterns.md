@@ -12,25 +12,26 @@ This guide presents several common implementation patterns for the Embrace iOS S
 
 ### Hierarchical View Naming
 
-For better organization in dashboards, use hierarchical names for your views:
+For better organization in dashboards, use hierarchical names for your views by implementing the `EmbraceViewControllerCustomization` protocol:
 
 ```swift
-// Configure a consistent view naming strategy
-let viewOptions = ViewCaptureServiceOptions(
-    nameForViewController: { viewController in
-        switch viewController {
-        case is ProfileViewController:
-            return "profile/main"
-        case is ProfileEditViewController:
-            return "profile/edit"
-        case is ProfileSettingsViewController:
-            return "profile/settings"
-        default:
-            // Default to class name
-            return String(describing: type(of: viewController))
-        }
-    }
-)
+// Implement the protocol on your view controllers to customize their names
+class ProfileViewController: UIViewController, EmbraceViewControllerCustomization {
+    var nameForViewControllerInEmbrace: String? { "profile/main" }
+}
+
+class ProfileEditViewController: UIViewController, EmbraceViewControllerCustomization {
+    var nameForViewControllerInEmbrace: String? { "profile/edit" }
+}
+
+class ProfileSettingsViewController: UIViewController, EmbraceViewControllerCustomization {
+    var nameForViewControllerInEmbrace: String? { "profile/settings" }
+}
+
+// For view controllers that should not be captured:
+class InternalViewController: UIViewController, EmbraceViewControllerCustomization {
+    var shouldCaptureViewInEmbrace: Bool { false }
+}
 ```
 
 ## Tracking User Flows
@@ -45,32 +46,38 @@ class CheckoutCoordinator {
 
     func startCheckout() {
         // Start a parent span for the whole checkout flow
-        checkoutSpan = Embrace.client.startSpan(name: "checkout_flow")
-        checkoutSpan?.setAttribute(key: "cart_value", value: cart.totalValue)
-        checkoutSpan?.setAttribute(key: "items_count", value: cart.items.count)
+        checkoutSpan = Embrace.client?.buildSpan(name: "checkout_flow").startSpan()
+        checkoutSpan?.setAttribute(key: "cart_value", value: String(cart.totalValue))
+        checkoutSpan?.setAttribute(key: "items_count", value: String(cart.items.count))
 
         navigateToShippingScreen()
     }
 
     func navigateToShippingScreen() {
         // Child span for the shipping step
-        let shippingSpan = Embrace.client.startSpan(name: "checkout_shipping", parent: checkoutSpan)
+        guard let parentSpan = checkoutSpan else { return }
+        let shippingSpan = Embrace.client?.buildSpan(name: "checkout_shipping")
+            .setParent(parentSpan)
+            .startSpan()
         // Show shipping screen
         // ...
-        shippingSpan.end()
+        shippingSpan?.end()
     }
 
     func navigateToPaymentScreen() {
         // Child span for the payment step
-        let paymentSpan = Embrace.client.startSpan(name: "checkout_payment", parent: checkoutSpan)
+        guard let parentSpan = checkoutSpan else { return }
+        let paymentSpan = Embrace.client?.buildSpan(name: "checkout_payment")
+            .setParent(parentSpan)
+            .startSpan()
         // Show payment screen
         // ...
-        paymentSpan.end()
+        paymentSpan?.end()
     }
 
     func completeCheckout(success: Bool) {
         // Record the outcome
-        checkoutSpan?.setAttribute(key: "checkout_success", value: success)
+        checkoutSpan?.setAttribute(key: "checkout_success", value: String(success))
 
         // Log a business event
         if success {
@@ -94,34 +101,40 @@ class CheckoutCoordinator {
 
 ### Tracking API Performance by Endpoint
 
-To analyze API performance by endpoint category:
+To analyze API performance by endpoint category, create a custom request data source:
 
 ```swift
-// Set up network options with endpoint categorization
-let networkOptions = NetworkCaptureServiceOptions(
-    urlSanitizer: { url in
-        // Keep the original URL
-        return url
-    },
-    urlAttributeExtractor: { url in
-        // Extract endpoint category and version
-        var attributes: [String: String] = [:]
+// Create a custom data source to modify requests before capture
+class APIRequestDataSource: NSObject, URLSessionRequestsDataSource {
+    func modifiedRequest(for request: URLRequest) -> URLRequest {
+        // You can modify the request here if needed
+        // For example, to sanitize URLs containing sensitive data
+        guard let url = request.url else { return request }
 
-        if let host = url.host {
-            attributes["api_host"] = host
+        var modifiedRequest = request
+
+        // Example: Remove sensitive query parameters
+        if var components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            // Filter out sensitive parameters
+            components.queryItems = components.queryItems?.filter { item in
+                !["token", "api_key", "session_id"].contains(item.name)
+            }
+
+            if let sanitizedURL = components.url {
+                modifiedRequest.url = sanitizedURL
+            }
         }
 
-        // Categorize endpoints
-        if url.path.contains("/v2/products") {
-            attributes["endpoint_type"] = "product_api"
-            attributes["api_version"] = "v2"
-        } else if url.path.contains("/v1/users") {
-            attributes["endpoint_type"] = "user_api"
-            attributes["api_version"] = "v1"
-        }
-
-        return attributes
+        return modifiedRequest
     }
+}
+
+// Configure network capture with the custom data source
+let requestsDataSource = APIRequestDataSource()
+let networkOptions = URLSessionCaptureService.Options(
+    injectTracingHeader: true,
+    requestsDataSource: requestsDataSource,
+    ignoredURLs: ["internal-analytics.company.com"]
 )
 ```
 
@@ -142,7 +155,7 @@ enum AppError: Error {
 // Extension to provide consistent error logging
 extension AppError {
     func logToEmbrace() {
-        var attributes: [String: Any] = [:]
+        var attributes: [String: String] = [:]
         var errorName = ""
         var errorMessage = ""
 
@@ -159,13 +172,13 @@ extension AppError {
         case .businessLogicError(let code, let message):
             errorName = "business_logic_error"
             errorMessage = message
-            attributes["error_code"] = code
+            attributes["error_code"] = String(code)
         }
 
         // Log the error with consistent formatting
-        Embrace.client.log(errorMessage, 
-                           severity: .error,
-                           attributes: attributes)
+        Embrace.client?.log(errorMessage,
+                            severity: .error,
+                            attributes: attributes)
     }
 }
 
@@ -192,20 +205,20 @@ If your app uses feature flags, track their effect on performance:
 ```swift
 func initializeFeatureFlags() {
     // Start a span for feature flag initialization
-    let span = Embrace.client.startSpan(name: "feature_flags_initialization")
+    let span = Embrace.client?.buildSpan(name: "feature_flags_initialization").startSpan()
 
     featureFlagSystem.initialize { flags in
         // Record which flags are active
         for (flagName, isEnabled) in flags {
-            span.setAttribute(key: "flag_\(flagName)", value: isEnabled)
+            span?.setAttribute(key: "flag_\(flagName)", value: String(isEnabled))
 
             // Also add key flags as session attributes for easier filtering
             if ["new_checkout", "experimental_algorithm"].contains(flagName) {
-                Embrace.client.addSessionAttribute(key: "flag_\(flagName)", value: isEnabled)
+                try? Embrace.client?.metadata?.addProperty(key: "flag_\(flagName)", value: String(isEnabled), lifespan: .session)
             }
         }
 
-        span.end()
+        span?.end()
     }
 }
 ```
@@ -235,7 +248,7 @@ class EmbraceAnalyticsProvider: AnalyticsProvider {
     }
 
     func addSessionProperty(key: String, value: String, permanent: Bool) {
-        Embrace.client?.metadata?.addProperty(key: key, value: value, lifespan: permanent ? .permanent : .session)
+        try? Embrace.client?.metadata?.addProperty(key: key, value: value, lifespan: permanent ? .permanent : .session)
     }
     // Implement other methods...
 }
@@ -246,7 +259,7 @@ class MockAnalyticsProvider: AnalyticsProvider {
     var builtSpans: [(name: String, type: SpanType)] = []
     var sessionProperties: [String: String] = [:]
 
-    func log(_ message: String, severity: LogSeverity, attributes: [String: String] = [:] {
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String] = [:]) {
         loggedMessages.append((message, severity, attributes))
     }
 
@@ -287,30 +300,30 @@ For long-running asynchronous operations:
 ```swift
 func performAsyncTask() async throws -> Result {
     // Start a span for the entire async operation
-    let span = Embrace.client.startSpan(name: "async_operation")
+    let span = Embrace.client?.buildSpan(name: "async_operation").startSpan()
 
     do {
         // First step
-        span.addEvent(name: "starting_first_step")
+        span?.addEvent(name: "starting_first_step")
         let intermediateResult = try await firstStep()
-        span.addEvent(name: "completed_first_step")
+        span?.addEvent(name: "completed_first_step")
 
         // Second step
-        span.addEvent(name: "starting_second_step")
+        span?.addEvent(name: "starting_second_step")
         let finalResult = try await secondStep(intermediateResult)
-        span.addEvent(name: "completed_second_step")
+        span?.addEvent(name: "completed_second_step")
 
         // Record success
-        span.setAttribute(key: "status", value: "success")
-        span.end()
+        span?.setAttribute(key: "status", value: "success")
+        span?.end()
 
         return finalResult
     } catch {
         // Record error details
-        span.setAttribute(key: "status", value: "error")
-        span.setAttribute(key: "error_type", value: String(describing: type(of: error)))
-        span.setAttribute(key: "error_message", value: error.localizedDescription)
-        span.end()
+        span?.setAttribute(key: "status", value: "error")
+        span?.setAttribute(key: "error_type", value: String(describing: type(of: error)))
+        span?.setAttribute(key: "error_message", value: error.localizedDescription)
+        span?.end()
 
         throw error
     }
@@ -363,6 +376,245 @@ class BackgroundTaskManager {
 }
 ```
 
+## SwiftUI-Specific Patterns
+
+SwiftUI's reactive view system can present unique challenges for instrumentation. Views can re-render frequently due to state changes, and lifecycle methods may be called multiple times. These patterns help you avoid duplicate telemetry and create accurate user journey tracking.
+
+### Avoiding Duplicate Breadcrumbs in View Lifecycle
+
+SwiftUI views re-render when their state changes, which can cause `onAppear` to be called multiple times. This leads to duplicate breadcrumbs that inflate user flow metrics and incorrectly show high abandonment rates.
+
+#### Problem: Duplicate Breadcrumbs
+
+```swift
+// AVOID: This will log multiple times as the view re-renders
+struct CartView: View {
+    var body: some View {
+        VStack {
+            Text("Shopping Cart")
+        }
+        .onAppear {
+            // This gets called every time the view appears or re-renders
+            Embrace.client?.add(event: .breadcrumb("Cart Page Viewed"))
+        }
+    }
+}
+```
+
+#### Solution 1: State-Based Tracking
+
+Use `@State` to track whether the breadcrumb has been logged:
+
+```swift
+// RECOMMENDED: Logs once per view lifecycle
+struct CartView: View {
+    @State private var hasLoggedView = false
+
+    var body: some View {
+        VStack {
+            Text("Shopping Cart")
+        }
+        .onAppear {
+            guard !hasLoggedView else { return }
+            Embrace.client?.add(event: .breadcrumb("Cart Page Viewed"))
+            hasLoggedView = true
+        }
+    }
+}
+```
+
+#### Solution 2: ViewModel-Based Tracking
+
+Move breadcrumb logic to a ViewModel with built-in duplicate protection:
+
+```swift
+// RECOMMENDED: Centralized tracking with protection
+class CartViewModel: ObservableObject {
+    private var hasTrackedView = false
+
+    func trackPageView() {
+        guard !hasTrackedView else { return }
+        Embrace.client?.add(event: .breadcrumb("Cart Page Viewed"))
+        hasTrackedView = true
+    }
+}
+
+struct CartView: View {
+    @StateObject private var viewModel = CartViewModel()
+
+    var body: some View {
+        VStack {
+            Text("Shopping Cart")
+        }
+        .onAppear {
+            viewModel.trackPageView()
+        }
+    }
+}
+```
+
+#### Solution 3: Task-Based Approach
+
+For iOS 15+, use the `.task` modifier which provides better lifecycle management:
+
+```swift
+// RECOMMENDED: Task automatically cancels when view disappears
+struct CheckoutView: View {
+    var body: some View {
+        VStack {
+            Text("Checkout")
+        }
+        .task {
+            // Runs once when view appears, cancels when view disappears
+            Embrace.client?.add(event: .breadcrumb("Checkout Page Viewed"))
+        }
+    }
+}
+```
+
+### Navigation-Based Breadcrumb Tracking
+
+For navigation flows, track breadcrumbs in navigation events rather than view lifecycle:
+
+```swift
+struct ProductListView: View {
+    @State private var selectedProduct: Product?
+
+    var body: some View {
+        NavigationStack {
+            List(products) { product in
+                NavigationLink(value: product) {
+                    ProductRow(product: product)
+                }
+            }
+            .navigationDestination(for: Product.self) { product in
+                ProductDetailView(product: product)
+                    .onAppear {
+                        // Track navigation event, not view appearance
+                        Embrace.client?.add(event: .breadcrumb(
+                            "Product Detail Viewed",
+                            properties: ["product_id": product.id]
+                        ))
+                    }
+            }
+        }
+    }
+}
+```
+
+### User Action Tracking in SwiftUI
+
+Track user actions in event handlers rather than view rendering methods:
+
+```swift
+struct AddToCartButton: View {
+    let product: Product
+    @EnvironmentObject var cart: CartManager
+
+    var body: some View {
+        Button("Add to Cart") {
+            // Track user action when button is tapped
+            Embrace.client?.add(event: .breadcrumb(
+                "Product Added to Cart",
+                properties: [
+                    "product_id": product.id,
+                    "product_name": product.name,
+                    "product_price": String(product.price)
+                ]
+            ))
+
+            cart.add(product)
+        }
+    }
+}
+```
+
+### Multi-Step Form Tracking
+
+Track form progression without duplicates using a coordinator:
+
+```swift
+class CheckoutFlowCoordinator: ObservableObject {
+    @Published var currentStep: CheckoutStep = .shipping
+    private var trackedSteps: Set<CheckoutStep> = []
+
+    func trackStep(_ step: CheckoutStep) {
+        guard !trackedSteps.contains(step) else { return }
+
+        Embrace.client?.add(event: .breadcrumb(
+            "Checkout Step Viewed",
+            properties: ["step": step.rawValue]
+        ))
+
+        trackedSteps.insert(step)
+    }
+
+    func advanceToStep(_ step: CheckoutStep) {
+        currentStep = step
+        trackStep(step)
+    }
+}
+
+struct CheckoutFlow: View {
+    @StateObject private var coordinator = CheckoutFlowCoordinator()
+
+    var body: some View {
+        VStack {
+            switch coordinator.currentStep {
+            case .shipping:
+                ShippingView(coordinator: coordinator)
+            case .payment:
+                PaymentView(coordinator: coordinator)
+            case .review:
+                ReviewView(coordinator: coordinator)
+            }
+        }
+        .onAppear {
+            coordinator.trackStep(.shipping)
+        }
+    }
+}
+```
+
+### Observable Macro Pattern (iOS 17+)
+
+For apps using the `@Observable` macro, use a similar pattern:
+
+```swift
+@Observable
+class ProductViewModel {
+    private var hasTrackedView = false
+
+    func trackProductView(productId: String) {
+        guard !hasTrackedView else { return }
+
+        Embrace.client?.add(event: .breadcrumb(
+            "Product Viewed",
+            properties: ["product_id": productId]
+        ))
+
+        hasTrackedView = true
+    }
+}
+```
+
+### Best Practices Summary for SwiftUI
+
+**Avoid placing breadcrumbs in:**
+- View body computations
+- `@Published` property observers that trigger on UI updates
+- Conditional rendering blocks (e.g., `if/else` statements in view body)
+- High-frequency SwiftUI modifiers (e.g., `.onChange` for text field input)
+
+**Recommended placement:**
+- `.onAppear` with duplicate protection using `@State`
+- User action handlers (button taps, gestures, form submissions)
+- Navigation transition events
+- ViewModel methods with built-in tracking flags
+- `.task` modifier for iOS 15+
+
+SwiftUI's reactive rendering requires explicit duplicate prevention. Use state-based guards or move tracking logic to ViewModels with built-in protection to ensure accurate telemetry.
+
 ## Summary
 
 These implementation patterns showcase best practices for:
@@ -370,12 +622,11 @@ These implementation patterns showcase best practices for:
 - Organizing view names for better analytics
 - Tracking multi-step user flows with parent/child spans
 - Analyzing API performance by endpoint category
-- Consistent error tracking and categorization  
+- Consistent error tracking and categorization
 - Feature flag impact tracking
 - Dependency injection for testing
 - Asynchronous operation tracing
 - Background task monitoring
+- SwiftUI duplicate prevention and lifecycle management
 
 By applying these patterns in your app, you'll create a more comprehensive and useful observability implementation.
-
-<!-- TODO: Add patterns for SwiftUI apps specifically  -->
