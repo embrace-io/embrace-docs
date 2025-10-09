@@ -601,12 +601,14 @@ class ProductViewModel {
 ### Best Practices Summary for SwiftUI
 
 **Avoid placing breadcrumbs in:**
+
 - View body computations
 - `@Published` property observers that trigger on UI updates
 - Conditional rendering blocks (e.g., `if/else` statements in view body)
 - High-frequency SwiftUI modifiers (e.g., `.onChange` for text field input)
 
 **Recommended placement:**
+
 - `.onAppear` with duplicate protection using `@State`
 - User action handlers (button taps, gestures, form submissions)
 - Navigation transition events
