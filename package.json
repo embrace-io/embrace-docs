@@ -24,8 +24,8 @@
     "docusaurus-pushfeedback": "^1.0.9",
     "pushfeedback-react": "^0.1.76",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "^3.9.1",
@@ -37,7 +37,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^6.1.0",
+    "eslint-plugin-react-hooks": "^6.1.1",
     "prettier": "^3.6.2",
     "typescript": "^5.9.3",
     "unist-util-visit": "^5.0.0"
