@@ -555,9 +555,9 @@ For more detailed examples of tracking complex user flows, including e-commerce 
 
 After migrating to the 6.x SDK, we recommend:
 
-1. Review the [Core Concepts](/ios/6x/core-concepts/index) documentation to understand the new architecture
-2. Explore the new [Automatic Instrumentation](/ios/6x/automatic-instrumentation/index) capabilities
-3. Learn about [Manual Instrumentation](/ios/6x/manual-instrumentation/index) for custom traces and logs
+1. Review the [Core Concepts](/ios/6x/core-concepts/) documentation to understand the new architecture
+2. Explore the new [Automatic Instrumentation](/ios/6x/automatic-instrumentation/) capabilities
+3. Learn about [Manual Instrumentation](/ios/6x/manual-instrumentation/) for custom traces and logs
 
 ## Need Help?
 
