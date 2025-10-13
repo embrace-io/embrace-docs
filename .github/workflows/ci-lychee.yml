@@ -28,7 +28,7 @@ jobs:
       - run: sed -i 's/Summary/Summary - Link Checker/' lychee/out.md
 
       - name: Add output as PR comment
-        uses: embrace-io/actions-comment-pull-request@v3
+        uses: embrace-io/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
         with:
-          comment_tag: lychee
-          filePath: lychee/out.md
+          comment-tag: lychee
+          file-path: lychee/out.md
