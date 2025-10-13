@@ -47,7 +47,7 @@ jobs:
           fi
 
       - name: Add output as PR comment
-        uses: embrace-io/actions-comment-pull-request@v2
+        uses: embrace-io/actions-comment-pull-request@v3
         with:
           comment_tag: rumdl
           filePath: rumdl.md
