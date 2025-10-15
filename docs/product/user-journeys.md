@@ -3,7 +3,7 @@ title: User Journeys
 sidebar_position: 101
 ---
 
-## What's New :tada:
+## :tada: What's New
 
 We've heard your feedback! Through October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
 
@@ -94,8 +94,8 @@ Hovering your mouse over the treemap you'll see a tooltip that breaks down the d
 
 You can find a filterable list of all instances of the User Flow at the bottom of the page. Clicking any of these instances will take you to the [User Timeline](/product/sessions/user-timeline.md) for further investigation as you need it.
 
-# User Flows in Boards, Alerts, and Custom Metrics
+## User Flows in Boards, Alerts, and Custom Metrics
 
-## Alerts and Custom Metrics
+### Alerts and Custom Metrics
 
 **NOTE**: User Flows are processed using data that comes in multiple payloads from the client. As such, there can be a time delay of up to 10 minutes. Due to this potential delay, we don't allow 5 minute aggregations.
