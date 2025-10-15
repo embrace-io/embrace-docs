@@ -49,14 +49,14 @@ You can serve contents of that static directory using `npm run serve`
 
 We use [rumdl](https://github.com/rvben/rumdl) to enforce standard lint (formatting) rules on all markdown files. A summary of lint results will be posted as a comment in your pull request. You must resolve all lint violations before you merge your change. Most of them can be automatically fixed using `rumdl check --fix`.
 
-You should install and run the linter before comitting your changes:
+You should install and run the linter before committing your changes:
 
 ```console
 brew tap rvben/rumdl
 brew install rumdl
 
 rumdl check --statistics
-rumdl --fix
+rumdl check --fix
 ```
 
 You can enable pre-commit hook so that validation is done before you can commit your changes.

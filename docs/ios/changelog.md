@@ -6,7 +6,6 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
-
 ## 6.14.1
 
 *Oct 14, 2025*
