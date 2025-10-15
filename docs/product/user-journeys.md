@@ -3,6 +3,17 @@ title: User Journeys
 sidebar_position: 101
 ---
 
+## :tada: What's New
+
+We've heard your feedback! Through October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
+
+- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/custom-metrics-api/getting-started.md)
+- More options for start and end event markers
+- Better User Flow visualization markers in the [User Timeline](/product/sessions/user-timeline.md)
+- User Flow filters on all Issues pages and Sessions page
+
+---
+
 # User Journeys
 
 With Embrace’s User Journeys feature, you can move beyond simple funnel analysis and gain deeper insights into how users experience your application. User Journeys allow engineering teams to track and analyze all of the events in a journey that a user takes, providing valuable data on performance impacts and behavioral trends.
@@ -21,6 +32,8 @@ User Flows are built using various telemetry events:
 - [**Logs:**](/product/logs/) Detailed messages generated during user interactions.
 - [**Breadcrumbs:**](/android/features/breadcrumbs) Tracks the user's navigation path.
 - [**Network Events:**](/product/network/network-monitoring/) Captures data related to HTTP requests and responses.
+- Taps: See your relevant framework Tap Capture where supported.
+- Views, Custom Views, and Web Views: See your relevant framework documentation on Views, Custom Views, and Web Views.
 
 **Note:** While Traces provide detailed performance information, User Flows offer a more focused approach by connecting events around user behavior, making them easier to interpret and use for analysis.
 
@@ -80,3 +93,9 @@ Hovering your mouse over the treemap you'll see a tooltip that breaks down the d
 ## Instance List
 
 You can find a filterable list of all instances of the User Flow at the bottom of the page. Clicking any of these instances will take you to the [User Timeline](/product/sessions/user-timeline.md) for further investigation as you need it.
+
+## User Flows in Boards, Alerts, and Custom Metrics
+
+### Alerts and Custom Metrics
+
+**NOTE**: User Flows are processed using data that comes in multiple payloads from the client. As such, there can be a time delay of up to 10 minutes. Due to this potential delay, we don't allow 5 minute aggregations.
