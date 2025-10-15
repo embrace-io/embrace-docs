@@ -56,9 +56,9 @@ For high cardinality fields such as Logs, Breadcrumbs, and Network events, you c
 
 On the User Flow summary page, you'll see a list of all of your currently configured User Flows with some useful information.
 
-- **Completion:** This is the percentage of User Flows that were seen that made it from the Start Event to the End Event inside of the time threshold and without exiting the app (find a less ambiguous term for "exiting"). This is shown in comparison across the time windo you have selected.
+- **Completion:** This is the percentage of User Flows that were seen that made it from the Start Event to the End Event inside of the time threshold and without exiting the app (find a less ambiguous term for "exiting"). This is shown in comparison across the time window you have selected.
 - **Abandon:** This is the percentage of User Flows that timed out or were abandoned through normal means (entered another flow, exited the app).
-- **Error:** These are the percentage of User Flows that ended in an issue.
+- **Error:** These are the percentage of User Flows that ended in a crash.
 - **Session Volume:** This is the count of sessions that have been seen with this User Flow across the time selected.
 
 <img src={require('@site/static/images/user-journeys/User-Flows-Summary.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
