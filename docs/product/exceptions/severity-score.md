@@ -118,7 +118,7 @@ The multiplier is based on how recently the tap occurred before the exception:
 
 Here's an example of how the severity score is calculated:
 
-```
+```text
 Base Severity: 0.60 (unhandled exception)
 
 Multipliers:
