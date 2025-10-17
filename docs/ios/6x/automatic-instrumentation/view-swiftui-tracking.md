@@ -158,6 +158,12 @@ struct MyView: View {
 - **Track meaningful completion:** Use the `contentComplete` parameter for views that load data asynchronously to measure when users can actually interact with your content
 - **Avoid over-instrumentation:** Do not nest multiple instrumented views unnecessarily—each generates its own trace tree and can impact performance
 
+### Manual Instrumentation in SwiftUI Views
+
+When adding manual instrumentation such as [breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs) or custom [traces](/ios/6x/manual-instrumentation/custom-traces) within SwiftUI views, be aware that view lifecycle methods like `onAppear` may be called multiple times due to SwiftUI's reactive rendering. This can lead to duplicate telemetry events.
+
+For detailed patterns on preventing duplicate breadcrumbs and properly instrumenting SwiftUI views, see the [SwiftUI-Specific Patterns](/ios/6x/best-practices/common-patterns#swiftui-specific-patterns) guide.
+
 ## Common Use Cases
 
 - **Find layout bottlenecks** - Identify slow `body` render spans that cause UI hitches

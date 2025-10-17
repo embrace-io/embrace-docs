@@ -101,6 +101,59 @@ Breadcrumbs are designed to be lightweight, but consider:
 - **Content**: Keep messages concise
 - **Timing**: Add breadcrumbs at meaningful moments, not every minor state change
 
+### SwiftUI View Lifecycle Considerations
+
+When using breadcrumbs in SwiftUI views, be aware that view lifecycle methods like `onAppear` can be called multiple times due to SwiftUI's reactive rendering. This can result in duplicate breadcrumbs that inflate metrics and show incorrect abandonment rates in user flow tracking.
+
+**Common Issue:**
+
+```swift
+// This will log multiple times as the view re-renders
+struct ProductView: View {
+    var body: some View {
+        Text("Product Details")
+            .onAppear {
+                Embrace.client?.add(event: .breadcrumb("Product Viewed"))
+            }
+    }
+}
+```
+
+**Recommended Approach:**
+
+Use state-based tracking to prevent duplicates:
+
+```swift
+struct ProductView: View {
+    @State private var hasLogged = false
+
+    var body: some View {
+        Text("Product Details")
+            .onAppear {
+                guard !hasLogged else { return }
+                Embrace.client?.add(event: .breadcrumb("Product Viewed"))
+                hasLogged = true
+            }
+    }
+}
+```
+
+Alternatively, move tracking logic to a ViewModel:
+
+```swift
+class ProductViewModel: ObservableObject {
+    private var hasTracked = false
+
+    func trackView() {
+        guard !hasTracked else { return }
+        Embrace.client?.add(event: .breadcrumb("Product Viewed"))
+        hasTracked = true
+    }
+}
+```
+
+For comprehensive SwiftUI instrumentation patterns, including navigation tracking, multi-step forms, and action handlers, see the [SwiftUI-Specific Patterns](/ios/6x/best-practices/common-patterns#swiftui-specific-patterns) guide.
+
 ## Integration with Other Features
 
 ### Breadcrumbs and Crash Reports
