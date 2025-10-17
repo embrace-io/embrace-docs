@@ -46,33 +46,46 @@ class CheckoutCoordinator {
 
     func startCheckout() {
         // Start a parent span for the whole checkout flow
-        checkoutSpan = Embrace.client?.buildSpan(name: "checkout_flow").startSpan()
-        checkoutSpan?.setAttribute(key: "cart_value", value: String(cart.totalValue))
-        checkoutSpan?.setAttribute(key: "items_count", value: String(cart.items.count))
+        // You can add attributes through the builder or after starting the span
+        checkoutSpan = Embrace.client?
+            .buildSpan(
+                name: "checkout_flow",
+                attributes: [
+                    "cart_value": String(cart.totalValue),
+                    "items_count": String(cart.items.count)
+                ]
+            )
+            .startSpan()
 
         navigateToShippingScreen()
     }
 
     func navigateToShippingScreen() {
         // Child span for the shipping step
-        guard let parentSpan = checkoutSpan else { return }
-        let shippingSpan = Embrace.client?.buildSpan(name: "checkout_shipping")
-            .setParent(parentSpan)
-            .startSpan()
+        // Use if-let to avoid blocking navigation if span tracking fails
+        if let parentSpan = checkoutSpan {
+            let shippingSpan = Embrace.client?.buildSpan(name: "checkout_shipping")
+                .setParent(parentSpan)
+                .startSpan()
+            // Span will be ended after shipping screen is shown
+            shippingSpan?.end()
+        }
         // Show shipping screen
         // ...
-        shippingSpan?.end()
     }
 
     func navigateToPaymentScreen() {
         // Child span for the payment step
-        guard let parentSpan = checkoutSpan else { return }
-        let paymentSpan = Embrace.client?.buildSpan(name: "checkout_payment")
-            .setParent(parentSpan)
-            .startSpan()
+        // Use if-let to avoid blocking navigation if span tracking fails
+        if let parentSpan = checkoutSpan {
+            let paymentSpan = Embrace.client?.buildSpan(name: "checkout_payment")
+                .setParent(parentSpan)
+                .startSpan()
+            // Span will be ended after payment screen is shown
+            paymentSpan?.end()
+        }
         // Show payment screen
         // ...
-        paymentSpan?.end()
     }
 
     func completeCheckout(success: Bool) {
@@ -380,6 +393,17 @@ class BackgroundTaskManager {
 
 SwiftUI's reactive view system can present unique challenges for instrumentation. Views can re-render frequently due to state changes, and lifecycle methods may be called multiple times. These patterns help you avoid duplicate telemetry and create accurate user journey tracking.
 
+:::tip Best Practice
+For SwiftUI apps, **we strongly recommend using Embrace's view modifiers and macros** for automatic view tracking instead of manual breadcrumbs. These built-in tools handle view lifecycle complexities and prevent duplicate tracking automatically.
+
+**Reserve manual instrumentation for:**
+- **User actions** (button taps, form submissions, gestures)
+- **Business logic events** (checkout completion, purchases, feature usage)
+- **Custom workflows** that aren't automatically captured
+
+This approach provides cleaner code, reduces instrumentation errors, and ensures consistent tracking across your app. The patterns shown below are for cases where manual instrumentation is necessary.
+:::
+
 ### Avoiding Duplicate Breadcrumbs in View Lifecycle
 
 SwiftUI views re-render when their state changes, which can cause `onAppear` to be called multiple times. This leads to duplicate breadcrumbs that inflate user flow metrics and incorrectly show high abandonment rates.
@@ -474,7 +498,7 @@ struct CheckoutView: View {
 
 ### Navigation-Based Breadcrumb Tracking
 
-For navigation flows, track breadcrumbs in navigation events rather than view lifecycle:
+For simple navigation flows, track breadcrumbs in navigation events rather than view lifecycle:
 
 ```swift
 struct ProductListView: View {
@@ -501,6 +525,10 @@ struct ProductListView: View {
     }
 }
 ```
+
+:::note
+For more complex navigation flows with multiple steps or when you need centralized navigation tracking, consider using a coordinator pattern as shown in the [Multi-Step Form Tracking](#multi-step-form-tracking) section below.
+:::
 
 ### User Action Tracking in SwiftUI
 
