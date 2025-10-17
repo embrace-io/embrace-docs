@@ -85,11 +85,11 @@ and temporal proximity.
 **Domain Priority**:
 
 1. **First-party domains or document load domains**: 1.0x - 1.4x (scaled by proximity)
-    - These failures are most severe as they represent calls to endpoints owned by the application
+   - These failures are most severe as they represent calls to endpoints owned by the application
 2. **Third-party domains**: 1.0x - 1.2x (scaled by proximity)
-    - Moderate severity for general third-party failures
+   - Moderate severity for general third-party failures
 3. **Ad/Analytics domains**: 0.8x (fixed)
-    - Lower severity as these are typically non-critical to core functionality
+   - Lower severity as these are typically non-critical to core functionality
 
 **Proximity Scaling** (for first-party and third-party):
 
