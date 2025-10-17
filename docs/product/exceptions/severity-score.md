@@ -14,7 +14,31 @@ Embrace automatically calculates a severity score for every exception to help yo
 affecting your users. The severity score is a value between 0 and 1, where higher scores indicate more severe exceptions
 that require immediate attention.
 
-## How It Works
+## Viewing Severity Scores in the Dashboard
+
+In the Embrace dashboard, exceptions are grouped by their stack trace line and displayed as a list. Each row represents
+a group of exception events that share the same location in your code.
+
+![Exceptions dashboard showing severity scores](/images/exceptions-severity-score-dashboard.png)
+
+The severity score column displays the **average severity score** across all exception events in that group. This
+average helps you quickly identify which exception groups are causing the most severe issues for your users.
+
+Additional columns provide context for prioritization:
+
+- **Events**: Total count of exception occurrences in this group
+- **Devices**: Unique devices affected by this exception
+- **Users**: Proportion of your user base experiencing this exception
+- **Versions**: Version range where this exception has been observed
+
+By combining the average severity score with these metrics, you can prioritize exceptions that are both severe and
+widespread. For example, an exception with a high severity score affecting a large percentage of users should be
+addressed before a similarly severe exception affecting only a few devices.
+
+Hovering over a severity score reveals a tooltip showing the confidence level for the average value calculated for that
+group, and the standard deviation for more insight into the distribution of scores within the group.
+
+## How it works
 
 The severity score algorithm combines a **base severity** with multiple **contextual multipliers** to produce a final
 score that reflects both the nature of the exception and the circumstances under which it occurred.
@@ -133,22 +157,3 @@ Calculation:
 
 Final Score: 0.84
 ```
-
-## Viewing Severity Scores in the Dashboard
-
-In the Embrace dashboard, exceptions are grouped by their stack trace line and displayed as a list. Each row represents
-a group of exception events that share the same location in your code.
-
-The severity score column displays the **average severity score** across all exception events in that group. This
-average helps you quickly identify which exception groups are causing the most severe issues for your users.
-
-Additional columns provide context for prioritization:
-
-- **Number of Events**: Total count of exception occurrences in this group
-- **Number of Devices**: Unique devices affected by this exception
-- **Percentage of Users**: Proportion of your user base experiencing this exception
-- **Min/Max Version**: Version range where this exception has been observed
-
-By combining the average severity score with these metrics, you can prioritize exceptions that are both severe and
-widespread. For example, an exception with a high severity score affecting a large percentage of users should be
-addressed before a similarly severe exception affecting only a few devices.
