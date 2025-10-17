@@ -51,8 +51,8 @@ struct NewEmbraceApp: App {
 
 For more information, see:
 
-- [Basic Setup](/ios/6x/getting-started/basic-setup.md)
-- [Configuration Options](/ios/6x/getting-started/configuration-options.md)
+- [Basic Setup](/ios/6x/getting-started/basic-setup)
+- [Configuration Options](/ios/6x/getting-started/configuration-options)
 
 ## Moments to Traces Transition
 
@@ -240,14 +240,324 @@ The following features have been removed or significantly changed in 6.x:
 - View lifecycle tracking via `startView`/`endView` (use spans with `SpanType.ux` instead)
 - Extension Insights
 - Network Request logging (will be available in future versions)
+- Custom Flow classes (`EMBCustomFlow`, `EMBPurchaseFlow`, `EMBRegistrationFlow`, `EMBSubscriptionPurchaseFlow`) - use custom traces with spans instead (see migration examples below)
+
+## Custom Flow Classes Migration
+
+In the 5.x SDK, specialized flow classes provided convenience methods for tracking common user flows. In 6.x, these have been replaced with the more flexible custom traces API using OpenTelemetry spans.
+
+### EMBCustomFlow Migration
+
+The `EMBCustomFlow` class has been removed. Replace it with custom spans that provide the same functionality with more flexibility.
+
+**5.x Implementation:**
+
+```swift
+// Create and start a custom flow
+let customFlow = EMBCustomFlow(name: "onboarding_flow")
+customFlow.momentStart()
+
+// Add properties to the flow
+customFlow.momentAddProperty("user_type", value: "new_user")
+
+// Complete successfully
+customFlow.momentComplete()
+
+// Or fail with error
+// customFlow.momentFail()
+```
+
+**6.x Implementation:**
+
+```swift
+// Create and start a custom span
+let onboardingSpan = Embrace.client?.buildSpan(
+    name: "onboarding_flow",
+    type: .ux
+).startSpan()
+
+// Add attributes to the span
+onboardingSpan?.setAttribute(key: "user_type", value: "new_user")
+
+// Complete successfully
+onboardingSpan?.end()
+
+// Or end with error
+// onboardingSpan?.end(errorCode: .failure)
+```
+
+For more complex flows, use child spans to track individual steps:
+
+```swift
+let onboardingSpan = Embrace.client?.buildSpan(
+    name: "onboarding_flow",
+    type: .ux
+).startSpan()
+
+// Track individual onboarding steps as child spans
+Embrace.recordSpan(
+    name: "profile_setup",
+    parent: onboardingSpan,
+    type: .ux
+) { stepSpan in
+    // Perform profile setup
+}
+
+Embrace.recordSpan(
+    name: "preferences_configuration",
+    parent: onboardingSpan,
+    type: .ux
+) { stepSpan in
+    // Configure preferences
+}
+
+onboardingSpan?.end()
+```
+
+### EMBPurchaseFlow Migration
+
+The `EMBPurchaseFlow` class has been removed. Use custom spans to track purchase flows with relevant attributes.
+
+**5.x Implementation:**
+
+```swift
+let purchaseFlow = EMBPurchaseFlow(productId: "premium_monthly", price: "$9.99")
+purchaseFlow.momentStart()
+
+// Add custom properties
+purchaseFlow.momentAddProperty("payment_method", value: "credit_card")
+
+// Complete purchase
+purchaseFlow.momentComplete()
+```
+
+**6.x Implementation:**
+
+```swift
+let purchaseSpan = Embrace.client?.buildSpan(
+    name: "purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "premium_monthly",
+        "price": "$9.99",
+        "payment_method": "credit_card"
+    ]
+).startSpan()
+
+// Add dynamic attributes during the flow
+purchaseSpan?.setAttribute(key: "transaction_id", value: transactionId)
+
+// Complete successfully
+purchaseSpan?.end()
+
+// Or end with error if purchase fails
+// purchaseSpan?.end(errorCode: .failure)
+```
+
+For a more comprehensive purchase flow with multiple stages:
+
+```swift
+let purchaseSpan = Embrace.client?.buildSpan(
+    name: "purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "premium_monthly",
+        "price": "$9.99"
+    ]
+).startSpan()
+
+// Track payment validation
+Embrace.recordSpan(
+    name: "payment_validation",
+    parent: purchaseSpan,
+    type: .performance
+) { validationSpan in
+    // Validate payment method
+    validationSpan?.setAttribute(key: "validation_result", value: "success")
+}
+
+// Track purchase confirmation
+Embrace.recordSpan(
+    name: "purchase_confirmation",
+    parent: purchaseSpan,
+    type: .ux
+) { confirmSpan in
+    // Process confirmation
+    confirmSpan?.setAttribute(key: "confirmation_sent", value: "true")
+}
+
+purchaseSpan?.end()
+```
+
+### EMBRegistrationFlow Migration
+
+The `EMBRegistrationFlow` class has been removed. Use custom spans to track user registration flows.
+
+**5.x Implementation:**
+
+```swift
+let registrationFlow = EMBRegistrationFlow()
+registrationFlow.momentStart()
+
+// Add properties
+registrationFlow.momentAddProperty("registration_method", value: "email")
+
+// Complete registration
+registrationFlow.momentComplete()
+```
+
+**6.x Implementation:**
+
+```swift
+let registrationSpan = Embrace.client?.buildSpan(
+    name: "registration_flow",
+    type: .ux,
+    attributes: [
+        "registration_method": "email"
+    ]
+).startSpan()
+
+// Add dynamic attributes
+registrationSpan?.setAttribute(key: "user_id", value: newUserId)
+
+// Complete successfully
+registrationSpan?.end()
+
+// Or end with error if registration fails
+// registrationSpan?.end(errorCode: .failure)
+```
+
+Track individual registration steps with child spans:
+
+```swift
+let registrationSpan = Embrace.client?.buildSpan(
+    name: "registration_flow",
+    type: .ux,
+    attributes: [
+        "registration_method": "email"
+    ]
+).startSpan()
+
+// Track email verification step
+Embrace.recordSpan(
+    name: "email_verification",
+    parent: registrationSpan,
+    type: .ux
+) { verifySpan in
+    // Send and verify email
+    verifySpan?.setAttribute(key: "verification_method", value: "code")
+}
+
+// Track profile creation step
+Embrace.recordSpan(
+    name: "profile_creation",
+    parent: registrationSpan,
+    type: .ux
+) { profileSpan in
+    // Create user profile
+    profileSpan?.setAttribute(key: "profile_complete", value: "true")
+}
+
+registrationSpan?.end()
+```
+
+### EMBSubscriptionPurchaseFlow Migration
+
+The `EMBSubscriptionPurchaseFlow` class has been removed. Use custom spans to track subscription purchases.
+
+**5.x Implementation:**
+
+```swift
+let subscriptionFlow = EMBSubscriptionPurchaseFlow(
+    productId: "annual_premium",
+    price: "$99.99",
+    period: "annual"
+)
+subscriptionFlow.momentStart()
+
+// Add properties
+subscriptionFlow.momentAddProperty("auto_renew", value: "true")
+
+// Complete subscription
+subscriptionFlow.momentComplete()
+```
+
+**6.x Implementation:**
+
+```swift
+let subscriptionSpan = Embrace.client?.buildSpan(
+    name: "subscription_purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "annual_premium",
+        "price": "$99.99",
+        "period": "annual",
+        "auto_renew": "true"
+    ]
+).startSpan()
+
+// Add dynamic subscription details
+subscriptionSpan?.setAttribute(key: "subscription_id", value: subscriptionId)
+subscriptionSpan?.setAttribute(key: "start_date", value: startDate)
+
+// Complete successfully
+subscriptionSpan?.end()
+```
+
+For detailed subscription flow tracking:
+
+```swift
+let subscriptionSpan = Embrace.client?.buildSpan(
+    name: "subscription_purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "annual_premium",
+        "price": "$99.99",
+        "period": "annual"
+    ]
+).startSpan()
+
+// Track subscription selection
+Embrace.recordSpan(
+    name: "subscription_selection",
+    parent: subscriptionSpan,
+    type: .ux
+) { selectionSpan in
+    selectionSpan?.setAttribute(key: "plan_selected", value: "annual")
+}
+
+// Track payment processing
+Embrace.recordSpan(
+    name: "subscription_payment",
+    parent: subscriptionSpan,
+    type: .performance
+) { paymentSpan in
+    paymentSpan?.setAttribute(key: "payment_processor", value: "stripe")
+}
+
+// Track subscription activation
+Embrace.recordSpan(
+    name: "subscription_activation",
+    parent: subscriptionSpan,
+    type: .ux
+) { activationSpan in
+    activationSpan?.setAttribute(key: "activation_status", value: "active")
+}
+
+subscriptionSpan?.end()
+```
+
+### Additional Resources
+
+For more detailed examples of tracking complex user flows, including e-commerce checkout and navigation flows, see the [Custom Traces](/ios/6x/manual-instrumentation/custom-traces) documentation.
 
 ## Next Steps
 
 After migrating to the 6.x SDK, we recommend:
 
-1. Review the [Core Concepts](/ios/6x/core-concepts/index.md) documentation to understand the new architecture
-2. Explore the new [Automatic Instrumentation](/ios/6x/automatic-instrumentation/index.md) capabilities
-3. Learn about [Manual Instrumentation](/ios/6x/manual-instrumentation/index.md) for custom traces and logs
+1. Review the [Core Concepts](/ios/6x/core-concepts/) documentation to understand the new architecture
+2. Explore the new [Automatic Instrumentation](/ios/6x/automatic-instrumentation/) capabilities
+3. Learn about [Manual Instrumentation](/ios/6x/manual-instrumentation/) for custom traces and logs
 
 ## Need Help?
 
