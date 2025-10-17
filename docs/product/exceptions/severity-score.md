@@ -99,20 +99,20 @@ and temporal proximity.
 - **5-10 seconds**: 40% of range
 - **> 10 seconds**: 1.0x (neutral)
 
-#### 5. User Tap Multiplier
+#### 5. User click multiplier
 
 **Range**: 1.0x - 1.15x
 
-Exceptions that occur shortly after a user interaction (tap) receive increased severity, as they represent issues
-triggered directly by user actions.
+Exceptions that occur shortly after a user click receive increased severity, as they represent issues triggered directly
+by user actions.
 
-The multiplier is based on how recently the tap occurred before the exception:
+The multiplier is based on how recently the click occurred before the exception:
 
-- **< 1 second after tap**: 1.15x
-- **1-3 seconds after tap**: 1.12x
-- **3-5 seconds after tap**: 1.09x
-- **5-10 seconds after tap**: 1.06x
-- **> 10 seconds or no tap**: 1.0x
+- **< 1 second after click**: 1.15x
+- **1-3 seconds after click**: 1.12x
+- **3-5 seconds after click**: 1.09x
+- **5-10 seconds after click**: 1.06x
+- **> 10 seconds or no click**: 1.0x
 
 ## Example Calculation
 
@@ -126,7 +126,7 @@ Multipliers:
 - Time to Session End: 1.15x (session ended 2 seconds later)
 - Failed Span: 1.0x (no failed spans nearby)
 - Failed Network: 1.12x (third-party domain failed 4 seconds before)
-- User Tap: 1.09x (tap occurred 4 seconds before)
+- User Click: 1.09x (click occurred 4 seconds before)
 
 Calculation:
 0.60 × 1.0 × 1.15 × 1.0 × 1.12 × 1.09 = 0.84
