@@ -56,6 +56,7 @@ WebViewCaptureService.Options(
 When enabled, the service will remove query parameters from URLs before capturing them. This is useful for preventing sensitive data in query strings (like tokens or user IDs) from being captured.
 
 **Example:**
+
 - Original URL: `https://example.com/page?token=abc123&user=456`
 - Captured URL (with `stripQueryParams: true`): `https://example.com/page`
 
@@ -75,6 +76,7 @@ webView(_:decidePolicyForNavigationResponse:decisionHandler:)
 ```
 
 **Data captured:**
+
 - Current WebView URL
 - HTTP status code (200, 404, 500, etc.)
 
@@ -89,6 +91,7 @@ webView(_:didFail:withError:)
 ```
 
 **Data captured:**
+
 - Current WebView URL
 - Error code from NSError
 
