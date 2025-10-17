@@ -1,24 +1,22 @@
 ---
 title: WebView Monitoring
-description: Track WKWebView performance and errors in your iOS app
+description: Track WKWebView navigation events in your iOS app
 sidebar_position: 7
 ---
 
 # WebView Monitoring
 
-The Embrace SDK's `WebViewCaptureService` automatically instruments `WKWebView` instances in your app, providing visibility into web content loading, performance, and error states.
+The Embrace SDK's `WebViewCaptureService` automatically instruments `WKWebView` instances in your app, providing visibility into web content navigation events and HTTP response codes.
 
 ## How WebView Monitoring Works
 
-The WebView capture service monitors the lifecycle of `WKWebView` instances by swizzling key methods in the `WKWebView` and `WKNavigationDelegate` classes. This allows Embrace to create OpenTelemetry spans that track:
+The WebView capture service monitors the navigation lifecycle of `WKWebView` instances by swizzling key methods in the `WKWebView` and `WKNavigationDelegate` classes. This allows Embrace to create OpenTelemetry span events that capture:
 
-- Page load timing
-- Navigation events and redirects
-- Content load errors
-- JavaScript errors (optional)
-- Resource loading performance (optional)
+- URLs loaded in the WebView
+- HTTP status codes from navigation responses
+- Navigation failure error codes
 
-This data helps you identify slow-loading web content, troubleshoot web errors, and optimize hybrid app experiences.
+This data helps you identify failed web content loads, troubleshoot navigation errors, and monitor which URLs are accessed in your hybrid app experiences.
 
 ## Configuration
 
@@ -27,9 +25,7 @@ You can customize WebView monitoring behavior when initializing the Embrace SDK:
 ```swift
 let services = CaptureServiceBuilder()
     .add(.webView(options: WebViewCaptureService.Options(
-        captureResourceLoads: true,
-        captureJavaScriptErrors: true,
-        ignoredURLPatterns: ["analytics\\.example\\.com"]
+        stripQueryParams: true
     )))
     .addDefaults()
     .build()
@@ -45,195 +41,156 @@ try Embrace
     .start()
 ```
 
-## Customization Options
+## Configuration Options
 
-### Resource Load Tracking
+### Strip Query Parameters
 
-Enable tracking of individual resources loaded by your WebViews:
-
-```swift
-WebViewCaptureService.Options(
-    captureResourceLoads: true
-)
-```
-
-When enabled, the service will capture data about images, scripts, stylesheets, and other resources loaded by your web content, helping you identify performance bottlenecks.
-
-### JavaScript Error Capture
-
-Capture JavaScript errors that occur in your WebView content:
+Control whether query parameters are removed from captured URLs:
 
 ```swift
 WebViewCaptureService.Options(
-    captureJavaScriptErrors: true
+    stripQueryParams: true
 )
 ```
 
-This provides visibility into client-side errors in your web content, helping you detect and fix issues that might otherwise be difficult to reproduce.
+When enabled, the service will remove query parameters from URLs before capturing them. This is useful for preventing sensitive data in query strings (like tokens or user IDs) from being captured.
 
-### URL Filtering
+**Example:**
+- Original URL: `https://example.com/page?token=abc123&user=456`
+- Captured URL (with `stripQueryParams: true`): `https://example.com/page`
 
-You can ignore specific URL patterns to prevent sensitive content or high-volume endpoints from being captured:
-
-```swift
-WebViewCaptureService.Options(
-    ignoredURLPatterns: [
-        "analytics\\.example\\.com",
-        "tracking\\.service\\.com",
-        "example\\.com/private/.*"
-    ]
-)
-```
-
-The patterns support regular expressions for flexible matching.
+**Default:** `false` (query parameters are included)
 
 ## Navigation Events Captured
 
-The WebView monitoring service tracks the following key events:
+The WebView monitoring service intercepts the following `WKNavigationDelegate` methods to capture navigation data:
 
-### Page Navigation Start
+### Navigation Response
 
-A span is created when navigation to a URL begins:
+Captured when the WebView receives an HTTP response:
 
 ```swift
-// Automatically captured when WebView starts loading content
-webView(_:didStartProvisionalNavigation:)
+// Automatically captured via method swizzling
+webView(_:decidePolicyForNavigationResponse:decisionHandler:)
 ```
 
-### Page Navigation Complete
+**Data captured:**
+- Current WebView URL
+- HTTP status code (200, 404, 500, etc.)
 
-The span is ended when the page finishes loading successfully:
+### Navigation Failures
 
-```swift
-// Automatically captured when WebView finishes loading
-webView(_:didFinish:)
-```
-
-### Navigation Errors
-
-If navigation fails, the span is ended with error information:
+Captured when navigation fails either provisionally or after committing:
 
 ```swift
-// Automatically captured when WebView encounters an error
+// Automatically captured via method swizzling
 webView(_:didFailProvisionalNavigation:withError:)
 webView(_:didFail:withError:)
 ```
 
+**Data captured:**
+- Current WebView URL
+- Error code from NSError
+
 ## Integrating with WKNavigationDelegate
 
-The WebView capture service works automatically when using standard WKWebView instances. If you implement your own `WKNavigationDelegate`, Embrace will still capture the navigation events through method swizzling.
+The WebView capture service works automatically with all `WKWebView` instances. If you implement your own `WKNavigationDelegate`, Embrace injects a proxy delegate that:
 
-For advanced usage, you can implement the `WebViewCaptureServiceDelegate` to add custom attributes or control which WebViews are monitored:
+1. Captures the navigation data needed by Embrace
+2. Forwards all delegate method calls to your original delegate
 
-```swift
-class MyWebViewDelegate: WebViewCaptureServiceDelegate {
-    func shouldCaptureWebView(_ webView: WKWebView) -> Bool {
-        // Only monitor WebViews with a specific tag
-        return webView.tag == 100
-    }
+Your delegate implementation will continue to work exactly as before. The proxy handles all standard `WKNavigationDelegate` methods including:
 
-    func willStartNavigation(_ webView: WKWebView, 
-                             to url: URL) -> [String: String]? {
-        // Add custom attributes when navigation starts
-        return [
-            "content_type": "article",
-            "is_cached": webView.isLoading ? "false" : "true"
-        ]
-    }
-
-    func didFinishNavigation(_ webView: WKWebView, 
-                             to url: URL) -> [String: String]? {
-        // Add custom attributes when navigation completes
-        return [
-            "page_title": webView.title ?? "Unknown"
-        ]
-    }
-
-    func didFailNavigation(_ webView: WKWebView, 
-                          to url: URL, 
-                          with error: Error) -> [String: String]? {
-        // Add custom attributes when navigation fails
-        return [
-            "error_code": (error as NSError).code.description,
-            "can_retry": "true"
-        ]
-    }
-}
-
-// Then use this delegate when configuring the service
-let myDelegate = MyWebViewDelegate()
-WebViewCaptureService.Options(
-    delegate: myDelegate
-)
-```
+- `webView(_:decidePolicyForNavigationAction:decisionHandler:)`
+- `webView(_:didStartProvisionalNavigation:)`
+- `webView(_:didCommitNavigation:)`
+- `webView(_:didFinishNavigation:)`
+- `webView(_:didReceiveAuthenticationChallenge:completionHandler:)`
+- And all other delegate methods
 
 ## Understanding WebView Data
 
-WebView navigation is captured as OpenTelemetry spans with the following attributes:
+WebView navigation is captured as OpenTelemetry span events with the following attributes:
 
-- `http.url`: The requested URL
-- `emb.webview.page_title`: The title of the loaded page
-- `emb.webview.error`: Error information (if an error occurred)
-- `emb.webview.resources_loaded`: Count of resources loaded (if resource tracking is enabled)
-- `emb.webview.resources_failed`: Count of failed resource loads (if resource tracking is enabled)
-- `emb.webview.js_errors`: Count of JavaScript errors (if JavaScript error capture is enabled)
+- `emb.type`: Always set to `"webview"` to identify the event type
+- `emb.webview.url`: The WebView's current URL (with or without query parameters based on configuration)
+- `emb.webview.error_code`: The HTTP status code or error code (only included when the status code is not 200)
 
-For resource loads (when enabled), child spans are created with:
+**Event name:** `emb-webview`
 
-- `http.url`: The resource URL
-- `emb.webview.resource_type`: The type of resource (image, script, stylesheet, etc.)
-- `emb.webview.resource_size`: Size of the resource in bytes
-- `emb.webview.resource_error`: Error information (if the resource failed to load)
+### Data Capture Timing
+
+Data is captured at these specific moments:
+
+1. **When navigation policy is decided** - Captures URL and HTTP status code from the response
+2. **When provisional navigation fails** - Captures URL and error code before page commits
+3. **When navigation fails** - Captures URL and error code after page commits
+
+### What is NOT Captured
+
+The WebView capture service is designed to be lightweight and privacy-conscious. It does **not** capture:
+
+- Page content (HTML, CSS, JavaScript source)
+- JavaScript errors or console logs
+- Individual resource loads (images, scripts, stylesheets)
+- Page titles or metadata
+- DOM structure or elements
+- Form data or user input
+- Cookies or local storage
+- Detailed performance timing metrics
+- Network request/response bodies
+
+## Monitored Load Methods
+
+The service automatically monitors all standard WebView load methods:
+
+```swift
+// All these methods are automatically monitored
+webView.load(URLRequest(url: url))
+webView.loadHTMLString(html, baseURL: baseURL)
+webView.loadFileURL(fileURL, allowingReadAccessTo: directoryURL)
+webView.load(data, mimeType: mimeType, characterEncodingName: encoding, baseURL: baseURL)
+```
 
 ## Example Use Cases
 
-### Hybrid App Performance Monitoring
+### Hybrid App Navigation Monitoring
 
-Track the performance of web content within your native app to ensure consistent user experience.
+Track which web pages users navigate to within your app's embedded WebViews.
 
 ### Web Content Error Detection
 
-Identify when web content fails to load and understand the root causes.
+Identify when web content fails to load and understand HTTP error codes returned.
 
-### Third-Party Content Analysis
+### Third-Party Content Monitoring
 
-Monitor the performance impact of third-party scripts and resources embedded in your web content.
+Monitor the availability and response codes of third-party web content embedded in your app.
 
 ### Progressive Web App (PWA) Integration
 
-Ensure smooth performance when transitioning between native views and PWA components.
+Track navigation events when transitioning between native views and PWA components.
+
+## Known Compatibility Issues
+
+The WebView capture service includes built-in compatibility protection:
+
+- **SafeDK/AppLovin**: The service will not install if SafeDK classes are detected in memory to prevent conflicts with their proxying mechanisms
+
+If you encounter issues with other SDKs that proxy `WKNavigationDelegate`, please contact Embrace support.
 
 ## Best Practices
 
-- Be selective about enabling resource tracking to avoid excessive data collection
-- Use URL filtering to exclude analytics and tracking scripts that generate high volumes of data
-- Add custom attributes to differentiate between different types of web content
-- Consider implementing a content preloading strategy for critical web content
-- Use the JavaScript error capture to detect and fix client-side issues
+- Enable `stripQueryParams` if your WebView URLs contain sensitive data in query strings
+- Use WebView monitoring in conjunction with network monitoring for complete visibility
+- Monitor the captured error codes to identify patterns in navigation failures
+- Test WebView functionality after enabling monitoring to ensure compatibility with your delegate implementations
 
-## Manual Instrumentation
+## Technical Implementation Details
 
-For advanced use cases, you can manually instrument specific WebView operations:
+The service uses method swizzling to intercept:
 
-```swift
-// Get the current WebView span for custom instrumentation
-if let webViewSpan = Embrace.client?.getActiveWebViewSpan(for: myWebView) {
-    // Add custom attributes
-    webViewSpan.setAttribute(key: "custom_attribute", value: "custom_value")
+1. **WKWebView load methods** - To ensure the proxy delegate is set before navigation begins
+2. **WKWebView.navigationDelegate setter** - To inject the Embrace proxy delegate
+3. **WKNavigationDelegate methods** - To capture navigation data while forwarding to your delegate
 
-    // Create a child span for a specific operation
-    let childSpan = webViewSpan.createChildSpan(name: "js-execution")
-    childSpan.start()
-
-    // Execute JavaScript
-    myWebView.evaluateJavaScript("calculateComplexValue()") { result, error in
-        if let error = error {
-            childSpan.recordError(error)
-            childSpan.setStatus(.error)
-        }
-        childSpan.end()
-    }
-}
-```
-
- <!-- TODO: Add examples of how WebView data appears in the Embrace dashboard, including load time distributions and error visualizations  -->
+All captured data is stored as OpenTelemetry span events and follows the same data retention and upload policies as other Embrace telemetry data.
