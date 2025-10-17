@@ -1,7 +1,7 @@
 ---
 title: Dashboard Changelog
 description: Changelog for the Embrace Dashboard
-sidebar_position: 100
+sidebar_position: 99
 ---
 
 # Embrace Dashboard Changelog
