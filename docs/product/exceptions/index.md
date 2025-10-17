@@ -5,7 +5,7 @@ sidebar_position: 7
 
 # Exceptions
 
-Embrace captures exceptions to help you understand and prioritize issues affecting user experiences.
+You can use Embrace to capture exceptions and prioritize issues affecting your users' experiences.
 
 ## Exceptions vs. Crashes
 
