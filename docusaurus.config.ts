@@ -515,9 +515,9 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20250924", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20251016", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://get.embrace.io/fall-otel-panel?utm_source=website&utm_medium=website&utm_campaign=docs-banner">WEBINAR Oct 8\: Pumpkin spice and OpenTelemetry for mobile. Hear from Android and Swift SIG leaders on advancing mobile support in OpenTelemetry.</a>',
+        '<a target="_blank" href="https://get.embrace.io/embrace-grafana-cloud-webinar?utm_source=website&utm_medium=website&utm_campaign=docs-banner">WEBINAR Nov 6: End-to-end mobile observability with Embrace and Grafana Cloud. Learn how to connect Embrace mobile telemetry with Grafana Cloud data.</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },

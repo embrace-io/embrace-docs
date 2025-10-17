@@ -30,23 +30,6 @@ Note that the `.add(event:)` method adds a SpanEvent to the session span. Embrac
 
 ## Advanced Breadcrumb Usage
 
-### Adding Breadcrumbs with Properties
-
-You can add additional context to breadcrumbs using properties:
-
-```swift
-Embrace.client?.add(
-    event: .breadcrumb(
-        "User completed purchase",
-        properties: [
-            "item_count": "3",
-            "total_amount": "29.99",
-            "payment_method": "credit_card"
-        ]
-    )
-)
-```
-
 ### Breadcrumbs in Different Contexts
 
 #### User Actions
@@ -71,9 +54,9 @@ Embrace.client?.add(event: .breadcrumb("Memory warning received"))
 
 ```swift
 // Important business events
-Embrace.client?.add(event: .breadcrumb("Cart updated", properties: ["items": "5"]))
-Embrace.client?.add(event: .breadcrumb("Search performed", properties: ["query": "running shoes"]))
-Embrace.client?.add(event: .breadcrumb("Filter applied", properties: ["category": "electronics"]))
+Embrace.client?.add(event: .breadcrumb("Cart updated"))
+Embrace.client?.add(event: .breadcrumb("Search performed"))
+Embrace.client?.add(event: .breadcrumb("Filter applied"))
 ```
 
 ## Best Practices
@@ -115,7 +98,7 @@ Embrace.client?.add(event: .breadcrumb("Error"))
 Breadcrumbs are designed to be lightweight, but consider:
 
 - **Frequency**: Don't add breadcrumbs in tight loops or high-frequency callbacks
-- **Content**: Keep messages concise and properties minimal
+- **Content**: Keep messages concise
 - **Timing**: Add breadcrumbs at meaningful moments, not every minor state change
 
 ### SwiftUI View Lifecycle Considerations
@@ -215,9 +198,9 @@ Breadcrumbs appear in several places in the Embrace dashboard:
 ### E-commerce App
 
 ```swift
-Embrace.client?.add(event: .breadcrumb("Product search", properties: ["category": "shoes"]))
-Embrace.client?.add(event: .breadcrumb("Product viewed", properties: ["product_id": "12345"]))
-Embrace.client?.add(event: .breadcrumb("Added to cart", properties: ["quantity": "1"]))
+Embrace.client?.add(event: .breadcrumb("Product search"))
+Embrace.client?.add(event: .breadcrumb("Product viewed"))
+Embrace.client?.add(event: .breadcrumb("Added to cart"))
 Embrace.client?.add(event: .breadcrumb("Checkout initiated"))
 Embrace.client?.add(event: .breadcrumb("Payment completed"))
 ```
@@ -225,19 +208,19 @@ Embrace.client?.add(event: .breadcrumb("Payment completed"))
 ### Media App
 
 ```swift
-Embrace.client?.add(event: .breadcrumb("Content browsing", properties: ["section": "trending"]))
-Embrace.client?.add(event: .breadcrumb("Video selected", properties: ["duration": "120s"]))
+Embrace.client?.add(event: .breadcrumb("Content browsing"))
+Embrace.client?.add(event: .breadcrumb("Video selected"))
 Embrace.client?.add(event: .breadcrumb("Playback started"))
-Embrace.client?.add(event: .breadcrumb("Playback paused", properties: ["position": "45s"]))
+Embrace.client?.add(event: .breadcrumb("Playback paused"))
 ```
 
 ### Social App
 
 ```swift
 Embrace.client?.add(event: .breadcrumb("Feed refreshed"))
-Embrace.client?.add(event: .breadcrumb("Post liked", properties: ["post_type": "image"]))
+Embrace.client?.add(event: .breadcrumb("Post liked"))
 Embrace.client?.add(event: .breadcrumb("Comment added"))
-Embrace.client?.add(event: .breadcrumb("Profile viewed", properties: ["user_type": "friend"]))
+Embrace.client?.add(event: .breadcrumb("Profile viewed"))
 ```
 
 ## Next Steps
