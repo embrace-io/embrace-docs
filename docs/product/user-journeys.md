@@ -5,12 +5,12 @@ sidebar_position: 101
 
 ## :tada: What's New
 
-We've heard your feedback! Through October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
+We've heard your feedback! Beginning in October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
 
-- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/custom-metrics-api/getting-started.md)
-- More options for start and end event markers
-- Better User Flow visualization markers in the [User Timeline](/product/sessions/user-timeline.md)
-- User Flow filters on all Issues pages and Sessions page
+- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/custom-metrics-api/getting-started.md).
+- More options for start and end event markers in User Flows.
+- Better User Flow visualization markers in the [User Timeline](/product/sessions/user-timeline.md).
+- User Flow filters on all Issues pages and on the Sessions page.
 
 ---
 
@@ -24,26 +24,26 @@ User Flows are a powerful way to understand the sequence of events that users ex
 
 You can find User Flows under the Performance tab in the sidebar on the left of your dashboard.
 
-## Key Events Used in User Flows
+## Key events used in User Flows
 
 User Flows are built using various telemetry events:
 
 - [**Spans:**](/product/traces/technical-details) Represent a specific operation within your application.
 - [**Logs:**](/product/logs/) Detailed messages generated during user interactions.
-- [**Breadcrumbs:**](/android/features/breadcrumbs) Tracks the user's navigation path.
-- [**Network Events:**](/product/network/network-monitoring/) Captures data related to HTTP requests and responses.
-- Taps: See your relevant framework Tap Capture where supported.
-- Views, Custom Views, and Web Views: See your relevant framework documentation on Views, Custom Views, and Web Views.
+- [**Breadcrumbs:**](/android/features/breadcrumbs) Track the user's navigation path.
+- [**Network events:**](/product/network/network-monitoring/) Capture data related to HTTP requests and responses.
+- Taps: See your framework-relevant Tap Capture, where supported.
+- Views, Custom Views, and Web Views: See your framework-relevant documentation on Views, Custom Views, and Web Views.
 
 **Note:** While Traces provide detailed performance information, User Flows offer a more focused approach by connecting events around user behavior, making them easier to interpret and use for analysis.
 
-While instrumenting Traces can be useful in situations like this, they involve more rigid instrumentation and are more duration-focused than outcome and contributing event focused. User Flows allow you to quickly explore, modify, and view analytics that give you insights into user behaviors based on all of the events between two points.
+While instrumenting Traces can be useful in situations like this, they involve more rigid instrumentation and are more duration-focused than outcome and contributing event-focused. User Flows allow you to quickly explore, modify, and view analytics that give you insights into user behaviors based on all of the events between two points.
 
 ### Creating a User Flow
 
-To create a user flow, you will click on the Create User Flow button in the top right of the page. This will take you to the User Flow creation page where you can set them up.
+To create a User Flow, you will click on the "Create User Flow" button in the top right of the page. This will take you to the User Flow creation page where you can set them up.
 
-As an example, let's assume you have an eCommerce application. A key component of your user's experience would be searching for and rendering specific results pages. So, here you may want to set up a User Flow that starts at a Breadcrumb you already have for `Entered search` and finishes at the end of a Span named `inflateResultsView`.
+As an example, let's assume you have an e-commerce application. A key component of your user's experience would be searching for and rendering specific results pages. So, here you may want to set up a User Flow that starts at a Breadcrumb you already have for `Entered search` and finishes at the end of a Span named `inflateResultsView`.
 
 To create this User Flow, you will:
 
@@ -54,39 +54,39 @@ To create this User Flow, you will:
 3. Set a Timeout for your User Flow.\
    a. We recommend keeping these as short as possible, but they must be less than 5 minutes.
 
-**Wildcarding Patterns:**
+**Wildcarding patterns:**
 
 For high cardinality fields such as Logs, Breadcrumbs, and Network events, you can use wildcarding patterns to filter data. The "Test" button checks if your pattern matches existing data in your session data.
 
 - **Logs:** Checks the last 1 million rows.
-- **Breadcrumbs, Spans, Network Events:** Checks the last 24 hours of sessions.
+- **Breadcrumbs, spans, network events:** Checks the last 24 hours of sessions.
 
 <img src={require('@site/static/images/user-journeys/UJ-Create-Flow-Wildcarding.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
-**Note:** Newly created user flows collect data on a go-forward basis. This means that immediately after you create a new user flow, you may not see any data. As new sessions come in, you'll see data start to populate. Additionally, User Flows cannot be modified after being created. If you need to change them, you'll need to delete the existing User Flow and create a new one.
+**Note:** Newly-created User Flows collect data on a going-forward basis. This means that immediately after you create a new User Flow, you may not see any data. As new sessions come in, you'll see data start to populate. Additionally, User Flows cannot be modified after being created. If you need to change them, you'll need to delete the existing User Flow and create a new one.
 
-## User Flow Summary
+## User Flows Summary page
 
-On the User Flow summary page, you'll see a list of all of your currently configured User Flows with some useful information.
+On the User Flows Summary page, you'll see a list of all of your currently-configured User Flows with some useful information.
 
-- **Completion:** This is the percentage of User Flows that were seen that made it from the Start Event to the End Event inside of the time threshold and without exiting the app (find a less ambiguous term for "exiting"). This is shown in comparison across the time window you have selected.
-- **Abandon:** This is the percentage of User Flows that timed out or were abandoned through normal means (entered another flow, exited the app).
-- **Error:** These are the percentage of User Flows that ended in a crash.
-- **Session Volume:** This is the count of sessions that have been seen with this User Flow across the time selected.
+- **Completion:** This is the percentage of User Flows that were seen that made it from the Start Event to the End Event inside of the time threshold and without exiting the app. This is shown in comparison across the time window you have selected.
+- **Error:** This is the percentage of User Flows that ended in an issue.
+- **Abandon:** This is the percentage of User Flows that timed out or were abandoned through normal means (e.g., entered another flow, exited the app).
+- **Session Volume:** This is the count of sessions that contained this User Flow across the selected time window.
 
 <img src={require('@site/static/images/user-journeys/User-Flows-Summary.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
-## User Flow Details
+## User Flow Details page
 
-When you click on any of the User Flows you've created, you'll be taken to that User Flow's details page. Here you'll find some helpful tools to analyze your User Flows. You can see Completion Rates and Session Volume broken down by app version, as well as Issue Rates which are covered in detail below.
+When you click on any of the User Flows you've created, you'll be taken to that User Flow's details page. Here, you'll find some helpful tools to analyze your User Flows. You can see Completion Rates and Session Volume broken down by app version, as well as Issue Rates which are covered in detail below.
 
 ### Issue Rate
 
-In the Issue Rate tab, you get a couple sub-tabs. The first is Issue Distribution, and gives you an idea of the makeup of all Issues that are being seen during the selected User Flows in aggregate.
+The "Issue Rate" tab contains two sub-tabs. The first is "Issue Distribution", which gives you an idea of the makeup of all Issues that are being seen during the selected User Flows in aggregate.
 
-On the Properties Correlation sub-tab, you can dig into how certain attributes of your User Flows correlate to and make up outcomes. You can filter by specific outcomes, as well as select up to 3 different property keys to visualize in the treemap below. This can help you quickly find specific properties that are having outsized issues and reduce the space that you have to explore to find issues.
+On the "Properties Correlation" sub-tab, you can dig into how certain attributes of your User Flows correlate to, and make up, outcomes. You can filter by specific outcomes, as well as select up to 3 different property keys to visualize in the treemap below. This can help you quickly find specific properties that are having outsized issues and reduce the space that you have to explore to find issues.
 
-Hovering your mouse over the treemap you'll see a tooltip that breaks down the distribution of User Flow outcomes for flows with that specific property value. By clicking on the cell, you'll see the instance list below filter just for that attribute so you can easily find some example sessions to dig into.
+Hovering your mouse over the treemap, you'll see a tooltip that breaks down the distribution of User Flow outcomes for flows with that specific property value. By clicking on the cell, you'll see the instance list below filter just for that attribute so you can easily find some example sessions to dig into.
 
 <img src={require('@site/static/images/user-journeys/User-Flows-Details-Treemap.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
