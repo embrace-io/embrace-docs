@@ -397,6 +397,7 @@ SwiftUI's reactive view system can present unique challenges for instrumentation
 For SwiftUI apps, **we strongly recommend using Embrace's view modifiers and macros** for automatic view tracking instead of manual breadcrumbs. These built-in tools handle view lifecycle complexities and prevent duplicate tracking automatically.
 
 **Reserve manual instrumentation for:**
+
 - **User actions** (button taps, form submissions, gestures)
 - **Business logic events** (checkout completion, purchases, feature usage)
 - **Custom workflows** that aren't automatically captured
