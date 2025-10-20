@@ -85,6 +85,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/release-health/",
+            from: "/product/troubleshooting/release-health/",
+          },
+          {
             to: "/ios/6x/api-reference/configuration/",
             from: "/ios/open-source/integration/customizing-signals/",
           },
