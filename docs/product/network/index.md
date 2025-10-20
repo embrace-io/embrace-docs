@@ -1,6 +1,6 @@
 ---
 title: Network
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 # Getting Started
