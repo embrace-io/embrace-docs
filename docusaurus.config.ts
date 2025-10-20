@@ -85,6 +85,10 @@ const config: Config = {
       {
         redirects: [
           {
+            to: "/product/release-health/",
+            from: "/product/troubleshooting/release-health/",
+          },
+          {
             to: "/ios/6x/api-reference/configuration/",
             from: "/ios/open-source/integration/customizing-signals/",
           },
@@ -227,10 +231,6 @@ const config: Config = {
           {
             to: "/product/logs/logs-ui/",
             from: "/features/error-logs-tracking/",
-          },
-          {
-            to: "/product/troubleshooting/release-health/",
-            from: "/product/release-health/",
           },
           {
             to: "/product/troubleshooting/anr-reporting/",

@@ -13,7 +13,7 @@ Snoozed or closed issues that reopen will generate a slack or email alert assumi
 
 This documentation will explain all the available features for particular issues.
 
-*We plan to add support for additional insights around networking, logging and session events. We'll continue to update this doc as more and more features roll out.*
+<!-- TODO: See if this statement is true "*We plan to add support for additional insights around networking, logging and session events. We'll continue to update this doc as more and more features roll out.*" -->
 
 ## Crashes
 
@@ -64,7 +64,3 @@ You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-r
 ## Javascript Exceptions
 
 Exceptions are available for apps instrumented with the Embrace Web SDK, with entries pointing to the function or module responsible for the exception. You can see more information about trends over time and exception grouping in the [Exceptions](/product/troubleshooting/js-exceptions.md) page in the Troubleshooting tab.
-
----
-
-*We are continually iterating on this feature by adding more functionality in the coming weeks for different issue types (i.e. session events, rage taps). In the meantime, we'd love to know what you think! Your partnership got us this far so please don't hesitate to reach out via Slack or [support@embrace.com](mailto:support@embrace.com) for any questions or feedback.*

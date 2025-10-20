@@ -1,6 +1,6 @@
 ---
-title: Boards
-sidebar_position: 2
+title: Dashboards
+sidebar_position: 3
 ---
 
 # Dashboards
