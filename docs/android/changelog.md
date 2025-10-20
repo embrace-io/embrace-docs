@@ -10,6 +10,12 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.9.2
+
+*October 20, 2025*
+
+- Propagate arguments correctly when starting span directly via OTel API
+
 ## 7.9.1
 
 *August 29, 2025*
