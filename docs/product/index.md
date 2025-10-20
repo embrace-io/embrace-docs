@@ -31,19 +31,10 @@ For web apps, the Overview page will display **Core Web Vitals** scores and **Ja
 
 Embrace's dashboard features provide a rich view of mobile and web telemetry in every user session. Developers can draw insights by digging in to these features to find the needle in a haystack or by manipulating the entire dataset to find out about the success or impact of experiments.
 
+<!-- TODO add to these items here -->
 These features include:
 
 - [Issues](/product/issue-monitoring-and-work-flow.md): Spot user issues as they happen.
 - [User Sessions](/product/sessions/index.md): Dig into the details of every user session.
 - [Dashboards](/product/boards/index.md): Build rich representations of the technical details in your apps.
 - [Traces](/product/traces/index.md): Trace the key flows for every user's journey.
-
-<!-- TODO add to these items here -->
-
-<!-- 
-## Settings
-
-Embrace's dashboard also provides a broad set of capabilities for engineering team management and collaboration.
-
-These features include:
-TODO give a rundown of the items here -->

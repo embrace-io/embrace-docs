@@ -3,6 +3,8 @@ title: Logs
 sidebar_position: 10
 ---
 
+# Logs
+
 Logs let developers send realtime information from an app session. In Embrace's dashboard, the logs section gives you access to all logs emitted by your application, with full context of the resources in use.
 
 Our dashboard breaks down the various [use cases](/product/logs/logs-ui.md) for error, warning, and info logs from your application.
