@@ -35,8 +35,8 @@ By combining the average severity score with these metrics, you can prioritize e
 widespread. For example, an exception with a high severity score affecting a large percentage of users should be
 addressed before a similarly severe exception affecting only a few devices.
 
-Hovering over a severity score reveals a tooltip showing the confidence level for the average value calculated for that
-group, and the standard deviation for more insight into the distribution of scores within the group.
+Hovering over a severity score reveals a tooltip showing the confidence level (based on standard deviation) for the
+average value calculated for that group, to give more insight into the distribution of scores within the group.
 
 ## How it works
 
