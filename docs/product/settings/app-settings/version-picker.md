@@ -20,4 +20,3 @@ Developers use this tab to:
 - Hide deprecated or irrelevant versions from analytics views.
 - Fine-tune which versions are considered "top" for focused monitoring and alerting.
 - Quickly update version metadata without code changes.
-

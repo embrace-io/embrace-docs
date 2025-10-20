@@ -3,9 +3,12 @@ title: Crashes
 sidebar_position: 8
 ---
 
+# Crashes
+
 Embrace captures and makes sense of crashes when they happen, so you don't have to guess what interrupted the user experience.
 
 When you integrate the Embrace SDK in your mobile app, you’ll be able to:
+
 - get full [reports](/product/crashes/crash-reporting.md) and stack traces for 100% of crashes.
 - examine user [session](/product/sessions/) context around a crash, including user interactions, device state, and [networking](/product/network/) issues.
 - receive realtime [alerting](/product/alerting.md) with Slack, email, and JIRA, and configure [codeowners](/product/crashes/crash-tagging.md) to tag in the right members of your team.

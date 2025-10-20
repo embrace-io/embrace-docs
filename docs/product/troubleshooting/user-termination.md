@@ -12,6 +12,7 @@ User terminations are detected by the Embrace SDK when it receives a signal that
 ## Why is the User Terminations page helpful?
 
 What developers can learn from User Terminations page:
+
 - **User behavior:** High rates of user terminations may indicate user frustration, confusion, or dissatisfaction with the app experience (e.g., force-quitting due to freezes, slow performance, or unwanted background activity).
 - **Session health:** Tracking user terminations helps distinguish between organic exits and problematic ones (crashes, OOMs), providing a more accurate picture of app stability.
 - **Feature impact:** Spikes in user terminations after new releases or feature rollouts can highlight UX issues or regressions.

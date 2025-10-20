@@ -12,6 +12,7 @@ The Compare page enables developers to select and compare up to three app versio
 ## Important information on Compare
 
 Some key information on the Compare page:
+
 - **Session Outcomes:** Percentage of sessions without crash, force quit, ANR, or OOM, and breakdowns for each outcome type (e.g., crash rate, force quit rate).
 - **Health Indicators:** Metrics like low memory warnings, CPU pegged time, average session length, and ANR intervals, shown per version.
 - **Benchmarks:** Comparison of your app’s metrics against industry benchmarks or other apps.

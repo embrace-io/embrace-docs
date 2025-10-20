@@ -13,4 +13,3 @@ Developers use this tab to:
 - Ensure timestamps are shown in their local timezone for easier debugging.
 - Set UI themes for comfort and accessibility.
 - Streamline workflows by landing on the most relevant page per platform.
-

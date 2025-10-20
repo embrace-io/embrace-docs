@@ -233,7 +233,7 @@ const config: Config = {
             from: "/features/error-logs-tracking/",
           },
           {
-            to: "/product/troubleshooting/release-health/",
+            to: "/product/release-health/",
             from: "/product/release-health/",
           },
           {
