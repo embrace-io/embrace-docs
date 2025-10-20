@@ -1,5 +1,5 @@
 ---
-title: Core Web Vitals
+title: Core Web Vitals [WebSDK]
 sidebar_position: 5
 ---
 

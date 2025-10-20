@@ -1,6 +1,6 @@
 ---
 title: User Journeys
-sidebar_position: 101
+sidebar_position: 6
 ---
 
 ## :tada: What's New
