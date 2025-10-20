@@ -50,8 +50,8 @@ The base severity depends on whether the exception was handled:
 - **Handled exceptions**: 0.30 base severity
 - **Unhandled exceptions**: 0.60 base severity
 
-Unhandled exceptions receive a higher base score because they typically indicate more serious problems that could lead
-to application crashes or degraded user experience.
+Unhandled exceptions receive a higher base score because they typically indicate more serious problems that could cause
+the application to stop functioning or lead to degraded user experience.
 
 ### Contextual Multipliers
 
@@ -74,15 +74,15 @@ application code.
 **Range**: 0.8x - 1.2x
 
 This multiplier considers how quickly the session ended after the exception occurred, which can indicate whether the
-exception prevent the user from using the application.
+exception prevented the user from using the application.
 
-| Time to Session End | Multiplier | Impact                                  |
-|---------------------|------------|-----------------------------------------|
+| Time to Session End | Multiplier | Impact                                        |
+|---------------------|------------|-----------------------------------------------|
 | < 1 second          | 1.2x       | Exception likely caused immediate session end |
-| 1-3 seconds         | 1.15x      | Very likely related to session end      |
-| 3-5 seconds         | 1.10x      | Possibly related to session end         |
-| 5-10 seconds        | 1.0x       | Neutral                                 |
-| > 10 seconds        | 0.8x       | Session continued normally              |
+| 1-3 seconds         | 1.15x      | Very likely related to session end            |
+| 3-5 seconds         | 1.10x      | Possibly related to session end               |
+| 5-10 seconds        | 1.0x       | Neutral                                       |
+| > 10 seconds        | 0.8x       | Session continued normally                    |
 
 #### 3. Failed Span Multiplier
 
