@@ -132,10 +132,10 @@ by user actions.
 
 The multiplier is based on how recently the click occurred before the exception:
 
-- **< 1 second after click**: 1.15x
-- **1-3 seconds after click**: 1.12x
-- **3-5 seconds after click**: 1.09x
-- **5-10 seconds after click**: 1.06x
+- **< 1 second**: 1.15x
+- **1-3 seconds**: 1.12x
+- **3-5 seconds**: 1.09x
+- **5-10 seconds**: 1.06x
 - **> 10 seconds or no click**: 1.0x
 
 ## Example Calculation
