@@ -74,7 +74,7 @@ application code.
 **Range**: 0.8x - 1.2x
 
 This multiplier considers how quickly the session ended after the exception occurred, which can indicate whether the
-exception caused a crash.
+exception prevent the user from using the application.
 
 | Time to Session End | Multiplier | Impact                                  |
 |---------------------|------------|-----------------------------------------|
