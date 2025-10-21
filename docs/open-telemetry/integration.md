@@ -18,29 +18,10 @@ Currently, traces and logs can be exported using the [Embrace Android SDK](https
 
 ### Android
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
-
 ```kotlin
 Embrace.getInstance().addSpanExporter(mySpanExporter)
 Embrace.getInstance().addLogRecordExporter(myLogExporter)
 ```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-Embrace.getInstance().addSpanExporter(mySpanExporter);
-Embrace.getInstance().addLogRecordExporter(myLogExporter);
-```
-
-</TabItem>
-</Tabs>
 
 :::info
 Please note that exporters must be configured _before_ the Embrace Android SDK is started. Exporters added after the SDK has already been started will not be used.
@@ -58,9 +39,6 @@ To see this working locally, [LoggingSpanExporter](https://github.com/open-telem
 
 You can send your data to any generic OpenTelemetry Collector by using any Android-compatible exporter. Note that not all Java SpanExporter or LogRecordExporter can be used on Android.
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
-
 ```kotlin
 // gRPC through an OTel Collector in a local container
 val customDockerExporter = OtlpGrpcSpanExporter.builder()
@@ -69,21 +47,6 @@ val customDockerExporter = OtlpGrpcSpanExporter.builder()
 
 Embrace.getInstance().addSpanExporter(customDockerExporter)
 ```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-// gRPC through an OTel Collector in a local container
-OtlpGrpcSpanExporter customDockerExporter = OtlpGrpcSpanExporter.builder()
-    .setEndpoint("https://otel-collector.mydomain.com:4317")
-    .build();
-
-Embrace.getInstance().addSpanExporter(customDockerExporter);
-```
-
-</TabItem>
-</Tabs>
 
 :::warning
 **Network requests to OpenTelemetry Collectors should not be logged**
@@ -95,9 +58,6 @@ To prevent an infinite loop of network requests spans, any requests used to expo
 
 To send telemetry to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/), set up the collector and add an authorization token as a header.
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
-
 ```kotlin
 // HTTPS to an OTel Collector in Grafana Cloud
 val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
@@ -107,22 +67,6 @@ val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
 
 Embrace.getInstance().addSpanExporter(grafanaCloudExporter)
 ```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-// HTTPS to an OTel Collector in Grafana Cloud
-OtlpHttpSpanExporter grafanaCloudExporter = OtlpHttpSpanExporter.builder()
-    .setEndpoint("https://myinstance.grafana.net/otlp/v1/traces")
-    .addHeader("Authorization", "YourToken")
-    .build();
-
-Embrace.getInstance().addSpanExporter(grafanaCloudExporter);
-```
-
-</TabItem>
-</Tabs>
 
 ### Apple
 
@@ -228,9 +172,6 @@ To obtain an implementation of `OpenTelemetry`, the method `getOpenTelemetry()` 
 
 For instance, the [OkHttp Instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/a98b559a61c2781a6c994253d93c54ec0e89888a/instrumentation/okhttp/okhttp-3.0/library/README.md) can be used manually in the following ways:
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
-
 ```kotlin
 val openTelemetry = Embrace.getInstance().getOpenTelemetry()
 val okHttpTelemetry = OkHttpTelemetry.builder(openTelemetry).build()
@@ -239,18 +180,3 @@ val request = Request.Builder().url("https://api.mydomain.com").build()
 
 okHttpTelemetry.newCallFactory(okHttpClient).execute(request)
 ```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-OpenTelemetry openTelemetry = Embrace.getInstance().getOpenTelemetry();
-OkHttpTelemetry okHttpTelemetry = OkHttpTelemetry.builder(openTelemetry).build();
-OkHttpClient okHttpClient = OkHttpClient.Builder().build();
-Request request = Request.Builder().url("https://api.mydomain.com").build();
-
-okHttpTelemetry.newCallFactory(okHttpClient).execute(request);
-```
-
-</TabItem>
-</Tabs>

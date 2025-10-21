@@ -38,14 +38,6 @@ If your configuration is correct, you don't need to do anything else, you are al
 
 If you don't want the notifications to get captured automatically, then you can avoid the setup from the previous section and when you receive a notification in your code, make the following call manually:
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
-
 ```kotlin
 val isNotification = true
 val hasData = true
@@ -60,24 +52,3 @@ Embrace.getInstance().logPushNotification(
     hasData
 )
 ```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-boolean isNotification = true
-boolean hasData = true
-Embrace.getInstance().logPushNotification(
-    "my-notification-title",
-    "my-notification-body",
-    "my-notification-topic",
-    "my-notification-id",
-    5,
-    2,
-    isNotification,
-    hasData
-);
-```
-
-</TabItem>
-</Tabs>
