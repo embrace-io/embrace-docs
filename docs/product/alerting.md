@@ -1,7 +1,7 @@
 ---
 title: Alerting
 description: Alerting
-sidebar_position: 97
+sidebar_position: 12
 ---
 
 # Alerting
