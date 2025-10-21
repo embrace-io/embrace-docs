@@ -6,11 +6,6 @@ sidebar_position: 5
 
 # Session Reporting
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 
 Here are the steps you'll be taking to create your first session.
@@ -47,25 +42,6 @@ Future<void> main() async {
 
 The call to start the Embrace Android SDK should be placed in the `onCreate` method of an `Application` subclass:
 
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="java" label="Java">
-
-```java
-import io.embrace.android.embracesdk.Embrace;
-import android.app.Application;
-
-public final class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Embrace.getInstance().start(this);
-    }
-}
-```
-
-</TabItem>
-<TabItem value="kotlin" label="Kotlin">
-
 ```kotlin
 import android.app.Application
 import io.embrace.android.embracesdk.Embrace
@@ -77,9 +53,6 @@ class MyApplication : Application() {
     }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 ## Build and Run the Application
 

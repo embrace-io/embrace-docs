@@ -29,29 +29,10 @@ In order to use this feature, you will need to follow two steps:
 1. Make sure your app is using the latest version of the Embrace SDK
 2. Implement the API call after starting the SDK to receive the state of the last run.
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
-
 ```kotlin
 // The SDK must be started before checking the last run end state
 val didLastRunCrash = Embrace.getInstance().lastRunEndState == LastRunEndState.CRASH
 ```
-
-</TabItem>
-<TabItem value="java" label="Java">
-
-```java
-// The SDK must be started before checking the last run end state
-boolean didLastRunCrash = Embrace.getInstance().getLastRunEndState() == LastRunEndState.CRASH;
-```
-
-</TabItem>
-</Tabs>
 
 **Important Notes**
 
