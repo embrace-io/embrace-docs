@@ -14,6 +14,10 @@ Key information on the Version Picker tab:
 - **Top Versions:** Configure the maximum number of "top" versions to display (up to a set limit) and set a session percentage threshold. Only versions meeting this threshold are considered top versions.
 - **Available Versions:** Dropdowns are populated from the list of all known app versions.
 
+:::info Note
+While new versions are automatically added to Embrace when we receive sessions with that version, Latest Release, Top Versions, and Hidden Versions must be set manually.
+:::
+
 Developers use this tab to:
 
 - Ensure the dashboard highlights the most relevant app versions for their team.
