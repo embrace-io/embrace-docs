@@ -139,21 +139,20 @@ class SampleApplication(private val nativeLibName: String) : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val embrace = Embrace.getInstance()
-        embrace.start(this)
-        val libLoadStart = embrace.getSdkCurrentTimeMs()
+        Embrace.start(this)
+        val libLoadStart = Embrace.getSdkCurrentTimeMs()
         try {
             System.loadLibrary(nativeLibName)
-            val libLoadEnd = embrace.getSdkCurrentTimeMs()
-            embrace.addStartupTraceChildSpan(
+            val libLoadEnd = Embrace.getSdkCurrentTimeMs()
+            Embrace.addStartupTraceChildSpan(
                 name = "native-lib-loaded",
                 startTimeMs = libLoadStart,
                 endTimeMs = libLoadEnd,
             )
-            embrace.addStartupTraceAttribute("loaded_native_lib_name", nativeLibName)
+            Embrace.addStartupTraceAttribute("loaded_native_lib_name", nativeLibName)
         } catch (t: Throwable) {
-            val libLoadFailed = embrace.getSdkCurrentTimeMs()
-            embrace.addStartupTraceChildSpan(
+            val libLoadFailed = Embrace.getSdkCurrentTimeMs()
+            Embrace.addStartupTraceChildSpan(
                 name = "native-lib-load-failed",
                 startTimeMs = libLoadStart,
                 endTimeMs = libLoadFailed,
@@ -162,7 +161,7 @@ class SampleApplication(private val nativeLibName: String) : Application() {
                 errorCode = ErrorCode.FAILURE
             )
         }    
-        embrace.applicationInitEnd()
+        Embrace.applicationInitEnd()
     }
 }
 ```
@@ -257,24 +256,22 @@ The following sample `Activity` will add a custom span and attribute to the Acti
 @CustomLoadTracedActivity
 class SampleActivity : ComponentActivity() {
 
-    private val embrace = Embrace.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        embrace.addLoadTraceAttribute(this, "cold_load", "true")
+        Embrace.addLoadTraceAttribute(this, "cold_load", "true")
     }
 
     override fun onPostResume() {
         super.onPostResume()
 
-        val cacheLoadStartTime = embrace.getSdkCurrentTimeMs()
+        val cacheLoadStartTime = Embrace.getSdkCurrentTimeMs()
 
         // fetch data from local cache
 
-        val cacheLoadEndTime = embrace.getSdkCurrentTimeMs()
+        val cacheLoadEndTime = Embrace.getSdkCurrentTimeMs()
 
-        embrace.addLoadTraceChildSpan(this, "load-cache", cacheLoadStartTime, cacheLoadEndTime)
-        embrace.activityLoaded(this)
+        Embrace.addLoadTraceChildSpan(this, "load-cache", cacheLoadStartTime, cacheLoadEndTime)
+        Embrace.activityLoaded(this)
     }
 }
 

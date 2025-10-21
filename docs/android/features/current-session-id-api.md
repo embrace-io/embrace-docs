@@ -18,7 +18,7 @@ In order to use this feature, you will need to follow two steps:
 2. Implement the API call to obtain the current Session ID. The method will return either a `String` that is the SessionId, or null if there is no active session.
 
 ```kotlin
-Embrace.getInstance().currentSessionId
+Embrace.currentSessionId
 ```
 
 :::warning Important
