@@ -21,6 +21,7 @@ The SDK automatically instruments several aspects of your app with minimal confi
 - **Tap Capture**: Records user interactions with your app through UI touch events
 - **Push Notifications**: Tracks push notification receipt and handling
 - **WebView Monitoring**: Monitors WKWebView URL loading and error events
+- **Hang Detection**: Monitors main thread hangs and UI freezes to identify unresponsive behavior
 
 ## Error and Crash Reporting
 
