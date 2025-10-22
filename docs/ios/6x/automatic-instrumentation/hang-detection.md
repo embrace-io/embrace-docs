@@ -13,6 +13,7 @@ The Embrace SDK automatically monitors your application's main thread for hangs 
 A hang occurs when your app's main thread (UI thread) is blocked for too long, preventing the app from responding to user interactions. During a hang, your app may appear frozen—buttons don't respond, animations stop, and the UI becomes unresponsive.
 
 Common causes of hangs include:
+
 - Performing heavy computations on the main thread
 - Synchronous network requests
 - Large file I/O operations
@@ -36,6 +37,7 @@ The SDK uses a dedicated high-priority watchdog thread that monitors the main `R
 - **Continuous Monitoring**: Tracks hang duration and updates while the hang persists
 
 **Detection Mechanism:**
+
 - A `CFRunLoopObserver` monitors the main RunLoop for activity
 - A separate high-priority watchdog thread runs a timer that checks for blockages
 - When the main thread fails to respond within the threshold, a hang is reported
@@ -198,6 +200,7 @@ Hang events are reported as OpenTelemetry spans and events:
 ### Hang Span
 
 Each hang creates a span with:
+
 - **Span Name**: `emb-thread-blockage`
 - **Span Type**: `thread_blockage` (performance span)
 - **Attributes**:
@@ -209,6 +212,7 @@ Each hang creates a span with:
 ### Stack Trace Samples
 
 Each stack trace sample creates a span event with:
+
 - **Event Name**: `thread_blockage_sample`
 - **Attributes**:
   - `emb.type`: Event type identifier (always "thread_blockage_sample")
@@ -219,6 +223,7 @@ Each stack trace sample creates a span event with:
 ### MetricKit Logs
 
 System-level hangs create OpenTelemetry logs with:
+
 - **Log Type**: `ios.hang`
 - **Severity**: Warning
 - **Attributes**:
@@ -249,6 +254,7 @@ For production apps, the default remote configuration provides conservative sett
 - `samplesPerHang: 0` - Captures initial stack trace only, minimizing overhead
 
 This configuration:
+
 - Captures hang occurrence, duration, and the initial blocking stack trace
 - Minimizes performance impact
 - Provides sufficient data for identifying problematic areas
@@ -273,6 +279,7 @@ class DebugHangConfig: EmbraceConfigurable {
 ```
 
 This provides:
+
 - Multiple stack snapshots throughout each hang (up to 10 samples)
 - Better visibility into what code is blocking the main thread and how it evolves
 - More context for reproducing and fixing issues
@@ -286,7 +293,7 @@ Stack trace sampling requires briefly suspending the main thread, which adds min
 When analyzing hang data in the Embrace dashboard:
 
 1. **Look for Patterns**: Are hangs concentrated in specific views or features?
-2. **Check Duration**: Short hangs (<500ms) vs. long hangs (>1s) may have different causes
+2. **Check Duration**: Short hangs (`<500ms`) vs. long hangs (`>1s`) may have different causes
 3. **Review Stack Traces**: Identify the common blocking operations
 4. **Correlate with Sessions**: Do hangs occur more frequently in certain user segments?
 5. **Monitor Frequency**: Track whether fixes reduce hang occurrence
