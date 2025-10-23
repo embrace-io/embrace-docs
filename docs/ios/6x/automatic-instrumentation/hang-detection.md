@@ -61,23 +61,7 @@ class CustomConfig: EmbraceConfigurable {
 
     // Required EmbraceConfigurable properties with defaults
     var isSDKEnabled: Bool = true
-    var isBackgroundSessionEnabled: Bool = false
-    var isNetworkSpansForwardingEnabled: Bool = false
-    var isUiLoadInstrumentationEnabled: Bool = true
-    var isWalModeEnabled: Bool = true
-    var viewControllerClassNameBlocklist: [String] = []
-    var uiInstrumentationCaptureHostingControllers: Bool = false
-    var isSwiftUiViewInstrumentationEnabled: Bool = true
-    var isMetricKitEnabled: Bool = false
-    var isMetricKitInstrumentationEnabled: Bool = false
-    var isMetricKitCrashCaptureEnabled: Bool = false
-    var metricKitCrashSignals: [String] = []
-    var isMetricKitHangCaptureEnabled: Bool = false
-    var spanEventsLimits = SpanEventsLimits()
-    var logsLimits = LogsLimits()
-    var internalLogLimits = InternalLogLimits()
-    var networkPayloadCaptureRules = [NetworkPayloadCaptureRule]()
-    var useLegacyUrlSessionProxy: Bool = false
+    // ... add all other configs here
 
     func update(completion: (Bool, (any Error)?) -> Void) {
         completion(false, nil)
