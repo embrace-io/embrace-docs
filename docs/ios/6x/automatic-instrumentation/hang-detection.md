@@ -24,6 +24,7 @@ Common causes of hangs include:
 Even hangs as short as 250 milliseconds can be noticeable to users and negatively impact the user experience.
 
 For more information about understanding and improving hangs in iOS apps, see Apple's documentation:
+
 - [Understanding Hangs in Your App](https://developer.apple.com/documentation/xcode/understanding-hangs-in-your-app)
 - [Improving App Responsiveness](https://developer.apple.com/documentation/xcode/improving-app-responsiveness)
 
