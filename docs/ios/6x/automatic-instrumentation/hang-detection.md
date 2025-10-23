@@ -23,6 +23,10 @@ Common causes of hangs include:
 
 Even hangs as short as 250 milliseconds can be noticeable to users and negatively impact the user experience.
 
+For more information about understanding and improving hangs in iOS apps, see Apple's documentation:
+- [Understanding Hangs in Your App](https://developer.apple.com/documentation/xcode/understanding-hangs-in-your-app)
+- [Improving App Responsiveness](https://developer.apple.com/documentation/xcode/improving-app-responsiveness)
+
 ## How Hang Detection Works
 
 The SDK automatically monitors the main thread using a dedicated watchdog thread. When the main thread is blocked for longer than 249 milliseconds (Apple's recommended threshold), a hang is detected and reported with:
@@ -139,10 +143,6 @@ Hangs are automatically correlated with:
 ### Default Settings
 
 The default configuration (`hangPerSession: 200`, `samplesPerHang: 0`) is optimized for production with minimal overhead.
-
-### Debugging
-
-When debugging hang issues, increase `samplesPerHang` to 5-10 for more detailed stack traces.
 
 ### Common Hang Sources
 
