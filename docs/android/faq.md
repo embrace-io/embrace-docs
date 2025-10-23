@@ -334,3 +334,5 @@ The `Semaphore.tryAcquire` ANR isn’t caused by `OnApplicationPause`—it’s c
 ### Do you support Android TV and Amazon Fire TV?
 
 Yes. Currently, Amazon Fire TV apps are Android TV apps built on FireOS under the hood. Our SDK supports Android TV out of the box, so you can integrate our SDK like you would with any other Android mobile app.
+
+Note that future iterations of Amazon Fire TV may incorporate VegaOS, a Linux-based operating system that lacks compatibility with Android.
