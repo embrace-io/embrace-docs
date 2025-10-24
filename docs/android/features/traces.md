@@ -71,7 +71,7 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attrib
 
 ```kotlin
 // recording will not begin until the span has been started
-val activityLoad = Embrace.getInstance().createSpan("load-activity")
+val activityLoad = Embrace.createSpan("load-activity")
 ```
 
 ### Create and start span atomically
@@ -79,7 +79,7 @@ val activityLoad = Embrace.getInstance().createSpan("load-activity")
 ```kotlin
 // activityLoad will either be a span that has already started or null if 
 // the creation or start attempt was unsuccessful
-val activityLoad = Embrace.getInstance().startSpan("load-activity")
+val activityLoad = Embrace.startSpan("load-activity")
 ```
 
 ### Create a Span that automatically terminates
@@ -87,7 +87,7 @@ val activityLoad = Embrace.getInstance().startSpan("load-activity")
 By default spans do not terminate until `stop()` has been invoked. If your span might take a long time & you want it to stop when a session ends you should supply the `AutoTerminationMode` parameter when creating the span.
 
 ```kotlin
-val span = Embrace.getInstance().startSpan("my-span", AutoTerminationMode.ON_BACKGROUND)
+val span = Embrace.startSpan("my-span", AutoTerminationMode.ON_BACKGROUND)
 ```
 
 :::info
@@ -98,7 +98,7 @@ Spans created with `recordSpan` or `recordCompletedSpan` will stop once the func
 
 ```kotlin
 val appStartTimeMillis = getAppStartTime()
-val appLaunchSpan = Embrace.getInstance().createSpan("app-launch")
+val appLaunchSpan = Embrace.createSpan("app-launch")
 
 // begin recording a span that has a different start time than 
 // the current time by starting its root span with a specific timestamp
@@ -108,9 +108,8 @@ appLaunchSpan?.start(startTimeMs = appStartTimeMillis)
 ### Add attributes and span events
 
 ```kotlin
-val embrace = Embrace.getInstance()
-val activityLoad = embrace.startSpan("load-activity")
-val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this) }
+val activityLoad = Embrace.startSpan("load-activity")
+val imageLoad = activityLoad?.apply { Embrace.startSpan("load-image", this) }
 
 val image = fetchImage()
 
@@ -124,12 +123,11 @@ imageLoad?.addAttribute("image-name", image.name)
 ### Add links
 
 ```kotlin
-val embrace = Embrace.getInstance()
-val activityLoad = embrace.startSpan("load-activity")
+val activityLoad = Embrace.startSpan("load-activity")
 
 displayLoader()
 
-val showLoader = embrace.startSpan("showLoader")?.apply {
+val showLoader = Embrace.startSpan("showLoader")?.apply {
     if (activityLoad != null) {
         activityLoad.addLink(
             linkedSpan = this,
@@ -142,7 +140,7 @@ val showLoader = embrace.startSpan("showLoader")?.apply {
 ### Stop span for operation that ended earlier
 
 ```kotlin
-val activityLoad = Embrace.getInstance().startSpan("load-activity")
+val activityLoad = Embrace.startSpan("load-activity")
 
 // some time passes after the operation being time has finished
 
@@ -152,7 +150,7 @@ activityLoad?.stop(endTimeMs = getActualEndTimeMilllis())
 ### Stop span for an operation that failed
 
 ```kotlin
-val activityLoad = Embrace.getInstance().startSpan("load-activity")
+val activityLoad = Embrace.startSpan("load-activity")
 
 try {
     loadActivity()
@@ -168,18 +166,17 @@ try {
 ### Add a child span
 
 ```kotlin
-val embrace = Embrace.getInstance()
-val activityLoad = embrace.startSpan("load-activity")
+val activityLoad = Embrace.startSpan("load-activity")
 
 // create and start a child span if activityLoad is created and started successfully
-val imageLoad = activityLoad?.apply { embrace.startSpan("load-image", this) }
+val imageLoad = activityLoad?.apply { Embrace.startSpan("load-image", this) }
 ```
 
 ### Record a span for an operation that occurred in the past
 
 ```kotlin
 // record a span based on start and end times that are in the past
-Embrace.getInstance().recordCompletedSpan(
+Embrace.recordCompletedSpan(
     name = "activity-create", 
     startTimeMs = startTimeMillis, 
     endTimeMs = endTimeMillis
@@ -189,13 +186,12 @@ Embrace.getInstance().recordCompletedSpan(
 ### Get a reference to an in-progress span with its spanId
 
 ```kotlin
-val embrace = Embrace.getInstance()
-val activityLoad = embrace.startSpan("load-activity")
+val activityLoad = Embrace.startSpan("load-activity")
 val activityLoadSpanId = activityLoad?.spanId
 
 /* some other part of the code without access to activityLoad */
 
-embrace.getSpan(activityLoadSpanId)?.stop()
+Embrace.getSpan(activityLoadSpanId)?.stop()
 ```
 
 ## Export to OpenTelemetry Collectors
@@ -207,8 +203,8 @@ While than one exporter for each signal can be configured, be aware of the perfo
 If non-trivial work is being done in the configured exporters that do not need to block the instrumentation thread, consider doing the heavy-lifting asynchronously.
 
 ```kotlin
-Embrace.getInstance().addSpanExporter(mySpanExporter)
-Embrace.getInstance().addLogRecordExporter(myLogExporter)
+Embrace.addSpanExporter(mySpanExporter)
+Embrace.addLogRecordExporter(myLogExporter)
 ```
 
 :::info
@@ -243,7 +239,7 @@ val customDockerExporter = OtlpGrpcSpanExporter.builder()
     .setEndpoint("https://otel-collector.mydomain.com:4317")
     .build()
 
-Embrace.getInstance().addSpanExporter(customDockerExporter)
+Embrace.addSpanExporter(customDockerExporter)
 ```
 
 #### Sending telemetry to Grafana Cloud
@@ -257,7 +253,7 @@ val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
     .addHeader("Authorization", "YourToken")
     .build()
 
-Embrace.getInstance().addSpanExporter(grafanaCloudExporter)
+Embrace.addSpanExporter(grafanaCloudExporter)
 ```
 
 ### Avoiding sending telemetry to Embrace
