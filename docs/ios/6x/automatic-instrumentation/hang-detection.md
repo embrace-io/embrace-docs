@@ -92,7 +92,11 @@ In production, hang detection is typically controlled via Embrace's remote confi
 
 - **`hangPerSession`** (default: 200): Maximum hangs to capture per session. Set to `0` to disable hang detection.
 
-- **`samplesPerHang`** (default: 0): Number of stack trace samples to capture during a hang. Default `0` captures only the initial stack trace. Increase to 5-10 when debugging to see how the stack evolves over time.
+- **`samplesPerHang`** (default: 0): Number of stack trace samples to capture during a hang. Default `0` means no stack traces are captured. Increase to 5-10 when debugging to see how the stack evolves over time.
+
+:::info
+When attached to a debugger, hang detection is off. If you wish to enable it, set the `EMBAllowWatchdogInDebugger` environment variable to `1`.
+:::
 
 ### Hang Detection Threshold
 
