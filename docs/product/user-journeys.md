@@ -22,7 +22,11 @@ With Embrace’s User Journeys feature, you can move beyond simple funnel analys
 
 User Flows are a powerful way to understand the sequence of events that users experience within your app. They’re created by defining the connection between two specific telemetry events, allowing you to track key performance elements between actions. Think about User Flows as the first order logical grouping of all of the base telemetry events you can emit into a contextualized view of a user's experience.
 
-You can find User Flows under the Performance tab in the sidebar on the left of your dashboard.
+You can find User Flows under the Performance tab in the sidebar on the left of your dashboard. Here is a brief walkthrough video of User Flows in Embrace. Continue reading below for more details on creating and refining User Flows.
+
+<div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_2yXGHfpW70" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## Key events used in User Flows
 
