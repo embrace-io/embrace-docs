@@ -33,11 +33,12 @@ sidebar_position: 4
 ## 6.13.2
 
 *Oct 27, 2025*
-* Fixes
-    * Fixed issues related to the internal metadata migration database.
-* Improvements
-    * Updated OpenTelementry dependency to accept versions from v2.0.2 (instead of exact).
-    * Added support for swift-syntax 6 (support from v509 to v602).
+
+- Fixes
+  - Fixed issues related to the internal metadata migration database.
+- Improvements
+  - Updated OpenTelementry dependency to accept versions from v2.0.2 (instead of exact).
+  - Added support for swift-syntax 6 (support from v509 to v602).
 
 ## 6.13.1
 
