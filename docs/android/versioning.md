@@ -1,4 +1,4 @@
-# Embrace Android SDK versioning strategy
+# Versioning strategy
 
 The Embrace Android SDK is built to evolve with the Android ecosystem while maintaining a stable integration experience.  
 This document explains how we choose which versions of Android build tools and technologies to support, and what guarantees you can expect when upgrading.
