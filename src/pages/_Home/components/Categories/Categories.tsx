@@ -109,9 +109,9 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     },
     {
       title: "Tutorials",
-      description: "Check out our tutorials to easily learn about our product.",
+      description: "Check out our quick tutorials to learn about our product.",
       icon: <IconBrandYoutube {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "https://www.youtube.com/channel/UC8EjpY1ol3QGdp2qk1uZARQ",
+      linkTo: "https://www.youtube.com/playlist?list=PLMZXEczVnK9SSdtKf0QSyfAutdCFwrw8o",
     },
   ],
   OpenTelemetry: [
