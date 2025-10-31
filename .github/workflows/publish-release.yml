@@ -1,0 +1,59 @@
+name: Publish Release
+
+on:
+  workflow_run:
+    workflows: ["Draft Release", "CI - Docusaurus"]
+    types:
+      - completed
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    permissions:
+      contents: write
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Get latest draft release
+        id: get_release
+        run: |
+          latest_draft=$(gh release list --limit 100 --json isDraft,tagName,createdAt \
+            | jq -r '[.[] | select(.isDraft == true)] | sort_by(.createdAt) | last | .tagName')
+
+          if [ -z "$latest_draft" ] || [ "$latest_draft" = "null" ]; then
+            echo "No draft release found, skipping"
+            echo "tag=" >> $GITHUB_OUTPUT
+          else
+            echo "Found draft release: ${latest_draft}"
+            echo "tag=${latest_draft}" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if both workflows completed successfully
+        id: check_workflows
+        if: steps.get_release.outputs.tag != ''
+        run: |
+          draft_run=$(gh run list --workflow "Draft Release" --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          docusaurus_run=$(gh run list --workflow "CI - Docusaurus" --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+
+          if [ -n "$draft_run" ] && [ -n "$docusaurus_run" ]; then
+            echo "Both workflows completed successfully"
+            echo "ready=true" >> $GITHUB_OUTPUT
+          else
+            echo "Waiting for both workflows to complete"
+            echo "ready=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Release
+        if: steps.check_workflows.outputs.ready == 'true'
+        run: |
+          echo "Publishing release ${{ steps.get_release.outputs.tag }}"
+          gh release edit ${{ steps.get_release.outputs.tag }} --draft=false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
