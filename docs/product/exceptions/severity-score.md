@@ -138,6 +138,22 @@ The multiplier is based on how recently the click occurred before the exception:
 - **5-10 seconds**: 1.06x
 - **> 10 seconds or no click**: 1.0x
 
+#### 6. Empty Root Node Multiplier
+
+**Range**: 1.0x - 2.0x
+
+Exceptions that are followed by an empty root node being rendered receive drastically increased severity, as this
+typically indicates the exception caused the application UI to break or become blank, severely impacting user
+experience.
+
+The multiplier is based on how soon the empty root node was rendered after the exception:
+
+- **< 1 second**: 2.0x
+- **1-3 seconds**: 1.8x
+- **3-5 seconds**: 1.6x
+- **5-10 seconds**: 1.4x
+- **> 10 seconds or no empty root node**: 1.0x
+
 ## Example Calculation
 
 Here's an example of how the severity score is calculated:
@@ -151,9 +167,10 @@ Multipliers:
 - Failed Span: 1.0x (no failed spans nearby)
 - Failed Network: 1.12x (third-party domain failed 4 seconds before)
 - User Click: 1.09x (click occurred 4 seconds before)
+- Empty Root Node: 1.0x (no empty root node rendered)
 
 Calculation:
-0.60 × 1.0 × 1.15 × 1.0 × 1.12 × 1.09 = 0.84
+0.60 × 1.0 × 1.15 × 1.0 × 1.12 × 1.09 × 1.0 = 0.84
 
 Final Score: 0.84
 ```
