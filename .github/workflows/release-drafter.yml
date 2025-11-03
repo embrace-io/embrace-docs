@@ -1,7 +1,10 @@
 name: Draft Release
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI - Deploy", "CI - Docusaurus"]
+    types:
+      - completed
     branches: [ main ]
 
 jobs:
@@ -10,6 +13,7 @@ jobs:
       contents: write
       pull-requests: read
     runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v5
@@ -30,11 +34,36 @@ jobs:
           echo "version=${next_version}" >> $GITHUB_OUTPUT
 
       - uses: embrace-io/release-drafter@v6
+        id: draft_release
         with:
           config-name: release-drafter.yml
           disable-autolabeler: true
           name: ${{ steps.calver.outputs.version }}
           tag: ${{ steps.calver.outputs.version }}
           version: ${{ steps.calver.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if both workflows completed successfully
+        id: check_workflows
+        run: |
+          deploy_run=$(gh run list --workflow "CI - Deploy" --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          docusaurus_run=$(gh run list --workflow "CI - Docusaurus" --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+
+          if [ -n "$deploy_run" ] && [ -n "$docusaurus_run" ]; then
+            echo "Both workflows completed successfully"
+            echo "ready=true" >> $GITHUB_OUTPUT
+          else
+            echo "Waiting for both workflows to complete"
+            echo "ready=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Release
+        if: steps.check_workflows.outputs.ready == 'true'
+        run: |
+          echo "Publishing release ${{ steps.calver.outputs.version }}"
+          gh release edit ${{ steps.calver.outputs.version }} --draft=false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
