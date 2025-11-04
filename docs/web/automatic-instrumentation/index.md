@@ -31,6 +31,7 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 - **[User Interactions](./user-interactions.md)** - Records user interactions within your app's pages
 - **[React](./react/index.md)** - Various instrumentations that emit React specific telemetry if your app is built on that
 framework
+- **[Empty Root Node](./empty-root-node.md)** - Records when content fails to render on the page's root element
 
 ## Configuring Automatic Instrumentation
 
