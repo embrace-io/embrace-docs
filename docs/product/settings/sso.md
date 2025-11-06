@@ -91,6 +91,67 @@ The following SAML attributes are supported:
 | LastName | user.lastName |
 | Email | user.email |
 
+### Optional Attributes (Contact Support)
+
+Role- and project-based provisioning can be enabled on a per-org basis. Please reach out to [support@embrace.io](mailto:support@embrace.io) to turn on this feature and receive guidance on configuring your IdP.
+
+Once support has enabled the feature for your org, you may add the following attributes to your SAML assertion:
+
+| Attribute | Description |
+|-----------|-------------|
+| `Role` | Maps IdP group values to Embrace roles. Values containing `admin` resolve to Admin; values containing `member`/`user` resolve to Member. |
+| `Projects` | Scopes Member access to specific projects. Each value should be `<project_external_id>[:grant]` where grant is `manage`, `edit`, or `view` (default `manage`). |
+
+Project external IDs are the short hashes shown in the dashboard URL and the project settings page.
+
+#### Example Payloads Attributes
+
+**Admin**
+
+```xml
+<saml:AttributeStatement>
+  <saml:Attribute Name="Email">
+    <saml:AttributeValue>jane.doe@example.com</saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="FirstName">
+    <saml:AttributeValue>Jane</saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="LastName">
+    <saml:AttributeValue>Doe</saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="Role">
+    <saml:AttributeValue>example-admins</saml:AttributeValue>
+  </saml:Attribute>
+</saml:AttributeStatement>
+```
+
+Admins inherit manage access to every project, so the `Projects` attribute is unnecessary.
+
+**Member with scoped project access**
+
+```xml
+<saml:AttributeStatement>
+  <saml:Attribute Name="Email">
+    <saml:AttributeValue>jane.member@example.com</saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="FirstName">
+    <saml:AttributeValue>Jane</saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="LastName">
+    <saml:AttributeValue>Member</saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="Role">
+    <saml:AttributeValue>example-members</saml:AttributeValue>
+  </saml:Attribute>
+  <saml:Attribute Name="Projects">
+    <saml:AttributeValue>M84dPR45:manage</saml:AttributeValue>
+    <saml:AttributeValue>AnotherProjectId:view</saml:AttributeValue>
+  </saml:Attribute>
+</saml:AttributeStatement>
+```
+
+In this example the member gains manage access to the project whose external ID is `M84dPR45` (see it in the dashboard URL, e.g. `https://dash.embrace.io/settings/projects-and-apps/M84dPR45/overview`) and view-only access to `AnotherProjectId`.
+
 ### OneLogin
 
 Similar to Okta documentation above, you can find [Embrace connector](https://www.onelogin.com/connector/embrace_saml) in OneLogin's application catalog. You will need to provide your **Org ID** that is found on the **Provider Information** tab.
