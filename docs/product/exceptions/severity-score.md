@@ -142,9 +142,10 @@ The multiplier is based on how recently the click occurred before the exception:
 
 **Range**: 1.0x - 2.0x
 
-Exceptions that are followed by an empty root node being rendered receive drastically increased severity, as this
-typically indicates the exception caused the application UI to break or become blank, severely impacting user
-experience.
+Once you have [configured the Empty Root Node instrumentation](/docs/web/automatic-instrumentation/empty-root-node.md)
+then any exceptions that are followed by your application's root node being rendered empty will receive drastically
+increased severity, as this typically indicates the exception caused the application UI to break or become blank,
+severely impacting user experience.
 
 The multiplier is based on how soon the empty root node was rendered after the exception:
 
