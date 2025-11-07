@@ -91,7 +91,7 @@ The following SAML attributes are supported:
 | LastName | user.lastName |
 | Email | user.email |
 
-### Optional Attributes (Contact Support)
+### Optional Attributes
 
 Role- and project-based provisioning can be enabled on a per-org basis. Please reach out to [support@embrace.io](mailto:support@embrace.io) to turn on this feature and receive guidance on configuring your IdP.
 
