@@ -93,7 +93,7 @@ The following SAML attributes are supported:
 
 ### Optional Attributes
 
-Role- and project-based provisioning can be enabled on a per-org basis. Please reach out to [support@embrace.io](mailto:support@embrace.io) to turn on this feature and receive guidance on configuring your IdP.
+Role- and project-based provisioning can be enabled by the Embrace team at the organization level. Please reach out to [support@embrace.io](mailto:support@embrace.io) to turn on this feature and receive guidance on configuring your IdP.
 
 Once support has enabled the feature for your org, you may add the following attributes to your SAML assertion:
 
