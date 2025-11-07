@@ -61,7 +61,7 @@ Triggering the [`endSession`](https://github.com/embrace-io/embrace-android-sdk/
   }
 ```
 
-Note that ending a session means the Embrace SDK will create a network request to our backend with the now-ended session's payload.
+Note that ending a session means the Embrace SDK creates a background network request that will asynchronously send the now-ended session's payload to our backend.
 
 ---
 
