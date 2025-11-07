@@ -22,7 +22,6 @@ sidebar_position: 99
 
 - [**Slow Root Spans**](https://embrace.io/blog/slow-root-spans-release/): Set custom thresholds for individual spans to determine which are creating performance bottlenecks.
 
-
 ## July 2025
 
 - [**User Journeys**](https://embrace.io/blog/user-journeys-walkthrough/): Embrace released the first feature of our User Journeys platform initiative, [User Flows](/product/user-journeys.md), which allows engineers to define and track custom intervals of app activity.
