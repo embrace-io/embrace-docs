@@ -6,6 +6,23 @@ sidebar_position: 99
 
 # Embrace Dashboard Changelog
 
+## October 2025
+
+- [**New Overview Page**](https://embrace.io/blog/new-overview-page/): A unified starting point for web and mobile observability makes the Embrace dashboard even more powerful by providing quick, actionable insight.
+
+- [**Javascript Exception Scoring**](https://embrace.io/blog/javascript-exception-scoring/): Embrace now automatically calculates a [severity score](/docs/product/exceptions/severity-score.md) for every JavaScript exception captured by the WebSDK, to help you prioritize the most critical issues affecting your users.
+
+- [**Page Load Insights**](https://embrace.io/blog/page-load-insights-in-embrace-web-rum/): The new Page Load Insights feature for Web RUM shows you exactly what’s slowing your pages down and impacting your end users.
+
+- [**Updated Release Health**](https://embrace.io/blog/refreshed-release-health/): Our refreshed [Release Health](/product/release-health) page gives engineers an effective launchpad to evaluate performance across app releases, examine trends, and quickly spot regressions
+
+- [**Updated User Journeys**](/product/user-journeys.md): Updates to User Journeys make User Flows ubiquitous across the entire Embrace dashboard, while making User Flows more intuitive and interactive. Also adds flexibility with more start and end event types in User Flows.
+
+## September 2025
+
+- [**Slow Root Spans**](https://embrace.io/blog/slow-root-spans-release/): Set custom thresholds for individual spans to determine which are creating performance bottlenecks.
+
+
 ## July 2025
 
 - [**User Journeys**](https://embrace.io/blog/user-journeys-walkthrough/): Embrace released the first feature of our User Journeys platform initiative, [User Flows](/product/user-journeys.md), which allows engineers to define and track custom intervals of app activity.
