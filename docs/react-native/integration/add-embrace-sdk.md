@@ -109,12 +109,44 @@ correctly.
 
 ### Manually
 
+Most of the changes needed to initialize Embrace natively are done by the install scripts, but there is a detailed step-by-step in the [Session Reporting](/react-native/integration/session-reporting/) section.
+
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
 Configuration for iOS is handled in code when initializing the SDK which we will cover in the next step. The native module
 should be setup using [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
 so you're good to go!
+
+Since [6.2.2](/react-native/changelog/#622) there are a few changes required in the Podfile of the application.
+
+### Embrace Apple SDK depends on KSCrash
+
+KSCrash needs to enable modular headers to be able to build. In order to support this Pod, the Podfile in the iOS project needs to add the following line before the target is declared:
+
+```ruby
+pod 'KSCrash', :modular_headers => true # insert this line here to enable modular headers only for KSCrash
+
+target 'ProjectName' do
+  config = use_native_modules!
+  flags = get_default_flags()
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    ...
+```
+
+Additionally, because of the integration with KSCrash, we also now internally use `USE_FRAMEWORKS=dynamic` for as our binding setting. It is strongly recommended that you do so as well when invoking `pod install` on your own projects (e.g. `USE_FRAMEWORKS=dynamic pod install`).
+
+Finally, KSCrash and `react-native-flipper` are NOT compatible. For React Native Customers using 0.73 or before, `react-native-flipper` is included by default; for 0.74 onwards, it has been removed. Therefore, if you have `react-native-flipper` in your project, you will need to disable it with the following changes to your `react-native.config.js`:
+
+```js
+module.exports = {
+  dependencies: {
+    ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {})
+  }
+}
+```
 </TabItem>
 
 <TabItem value="android" label="Android">

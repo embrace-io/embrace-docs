@@ -6,9 +6,21 @@ sidebar_position: 4
 
 # React Native SDK Changelog
 
+## 6.3.0
+
+_Nov 7, 2025_
+
+- Updated iOS native Embrace SDK dependency to [version 6.14.1](https://embrace.io/docs/ios/changelog/#6141)
+- Packing the Upload Utility scripts instead of pulling them from the Embrace Apple SDK (native) into @embrace-io/react-native
+- Fixed/improved install and uninstall scripts
+
+:::info Important
+This version introduces new requirements for iOS projects when integrating or upgrading the Embrace React Native SDK. Please refer to the [Integration](/react-native/integration/add-embrace-sdk/?platform=ios#manually) section for more information. This is especially important if your application is on either RN 0.73 or earlier, or if it uses `react-native-flipper`.
+:::
+
 ## 6.2.1
 
-_October 27, 2025_
+_Oct 27, 2025_
 
 - Updated Android native SDK dependency to [version 7.9.2](/android/changelog/#792)
 
