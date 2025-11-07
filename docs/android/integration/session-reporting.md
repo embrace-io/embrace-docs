@@ -47,6 +47,18 @@ the Embrace SDK will not be able to upload the session that was just completed u
 your application. During the next application launch the previous session will be immediately uploaded.
 :::
 
+### Manually Ending a Session
+
+In addition to the application lifecycle events that will automatically end a session, the Embrace SDK also lets you manually end sessions in code, if that fits your use-case. When ending a session manually, the SDK takes a boolean option to clear all user info on the device, as below:
+
+```kotlin
+  // scenario in which app session is ended manually
+  fun endSession() {
+      // other work
+      Embrace.getInstance().endSession(true)
+  }
+```
+
 ---
 
 Congratulations! At this point you've completed a basic integration of Embrace.
