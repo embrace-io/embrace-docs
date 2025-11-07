@@ -20,7 +20,7 @@ To query your desired unit, simply prefix the metric name with the unit, eg: `da
 | users_total        | Number of unique users                 | app_version, os_version, device_model | daily                      |
 
 :::info
-The ```users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day.  
+The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day.  
 It is important to note that this metric is not designed for cumulative aggregation across days, as doing so would result in double-counting users.
 
 Summing the users metric across various dimensions within the same day does not yield the overall count of unique users per day.  
