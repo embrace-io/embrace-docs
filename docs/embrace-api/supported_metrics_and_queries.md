@@ -12,11 +12,12 @@ To query your desired unit, simply prefix the metric name with the unit, eg: `da
 
 ## Standard
 
-| Metric         | Description            | Filters                               | Time granularity           |
-|----------------|------------------------|---------------------------------------|----------------------------|
-| crashes_total  | Number of crashes      | app_version, os_version, device_model | five_minute, hourly, daily |
-| sessions_total | Number of sessions     | app_version, os_version, device_model | five_minute, hourly, daily |
-| users_total    | Number of unique users | app_version, os_version, device_model | daily                      |
+| Metric             | Description                            | Filters                               | Time granularity           |
+|--------------------|----------------------------------------|---------------------------------------|----------------------------|
+| crashes_total      | Number of crashes                      | app_version, os_version, device_model | five_minute, hourly, daily |
+| sessions_total     | Number of sessions                     | app_version, os_version, device_model | five_minute, hourly, daily |
+| crashed_free_users | Number of unique users without crashes | app_version, os_version, device_model | five_minute, hourly, daily |
+| users_total        | Number of unique users                 | app_version, os_version, device_model | daily                      |
 
 :::info
 The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a specific UTC day.  
@@ -26,6 +27,8 @@ Summing the users metric across various dimensions within the same day does not 
 This discrepancy arises from the potential overlap of users across different dimensions; for instance, users who update the app version on the same day may be present in multiple dimensions.
 
 Nevertheless, summing the users metric across dimensions can still provide an estimate of the total user counts.
+
+The same logic applies with the `crashed_free_users` metric.
 :::
 
 ### Deprecated metrics after 2023-10-17
