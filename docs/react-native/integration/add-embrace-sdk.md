@@ -122,7 +122,7 @@ Since [6.3.0](/react-native/changelog/#630) there are a few changes required in 
 
 ### Embrace Apple SDK depends on KSCrash
 
-KSCrash needs to enable modular headers to be able to build. In order to support this Pod, the Podfile in the iOS project needs to add the following line before the target is declared:
+KSCrash needs modular headers enabled to be able to build. In order to support this Pod, the Podfile in the iOS project needs to add the following line before the target is declared:
 
 ```ruby
 pod 'KSCrash', :modular_headers => true # insert this line here to enable modular headers only for KSCrash
