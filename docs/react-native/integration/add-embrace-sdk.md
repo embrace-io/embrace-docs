@@ -118,7 +118,7 @@ Configuration for iOS is handled in code when initializing the SDK which we will
 should be setup using [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
 so you're good to go!
 
-Since [6.2.2](/react-native/changelog/#622) there are a few changes required in the Podfile of the application.
+Since [6.3.0](/react-native/changelog/#630) there are a few changes required in the Podfile of the application described below.
 
 ### Embrace Apple SDK depends on KSCrash
 
