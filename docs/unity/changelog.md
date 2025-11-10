@@ -7,6 +7,7 @@ sidebar_position: 4
 # Unity SDK Changelog
 
 ## 2.8.0
+
 Embrace Android SDK Version: [7.9.2](https://embrace.io/docs/android/changelog/#792)
 Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
 
