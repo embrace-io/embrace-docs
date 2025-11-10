@@ -136,7 +136,7 @@ target 'ProjectName' do
     ...
 ```
 
-Additionally, because of the integration with KSCrash, we also now internally use `USE_FRAMEWORKS=dynamic` for as our binding setting. It is strongly recommended that you do so as well when invoking `pod install` on your own projects (e.g. `USE_FRAMEWORKS=dynamic pod install`).
+Additionally, because of the integration with KSCrash, we also now internally use `USE_FRAMEWORKS=dynamic` as our binding setting. It is strongly recommended that you do so as well when invoking `pod install` on your own projects (e.g. `USE_FRAMEWORKS=dynamic pod install`).
 
 Finally, KSCrash and `react-native-flipper` are NOT compatible. For React Native customers using 0.73 or before, `react-native-flipper` is included by default; for 0.74 onwards, it has been removed. If you have `react-native-flipper` in your project, you will need to disable it with the following changes to your `react-native.config.js`:
 
