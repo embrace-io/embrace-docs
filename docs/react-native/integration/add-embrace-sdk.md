@@ -109,8 +109,6 @@ correctly.
 
 ### Manually
 
-Most of the changes needed to initialize Embrace natively are done by the install scripts, but there is a detailed step-by-step in the [Session Reporting](/react-native/integration/session-reporting/) section.
-
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
