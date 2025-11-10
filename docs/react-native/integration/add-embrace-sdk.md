@@ -28,7 +28,7 @@ yarn add @embrace-io/react-native
 For iOS you will also need to install or update pods for the application:
 
 ```sh
-cd ios && pod install --repo-update
+cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
 ```
 
 :::info
