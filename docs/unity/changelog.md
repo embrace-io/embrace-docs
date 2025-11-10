@@ -6,10 +6,22 @@ sidebar_position: 4
 
 # Unity SDK Changelog
 
+## 2.8.0
+Embrace Android SDK Version: [7.9.2]
+Embrace Apple SDK Version: [6.14.1]
+
+*November 10, 2025*
+
+- Trying to start a span that doesn't exist now throws an error
+- Added the ability to ignore URLs for WebView captures
+- Removed scriptable objects
+- Updated native SDKs
+- Bug fixes
+
 ## 2.7.0
 
 Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#730)
-Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Apple SDK Version: [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *September 4, 2025*
 
