@@ -9,6 +9,7 @@ description: Upgrade guide for Embrace React Native SDK versions
 ## Upgrading to 6.3.0
 
 :::info Summary
+
 - `react-native-flipper` is no longer supported for iOS builds.
 - Kotlin 2.x or higher is required when using `react-native-otlp`.
 :::
