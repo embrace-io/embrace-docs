@@ -11,7 +11,6 @@ description: Upgrade guide for Embrace React Native SDK versions
 :::info Summary
 
 - `react-native-flipper` is no longer supported for iOS builds.
-- Kotlin 2.x or higher is required when using `react-native-otlp`.
 :::
 
 Upgrade to version `6.3.0` of the Embrace React Native SDK packages by either updating the versions manually in your package.json and running `yarn install` or `npm install`, or by removing the existing packages and reinstalling them.
@@ -66,6 +65,30 @@ cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
 ```
 
 That’s it! Your application should now build successfully.
+
+## Upgrading to 6.2.1
+
+:::info Summary
+
+- Kotlin 2.x or higher is required when using `react-native-otlp`.
+:::
+
+This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package.
+If you must use Kotlin 1.x you will have to add the following `resolutionStrategy` block to your app's `build.gradle` (groovy):
+
+```groovy
+configurations.all {
+      resolutionStrategy {
+          force("io.opentelemetry:opentelemetry-bom:1.51.0")
+          force("io.opentelemetry:opentelemetry-api:1.51.0")
+          force("io.opentelemetry:opentelemetry-sdk:1.51.0")
+          force("io.opentelemetry:opentelemetry-context:1.51.0")
+          force("io.opentelemetry:opentelemetry-exporter-otlp:1.51.0")
+      }
+  }
+```
+
+Note that this may require an upgrade to Java 17.
 
 ## Upgrading from 5.x to 6.x
 
