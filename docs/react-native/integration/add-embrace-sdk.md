@@ -123,7 +123,8 @@ Since [6.3.0](/react-native/changelog/#630) there are a few changes required in 
 KSCrash needs modular headers enabled to be able to build. In order to support this Pod, the Podfile in the iOS project needs to add the following line before the target is declared:
 
 ```ruby
-pod 'KSCrash', :modular_headers => true # insert this line here to enable modular headers only for KSCrash
+# insert this line here to enable modular headers only for KSCrash
+pod 'KSCrash', :modular_headers => true
 
 target 'ProjectName' do
   config = use_native_modules!

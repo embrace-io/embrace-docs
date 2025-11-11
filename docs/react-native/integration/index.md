@@ -27,7 +27,7 @@ configuration.
 - `minSdkVersion`: 24 or higher
 - `compileSdkVersion`: 34 or higher
 - Java 11
-- Kotlin 1.8.22
+- Kotlin 1.9.3 [*](/react-native/changelog/#621)
 - Gradle 7.5.1
 - AGP (Android Gradle Build Tools Plugin) 7.4.2
 
@@ -37,6 +37,7 @@ configuration.
 - Swift 5
 - Known incompatibilities
   - `@datadog/mobile-react-native`. More details [here](/ios/6x/getting-started/installation.md#known-issues).
+  - `react-native-flipper`. More details [here](/react-native/changelog/#630)
 
 ### Supported versions of React Native
 

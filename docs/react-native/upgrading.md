@@ -6,6 +6,66 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 # Upgrade guide
 
+## Upgrading to 6.3.0
+
+:::info Summary
+- `react-native-flipper` is no longer supported for iOS builds.
+- Kotlin 2.x or higher is required when using `react-native-otlp`.
+:::
+
+Upgrade to version `6.3.0` of the Embrace React Native SDK packages by either updating the versions manually in your package.json and running `yarn install` or `npm install`, or by removing the existing packages and reinstalling them.
+
+#### Embrace Apple SDK now depends on KSCrash
+
+The Apple SDK now includes a dependency on KSCrash, which requires modular headers to build successfully.
+To support this Pod, update your Podfile by adding the following line before your target declaration:
+
+```ruby
+# insert this line here to enable modular headers only for KSCrash
+pod 'KSCrash', :modular_headers => true
+
+target 'YourTargetName' do
+  config = use_native_modules!
+  flags = get_default_flags()
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    ...
+```
+
+#### If you have `react-native-flipper` in your project
+
+Disable the package for the iOS platform by updating your `react-native.config.js`:
+
+```js
+module.exports = {
+  dependencies: {
+    ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {})
+  }
+}
+```
+
+#### Update your Embrace Symbol Upload build phase
+
+Ensure your Embrace Symbol Uploads build phase matches the following:
+
+```
+REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=__YOUR_5_DIGIT_ID__ EMBRACE_TOKEN=__YOUR_30_CHAR_TOKEN__ "$SRCROOT/../node_modules/@embrace-io/react-native/ios/scripts/run.sh"
+```
+
+Note: The upload scripts are now bundled with the `@embrace-io/react-native` package.
+They are no longer provided by the iOS layer.
+
+#### Install the latest Cocoapods with:
+
+Finally, install the latest CocoaPods with:
+
+```shell
+cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
+```
+
+That’s it! Your application should now build successfully.
+
 ## Upgrading from 5.x to 6.x
 
 :::info Summary
