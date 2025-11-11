@@ -145,6 +145,7 @@ module.exports = {
   }
 }
 ```
+
 </TabItem>
 
 <TabItem value="android" label="Android">

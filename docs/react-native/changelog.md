@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ## 6.3.0
 
-_Nov 7, 2025_
+_Nov 11, 2025_
 
 - Updated iOS native Embrace SDK dependency to [version 6.14.1](https://embrace.io/docs/ios/changelog/#6141)
 - Packing the Upload Utility scripts instead of pulling them from the Embrace Apple SDK (native) into @embrace-io/react-native
