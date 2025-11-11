@@ -27,6 +27,16 @@ such as adding exporters.
 `Embrace.getInstance()` is deprecated in favour of `Embrace`. For example, you can now call `Embrace.start(Context)` instead
 of `Embrace.getInstance().start(Context)`.
 
+### Http(s)URLConnection network request instrumentation changes
+
+Basic instrumentation for HTTPS network requests made using the `HttpsURLConnection` API is enabled by default and controlled by the `sdk_config.networking.enable_huc_lite_instrumentation` configuration flag. It will capture the request duration, status, as well as errors. It does not support advanced features like network request forwarding or request or response body sizes. Use the detailed instrumentation if you wish to enable those features.
+
+Detailed instrumentation for both HTTP and HTTPS requests using the `HttpURLConnection` and `HttpsURLConnection` APIs, which was enabled by default in previous versions, is now disabled by default. The configuration flag to control this remains `sdk_config.networking.enable_native_monitoring`.
+
+If you wish to use the detailed instrumentation for these requests, you must include the module `embrace-android-instrumentation-huc` in your app.
+
+This DOES NOT affect instrumentation of network requests made using `OkHttp`.
+
 ### Altered APIs
 
 Various deprecated APIs have been removed. Please migrate to the documented new APIs where applicable, or
