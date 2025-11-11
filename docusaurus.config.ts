@@ -514,6 +514,15 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
 
+    announcementBar: {
+      id: "announcement-20251111", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      content:
+        '<a target="_blank" href="https://embrace.io/blog/embrace-chronosphere-partner-program?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Embrace brings Real User Monitoring (RUM) to Chronosphere’s composable observability ecosystem.</a>',
+      backgroundColor: "#EEFF04",
+      isCloseable: true,
+    },
+
+
     navbar: {
       logo: {
         alt: "Embrace",
