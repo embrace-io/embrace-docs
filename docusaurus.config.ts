@@ -55,14 +55,6 @@ const config: Config = {
       id: "reo-script",
       src: "scripts/reo.js",
     },
-    ...(process.env.EMBR_ENV === "production"
-      ? [
-          {
-            src: `https://js.qualified.com/qualified.js?token=${process.env.QUALIFIED_TOKEN}`,
-            async: true,
-          },
-        ]
-      : []),
   ],
 
   themes: [
