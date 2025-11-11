@@ -515,12 +515,13 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20251016", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20251111", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://get.embrace.io/embrace-grafana-cloud-webinar?utm_source=website&utm_medium=website&utm_campaign=docs-banner">WEBINAR Nov 6: End-to-end mobile observability with Embrace and Grafana Cloud. Learn how to connect Embrace mobile telemetry with Grafana Cloud data.</a>',
+        '<a target="_blank" href="https://embrace.io/blog/embrace-chronosphere-partner-program?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Embrace brings Real User Monitoring (RUM) to Chronosphere’s composable observability ecosystem.</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
+
 
     navbar: {
       logo: {
