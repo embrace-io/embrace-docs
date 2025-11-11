@@ -10,6 +10,13 @@ sidebar_position: 4
 Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
 :::
 
+## 7.9.3
+
+*November 11, 2025*
+
+- Fix method signature mismatch in HttpsURLConnection instrumentation wrapper
+- Added deprecation warning: this is the last version with the `io.embrace.swazzler` gradle plugin ID. From 8.0, the ID will be `io.embrace.swazzler`
+
 ## 7.9.2
 
 *October 20, 2025*
