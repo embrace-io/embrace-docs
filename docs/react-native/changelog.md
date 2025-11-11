@@ -10,6 +10,9 @@ sidebar_position: 4
 
 _Nov 11, 2025_
 
+Embrace Android SDK Version: [7.9.2](https://embrace.io/docs/android/changelog/#792)
+Embrace Apple SDK Version [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
+
 - Updated iOS native Embrace SDK dependency to [version 6.14.1](https://embrace.io/docs/ios/changelog/#6141)
 - Packing the Upload Utility scripts instead of pulling them from the Embrace Apple SDK (native) into @embrace-io/react-native
 - Fixed/improved install and uninstall scripts
