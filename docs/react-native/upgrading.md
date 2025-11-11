@@ -16,7 +16,7 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 Upgrade to version `6.3.0` of the Embrace React Native SDK packages by either updating the versions manually in your package.json and running `yarn install` or `npm install`, or by removing the existing packages and reinstalling them.
 
-#### Embrace Apple SDK now depends on KSCrash
+### Embrace Apple SDK now depends on KSCrash
 
 The Apple SDK now includes a dependency on KSCrash, which requires modular headers to build successfully.
 To support this Pod, update your Podfile by adding the following line before your target declaration:
@@ -34,7 +34,7 @@ target 'YourTargetName' do
     ...
 ```
 
-#### If you have `react-native-flipper` in your project
+### If you have `react-native-flipper` in your project
 
 Disable the package for the iOS platform by updating your `react-native.config.js`:
 
@@ -46,18 +46,18 @@ module.exports = {
 }
 ```
 
-#### Update your Embrace Symbol Upload build phase
+### Update your Embrace Symbol Upload build phase
 
 Ensure your Embrace Symbol Uploads build phase matches the following:
 
-```
+```shell
 REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=__YOUR_5_DIGIT_ID__ EMBRACE_TOKEN=__YOUR_30_CHAR_TOKEN__ "$SRCROOT/../node_modules/@embrace-io/react-native/ios/scripts/run.sh"
 ```
 
 Note: The upload scripts are now bundled with the `@embrace-io/react-native` package.
 They are no longer provided by the iOS layer.
 
-#### Install the latest Cocoapods with:
+### Install the latest Cocoapods with
 
 Finally, install the latest CocoaPods with:
 
