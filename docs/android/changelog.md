@@ -15,7 +15,7 @@ Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when m
 *November 11, 2025*
 
 - Fix method signature mismatch in HttpsURLConnection instrumentation wrapper
-- Added deprecation warning: this is the last version with the `io.embrace.swazzler` gradle plugin ID. From 8.0, the ID will be `io.embrace.swazzler`
+- Added deprecation warning: this is the last version with the `io.embrace.swazzler` gradle plugin ID. From 8.0, the ID will be `io.embrace.gradle`
 
 ## 7.9.2
 
