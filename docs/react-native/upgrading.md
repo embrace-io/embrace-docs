@@ -53,8 +53,8 @@ Ensure your Embrace Symbol Uploads build phase matches the following:
 REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=__YOUR_5_DIGIT_ID__ EMBRACE_TOKEN=__YOUR_30_CHAR_TOKEN__ "$SRCROOT/../node_modules/@embrace-io/react-native/ios/scripts/run.sh"
 ```
 
-Note: The upload scripts are now bundled with the `@embrace-io/react-native` package.
-They are no longer provided by the iOS layer.
+Note: The upload scripts are now bundled with the `@embrace-io/react-native` package. They are no longer provided by the iOS native layer (before they were packed as part of the iOS Pods).  
+You can take a look at your `node_modules` and confirm that everything is there in `node_modules/@embrace-io/react-native/ios/scripts`.
 
 ### Install the latest Cocoapods with
 
