@@ -18,7 +18,7 @@ sidebar_position: 4
   - tvOS: Fixed Sessions not being sent when App is sent to background.
 
 - Improvements
-  - Improved storage performance by moving Span Events to their own database.
+  - Improved storage performance when dealing with many span events.
   - Changed lock-based synchronization approach for lock-free atomics via newely introduced EmbraceAtomic.
   - Revamped URL Session Swizzling.
   - Simplified Breadcrumbs by removing custom attributes and only allowing a Message parameter.
