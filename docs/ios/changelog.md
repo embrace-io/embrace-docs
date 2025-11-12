@@ -16,13 +16,13 @@ sidebar_position: 4
   - Fixed a main thread hang caused by Objective C Runtime calls during backtrace capture.
   - tvOS: Fixed App Lifecycle notifications not being tracked.
   - tvOS: Fixed Sessions not being sent when App is sent to background.
-  
+
 - Improvements
   - Improved storage performance by moving Span Events to their own database.
   - Changed lock-based synchronization approach for lock-free atomics via newely introduced EmbraceAtomic.
   - Revamped URL Session Swizzling.
   - Simplified Breadcrumbs by removing custom attributes and only allowing a Message parameter.
-  
+
 ## 6.14.1
 
 *Oct 14, 2025*
