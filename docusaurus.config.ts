@@ -543,6 +543,11 @@ const config: Config = {
           label: "Pricing",
           position: "left",
         },
+        {
+          to: "https://demo.embrace.io/try?utm_source=docs&utm_medium=banner&utm_campaign=sandbox_tab",
+          label: "Launch Sandbox",
+          position: "right",
+        },
       ],
     },
 
