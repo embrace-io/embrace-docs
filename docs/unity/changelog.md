@@ -8,7 +8,7 @@ sidebar_position: 4
 
 ## 2.8.0
 
-Embrace Android SDK Version: [7.9.2](https://embrace.io/docs/android/changelog/#792)
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
 Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
 
 *November 10, 2025*
@@ -16,12 +16,12 @@ Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
 - Trying to start a span that doesn't exist now throws an error
 - Added the ability to ignore URLs for WebView captures
 - Removed scriptable objects
-- Updated native SDKs
+- Updated native iOS SDK
 - Bug fixes
 
 ## 2.7.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#730)
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
 Embrace Apple SDK Version: [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *September 4, 2025*
@@ -34,7 +34,7 @@ Both options are opt-in and low overhead. Please try them!
 
 ## 2.6.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#730)
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
 Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *August 14, 2025*
