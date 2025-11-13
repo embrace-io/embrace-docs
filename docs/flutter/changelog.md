@@ -6,6 +6,14 @@ sidebar_position: 4
 
 # Flutter SDK Changelog
 
+## 4.3.0
+
+*Nov 11, 2025*
+
+- Updated Embrace Android SDK to 7.9.2
+- Updated Embrace iOS SDK to 6.14.1
+- Added `recordSpan` feature which allows lambda execution alongside recording spans
+
 ## 4.2.0
 
 *Jul 25, 2025*
