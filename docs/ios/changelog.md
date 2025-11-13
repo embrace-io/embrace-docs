@@ -6,6 +6,23 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.15.0
+
+*Nov 12, 2025*
+
+- Fixes
+  - Fixed a potential deadlock on the Session Controller.
+  - Fixed potential crashes by Objective C exceptions thrown by Core Data not being caught.
+  - Fixed a main thread hang caused by Objective C Runtime calls during backtrace capture.
+  - tvOS: Fixed App Lifecycle notifications not being tracked.
+  - tvOS: Fixed Sessions not being sent when App is sent to background.
+
+- Improvements
+  - Improved storage performance when dealing with many span events.
+  - Changed lock-based synchronization approach for lock-free atomics via newely introduced EmbraceAtomic.
+  - Revamped URL Session Swizzling.
+  - Simplified Breadcrumbs by removing custom attributes and only allowing a Message parameter.
+
 ## 6.14.1
 
 *Oct 14, 2025*
@@ -17,7 +34,7 @@ sidebar_position: 4
 
 ## 6.14.0
 
-*Oct 7, 2025**
+*Oct 7, 2025*
 
 - Fixes
   - Fixed `autoTerminationCode` being missing from Spans.

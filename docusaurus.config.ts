@@ -55,14 +55,6 @@ const config: Config = {
       id: "reo-script",
       src: "scripts/reo.js",
     },
-    ...(process.env.EMBR_ENV === "production"
-      ? [
-          {
-            src: `https://js.qualified.com/qualified.js?token=${process.env.QUALIFIED_TOKEN}`,
-            async: true,
-          },
-        ]
-      : []),
   ],
 
   themes: [
@@ -514,6 +506,15 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
 
+    announcementBar: {
+      id: "announcement-20251112", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      content:
+        '<a target="_blank" href="https://embrace.io/blog/speedcurve-joins-embrace/?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Embrace acquires SpeedCurve, expands user-focused observability platform with web performance insights.</a>',
+      backgroundColor: "#EEFF04",
+      isCloseable: true,
+    },
+
+
     navbar: {
       logo: {
         alt: "Embrace",
@@ -541,6 +542,11 @@ const config: Config = {
           to: "https://embrace.io/pricing?utm_source=docs&utm_medium=banner&utm_campaign=pricing_tab",
           label: "Pricing",
           position: "left",
+        },
+        {
+          to: "https://demo.embrace.io/try?utm_source=docs&utm_medium=banner&utm_campaign=sandbox_tab",
+          label: "Launch Sandbox",
+          position: "right",
         },
       ],
     },

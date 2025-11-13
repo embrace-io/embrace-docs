@@ -30,7 +30,7 @@ yarn add @embrace-io/react-native-otlp
 For iOS you will also need to install or update pods for the application:
 
 ```sh
-cd ios && pod install --repo-update
+cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
 ```
 
 If you are not using Expo, you need to update your Metro configuration before running the application.
