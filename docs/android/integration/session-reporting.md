@@ -16,7 +16,7 @@ Initialize the Embrace SDK in the `onCreate` method of your `Application` subcla
 class MyApplication : Application {
   override fun onCreate() {
       super.onCreate()
-      Embrace.getInstance().start(this)
+      Embrace.start(this)
   }
 }
 ```

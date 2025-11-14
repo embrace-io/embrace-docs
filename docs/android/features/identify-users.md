@@ -17,8 +17,8 @@ sessions for an unhappy user.
 Embrace offers a set of methods to pass information about your users. You can set a "persona" for the session's user, such as tester or VIP. You can also add a user identifier, which will be an Embrace-specific ID for identifying the session in the dashboard.
 
 ```kotlin
-Embrace.getInstance().addUserPersona("internal_user")
-Embrace.getInstance().setUserIdentifier("internal_user_id_123")
+Embrace.addUserPersona("internal_user")
+Embrace.setUserIdentifier("internal_user_id_123")
 ```
 
 :::warning Important
@@ -32,7 +32,7 @@ For more methods on setting user values, see the [API docs](/api/android/).
 You can also set customized values for specific use cases or segments of users.
 
 ```kotlin
-Embrace.getInstance().addUserPersona("high_value_cart")
+Embrace.addUserPersona("high_value_cart")
 ```
 
 In the above example, the session is annotated with `"high_value_cart"`.
