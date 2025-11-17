@@ -22,17 +22,15 @@ The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 | Artifact ID | `io.embrace:embrace-swazzler`  | `io.embrace:embrace-gradle-plugin`    |
 | Plugin ID   | `io.embrace.swazzler`          | `io.embrace.gradle`                   |
 
-Here's how you should migrate:
+### Migration guide
 
 **Version Catalogs (gradle/libs.versions.toml):**
-
 ```toml
 [plugins]
 embrace = { id = "io.embrace.gradle", version.ref = "embrace" }
 ```
 
 **Non-Catalog Configuration (settings.gradle or settings.gradle.kts):**
-
 ```kotlin
 pluginManagement {
     plugins {
@@ -42,7 +40,6 @@ pluginManagement {
 ```
 
 **Legacy Buildscript (root build.gradle):**
-
 ```groovy
 buildscript {
     dependencies {
@@ -64,6 +61,18 @@ such as adding exporters.
 
 `Embrace.getInstance()` is deprecated in favour of `Embrace`. For example, you can now call `Embrace.start(Context)` instead
 of `Embrace.getInstance().start(Context)`.
+
+### Internal modularisation
+
+The Embrace SDK is going through a process of modularisation. If you rely on `embrace-android-sdk` then you should notice
+very little change as most alterations are internal. However, you should be aware that:
+
+- `embrace-android-compose` has been renamed as `embrace-android-instrumentation-compose-tap`
+- `embrace-android-fcm` has been renamed as `embrace-android-instrumentation-fcm`
+- `embrace-android-okhttp3` has been renamed as `embrace-android-instrumentation-okhttp`
+
+`embrace.autoAddDependencies` is deprecated and will be removed in a future release. You should add
+the `io.embrace:embrace-android-sdk` dependency to your classpath manually.
 
 ### Http(s)URLConnection network request instrumentation changes
 
@@ -96,6 +105,9 @@ get in touch if you do have a use-case that is no longer met.
 | `Embrace.getInstance().trackWebViewPerformance(String, String)`         | Obsolete - no alternative provided.                                                                    |
 | `AppFramework`                                                          | Obsolete - no alternative provided.                                                                    |
 | `StartupActivity`                                                       | Obsolete - no alternative provided.                                                                    |
+| `Embrace.getInstance().registerComposeActivityListener()`               | Obsolete - no alternative provided.                                                                    |
+| `Embrace.getInstance().unregisterComposeActivityListener()`             | Obsolete - no alternative provided.                                                                    |
+| `Embrace.getInstance().logWebView(String)`                              | Obsolete - no alternative provided.                                                                    |
 
 #### Embrace Gradle Plugin removed APIs
 
@@ -140,7 +152,7 @@ that uses Kotlin's default parameter values.
 | `EmbraceSpan.start()`                         |
 | `EmbraceSpan.stop()`                          |
 
-## Upgrading to the new Embrace Gradle Plugin DSL
+## Upgrading to 7.3.0 with the new Embrace Gradle Plugin DSL
 
 The Embrace Gradle Plugin previously had a DSL via the 'swazzler' extension. This has been replaced with a new DSL via the 'embrace'
 extension.
