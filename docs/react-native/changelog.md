@@ -6,6 +6,30 @@ sidebar_position: 4
 
 # React Native SDK Changelog
 
+## 6.2.1
+
+_October 27, 2025_
+
+- Updated Android native SDK dependency to [version 7.9.2](/android/changelog/#792)
+
+:::info Important
+This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package; if you must use Kotlin 1.x you will have to add the following `resolutionStrategy` block to your app's `build.gradle` (groovy):
+
+```groovy
+configurations.all {
+      resolutionStrategy {
+          force("io.opentelemetry:opentelemetry-bom:1.51.0")
+          force("io.opentelemetry:opentelemetry-api:1.51.0")
+          force("io.opentelemetry:opentelemetry-sdk:1.51.0")
+          force("io.opentelemetry:opentelemetry-context:1.51.0")
+          force("io.opentelemetry:opentelemetry-exporter-otlp:1.51.0")
+      }
+  }
+```
+
+Note that this may require an upgrade to Java 17.
+:::
+
 ## 6.2.0
 
 _July 29, 2025_

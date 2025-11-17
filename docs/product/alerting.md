@@ -1,12 +1,18 @@
 ---
 title: Alerting
 description: Alerting
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 # Alerting
 
 You can set up alerts for various types of issues, including crashes, ANRs, error logs, networking problems, and more.
+
+Here is a brief walkthrough video of alerting in Embrace. Continue reading below for more details on creating and refining alerts.
+
+<div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ev7Xws7sOgQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## Alert Creation
 
