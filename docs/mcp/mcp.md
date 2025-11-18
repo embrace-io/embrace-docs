@@ -24,7 +24,20 @@ The Embrace Model Context Protocol (MCP) server lets you query your mobile app's
 Before you can use the Embrace MCP server, you need:
 
 - An active Embrace account with access to at least one application
-- An MCP-compatible AI assistant (such as Claude Desktop or Claude Code)
+- An MCP-compatible AI assistant
+
+## Setup
+
+Add the Embrace MCP server to your AI assistant:
+
+| AI Assistant     | Setup Instructions                                                                                        |
+| ---------------- | --------------------------------------------------------------------------------------------------------- |
+| Claude Code      | Run: `claude mcp add --transport http embrace https://mcp.embrace.io/mcp`                                 |
+| Claude Desktop   | Add to your [MCP configuration file](https://modelcontextprotocol.io/docs/develop/connect-remote-servers) |
+| Cursor           | See [Cursor MCP documentation](https://docs.cursor.com/context/model-context-protocol)                    |
+| Codeium Windsurf | See [Windsurf MCP documentation](https://docs.codeium.com/windsurf/mcp)                                   |
+
+For other AI Assistants supporting MCP, please reference your relevant docs. The Embrace MCP Server uses an Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
 
 ## Common workflows
 
