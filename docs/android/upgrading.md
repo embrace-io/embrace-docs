@@ -37,14 +37,18 @@ The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 Replace references to the old Embrace Gradle Plugin name with the new one. Your configuration files should reference the plugin in one
 of the following ways:
 
-#### Version Catalogs (gradle/libs.versions.toml):
+#### Version Catalog
+
+If you define your plugins in a TOML file (e.g. `gradle/libs.versions.toml`):
 
 ```toml
 [plugins]
 embrace = { id = "io.embrace.gradle", version.ref = "embrace" }
 ```
 
-#### Non-Catalog Configuration (settings.gradle or settings.gradle.kts):
+#### Non-Catalog Configuration
+
+If you define your plugins in a settings file (e.g. `settings.gradle.kts` or `settings.gradle`):
 
 ```kotlin
 pluginManagement {
@@ -54,7 +58,9 @@ pluginManagement {
 }
 ```
 
-#### Legacy Buildscript (root build.gradle):
+#### Legacy Buildscript
+
+If you define your plugins in a buildscript block (e.g. in your project's root `build.gradle`):
 
 ```groovy
 buildscript {
