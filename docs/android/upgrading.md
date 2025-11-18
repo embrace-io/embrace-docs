@@ -25,12 +25,14 @@ The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 ### Migration guide
 
 **Version Catalogs (gradle/libs.versions.toml):**
+
 ```toml
 [plugins]
 embrace = { id = "io.embrace.gradle", version.ref = "embrace" }
 ```
 
 **Non-Catalog Configuration (settings.gradle or settings.gradle.kts):**
+
 ```kotlin
 pluginManagement {
     plugins {
@@ -40,6 +42,7 @@ pluginManagement {
 ```
 
 **Legacy Buildscript (root build.gradle):**
+
 ```groovy
 buildscript {
     dependencies {

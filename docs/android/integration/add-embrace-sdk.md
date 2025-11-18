@@ -1,37 +1,17 @@
 ---
 title: Add the Android Embrace SDK
-sidebar_position: 3
+sidebar_position: 1
 description: Add the Embrace SDK as a dependency to your Android application
 ---
 
 # Adding the Android Embrace SDK
 
-## Add Embrace as a dependency
+## Add the Embrace Gradle Plugin
 
-### If you are using Version Catalogs
+The Embrace Gradle Plugin uploads mapping files that gets human-readable stacktraces from production. It also
+instruments bytecode so that some telemetry is automatically captured.
 
-Add our gradle plugin to your `libs.versions.toml` file
-
-```toml
-[versions]
-embrace = "{{ embrace_sdk_version platform="android" }}"
-...
-
-[plugins]
-embrace = { id = "io.embrace.swazzler", version.ref = "embrace" }
-```
-
-Then add the following at the top of your `app/build.gradle.kts`:
-
-```groovy
-plugins {
-    alias(libs.plugins.embrace)
-}
-```
-
-### If you are not using Version Catalogs
-
-Add the following to your `settings.gradle`:
+Add the Embrace Gradle Plugin to your build using one of the methods below:
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -39,157 +19,121 @@ import TabItem from '@theme/TabItem';
 ```
 
 <Tabs groupId="android-language" queryString="android-language">
+<TabItem value="version-catalog" label="Version Catalog">
+
+Alter your `libs.versions.toml` file:
+
+```toml
+[versions]
+embrace = "{{ embrace_sdk_version platform="android" }}"
+
+[plugins]
+embrace = { id = "io.embrace.gradle", version.ref = "embrace" }
+```
+
+Then apply the plugin at your module-level `build.gradle.kts`:
+
+```kotlin
+plugins {
+    alias(libs.plugins.embrace)
+}
+```
+
+</TabItem>
+
+<TabItem value="kotlin" label="Kotlin">
+
+Alter your `settings.gradle.kts`:
+
+```kotlin
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+    plugins {
+        id("io.embrace.gradle") version "{{ embrace_sdk_version platform="android" }}" apply false
+    }
+}
+```
+
+Then apply the plugin at your module-level `build.gradle.kts`:
+
+```kotlin
+plugins {
+    id("io.embrace.gradle")
+}
+```
+
+</TabItem>
+
 <TabItem value="groovy" label="Groovy">
+
+Alter your `settings.gradle`:
 
 ```groovy
 pluginManagement {
     repositories {
         mavenCentral()
     }
-
     plugins {
-        id 'io.embrace.swazzler' version "${embrace_version}" apply false
+        id 'io.embrace.gradle' version "{{ embrace_sdk_version platform="android" }}" apply false
     }
 }
 ```
 
-</TabItem>
-
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-pluginManagement {
-    repositories {
-        mavenCentral()
-    }
-    val embrace_version: String by settings
-    plugins {
-        id("io.embrace.swazzler") version "${embrace_version}" apply false
-    }
-}
-```
-
-</TabItem>
-</Tabs>
-
-Include `embrace_version` in your `gradle.properties` file:
-
-```groovy
-embrace_version={{ embrace_sdk_version platform="android" }}
-```
-
-Then add the following at the top of your `app/build.gradle`:
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="groovy" label="Groovy">
+Then apply the plugin at your module-level `build.gradle`:
 
 ```groovy
 plugins {
-    id 'io.embrace.swazzler'
+    id 'io.embrace.gradle'
 }
 ```
 
 </TabItem>
 
-<TabItem value="kotlin" label="Kotlin">
+<TabItem value="legacy-dsl" label="Legacy Plugins DSL">
 
-```kotlin
-plugins {
-    id("io.embrace.swazzler")
-}
-```
-
-</TabItem>
-</Tabs>
-
-### Legacy approach
-
-:::tip
-If you use Gradle's legacy <a href="https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block" target="_blank">Plugins DSL</a> follow this approach instead.
-:::
-
-Alter the `build.gradle` at your project's root as shown below:
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="groovy" label="Groovy">
+Alter your root-level `build.gradle`:
 
 ```groovy
 buildscript {
     repositories {
         mavenCentral()
-        google()
     }
     dependencies {
-        classpath 'io.embrace:embrace-swazzler:{{ embrace_sdk_version platform="android" }}'
+        classpath 'io.embrace:embrace-gradle-plugin:{{ embrace_sdk_version platform="android" }}'
     }
 }
 ```
 
-</TabItem>
-
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-buildscript {
-    repositories {
-        mavenCentral()
-        google()
-    }
-    dependencies {
-        classpath("io.embrace:embrace-swazzler:$embrace_version")
-    }
-}
-```
-
-</TabItem>
-</Tabs>
-
-Then apply the plugin in your `app/build.gradle` file:
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="groovy" label="Groovy">
+Then apply the plugin at your module-level `build.gradle`:
 
 ```groovy
-apply plugin: 'com.android.application'
-apply plugin: 'embrace-swazzler'
+apply plugin: 'embrace-gradle-plugin'
 ```
 
 </TabItem>
 
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-apply(plugin = "com.android.application")
-apply(plugin = "embrace-swazzler")
-```
-
-</TabItem>
 </Tabs>
 
-The Embrace Gradle Plugin performs a few key functions:
+## Add the Embrace Android SDK
 
-- Adds the Embrace SDK to your app's dependency list.
-- Injects configuration info the SDK reads at run time.
-- Instruments bytecode to insert SDK hooks that capture telemetry.
-- Uploads mapping files to get human-readable stacktraces in production.
-
-:::info Note on Permissions
-Embrace automatically adds the following permissions so that it can make HTTP requests to deliver captured data.
-
-- `android.permission.INTERNET`
-- `android.permission.ACCESS_NETWORK_STATE`
-
-:::
-
-## Add a dependency to modules or libraries you want to call Embrace from (optional)
-
-If you have an app that uses internal modules or libraries, you must specify the Embrace SDK dependency directly in your module's Gradle file
+Add the Embrace Android SDK to the `build.gradle` file of each module where you want to invoke Embrace:
 
 <Tabs groupId="android-language" queryString="android-language">
-<TabItem value="groovy" label="Groovy">
+<TabItem value="version-catalog" label="Version Catalog">
 
-```groovy
-implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'
+Alter your `libs.versions.toml` file:
+
+```toml
+[libraries]
+embrace = { group = "io.embrace", name = "embrace-android-sdk", version.ref = "embrace" }
+```
+
+Then add the dependency at your module-level `build.gradle.kts`:
+
+```kotlin
+implementation(libs.embrace)
 ```
 
 </TabItem>
@@ -201,58 +145,118 @@ implementation("io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="
 ```
 
 </TabItem>
-</Tabs>
+<TabItem value="groovy" label="Groovy">
 
-You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
+```groovy
+implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'
+```
+
+</TabItem>
+
+</Tabs>
 
 ## Set your app ID and API token
 
-:::info
-Your app ID and API token are available on the Embrace dashboard.
-:::
+Next, login to the [Embrace dashboard](https://dash.embrace.io/) and create a project if you haven't already.
+The dashboard contains the app ID and API token that are necessary for configuring your integration.
 
-### With environment variables (recommended)
+<Tabs groupId="android-language" queryString="android-language">
 
-Set the following environment variables in your development environment:
+<TabItem value="embrace-config" label="Config File">
+
+Create a new file at `app/src/main/embrace-config.json`:
+
+```json
+{
+  "app_id": "<your-app-id>",
+  "api_token": "<your-api-token>"
+}
+```
+
+</TabItem>
+<TabItem value="env-var" label="Environment Variables">
+
+Set the following environment variables:
 
 ```bash
-export EMBRACE_APP_ID="xxxxx"
-export EMBRACE_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+export EMBRACE_APP_ID="<your-app-id>"
+export EMBRACE_API_TOKEN="<your-api-token>"
 ```
 
-The Embrace SDK will automatically read these environment variables at runtime.
+The Embrace SDK will automatically read these environment variables when your app is built.
 
-### With a config file
+</TabItem>
 
-:::warning
-Hardcoding access tokens in your source code might lead to security issues. We recommend using environment variables.
-:::
+</Tabs>
 
-Add a file at `app/src/main/embrace-config.json` with the following contents:
+## Start the Embrace SDK
 
-```json
-{
-  "app_id": "xxxxx",
-  "api_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+We recommend you start the SDK on the main thread to ensure you're capturing mobile telemetry and crashes as soon as possible.
+
+<Tabs groupId="android-language" queryString="android-language">
+
+<TabItem value="startup-library" label="App Startup Library">
+
+If you have already integrated the [App Startup Library](https://developer.android.com/topic/libraries/app-startup) you can define an `Initializer` to start Embrace:
+
+```kotlin
+class EmbraceInitializer : Initializer<Embrace> {
+    override fun create(context: Context): Embrace = Embrace.start(context)
+    override fun dependencies(): List<Class<out Initializer<*>>> = return emptyList()
 }
 ```
 
-:::info
-Further configuration options are documented [here](/android/features/configuration-file/).
-:::
+Then add an entry to your `AndroidManifest.xml`:
 
----
+```xml
+<provider
+    android:name="androidx.startup.InitializationProvider"
+    android:authorities="${applicationId}.androidx-startup"
+    android:exported="false"
+    tools:node="merge">
+    <meta-data  android:name="com.example.EmbraceInitializer"
+          android:value="androidx.startup" />
+</provider>
+```
 
-## NDK crash capture
+</TabItem>
 
-If you want to capture NDK crash reports from your app add the `ndk_enabled` setting to your `app/src/main/embrace-config.json` file:
+<TabItem value="app-subclass" label="Application Subclass">
 
-```json
-{
-  "ndk_enabled": true
+Initialize the Embrace SDK in the `onCreate` method of your `Application` subclass.
+
+```kotlin
+class MyApplication : Application {
+  override fun onCreate() {
+      super.onCreate()
+      Embrace.start(this)
+  }
 }
 ```
 
----
+</TabItem>
 
-Next, you'll be creating your first session.
+</Tabs>
+
+## Build and Run the Application
+
+Build and run the application. You should see the following message in Logcat:
+
+```text
+Embrace SDK version X.Y.Z started for appId = xxxxx
+```
+
+## Confirm data is sent to Embrace
+
+Launch your app, send it to the background by switching to another app, and then relaunch it.
+
+After refreshing the [Embrace dashboard](https://dash.embrace.io/) you should see the uploaded session in your browser.
+Depending on network conditions this may ocassionally take a few minutes to show up.
+
+If you stop your app by force killing it Embrace will not upload the completed session until it is relaunched. You
+must always relaunch your app before data can show in Embrace's dashboard.
+
+## Alter default behavior
+
+After completing an SDK integration we recommend you alter the [SDK's configuration](/android/features/configuration-file/) from the defaults to suit your needs.
+You can also alter the [Gradle Plugin's configuration](/android/features/embrace-gradle-plugin/) if needed.
