@@ -1,6 +1,6 @@
 ---
 title: Embrace MCP Server
-sidebar_position: 1
+sidebar_position: 0
 description: Access Embrace mobile observability data through the Model Context Protocol
 ---
 
@@ -39,7 +39,7 @@ Add the Embrace MCP server to your AI assistant:
 
 For other AI Assistants supporting MCP, please reference your relevant docs. The Embrace MCP Server uses an Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
 
-## Common workflows
+## Common use cases
 
 ### Daily health check
 
