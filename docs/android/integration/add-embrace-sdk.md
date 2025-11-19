@@ -43,7 +43,8 @@ plugins {
 
 <TabItem value="settings" label="Settings File">
 
-#### Kotlin
+### Kotlin
+
 Alter your `settings.gradle.kts`:
 
 ```kotlin
@@ -65,7 +66,8 @@ plugins {
 }
 ```
 
-#### Groovy
+### Groovy
+
 Alter your `settings.gradle`:
 
 ```groovy
@@ -138,12 +140,14 @@ implementation(libs.embrace)
 
 <TabItem value="not-catalog" label="Not Version Catalog">
 
-#### Kotlin
+### Kotlin
+
 ```kotlin
 implementation("io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}")
 ```
 
-#### Groovy
+### Groovy
+
 ```groovy
 implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'
 ```
