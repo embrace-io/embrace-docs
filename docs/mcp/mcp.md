@@ -30,12 +30,12 @@ Before you can use the Embrace MCP server, you need:
 
 Add the Embrace MCP server to your AI assistant:
 
-| AI Assistant     | Setup Instructions                                                                                        |
-| ---------------- | --------------------------------------------------------------------------------------------------------- |
-| Claude Code      | Run: `claude mcp add --transport http embrace https://mcp.embrace.io/mcp`                                 |
-| Claude Desktop   | Add to your [MCP configuration file](https://modelcontextprotocol.io/docs/develop/connect-remote-servers) |
-| Cursor           | See [Cursor MCP documentation](https://docs.cursor.com/context/model-context-protocol)                    |
-| Codeium Windsurf | See [Windsurf MCP documentation](https://docs.codeium.com/windsurf/mcp)                                   |
+| AI Assistant     | Setup Instructions                                                                                          |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- |
+| Claude Code      | Run: `claude mcp add --transport http embrace https://mcp.embrace.io/mcp`                                   |
+| Claude Desktop   | Add to your [MCP configuration file](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)   |
+| Cursor           | See [Cursor MCP documentation](https://docs.cursor.com/context/model-context-protocol)                      |
+| Codeium Windsurf | See [Windsurf MCP documentation](https://docs.windsurf.com/windsurf/cascade/mcp#model-context-protocol-mcp) |
 
 For other AI Assistants supporting MCP, please reference your relevant docs. The Embrace MCP Server uses an Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
 

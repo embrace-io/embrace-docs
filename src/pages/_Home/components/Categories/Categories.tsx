@@ -23,7 +23,7 @@ import {
 import LogoUnity from "@site/static/images/unity.svg";
 import LogoReactNative from "@site/static/images/react-native.svg";
 import PerformanceTraces from "@site/static/images/performance_traces.svg";
-import UserJourneys from "@site/static/images/user-journeys.svg"
+import UserJourneys from "@site/static/images/user-journeys.svg";
 import Logo from "@site/static/images/logo.svg";
 import LogoSplunk from "@site/static/images/logo-splunk.svg";
 import LogoNewRelic from "@site/static/images/logo-new-relic.svg";
@@ -101,17 +101,18 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "/product",
     },
     {
-      title: "Best Practices",
+      title: "Embrace AI",
       description:
-        "Discover best practices to get the most out of our product.",
+        "AI features to powered by your Embrace data to help you query and find insights faster.",
       icon: <IconCheck {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/best-practices",
+      linkTo: "/mcp",
     },
     {
       title: "Tutorials",
       description: "Check out our quick tutorials to learn about our product.",
       icon: <IconBrandYoutube {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "https://www.youtube.com/playlist?list=PLMZXEczVnK9SSdtKf0QSyfAutdCFwrw8o",
+      linkTo:
+        "https://www.youtube.com/playlist?list=PLMZXEczVnK9SSdtKf0QSyfAutdCFwrw8o",
     },
   ],
   OpenTelemetry: [
