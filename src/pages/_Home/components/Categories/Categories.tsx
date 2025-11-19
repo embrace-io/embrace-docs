@@ -19,11 +19,11 @@ import {
   IconUsersGroup,
   IconWifi,
   IconDeviceDesktop,
+  IconSparkles,
 } from "@tabler/icons-react";
 import LogoUnity from "@site/static/images/unity.svg";
 import LogoReactNative from "@site/static/images/react-native.svg";
 import PerformanceTraces from "@site/static/images/performance_traces.svg";
-import UserJourneys from "@site/static/images/user-journeys.svg";
 import Logo from "@site/static/images/logo.svg";
 import LogoSplunk from "@site/static/images/logo-splunk.svg";
 import LogoNewRelic from "@site/static/images/logo-new-relic.svg";
@@ -36,6 +36,7 @@ import LogoObserve from "@site/static/images/logo-observe.svg";
 import LogoIOS from "@site/static/images/ios.svg";
 import LogoFlutter from "@site/static/images/flutter.svg";
 import LogoAndroid from "@site/static/images/android.svg";
+import UserJourneys from "@site/static/images/user-journeys.svg";
 import type { HomeCardProps } from "@site/src/pages/_Home/components/HomeCard/HomeCard";
 import Category from "@site/src/pages/_Home/components/Category/Category";
 
@@ -103,8 +104,8 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     {
       title: "Embrace AI",
       description:
-        "AI features to powered by your Embrace data to help you query and find insights faster.",
-      icon: <IconCheck {...DEFAULT_TABLER_ICON_PROPS} />,
+        "AI features powered by your Embrace data to help you query and find insights faster.",
+      icon: <IconSparkles {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/mcp",
     },
     {
