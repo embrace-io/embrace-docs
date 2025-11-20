@@ -57,6 +57,11 @@ Newer AGP versions provide a more performant API for bytecode instrumentation am
 
 To start capturing telemetry as soon as possible, initialization of the Embrace SDK should be done at app startup on the main thread, right at the beginning of the `Application.onCreate()` method. How long the SDK takes to initialize depends on the features that are enabled and the quality of the device on which the app is running. For the vast majority of production usage, the Embrace takes less than 50 milliseconds to initialize. In practice, this is between 1-3% of typical app cold launch time.
 
+### **Do I need to start Embrace's SDK on the main thread?**
+
+It's strongly recommended to start Embrace's SDK on the main thread after the `Application` object is created. The SDK relies on application lifecycle callbacks
+to capture some telemetry correctly and if it is not started on the main thread at the correct time, the data captured may not be as accurate as it can be.
+
 ### **How does Embrace deliver session data if there is no network connection or if the device is behind a firewall?**
 
 We cache all data prior to sending it to Embrace. If it fails to send, we attempt again later and continue trying until the disc space is full, at which time the oldest message/data is deleted first. Therefore, we continue to retry so long as we don't surpass a hard drive space restriction.
