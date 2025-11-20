@@ -267,6 +267,13 @@ This could be due to one of the following reasons:
 
 For Android, Embrace captures information from native UrlConnections and OkHttp3
 
+### **What permissions does Embrace add to my AndroidManifest?**
+
+Embrace automatically adds the following permissions so that it can make HTTP requests to deliver captured data.
+
+- `android.permission.INTERNET`
+- `android.permission.ACCESS_NETWORK_STATE`
+
 ## Monitoring Performance
 
 ### **How do I measure operations running in parallel?**
