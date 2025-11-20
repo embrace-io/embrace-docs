@@ -1,5 +1,5 @@
 ---
-title: SDK Setup
+title: Add the Android Embrace SDK
 sidebar_position: 1
 description: Add the Embrace SDK as a dependency to your Android application
 ---
@@ -82,6 +82,8 @@ pluginManagement {
 ```
 
 Then apply the plugin at your module-level `build.gradle`:
+
+Alter your `settings.gradle`:
 
 ```groovy
 plugins {
