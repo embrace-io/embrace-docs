@@ -162,6 +162,21 @@ The dashboard contains the app ID and API token that are necessary for configuri
 
 <Tabs groupId="android-language" queryString="android-language">
 
+<TabItem value="env-var" label="Environment Variables">
+
+Set the following environment variables:
+
+```bash
+export EMBRACE_APP_ID="<your-app-id>"
+export EMBRACE_API_TOKEN="<your-api-token>"
+```
+
+The Embrace SDK will automatically read these environment variables when your app is built.
+
+Then, create an empty file at `app/src/main/embrace-config.json`.
+
+</TabItem>
+
 <TabItem value="embrace-config" label="Config File">
 
 Create a new file at `app/src/main/embrace-config.json`:
@@ -174,18 +189,6 @@ Create a new file at `app/src/main/embrace-config.json`:
 ```
 
 </TabItem>
-<TabItem value="env-var" label="Environment Variables">
-
-Set the following environment variables:
-
-```bash
-export EMBRACE_APP_ID="<your-app-id>"
-export EMBRACE_API_TOKEN="<your-api-token>"
-```
-
-The Embrace SDK will automatically read these environment variables when your app is built.
-
-</TabItem>
 
 </Tabs>
 
@@ -194,6 +197,33 @@ The Embrace SDK will automatically read these environment variables when your ap
 We recommend you start the SDK on the main thread to ensure you're capturing mobile telemetry and crashes as soon as possible.
 
 <Tabs groupId="android-language" queryString="android-language">
+
+<TabItem value="auto-init" label="Application Subclass (automatic)">
+
+In your module-level `build.gradle` add the following:
+
+```kotlin
+embrace.bytecodeInstrumentation.autoSdkInitializationEnabled.set(true)
+```
+
+If you don't have an `Application` subclass, you must [create one](https://developer.android.com/reference/android/app/Application).
+
+</TabItem>
+
+<TabItem value="app-subclass" label="Application Subclass (manual)">
+
+Initialize the Embrace SDK in the `onCreate` method of your `Application` subclass.
+
+```kotlin
+class MyApplication : Application {
+  override fun onCreate() {
+      super.onCreate()
+      Embrace.start(this)
+  }
+}
+```
+
+</TabItem>
 
 <TabItem value="startup-library" label="App Startup Library">
 
@@ -217,21 +247,6 @@ Then add an entry to your `AndroidManifest.xml`:
     <meta-data  android:name="com.example.EmbraceInitializer"
           android:value="androidx.startup" />
 </provider>
-```
-
-</TabItem>
-
-<TabItem value="app-subclass" label="Application Subclass">
-
-Initialize the Embrace SDK in the `onCreate` method of your `Application` subclass.
-
-```kotlin
-class MyApplication : Application {
-  override fun onCreate() {
-      super.onCreate()
-      Embrace.start(this)
-  }
-}
 ```
 
 </TabItem>
