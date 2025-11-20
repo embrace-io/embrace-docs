@@ -193,7 +193,7 @@ will override any values set via the configuration file.
 
 ## Start the Embrace SDK
 
-The SDK should be started on the main thread before the `Application` object for your app is created. This is to ensure you're accurately capturing crashes, app startup performance, and other telemetry as soon as possible. Starting the SDK on a background thread or after the `Application` object is created may result in missing or inaccurate telemetry prior to SDK startup.
+Start the SDK on the main thread before the `Application` object is created. Refer to the FAQ [here](/android/faq/#do-i-need-to-start-embraces-sdk-on-the-main-thread) for rationale.
 
 <Tabs groupId="startup" queryString="startup">
 
@@ -201,10 +201,12 @@ The SDK should be started on the main thread before the `Application` object for
 
 The Embrace SDK can be started automatically during your `Application` object's `onCreate()` method by setting a property in the Embrace Gradle Plugin DSL. This requires your app to use a custom `Application` subclass, which the Embrace Gradle Plugin will modify at build time to all the SDK start method.
 
+If you don't have an `Application` subclass, you must [create one](https://developer.android.com/reference/android/app/Application).
+
 ```kotlin
 embrace {
     bytecodeInstrumentation {
-        autoSdkInitializationEnabled = true
+        autoSdkInitializationEnabled.set(true)
     }
 }
 ```
