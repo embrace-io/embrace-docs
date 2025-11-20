@@ -60,7 +60,7 @@ To start capturing telemetry as soon as possible, initialization of the Embrace 
 ### **Do I need to start Embrace's SDK on the main thread?**
 
 It's strongly recommended to start Embrace's SDK on the main thread after the `Application` object is created. The SDK relies on application lifecycle callbacks
-to capture some telemetry correctly and if it is not started on the main thread at the correct time, the data captured may not be as accurate as it can be.
+to capture some telemetry correctly and if it is not started on the main thread at the correct time, the data captured such as application startup performance may not be as accurate as it can be.
 
 ### **How does Embrace deliver session data if there is no network connection or if the device is behind a firewall?**
 

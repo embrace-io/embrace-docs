@@ -41,14 +41,14 @@ of the following ways:
 
 If you define your plugins in a TOML file (e.g. `gradle/libs.versions.toml`):
 
+**Version Catalogs (gradle/libs.versions.toml):**
+
 ```toml
 [plugins]
 embrace = { id = "io.embrace.gradle", version.ref = "embrace" }
 ```
 
-#### Non-Catalog Configuration
-
-If you define your plugins in a settings file (e.g. `settings.gradle.kts` or `settings.gradle`):
+**Non-Catalog Configuration (settings.gradle or settings.gradle.kts):**
 
 ```kotlin
 pluginManagement {
@@ -58,9 +58,7 @@ pluginManagement {
 }
 ```
 
-#### Legacy Buildscript
-
-If you define your plugins in a buildscript block (e.g. in your project's root `build.gradle`):
+**Legacy Buildscript (root build.gradle):**
 
 ```groovy
 buildscript {

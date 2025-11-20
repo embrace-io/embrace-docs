@@ -4,7 +4,7 @@ sidebar_position: 1
 description: Add the Embrace SDK as a dependency to your Android application
 ---
 
-# Adding the Android Embrace SDK
+# SDK Setup
 
 ## Add the Embrace Gradle Plugin
 
@@ -18,7 +18,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-<Tabs groupId="android-language" queryString="android-language">
+<Tabs groupId="plugin-config-type" queryString="plugin-config-type">
 <TabItem value="version-catalog" label="Version Catalog">
 
 Alter your `libs.versions.toml` file:
@@ -41,7 +41,9 @@ plugins {
 
 </TabItem>
 
-<TabItem value="kotlin" label="Kotlin">
+<TabItem value="settings" label="Settings File">
+
+### Kotlin
 
 Alter your `settings.gradle.kts`:
 
@@ -64,9 +66,7 @@ plugins {
 }
 ```
 
-</TabItem>
-
-<TabItem value="groovy" label="Groovy">
+### Groovy
 
 Alter your `settings.gradle`:
 
@@ -82,6 +82,8 @@ pluginManagement {
 ```
 
 Then apply the plugin at your module-level `build.gradle`:
+
+Alter your `settings.gradle`:
 
 ```groovy
 plugins {
@@ -120,7 +122,7 @@ apply plugin: 'embrace-gradle-plugin'
 
 Add the Embrace Android SDK to the `build.gradle` file of each module where you want to invoke Embrace:
 
-<Tabs groupId="android-language" queryString="android-language">
+<Tabs groupId="dep-type" queryString="dep-type">
 <TabItem value="version-catalog" label="Version Catalog">
 
 Alter your `libs.versions.toml` file:
@@ -138,14 +140,15 @@ implementation(libs.embrace)
 
 </TabItem>
 
-<TabItem value="kotlin" label="Kotlin">
+<TabItem value="not-catalog" label="Not Version Catalog">
+
+### Kotlin
 
 ```kotlin
 implementation("io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}")
 ```
 
-</TabItem>
-<TabItem value="groovy" label="Groovy">
+### Groovy
 
 ```groovy
 implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="android" }}'
@@ -155,31 +158,21 @@ implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="
 
 </Tabs>
 
+## Create Embrace configuration file
+
+A JSON-formatted file is used to configure Embrace SDK features. To start off, create a new empty JSON file at `app/src/main/embrace-config.json`:
+
+```json
+{
+}
+```
+
 ## Set your app ID and API token
 
 Next, login to the [Embrace dashboard](https://dash.embrace.io/) and create a project if you haven't already.
 The dashboard contains the app ID and API token that are necessary for configuring your integration.
 
-<Tabs groupId="android-language" queryString="android-language">
-
-<TabItem value="env-var" label="Environment Variables">
-
-Set the following environment variables:
-
-```bash
-export EMBRACE_APP_ID="<your-app-id>"
-export EMBRACE_API_TOKEN="<your-api-token>"
-```
-
-The Embrace SDK will automatically read these environment variables when your app is built.
-
-Then, create an empty file at `app/src/main/embrace-config.json`.
-
-</TabItem>
-
-<TabItem value="embrace-config" label="Config File">
-
-Create a new file at `app/src/main/embrace-config.json`:
+For the initial integration and on local developer builds, you can set these in the Embrace configuration file created above:
 
 ```json
 {
@@ -188,38 +181,33 @@ Create a new file at `app/src/main/embrace-config.json`:
 }
 ```
 
-</TabItem>
+In production, we recommend setting these values via the build machine's environment variables:
 
-</Tabs>
+```bash
+export EMBRACE_APP_ID="<your-app-id>"
+export EMBRACE_API_TOKEN="<your-api-token>"
+```
+
+The Embrace SDK will automatically read these environment variables when your app is built. The environment variables
+will override any values set via the configuration file.
 
 ## Start the Embrace SDK
 
-We recommend you start the SDK on the main thread to ensure you're capturing mobile telemetry and crashes as soon as possible.
+Start the SDK on the main thread before the `Application` object is created. Refer to the FAQ [here](/android/faq/#do-i-need-to-start-embraces-sdk-on-the-main-thread) for rationale.
 
-<Tabs groupId="android-language" queryString="android-language">
+<Tabs groupId="startup" queryString="startup">
 
-<TabItem value="auto-init" label="Application Subclass (automatic)">
+<TabItem value="auto-start" label="Auto Start">
 
-In your module-level `build.gradle` add the following:
-
-```kotlin
-embrace.bytecodeInstrumentation.autoSdkInitializationEnabled.set(true)
-```
+The Embrace SDK can be started automatically during your `Application` object's `onCreate()` method by setting a property in the Embrace Gradle Plugin DSL. This requires your app to use a custom `Application` subclass, which the Embrace Gradle Plugin will modify at build time to all the SDK start method.
 
 If you don't have an `Application` subclass, you must [create one](https://developer.android.com/reference/android/app/Application).
 
-</TabItem>
-
-<TabItem value="app-subclass" label="Application Subclass (manual)">
-
-Initialize the Embrace SDK in the `onCreate` method of your `Application` subclass.
-
 ```kotlin
-class MyApplication : Application {
-  override fun onCreate() {
-      super.onCreate()
-      Embrace.start(this)
-  }
+embrace {
+    bytecodeInstrumentation {
+        autoSdkInitializationEnabled.set(true)
+    }
 }
 ```
 
@@ -247,6 +235,21 @@ Then add an entry to your `AndroidManifest.xml`:
     <meta-data  android:name="com.example.EmbraceInitializer"
           android:value="androidx.startup" />
 </provider>
+```
+
+</TabItem>
+
+<TabItem value="manual" label="Manual">
+
+Initialize the Embrace SDK in the `onCreate` method of your `Application` subclass.
+
+```kotlin
+class MyApplication : Application {
+  override fun onCreate() {
+      super.onCreate()
+      Embrace.start(this)
+  }
+}
 ```
 
 </TabItem>
