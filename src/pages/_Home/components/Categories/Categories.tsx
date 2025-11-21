@@ -15,6 +15,7 @@ import {
   IconSdk,
   IconSettings,
   IconTelescope,
+  IconTimeline,
   IconTimelineEventExclamation,
   IconUsersGroup,
   IconWifi,
@@ -187,7 +188,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "User Journeys",
       description:
         "Measure how performance affects your user's experience through key flows.",
-      icon: <UserJourneys className={styles.svgIcon} />,
+      icon: <IconTimeline {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/user-journeys",
     },
     {
