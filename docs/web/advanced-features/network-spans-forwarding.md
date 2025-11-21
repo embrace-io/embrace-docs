@@ -12,31 +12,15 @@ For a full explanation of this feature please refer to the [Network Spans Forwar
 
 Once all requirements described in [Enable Network Spans Forwarding](/docs/product/network-spans-forwarding.md#enable-network-spans-forwarding)
 are met, the feature will be set up on the Embrace backend by an integrations specialist who will reach out to confirm
-details. At that point everything should begin to work without any additional changes in your app instrumentation,
-however there are a few SDK-side configurations that could affect the feature to be aware of:
+details. At that point network spans for non-CORS requests should begin to be forwarded without any additional changes
+in your app instrumentation, however there are a few SDK-side configurations that affect the feature to be aware of:
 
-```typescript
-import { sdk } from '@embrace-io/web-sdk';
+### Enabling for specific CORS requests
 
-sdk.initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
-
-  // Setting this to true blocks the Network Span Forwarding feature regardless
-  // of what has been configured server-side
-  blockNetworkSpanForwarding: true,
-
-  // Setting registerGlobally to false, providing a custom propagator, or omitting
-  // every network instrumentations are all not supported alongside Network Span Forwarding
-  // and will cause that feature to turn off
-  registerGlobally: false,
-  propagator: myCustomPropagator,
-  omit: new Set(['@opentelemetry/instrumentation-fetch', '@opentelemetry/instrumentation-xml-http-request']),
-});
-```
-
-Also note that by default trace headers will not be included on outgoing CORS requests, this can be overridden for
-particular URLs by configuring the fetch or XHR instrumentations with an allow list of strings and regexes:
+By default, the `traceparent` header will not be included on outgoing CORS requests. This is because the server being
+hit may not be configured to allow additional headers for CORS requests (see [Access-Control-Allow-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Headers)).
+You can specify particular URLs that you wish to forward CORS requests for and for which you know are allowed to accept
+the additional header by configuring the fetch or XHR instrumentations with an allow list of strings and regexes:
 
 ```typescript
 import { sdk } from '@embrace-io/web-sdk';
@@ -58,3 +42,41 @@ sdk.initSDK({
   },
 });
 ```
+
+### Conflicting configuration
+
+Particular configurations of the SDK are incompatible with Network Span Forwarding and will cause the feature to be
+turned off if set:
+
+```typescript
+import { sdk } from '@embrace-io/web-sdk';
+
+sdk.initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: "YOUR_APP_VERSION",
+
+  // Setting registerGlobally to false, providing a custom propagator, or omitting
+  // every network instrumentations are all not supported alongside Network Span Forwarding
+  // and will cause that feature to turn off
+  registerGlobally: false,
+  propagator: myCustomPropagator,
+  omit: new Set(['@opentelemetry/instrumentation-fetch', '@opentelemetry/instrumentation-xml-http-request']),
+});
+```
+
+### Blocking client-side
+
+A `blockNetworkSpanForwarding` configuration flag is available to block the Network Span Forwarding feature regardless
+of what has been configured server-side:
+
+```typescript
+import { sdk } from '@embrace-io/web-sdk';
+
+sdk.initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: "YOUR_APP_VERSION",
+
+  blockNetworkSpanForwarding: true,
+});
+```
+
