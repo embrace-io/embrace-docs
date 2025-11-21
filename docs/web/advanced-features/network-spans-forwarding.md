@@ -79,4 +79,3 @@ sdk.initSDK({
   blockNetworkSpanForwarding: true,
 });
 ```
-
