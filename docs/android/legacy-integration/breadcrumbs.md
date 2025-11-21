@@ -11,6 +11,7 @@ description: Add logging to your Android application using Breadcrumbs with the 
 Embrace can collect your logging data as 'breadcrumbs' and include it as relevant information and details to enrich your sessions.
 
 Here's how you add a Breadcrumb to the session:
+
 ```kotlin
 Embrace.getInstance().addBreadcrumb("onDragEvent called, starting drag")
 ```
