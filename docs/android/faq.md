@@ -1,7 +1,7 @@
 ---
 title: Android FAQ
 description: Frequently asked questions about the Android Embrace SDK
-sidebar_position: 3
+sidebar_position: 5
 ---
 
 # Android FAQ

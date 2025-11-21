@@ -1,3 +1,8 @@
+---
+title: Upgrade Guide
+sidebar_position: 4
+---
+
 # Upgrade Guide
 
 ## Upgrading from 7.x to 8.x
