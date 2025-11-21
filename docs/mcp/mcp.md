@@ -22,7 +22,7 @@ The Embrace Model Context Protocol (MCP) server lets you query your mobile app's
 ## Prerequisites
 
 :::warning
-Embrace's MCP Server is in Beta and has only been officially tested with Claude Desktop and ClaudeCode. Please refer to the relevant documentation provided by your LLM Client on how to connect to a remote MCP server.
+Embrace's MCP Server is in Beta and has only been officially tested with ClaudeCode. Please refer to the relevant documentation provided by your LLM Client on how to connect to a remote MCP server.
 :::
 
 Before you can use the Embrace MCP server, you need:
