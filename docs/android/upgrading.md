@@ -1,17 +1,169 @@
+---
+title: Upgrade Guide
+sidebar_position: 4
+---
+
 # Upgrade Guide
 
-## Upgrading to the new Embrace Gradle Plugin DSL
+## Upgrading from 7.x to 8.x
 
-The Embrace Gradle Plugin previously had a DSL via the 'swazzler' extension. This has been replaced with a new DSL via the 'embrace'
+### Minimum supported versions
+
+The Embrace Android SDK supports the following minimum versions of dependent technologies at build and run time:
+
+| Technology                       | Old minimum version | New minimum version |
+|----------------------------------|---------------------|---------------------|
+| JDK (Build-time)                 | 11                  | 17                  |
+| Kotlin (Run-time and build-time) | 1.8.22              | 2.0.21              |
+| Gradle (minSdk 26+)              | 7.5.1               | 8.0.2               |
+| AGP (minSdk 26+)                 | 7.4.2               | 8.0.2               |
+
+At runtime, the minimum supported Android version remains 5.0 (i.e. `minSdk` = 21). If your minSdk is less than 26, you will still require
+Gradle 8.4 and AGP 8.3.0 to workaround a desugaring issue.
+
+### Language compatibility target
+
+The Embrace Android SDK is compiled using the following language compatibility targets:
+
+| Technology                | Old target | New target |
+|---------------------------|------------|------------|
+| Java                      | 1.8        | 11         |
+| Kotlin (Language and API) | 1.8        | 2.0        |
+
+### Embrace Gradle Plugin renamed
+
+The Embrace Gradle Plugin artifact and plugin ID have been renamed:
+
+| Type        | Old name                      | New name                           |
+|-------------|-------------------------------|------------------------------------|
+| Artifact ID | `io.embrace:embrace-swazzler` | `io.embrace:embrace-gradle-plugin` |
+| Plugin ID   | `io.embrace.swazzler`         | `io.embrace.gradle`                |
+
+Replace references to the old Embrace Gradle Plugin name with the new one. Your configuration files should reference the plugin in one
+of the following ways:
+
+#### Version Catalog
+
+If you define your plugins in a TOML file (e.g. `gradle/libs.versions.toml`):
+
+**Version Catalogs (gradle/libs.versions.toml):**
+
+```toml
+[plugins]
+embrace = { id = "io.embrace.gradle", version.ref = "embrace" }
+```
+
+**Non-Catalog Configuration (settings.gradle or settings.gradle.kts):**
+
+```kotlin
+pluginManagement {
+    plugins {
+        id("io.embrace.gradle") version "${embrace_version}"
+    }
+}
+```
+
+**Legacy Buildscript (root build.gradle):**
+
+```groovy
+buildscript {
+    dependencies {
+        classpath "io.embrace:embrace-gradle-plugin:${embrace_version}"
+    }
+}
+```
+
+### OpenTelemetry support evolution
+
+The SDK is moving towards supporting OpenTelemetry via a native Kotlin
+API ([opentelemetry-kotlin](https://github.com/embrace-io/opentelemetry-kotlin)). Currently, the Kotlin API
+is used internally for capturing telemetry, but under the hood [opentelemetry-java](https://github.com/open-telemetry/opentelemetry-java) is
+still responsible for processing the telemetry.
+
+To use the Kotlin API in your app, which is in the process of being donated to OpenTelemetry and is still subject to changes before it
+becomes stable, you must include the module `io.embrace.opentelemetry.kotlin:opentelemetry-kotlin-api` in your app. With that, you can
+call the `Embrace.getOpenTelemetryKotlin()` function once the Embrace SDK is initialized to obtain an `OpenTelemetry` object with which
+you can instantiate OTel Tracers and Loggers. You can also add your own implementations of Kotlin Span and Log exporters, then configure
+the Embrace Android SDK to use them by calling them `Embrace.addSpanExporter()` and `Embrace.addLogRecordExporter()`.
+
+As part of this evolution, opentelemetry-java's API are not used internally or exported by default by the Embrace SDK. A compatibility
+layer is provided for those who currently use the Java OTel Tracing API or Java exporters with the Embrace SDK. To access that,
+include the new `io.embrace:embrace-android-otel-java` module in your app's classpath, which adds the following extension functions
+to the `Embrace` object:
+
+- `getJavaOpenTelemetry()`
+- `addJavaSpanExporter()`
+- `addJavaLogRecordExporter()`
+
+These methods allow you to use the associated Java OTel API integration points supported by older versions of the Embrace Android SDK.
+
+### Embrace.getInstance() deprecation
+
+`Embrace.getInstance()` is deprecated in favour of `Embrace`. For example, you can now call `Embrace.start(Context)` instead
+of `Embrace.getInstance().start(Context)`.
+
+### Internal modularization
+
+The Embrace SDK is going through a process of modularization. If you rely on `embrace-android-sdk` then you should notice
+very little change as most alterations are internal. However, you should be aware that:
+
+- `embrace-android-compose` has been renamed as `embrace-android-instrumentation-compose-tap`
+- `embrace-android-fcm` has been renamed as `embrace-android-instrumentation-fcm`
+- `embrace-android-okhttp3` has been renamed as `embrace-android-instrumentation-okhttp`
+
+`embrace.autoAddEmbraceDependencies` is deprecated and will be removed in a future release. You should add the
+`io.embrace:embrace-android-sdk` module to your classpath manually if you reference any Embrace Android SDK API directly in your app.
+
+### Http(s)URLConnection network request instrumentation changes
+
+Basic instrumentation for HTTPS network requests made using the `HttpsURLConnection` API is enabled by default and controlled by
+the `sdk_config.networking.enable_huc_lite_instrumentation` configuration flag. It will capture the request duration, status, as well
+as errors. It does not support advanced features like network request forwarding or request or response body sizes. Use the detailed
+instrumentation if you wish to enable those features.
+
+Detailed instrumentation for both HTTP and HTTPS requests using the `HttpURLConnection` and `HttpsURLConnection` APIs, which was enabled
+by default in previous versions, is now disabled by default. The configuration flag to control this
+remains `sdk_config.networking.enable_native_monitoring`.
+
+If you wish to use the detailed instrumentation for these requests, you must include the
+module `io.embrace:embrace-android-instrumentation-huc` in your app's classpath.
+
+This DOES NOT affect instrumentation of network requests made using `OkHttp`.
+
+### Altered APIs
+
+Various deprecated APIs have been removed. Please migrate to the documented new APIs where applicable, or
+get in touch if you do have a use-case that is no longer met.
+
+#### Embrace Android SDK removed APIs
+
+| Old API                                                                 | New API                                                                                                |
+|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)`                                                                               |
+| `Embrace.getInstance().addLogRecordExporter(LogRecordExporter)`         | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
+| `Embrace.getInstance().addSpanExporter(SpanExporter)`                   | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
+| `Embrace.getInstance().getOpenTelemetry()`                              | `Embrace.getOpenTelemetryKotlin()` or `Embrace.getJavaOpenTelemetry()`                                 |
+| `Embrace.getInstance().setResourceAttribute(AttributeKey, String)`      | `Embrace.setResourceAttribute(String, String)`                                                         |
+| `EmbraceSpan.addLink(SpanContext)`                                      | Type changed to symbol declared in embrace-android-sdk.                                                |
+| `EmbraceSpan.addLink(SpanContext, Map)`                                 | Type changed to symbol declared in embrace-android-sdk.                                                |
+| `EmbraceSpan.getSpanContext()`                                          | Type changed to symbol declared in embrace-android-sdk.                                                |
+| `Embrace.getInstance().trackWebViewPerformance(String, ConsoleMessage)` | Obsolete - no alternative provided.                                                                    |
+| `Embrace.getInstance().trackWebViewPerformance(String, String)`         | Obsolete - no alternative provided.                                                                    |
+| `AppFramework`                                                          | Obsolete - no alternative provided.                                                                    |
+| `StartupActivity`                                                       | Obsolete - no alternative provided.                                                                    |
+| `Embrace.getInstance().registerComposeActivityListener()`               | Obsolete - no alternative provided.                                                                    |
+| `Embrace.getInstance().unregisterComposeActivityListener()`             | Obsolete - no alternative provided.                                                                    |
+| `Embrace.getInstance().logWebView(String)`                              | Obsolete - no alternative provided.                                                                    |
+
+#### New Embrace Gradle Plugin DSL
+
+The Embrace Gradle Plugin previously had a DSL via the `swazzler` extension. This has been replaced with a new DSL via the `embrace`
 extension.
-You can still use the 'swazzler' extension but it is deprecated and will be removed in a future release. It's recommended you use one
-extension or the other, rather than combining their use. Migration instructions are shown
-below:
 
 | Old API                                               | New API                                                                 |
 |-------------------------------------------------------|-------------------------------------------------------------------------|
 | `swazzler.disableDependencyInjection`                 | `embrace.autoAddEmbraceDependencies`                                    |
-| `swazzler.disableComposeDependencyInjection`          | `embrace.autoAddEmbraceComposeClickDependency`                               |
+| `swazzler.disableComposeDependencyInjection`          | `embrace.autoAddEmbraceComposeClickDependency`                          |
 | `swazzler.instrumentOkHttp`                           | `embrace.bytecodeInstrumentation.okhttpEnabled`                         |
 | `swazzler.instrumentOnClick`                          | `embrace.bytecodeInstrumentation.onClickEnabled`                        |
 | `swazzler.instrumentOnLongClick`                      | `embrace.bytecodeInstrumentation.onLongClickEnabled`                    |
@@ -32,6 +184,27 @@ The following project properties are now ignored and have no effect. You should 
 
 - `embrace.logLevel`
 - `embrace.instrumentationScope`
+
+#### Embrace Android SDK overload changes
+
+The following functions had overloads manually defined. These have been replaced with one function
+that uses Kotlin's default parameter values.
+
+| Altered APIs                                  |
+|-----------------------------------------------|
+| `Embrace.getInstance().logCustomStacktrace()` |
+| `Embrace.getInstance().logException()`        |
+| `Embrace.getInstance().logMessage()`          |
+| `Embrace.getInstance().createSpan()`          |
+| `Embrace.getInstance().recordCompletedSpan()` |
+| `Embrace.getInstance().recordSpan()`          |
+| `Embrace.getInstance().startSpan()`           |
+| `Embrace.getInstance().endSession()`          |
+| `EmbraceSpan.addEvent()`                      |
+| `EmbraceSpan.addLink()`                       |
+| `EmbraceSpan.recordException()`               |
+| `EmbraceSpan.start()`                         |
+| `EmbraceSpan.stop()`                          |
 
 ## Upgrading from 6.x to 7.x
 
@@ -101,7 +274,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-val span = Embrace.getInstance().startSpan("my-identifier") // start span
+val span = Embrace.startSpan("my-identifier") // start span
 // add events and attributes to span
 span?.stop() // stop span
 ```

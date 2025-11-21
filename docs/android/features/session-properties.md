@@ -13,7 +13,7 @@ However, you are free to use both mechanisms interchangeably.
 Here is an example of setting a session property:
 
 ```kotlin
-Embrace.getInstance().addSessionProperty("launch type", "normal", permanent: false)
+Embrace.addSessionProperty("launch type", "normal", permanent: false)
 ```
 
 import PropertyLimit from '@site/shared/property-limit.md';

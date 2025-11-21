@@ -1,7 +1,7 @@
 ---
 title: Android SDK Changelog
 description: Changelog for the Android Embrace SDK
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Android SDK Changelog
