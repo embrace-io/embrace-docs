@@ -55,14 +55,6 @@ const config: Config = {
       id: "reo-script",
       src: "scripts/reo.js",
     },
-    ...(process.env.EMBR_ENV === "production"
-      ? [
-          {
-            src: `https://js.qualified.com/qualified.js?token=${process.env.QUALIFIED_TOKEN}`,
-            async: true,
-          },
-        ]
-      : []),
   ],
 
   themes: [
@@ -527,12 +519,13 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20251016", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20251112", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://get.embrace.io/embrace-grafana-cloud-webinar?utm_source=website&utm_medium=website&utm_campaign=docs-banner">WEBINAR Nov 6: End-to-end mobile observability with Embrace and Grafana Cloud. Learn how to connect Embrace mobile telemetry with Grafana Cloud data.</a>',
+        '<a target="_blank" href="https://embrace.io/blog/speedcurve-joins-embrace/?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Embrace acquires SpeedCurve, expands user-focused observability platform with web performance insights.</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
+
 
     navbar: {
       logo: {
@@ -561,6 +554,11 @@ const config: Config = {
           to: "https://embrace.io/pricing?utm_source=docs&utm_medium=banner&utm_campaign=pricing_tab",
           label: "Pricing",
           position: "left",
+        },
+        {
+          to: "https://demo.embrace.io/try?utm_source=docs&utm_medium=banner&utm_campaign=sandbox_tab",
+          label: "Launch Sandbox",
+          position: "right",
         },
       ],
     },

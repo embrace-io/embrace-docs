@@ -266,7 +266,7 @@ This could be due to one of the following reasons:
         val myOkHttpClient = OkHttpClient()
     ```
 
-    Our SDK instruments the `build()` method, so it will only track network requests with the first approach. 
+    Our SDK instruments the `build()` method, so it will only track network requests with the first approach.
 
 ### **What does Embrace use to hook into network calls on Android apps?**
 

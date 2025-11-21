@@ -15,6 +15,7 @@ import {
   IconSdk,
   IconSettings,
   IconTelescope,
+  IconTimeline,
   IconTimelineEventExclamation,
   IconUsersGroup,
   IconWifi,
@@ -23,7 +24,6 @@ import {
 import LogoUnity from "@site/static/images/unity.svg";
 import LogoReactNative from "@site/static/images/react-native.svg";
 import PerformanceTraces from "@site/static/images/performance_traces.svg";
-import UserJourneys from "@site/static/images/user-journeys.svg"
 import Logo from "@site/static/images/logo.svg";
 import LogoSplunk from "@site/static/images/logo-splunk.svg";
 import LogoNewRelic from "@site/static/images/logo-new-relic.svg";
@@ -109,9 +109,10 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     },
     {
       title: "Tutorials",
-      description: "Check out our tutorials to easily learn about our product.",
+      description: "Check out our quick tutorials to learn about our product.",
       icon: <IconBrandYoutube {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "https://www.youtube.com/channel/UC8EjpY1ol3QGdp2qk1uZARQ",
+      linkTo:
+        "https://www.youtube.com/playlist?list=PLMZXEczVnK9SSdtKf0QSyfAutdCFwrw8o",
     },
   ],
   OpenTelemetry: [
@@ -185,7 +186,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "User Journeys",
       description:
         "Measure how performance affects your user's experience through key flows.",
-      icon: <UserJourneys className={styles.svgIcon} />,
+      icon: <IconTimeline {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/user-journeys",
     },
     {
