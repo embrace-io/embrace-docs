@@ -12,8 +12,8 @@ For a full explanation of this feature please refer to the [Network Spans Forwar
 
 Once all requirements described in [Enable Network Spans Forwarding](/docs/product/network-spans-forwarding.md#enable-network-spans-forwarding)
 are met, the feature will be set up on the Embrace backend by an integrations specialist who will reach out to confirm
-details. At that point network spans for non-CORS requests should begin to be forwarded without any additional changes
-in your app instrumentation, however there are a few SDK-side configurations that affect the feature to be aware of:
+details. At that point network spans for non-CORS requests will forward without any additional changes in your app
+instrumentation, however there are a few SDK-side configurations that prevent the feature to be aware of:
 
 ### Enabling for specific CORS requests
 
@@ -31,12 +31,14 @@ sdk.initSDK({
   defaultInstrumentationConfig: {
     '@opentelemetry/instrumentation-fetch': {
       propagateTraceHeaderCorsUrls: [
-        // URL strings or regexes to propagate trace headers for on fetch requests
+        /example\.com/, // propagates for any CORS requests with URLs that match the regex
+        "https://www.example.com/foo", // propagates for CORS requests to URLs that exactly match the string
       ],
     },
     '@opentelemetry/instrumentation-xml-http-request': {
       propagateTraceHeaderCorsUrls: [
-        // URL strings or regexes to propagate trace headers for on XHR requests
+        /example\.com/, // propagates for any CORS requests with URLs that match the regex
+        "https://www.example.com/foo", // propagates for CORS requests to URLs that exactly match the string
       ],
     },
   },
@@ -55,11 +57,12 @@ sdk.initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
 
-  // Setting registerGlobally to false, providing a custom propagator, or omitting
-  // every network instrumentations are all not supported alongside Network Span Forwarding
-  // and will cause that feature to turn off
+  // The following are not supported alongside Network Span Forwarding and will cause that feature to turn off:
+  // 1. Setting registerGlobally to false
   registerGlobally: false,
+  // 2. Providing a custom propagator
   propagator: myCustomPropagator,
+  // 3. Omitting both network instrumentations
   omit: new Set(['@opentelemetry/instrumentation-fetch', '@opentelemetry/instrumentation-xml-http-request']),
 });
 ```
