@@ -11,7 +11,8 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "generate:filters": "tsx scripts/generateFilters.ts"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
@@ -22,8 +23,8 @@
     "@tabler/icons-react": "^3.35.0",
     "clsx": "2.1.1",
     "docusaurus-pushfeedback": "^1.0.9",
-    "pushfeedback-react": "^0.1.76",
     "prism-react-renderer": "^2.4.1",
+    "pushfeedback-react": "^0.1.76",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -39,6 +40,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "unist-util-visit": "^5.0.0"
   },
