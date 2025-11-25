@@ -79,7 +79,7 @@ snippet from CDN, you can do so by adding the following script tag to your main 
 <script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X"></script>
 ```
 
-Replacing `X.X.X` with the version of the SDK you wish to include. Check available version on [npm](https://www.npmjs.com/package/@embrace-io/web-sdk).
+Replacing `X.X.X` with the version of the SDK you wish to include. Check available versions on [npm](https://www.npmjs.com/package/@embrace-io/web-sdk).
 
 We recommend you add this script tag to the `<head>` of your HTML file, so that it loads before your app code. This will
 expose the SDK as a global variable `EmbraceWebSdk` on the `window` object. This needs to be added before any script
@@ -145,17 +145,16 @@ from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
 ### Compatibility with OTel packages
 
-The SDK is built on top of OpenTelemetry and as such it is possible to use it alongside other OTel libraries. If you
-wish to customize the SDK behavior by configuring custom resources, exporters, processors or instrumentations you
-should make sure to use versions of the OTel packages that are compatible with what the SDK uses. This table
-summarizes those compatible versions of the OTel packages:
+The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries. **New projects should use OpenTelemetry 2.x.** OpenTelemetry 1.x support is limited to 1.x versions of the SDK, which are deprecated.
 
-| Open Telemetry APIs | Core  | Instrumentations & Contrib |
-|---------------------|-------|----------------------------|
-| ^1.9.0              | ^1.30 | ^0.57.0                    |
+If you wish to customize the SDK behavior by configuring custom resources, exporters, processors, or instrumentations, you must ensure that you are using versions of the OTel packages that are compatible with our SDK:
 
-For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json)
-and [package-lock.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package-lock.json) files in the SDK repository.
+| Embrace Web SDK | Open Telemetry APIs | Core   | Instrumentations & Contrib |
+|-----------------|---------------------|--------|----------------------------|
+| ^2.0.0          | ^1.9.0              | ^2.0.3 | >=0.203.0 <0.300.0         |
+| 1.8.2           | ^1.9.0              | 1.30.1 | 0.57.2                     |
+
+For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json) file in the SDK repository.
 
 ### Turning on verbose logging in the SDK
 
@@ -168,7 +167,7 @@ import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
 initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
-  logLevel: DiagLogLevel.INFO,
+  logLevel: DiagLogLevel.ALL,
 });
 ```
 
