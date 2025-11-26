@@ -183,9 +183,9 @@ function generateFilterDocumentation(metricsData: MetricsData): string {
 
   // Front matter
   markdown += '---\n';
-  markdown += 'title: Filter Reference\n';
-  markdown += 'description: Complete reference of all available filters for querying your data\n';
-  markdown += 'slug: /product/filters-reference\n';
+  markdown += 'title: Filters Definitions\n';
+  markdown += 'description: Complete definitions of all available filters for querying your data\n';
+  markdown += 'slug: /definitions/filters\n';
   markdown += 'sidebar_class_name: hidden-filter-reference\n';
   markdown += '---\n\n';
 
@@ -285,8 +285,8 @@ function generateFilterDocumentation(metricsData: MetricsData): string {
 function main() {
   try {
     // Read the metrics.yaml file
-    const metricsPath = process.argv[2] || './metrics-repo/metrics.yaml';
-    const outputPath = process.argv[3] || './docs/filters/reference.md';
+    const metricsPath = process.argv[2] || './metrics.yaml';
+    const outputPath = process.argv[3] || './docs/definitions/filters.md';
 
     console.log(`Reading metrics from: ${metricsPath}`);
 
