@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # iOS/tvOS SDK Changelog
 
+## 6.15.1
+
+*Nov 19, 2025*
+
+- Fixes
+  - Fixed crash on iOS 16.4 simulators.
+
 ## 6.15.0
 
 *Nov 12, 2025*

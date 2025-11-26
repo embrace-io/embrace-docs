@@ -88,6 +88,13 @@ When you click on any of the User Flows you've created, you'll be taken to that 
 
 The "Issue Rate" tab contains two sub-tabs. The first is "Issue Distribution", which gives you an idea of the makeup of all Issues that are being seen during the selected User Flows in aggregate.
 
+Issue Definitions:
+
+- [**ANRs** (Android)](/product/troubleshooting/anr-reporting/)
+- [**Crashes**](/product/crashes/)
+- [**Error Logs**](/product/troubleshooting/error-logs/)
+- **Network Errors**: Any 4xx or 5xx status code or connection error
+
 On the "Properties Correlation" sub-tab, you can dig into how certain attributes of your User Flows correlate to, and make up, outcomes. You can filter by specific outcomes, as well as select up to 3 different property keys to visualize in the treemap below. This can help you quickly find specific properties that are having outsized issues and reduce the space that you have to explore to find issues.
 
 Hovering your mouse over the treemap, you'll see a tooltip that breaks down the distribution of User Flow outcomes for flows with that specific property value. By clicking on the cell, you'll see the instance list below filter just for that attribute so you can easily find some example sessions to dig into.
