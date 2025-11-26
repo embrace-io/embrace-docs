@@ -137,19 +137,6 @@ Each filter supports different operations and data types. When building queries:
 
 </div>
 
-## Moment Filters
-
-<div class="filters-table">
-
-| Filter | Description | Details | Availability | Constraints |
-| --- | --- | --- | --- | --- |
-| Moment Name<br /><span class="filters-table__key">name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | <em>Platforms:</em> All<br /><em>Pages:</em> All | Length: 1-256 characters |
-| Moment Property Key<br /><span class="filters-table__key">moment_property_key</span> | — | Type: String<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> All | Length: 1-256 characters |
-| Moment Property Value<br /><span class="filters-table__key">moment_property_value</span> | — | Type: String<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> All | Length: 1-256 characters |
-| Outcome<br /><span class="filters-table__key">outcome</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> All | Choices: `abandon`, `complete`, `crash`, `slow`, `stall`, `normal` |
-
-</div>
-
 ## Network Filters
 
 <div class="filters-table">
@@ -288,6 +275,7 @@ Each filter supports different operations and data types. When building queries:
 
 | Filter | Description | Details | Availability | Constraints |
 | --- | --- | --- | --- | --- |
+| Web Vital Name<br /><span class="filters-table__key">name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Widget | Length: 1-256 characters |
 | Web Vital Rating<br /><span class="filters-table__key">rating</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Widget, Web Vitals | Length: 1-256 characters<br />Choices: `poor`, `needs_improvement`, `good` |
 
 </div>

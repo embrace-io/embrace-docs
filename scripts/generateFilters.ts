@@ -237,6 +237,11 @@ function generateFilterDocumentation(metricsData: MetricsData): string {
         continue;
       }
 
+      // Skip moment filters
+      if (filter.category && filter.category.toLowerCase() === 'moment') {
+        continue;
+      }
+
       // Only add if we haven't seen this filter key before
       if (!uniqueFilters[key]) {
         uniqueFilters[key] = filter;
