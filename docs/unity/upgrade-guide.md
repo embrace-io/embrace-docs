@@ -1,5 +1,13 @@
 # Upgrade Guide
 
+## Upgrading to 2.8.x for Android Customers
+
+The Embrace Android SDK now requires AGP 8.3.0 and Java 17 to compile against your applications. For customers using 2021 or 2022, you will need to upgrade your projects since 2021 and 2022 ship with AGP 7.5.1 and Java 11. To do this in Unity for your local machine there are a few different solutions, but the most direct way is to install the appropriate versions of the required tools from your preferred provider. Afterwards, go to Preferences > External Tools and edit the paths for both the JDK and Gradle to the correct paths on your machine. Do note that if you have minSDK < 26 you will still need to resolve desugaring requirements as noted [here](https://developer.android.com/studio/write/java8-support#groovy).
+
+For CI, upgrading Unity's JDK preferences can be finicky. This is because any attempt to use the `AndroidExternalToolsSettings.jdkRootPath` setting actually checks for Java 11 specifically, so attempting to set the path to Java 17 will fail. Similarly, overwriting the source path Unity uses with Java 17 may also fail. To deal with this, you will need to add the following line to your `gradleProperties.template` file: `org.gradle.java.home=/absolute_path_to_your_jdk_install`. This will override the gradle process, forcing it to use the appropriate JDK while bypassing Unity's in-engine checks.
+
+Unity 6.x already ships with AGP 8.13+ and Java 17, so there is no change required in this case.
+
 ## Upgrading from 1.x to 2.x
 
 :::info Summary
