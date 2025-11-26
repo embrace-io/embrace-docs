@@ -57,7 +57,7 @@ const PLATFORM_LABELS: Record<string, string> = {
   rn: 'React Native',
   fl: 'Flutter',
   un: 'Unity',
-  web: 'Web',
+  we: 'Web',
 };
 
 const escapePipes = (value: string): string => value.replace(/\|/g, '\\|');
@@ -104,6 +104,13 @@ const formatPages = (filter: Filter): string => {
   const pages = filter.visible_on.map((page) => formatPageName(page)).join(', ');
 
   return escapePipes(pages);
+};
+
+const formatPagesLabel = (pages: string): string => {
+  if (pages.trim().toLowerCase() === 'all pages') {
+    return 'All';
+  }
+  return pages;
 };
 
 const formatLengthConstraint = (filter: Filter): string | undefined => {
@@ -169,10 +176,19 @@ function generateFilterMarkdown(filterKey: string, filter: Filter): string {
   const type = escapePipes(TYPE_LABELS[filter.type] || filter.type);
   const operations = formatOperations(filter.ops);
   const platforms = formatPlatforms(filter);
-  const constraints = formatConstraints(filter);
   const pages = formatPages(filter);
+  const constraints = formatConstraints(filter);
 
-  return `| ${escapePipes(filter.label)} | \`${filterKey}\` | ${description} | ${type} | ${operations} | ${platforms} | ${pages} | ${constraints} |\n`;
+  const behavior = [`Type: ${type}`, `Ops: ${operations}`].join('<br />');
+  const pagesLabel = formatPagesLabel(pages);
+  const availability = [
+    `<em>Platforms:</em> ${platforms}`,
+    `<em>Pages:</em> ${pagesLabel}`,
+  ].join('<br />');
+
+  const keyCell = `<span class="filters-table__key">\`${filterKey}\`</span>`;
+
+  return `| ${escapePipes(filter.label)} | ${keyCell} | ${description} | ${behavior} | ${availability} | ${constraints} |\n`;
 }
 
 /**
@@ -243,9 +259,10 @@ function generateFilterDocumentation(metricsData: MetricsData): string {
   for (const category of sortedCategories) {
     markdown += `## ${category} Filters\n\n`;
 
+    markdown += '<div class="filters-table">\n\n';
     markdown +=
-      '| Filter | Key | Description | Type | Operations | Platforms | Available On | Constraints |\n';
-    markdown += '| --- | --- | --- | --- | --- | --- | --- | --- |\n';
+      '| Filter | Key | Description | Behavior | Availability | Constraints |\n';
+    markdown += '| --- | --- | --- | --- | --- | --- |\n';
 
     // Sort filters within category by label
     const sortedFilters = filtersByCategory[category].sort((a, b) =>
@@ -256,7 +273,7 @@ function generateFilterDocumentation(metricsData: MetricsData): string {
       markdown += generateFilterMarkdown(key, filter);
     }
 
-    markdown += '\n';
+    markdown += '\n</div>\n\n';
   }
 
   // Add common filter combinations section

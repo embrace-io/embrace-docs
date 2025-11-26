@@ -1,7 +1,7 @@
 ---
-title: Filter Reference
-description: Complete reference of all available filters for querying your data
-slug: /product/filters-reference
+title: Filters Definitions
+description: Complete definitions of all available filters for querying your data
+slug: /definitions/filters
 sidebar_class_name: hidden-filter-reference
 ---
 
@@ -24,197 +24,273 @@ Each filter supports different operations and data types. When building queries:
 
 ## ANR Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Completion | `completion` | — | Choice (String) | Equals | All | All Pages | Choices: `all`, `completed`, `exit` |
-| Duration Bucket (Milliseconds) | `duration` | Duration of the ANR, bucketed by milliseconds. | intrange | Equals | All | All Pages | — |
-| Method | `method` | — | String | Equals, like | All | All Pages | Length: 1-256 characters |
-| Sample Type | `sample_type` | — | Choice (String) | Equals, Not Equals | All | All Pages | Choices: `first`, `best`, `ad` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Completion | <span class="filters-table__key">completion</span> | — | Type: Choice (String)<br />Ops: Equals | All | All | Choices: `all`, `completed`, `exit` |
+| Duration Bucket (Milliseconds) | <span class="filters-table__key">duration</span> | Duration of the ANR, bucketed by milliseconds. | Type: intrange<br />Ops: Equals | All | All | — |
+| Method | <span class="filters-table__key">method</span> | — | Type: String<br />Ops: Equals, like | All | All | Length: 1-256 characters |
+| Sample Type | <span class="filters-table__key">sample_type</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | All | All | Choices: `first`, `best`, `ad` |
+
+</div>
 
 ## App Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| App Version | `app_version` | Semantic version number of the app. | String | Equals, Not Equals | All | All Pages | Length: 1-256 characters |
-| Build | `build` | — | String | Equals, Not Equals | Android, iOS | All Pages | Length: 1-64 characters |
-| Environment | `environment` | Deployment environment of the app. | String | Equals, Not Equals | Android, iOS | All Pages | Length: 1-64 characters |
-| Environment Detail | `environment_detail` | — | String | Equals, Not Equals | Android, iOS | All Pages | Length: 1-64 characters |
-| Last View | `last_view` | — | String | Equals, Not Equals, like, nlike | All | All Pages | Length: 0-4096 characters |
-| SDK Version | `sdk_version` | Embrace SDK semantic version. | String | Equals, Not Equals | All | All Pages | Length: 1-256 characters |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| App Version | <span class="filters-table__key">app_version</span> | Semantic version number of the app. | Type: String<br />Ops: Equals, Not Equals | All | All | Length: 1-256 characters |
+| Build | <span class="filters-table__key">build</span> | — | Type: String<br />Ops: Equals, Not Equals | Android, iOS | All | Length: 1-64 characters |
+| Environment | <span class="filters-table__key">environment</span> | Deployment environment of the app. | Type: String<br />Ops: Equals, Not Equals | Android, iOS | All | Length: 1-64 characters |
+| Environment Detail | <span class="filters-table__key">environment_detail</span> | — | Type: String<br />Ops: Equals, Not Equals | Android, iOS | All | Length: 1-64 characters |
+| Last View | <span class="filters-table__key">last_view</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | All | Length: 0-4096 characters |
+| SDK Version | <span class="filters-table__key">sdk_version</span> | Embrace SDK semantic version. | Type: String<br />Ops: Equals, Not Equals | All | All | Length: 1-256 characters |
+
+</div>
 
 ## Browser Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Bot | `bot` | — | Boolean | Equals, Not Equals | we | All Pages | — |
-| Browser Major Version | `browser_major_version` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | we | All Pages | — |
-| Browser Name | `browser_name` | — | String | Equals, Not Equals, like, nlike | we | All Pages | Length: 1-256 characters |
-| Browser Version | `browser_version` | — | String | Equals, Not Equals, like, nlike | we | All Pages | Length: 1-256 characters |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Bot | <span class="filters-table__key">bot</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | Web | All | — |
+| Browser Major Version | <span class="filters-table__key">browser_major_version</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | Web | All | — |
+| Browser Name | <span class="filters-table__key">browser_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | Web | All | Length: 1-256 characters |
+| Browser Version | <span class="filters-table__key">browser_version</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | Web | All | Length: 1-256 characters |
+
+</div>
 
 ## Child Span Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Child Span Duration (Milliseconds) | `child_duration` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Spans Instances | — |
-| Child Span Event Name | `child_event_name` | — | String | Equals, Not Equals, like, nlike | All | Spans Instances | Length: 1-256 characters |
-| Child Span Name | `child_name` | — | String | Equals, Not Equals, like, nlike | All | Spans Instances | Length: 1-256 characters |
-| Child Span Outcome | `child_outcome` | — | Choice (String) | Equals | All | Spans Instances | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Child Span Duration (Milliseconds) | <span class="filters-table__key">child_duration</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Spans Instances | — |
+| Child Span Event Name | <span class="filters-table__key">child_event_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | Spans Instances | Length: 1-256 characters |
+| Child Span Name | <span class="filters-table__key">child_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | Spans Instances | Length: 1-256 characters |
+| Child Span Outcome | <span class="filters-table__key">child_outcome</span> | — | Type: Choice (String)<br />Ops: Equals | All | Spans Instances | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+
+</div>
 
 ## Crash Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Crash ID | `crash_group_id` | — | String | Equals | Android, iOS | Sessions | Length: exactly 32 characters |
-| File Name | `file` | — | String | Equals, Not Equals, like, nlike | Android, iOS | All Pages | Length: 1-256 characters |
-| Framework | `framework` | — | Choice (String) | Equals | Android, iOS | All Pages | Choices: `native`, `react_native`, `unity` |
-| Message | `msg` | Message describing the crash. | String | like | Android, iOS | All Pages | Length: 1-1024 characters |
-| Symbol | `symbol` | — | String | Equals, Not Equals, like, nlike | Android, iOS | All Pages | Length: 1-256 characters |
-| Tag Name | `tag_name` | — | String | Equals, Not Equals | Android, iOS | All Pages | Length: 1-256 characters |
-| Tag Name/Value | `tag` | — | property | Equals, Not Equals | Android, iOS | All Pages | — |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Crash ID | <span class="filters-table__key">crash_group_id</span> | — | Type: String<br />Ops: Equals | Android, iOS | Sessions | Length: exactly 32 characters |
+| File Name | <span class="filters-table__key">file</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | Android, iOS | All | Length: 1-256 characters |
+| Framework | <span class="filters-table__key">framework</span> | — | Type: Choice (String)<br />Ops: Equals | Android, iOS | All | Choices: `native`, `react_native`, `unity` |
+| Message | <span class="filters-table__key">msg</span> | Message describing the crash. | Type: String<br />Ops: like | Android, iOS | All | Length: 1-1024 characters |
+| Symbol | <span class="filters-table__key">symbol</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | Android, iOS | All | Length: 1-256 characters |
+| Tag Name | <span class="filters-table__key">tag_name</span> | — | Type: String<br />Ops: Equals, Not Equals | Android, iOS | All | Length: 1-256 characters |
+| Tag Name/Value | <span class="filters-table__key">tag</span> | — | Type: property<br />Ops: Equals, Not Equals | Android, iOS | All | — |
+
+</div>
 
 ## Device Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Country ISO | `country` | Device's country as a two letter ISO country code. | String | Equals, Not Equals | All | All Pages | Length: exactly 2 characters |
-| Device Type | `device_type` | — | Choice (String) | Equals | we | All Pages | Choices: `desktop`, `mobile`, `tablet` |
-| Device Type | `model_type` | — | String | Equals, Not Equals | All | All Pages | Length: 1-256 characters |
-| Jailbroken | `jailbroken` | Whether or not the device running an app is jailbroken. | Boolean | Equals, Not Equals | Android, iOS | All Pages | — |
-| Js Patch | `js_patch` | — | String | Equals, Not Equals, like, nlike | All | All Pages | Length: 1-256 characters |
-| Manufacturer | `manufacturer` | Name of the device hardware manufacturer. | String | Equals, Not Equals, like, nlike | All | All Pages | Length: 0-256 characters |
-| Model Factory Name | `model` | Device hardware model identifier. | String | Equals, Not Equals, like, nlike | Android, iOS | All Pages | Length: 1-256 characters |
-| Model Name | `model_market_name` | — | String | Equals, Not Equals, like, nlike | Android, iOS | All Pages | Length: 0-256 characters |
-| Region | `region` | Geographic region within a country, such as a state or province. | String | Equals, Not Equals | All | All Pages | Length: 1-256 characters |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Country ISO | <span class="filters-table__key">country</span> | Device's country as a two letter ISO country code. | Type: String<br />Ops: Equals, Not Equals | All | All | Length: exactly 2 characters |
+| Device Type | <span class="filters-table__key">device_type</span> | — | Type: Choice (String)<br />Ops: Equals | Web | All | Choices: `desktop`, `mobile`, `tablet` |
+| Device Type | <span class="filters-table__key">model_type</span> | — | Type: String<br />Ops: Equals, Not Equals | All | All | Length: 1-256 characters |
+| Jailbroken | <span class="filters-table__key">jailbroken</span> | Whether or not the device running an app is jailbroken. | Type: Boolean<br />Ops: Equals, Not Equals | Android, iOS | All | — |
+| Js Patch | <span class="filters-table__key">js_patch</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | All | Length: 1-256 characters |
+| Manufacturer | <span class="filters-table__key">manufacturer</span> | Name of the device hardware manufacturer. | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | All | Length: 0-256 characters |
+| Model Factory Name | <span class="filters-table__key">model</span> | Device hardware model identifier. | Type: String<br />Ops: Equals, Not Equals, like, nlike | Android, iOS | All | Length: 1-256 characters |
+| Model Name | <span class="filters-table__key">model_market_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | Android, iOS | All | Length: 0-256 characters |
+| Region | <span class="filters-table__key">region</span> | Geographic region within a country, such as a state or province. | Type: String<br />Ops: Equals, Not Equals | All | All | Length: 1-256 characters |
+
+</div>
 
 ## Exception Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Is Handled | `is_handled` | — | Boolean | Equals, Not Equals | All | All Pages | — |
-| Severity Score | `severity_score` | — | float | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | we | All Pages | — |
-| The group ID for the ANR. | `group_id` | — | String | Equals | All | All Pages | Length: exactly 32 characters |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Is Handled | <span class="filters-table__key">is_handled</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | All | All | — |
+| Severity Score | <span class="filters-table__key">severity_score</span> | — | Type: float<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | Web | All | — |
+| The group ID for the ANR. | <span class="filters-table__key">group_id</span> | — | Type: String<br />Ops: Equals | All | All | Length: exactly 32 characters |
+
+</div>
 
 ## Log Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Aggregated Message | `log_msg` | An aggregated form of the log message, with common patterns or high cardinality parts replaced. | String | like | All | Sessions | Length: 1-256 characters |
-| File Attachment Error | `attachment_error` | — | Choice (String) | Equals | All | All Pages | Choices: `ATTACHMENT_TOO_LARGE`, `OVER_MAX_ATTACHMENTS`, `UNKNOWN` |
-| Has File Attachment | `has_attachment` | — | Boolean | Equals | All | All Pages | — |
-| Has Logs | `has_log` | — | Choice (String) | Equals | All | Sessions | Choices: `true` |
-| Type | `log_type` | — | Choice (String) | Equals | All | Sessions | Choices: `info`, `warning`, `error`, `system` |
-| Type | `type` | — | Choice (String) | Equals | All | Widget, Custom Metric, Logs, Alert | Choices: `info`, `warning`, `error`, `system` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Aggregated Message | <span class="filters-table__key">log_msg</span> | An aggregated form of the log message, with common patterns or high cardinality parts replaced. | Type: String<br />Ops: like | All | Sessions | Length: 1-256 characters |
+| File Attachment Error | <span class="filters-table__key">attachment_error</span> | — | Type: Choice (String)<br />Ops: Equals | All | All | Choices: `ATTACHMENT_TOO_LARGE`, `OVER_MAX_ATTACHMENTS`, `UNKNOWN` |
+| Has File Attachment | <span class="filters-table__key">has_attachment</span> | — | Type: Boolean<br />Ops: Equals | All | All | — |
+| Has Logs | <span class="filters-table__key">has_log</span> | — | Type: Choice (String)<br />Ops: Equals | All | Sessions | Choices: `true` |
+| Type | <span class="filters-table__key">log_type</span> | — | Type: Choice (String)<br />Ops: Equals | All | Sessions | Choices: `info`, `warning`, `error`, `system` |
+| Type | <span class="filters-table__key">type</span> | — | Type: Choice (String)<br />Ops: Equals | All | Widget, Custom Metric, Logs, Alert | Choices: `info`, `warning`, `error`, `system` |
+
+</div>
 
 ## Moment Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Moment Name | `name` | — | String | Equals, Not Equals, like, nlike | All | All Pages | Length: 1-256 characters |
-| Moment Property Key | `moment_property_key` | — | String | Equals | All | All Pages | Length: 1-256 characters |
-| Moment Property Value | `moment_property_value` | — | String | Equals | All | All Pages | Length: 1-256 characters |
-| Outcome | `outcome` | — | Choice (String) | Equals | All | All Pages | Choices: `abandon`, `complete`, `crash`, `slow`, `stall`, `normal` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Moment Name | <span class="filters-table__key">name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | All | Length: 1-256 characters |
+| Moment Property Key | <span class="filters-table__key">moment_property_key</span> | — | Type: String<br />Ops: Equals | All | All | Length: 1-256 characters |
+| Moment Property Value | <span class="filters-table__key">moment_property_value</span> | — | Type: String<br />Ops: Equals | All | All | Length: 1-256 characters |
+| Outcome | <span class="filters-table__key">outcome</span> | — | Type: Choice (String)<br />Ops: Equals | All | All | Choices: `abandon`, `complete`, `crash`, `slow`, `stall`, `normal` |
+
+</div>
 
 ## Network Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Connection Error | `connection_error` | — | Boolean | Equals | All | All Pages | — |
-| Domain | `domain` | Domain of the HTTP network request. | String | Equals, Not Equals, like, nlike | All | All Pages | Length: 1-128 characters |
-| Duration Bucket (Milliseconds) | `duration_bucket` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | All Pages | — |
-| First Party | `is_first_party` | — | Boolean | Equals | All | All Pages | — |
-| Has Connection Error | `has_connection_error` | — | Boolean | Equals, Not Equals | All | All Pages | — |
-| Path | `path` | Path element of the URL for an HTTP network request. | String | Equals, like | All | All Pages | Length: 1-1024 characters |
-| Status Code Range | `status_code` | Filter by a range of HTTP response status codes. | intrange | Equals | All | All Pages | — |
-| Status Code Single | `status_code_single` | Filter by a specific HTTP response status code. | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | All Pages | — |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Connection Error | <span class="filters-table__key">connection_error</span> | — | Type: Boolean<br />Ops: Equals | All | All | — |
+| Domain | <span class="filters-table__key">domain</span> | Domain of the HTTP network request. | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | All | Length: 1-128 characters |
+| Duration Bucket (Milliseconds) | <span class="filters-table__key">duration_bucket</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | All | — |
+| First Party | <span class="filters-table__key">is_first_party</span> | — | Type: Boolean<br />Ops: Equals | All | All | — |
+| Has Connection Error | <span class="filters-table__key">has_connection_error</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | All | All | — |
+| Path | <span class="filters-table__key">path</span> | Path element of the URL for an HTTP network request. | Type: String<br />Ops: Equals, like | All | All | Length: 1-1024 characters |
+| Status Code Range | <span class="filters-table__key">status_code</span> | Filter by a range of HTTP response status codes. | Type: intrange<br />Ops: Equals | All | All | — |
+| Status Code Single | <span class="filters-table__key">status_code_single</span> | Filter by a specific HTTP response status code. | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | All | — |
+
+</div>
 
 ## OS Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| OS Major Version | `os_major_version` | The major version of the OS. | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | All Pages | — |
-| OS Name | `os_name` | Device operating system name. | String | Equals, Not Equals, like, nlike | we | All Pages | Length: 1-256 characters |
-| OS Version | `os_version` | Full operation system version. | String | Equals, Not Equals | All | All Pages | Length: 1-256 characters |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| OS Major Version | <span class="filters-table__key">os_major_version</span> | The major version of the OS. | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | All | — |
+| OS Name | <span class="filters-table__key">os_name</span> | Device operating system name. | Type: String<br />Ops: Equals, Not Equals, like, nlike | Web | All | Length: 1-256 characters |
+| OS Version | <span class="filters-table__key">os_version</span> | Full operation system version. | Type: String<br />Ops: Equals, Not Equals | All | All | Length: 1-256 characters |
+
+</div>
 
 ## Root Span Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Root Span Duration (Milliseconds) | `root_span_duration` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Spans Instances, Custom Metric, Alert, Widget | — |
-| Root Span Duration Bucket (Milliseconds) | `root_span_duration_bucket` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Custom Metric, Alert | — |
-| Root Span Event Name | `root_span_event_name` | — | String | Equals, Not Equals, like, nlike | All | Spans Instances, Alert | Length: 1-256 characters |
-| Root Span Name | `root_span_name` | Name of the root span in a performance trace. | String | Equals, Not Equals, like, nlike | All | All Pages | Length: 1-256 characters |
-| Root Span Outcome | `root_span_outcome` | — | Choice (String) | Equals | All | Widget, Custom Metric, Spans Aggregated, Alert | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
-| Slow Root Span | `root_span_type_slow` | — | Boolean | Equals, Not Equals | All | Spans Instances, Custom Metric, Alert, Widget | — |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Root Span Duration (Milliseconds) | <span class="filters-table__key">root_span_duration</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Spans Instances, Custom Metric, Alert, Widget | — |
+| Root Span Duration Bucket (Milliseconds) | <span class="filters-table__key">root_span_duration_bucket</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Custom Metric, Alert | — |
+| Root Span Event Name | <span class="filters-table__key">root_span_event_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | Spans Instances, Alert | Length: 1-256 characters |
+| Root Span Name | <span class="filters-table__key">root_span_name</span> | Name of the root span in a performance trace. | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | All | Length: 1-256 characters |
+| Root Span Outcome | <span class="filters-table__key">root_span_outcome</span> | — | Type: Choice (String)<br />Ops: Equals | All | Widget, Custom Metric, Spans Aggregated, Alert | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+| Slow Root Span | <span class="filters-table__key">root_span_type_slow</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | All | Spans Instances, Custom Metric, Alert, Widget | — |
+
+</div>
 
 ## Session Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Active Interval Count | `active_interval_count` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | Android, iOS | All Pages | — |
-| Breadcrumb Message | `breadcrumb_message` | — | String | Equals, like | All | All Pages | Length: 1-256 characters |
-| Has ANR Exit | `has_anr` | True if the app exited while an ANR was occurring. | Boolean | Equals | All | All Pages | — |
-| Has ANR Exit | `has_anr_exit` | True if the app exited while an ANR was occurring. | Boolean | Equals | All | All Pages | — |
-| Has Cold Start | `is_cold` | True if this session is a cold start of the app. | Boolean | Equals, Not Equals | All | All Pages | — |
-| Has Crash | `has_crash` | True if the session had a crash. | Boolean | Equals, Not Equals | Android, iOS | All Pages | — |
-| Has Low Memory Warning | `has_low_memory` | — | Boolean | Equals, Not Equals | Android, iOS | All Pages | — |
-| Has OOM | `has_oom` | True if the session had an out-of-memory event. | Boolean | Equals, Not Equals | Android, iOS | All Pages | — |
-| Inactive Interval Count | `inactive_interval_count` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | Android, iOS | All Pages | — |
-| Is First | `is_first` | True if this is the user's first session. | Boolean | Equals, Not Equals | All | All Pages | — |
-| Network Connectivity | `network_connectivity` | Type of network connection the device is using. | Choice (String) | Equals | Android, iOS | All Pages | Choices: `mixed`, `none`, `wan`, `wifi` |
-| State | `state` | Whether the app was in the foreground or background. | Choice (String) | Equals, Not Equals | Android, iOS | All Pages | Length: 1-64 characters<br />Choices: `foreground`, `background` |
-| Was User Terminated | `has_user_terminated` | — | Boolean | Equals, Not Equals | Android, iOS | All Pages | — |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Active Interval Count | <span class="filters-table__key">active_interval_count</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | Android, iOS | All | — |
+| Breadcrumb Message | <span class="filters-table__key">breadcrumb_message</span> | — | Type: String<br />Ops: Equals, like | All | All | Length: 1-256 characters |
+| Has ANR Exit | <span class="filters-table__key">has_anr</span> | True if the app exited while an ANR was occurring. | Type: Boolean<br />Ops: Equals | All | All | — |
+| Has ANR Exit | <span class="filters-table__key">has_anr_exit</span> | True if the app exited while an ANR was occurring. | Type: Boolean<br />Ops: Equals | All | All | — |
+| Has Cold Start | <span class="filters-table__key">is_cold</span> | True if this session is a cold start of the app. | Type: Boolean<br />Ops: Equals, Not Equals | All | All | — |
+| Has Crash | <span class="filters-table__key">has_crash</span> | True if the session had a crash. | Type: Boolean<br />Ops: Equals, Not Equals | Android, iOS | All | — |
+| Has Low Memory Warning | <span class="filters-table__key">has_low_memory</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | Android, iOS | All | — |
+| Has OOM | <span class="filters-table__key">has_oom</span> | True if the session had an out-of-memory event. | Type: Boolean<br />Ops: Equals, Not Equals | Android, iOS | All | — |
+| Inactive Interval Count | <span class="filters-table__key">inactive_interval_count</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | Android, iOS | All | — |
+| Is First | <span class="filters-table__key">is_first</span> | True if this is the user's first session. | Type: Boolean<br />Ops: Equals, Not Equals | All | All | — |
+| Network Connectivity | <span class="filters-table__key">network_connectivity</span> | Type of network connection the device is using. | Type: Choice (String)<br />Ops: Equals | Android, iOS | All | Choices: `mixed`, `none`, `wan`, `wifi` |
+| State | <span class="filters-table__key">state</span> | Whether the app was in the foreground or background. | Type: Choice (String)<br />Ops: Equals, Not Equals | Android, iOS | All | Length: 1-64 characters<br />Choices: `foreground`, `background` |
+| Was User Terminated | <span class="filters-table__key">has_user_terminated</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | Android, iOS | All | — |
+
+</div>
 
 ## Span Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Has Slow Root Span | `span_type_slow` | — | Boolean | Equals, Not Equals | All | Sessions | — |
-| Span Duration (Milliseconds) | `span_duration` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Alert, Custom Metric, Sessions, Widget | — |
-| Span Duration Bucket (Milliseconds) | `span_duration_bucket` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Alert, Custom Metric, Sessions, Widget | — |
-| Span Event Name | `span_event_name` | — | String | Equals, Not Equals, like, nlike | All | Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters |
-| Span Is Child | `is_child_span` | — | Boolean | Equals, Not Equals | All | Alert, Custom Metric, Widget | — |
-| Span Name | `span_name` | — | String | Equals, Not Equals, like, nlike | All | Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters |
-| Span Outcome | `span_outcome` | — | Choice (String) | Equals | All | Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Has Slow Root Span | <span class="filters-table__key">span_type_slow</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | All | Sessions | — |
+| Span Duration (Milliseconds) | <span class="filters-table__key">span_duration</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Alert, Custom Metric, Sessions, Widget | — |
+| Span Duration Bucket (Milliseconds) | <span class="filters-table__key">span_duration_bucket</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | Alert, Custom Metric, Sessions, Widget | — |
+| Span Event Name | <span class="filters-table__key">span_event_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters |
+| Span Is Child | <span class="filters-table__key">is_child_span</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | All | Alert, Custom Metric, Widget | — |
+| Span Name | <span class="filters-table__key">span_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | All | Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters |
+| Span Outcome | <span class="filters-table__key">span_outcome</span> | — | Type: Choice (String)<br />Ops: Equals | All | Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+
+</div>
 
 ## Surface Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Surface Name | `surface_name` | — | String | Equals, Not Equals, like, nlike | we | All Pages | Length: 1-256 characters |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Surface Name | <span class="filters-table__key">surface_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | Web | All | Length: 1-256 characters |
+
+</div>
 
 ## User Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Embrace ID | `device_id` | — | String | Equals, Not Equals | All | All Pages | Length: exactly 32 characters |
-| Persona | `persona` | — | String | Equals, Not Equals, like, nlike | Android, iOS | All Pages | Length: 1-256 characters |
-| User Email | `user_email` | App user's email address. | String | Equals, Not Equals | Android, iOS | All Pages | Length: 1-256 characters |
-| User ID | `user_id` | — | String | Equals, Not Equals | All | All Pages | Length: 0-256 characters |
-| Username | `user_name` | App user's username. | String | Equals, Not Equals | Android, iOS | All Pages | Length: 1-256 characters |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Embrace ID | <span class="filters-table__key">device_id</span> | — | Type: String<br />Ops: Equals, Not Equals | All | All | Length: exactly 32 characters |
+| Persona | <span class="filters-table__key">persona</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | Android, iOS | All | Length: 1-256 characters |
+| User Email | <span class="filters-table__key">user_email</span> | App user's email address. | Type: String<br />Ops: Equals, Not Equals | Android, iOS | All | Length: 1-256 characters |
+| User ID | <span class="filters-table__key">user_id</span> | — | Type: String<br />Ops: Equals, Not Equals | All | All | Length: 0-256 characters |
+| Username | <span class="filters-table__key">user_name</span> | App user's username. | Type: String<br />Ops: Equals, Not Equals | Android, iOS | All | Length: 1-256 characters |
+
+</div>
 
 ## User Flow Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| User Flow Duration (Milliseconds) | `user_flow_duration` | — | int | Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | User Flows Summary, User Flows Instances, Alert | — |
-| User Flow End Event Type | `user_flow_end_event_type` | — | Choice (String) | Equals, Not Equals | All | User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `breadcrumb`, `crash`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
-| User Flow Name | `user_flow_name` | — | String | Equals, Not Equals | All | Crashes, Anrs, User Flows Summary, Alert, Widget, Custom Metric, Logs, Network | Length: 1-256 characters |
-| User Flow Outcome | `user_flow_outcome` | — | Choice (String) | Equals, Not Equals | All | User Flows Summary, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `abandon`, `complete`, `error` |
-| User Flow Outcome Reason | `user_flow_outcome_reason` | — | Choice (String) | Equals, Not Equals | All | User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `app_exit`, `timeout`, `new_user_flow_started`, `crash` |
-| User Flow Start Event Type | `user_flow_start_event_type` | — | Choice (String) | Equals, Not Equals | All | User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `breadcrumb`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| User Flow Duration (Milliseconds) | <span class="filters-table__key">user_flow_duration</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | All | User Flows Summary, User Flows Instances, Alert | — |
+| User Flow End Event Type | <span class="filters-table__key">user_flow_end_event_type</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | All | User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `breadcrumb`, `crash`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
+| User Flow Name | <span class="filters-table__key">user_flow_name</span> | — | Type: String<br />Ops: Equals, Not Equals | All | Crashes, Anrs, User Flows Summary, Alert, Widget, Custom Metric, Logs, Network | Length: 1-256 characters |
+| User Flow Outcome | <span class="filters-table__key">user_flow_outcome</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | All | User Flows Summary, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `abandon`, `complete`, `error` |
+| User Flow Outcome Reason | <span class="filters-table__key">user_flow_outcome_reason</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | All | User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `app_exit`, `timeout`, `new_user_flow_started`, `crash` |
+| User Flow Start Event Type | <span class="filters-table__key">user_flow_start_event_type</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | All | User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `breadcrumb`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
+
+</div>
 
 ## Web Resource Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Render Blocking Status | `render_blocking_status` | — | Choice (String) | Equals | All | All Pages | Length: 1-256 characters<br />Choices: `blocking`, `non-blocking` |
-| Resource Type | `resource_type` | — | Choice (String) | Equals | All | All Pages | Length: 1-256 characters<br />Choices: `script`, `stylesheet`, `image`, `font`, `video`, `audio`, `document`, `other` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Render Blocking Status | <span class="filters-table__key">render_blocking_status</span> | — | Type: Choice (String)<br />Ops: Equals | All | All | Length: 1-256 characters<br />Choices: `blocking`, `non-blocking` |
+| Resource Type | <span class="filters-table__key">resource_type</span> | — | Type: Choice (String)<br />Ops: Equals | All | All | Length: 1-256 characters<br />Choices: `script`, `stylesheet`, `image`, `font`, `video`, `audio`, `document`, `other` |
+
+</div>
 
 ## Web Vital Filters
 
-| Filter | Key | Description | Type | Operations | Platforms | Pages | Constraints |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Web Vital Rating | `rating` | — | Choice (String) | Equals | All | Alert, Widget, Web Vitals | Length: 1-256 characters<br />Choices: `poor`, `needs_improvement`, `good` |
+<div class="filters-table">
+
+| Filter | Key | Description | Behavior | Platforms | Pages | Constraints |
+| --- | --- | --- | --- | --- | --- | --- |
+| Web Vital Rating | <span class="filters-table__key">rating</span> | — | Type: Choice (String)<br />Ops: Equals | All | Alert, Widget, Web Vitals | Length: 1-256 characters<br />Choices: `poor`, `needs_improvement`, `good` |
+
+</div>
 
 ## Common Filter Combinations
 
