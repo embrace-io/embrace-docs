@@ -186,9 +186,12 @@ function generateFilterMarkdown(filterKey: string, filter: Filter): string {
     `<em>Pages:</em> ${pagesLabel}`,
   ].join('<br />');
 
-  const keyCell = `<span class="filters-table__key">\`${filterKey}\`</span>`;
+  const identity = [
+    escapePipes(filter.label),
+    `<span class="filters-table__key">${filterKey}</span>`,
+  ].join('<br />');
 
-  return `| ${escapePipes(filter.label)} | ${keyCell} | ${description} | ${behavior} | ${availability} | ${constraints} |\n`;
+  return `| ${identity} | ${description} | ${behavior} | ${availability} | ${constraints} |\n`;
 }
 
 /**
@@ -206,7 +209,7 @@ function generateFilterDocumentation(metricsData: MetricsData): string {
   markdown += '---\n\n';
 
   // Page title and introduction
-  markdown += '# Filter Reference\n\n';
+  markdown += '# Filter Definitions\n\n';
   markdown +=
     'Filters allow you to query and segment your data in the Embrace dashboard. Use filters to narrow down sessions, crashes, and other telemetry data based on specific criteria.\n\n';
 
@@ -261,8 +264,8 @@ function generateFilterDocumentation(metricsData: MetricsData): string {
 
     markdown += '<div class="filters-table">\n\n';
     markdown +=
-      '| Filter | Key | Description | Behavior | Availability | Constraints |\n';
-    markdown += '| --- | --- | --- | --- | --- | --- |\n';
+      '| Filter | Description | Details | Availability | Constraints |\n';
+    markdown += '| --- | --- | --- | --- | --- |\n';
 
     // Sort filters within category by label
     const sortedFilters = filtersByCategory[category].sort((a, b) =>
