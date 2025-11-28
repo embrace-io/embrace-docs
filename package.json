@@ -22,8 +22,8 @@
     "@tabler/icons-react": "^3.35.0",
     "clsx": "2.1.1",
     "docusaurus-pushfeedback": "^1.0.9",
-    "pushfeedback-react": "^0.1.76",
     "prism-react-renderer": "^2.4.1",
+    "pushfeedback-react": "^0.1.76",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -32,6 +32,7 @@
     "@docusaurus/module-type-aliases": "^3.3.2",
     "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.3.2",
+    "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.46.3",
     "@typescript-eslint/parser": "^8.32.0",
     "eslint-config-prettier": "^10.1.8",

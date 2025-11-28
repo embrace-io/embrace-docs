@@ -17,23 +17,7 @@ This means you can:
 
 Logs are exported using the [OpenTelemetry Protocol (OTLP)](https://opentelemetry.io/docs/specs/otel/protocol/).
 
-## Enable Logs Forwarding
-
+## Get Started
 :::info Contact Embrace
 To enable Logs Forwarding, please contact your Embrace onboarding specialist or reach out to support.
 :::
-
-## Log Data and Metadata
-
-When forwarding logs, Embrace includes rich metadata with each LogRecord:
-
-- **Log message**: The actual log content
-- **Timestamp**: When the log was created
-- **Severity level**: Error, Warning, Info, or System
-- **Custom properties**: Any key-value pairs attached to the log
-- **Device information**: Device model, OS version
-- **App information**: App version, build ID
-- **Session context**: Session ID and user information
-
-This metadata enables powerful filtering, grouping, and correlation in your observability platform.
-

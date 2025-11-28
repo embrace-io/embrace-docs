@@ -1,8 +1,56 @@
 ---
-title: Supported Metrics
-description: Learn about the metrics supported by the Custom Metrics API
-sidebar_position: 1
+title: Creating Custom Metrics in Embrace
+description: Create custom metrics in Embrace Dashboard
+sidebar_position: 100
 ---
+
+# Custom Metrics
+
+Embrace captures your mobile data, and aggregates it into time series data. This data is useful for monitoring the
+health
+of your system. By default, Embrace provides standard, out-of-the-box metrics by default. These can be consumed via the
+Metrics API or can be forwarded into your [Data Destination](/data-destinations/index.md) of choice.
+
+Custom metrics allow you to define your own time series metrics with custom labels. This feature enables you to create
+specific metrics that suit your unique needs, beyond the default metrics provided.
+
+## Get Started
+
+### via Boards
+
+Some Widgets on [custom Boards](/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.
+
+Open the menu on a Widget, and click "Create Custom Metric".  This will open up a Custom Metric creation form, pre-populated with the same parameters as the Widget.
+
+<img src={require('@site/static/images/UI CMs > onramp.png').default} alt="Screenshot of Widgets settings menu" />
+
+<img src={require('@site/static/images/UI CMs > pre-filled form.png').default} alt="Screenshot of custom metrics pre-filled form" />
+
+From there, follow the rest of the Custom Metric create flow by selecting a (optional) Data Destination and measurement time interval.
+
+### via Settings
+
+Go to the [Settings page](https://dash.embrace.io/settings/organization/custom_metrics) in the Embrace Dashboard and click on the Custom Metrics tab. Here you can create, view, and
+delete custom metrics. When you define a custom metric, you can specify:
+
+- Metric - The aggregation you want to track.
+- Name - The name of the metric. Must conform to the Prometheus spec.
+- Filter - (Optional) Aggregate only a subset of the data.
+- Group By - (Optional) Group the data by a set of dimensions. These will become the labels in your time series data.
+
+<img src={require('@site/static/images/custom-metrics-definition.png').default} alt="Screenshot of custom metrics definition tab" />
+
+After defining a custom metric you must select a Data Destination and time period. You can choose amongst our existing integrations, or
+you can select the Embrace Metrics API and query the data from there.
+
+<img src={require('@site/static/images/custom-metrics-output.png').default} alt="Screenshot of custom metrics output tab" />
+
+### via API
+
+Refer to [this](/metrics-forwarding/custom-metrics/custom_metrics_api) to understand how to use the public API.
+
+## Supported Metrics
+
 
 # Supported Metrics
 
@@ -11,7 +59,7 @@ Global filters and global group bys are available to use on all the metrics.
 - Global filters: app_version, country, model, os_major_version and os_version.
 - Global group bys: app_version, country, os_major_version, os_version and top_n_market_name.
 
-The following metrics are supported as Custom Metrics. Metrics with the suffix "_total" are gauges.
+Metrics with the suffix "_total" are gauges.
 
 | Metric                                     | Description                                  | Filters                                                                                                                            | Group by granularity                                                              | Time granularity           |  
 |--------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------|
@@ -32,8 +80,8 @@ The following metrics are supported as Custom Metrics. Metrics with the suffix "
 
 :::info
 
-- Refer to this [documentation](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) to understand
-   how `top_n` dimensions work. We keep the top 50 for top_n_market_name, top_n_domain, and top_n_path.
+- Refer to this [documentation](/metrics-forwarding/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) to understand
+  how `top_n` dimensions work.
 - You can also pull the latest set of supported metrics directly from
-   the [API](/custom-metrics-api/#get-metrics-and-parameters-supported).
-   :::
+  the [API](/metrics-forwarding/custom-metrics-api/#get-metrics-and-parameters-supported).
+  :::

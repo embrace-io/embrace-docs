@@ -140,24 +140,18 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
   ],
   "Data Forwarding": [
     {
-      title: "Metrics Forwarding",
+      title: "Data Destinations",
       description:
-          "Deliver your metrics to your cross-platform observability tool of choice.",
+          "Configure your cross-platform observability tool of choice.",
       icon: <IconPuzzle {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/data-destinations",
     },
     {
-      title: "Custom Metrics API",
+      title: "Metrics Forwarding",
       description:
-        "Manage (create, get and delete) all the custom metrics of your organization.",
-      icon: <IconChartLine {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/custom-metrics-api",
-    },
-    {
-      title: "Metrics API",
-      description: "Query your metrics from Embrace using PromQL.",
-      icon: <IconChartBar {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/embrace-api",
+          "Deliver your metrics to your cross-platform observability tool of choice.",
+      icon: <IconPuzzle {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/metrics-forwarding",
     },
     {
       title: "Spans Forwarding",
@@ -169,7 +163,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     {
       title: "Logs Forwarding",
       description:
-          "Deliver your logs your cross-platform observability tool of choice.",
+          "Deliver your logs to your cross-platform observability tool of choice.",
       icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/logs-forwarding",
     },

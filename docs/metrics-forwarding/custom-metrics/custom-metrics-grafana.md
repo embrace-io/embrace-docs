@@ -1,14 +1,14 @@
 ---
-title: Custom Metrics in Grafana
+title: Grafana Integration
 description: Access your Custom Metrics via your Grafana dashboards
-sidebar_position: 2
+sidebar_position: 100
 ---
 
-# Custom Metrics  
+# Grafana Integration  
 
 Custom Metrics that you create in Embrace are available for use in Grafana.
 
-To set up: follow [our instructions](/embrace-api/grafana_integrations/) for integrating Embrace's Metrics API as a data source in Grafana.
+To set up: follow [our instructions](/metrics-forwarding/embrace-api/grafana_integrations/) for integrating Embrace's Metrics API as a data source in Grafana.
 
 Thereafter, every Custom Metric you create will automatically be available when you use Grafana's "Explore Metrics" in the Visualization builder.
 
@@ -23,4 +23,4 @@ Thereafter, every Custom Metric you create will automatically be available when 
 
 <br/>
 <br/>
-Names will only show up once data begins populating the metric.  This means there's a delay for 5-minute, hourly, and daily results to be aggregated.
+Names will only show up once data begins populating the metric. This means there's a delay for 5-minute, hourly, and daily results to be aggregated.

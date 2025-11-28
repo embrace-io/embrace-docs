@@ -7,7 +7,7 @@ sidebar_position: 6
 
 We've heard your feedback! Beginning in October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
 
-- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/custom-metrics-api/getting-started.md).
+- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/metrics-forwarding/custom-metrics-api/getting-started.md).
 - More options for start and end event markers in User Flows.
 - Better User Flow visualization markers in the [User Timeline](/product/sessions/user-timeline.md).
 - User Flow filters on all Issues pages and on the Sessions page.

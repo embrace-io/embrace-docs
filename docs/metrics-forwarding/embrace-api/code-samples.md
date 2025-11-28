@@ -1,12 +1,16 @@
 ---
 title: Code Samples
 description: Learn how to integrate the Metrics API using code
-sidebar_position: 2
+sidebar_position: 100
 ---
 
-# Metrics API Code Samples
+# Code Samples
 
-You can pull data from the Embrace Metrics API using any SDK for your language that supports PromQL. You will need an Embrace Metrics API token, which can be found in your app's settings page.
+You can pull data from the Embrace Metrics API using any SDK for your language that supports PromQL.
+
+## Prerequisites
+
+- [Embrace Metrics API Token](/metrics-forwarding/embrace-api/index/#get-started)
 
 ## Node Example
 

@@ -10,10 +10,6 @@ The logs section gives you access to all logs emitted by your application. Embra
 - **Aggregated logs**: View logs grouped by grouping rules. Typically you would use this visualization for monitoring app performance, identifying trends, and understanding overall user behavior.
 - **Raw Logs**: View every single log. Similar to other logging tools, this is a raw list of every log in real time.
 
-:::tip Export Your Logs
-You can also forward logs in real-time to your observability platform. See [Logs Forwarding](/product/logs-forwarding/) to learn how to stream logs to Grafana Cloud, Datadog, Honeycomb, or any OpenTelemetry-compatible platform.
-:::
-
 ## Filtering options
 
 - **Advanced filters**: our advanced filtering capabilities let you filter logs by various attributes about the app, user, device, operating system, session, etc. You could, for example, search for logs from a specific device model used by users in the UK, you can rapidly filter to those logs and then view the correlated sessions. You can also save your filter combinations for reuse them later.
