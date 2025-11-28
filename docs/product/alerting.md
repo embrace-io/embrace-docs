@@ -184,7 +184,7 @@ Here's a sample webhook data for an alert:
 
 ### How It Works
 
-  Rate limits are applied independently for each channel and reset automatically:
+Rate limits are applied independently for each channel and reset automatically:
 - Hourly limits reset at the top of each hour
 - Daily limits reset at midnight UTC
 
