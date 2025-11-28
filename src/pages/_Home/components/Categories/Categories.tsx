@@ -140,9 +140,9 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
   ],
   "Data Forwarding": [
     {
-      title: "Data Destinations",
+      title: "Metrics Forwarding",
       description:
-        "Deliver your metrics to your cross-platform observability tool of choice.",
+          "Deliver your metrics to your cross-platform observability tool of choice.",
       icon: <IconPuzzle {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/data-destinations",
     },
@@ -165,6 +165,13 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
         "Automatically add a unique identifier to every network request your app makes.",
       icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/network-spans-forwarding",
+    },
+    {
+      title: "Logs Forwarding",
+      description:
+          "Deliver your logs your cross-platform observability tool of choice.",
+      icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/logs-forwarding",
     },
     {
       title: "Custom Dashboards",

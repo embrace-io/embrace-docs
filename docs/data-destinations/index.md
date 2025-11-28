@@ -6,41 +6,53 @@ sidebar_position: 0
 
 # Data Destinations
 
-As part of our Metrics Forwarding package, Embrace offers a number of Data Destinations to deliver your metrics to your
-cross-platform observability tool of choice:
+Embrace Data Destinations allow you to forward telemetry data from your mobile applications to your observability platform of choice. Whether you need metrics, logs, or traces, you can integrate Embrace with the tools your team already uses.
 
-- [Chronosphere integration guide](/data-destinations/chronosphere-setup.md)
-- [Datadog integration guide](/data-destinations/data-dog-setup.md)
-- [Elastic integration guide](/data-destinations/elastic-setup.md)
-- [Grafana Cloud integration guide](/data-destinations/grafana-cloud-setup.md)
-  - [Grafana visualization suite integration guide](/embrace-api/grafana_integrations/)
-- [Honeycomb integration guide](/data-destinations/honeycomb.md)
-- [New Relic integration guide](/data-destinations/new-relic-setup.md)
-- [Observe integration guide](/data-destinations/observe-setup.md)
-- [Splunk integration guide](/data-destinations/splunk.md)
+## Types of Data Forwarding
 
-## Metrics
+Embrace supports forwarding different types of telemetry data:
 
-Metric name follows the format `embrace.<metric_name>.<granularity>` or `embrace_<metric_name>_<granularity>` depending
-on the data destination conventions. Some data destinations apply changes on the metric name. For example, Grafana Cloud
-receives the metric name as `embrace_sessions_total_five_minute` but it converts it into `embrace_sessions_five_minute_total`.
+### [Metrics Forwarding](/product/metrics-forwarding/)
 
-All data destinations receive the following Standard metrics:
+Forward aggregated performance metrics (crashes, sessions, user engagement) to your observability platform. Metrics are sent at different time granularities (5-minute, hourly, daily) to support real-time monitoring and long-term analysis.
 
-| Data Destinations | Metric Names                                                                                                           |  
-|-------------------|------------------------------------------------------------------------------------------------------------------------|
-| Grafana Cloud     | embrace_crash_five_minute_total, embrace_session_five_minute_total, embrace_crash_free_user_five_minute_total          |
-| Grafana Cloud     | embrace_crash_hourly_total, embrace_session_hourly_total, embrace_crash_free_user_hourly_total                         |
-| Grafana Cloud     | embrace_crash_daily_total, embrace_session_daily_total, embrace_crash_free_user_daily_total, embrace_users_daily_total |
-| Others            | embrace.crash_total.hourly, embrace.session_total.hourly, embrace.crash_free_user_total.hourly                         |
-| Others            | embrace.crash_total.daily, embrace.session_total.daily, embrace.crash_free_user_total.daily, embrace.users_total.daily |
-| Others            | embrace.crash_total.five_minute, embrace.session_total.five_minute, embrace.crash_free_user_total.five_minute          |
+### [Logs Forwarding](/product/logs-forwarding/)
+
+Stream all application logs in real-time to your observability platform using OpenTelemetry exporters. View mobile logs alongside backend logs for complete visibility across your stack.
+
+### [Network Spans Forwarding](/product/network-spans-forwarding.md)
+
+Export network request traces with w3c traceparent headers, enabling distributed tracing between your mobile app and backend services.
+
+## Supported Platforms
+
+Embrace integrates with the following observability platforms. Each platform supports different types of data forwarding:
+
+| Platform | [Metrics](/product/metrics-forwarding/) | [Logs](/product/logs-forwarding/) | [Network Spans](/product/network-spans-forwarding.md) | Integration Guide |
+|----------|---------|------|---------------|-------------------|
+| [Chronosphere](/data-destinations/chronosphere-setup.md) | ✓ | ✓ | ✓ | [Setup Guide](/data-destinations/chronosphere-setup.md) |
+| [Datadog](/data-destinations/data-dog-setup.md) | ✓ | ✓ | ✓ | [Setup Guide](/data-destinations/data-dog-setup.md) |
+| [Elastic](/data-destinations/elastic-setup.md) | ✓ | ✓ | ✓ | [Setup Guide](/data-destinations/elastic-setup.md) |
+| [Grafana Cloud](/data-destinations/grafana-cloud-setup.md) | ✓ | ✓ | ✓ | [Setup Guide](/data-destinations/grafana-cloud-setup.md) |
+| [Honeycomb](/data-destinations/honeycomb.md) | ✓ | ✓ | ✓ | [Setup Guide](/data-destinations/honeycomb.md) |
+| [New Relic](/data-destinations/new-relic-setup.md) | ✓ | ✓ | ✓ | [Setup Guide](/data-destinations/new-relic-setup.md) |
+| [Observe](/data-destinations/observe-setup.md) | ✓ | ✓ | - | [Setup Guide](/data-destinations/observe-setup.md) |
+| [Splunk](/data-destinations/splunk.md) | ✓ | ✓ | - | [Setup Guide](/data-destinations/splunk.md) |
+
+**Additional Options:**
+- **[Grafana Visualization Suite](/embrace-api/grafana_integrations/)**: Create custom dashboards and visualizations
+- **Any OpenTelemetry Collector**: Logs and traces can be sent to any OTLP-compatible endpoint
 
 ## Get Started
 
-Head
-to [Settings -> Integrations -> Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations)
-in the dashboard and setup your first data destination:
+To set up a data destination:
 
-<img src={require('@site/static/images/data-destinations/settings_page_example.png').default} alt="Image showing the
-settings page for data destinations" />
+1. Contact your Embrace onboarding specialist to enable the data forwarding features you need
+2. Choose your observability platform from the list above
+3. Follow the platform-specific integration guide
+4. Configure the appropriate forwarding type ([Metrics](/product/metrics-forwarding/), [Logs](/product/logs-forwarding/), or [Network Spans](/product/network-spans-forwarding.md))
+
+For metrics forwarding, you can also configure destinations directly in the dashboard at [Settings -> Integrations -> Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations):
+
+<img src={require('@site/static/images/data-destinations/settings_page_example.png').default} alt="Image showing the settings page for data destinations" />
+

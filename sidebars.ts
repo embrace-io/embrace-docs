@@ -73,8 +73,18 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
+          label: "Metrics Forwarding",
+          id: "product/metrics-forwarding/index",
+        },
+        {
+          type: "doc",
           label: "Network Spans Forwarding",
           id: "product/network-spans-forwarding",
+        },
+        {
+          type: "doc",
+          label: "Logs Forwarding",
+          id: "product/logs-forwarding/index",
         },
         {
           type: "category",
