@@ -69,10 +69,21 @@ Each filter supports different operations and data types. When building queries:
 
 | Filter | Description | Details | Availability | Constraints |
 | --- | --- | --- | --- | --- |
+| Child Span Attribute Key<br /><span class="filters-table__key">child_attribute_key</span> | — | Type: String<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Spans Instances | Length: 1-256 characters |
 | Child Span Duration (Milliseconds)<br /><span class="filters-table__key">child_duration</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | <em>Platforms:</em> All<br /><em>Pages:</em> Spans Instances | — |
 | Child Span Event Name<br /><span class="filters-table__key">child_event_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | <em>Platforms:</em> All<br /><em>Pages:</em> Spans Instances | Length: 1-256 characters |
 | Child Span Name<br /><span class="filters-table__key">child_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | <em>Platforms:</em> All<br /><em>Pages:</em> Spans Instances | Length: 1-256 characters |
 | Child Span Outcome<br /><span class="filters-table__key">child_outcome</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Spans Instances | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+
+</div>
+
+## Child Span Attribute Filters
+
+<div class="filters-table">
+
+| Filter | Description | Details | Availability | Constraints |
+| --- | --- | --- | --- | --- |
+| Child Span Attribute Key/Value<br /><span class="filters-table__key">child_attribute</span> | — | Type: property<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Spans Instances | — |
 
 </div>
 
@@ -132,8 +143,22 @@ Each filter supports different operations and data types. When building queries:
 | File Attachment Error<br /><span class="filters-table__key">attachment_error</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> All | Choices: `ATTACHMENT_TOO_LARGE`, `OVER_MAX_ATTACHMENTS`, `UNKNOWN` |
 | Has File Attachment<br /><span class="filters-table__key">has_attachment</span> | — | Type: Boolean<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> All | — |
 | Has Logs<br /><span class="filters-table__key">has_log</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | Choices: `true` |
+| Log Property Key<br /><span class="filters-table__key">log_property_key</span> | — | Type: String<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | Length: 1-256 characters |
+| Message<br /><span class="filters-table__key">log_raw_msg</span> | Message describing the crash. | Type: String<br />Ops: like | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | Length: 1-256 characters |
+| Message<br /><span class="filters-table__key">raw_msg</span> | Message describing the crash. | Type: String<br />Ops: like | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | Length: 1-256 characters |
+| The group ID for the ANR.<br /><span class="filters-table__key">log_group_id</span> | — | Type: String<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | Length: exactly 32 characters |
 | Type<br /><span class="filters-table__key">log_type</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | Choices: `info`, `warning`, `error`, `system` |
 | Type<br /><span class="filters-table__key">type</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Widget, Custom Metric, Logs, Alert | Choices: `info`, `warning`, `error`, `system` |
+
+</div>
+
+## Log Property Filters
+
+<div class="filters-table">
+
+| Filter | Description | Details | Availability | Constraints |
+| --- | --- | --- | --- | --- |
+| Log Property Key/Value<br /><span class="filters-table__key">log_property</span> | — | Type: property<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | — |
 
 </div>
 
@@ -181,6 +206,16 @@ Each filter supports different operations and data types. When building queries:
 
 </div>
 
+## Root Span Attribute Filters
+
+<div class="filters-table">
+
+| Filter | Description | Details | Availability | Constraints |
+| --- | --- | --- | --- | --- |
+| Root Span Attribute Key/Value<br /><span class="filters-table__key">root_span_attribute</span> | — | Type: property<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Spans Instances, Spans Aggregated, Widget, Alert | — |
+
+</div>
+
 ## Session Filters
 
 <div class="filters-table">
@@ -210,12 +245,23 @@ Each filter supports different operations and data types. When building queries:
 | Filter | Description | Details | Availability | Constraints |
 | --- | --- | --- | --- | --- |
 | Has Slow Root Span<br /><span class="filters-table__key">span_type_slow</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | — |
+| Span Attribute Key<br /><span class="filters-table__key">span_attribute_key</span> | — | Type: String<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions | Length: 1-256 characters |
 | Span Duration (Milliseconds)<br /><span class="filters-table__key">span_duration</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Custom Metric, Sessions, Widget | — |
 | Span Duration Bucket (Milliseconds)<br /><span class="filters-table__key">span_duration_bucket</span> | — | Type: int<br />Ops: Equals, Not Equals, Greater Than, Greater Than or Equal, Less Than, Less Than or Equal | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Custom Metric, Sessions, Widget | — |
 | Span Event Name<br /><span class="filters-table__key">span_event_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters |
 | Span Is Child<br /><span class="filters-table__key">is_child_span</span> | — | Type: Boolean<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Custom Metric, Widget | — |
 | Span Name<br /><span class="filters-table__key">span_name</span> | — | Type: String<br />Ops: Equals, Not Equals, like, nlike | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters |
 | Span Outcome<br /><span class="filters-table__key">span_outcome</span> | — | Type: Choice (String)<br />Ops: Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Alert, Custom Metric, Widget, Sessions | Length: 1-256 characters<br />Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+
+</div>
+
+## Span Attribute Filters
+
+<div class="filters-table">
+
+| Filter | Description | Details | Availability | Constraints |
+| --- | --- | --- | --- | --- |
+| Span Attribute Key/Value<br /><span class="filters-table__key">span_attribute</span> | — | Type: property<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> Sessions, Widget, Alert | — |
 
 </div>
 
@@ -255,6 +301,16 @@ Each filter supports different operations and data types. When building queries:
 | User Flow Outcome<br /><span class="filters-table__key">user_flow_outcome</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> User Flows Summary, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `abandon`, `complete`, `error` |
 | User Flow Outcome Reason<br /><span class="filters-table__key">user_flow_outcome_reason</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `app_exit`, `timeout`, `new_user_flow_started`, `crash` |
 | User Flow Start Event Type<br /><span class="filters-table__key">user_flow_start_event_type</span> | — | Type: Choice (String)<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | Length: 1-256 characters<br />Choices: `breadcrumb`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
+
+</div>
+
+## User Flow Attribute Filters
+
+<div class="filters-table">
+
+| Filter | Description | Details | Availability | Constraints |
+| --- | --- | --- | --- | --- |
+| User Flow Attribute Key/Value<br /><span class="filters-table__key">user_flow_attribute</span> | — | Type: property<br />Ops: Equals, Not Equals | <em>Platforms:</em> All<br /><em>Pages:</em> User Flows Summary, User Flows Instances, Alert, Widget, Custom Metric | — |
 
 </div>
 

@@ -75,7 +75,11 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
   for (const [sectionName, sectionFilters] of Object.entries(metricsData.filters)) {
     for (const [key, filter] of Object.entries(sectionFilters)) {
       // Skip filters that are not visible
-      if (!filter.is_visible) {
+      // A filter is considered visible if:
+      // 1. is_visible is true, OR
+      // 2. visible_on array exists and is non-empty (visible on specific pages)
+      const isVisible = filter.is_visible || (filter.visible_on && filter.visible_on.length > 0);
+      if (!isVisible) {
         continue;
       }
 
