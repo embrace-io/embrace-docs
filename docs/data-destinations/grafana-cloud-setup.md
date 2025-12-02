@@ -64,7 +64,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 ## Selecting the correct data source for Embrace Metrics
 
 :::tip
-If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this [guide](/metrics-forwarding/embrace-api/grafana_integrations.md#setting-up-embrace-as-a-data-source).
+If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this [guide](/metrics-forwarding/metrics-api/grafana-integration/#setting-up-embrace-as-a-data-source).
 :::
 
 Embrace provides two main options for viewing metrics within Grafana: using the **Embrace Metrics API** (pull method) or setting up a **Data Destination** (push method).
@@ -103,7 +103,7 @@ Unsupported options:
 - The following aggregations are ignored when Embrace generates the dashboard backlink:
   - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_attribute_value`, `root_span_duration_bucket`,
   `session_property_value`, `status_code`, `tag_value`.
-- [Top N](/metrics-forwarding/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations that are converted:
+- [Top N](/metrics-forwarding/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations that are converted:
   - `device_model` converted to `model_market_name` (Model Name).
   - `top_n_domain` converted to `domain`.
   - `top_n_market_name` converted to `model_market_name` (Model Name).

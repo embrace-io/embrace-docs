@@ -1,7 +1,7 @@
 ---
 title: Grafana Integration
 description: Learn about the Embrace API to pull data  
-sidebar_position: 11
+sidebar_position: 20
 ---
 
 # Grafana Integration
@@ -9,7 +9,7 @@ sidebar_position: 11
 ## Prerequisites
 
 - Grafana ≥ 9.1.0
-- [Embrace Metrics API Token](/metrics-forwarding/embrace-api/index/#get-started)
+- [Embrace Metrics API Token](/metrics-forwarding/metrics-api/#get-started)
 
 ## Setting Up Embrace as a Data Source
 

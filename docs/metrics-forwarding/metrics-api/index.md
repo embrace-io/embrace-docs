@@ -7,7 +7,7 @@ sidebar_position: 10
 # Embrace Metrics API
 
 The Embrace Metrics API allows you to query your metrics from Embrace using PromQL. 
-The queryable information includes any standard metrics as well as any [Custom Metrics](/metrics-forwarding/custom-metrics-api/) you have created. 
+The queryable information includes any standard metrics as well as any [Custom Metrics](/metrics-forwarding/custom-metrics/) you have created. 
 
 ## Get Started
 
@@ -22,8 +22,8 @@ settings page for API tokens"/>
 
 You can consume metrics from the Embrace Metrics API in two ways:
 
-- **From Grafana**: Visualize metrics in custom dashboards. See the [Grafana Integration guide](/metrics-forwarding/embrace-api/grafana_integrations/).
-- **Programmatically via code**: Query metrics directly using the API. Check out the [code samples](/metrics-forwarding/embrace-api/code_samples/).
+- **From Grafana**: Visualize metrics in custom dashboards. See the [Grafana Integration guide](/metrics-forwarding/metrics-api/grafana-integration/).
+- **Programmatically via code**: Query metrics directly using the API. Check out the [code samples](/metrics-forwarding/metrics-api/code-samples/).
 
 All metrics are queried using PromQL (Prometheus Query Language). See some examples here.
 

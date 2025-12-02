@@ -15,11 +15,11 @@ Embrace supports forwarding different types of telemetry data:
 
 ### [Metrics Forwarding](/metrics-forwarding/)
 
-Export aggregated metrics (crashes, sessions, user engagement).
+Export aggregated metrics (crashes, sessions, user engagement, etc).
 
 ### [Network Spans Forwarding](/product/network-spans-forwarding.md)
 
-Export network request traces with w3c traceparent headers, enabling distributed tracing between your mobile app and
+Export network request as spans with w3c traceparent headers, enabling distributed tracing between your mobile app and
 backend services.
 
 ### [Logs Forwarding](/logs-forwarding/)

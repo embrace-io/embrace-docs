@@ -1,6 +1,6 @@
 ---
-title: Creating Custom Metrics in Embrace
-description: Create custom metrics in Embrace Dashboard
+title: Custom Metrics
+description: Learn about the Embrace Metrics API to pull data
 sidebar_position: 100
 ---
 
@@ -9,7 +9,7 @@ sidebar_position: 100
 Embrace captures your mobile data, and aggregates it into time series data. This data is useful for monitoring the
 health
 of your system. By default, Embrace provides standard, out-of-the-box metrics by default. These can be consumed via the
-Metrics API or can be forwarded into your [Data Destination](/data-destinations/index.md) of choice.
+[Metrics API](/metrics-forwading/metrics-api) or can be forwarded into your [Data Destination](/data-destinations/index.md) of choice.
 
 Custom metrics allow you to define your own time series metrics with custom labels. This feature enables you to create
 specific metrics that suit your unique needs, beyond the default metrics provided.
@@ -47,12 +47,9 @@ you can select the Embrace Metrics API and query the data from there.
 
 ### via API
 
-Refer to [this](/metrics-forwarding/custom-metrics/custom_metrics_api) to understand how to use the public API.
+Refer to [this](/metrics-forwarding/custom-metrics/custom-metrics-api) to understand how to use the public API.
 
 ## Supported Metrics
-
-
-# Supported Metrics
 
 Global filters and global group bys are available to use on all the metrics.
 
@@ -80,8 +77,8 @@ Metrics with the suffix "_total" are gauges.
 
 :::info
 
-- Refer to this [documentation](/metrics-forwarding/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) to understand
+- Refer to this [documentation](/metrics-forwarding/#dimension-reduction---other) to understand
   how `top_n` dimensions work.
 - You can also pull the latest set of supported metrics directly from
-  the [API](/metrics-forwarding/custom-metrics-api/#get-metrics-and-parameters-supported).
+  the [API](/metrics-forwarding/custom-metrics/custom-metrics-api/#get-metrics-and-parameters-supported).
   :::

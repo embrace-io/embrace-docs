@@ -1,5 +1,5 @@
 ---
-title: Logs Forwarding
+title: Introduction
 sidebar_position: 101
 ---
 

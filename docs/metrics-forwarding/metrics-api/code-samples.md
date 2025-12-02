@@ -1,7 +1,7 @@
 ---
 title: Code Samples
 description: Learn how to integrate the Metrics API using code
-sidebar_position: 100
+sidebar_position: 30
 ---
 
 # Code Samples
@@ -10,7 +10,7 @@ You can pull data from the Embrace Metrics API using any SDK for your language t
 
 ## Prerequisites
 
-- [Embrace Metrics API Token](/metrics-forwarding/embrace-api/index/#get-started)
+- [Embrace Metrics API Token](/metrics-forwarding/metrics-api/#get-started)
 
 ## Node Example
 

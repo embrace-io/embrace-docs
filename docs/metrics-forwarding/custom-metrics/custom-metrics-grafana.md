@@ -1,14 +1,14 @@
 ---
 title: Grafana Integration
 description: Access your Custom Metrics via your Grafana dashboards
-sidebar_position: 100
+sidebar_position: 120
 ---
 
 # Grafana Integration  
 
 Custom Metrics that you create in Embrace are available for use in Grafana.
 
-To set up: follow [our instructions](/metrics-forwarding/embrace-api/grafana_integrations/) for integrating Embrace's Metrics API as a data source in Grafana.
+To set up: follow [our instructions](/metrics-forwarding/metrics-api/grafana-integration/) for integrating Embrace's Metrics API as a data source in Grafana.
 
 Thereafter, every Custom Metric you create will automatically be available when you use Grafana's "Explore Metrics" in the Visualization builder.
 

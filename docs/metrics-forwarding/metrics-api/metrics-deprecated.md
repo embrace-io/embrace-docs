@@ -1,7 +1,7 @@
 ---
-title: Metrics migration (2023-10-23)
+title: Metrics migration (2023-10)
 description: How-to update your queries to the latest Metrics
-sidebar_position: 100
+sidebar_position: 40
 ---
 
 # Metrics migration (2023-10-23)
@@ -33,7 +33,7 @@ To build this cut, you can update your query:
 ## Deprecated metrics after 2023-10-17
 
 We have deprecated the following metrics in favor of the new metrics mentioned above.
-All the information provided by these metrics can now be obtained using the new metrics (refer to the Sample Queries section in the [Supported Metrics and Sample Queries](/metrics-forwarding/embrace-api/supported_metrics_and_queries/) page).
+All the information provided by these metrics can now be obtained using the new metrics (refer to the [Supported Metrics](/metrics-forwarding/#supported-metrics) page).
 These deprecated metrics will remain available for retrieving historical data prior to October 30, 2023.
 However, we strongly recommend transitioning to the new metrics to ensure a consistent experience.
 

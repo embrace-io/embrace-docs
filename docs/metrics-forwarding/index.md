@@ -16,12 +16,9 @@ This allows you to:
 - **Build custom visualizations** with your preferred tools
 - **Correlate mobile metrics** with infrastructure and backend metrics
 
-## Standard Metrics vs Custom Metrics 
+## Standard Metrics vs Custom Metrics
 
-Embrace captures mobile data with many dimensions. In order for this data to be useful as time series data, it must be
-aggregated. We automatically aggregate your metrics into [Prometheus style metrics](https://prometheus.io/docs/concepts/data_model/)  
-by default using some standard, common sense labels combinations. These are useful for common golden signals like app
-adoption over several app versions.
+Embrace captures mobile data with many dimensions. In order for this data to be useful as time series data, it must be aggregated. We automatically aggregate your metrics  into [Prometheus style metrics](https://prometheus.io/docs/concepts/data_model/) by default using some standard, common sense labels combinations. These are useful for common golden signals like app  adoption over several app versions.
 
 If a standard metric doesn’t suit your needs you can define a custom metric. For example, you can define a session
 property to identify sessions associated with paying customers and filter for that session property to get app adoption
@@ -42,7 +39,7 @@ settings page for data destinations" />
 
 ## Supported Data Destinations
 
-View all the tools supported in the [Data Destinations](/data-destinations/#supported-platforms) page.
+View all the observability platforms supported in the [Data Destinations](/data-destinations/#supported-platforms) page.
 
 ## Supported Metrics
 
@@ -75,19 +72,29 @@ The same logic applies with the `crash_free_user_total`/`crashed_free_users` met
 
 ### Custom Metrics
 
-Refer to this [documentation](/metrics-forwarding/custom-metrics-api/supported_metrics) to know the supported custom metrics.
+Refer to this [documentation](/metrics-forwarding/custom-metrics/#supported-metrics) to know the supported custom
+metrics.
 
 ## Metric Naming
 
-Metric names follow different formats depending on the data destination. The table below shows the three naming conventions used:
+Metric names follow different formats depending on the data destination. The table below shows the three naming
+conventions used:
 
-| Naming Convention | Format                                  | Example                           | Notes                                                                                           |
-|-------------------|-----------------------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------|
-| Dot notation      | `embrace.<metric_name>.<granularity>`   | `embrace.crashes_total.daily`     | Used by some platforms that support dot-separated metric names                                  |
-| Underscore prefix | `embrace_<metric_name>_<granularity>`   | `embrace_crashes_total_daily`     | Common format sent to most destinations                                                         |
-| Granularity first | `<granularity>_<metric_name>`           | `daily_crashes_total`             | Used when querying via the Embrace Metrics API. Some destinations like Grafana Cloud may convert the underscore prefix format to this convention |
-
+| Data Destinations                                          | Format                                     | Example                       |
+|------------------------------------------------------------|--------------------------------------------|-------------------------------|
+| Datadog, Elastic, Honeycomb, New Relic, Observe and Splunk | `embrace.<metric_name>.<time_granularity>` | `embrace.crashes_total.daily` |
+| Chronosphere and Grafana Cloud                             | `embrace_<metric_name>_<time_granularity>` | `embrace_crashes_total_daily` |
+| Metrics API                                                | `<time_granularity>_<metric_name>`         | `daily_crashes_total`         |
 
 ## Dimension reduction - "Other"
 
-To reduce storage costs with various observability platforms (eg Datadog), Embrace Metrics examine high cardinality dimensions for consolidation.
+To reduce storage costs with various observability platforms (eg Datadog), Embrace Metrics examine high cardinality
+dimensions for consolidation.
+
+### Device Models
+
+There are over 40,000 unique device models on the Android operating system. The bottom 39,000 models account for ~30% of data typically.  Aside from being expensive to store this many unique values, it is also unwieldy to visualize or review!
+
+<img src={require('@site/static/images/metrics-forwarding/device_other.png').default} alt="Chart showing data by device ranking" />
+
+Currently, we roll together these long-tail device models into an "other" value.

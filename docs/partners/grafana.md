@@ -11,15 +11,15 @@ Embrace delivers context-rich mobile data to Grafana Cloud in the form of metric
 
 ### Data Destinations
 
-To forward your Metrics to Grafana Cloud, Embrace offers a "push" method called [Data Destinations](/data-destinations). In a set time interval, Embrace will forward such "standard metrics" as `crash total` and `sessions total` to Grafana. Additionally, Embrace users can create [Custom Metrics](/metrics-forwarding/custom-metrics-api/custom-metrics-grafana) according to their own criteria, and also forward these via Data Destinations.
+To forward your Metrics to Grafana Cloud, Embrace offers a "push" method called [Data Destinations](/data-destinations). In a set time interval, Embrace will forward such "standard metrics" as `crash total` and `sessions total` to Grafana. Additionally, Embrace users can create [Custom Metrics](/metrics-forwarding/custom-metrics/#get-started) according to their own criteria, and also forward these via Data Destinations.
 
 See the [setup docs](/data-destinations/grafana-cloud-setup/) for more information on Data Destinations to Grafana Cloud.
 
 ### Metrics API
 
-Embrace also offers a "pull" method for metrics in the form of our public [Metrics API](/metrics-forwarding/embrace-api/). You can directly query Embrace's metrics from your backend using the [PromQL query language](https://prometheus.io/docs/prometheus/latest/querying/basics/).  
+Embrace also offers a "pull" method for metrics in the form of our public [Metrics API](/metrics-forwarding/metrics-api/). You can directly query Embrace's metrics from your backend using the [PromQL query language](https://prometheus.io/docs/prometheus/latest/querying/basics/).  
 
-See the [setup docs](/metrics-forwarding/embrace-api/grafana_integrations/) for more information on Metrics API for Grafana. You can also look at [sample queries](/metrics-forwarding/embrace-api/code_samples/) using Node and Python.
+See the [setup docs](/metrics-forwarding/metrics-api/grafana-integration/) for more information on Metrics API for Grafana. You can also look at [sample queries](/metrics-forwarding/metrics-api/code-samples/) using Node and Python.
 
 ## Traces
 
