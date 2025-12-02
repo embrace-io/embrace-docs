@@ -1,5 +1,5 @@
 ---
-title: Metrics API
+title: Embrace Metrics API
 description: Learn about the Embrace Metrics API to pull data  
 sidebar_position: 10
 ---

@@ -9,7 +9,7 @@ sidebar_position: 100
 Embrace captures your mobile data, and aggregates it into time series data. This data is useful for monitoring the
 health
 of your system. By default, Embrace provides standard, out-of-the-box metrics by default. These can be consumed via the
-[Metrics API](/metrics-forwarding/metrics-api/) or can be forwarded into your [Data Destination](/data-destinations/index.md) of choice.
+[Embrace Metrics API](/metrics-forwarding/metrics-api/) or can be forwarded into your [Data Destination](/data-destinations/index.md) of choice.
 
 Custom metrics allow you to define your own time series metrics with custom labels. This feature enables you to create
 specific metrics that suit your unique needs, beyond the default metrics provided.

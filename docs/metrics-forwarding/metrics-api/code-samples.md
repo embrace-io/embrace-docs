@@ -1,6 +1,6 @@
 ---
 title: Code Samples
-description: Learn how to integrate the Metrics API using code
+description: Learn how to integrate the Embrece Metrics API using code
 sidebar_position: 30
 ---
 

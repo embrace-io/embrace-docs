@@ -47,12 +47,12 @@ Embrace forwards standard and custom metrics at different time granularities to 
 
 ### Standard Metrics
 
-| Metric name           | Metrics API Name   | Description                            | Dimensions                            | Time granularity           |
-|-----------------------|--------------------|----------------------------------------|---------------------------------------|----------------------------|
-| crash_total           | crashes_total      | Number of crashes                      | app_version, os_version, device_model | five_minute, hourly, daily |
-| session_total         | sessions_total     | Number of sessions                     | app_version, os_version, device_model | five_minute, hourly, daily |
-| crash_free_user_total | crashed_free_users | Number of unique users without crashes | app_version, os_version, device_model | five_minute, hourly, daily |
-| users_total           | users_total        | Number of unique users                 | app_version, os_version, device_model | daily                      |
+| Metric name           | Embrace Metrics API Name | Description                            | Dimensions                            | Time granularity           |
+|-----------------------|--------------------------|----------------------------------------|---------------------------------------|----------------------------|
+| crash_total           | crashes_total            | Number of crashes                      | app_version, os_version, device_model | five_minute, hourly, daily |
+| session_total         | sessions_total           | Number of sessions                     | app_version, os_version, device_model | five_minute, hourly, daily |
+| crash_free_user_total | crashed_free_users       | Number of unique users without crashes | app_version, os_version, device_model | five_minute, hourly, daily |
+| users_total           | users_total              | Number of unique users                 | app_version, os_version, device_model | daily                      |
 
 :::info
 The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a
@@ -84,7 +84,7 @@ conventions used:
 |------------------------------------------------------------|--------------------------------------------|-------------------------------|
 | Datadog, Elastic, Honeycomb, New Relic, Observe and Splunk | `embrace.<metric_name>.<time_granularity>` | `embrace.crashes_total.daily` |
 | Chronosphere and Grafana Cloud                             | `embrace_<metric_name>_<time_granularity>` | `embrace_crashes_total_daily` |
-| Metrics API                                                | `<time_granularity>_<metric_name>`         | `daily_crashes_total`         |
+| Embrace Metrics API                                        | `<time_granularity>_<metric_name>`         | `daily_crashes_total`         |
 
 ## Dimension reduction - "Other"
 
