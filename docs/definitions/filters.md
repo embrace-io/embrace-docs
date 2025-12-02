@@ -20,6 +20,20 @@ Each filter supports different operations and data types. When building queries:
 - **Contains** - Text contains the specified substring
 - **In** - Value is in a list of options
 
+## Understanding Filter Table Columns
+
+Each filter table in this page uses the same columns:
+
+- **Filter** - Human-readable name of the filter, with the key used in APIs or programmatic queries shown below it in monospace (for example, `app_version`).
+- **Description** - Plain-language explanation of what the filter represents and how it is typically used.
+- **Details** - Includes the filter's type and the operations you can use with it:
+  - **Type** describes the data shape, such as String, Choice (String), int, float, Boolean, Date/DateTime, property (key-value pair), or intrange (integer range).
+  - **Ops** are the comparison operations available for the filter. Common operations include Equals (`eq`), Not Equals (`neq`), Greater Than / Greater Than or Equal (`gt`, `gte`), Less Than / Less Than or Equal (`lt`, `lte`), In / Not In (`in`, `nin`), Contains (`contains`), and pattern-based operators like like / nlike.
+    - Use **Not Equals** when you want to exclude one specific exact value.
+    - Use **nlike** when you want to exclude any value that contains or matches a certain text pattern anywhere in the field.
+- **Platform** - Lists which platforms the filter applies to. Supported platforms are Android, iOS, React Native, Flutter, Unity, and Web. **All** means the filter is available on every supported platform. If specific platforms are listed instead of **All**, the filter is only available on that subset of platforms.
+- **Constraints** - Describes any limits on valid values for the filter, such as minimum or maximum string length, exact length, or enumerated choices. If no constraints are listed, the filter accepts any value that matches its type.
+
 ---
 
 ## ANR Filters

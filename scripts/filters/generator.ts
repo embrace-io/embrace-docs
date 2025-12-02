@@ -58,6 +58,27 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
   markdown += '- **Contains** - Text contains the specified substring\n';
   markdown += '- **In** - Value is in a list of options\n\n';
 
+  // Column definitions section
+  markdown += '## Understanding Filter Table Columns\n\n';
+  markdown += 'Each filter table in this page uses the same columns:\n\n';
+
+  markdown += '- **Filter** - Human-readable name of the filter, with the key used in APIs or programmatic queries shown below it in monospace (for example, `app_version`).\n';
+  markdown +=
+    '- **Description** - Plain-language explanation of what the filter represents and how it is typically used.\n';
+  markdown +=
+    "- **Details** - Includes the filter's type and the operations you can use with it:\n";
+  markdown += '  - **Type** describes the data shape, such as String, Choice (String), int, float, Boolean, Date/DateTime, property (key-value pair), or intrange (integer range).\n';
+  markdown +=
+    '  - **Ops** are the comparison operations available for the filter. Common operations include Equals (`eq`), Not Equals (`neq`), Greater Than / Greater Than or Equal (`gt`, `gte`), Less Than / Less Than or Equal (`lt`, `lte`), In / Not In (`in`, `nin`), Contains (`contains`), and pattern-based operators like like / nlike.\n';
+  markdown +=
+    '    - Use **Not Equals** when you want to exclude one specific exact value.\n';
+  markdown +=
+    '    - Use **nlike** when you want to exclude any value that contains or matches a certain text pattern anywhere in the field.\n';
+  markdown +=
+    '- **Platform** - Lists which platforms the filter applies to. Supported platforms are Android, iOS, React Native, Flutter, Unity, and Web. **All** means the filter is available on every supported platform. If specific platforms are listed instead of **All**, the filter is only available on that subset of platforms.\n';
+  markdown +=
+    '- **Constraints** - Describes any limits on valid values for the filter, such as minimum or maximum string length, exact length, or enumerated choices. If no constraints are listed, the filter accepts any value that matches its type.\n\n';
+
   markdown += '---\n\n';
 
   // Deduplicate filters across all sections (same filter can appear in multiple sections)
