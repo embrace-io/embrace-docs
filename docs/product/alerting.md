@@ -154,3 +154,40 @@ Here's a sample webhook data for an alert:
   "ts": 1717030759
 }
 ```
+
+## Alert Rate Limiting
+
+  To ensure reliable alert delivery and prevent notification fatigue, Embrace applies rate limits to alert notifications. This means there's a maximum number of notifications that can be sent within a specific time
+  period.
+
+  When a rate limit is reached, additional alerts are suppressed until the time window resets.
+
+  **Important**: Even if a notification is suppressed, all triggered alerts are still recorded and visible in your Alert History
+   in the dashboard.
+
+### Rate Limits by Channel
+
+**Slack Notifications**
+
+- **10 messages per hour** per app
+- **40 messages per day** per app
+
+**Email Notifications**
+
+- **10 messages per hour** per email address
+- **20 messages per day** per email address
+
+**Webhook Notifications**
+
+- **20 messages per hour** per app
+- **200 messages per day** per app
+
+### How It Works
+
+Rate limits are applied independently for each channel and reset automatically:
+
+- Hourly limits reset at the top of each hour
+- Daily limits reset at midnight UTC
+
+For example, if a Slack channel receives 10 alert notifications between 2:00 PM and 3:00 PM, any additional Slack alerts for that app will be suppressed until 3:00 PM. Email and webhook notifications for the same app
+would continue to be delivered normally (up to their own limits).
