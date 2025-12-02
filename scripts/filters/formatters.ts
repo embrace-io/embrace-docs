@@ -103,32 +103,6 @@ export const formatPagesLabel = (pages: string): string => {
   return pages;
 };
 
-export const formatLengthConstraint = (filter: Filter): string | undefined => {
-  const { min_length, max_length } = filter;
-
-  if (
-    min_length !== undefined &&
-    max_length !== undefined &&
-    min_length === max_length
-  ) {
-    return `Length: exactly ${min_length} characters`;
-  }
-
-  if (min_length !== undefined && max_length !== undefined) {
-    return `Length: ${min_length}-${max_length} characters`;
-  }
-
-  if (max_length !== undefined) {
-    return `Max length: ${max_length} characters`;
-  }
-
-  if (min_length !== undefined) {
-    return `Min length: ${min_length} characters`;
-  }
-
-  return undefined;
-};
-
 export const formatChoicesConstraint = (filter: Filter): string | undefined => {
   if (!filter.choices || filter.choices.length === 0) {
     return undefined;
@@ -140,12 +114,7 @@ export const formatChoicesConstraint = (filter: Filter): string | undefined => {
 
 export const formatConstraints = (filter: Filter): string => {
   const parts: string[] = [];
-  const lengthConstraint = formatLengthConstraint(filter);
   const choiceConstraint = formatChoicesConstraint(filter);
-
-  if (lengthConstraint) {
-    parts.push(lengthConstraint);
-  }
 
   if (choiceConstraint) {
     parts.push(choiceConstraint);

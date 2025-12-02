@@ -1,12 +1,6 @@
 import { FilterWithSection, MetricsData } from './types';
 import { TYPE_LABELS } from './constants';
-import {
-  escapePipes,
-  formatOperations,
-  formatPlatforms,
-  formatConstraints,
-  sanitizeDescription,
-} from './formatters';
+import { escapePipes, formatOperations, formatConstraints, sanitizeDescription } from './formatters';
 
 /**
  * Generate markdown table row for a single filter
@@ -15,17 +9,14 @@ export function generateFilterMarkdown(filterKey: string, filter: FilterWithSect
   const description = sanitizeDescription(filter.description);
   const type = escapePipes(TYPE_LABELS[filter.type] || filter.type);
   const operations = formatOperations(filter.ops);
-  const platforms = formatPlatforms(filter, filterKey);
   const constraints = formatConstraints(filter);
-
-  const behavior = [`Type: ${type}`, `Ops: ${operations}`].join('<br />');
 
   const identity = [
     escapePipes(filter.label),
     `<span class="filters-table__key">${filterKey}</span>`,
   ].join('<br />');
 
-  return `| ${identity} | ${description} | ${behavior} | ${platforms} | ${constraints} |\n`;
+  return `| ${identity} | ${description} | ${operations} | ${type} | ${constraints} |\n`;
 }
 
 /**
@@ -66,18 +57,14 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
   markdown +=
     '- **Description** - Plain-language explanation of what the filter represents and how it is typically used.\n';
   markdown +=
-    "- **Details** - Includes the filter's type and the operations you can use with it:\n";
-  markdown += '  - **Type** describes the data shape, such as String, Choice (String), int, float, Boolean, Date/DateTime, property (key-value pair), or intrange (integer range).\n';
+    '- **Operations** - The comparison operations available for the filter. Common operations include Equals (`eq`), Not Equals (`neq`), Greater Than / Greater Than or Equal (`gt`, `gte`), Less Than / Less Than or Equal (`lt`, `lte`), In / Not In (`in`, `nin`), Contains (`contains`), and pattern-based operators like like / nlike.\n';
   markdown +=
-    '  - **Ops** are the comparison operations available for the filter. Common operations include Equals (`eq`), Not Equals (`neq`), Greater Than / Greater Than or Equal (`gt`, `gte`), Less Than / Less Than or Equal (`lt`, `lte`), In / Not In (`in`, `nin`), Contains (`contains`), and pattern-based operators like like / nlike.\n';
+    '  - Use **Not Equals** when you want to exclude one specific exact value.\n';
   markdown +=
-    '    - Use **Not Equals** when you want to exclude one specific exact value.\n';
+    '  - Use **nlike** when you want to exclude any value that contains or matches a certain text pattern anywhere in the field.\n';
+  markdown += '- **Type** - Describes the data shape, such as String, Choice (String), int, float, Boolean, Date/DateTime, property (key-value pair), or intrange (integer range).\n';
   markdown +=
-    '    - Use **nlike** when you want to exclude any value that contains or matches a certain text pattern anywhere in the field.\n';
-  markdown +=
-    '- **Platform** - Lists which platforms the filter applies to. Supported platforms are Android, iOS, React Native, Flutter, Unity, and Web. **All** means the filter is available on every supported platform. If specific platforms are listed instead of **All**, the filter is only available on that subset of platforms.\n';
-  markdown +=
-    '- **Constraints** - Describes any limits on valid values for the filter, such as minimum or maximum string length, exact length, or enumerated choices. If no constraints are listed, the filter accepts any value that matches its type.\n\n';
+    '- **Constraints** - Describes any documented limits on valid values for the filter, such as enumerated choices. If no constraints are listed, the filter accepts any value that matches its type.\n\n';
 
   markdown += '---\n\n';
 
@@ -129,8 +116,7 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
     markdown += `## ${category} Filters\n\n`;
 
     markdown += '<div class="filters-table">\n\n';
-    markdown +=
-      '| Filter | Description | Details | Platform | Constraints |\n';
+    markdown += '| Filter | Description | Operations | Type | Constraints |\n';
     markdown += '| --- | --- | --- | --- | --- |\n';
 
     // Sort filters within category by label
