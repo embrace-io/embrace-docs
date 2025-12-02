@@ -1,4 +1,4 @@
-export interface Filter {
+interface Filter {
   category: string;
   description?: string;
   is_visible: boolean;
@@ -12,13 +12,15 @@ export interface Filter {
   visible_on?: string[];
 }
 
-export interface FilterWithSection extends Filter {
+interface FilterWithSection extends Filter {
   section?: string; // Track which section this filter came from (e.g., 'crash', 'session')
 }
 
-export interface MetricsData {
+interface MetricsData {
   filters: {
     [key: string]: Record<string, Filter>;
   };
 }
+
+export type { Filter, FilterWithSection, MetricsData };
 

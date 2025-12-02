@@ -1,23 +1,23 @@
 import { Filter } from './types';
 import { OP_LABELS } from './constants';
 
-export const escapePipes = (value: string): string => value.replace(/\|/g, '\\|');
+const escapePipes = (value: string): string => value.replace(/\|/g, '\\|');
 
-export const sanitizeDescription = (description?: string): string => {
+const sanitizeDescription = (description?: string): string => {
   if (!description) {
     return '—';
   }
   return escapePipes(description.replace(/\s+/g, ' ').trim());
 };
 
-export const formatOperations = (ops: string[]): string => {
+const formatOperations = (ops: string[]): string => {
   if (!ops || ops.length === 0) {
     return '—';
   }
   return escapePipes(ops.map((op) => OP_LABELS[op] || op).join(', '));
 };
 
-export const formatChoicesConstraint = (filter: Filter): string | undefined => {
+const formatChoicesConstraint = (filter: Filter): string | undefined => {
   if (!filter.choices || filter.choices.length === 0) {
     return undefined;
   }
@@ -26,7 +26,7 @@ export const formatChoicesConstraint = (filter: Filter): string | undefined => {
   return `Choices: ${choices}`;
 };
 
-export const formatConstraints = (filter: Filter): string => {
+const formatConstraints = (filter: Filter): string => {
   const parts: string[] = [];
   const choiceConstraint = formatChoicesConstraint(filter);
 
@@ -39,5 +39,13 @@ export const formatConstraints = (filter: Filter): string => {
   }
 
   return escapePipes(parts.join('<br />'));
+};
+
+export {
+  escapePipes,
+  sanitizeDescription,
+  formatOperations,
+  formatChoicesConstraint,
+  formatConstraints,
 };
 

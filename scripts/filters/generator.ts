@@ -5,7 +5,10 @@ import { escapePipes, formatOperations, formatConstraints, sanitizeDescription }
 /**
  * Generate markdown table row for a single filter
  */
-export function generateFilterMarkdown(filterKey: string, filter: FilterWithSection): string {
+const generateFilterMarkdown = (
+  filterKey: string,
+  filter: FilterWithSection,
+): string => {
   const description = sanitizeDescription(filter.description);
   const type = escapePipes(TYPE_LABELS[filter.type] || filter.type);
   const operations = formatOperations(filter.ops);
@@ -17,12 +20,12 @@ export function generateFilterMarkdown(filterKey: string, filter: FilterWithSect
   ].join('<br />');
 
   return `| ${identity} | ${description} | ${operations} | ${type} | ${constraints} |\n`;
-}
+};
 
 /**
  * Generate the complete filter documentation
  */
-export function generateFilterDocumentation(metricsData: MetricsData): string {
+const generateFilterDocumentation = (metricsData: MetricsData): string => {
   let markdown = '';
 
   // Front matter
@@ -150,5 +153,7 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
 
   // Ensure we don't end with multiple blank lines (Markdown lint)
   return markdown.replace(/\n+$/u, '\n');
-}
+};
+
+export { generateFilterMarkdown, generateFilterDocumentation };
 

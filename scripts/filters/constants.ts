@@ -1,4 +1,4 @@
-export const OP_LABELS: Record<string, string> = {
+const OP_LABELS: Record<string, string> = {
   eq: 'Equals',
   neq: 'Not Equals',
   gt: 'Greater Than',
@@ -12,7 +12,7 @@ export const OP_LABELS: Record<string, string> = {
   endswith: 'Ends With',
 };
 
-export const TYPE_LABELS: Record<string, string> = {
+const TYPE_LABELS: Record<string, string> = {
   string: 'String',
   choice_string: 'Choice (String)',
   number: 'Number',
@@ -21,3 +21,5 @@ export const TYPE_LABELS: Record<string, string> = {
   date: 'Date',
   datetime: 'DateTime',
 };
+
+export { OP_LABELS, TYPE_LABELS };
