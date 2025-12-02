@@ -26,4 +26,4 @@ the key steps to successfully using our product.
 Once you've completed that, browse through our [**Feature Reference**](/react-native/5x/features/) guides to learn how
 to use the advanced features our SDK provides.
 
-You can also view our [Changelog](/react-native/changelog/)
+You can also view our [Changelog](/react-native/changelog/).
