@@ -10,7 +10,9 @@ sidebar_position: 6
 
 - Have an active Splunk account.
 
-## Pulling your Splunk Access Token ([Splunk documentation](https://help.splunk.com/en/splunk-observability-cloud/administer/authentication-and-security/authentication-tokens/org-access-tokens))
+## Configuration 
+
+### Pulling your Splunk Access Token ([Splunk documentation](https://help.splunk.com/en/splunk-observability-cloud/administer/authentication-and-security/authentication-tokens/org-access-tokens))
 
 1. Log into your Splunk account.
 2. Locate your Access Tokens:
@@ -33,7 +35,7 @@ sidebar_position: 6
    <img src={require('@site/static/images/data-destinations/splunk_token_details.png').default} alt="Image showing Access Token modal" />
 7. Share the Access Token with an Embrace onboarding specialist or use Embrace's UI to add Splunk as Data Destination.
 
-## Pulling your Splunk Realm ([Splunk documentation](https://dev.splunk.com/observability/docs/realms_in_endpoints/))
+### Pulling your Splunk Realm ([Splunk documentation](https://dev.splunk.com/observability/docs/realms_in_endpoints/))
 
 1. Log into your Splunk account.
 2. Locate your Profile:

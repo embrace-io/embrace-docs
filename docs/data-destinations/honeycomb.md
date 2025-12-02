@@ -10,7 +10,9 @@ sidebar_position: 5
 
 - Have an active Honeycomb account and an environment created.
 
-## Pulling your Honeycomb API Key ([Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/settings/api-keys/))
+## Configuration 
+
+### Pulling your Honeycomb API Key ([Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/settings/api-keys/))
 
 1. Log into your Honeycomb account.
 2. Locate your Environment’s API Keys:
@@ -38,3 +40,11 @@ sidebar_position: 5
 6. The next screen lists the API Keys associated with the Environment (and the one you already created).
 7. Click on the **Copy key** button (adjacent to the key value).
 8. Share the API key with an Embrace onboarding specialist.
+
+## Querying your data
+
+### Logs
+
+To start analyzing your Embrace logs open the "Home" page and choose the right data choose at the top of the page.
+
+<img src={require('@site/static/images/data-destinations/honeycomb_logs.png').default} alt="Screenshot of Honeycomb UI" />

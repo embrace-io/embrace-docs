@@ -10,7 +10,7 @@ sidebar_position: 4
 
 - Have an active Grafana Cloud account.
 
-## Configure integration
+## Configuration
 
 ### Pulling your Grafana Cloud API Key or Access Policy / Token
 
@@ -125,3 +125,12 @@ Unsupported options:
    - **Open in new tab**: `on`.
 
 <img src={require('@site/static/images/data-destinations/grafana_cloud_dashboard_backlink.png').default} alt="Image showing the Data Links section backlink" />
+
+
+## Querying your data
+
+### Logs
+
+To start analyzing your Embrace logs open the "Explore" page, "Loki" data source.
+
+<img src={require('@site/static/images/data-destinations/grafana_cloud_logs.png').default} alt="Screenshot of Grafana Cloud UI" />
