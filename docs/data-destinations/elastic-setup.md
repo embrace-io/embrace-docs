@@ -36,21 +36,21 @@ integration. The instructions below are for the default server URLs.
 
 ## Querying your data
 
-## Metrics
+### Metrics
 
 Your metrics will be prefixed with `embrace.`. You can visualize your data using the "Dashboards" view under the "Analytics" section of the hamburger menu. Below is a sample dashboard panel and the configuration for it.
 
 <img src={require('@site/static/images/data-destinations/elastic_metrics.png').default} alt="Image showing Elastic panel with metrics" width="50%"/>
 <img src={require('@site/static/images/data-destinations/elastic_metric_config.png').default} alt="Image showing Elastic panel configuration" width="30%" style={{"padding": "20px"}} />
 
-## Network Spans
+### Network Spans
 
 You can explore your forwarded spans under the "APM" page under the "Observability" section. You should see `embrace-trace-forwarder`
 as the service.
 
 <img src={require('@site/static/images/data-destinations/elastic_traces.png').default} alt="Image showing Traces in Elastic dashboard" />
 
-## Logs
+### Logs
 
 You can explore your logs under the "Discovery" page, you should choose "logs-*" as data view.
 
