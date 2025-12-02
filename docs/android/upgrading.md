@@ -91,7 +91,7 @@ The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 Replace references to the old Embrace Gradle Plugin name with the new one. Your configuration files should reference the plugin in one
 of the following ways:
 
-#### Version Catalog
+#### Version Catalogs
 
 If you define your plugins in a TOML file (e.g. `gradle/libs.versions.toml`):
 

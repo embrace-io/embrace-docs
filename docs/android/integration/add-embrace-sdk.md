@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 ```
 
 <Tabs groupId="plugin-config-type" queryString="plugin-config-type">
-<TabItem value="version-catalog" label="Version Catalog">
+<TabItem value="version-catalog" label="Version Catalogs">
 
 Alter your `libs.versions.toml` file:
 
@@ -123,7 +123,7 @@ apply plugin: 'embrace-gradle-plugin'
 Add the Embrace Android SDK to the `build.gradle` file of each module where you want to invoke Embrace:
 
 <Tabs groupId="dep-type" queryString="dep-type">
-<TabItem value="version-catalog" label="Version Catalog">
+<TabItem value="version-catalog" label="Version Catalogs">
 
 Alter your `libs.versions.toml` file:
 
@@ -140,7 +140,7 @@ implementation(libs.embrace)
 
 </TabItem>
 
-<TabItem value="not-catalog" label="Not Version Catalog">
+<TabItem value="not-catalog" label="Dependencies Block">
 
 ### Kotlin
 
