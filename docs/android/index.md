@@ -19,4 +19,4 @@ the key steps to successfully integrate our SDK into your app.
 Once you've completed that, browse through our [**Feature Reference**](/android/features/) guides to learn how
 to use some of the advanced features our SDK provides.
 
-You can also view our [FAQ](/android/faq/) and [Changelog](/android/changelog/)
+You can also view our [FAQ](/android/faq/) and [Changelog](/android/changelog/).

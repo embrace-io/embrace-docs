@@ -17,4 +17,4 @@ If you are just starting out with Embrace, follow the [**Integration Guide**](./
 
 Once you've completed that, browse through our [**Feature Reference**](./features/) guides to learn how to use some of the advanced features our SDK provides.
 
-You can also view our [FAQ](/ios/faq/) and [Changelog](/ios/changelog/)
+You can also view our [FAQ](/ios/faq/) and [Changelog](/ios/changelog/).
