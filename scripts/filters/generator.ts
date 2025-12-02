@@ -150,18 +150,19 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
   markdown +=
     'Here are some examples of commonly used filter combinations:\n\n';
 
-  markdown += '### Debug a Specific Version\n';
+  markdown += '### Debug a Specific Version\n\n';
   markdown += '- **App Version** equals `2.1.0`\n';
   markdown += '- Combine with other filters to narrow down issues\n\n';
 
-  markdown += '### Find Users in a Specific Country\n';
+  markdown += '### Find Users in a Specific Country\n\n';
   markdown += '- **Country ISO** equals `US` (or any two-letter country code)\n';
   markdown += '- Use with **App Version** to see regional adoption\n\n';
 
-  markdown += '### Analyze Latest Version Performance\n';
+  markdown += '### Analyze Latest Version Performance\n\n';
   markdown += '- **App Version Set** equals `latest`\n';
   markdown += '- Compare metrics against previous versions\n\n';
 
-  return markdown;
+  // Ensure we don't end with multiple blank lines (Markdown lint)
+  return markdown.replace(/\n+$/u, '\n');
 }
 

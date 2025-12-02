@@ -355,14 +355,16 @@ Each filter table in this page uses the same columns:
 Here are some examples of commonly used filter combinations:
 
 ### Debug a Specific Version
+
 - **App Version** equals `2.1.0`
 - Combine with other filters to narrow down issues
 
 ### Find Users in a Specific Country
+
 - **Country ISO** equals `US` (or any two-letter country code)
 - Use with **App Version** to see regional adoption
 
 ### Analyze Latest Version Performance
+
 - **App Version Set** equals `latest`
 - Compare metrics against previous versions
-
