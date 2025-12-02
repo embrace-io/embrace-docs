@@ -1,5 +1,5 @@
-import { Filter } from './types';
-import { OP_LABELS, PLATFORM_LABELS } from './constants';
+import { Filter, FilterWithSection } from './types';
+import { OP_LABELS, PLATFORM_LABELS, platformBlockLists, OsTypes, Framework } from './constants';
 
 export const escapePipes = (value: string): string => value.replace(/\|/g, '\\|');
 
@@ -25,16 +25,65 @@ export const formatOperations = (ops: string[]): string => {
   return escapePipes(ops.map((op) => OP_LABELS[op] || op).join(', '));
 };
 
-export const formatPlatforms = (filter: Filter): string => {
-  if (!filter.supported_on || filter.supported_on.length === 0) {
-    return 'All';
+const PLATFORM_DISPLAY_NAMES: Record<string, string> = {
+  [OsTypes.IOS]: 'iOS',
+  [OsTypes.ANDROID]: 'Android',
+  [OsTypes.WEB]: 'Web',
+  [Framework.NATIVE]: 'Native',
+  [Framework.UNITY]: 'Unity',
+  [Framework.FLUTTER]: 'Flutter',
+  [Framework.REACT_NATIVE]: 'React Native',
+};
+
+/**
+ * Check if a filter is blocked for specific platforms/frameworks based on blocklists
+ */
+export const getBlockedPlatforms = (filterKey: string, section?: string): string[] => {
+  // Create the lookup key - use section.filterKey if section exists (e.g., 'crash.method')
+  const lookupKey = section ? `${section}.${filterKey}` : filterKey;
+
+  return Object.entries(platformBlockLists)
+    .filter(([_, blocklist]) => blocklist[filterKey] || blocklist[lookupKey])
+    .map(([type]) => PLATFORM_DISPLAY_NAMES[type])
+    .filter(Boolean);
+};
+
+export const formatPlatforms = (filter: FilterWithSection, filterKey: string): string => {
+  // Get blocked platforms from blocklists
+  const blockedPlatforms = getBlockedPlatforms(filterKey, filter.section);
+
+  // Get explicitly supported platforms
+  const supportedPlatforms = filter.supported_on || [];
+
+  // If no explicit supported_on, it means "all platforms"
+  if (supportedPlatforms.length === 0) {
+    if (blockedPlatforms.length === 0) {
+      return 'All';
+    }
+
+    // Calculate which platforms are actually available (all platforms minus blocked)
+    const allPlatformLabels = Object.values(PLATFORM_LABELS);
+    const availablePlatforms = allPlatformLabels.filter(p => !blockedPlatforms.includes(p));
+
+    if (availablePlatforms.length === 0) {
+      return 'None';
+    }
+
+    return escapePipes(availablePlatforms.join(', '));
   }
 
-  const platforms = filter.supported_on
-    .map((p) => PLATFORM_LABELS[p.platform] || p.platform)
-    .join(', ');
+  // Convert supported platforms to labels
+  const platforms = supportedPlatforms
+    .map((p) => PLATFORM_LABELS[p.platform] || p.platform);
 
-  return escapePipes(platforms);
+  // Remove blocked platforms from the supported list
+  const availablePlatforms = platforms.filter(p => !blockedPlatforms.includes(p));
+
+  if (availablePlatforms.length === 0) {
+    return 'None';
+  }
+
+  return escapePipes(availablePlatforms.join(', '));
 };
 
 export const formatPages = (filter: Filter): string => {

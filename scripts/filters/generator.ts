@@ -1,11 +1,9 @@
-import { Filter, MetricsData } from './types';
+import { FilterWithSection, MetricsData } from './types';
 import { TYPE_LABELS } from './constants';
 import {
   escapePipes,
   formatOperations,
   formatPlatforms,
-  formatPages,
-  formatPagesLabel,
   formatConstraints,
   sanitizeDescription,
 } from './formatters';
@@ -13,27 +11,21 @@ import {
 /**
  * Generate markdown table row for a single filter
  */
-export function generateFilterMarkdown(filterKey: string, filter: Filter): string {
+export function generateFilterMarkdown(filterKey: string, filter: FilterWithSection): string {
   const description = sanitizeDescription(filter.description);
   const type = escapePipes(TYPE_LABELS[filter.type] || filter.type);
   const operations = formatOperations(filter.ops);
-  const platforms = formatPlatforms(filter);
-  const pages = formatPages(filter);
+  const platforms = formatPlatforms(filter, filterKey);
   const constraints = formatConstraints(filter);
 
   const behavior = [`Type: ${type}`, `Ops: ${operations}`].join('<br />');
-  const pagesLabel = formatPagesLabel(pages);
-  const availability = [
-    `<em>Platforms:</em> ${platforms}`,
-    `<em>Pages:</em> ${pagesLabel}`,
-  ].join('<br />');
 
   const identity = [
     escapePipes(filter.label),
     `<span class="filters-table__key">${filterKey}</span>`,
   ].join('<br />');
 
-  return `| ${identity} | ${description} | ${behavior} | ${availability} | ${constraints} |\n`;
+  return `| ${identity} | ${description} | ${behavior} | ${platforms} | ${constraints} |\n`;
 }
 
 /**
@@ -69,7 +61,8 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
   markdown += '---\n\n';
 
   // Deduplicate filters across all sections (same filter can appear in multiple sections)
-  const uniqueFilters: Record<string, Filter> = {};
+  // Track section info for blocklist matching
+  const uniqueFilters: Record<string, FilterWithSection> = {};
 
   // Iterate through all filter sections (aei, anr, crash, session, etc.)
   for (const [sectionName, sectionFilters] of Object.entries(metricsData.filters)) {
@@ -89,14 +82,15 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
       }
 
       // Only add if we haven't seen this filter key before
+      // Attach section info for blocklist checking
       if (!uniqueFilters[key]) {
-        uniqueFilters[key] = filter;
+        uniqueFilters[key] = { ...filter, section: sectionName };
       }
     }
   }
 
   // Group unique filters by category
-  const filtersByCategory: Record<string, Array<{ key: string; filter: Filter }>> = {};
+  const filtersByCategory: Record<string, Array<{ key: string; filter: FilterWithSection }>> = {};
 
   for (const [key, filter] of Object.entries(uniqueFilters)) {
     const category = filter.category || 'Other';
@@ -115,7 +109,7 @@ export function generateFilterDocumentation(metricsData: MetricsData): string {
 
     markdown += '<div class="filters-table">\n\n';
     markdown +=
-      '| Filter | Description | Details | Availability | Constraints |\n';
+      '| Filter | Description | Details | Platform | Constraints |\n';
     markdown += '| --- | --- | --- | --- | --- |\n';
 
     // Sort filters within category by label
