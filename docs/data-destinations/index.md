@@ -31,20 +31,22 @@ Export application logs in real-time. View mobile logs alongside backend logs fo
 Embrace integrates with the following observability platforms. Each platform supports different types of data
 forwarding:
 
-| Platform                                                   | [Metrics](/metrics-forwarding/) | [Logs](/logs-forwarding/) | [Network Spans](/product/network-spans-forwarding.md) | Integration Guide                                        |
-|------------------------------------------------------------|---------------------------------|---------------------------|-------------------------------------------------------|----------------------------------------------------------|
-| [Chronosphere](/data-destinations/chronosphere-setup.md)   | ✓                               | ✓                         | ✓                                                     | [Setup Guide](/data-destinations/chronosphere-setup.md)  |
-| [Datadog](/data-destinations/data-dog-setup.md)            | ✓                               | -                         | ✓                                                     | [Setup Guide](/data-destinations/data-dog-setup.md)      |
-| [Elastic](/data-destinations/elastic-setup.md)             | ✓                               | ✓                         | ✓                                                     | [Setup Guide](/data-destinations/elastic-setup.md)       |
-| [Grafana Cloud](/data-destinations/grafana-cloud-setup.md) | ✓                               | ✓                         | ✓                                                     | [Setup Guide](/data-destinations/grafana-cloud-setup.md) |
-| [Honeycomb](/data-destinations/honeycomb.md)               | ✓                               | ✓                         | ✓                                                     | [Setup Guide](/data-destinations/honeycomb.md)           |
-| [New Relic](/data-destinations/new-relic-setup.md)         | ✓                               | -                         | ✓                                                     | [Setup Guide](/data-destinations/new-relic-setup.md)     |
-| [Observe](/data-destinations/observe-setup.md)             | ✓                               | -                         | -                                                     | [Setup Guide](/data-destinations/observe-setup.md)       |
-| [Splunk](/data-destinations/splunk.md)                     | ✓                               | -                         | -                                                     | [Setup Guide](/data-destinations/splunk.md)              |
+| Platform                                                   | [Metrics](/metrics-forwarding/) | [Network Spans](/product/network-spans-forwarding.md) | [Logs](/logs-forwarding/) | Integration Guide                                        |
+|------------------------------------------------------------|---------------------------------|-------------------------------------------------------|---------------------------|----------------------------------------------------------|
+| [Chronosphere](/data-destinations/chronosphere-setup.md)   | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/chronosphere-setup.md)  |
+| [Datadog](/data-destinations/data-dog-setup.md)            | ✓                               | ✓                                                     | -                         | [Setup Guide](/data-destinations/data-dog-setup.md)      |
+| [Elastic](/data-destinations/elastic-setup.md)             | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/elastic-setup.md)       |
+| [Grafana Cloud](/data-destinations/grafana-cloud-setup.md) | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/grafana-cloud-setup.md) |
+| [Honeycomb](/data-destinations/honeycomb.md)               | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/honeycomb.md)           |
+| [New Relic](/data-destinations/new-relic-setup.md)         | ✓                               | ✓                                                     | -                         | [Setup Guide](/data-destinations/new-relic-setup.md)     |
+| [Observe](/data-destinations/observe-setup.md)             | ✓                               | -                                                     | -                         | [Setup Guide](/data-destinations/observe-setup.md)       |
+| [Splunk](/data-destinations/splunk.md)                     | ✓                               | -                                                     | -                         | [Setup Guide](/data-destinations/splunk.md)              |
 
 ## Get Started
 
-Head to [Settings -> Integrations -> Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations) in the dashboard and setup your first data destination:
+Head
+to [Settings -> Integrations -> Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations)
+in the dashboard and setup your first data destination:
 
 <img src={require('@site/static/images/data-destinations/settings_page_example.png').default} alt="Image showing the
 settings page for data destinations" />
