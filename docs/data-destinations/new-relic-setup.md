@@ -23,4 +23,4 @@ sidebar_position: 5
 
 ### Pulling your New Relic Region ([New Relic documentation](https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/))
 
-1. It can be on US or EU. To find out which region your account is on, you can check the URL of your New Relic account. If your URL starts with https://one.newrelic.com/ it is on US. If it starts with https://one.eu.newrelic.com/ it is EU.
+1. You account can be in the US or EU region. To find out which region your account is un, you can check the URL of your New Relic account. If your URL starts with https://one.newrelic.com/ it is in US. If it starts with https://one.eu.newrelic.com/ it is in EU.
