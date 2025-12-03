@@ -50,8 +50,41 @@ Once all requirements are met, Network Spans Forwarding will be set up by an int
 
 ## Analyze metadata
 
-Additionally, Embrace can forward metadata associated with each call.  Device, app version, and OS version will be properties for each traceparent-tagged call, forwarded as an OTel Span.  Your backend team can use their observability tools to set up analyses and monitoring.
+Additionally, Embrace can forward metadata associated with each call. Your backend team can use their observability tools to set up analyses and monitoring.
 
-Embrace currently supports Network Span Forwarding for Grafana Cloud, New Relic, Honeycomb, Datadog, Chronosphere and Elastic. See our guide to enabling [Data Destinations](/data-destinations/) to get started.
+Here you can see all the attributes and resource attributes that a Span will have with examples. 
+
+Attributes:
+- emb.app_id: "abcde"
+- emb.app_version: "2.2.0"
+- emb.country_iso: "US"
+- emb.dashboard_session: "https://dash.io/app/abcde/grouped_sessions/day/45919F47E2AC4E0BA074110A6414F083/FEC3F288397343E9BC2F77870F01965A@/FEC3F288397343E9BC2F77870F01965A"
+- emb.device_model: "arm64"
+- emb.device_id: "45919F47E2AC4E0BA074110A6414F083"
+- emb.os_version: "26.1"
+- emb.region: "Washington"
+- emb.sdk_version: "6.14.1"
+- http.request.method: "POST"
+- http.response.status_code: 200
+- http.route: "/mock/trace_forwarding"
+- http.status_code : 200
+- url.domain: "dash-api.io"
+- url.path: "/mock/trace_forwarding"
+- url.full: "https://dash-api.io/mock/trace_forwarding"
+- traceparent: "00-b543b5ba9576c535b3b6221a26bd763e-4283ddf8e9996b0f-01"
+- device.manufacturer: "Apple"
+- device.model.name: "arm64"
+
+- Resource attributes
+- deployment.environment.name: "prod"
+- emb.app_id: "abcde"
+- emb.os: "iOS"
+- service.name: "embrace-mock-app"
+- service.version: "1.0"
+- telemetry.sdk.language: "go"
+- telemetry.sdk.name: "opentelemetry"
+- telemetry.sdk.version: "1.38.0"
+
+Embrace currently supports Network Span Forwarding for these [Data Destinations](/data-destinations/#supported-platforms). See our guide to enabling [Data Destinations](/data-destinations/) to get started.
 
 <img src={require('@site/static/images/NSF > Honeycomb example.png').default} alt="NSF in Honeycomb" />
