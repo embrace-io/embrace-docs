@@ -70,7 +70,7 @@ Attributes:
 - http.status_code : 200
 - url.domain: "dash-api.io"
 - url.path: "/mock/trace_forwarding"
-- url.full: "https://dash-api.io/mock/trace_forwarding"
+- url.full: "dash-api.io/mock/trace_forwarding"
 - traceparent: "00-b543b5ba9576c535b3b6221a26bd763e-4283ddf8e9996b0f-01"
 - device.manufacturer: "Apple"
 - device.model.name: "arm64"
