@@ -202,7 +202,7 @@ The Embrace SDK can be started automatically during your `Application` object's 
 
 If you don't have an `Application` subclass, you must [create one](https://developer.android.com/reference/android/app/Application).
 
-If you need to configure your app or the SDK in the `onCreate()` method before the SDK starts, like if you need to add an OTel Exporter, DO NOT use this method. Instead, start the SDK manually after you do so (see below).
+To enable automatic startup, add the following block in your `app/build.gradle`:
 
 ```kotlin
 embrace {
@@ -211,6 +211,8 @@ embrace {
     }
 }
 ```
+
+If you need to configure your app or the SDK in the `onCreate()` method before the SDK starts, like if you need to add an OTel Exporter, DO NOT use this method. Instead, start the SDK manually after you do so (see below).
 
 </TabItem>
 
