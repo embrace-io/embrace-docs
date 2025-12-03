@@ -16,6 +16,5 @@ docs/unity @embrace-io/opensource-unity
 docs/web @embrace-io/opensource-web
 
 # docs/best-practices
-docs/embrace-api @embrace-io/opensource-backend
-docs/custom-metrics-api @embrace-io/opensource-backend
 docs/data-destinations @embrace-io/opensource-backend
+docs/metrics-forwarding @embrace-io/opensource-backend
