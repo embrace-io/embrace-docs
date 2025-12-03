@@ -10,7 +10,7 @@ sidebar_position: 5
 
 - Have an active Honeycomb account and an environment created.
 
-## Configuration 
+## Configuration
 
 ### Pulling your Honeycomb API Key ([Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/settings/api-keys/))
 

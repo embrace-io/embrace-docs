@@ -154,6 +154,19 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "/metrics-forwarding",
     },
     {
+      title: "Custom Metrics API",
+      description:
+          "Manage (create, get and delete) all the custom metrics of your organization.",
+      icon: <IconChartLine {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/metrics-forwarding/custom-metrics/custom-metrics-api",
+    },
+    {
+      title: "Metrics API",
+      description: "Query your metrics from Embrace using PromQL.",
+      icon: <IconChartBar {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/metrics-forwarding/metrics-api",
+    },
+    {
       title: "Spans Forwarding",
       description:
         "Automatically add a unique identifier to every network request your app makes.",

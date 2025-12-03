@@ -10,7 +10,7 @@ sidebar_position: 6
 
 - Have an active Splunk account.
 
-## Configuration 
+## Configuration
 
 ### Pulling your Splunk Access Token ([Splunk documentation](https://help.splunk.com/en/splunk-observability-cloud/administer/authentication-and-security/authentication-tokens/org-access-tokens))
 

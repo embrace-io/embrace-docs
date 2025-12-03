@@ -6,8 +6,8 @@ sidebar_position: 10
 
 # Embrace Metrics API
 
-The Embrace Metrics API allows you to query your metrics from Embrace using PromQL. 
-The queryable information includes any standard metrics as well as any [Custom Metrics](/metrics-forwarding/custom-metrics/) you have created. 
+The Embrace Metrics API allows you to query your metrics from Embrace using PromQL.
+The queryable information includes any standard metrics as well as any [Custom Metrics](/metrics-forwarding/custom-metrics/) you have created.
 
 ## Get Started
 

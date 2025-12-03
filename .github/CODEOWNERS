@@ -17,3 +17,4 @@ docs/web @embrace-io/opensource-web
 
 # docs/best-practices
 docs/data-destinations @embrace-io/opensource-backend
+docs/metrics-forwarding @embrace-io/opensource-backend

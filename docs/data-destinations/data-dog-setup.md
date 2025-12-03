@@ -10,7 +10,7 @@ sidebar_position: 2
 
 - Have an active Datadog account.
 
-## Configuration 
+## Configuration
 
 ### Pulling your Datadog API Key ([Datadog documentation](https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token))
 

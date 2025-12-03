@@ -51,10 +51,10 @@ Once all requirements are met, Network Spans Forwarding will be set up by an int
 ## Analyze metadata
 
 Additionally, Embrace can forward metadata associated with each call. Your backend team can use their observability tools to set up analyses and monitoring.
-
-Here you can see all the attributes and resource attributes that a Span will have with examples. 
+Here you can see all the attributes and resource attributes that a Span will have with examples.
 
 Attributes:
+
 - emb.app_id: "abcde"
 - emb.app_version: "2.2.0"
 - emb.country_iso: "US"

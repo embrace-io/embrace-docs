@@ -10,7 +10,7 @@ sidebar_position: 1
 
 - Have an active Chronosphere account.
 
-## Configuration 
+## Configuration
 
 ### Pulling your Chronosphere Service Account Unrestricted Token's ([Chronosphere documentation](https://docs.chronosphere.io/administer/accounts-teams/service-accounts#create-an-unrestricted-service-account))
 

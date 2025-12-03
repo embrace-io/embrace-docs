@@ -12,7 +12,7 @@ sidebar_position: 3
 - Have an [APM server setup](https://www.elastic.co/guide/en/fleet/7.15/fleet-quick-start-traces.html) (You may have a
 default APM integration setup already).
 
-## Configuration 
+## Configuration
 
 ### Get Secret Token for APM
 
