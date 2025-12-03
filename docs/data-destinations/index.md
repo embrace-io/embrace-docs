@@ -46,4 +46,3 @@ in the dashboard and setup your first data destination:
 
 <img src={require('@site/static/images/data-destinations/settings_page_example.png').default} alt="Image showing the
 settings page for data destinations" />
-
