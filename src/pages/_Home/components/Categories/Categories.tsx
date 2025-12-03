@@ -161,13 +161,6 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "/product/network-spans-forwarding",
     },
     {
-      title: "Logs Forwarding",
-      description:
-          "Deliver your logs to your cross-platform observability tool of choice.",
-      icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/logs-forwarding",
-    },
-    {
       title: "Custom Dashboards",
       description:
         "Stay on top of key mobile KPIs and unusual activity that matter for your team.",

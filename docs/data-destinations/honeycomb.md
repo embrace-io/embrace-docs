@@ -40,11 +40,3 @@ sidebar_position: 5
 6. The next screen lists the API Keys associated with the Environment (and the one you already created).
 7. Click on the **Copy key** button (adjacent to the key value).
 8. Share the API key with an Embrace onboarding specialist.
-
-## Querying your data
-
-### Logs
-
-To start analyzing your Embrace logs open the "Home" page and choose the right data choose at the top of the page.
-
-<img src={require('@site/static/images/data-destinations/honeycomb_logs.png').default} alt="Screenshot of Honeycomb UI" />

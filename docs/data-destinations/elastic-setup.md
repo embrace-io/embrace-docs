@@ -49,9 +49,3 @@ You can explore your forwarded spans under the "APM" page under the "Observabili
 as the service.
 
 <img src={require('@site/static/images/data-destinations/elastic_traces.png').default} alt="Image showing Traces in Elastic dashboard" />
-
-### Logs
-
-You can explore your logs under the "Discovery" page, you should choose "logs-*" as data view.
-
-<img src={require('@site/static/images/data-destinations/elastic_logs.png').default} alt="Image showing Logs in Elastic dashboard" />

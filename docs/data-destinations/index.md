@@ -22,25 +22,21 @@ Export aggregated metrics (crashes, sessions, user engagement, etc).
 Export network request as spans with w3c traceparent headers, enabling distributed tracing between your mobile app and
 backend services.
 
-### [Logs Forwarding](/logs-forwarding/)
-
-Export application logs in real-time. View mobile logs alongside backend logs for complete visibility across your stack.
-
 ## Supported Platforms
 
 Embrace integrates with the following observability platforms. Each platform supports different types of data
 forwarding:
 
-| Platform                                                   | [Metrics](/metrics-forwarding/) | [Network Spans](/product/network-spans-forwarding.md) | [Logs](/logs-forwarding/) | Integration Guide                                        |
-|------------------------------------------------------------|---------------------------------|-------------------------------------------------------|---------------------------|----------------------------------------------------------|
-| [Chronosphere](/data-destinations/chronosphere-setup.md)   | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/chronosphere-setup.md)  |
-| [Datadog](/data-destinations/data-dog-setup.md)            | ✓                               | ✓                                                     | -                         | [Setup Guide](/data-destinations/data-dog-setup.md)      |
-| [Elastic](/data-destinations/elastic-setup.md)             | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/elastic-setup.md)       |
-| [Grafana Cloud](/data-destinations/grafana-cloud-setup.md) | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/grafana-cloud-setup.md) |
-| [Honeycomb](/data-destinations/honeycomb.md)               | ✓                               | ✓                                                     | ✓                         | [Setup Guide](/data-destinations/honeycomb.md)           |
-| [New Relic](/data-destinations/new-relic-setup.md)         | ✓                               | ✓                                                     | -                         | [Setup Guide](/data-destinations/new-relic-setup.md)     |
-| [Observe](/data-destinations/observe-setup.md)             | ✓                               | -                                                     | -                         | [Setup Guide](/data-destinations/observe-setup.md)       |
-| [Splunk](/data-destinations/splunk.md)                     | ✓                               | -                                                     | -                         | [Setup Guide](/data-destinations/splunk.md)              |
+| Platform                                                   | [Metrics](/metrics-forwarding/) | [Network Spans](/product/network-spans-forwarding.md) | Integration Guide                                        |
+|------------------------------------------------------------|---------------------------------|-------------------------------------------------------|----------------------------------------------------------|
+| [Chronosphere](/data-destinations/chronosphere-setup.md)   | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/chronosphere-setup.md)  |
+| [Datadog](/data-destinations/data-dog-setup.md)            | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/data-dog-setup.md)      |
+| [Elastic](/data-destinations/elastic-setup.md)             | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/elastic-setup.md)       |
+| [Grafana Cloud](/data-destinations/grafana-cloud-setup.md) | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/grafana-cloud-setup.md) |
+| [Honeycomb](/data-destinations/honeycomb.md)               | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/honeycomb.md)           |
+| [New Relic](/data-destinations/new-relic-setup.md)         | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/new-relic-setup.md)     |
+| [Observe](/data-destinations/observe-setup.md)             | ✓                               | -                                                     | [Setup Guide](/data-destinations/observe-setup.md)       |
+| [Splunk](/data-destinations/splunk.md)                     | ✓                               | -                                                     | [Setup Guide](/data-destinations/splunk.md)              |
 
 ## Get Started
 

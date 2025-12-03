@@ -36,10 +36,3 @@ sidebar_position: 1
 To start analyzing your Embrace metrics open the "Dashboard" panel, and in the "metrics" field start typing "embrace".  All Metrics will be prefaced with `embrace_`.
 
 <img src={require('@site/static/images/data-destinations/chronosphere.png').default} alt="Screenshot of Chronosphere UI" />
-
-### Logs
-
-To start analyzing your Embrace logs open the "Explorers -> Logs Explorer" panel.
-
-<img src={require('@site/static/images/data-destinations/chronosphere_logs.png').default} alt="Screenshot of Chronosphere UI" />
-
