@@ -1,7 +1,7 @@
 ---
 title: Grafana Integration
 description: Learn about the Embrace API to pull data  
-sidebar_position: 1
+sidebar_position: 20
 ---
 
 # Grafana Integration
@@ -9,19 +9,19 @@ sidebar_position: 1
 ## Prerequisites
 
 - Grafana ≥ 9.1.0
-- Embrace Metrics API Token. This can be found in the Settings page of the [Dashboard](https://dash.embrace.io/).
+- [Embrace Metrics API Token](/metrics-forwarding/metrics-api/#get-started)
 
 ## Setting Up Embrace as a Data Source
 
 Follow these steps to add Prometheus as a data source in the Grafana dashboard:
 
 1. Click the "Open Menu" icon to go to the "Connections -> Data sources" page.  
-2. Click the "Add new data source" button on the top right page and select "Prometheus".
-3. Configure it with the following fields:
+1. Click the "Add new data source" button on the top right page and select "Prometheus".
+1. Configure it with the following fields:
    - Name: `embrace-metrics-api`.
    - Under "Connection" section, set "Prometheus server URL": `https://api.embrace.io/metrics`.
    - Under "Authentication" section, click the button "Add header":
-     - Header: `Authorization`, Value: `Bearer <YOUR_API_TOKEN>` as your token string. For example, if your API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
+     - Header: `Authorization`, Value: `Bearer <YOUR_METRICS_API_TOKEN>` as your token string. For example, if your Metrics API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
 
    <img src={require('@site/static/images/metrics-api/grafana.png').default} alt="Grafana Data Source" />
 
