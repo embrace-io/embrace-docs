@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Traces in the Dashboard
 
-## Root Spans View 
+## Root Spans
 
 The primary page shows all root spans in your app, as well as summary metrics like count, error rate, percentiles of duration, and changes from a previous version.
 
@@ -61,7 +61,7 @@ This view shows a Root Span in its entirety. Not only you can see all the inform
 With the Slow Root Spans feature, you can identify performance bottlenecks and prioritize your optimization efforts.
 Slow root spans are fully customizable, allowing you to define performance thresholds based on your specific SLOs and business objectives rather than relying solely on percentile calculations.
 
-If the root span doesn't have a threshold configured, the feature is disabled for the root span, and you will not see information on the dashboard.
+**If the root span doesn't have a threshold configured, the feature is disabled for the root span, and you will not see information on the dashboard.**
 
 On the screenshot, you can see two root spans (`render-UserSessions` and `render-RootSpansDetails`), one with a threshold configured and the other one without threshold. You can see that the "Slow" column doesn't show a value when the root span doesn't have a slow threshold configured.
 <img src={require('@site/static/images/traces/slow-root-spans.png').default} alt="Traces"/>

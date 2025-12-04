@@ -27,7 +27,6 @@ To add Traces to your application, use the detailed instrumentation instructions
 - [Unity](/unity/features/traces.md)
 - [Flutter](/flutter/features/traces.md)
 
-
 ## Learn more
 
 Read about these tracing topics:
