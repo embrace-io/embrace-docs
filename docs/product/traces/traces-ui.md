@@ -30,6 +30,7 @@ Each row represents a specific instance of that Root Span being recorded. You ca
 Clicking on the instance will open up an in-line preview of the details of that instance, including the child spans that it has, their duration, and whether they were completed successfully.
 
 On the right side each row that shows a Root Span instance, there are three icons. 
+
 - The first one takes you to the Root Span Instance View, where you can see all the details about that instance, including attributes and events on each child span.
 - The second one shows you information about slow root span instance.
 - The third one takes you to the specific session in the User Timeline view that this instance ended in so you can see the full context of what happened before and after this Root Span was recorded.
