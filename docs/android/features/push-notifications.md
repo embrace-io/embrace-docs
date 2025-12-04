@@ -39,7 +39,7 @@ If you don't want the notifications to get captured automatically, then you can 
 ```kotlin
 val isNotification = true
 val hasData = true
-Embrace.getInstance().logPushNotification(
+Embrace.logPushNotification(
     "my-notification-title",
     "my-notification-body",
     "my-notification-topic",
