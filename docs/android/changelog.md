@@ -12,7 +12,7 @@ Please be sure to review the [Upgrade Guide](/android/upgrading/) when moving fr
 
 ## 8.0.0
 
-*December 3, 2025*
+*December 4, 2025*
 
 - New minimum versions for platform dependencies like Gradle, AGP, Kotlin, and JDK.
   - Better support of new versions of these dependencies going forward, including the upcoming Kotlin 2.3
