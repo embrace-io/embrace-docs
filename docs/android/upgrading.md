@@ -25,7 +25,7 @@ If you wish to do the upgrade using step-by-step instructions that will work for
      - Where you specify the plugin ID (i.e. `io.embrace.swazzler`), replace it with `io.embrace.gradle`.
 
 4. **Update Embrace Gradle Plugin DSL references**
-   - In your app's Gradle file, replace `android.swazzler` with `android.embrace`
+   - In your app's Gradle file, replace `swazzler {}` with `embrace {}`
    - Replace the attributes that were changed. See the [New Embrace Gradle Plugin DSL](/android/upgrading/#new-embrace-gradle-plugin-dsl) section for the full list of changes.
 
 5. **Update Embrace module dependencies**
