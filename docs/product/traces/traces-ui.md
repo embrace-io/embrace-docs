@@ -29,7 +29,7 @@ Each row represents a specific instance of that Root Span being recorded. You ca
 
 Clicking on the instance will open up an in-line preview of the details of that instance, including the child spans that it has, their duration, and whether they were completed successfully.
 
-On the right side each row that shows a Root Span instance, there are three icons. 
+On the right side each row that shows a Root Span instance, there are three icons.
 
 - The first one takes you to the Root Span Instance View, where you can see all the details about that instance, including attributes and events on each child span.
 - The second one shows you information about slow root span instance.
@@ -73,13 +73,12 @@ For `render-UserSessions` (it has a threshold configured), the "Slowest instance
 For `render-RootSpansDetails` (it doesn't have a threshold configured), the "Slowest instances" and "Fastest instances" filters are disabled and at the top right you can configure the threshold.
 <img src={require('@site/static/images/traces/slow-root-spans-without-threshold.png').default} alt="Traces"/>
 
-
 #### Setting Thresholds
 
 - You can configure millisecond-based thresholds for any span in the Root Span Summary page. The suggested value is based on the p95 historical duration of the root span (top versions and last 7 days).
+
 Once you saved the threshold, Embrace will start computing the slow root spans.
   <img src={require('@site/static/images/traces/slow-root-spans-configuration.png').default} alt="Traces"/>
-
 
 #### Where You'll See Slow Spans
 
