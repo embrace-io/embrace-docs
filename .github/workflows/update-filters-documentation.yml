@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - '*/metrics-filter-update-*'
-      - 'jade.hayes/**'  # TODO: Remove when finished testing
+      - 'jade**'  # TODO: Remove when finished testing
 
 permissions:
   contents: write
