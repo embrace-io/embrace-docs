@@ -163,8 +163,7 @@ implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="
 A JSON-formatted file is used to configure Embrace SDK features. To start off, create a new empty JSON file at `app/src/main/embrace-config.json`:
 
 ```json
-{
-}
+{ }
 ```
 
 ## Set your app ID and API token
@@ -202,6 +201,8 @@ Start the SDK on the main thread before the `Application` object is created. Ref
 The Embrace SDK can be started automatically during your `Application` object's `onCreate()` method by setting a property in the Embrace Gradle Plugin DSL. This requires your app to use a custom `Application` subclass, which the Embrace Gradle Plugin will modify at build time to all the SDK start method.
 
 If you don't have an `Application` subclass, you must [create one](https://developer.android.com/reference/android/app/Application).
+
+If you need to configure your app or the SDK in the `onCreate()` method before the SDK starts, like if you need to add an OTel Exporter, DO NOT use this method. Instead, start the SDK manually after you do so (see below).
 
 ```kotlin
 embrace {
