@@ -1,7 +1,7 @@
 ---
 title: Next Steps
 description: Resources to help you take your Embrace integration for your Android application to the next level
-sidebar_position: 6
+sidebar_position: 8
 ---
 
 # Next Steps
@@ -30,8 +30,8 @@ To see the full list of methods that the Android Embrace SDK exposes, please see
 ## Configuration
 
 The SDK and associated Gradle plugin have configuration options that we have not explored during the onboarding.
-Explore the options available on the [SDK Configuration](/android/features/configuration-file/) and
-[Gradle Plugin configuration](/android/features/embrace-gradle-plugin/) pages.
+Explore the options available on the [SDK Configuration](/android/features/configuration-file/) page to see if any are useful to you in your
+application.
 
 ## Check Out the FAQ
 

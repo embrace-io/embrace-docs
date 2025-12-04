@@ -31,7 +31,7 @@ In order to use this feature, you will need to follow two steps:
 
 ```kotlin
 // The SDK must be started before checking the last run end state
-val didLastRunCrash = Embrace.getInstance().lastRunEndState == LastRunEndState.CRASH
+val didLastRunCrash = Embrace.lastRunEndState == LastRunEndState.CRASH
 ```
 
 **Important Notes**

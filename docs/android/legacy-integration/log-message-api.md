@@ -1,6 +1,6 @@
 ---
 title: Adding Logs
-sidebar_position: 4
+sidebar_position: 7
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
 
@@ -28,7 +28,7 @@ In the case of logError, you may also send an Exception to be shown on the dashb
 Here is an example of how to use the Log Message API for errors:
 
 ```kotlin
-Embrace.logError("Loading not finished in time.")
+Embrace.getInstance().logError("Loading not finished in time.")
 ```
 
 Or you can call `logMessage` if you want to add properties to your logs.
@@ -37,7 +37,7 @@ Or you can call `logMessage` if you want to add properties to your logs.
 val props = mutableMapOf<String, Any>()
 props["propertyA"] = "valueA"
 props["propertyB"] = "valueB"
-Embrace.logMessage("Loading not finished in time.", Severity.ERROR, props)
+Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props)
 ```
 
 ### Log Handled Exception
@@ -53,7 +53,7 @@ try {
     val exception = NullPointerException("this is my handled exception")
     throw exception
 } catch (e: Exception) {
-    Embrace.logException(e, Severity.WARNING, props)
+    Embrace.getInstance().logException(e, Severity.WARNING, props)
 }
 ```
 
@@ -64,8 +64,8 @@ LogType could be ERROR,  WARNING or INFO.
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
 ```kotlin
-Embrace.logWarning("User attempted expired credit card")
-Embrace.logInfo("User has entered checkout flow")
+Embrace.getInstance().logWarning("User attempted expired credit card")
+Embrace.getInstance().logInfo("User has entered checkout flow")
 ```
 
 :::
@@ -120,11 +120,11 @@ val grafanaCloudLogRecordExporter = OtlpHttpLogRecordExporter.builder()
 :::
 
 ```kotlin
-Embrace.addLogRecordExporter(SystemOutLogRecordExporter.create())
-Embrace.addLogRecordExporter(customDockerLogRecordExporter)
-Embrace.addLogRecordExporter(grafanaCloudLogRecordExporter)
+Embrace.getInstance().addLogRecordExporter(SystemOutLogRecordExporter.create())
+Embrace.getInstance().addLogRecordExporter(customDockerLogRecordExporter)
+Embrace.getInstance().addLogRecordExporter(grafanaCloudLogRecordExporter)
 
-Embrace.start(this)
+Embrace.getInstance().start(this)        
 ```
 
 ## Best Practices
