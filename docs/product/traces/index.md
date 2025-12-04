@@ -16,7 +16,7 @@ This rich [OpenTelemetry signal](https://opentelemetry.io/docs/concepts/signals/
 Traces are added to key flows in your app using the Embrace SDKs. Once you've begun to find user activity, you can make sense of the  
 
 - [Technical details](/product/traces/technical-details.md): How to conceptualize and use Traces.
-- [Traces in the Dashboard](/product/traces/traces-ui.md): How to measure performance in the Traces page
+- [Traces in the Dashboard](/product/traces/traces-ui.md): How to measure performance in the Traces page.
 - [Exporting Traces](/product/traces/exporting-traces.md): How to export Traces to other platforms.
 
 To add Traces to your application, use the detailed instrumentation instructions by platform:
@@ -26,6 +26,7 @@ To add Traces to your application, use the detailed instrumentation instructions
 - [React Native](/react-native/features/traces.md)
 - [Unity](/unity/features/traces.md)
 - [Flutter](/flutter/features/traces.md)
+
 
 ## Learn more
 
