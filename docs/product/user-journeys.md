@@ -7,7 +7,7 @@ sidebar_position: 6
 
 We've heard your feedback! Beginning in October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
 
-- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/custom-metrics-api/getting-started.md).
+- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/metrics-forwarding/custom-metrics/#get-started).
 - More options for start and end event markers in User Flows.
 - Better User Flow visualization markers in the [User Timeline](/product/sessions/user-timeline.md).
 - User Flow filters on all Issues pages and on the Sessions page.
@@ -87,6 +87,13 @@ When you click on any of the User Flows you've created, you'll be taken to that 
 ### Issue Rate
 
 The "Issue Rate" tab contains two sub-tabs. The first is "Issue Distribution", which gives you an idea of the makeup of all Issues that are being seen during the selected User Flows in aggregate.
+
+Issue Definitions:
+
+- [**ANRs** (Android)](/product/troubleshooting/anr-reporting/)
+- [**Crashes**](/product/crashes/)
+- [**Error Logs**](/product/troubleshooting/error-logs/)
+- **Network Errors**: Any 4xx or 5xx status code or connection error
 
 On the "Properties Correlation" sub-tab, you can dig into how certain attributes of your User Flows correlate to, and make up, outcomes. You can filter by specific outcomes, as well as select up to 3 different property keys to visualize in the treemap below. This can help you quickly find specific properties that are having outsized issues and reduce the space that you have to explore to find issues.
 
