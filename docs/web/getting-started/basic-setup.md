@@ -47,7 +47,7 @@ At this point you should be able to rebuild your app and have Embrace begin coll
 show up in the Embrace Dashboard once the SDK reports at least 1 completed session. You can learn more about how sessions
 are calculated [here](/web/core-concepts/sessions.md).
 
-:::note  
+:::note
 It may take a few minutes before the first sessions appear in your Embrace dashboard.
 :::
 
@@ -145,9 +145,12 @@ from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
 ### Compatibility with OTel packages
 
-The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries. **New projects should use OpenTelemetry 2.x.** OpenTelemetry 1.x support is limited to 1.x versions of the SDK, which are deprecated.
+The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries. 
+**Important: New projects should use OpenTelemetry 2.x.**
+OpenTelemetry 1.x support is limited to 1.x versions of the SDK, which are deprecated.
 
-If you wish to customize the SDK behavior by configuring custom resources, exporters, processors, or instrumentations, you must ensure that you are using versions of the OTel packages that are compatible with our SDK:
+If you wish to customize the SDK behavior by configuring custom resources, exporters, processors, or instrumentations,
+you must ensure that you are using versions of the OTel packages that are compatible with our SDK:
 
 | Embrace Web SDK | Open Telemetry APIs | Core   | Instrumentations & Contrib |
 |-----------------|---------------------|--------|----------------------------|
@@ -170,6 +173,70 @@ initSDK({
   logLevel: DiagLogLevel.ALL,
 });
 ```
+
+In addition, initializing the SDK with `ConsoleLogRecordExporter` and `ConsoleSpanExporter` exporters allows you to take
+a more detailed look at the spans and logs that are being exported from the SDK. These can be setup as custom exporters,
+in which case their output will be batched, or wrapped in custom processors to see the telemetry outputted as it gets
+emitted:
+
+```typescript
+import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
+import { ConsoleLogRecordExporter, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
+import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-web'
+
+initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: "YOUR_APP_VERSION",
+  logLevel: DiagLogLevel.INFO,
+
+  // setup as exporters to output with the same batching as when exporting to a collector endpoint
+  spanExporters: [new ConsoleSpanExporter()],
+  logExporters: [new ConsoleLogRecordExporter()],
+
+  // OR, wrap exporters with simple processors to output as soon as telemetry is emitted
+  spanProcessors: [new SimpleSpanProcessor(new ConsoleSpanExporter())],
+  logProcessors: [new SimpleLogRecordProcessor(new ConsoleLogRecordExporter())],
+});
+```
+
+### Webpack 4 Configuration
+
+When using webpack 4, you need to add aliases to your webpack configuration to resolve dependency paths correctly:
+
+```javascript
+// webpack.config.js
+const path = require('node:path');
+
+module.exports = {
+  // ... other config
+  resolve: {
+    alias: {
+      '@opentelemetry/semantic-conventions/incubating': path.resolve(
+        __dirname,
+        './node_modules/@opentelemetry/semantic-conventions/build/src/index-incubating.js'
+      ),
+      uuid: path.resolve(__dirname, './node_modules/uuid/dist/index.js'),
+    },
+  },
+};
+```
+
+See the [webpack 4 integration test](https://github.com/embrace-io/embrace-web-sdk/blob/main/tests/integration/platforms/webpack-4/webpack.config.js) for a complete example.
+
+### Client-side only usage
+
+The Embrace SDK can **only be imported in code that executes exclusively in the browser**. Do not import the SDK in
+server-side code or code that runs in edge runtimes.
+
+Importing the SDK in server-side or edge runtime contexts will cause build errors due to the SDK's dependency on
+browser-specific APIs and OpenTelemetry packages that use dynamic code evaluation.
+
+**Next.js example:**
+
+- ✅ **Safe to import:** Client Components (files with `"use client"` directive), browser-only scripts
+- ❌ **Do not import:** `middleware.ts`, API routes (`pages/api/*` or `app/*/route.ts`), Server Components, Server
+  Actions
+
 
 ## Next Steps
 
