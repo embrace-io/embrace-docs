@@ -145,7 +145,7 @@ from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
 ### Compatibility with OTel packages
 
-The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries. 
+The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries.
 **Important: New projects should use OpenTelemetry 2.x.**
 OpenTelemetry 1.x support is limited to 1.x versions of the SDK, which are deprecated.
 
@@ -236,7 +236,6 @@ browser-specific APIs and OpenTelemetry packages that use dynamic code evaluatio
 - ✅ **Safe to import:** Client Components (files with `"use client"` directive), browser-only scripts
 - ❌ **Do not import:** `middleware.ts`, API routes (`pages/api/*` or `app/*/route.ts`), Server Components, Server
   Actions
-
 
 ## Next Steps
 
