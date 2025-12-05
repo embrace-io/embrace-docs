@@ -10,7 +10,9 @@ sidebar_position: 5
 
 - Have an active Honeycomb account and an environment created.
 
-## Pulling your Honeycomb API Key ([Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/settings/api-keys/))
+## Configuration
+
+### Pulling your Honeycomb API Key ([Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/settings/api-keys/))
 
 1. Log into your Honeycomb account.
 2. Locate your Environment’s API Keys:

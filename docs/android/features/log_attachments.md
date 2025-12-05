@@ -17,7 +17,7 @@ There are two ways that attachments can be added to log message: by uploading th
 To upload an attachment to Embrace simply supply a `ByteArray` to the `attachment` parameter of `logMessage`:
 
 ```kotlin
-Embrace.getInstance().logMessage(
+Embrace.logMessage(
     message = "My log message",
     severity = Severity.INFO,
     properties = mapOf("my_key" to "my_value"),
@@ -32,7 +32,7 @@ The attachment will be available for download from the Embrace dashboard.
 To upload an attachment to a 3rd party file host, simply supply a random ID for `attachmentId` and the attachment download link to `attachmentUrl` of `logMessage`:
 
 ```kotlin
-Embrace.getInstance().logMessage(
+Embrace.logMessage(
     message = "My log message",
     severity = Severity.INFO,
     properties = mapOf("my_key" to "my_value"),

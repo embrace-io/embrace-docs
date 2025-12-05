@@ -2,12 +2,11 @@
 
 ## Adding Relevant Information to Sessions
 
-Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/android/integration/crash-reporting/) and [Session Reporting](/android/integration/session-reporting/) sections.
-Embrace can also collect your logging data and include it as relevant information and details to enrich your sessions.
+Embrace can collect your logging data as 'breadcrumbs' and include it as relevant information and details to enrich your sessions.
 
 Here's how you add a Breadcrumb to the session:
 ```kotlin
-Embrace.getInstance().addBreadcrumb("onDragEvent called, starting drag")
+Embrace.addBreadcrumb("onDragEvent called, starting drag")
 ```
 
 In the above example, a Breadcrumb is being logged when a drag event listener is called.
