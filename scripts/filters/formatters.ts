@@ -10,13 +10,6 @@ const sanitizeDescription = (description?: string): string => {
   return escapePipes(description.replace(/\s+/g, ' ').trim());
 };
 
-const formatOperations = (ops: string[]): string => {
-  if (!ops || ops.length === 0) {
-    return '—';
-  }
-  return escapePipes(ops.map((op) => OP_LABELS[op] || op).join(', '));
-};
-
 const formatChoicesConstraint = (filter: Filter): string | undefined => {
   if (!filter.choices || filter.choices.length === 0) {
     return undefined;
@@ -44,7 +37,6 @@ const formatConstraints = (filter: Filter): string => {
 export {
   escapePipes,
   sanitizeDescription,
-  formatOperations,
   formatChoicesConstraint,
   formatConstraints,
 };

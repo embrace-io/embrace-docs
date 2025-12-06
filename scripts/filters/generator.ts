@@ -1,6 +1,6 @@
 import { FilterWithSection, MetricsData } from './types';
 import { TYPE_LABELS } from './constants';
-import { escapePipes, formatOperations, formatConstraints, sanitizeDescription } from './formatters';
+import { escapePipes, formatConstraints, sanitizeDescription } from './formatters';
 
 /**
  * Generate markdown table row for a single filter
@@ -11,7 +11,6 @@ const generateFilterMarkdown = (
 ): string => {
   const description = sanitizeDescription(filter.description);
   const type = escapePipes(TYPE_LABELS[filter.type] || filter.type);
-  const operations = formatOperations(filter.ops);
   const constraints = formatConstraints(filter);
 
   const identity = [
@@ -19,7 +18,7 @@ const generateFilterMarkdown = (
     `<span class="filters-table__key">${filterKey}</span>`,
   ].join('<br />');
 
-  return `| ${identity} | ${description} | ${operations} | ${type} | ${constraints} |\n`;
+  return `| ${identity} | ${description} | ${type} | ${constraints} |\n`;
 };
 
 /**
@@ -41,17 +40,6 @@ const generateFilterDocumentation = (metricsData: MetricsData): string => {
   markdown +=
     'Filters allow you to query and segment your data in the Embrace dashboard. Use filters to narrow down sessions, crashes, and other telemetry data based on specific criteria.\n\n';
 
-  // How to use section
-  markdown += '## How to Use Filters\n\n';
-  markdown +=
-    'Each filter supports different operations and data types. When building queries:\n\n';
-  markdown += '- **Equals** - Exact match\n';
-  markdown += '- **Not Equals** - Exclude matches\n';
-  markdown += '- **Greater Than** - Numeric comparison (value must be greater)\n';
-  markdown += '- **Less Than** - Numeric comparison (value must be less)\n';
-  markdown += '- **Contains** - Text contains the specified substring\n';
-  markdown += '- **In** - Value is in a list of options\n\n';
-
   // Column definitions section
   markdown += '## Understanding Filter Table Columns\n\n';
   markdown += 'Each filter table in this page uses the same columns:\n\n';
@@ -59,12 +47,6 @@ const generateFilterDocumentation = (metricsData: MetricsData): string => {
   markdown += '- **Filter** - Human-readable name of the filter, with the key used in APIs or programmatic queries shown below it in monospace (for example, `app_version`).\n';
   markdown +=
     '- **Description** - Plain-language explanation of what the filter represents and how it is typically used.\n';
-  markdown +=
-    '- **Operations** - The comparison operations available for the filter. Common operations include Equals (`eq`), Not Equals (`neq`), Greater Than / Greater Than or Equal (`gt`, `gte`), Less Than / Less Than or Equal (`lt`, `lte`), In / Not In (`in`, `nin`), Contains (`contains`), and pattern-based operators like like / nlike.\n';
-  markdown +=
-    '  - Use **Not Equals** when you want to exclude one specific exact value.\n';
-  markdown +=
-    '  - Use **nlike** when you want to exclude any value that contains or matches a certain text pattern anywhere in the field.\n';
   markdown += '- **Type** - Describes the data shape, such as String, Choice (String), int, float, Boolean, Date/DateTime, property (key-value pair), or intrange (integer range).\n';
   markdown +=
     '- **Constraints** - Describes any documented limits on valid values for the filter, such as enumerated choices. If no constraints are listed, the filter accepts any value that matches its type.\n\n';
@@ -119,8 +101,8 @@ const generateFilterDocumentation = (metricsData: MetricsData): string => {
     markdown += `## ${category} Filters\n\n`;
 
     markdown += '<div class="filters-table">\n\n';
-    markdown += '| Filter | Description | Operations | Type | Constraints |\n';
-    markdown += '| --- | --- | --- | --- | --- |\n';
+    markdown += '| Filter | Description | Type | Constraints |\n';
+    markdown += '| --- | --- | --- | --- |\n';
 
     // Sort filters within category by label
     const sortedFilters = filtersByCategory[category].sort((a, b) =>
