@@ -91,8 +91,8 @@ mind as you refer to further instructions:
 1) Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
 
    ```diff
-   - import { initSDK } from '@embrace-io/web-sdk';
-   + const { initSDK } = window.EmbraceWebSdk;
+   - import { initSDK, log, page, session, trace, user } from '@embrace-io/web-sdk';
+   + const { initSDK, log, page, session, trace, user } = window.EmbraceWebSdk;
    ```
 
 2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
