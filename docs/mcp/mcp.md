@@ -22,26 +22,27 @@ The Embrace Model Context Protocol (MCP) server lets you query your mobile app's
 ## Prerequisites
 
 :::warning
-Embrace's MCP Server is in Beta and has only been officially tested with ClaudeCode. Please refer to the relevant documentation provided by your LLM Client on how to connect to a remote MCP server.
+Embrace's MCP Server is in Beta and has only been officially tested with Claude Code and Claude Desktop. Please refer to the relevant documentation provided by your LLM Client on how to connect to a remote MCP server.
 :::
 
 Before you can use the Embrace MCP server, you need:
 
 - An active Embrace account with access to at least one application
 - An MCP-compatible AI assistant
+- The OAuth flag enabled for your org (reach out to your Customer Success Manager or Support to enable this)
 
 ## Setup
 
 Add the Embrace MCP server to your AI assistant:
 
-| AI Assistant     | Setup Instructions                                                                                          |
-| ---------------- | ----------------------------------------------------------------------------------------------------------- |
-| Claude Code      | Run: `claude mcp add --transport http embrace https://mcp.embrace.io/mcp`                                   |
-| Claude Desktop   | Add to your [MCP configuration file](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)   |
-| Cursor           | See [Cursor MCP documentation](https://docs.cursor.com/context/model-context-protocol)                      |
-| Codeium Windsurf | See [Windsurf MCP documentation](https://docs.windsurf.com/windsurf/cascade/mcp#model-context-protocol-mcp) |
+| AI Assistant   | Setup Instructions                                                                                                                                                                                                                                                                                                |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claude Code    | Run: `claude mcp add --transport http embrace https://mcp.embrace.io/mcp`. Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: we do not support Bearer Token auth at this time. |
+| Claude Desktop | Reference Anthropic's official docs for [MCP configuration file](https://platform.claude.com/docs/en/agents-and-tools/mcp-connector)                                                                                                                                                                              |
 
-For other AI Assistants supporting MCP, please reference your relevant docs. The Embrace MCP Server uses an Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
+For other AI Assistants supporting MCP, please reference your relevant docs. Official support will come in the near future for these as we continue to improve and add functionality.
+
+The Embrace MCP Server uses an Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
 
 ## Common use cases
 
