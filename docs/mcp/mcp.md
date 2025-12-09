@@ -29,7 +29,7 @@ Before you can use the Embrace MCP server, you need:
 
 - An active Embrace account with access to at least one application
 - An MCP-compatible AI assistant
-- The OAuth flag enabled for your org (reach out to your Customer Success Manager or Support to enable this)
+- The MCP feature to be enabled for your org (reach out to your Customer Success Manager or Support to enable this)
 
 ## Setup
 
