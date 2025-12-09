@@ -76,7 +76,7 @@ We recommend you include our SDK as a regular npm dependency (see above). If you
 snippet from CDN, you can do so by adding the following script tag to your main HTML file:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X"></script>
+<script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X" crossorigin="anonymous"></script>
 ```
 
 Replacing `X.X.X` with the version of the SDK you wish to include. Check available versions on [npm](https://www.npmjs.com/package/@embrace-io/web-sdk).
@@ -91,8 +91,8 @@ mind as you refer to further instructions:
 1) Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
 
    ```diff
-   - import { initSDK } from '@embrace-io/web-sdk';
-   + const { initSDK } = window.EmbraceWebSdk;
+   - import { initSDK, log, page, session, trace, user } from '@embrace-io/web-sdk';
+   + const { initSDK, log, page, session, trace, user } = window.EmbraceWebSdk;
    ```
 
 2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
@@ -114,7 +114,7 @@ following snippet to your HTML file. Remember to replace `X.X.X` with the versio
 
 ```html
 <script>
-   !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
+   !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
 </script>
 ```
 
