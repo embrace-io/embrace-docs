@@ -285,7 +285,7 @@
   --global-menu-z-index: calc(var(--header-z-index) + 1);
   --auth-content-min-width: 600px;
   --auth-container-max-width: 1300px;
-  --content-max-width: 1400px;
+  --content-max-width: 1040px;
   --tour-active-banner-height: 66px;
   --card-main-spacing: var(--space-32px);
   --card-sub-spacing: var(--space-24px);
@@ -299,12 +299,6 @@
 
 .footer__link-item {
   color: #FFFFFF;
-}
-
-/* Hide doc links that should not appear in the sidebar */
-.menu__link.hidden-filter-reference,
-.menu__list-item.hidden-filter-reference {
-  display: none !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -478,55 +472,4 @@
   --chart-color8: var(--dark-chart-color8);
   --chart-color9: var(--dark-chart-color9);
   --chart-color10: var(--dark-chart-color10);
-}
-
-.filters-table {
-  margin-bottom: 1.5rem;
-}
-
-.filters-table table {
-  width: 100%;
-  table-layout: fixed;
-  margin-bottom: 0;
-}
-
-.filters-table table th:nth-child(1),
-.filters-table table td:nth-child(1) {
-  width: 20%;
-}
-
-.filters-table table th:nth-child(2),
-.filters-table table td:nth-child(2) {
-  width: 35%;
-}
-
-.filters-table table th:nth-child(3),
-.filters-table table td:nth-child(3) {
-  width: 15%;
-}
-
-.filters-table table th:nth-child(4),
-.filters-table table td:nth-child(4) {
-  width: 15%;
-  white-space: normal;
-  font-size: 0.9em;
-}
-
-.filters-table table th:nth-child(5),
-.filters-table table td:nth-child(5) {
-  width: 15%;
-}
-
-.filters-table__key {
-  display: block;
-  margin-top: 0.25rem;
-  width: fit-content;
-  padding: 0.1rem 0.45rem;
-  border-radius: 999px;
-  background-color: rgba(135, 143, 156, 0.15);
-  color: var(--ifm-color-primary-darker, #1c1f3b);
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.9em;
-  line-height: 1.2;
-  white-space: nowrap;
 }
