@@ -7,7 +7,7 @@ sidebar_position: 5
 # iOS/tvOS FAQ
 
 Here are a list of questions we commonly receive along with their answers.
-If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](http://community.embrace.io)
+If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](https://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Common Questions
@@ -276,7 +276,7 @@ You can capture trace IDs in two ways:
 
 ### Does Embrace support Mac Catalyst?
 
-Currently, we do not support Mac Catalyst. If you believe that your organization would benefit from us supporting Mac Catalyst, please reach out in our [community Slack](http://community.embrace.io)
+Currently, we do not support Mac Catalyst. If you believe that your organization would benefit from us supporting Mac Catalyst, please reach out in our [community Slack](https://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ### How are low memory warnings calculated?
