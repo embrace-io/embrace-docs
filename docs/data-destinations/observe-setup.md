@@ -19,14 +19,3 @@ https://<customer_id>.collect.observeinc.com
 # Example:
 https://123456789012.collect.observeinc.com
 ```
-
-## Create Observe Data Destination
-
-1. Navigate to the [Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations) and select
-
-   Add Data Destination.
-
-2. Select Observe in the dropdown and the apps that you want to forward.
-3. Input the token and the customer ID.
-
-   <img src={require('@site/static/images/data-destinations/observe_config.png').default} alt="Image showing Observe data destination form" width="50%"/>

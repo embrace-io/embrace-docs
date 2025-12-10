@@ -25,12 +25,6 @@ Explanations for each of the fields are provided below.
     "crash_handler": {
       "enabled": true
     },
-    "networking": {
-      "capture_request_content_length": true,
-      "disabled_url_patterns": [],
-      "enable_native_monitoring": true,
-      "trace_id_header": "x-emb-trace-id"
-    },
     "automatic_data_capture": {
       "memory_info": true,
       "power_save_mode_info": true,
@@ -66,6 +60,7 @@ Explanations for each of the fields are provided below.
       ],
       "capture_request_content_length": false,
       "disabled_url_patterns": ["example.com"],
+      "enable_huc_lite_instrumentation": true,
       "enable_native_monitoring": false,
       "enable_network_span_forwarding": false
     },
@@ -180,10 +175,6 @@ Domain URL.
 
 Limit for the number of requests to be tracked.
 
-#### networking - capture_request_content_length *bool*
-
-Disable capture of network length which can interfere with certain streaming network requests. Defaults to `true`.
-
 #### networking - disabled_url_patterns *string array*
 
 Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
@@ -194,9 +185,17 @@ Example:
 "disabled_url_patterns": [".*"], // Will disable network calls for all URLs
 ```
 
+#### networking - enable_huc_lite_instrumentation *bool*
+
+Enable basic instrumentation of HTTPS network requests made using the `HttpsURLConnection` API. Defaults to `true`.
+
 #### networking - enable_native_monitoring *bool*
 
-Enable capture of network requests made using the native Java network API. Defaults to `true`.
+Enable detailed instrumentation of HTTP and HTTPS network requests made using the `HttpURLConnection` and `HttpsURLConnection` APIs. The module `embrace-android-instrumentation-huc` must be included in your app for this to work. Defaults to `false`.
+
+#### networking - capture_request_content_length *bool*
+
+Enable capture of network request body size for the instrumentation enabled by `enable_native_monitoring`, which may interfere with certain streaming network requests. Defaults to `false`.
 
 #### networking - enable_network_span_forwarding *bool*
 
@@ -261,7 +260,7 @@ Custom file name for unity symbols.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 
-It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/studio/build/build-variants) specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
+It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/build/build-variants) specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
 
 The order of evaluation is as follows. The first option that is found will be used
 
