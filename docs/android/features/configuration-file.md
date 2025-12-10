@@ -260,7 +260,7 @@ Custom file name for unity symbols.
 
 ## Custom Settings for Build Types, Flavors, and Variants
 
-It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/studio/build/build-variants) specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
+It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/build/build-variants) specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
 
 The order of evaluation is as follows. The first option that is found will be used
 
