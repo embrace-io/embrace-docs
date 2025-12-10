@@ -7,7 +7,7 @@ sidebar_position: 3
 
 # Web Thread Monitoring
 
-WKWebView allows your application to display HTML and JavaScript content using the full power of the Safari browser engine. To make this work, Apple uses out-of-process threads to optimize the performance of these views and protect your application from crashes. You can read more about how this works on our [our blog](https://blog.embrace.io/webview-thread-terminations/).
+WKWebView allows your application to display HTML and JavaScript content using the full power of the Safari browser engine. To make this work, Apple uses out-of-process threads to optimize the performance of these views and protect your application from crashes. You can read more about how this works on our [our blog](https://embrace.io/blog/webview-thread-terminations/).
 
 Embrace will automatically track those threads and add logs to your session when the threads crash. These logs can help you understand the impact to your users and decide whether you should work on improving the JavaScript code or not.
 

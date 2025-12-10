@@ -64,7 +64,7 @@ If you are using Expo's `prebuild` system to manage your native files you can ma
 ```
 
 :::info
-Refer to [EmbraceProps](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages/core/src/plugin//types.ts)
+Refer to [EmbraceProps](https://github.com/embrace-io/embrace-react-native-sdk/blob/main/packages/core/src/plugin/types.ts)
 for the full set properties available to configure the plugin.
 :::
 

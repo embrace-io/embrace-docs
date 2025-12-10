@@ -7,7 +7,7 @@ sidebar_position: 5
 
 Embrace offers SSO support using standard SAML 2.0. Providers such as Okta, OneLogin, Google and Microsoft have been tested.
 
-If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or [Slack us](http://community.embrace.io/).
+If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or [Slack us](https://community.embrace.io/).
 
 ## Supported Features
 
@@ -158,4 +158,4 @@ Similar to Okta documentation above, you can find [Embrace connector](https://ww
 
 ## Troubleshooting
 
-Please [email us](mailto:support@embrace.io) or [Slack us](http://community.embrace.io/) your dedicated Customer Success Manager if you have any questions.
+Please [email us](mailto:support@embrace.io) or [Slack us](https://community.embrace.io/) your dedicated Customer Success Manager if you have any questions.

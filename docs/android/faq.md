@@ -7,7 +7,7 @@ sidebar_position: 5
 # Android FAQ
 
 Here are a list of questions we commonly receive along with their answers.
-If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](http://community.embrace.io)
+If you don't see your question here, or would like more clarification on one please reach out to us on the [community Slack](https://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 
 ## Integration
@@ -102,7 +102,7 @@ Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please e
 
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
-A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events.  
+A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events.
 
 Several customers have encountered the scenario in which they have mistakenly disabled the SDK's ability to listen for such events. In such cases, customer intervention is required to determine how the startup library was disabled and how to re-enable it.
 
@@ -110,7 +110,7 @@ Several customers have encountered the scenario in which they have mistakenly di
 
 When using a version of 'appCompat' ≥ 1.4.1, the 'androidx.startup' library is used to initialize lifecycle event listeners. This is the same library used by WorkManager on Android.
 
-In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration) , two ways of implementing custom configuration settings are described.  
+In certain circumstances, an application may wish to deactivate the default WorkManager startup in order to implement its own. In the [Android documentation](https://developer.android.com/develop/background-work/background-tasks/persistent/configuration/custom-configuration), two ways of implementing custom configuration settings are described.
 
 If the following code block is present in your Manifest file, **Embrace SDK will not run.** This deactivates every initialization provider:
 
