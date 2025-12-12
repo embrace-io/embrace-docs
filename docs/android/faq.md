@@ -162,7 +162,7 @@ By default, your app will choose the latest version of a particular dependency i
 
 Note that Embrace does not support versions of dependencies lower than what has been specified, so doing this kind of override may lead to unspecified behaviors. Only do this if it cannot be avoided and thoroughly test that it does not conflict with Embrace or any other SDKs that may also dependent on it.
 
-## Crashes and ANR
+## Crashes and ANRs
 
 ### **Can I use other crash reporters in addition to the Embrace one?**
 
