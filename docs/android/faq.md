@@ -98,7 +98,7 @@ Not currently. Contact us at [support@embrace.com](mailto:support@embrace.com) o
 
 ### **Does Embrace support Hermes for React Native?**
 
-Yes, we support Hermes in Embrace Android SDK versions 5.5.0 and above. Please ensure that you are using at least version 0.71 of React Native when utilizing Hermes.
+Yes, Embrace supports Hermes in Embrace Android SDK versions 5.5.0 and above. Ensure that you are using at least version 0.71 of React Native when utilizing Hermes.
 
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
@@ -236,7 +236,7 @@ All network calls are automatically tracked without any code changes. Network ca
 - OkHttp3 (including support for Retrofit)
 - Http(s)URLConnection
 
-If you use a library not listed or do not see expected network calls, please contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
+If you use a library not listed or do not see expected network calls, contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
 
 ### **Compatibility with Akamai, Cloudflare, PacketZoom and other networking services**
 
@@ -283,7 +283,7 @@ Embrace automatically adds the following permissions so that it can make HTTP re
 
 ### **How do I measure operations running in parallel?**
 
-Please refer to [Traces feature guide](/android/features/traces) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
+Refer to the [Traces feature guide](/android/features/traces) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
 
 ## Tap coordinates
 
@@ -291,7 +291,7 @@ Please refer to [Traces feature guide](/android/features/traces) for a reference
 
 Yes, you can turn off capture of tap coordinates with the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#taps---capture_coordinates-bool) in the `embrace-config.json` file.
 
-## Trace ID
+## Trace IDs
 
 ### **I have a custom ID to represent each network request made to my server. Can I capture that in the network logging?**
 
@@ -345,6 +345,6 @@ The `Semaphore.tryAcquire` ANR isn’t caused by `OnApplicationPause`—it’s c
 
 ### Do you support Android TV and Amazon Fire TV?
 
-Yes. Currently, Amazon Fire TV apps are Android TV apps built on FireOS under the hood. Our SDK supports Android TV out of the box, so you can integrate our SDK like you would with any other Android mobile app.
+Yes. Currently, Amazon Fire TV apps are Android TV apps built on FireOS under the hood. The Embrace SDK supports Android TV out of the box, so you can integrate the SDK like you would with any other Android mobile app.
 
 Note that future iterations of Amazon Fire TV may incorporate VegaOS, a Linux-based operating system that lacks compatibility with Android.
