@@ -20,7 +20,7 @@ sidebar_position: 2
 
    <img src={require('@site/static/images/data-destinations/datadog_api_keys.png').default} alt="Image showing Datadog field needed" />
 
-4. Click on the "Copy" button
+4. Click on the "Copy" button.
 
 ### Pulling your Datadog Site URL
 
