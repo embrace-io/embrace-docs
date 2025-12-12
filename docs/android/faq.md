@@ -31,9 +31,9 @@ compileOptions {
 
 ### **How do I use Embrace functions in modules or libraries?**
 
-In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file
-implementation `'io.embrace:embrace-android-sdk:<version>'`.
-You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file
+In addition to performing the basic integration instructions, you must specify the Embrace SDK dependency directly in your module's Gradle file:
+`implementation 'io.embrace:embrace-android-sdk:<version>'`.
+You still need to apply the Embrace Gradle Plugin in the app's Gradle file (`apply plugin: 'embrace-swazzler'`) and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module's Gradle file.
 
 ```groovy
 buildscript {
