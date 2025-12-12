@@ -8,7 +8,7 @@ sidebar_position: 6
 
 ## Prerequisites
 
-- Have an active Observe account
+- Have an active Observe account.
 
 ## Configuration
 
