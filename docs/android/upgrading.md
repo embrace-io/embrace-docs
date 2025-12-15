@@ -1,6 +1,6 @@
 ---
 title: Upgrade Guide
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # Upgrade Guide
