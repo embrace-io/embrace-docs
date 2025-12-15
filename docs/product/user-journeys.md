@@ -30,40 +30,26 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 
 ### Important Considerations
 
-1. **No concurrent User Flows on the same device**
-
-   On a single device, only one User Flow can be active at any given time.  
+1. **No concurrent User Flows on the same device**: On a single device, only one User Flow can be active at any given time.  
    If a new User Flow starts while another is still in progress, the previous one is automatically terminated.
-
-   **Example**
-
-   Two User Flows are defined for the same app:
-
-    - **User Flow A**
-        - Start Event: *Span A*
-        - End Event: *Breadcrumb A*
-    - **User Flow B**
-        - Start Event: *Span B*
-        - End Event: *Breadcrumb B*
-
+   
+   **Example**: Two User Flows are defined for the same app
+    - **User Flow A**: Start Event is "Span A" and End Event is "Breadcrumb A".
+    - **User Flow B**: Start Event is "Span B" and End Event is "Breadcrumb B".
+   
    Event timeline:
-    - 10:00 — *Span A* occurs
-    - 10:01 — *Span B* occurs
-    - 10:02 — *Breadcrumb A* occurs
-    - 10:03 — *Breadcrumb B* occurs
-
+    - 10:00 — "Span A" occurs.
+    - 10:01 — "Span B" occurs.
+    - 10:02 — "Breadcrumb A" occurs.
+    - 10:03 — "Breadcrumb B" occurs.
+     
    **Result**
-    - *User Flow A* ends with the outcome **Abandoned / New User Flow Started**
-    - *User Flow B* ends with the outcome **Complete**
+    - "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
+    - "User Flow B" ends with the outcome **Complete**.
 
-2. **User Flows may span multiple sessions**
+2. **User Flows may span multiple sessions**: A User Flow is not constrained to a single session. It may start in one session and complete in a later session (e.g., start in Session 1 and finish in Session 3).
 
-   A User Flow is not constrained to a single session.  
-   It may start in one session and complete in a later session (e.g., start in Session 1 and finish in Session 3).
-
-
-
-## User Flows Outcomes
+### Outcomes
 
 There are different possibles outcomes related to a "User Flow" that it's important to understand.
 
@@ -78,7 +64,7 @@ There are different possibles outcomes related to a "User Flow" that it's import
       - **Web**: it's not possible.
     - **Timeout**: it exceeded the timeout configured.
 
-## User Flows Start and End Events
+### Start and End Events
 
 User Flows are built using various telemetry events:
 
@@ -151,7 +137,7 @@ Hovering your mouse over the treemap, you'll see a tooltip that breaks down the 
 
 <img src={require('@site/static/images/user-journeys/User-Flows-Details-Treemap.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
-### User Flow Instance List
+### Instance List
 
 You can find a filterable list of all instances of the User Flow at the bottom of the page. Clicking any of these instances will take you to the [User Timeline](/product/sessions/user-timeline.md) for further investigation as you need it.
 
