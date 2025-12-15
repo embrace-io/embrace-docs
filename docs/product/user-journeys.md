@@ -32,20 +32,22 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 
 1. **No concurrent User Flows on the same device**: On a single device, only one User Flow can be active at any given time.  
    If a new User Flow starts while another is still in progress, the previous one is automatically terminated.
-   
+
    **Example**: Two User Flows are defined for the same app
-    - **User Flow A**: Start Event is "Span A" and End Event is "Breadcrumb A".
-    - **User Flow B**: Start Event is "Span B" and End Event is "Breadcrumb B".
-   
+
+   - **User Flow A**: Start Event is "Span A" and End Event is "Breadcrumb A".
+   - **User Flow B**: Start Event is "Span B" and End Event is "Breadcrumb B".
+
    Event timeline:
-    - 10:00 — "Span A" occurs.
-    - 10:01 — "Span B" occurs.
-    - 10:02 — "Breadcrumb A" occurs.
-    - 10:03 — "Breadcrumb B" occurs.
-     
+
+- 10:00 — "Span A" occurs.
+- 10:01 — "Span B" occurs.
+- 10:02 — "Breadcrumb A" occurs.
+- 10:03 — "Breadcrumb B" occurs.
+
    **Result**
-    - "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
-    - "User Flow B" ends with the outcome **Complete**.
+- "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
+- "User Flow B" ends with the outcome **Complete**.
 
 2. **User Flows may span multiple sessions**: A User Flow is not constrained to a single session. It may start in one session and complete in a later session (e.g., start in Session 1 and finish in Session 3).
 
@@ -55,14 +57,14 @@ There are different possibles outcomes related to a "User Flow" that it's import
 
 - **Completed:** User Flow made from the Start Event to the End Event inside the time threshold and without exiting the app.
 - **Error:** User Flow made the Start Event but ended in an error.
-    - **Android/iOS**: It happened a "Crash" before the end event.
-    - **Web**: Coming soon, it happened an "Exception" before the end event.
+  - **Android/iOS**: It happened a "Crash" before the end event.
+  - **Web**: Coming soon, it happened an "Exception" before the end event.
 - **Abandoned:** User Flow made the Start Event but didn't reach the End Event.
-    - **New User Flow Started**: it happened a new Start Event before the end event.
-    - **App Exit**: 
-      - **Android/iOS**: the customer exited the application.
-      - **Web**: it's not possible.
-    - **Timeout**: it exceeded the timeout configured.
+  - **New User Flow Started**: it happened a new Start Event before the end event.
+  - **App Exit**:
+    - **Android/iOS**: the customer exited the application.
+    - **Web**: it's not possible.
+  - **Timeout**: it exceeded the timeout configured.
 
 ### Start and End Events
 
