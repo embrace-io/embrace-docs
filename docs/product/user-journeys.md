@@ -148,8 +148,3 @@ You can find a filterable list of all instances of the User Flow at the bottom o
 ### Alerts and Custom Metrics
 
 **NOTE**: User Flows are processed using data that comes in multiple payloads from the client. As such, there can be a time delay of up to 10 minutes. Due to this potential delay, we don't allow 5 minute aggregations.
-
-
-
-
-
