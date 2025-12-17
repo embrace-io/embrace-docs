@@ -9,7 +9,7 @@ sidebar_position: 6
 ## Prerequisites
 
 - Have an active Observe account
-- Have a [datastream](https://docs.observeinc.com/en/latest/content/data-ingestion/datastreams.html) configured and token to publish to that datastream
+- Have a [datastream](https://docs.observeinc.com/docs/datastreams) configured and token to publish to that datastream
 - Have your customer ID ready. Your customer ID is a numerical ID that can be found in the URL of your observe dashboard:
 
 ```shell
