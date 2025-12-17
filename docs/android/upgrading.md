@@ -188,7 +188,7 @@ get in touch if you do have a use-case that is no longer met.
 
 | Old API                                                                 | New API                                                                                                |
 |-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)`                                                                               |
+| `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)` and supply `sdk_config.app_framework` with 'flutter', 'react_native', or 'unity'                                                                               |
 | `Embrace.getInstance().addLogRecordExporter(LogRecordExporter)`         | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
 | `Embrace.getInstance().addSpanExporter(SpanExporter)`                   | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
 | `Embrace.getInstance().getOpenTelemetry()`                              | `Embrace.getOpenTelemetryKotlin()` or `Embrace.getJavaOpenTelemetry()`                                 |
