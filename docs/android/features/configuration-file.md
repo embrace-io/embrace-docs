@@ -34,7 +34,7 @@ Explanations for each of the fields are provided below.
       "ui_load_tracing_selected_only": false
     },
     "taps": {
-      "capture_coordinates": true
+      "capture_coordinates": false
     },
     "view_config": {
       "enable_automatic_activity_capture": false
@@ -133,7 +133,7 @@ Disables Activity load instrumention for Activities that are not explicitly anno
 
 #### taps - capture_coordinates *bool*
 
-Set to false to disable capturing tap coordinates. Defaults to `true`.
+Set to true to enable capturing tap coordinates. Defaults to `false`.
 
 #### view_config - enable_automatic_activity_capture *bool*
 
