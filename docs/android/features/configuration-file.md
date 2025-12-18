@@ -7,9 +7,9 @@ sidebar_position: 11
 # Android configuration file
 
 Certain SDK configs are only settable in a custom `embrace-config.json` file.
-This file should be located in app/src/main.
+This file should be located in `app/src/main`.
 The following is an example `embrace-config.json` file.
-Explanations for each of the fields are provided below.
+The explanations for each of the fields follow below.
 
 ```json
 {
