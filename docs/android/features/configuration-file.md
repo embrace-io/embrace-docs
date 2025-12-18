@@ -4,7 +4,7 @@ description: Configuration file for the Android Embrace SDK
 sidebar_position: 11
 ---
 
-# Android Configuration File
+# Android configuration file
 
 Certain SDK configs are only settable in a custom `embrace-config.json` file.
 This file should be located in app/src/main.
@@ -258,7 +258,7 @@ Project's app framework, one of react\_native, unity, flutter or native.
 
 Custom file name for unity symbols.
 
-## Custom Settings for Build Types, Flavors, and Variants
+## Custom settings for build types, flavors, and variants
 
 It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/build/build-variants) specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
 
