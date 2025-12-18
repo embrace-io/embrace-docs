@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Android Integration
 
-## Getting Started
+## Getting started
 
 This section provides instructions for integrating Embrace's Android SDK into your app. Our minimum supported
 versions can be found [here](/android/versioning/).
