@@ -10,7 +10,7 @@ Here are some questions we commonly receive along with their answers.
 If you don't see your question or need more clarification, contact us on the [community Slack](https://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 
-## Integration
+## integration
 
 ### **The SDK should support API level 21, but I get an error saying I need to set android.useFullClasspathForDexingTransformAPI**
 
@@ -88,9 +88,9 @@ Yes, Embrace supports Hermes in Embrace Android SDK versions 5.5.0 and above. En
 
 ### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
-A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. Sessions will not be recorded if the SDK is not alerted of lifecycle events.
+A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. The SDK will not record sessions if it is not alerted of lifecycle events.
 
-Several customers have encountered the scenario in which they have mistakenly disabled the SDK's ability to listen for such events. In such cases, customer intervention is required to determine how the startup library was disabled and how to re-enable it.
+Some customers have encountered the scenario in which they have mistakenly disabled the SDK's ability to listen for such events. In such cases, you need to determine how the startup library was disabled and how to re-enable it.
 
 **Technical examples**
 
@@ -128,7 +128,7 @@ Only disable the WorkManager initializer. This will allow the Embrace SDK to fun
 
 :::
 
-In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, the initialization provider should be added explicitly:
+In other instances, a library may disable the initializer. In such a scenario, there may not be any explicit provider block in the application manifest file. In this situation, you should add the initialization provider explicitly:
 
 ```xml
 <provider android:authorities="${applicationId}.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
@@ -280,7 +280,7 @@ Tap coordinates are disabled by default in 7.X and above. You can confirm this b
 Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in the request.
 
 :::note
-Trace IDs longer than 64 characters will be truncated
+The SDK will truncate trace IDs longer than 64 characters.
 :::
 
 ## Unity
