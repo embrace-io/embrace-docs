@@ -21,7 +21,7 @@ See [this page](/product/traces/technical-details.md) for technical details and 
 The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record data for past operations.
-  - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
+  - For real-time tracing, use a “stopwatch” concept that lets you start and stop a span's recording manually.
   - To record past operations, you can specify the start and end times of your spans that you might have captured already.
   - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
 - Add child spans to a parent span to track sub-operations within an operation.
@@ -208,7 +208,7 @@ Embrace.addLogRecordExporter(myLogExporter)
 ```
 
 :::info
-Please note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
+Note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
 :::
 
 ### Local testing
