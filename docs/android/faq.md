@@ -64,21 +64,21 @@ to capture some telemetry correctly. If it's not started on the main thread at t
 
 ### **How does Embrace deliver session data if there is no network connection or if the device is behind a firewall?**
 
-Embrace caches all data before sending it to Embrace. If it fails to send, it tries again later and continues trying until the disk space is full. At that point, the oldest message or data is deleted first. Embrace continues to retry as long as it doesn't surpass a hard drive space restriction.
+Embrace SDK caches all data before sending it to Embrace. If it fails to send, it tries again later and continues trying until the disk space is full. At that point, the oldest message or data is deleted first. Embrace SDK continues to retry as long as it doesn't surpass a hard drive space restriction.
 
 ### **What is the impact of adding Embrace Android SDK regarding app performance, device battery/data usage/disk space?**
 
 TL;DR _The impact depends on how you use the API._
 
-The incremental battery usage is negligible because Embrace is mostly dormant unless telemetry is being recorded, in which case the CPU should already be active. Embrace has a thread that monitors the main thread for ANRs if that feature is enabled when the app is in the foreground, but that only pings the thread every 100ms.
-For disk usage, Embrace only hits the disk every 2 seconds when the app is in the foreground, regardless of how much telemetry is recorded. Everything is buffered in memory and flushed to disk at that interval. In the background, Embrace only does so if new telemetry has been added since the last check, so it's pretty lightweight if you're not recording data.
-For disk space, Embrace buffers on disk session data that hasn't been sent, and once it's successfully sent, it's deleted. The data is compressed too, so unless the device has a lot of unsent requests due to a lack of network connection, the disk usage should not exceed a few megabytes.
+The incremental battery usage is negligible because Embrace SDK is mostly dormant unless telemetry is being recorded, in which case the CPU should already be active. Embrace SDK has a thread that monitors the main thread for ANRs if that feature is enabled when the app is in the foreground, but that only pings the thread every 100ms.
+For disk usage, Embrace SDK only hits the disk every 2 seconds when the app is in the foreground, regardless of how much telemetry is recorded. Everything is buffered in memory and flushed to disk at that interval. In the background, Embrace only does so if new telemetry has been added since the last check, so it's pretty lightweight if you're not recording data.
+For disk space, Embrace SDK buffers on disk session data that hasn't been sent, and once it's successfully sent, it's deleted. The data is compressed too, so unless the device has a lot of unsent requests due to a lack of network connection, the disk usage should not exceed a few megabytes.
 In terms of data usage, it also depends on usage, but it's negligible for a modern app. Sessions typically get bigger if there are a lot of network requests to be logged, but they compress well and each is usually less than 100 KB (P99 for sessions is 98KB).
-The delivery layer retry is based on exponential backoff, starting at 1 minute and doubling with every failure. Embrace only attempts to do so if it detects a network connection. So you should never see tight loops of failures and retries that would clog up the CPU, as the 7th retry will be after 64m. The request connection timeout is 10s, and the read timeout is 60.
-In terms of disk persistence, Embrace stores a maximum of 500 payloads that have failed to be sent. It trims based on priority and time—if Embrace needs to trim, it trims the less important payloads first, starting with logs, then sessions, then crashes, by First-In-First-Out. So even if the app is offline for a long time, there is still a ceiling of how much extra disk space will be consumed, which may be 10s of MBs if you're logging a lot of data.
+The delivery layer retry is based on exponential backoff, starting at 1 minute and doubling with every failure. Embrace SDK only attempts to do so if it detects a network connection. So you should never see tight loops of failures and retries that would clog up the CPU, as the 7th retry will be after 64m. The request connection timeout is 10s, and the read timeout is 60.
+In terms of disk persistence, Embrace SDK stores a maximum of 500 payloads that have failed to be sent. It trims based on priority and time—if the SDK needs to trim, it trims the less important payloads first, starting with logs, then sessions, then crashes, by First-In-First-Out. So even if the app is offline for a long time, there is still a ceiling of how much extra disk space will be consumed, which may be 10s of MBs if you're logging a lot of data.
 Regarding payload size, the backend rejects any payloads greater than 3mb, so in practice, with the data limits set on the various telemetry types that are captured, it should not get close to that.
 
-Embrace proactively profiles the impact of instrumentation on the app. Spans generally take less than 1 ms to start and stop, so the overhead to measurement shouldn't impact user experience, even if you do it directly on the main thread.
+Embrace SDK proactively profiles the impact of instrumentation on the app. Spans generally take less than 1 ms to start and stop, so the overhead to measurement shouldn't impact user experience, even if you do it directly on the main thread.
 
 ### **What determines if a session is classified as prod or dev?**
 
@@ -166,16 +166,16 @@ Note that Embrace does not support versions of dependencies lower than what has 
 
 ### **Can I use other crash reporters in addition to the Embrace one?**
 
-Yes. Embrace adds itself as a listener for uncaught JVM exceptions, but passes on exceptions to any handler that was
+Yes. Embrace SDK adds itself as a listener for uncaught JVM exceptions, but passes on exceptions to any handler that was
 registered when it registered itself so that both listeners will receive the uncaught exceptions.
 
-For NDK exceptions, Embrace replaces any existing signal handlers, which are used to capture C and C++ exceptions.
-Similarly, other NDK crash capture tools would be likely to replace Embrace signal handlers if they are initialized after
+For NDK exceptions, Embrace SDK replaces any existing signal handlers, which are used to capture C and C++ exceptions.
+Similarly, other NDK crash capture tools would be likely to replace Embrace SDK signal handlers if they are initialized after
 the SDK. It is therefore not recommended to enable more than one NDK crash reporting solution in your app as it will interfere with crash report quality.
 
 ### **What does it mean if I see Embrace in my ANR reports?**
 
-The call stack that is reported for an ANR includes all processes running on the main thread at the time of an ANR. This way of classifying an ANR often misattributes the real culprit, as it tells you what is happening on the main thread at that moment, but doesn't point to the cause prior to the ANR. Embrace takes lightweight samples of the main thread up to 5 seconds before the occurrence of an ANR to show you what the thread was doing in that time. So, if you see Embrace in your ANR call stack, it's very likely the noise of the ANR reporter landing on the Embrace sampling methods.
+The call stack that is reported for an ANR includes all processes running on the main thread at the time of an ANR. This way of classifying an ANR often misattributes the real culprit, as it tells you what is happening on the main thread at that moment, but doesn't point to the cause prior to the ANR. Embrace SDK takes lightweight samples of the main thread up to 5 seconds before the occurrence of an ANR to show you what the thread was doing in that time. So, if you see Embrace in your ANR call stack, it's very likely the noise of the ANR reporter landing on the Embrace sampling methods.
 
 ### **How can I resolve an Android OkHttp crash?**
 
@@ -207,21 +207,21 @@ You also can pass a User ID to identify users through a set of methods related t
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. Include an anonymized user ID that only your agents can search for.  
 
-If no user identifier is set, Embrace sets a random string as the identifier, which is active and available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/android/features/identify-users.md).
+If no user identifier is set, Embrace SDK sets a random string as the identifier, which is active and available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/android/features/identify-users.md).
 
 ### **If a user registered in a later session, are previous sessions still linked to that user?**
 
-Yes. Embrace links all sessions to that user from the past and in the future. Search by the Embrace ID for all of that user's sessions.
+Yes. Embrace SDK links all sessions to that user from the past and in the future. Search by the Embrace ID for all of that user's sessions.
 
 ### **Do I have access to the Embrace ID at runtime?**
 
-Yes, Embrace makes the Embrace ID available to you via the SDK. See the [API docs](/api/android/).
+Yes, Embrace SDK makes the Embrace ID available to you via the SDK. See the [API docs](/api/android/).
 
 ## Network requests
 
 ### **Why are my API calls not displaying in the dashboard?**
 
-Make sure that Embrace is initialized after any 3rd party networking libraries.
+Make sure that Embrace SDK is initialized after any 3rd party networking libraries.
 Embrace is consistently discovering new APIs and libraries for which it needs to add support.
 Contact us via email or Slack with the information.
 
@@ -240,15 +240,15 @@ If you use a library not listed or do not see expected network calls, contact us
 
 ### **Compatibility with Akamai, Cloudflare, PacketZoom and other networking services**
 
-Embrace is compatible with SDKs that optimize networking, such as those from Akamai, Cloudflare, and PacketZoom.
+Embrace SDK is compatible with SDKs that optimize networking, such as those from Akamai, Cloudflare, and PacketZoom.
 However, it is important that the Embrace SDK is initialized _after_ any of these types of SDKs are initialized to ensure
-that our SDK captures network requests.
+that the SDK captures network requests.
 
 ### **My network calls are not being captured. What could be going wrong?**
 
 This could be due to one of the following reasons:
 
-- Currently, Embrace does not automatically capture WebSocket requests.
+- Currently, Embrace SDK does not automatically capture WebSocket requests.
 - The networking library you're using isn't one of the supported ones.
 - You may use a CDN like Cloudflare, which can change your networking under-the-hood. Here's a list of CDNs that are verified to be compatible:
   - Akamai
@@ -270,11 +270,11 @@ This could be due to one of the following reasons:
 
 ### **What does Embrace use to hook into network calls on Android apps?**
 
-For Android, Embrace captures information from native UrlConnections and OkHttp3
+For Android, Embrace SDK captures information from native UrlConnections and OkHttp3
 
 ### **What permissions does Embrace add to my AndroidManifest?**
 
-Embrace automatically adds the following permissions so that it can make HTTP requests to deliver captured data.
+Embrace SDK automatically adds the following permissions so that it can make HTTP requests to deliver captured data.
 
 - `android.permission.INTERNET`
 - `android.permission.ACCESS_NETWORK_STATE`
