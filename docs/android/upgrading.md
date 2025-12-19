@@ -7,9 +7,9 @@ sidebar_position: 4
 
 ## Upgrading from 7.x to 8.x
 
-### Quick Start
+### Quick start
 
-If you wish to do the upgrade using step-by-step instructions that will work for most apps, follow this `Quick Start` guide. Scroll down to the rest of this guide to see all the changes described in greater detail.
+If you wish to do the upgrade using step-by-step instructions that will work for most apps, follow this `Quick start` guide. Scroll down to the rest of this guide to see all the changes described in greater detail.
 
 1. **Change Embrace version**
    - Set the version of the Embrace Android SDK to `{{ embrace_sdk_version platform="android" }}`.
@@ -79,7 +79,7 @@ The Embrace Android SDK is compiled using the following language compatibility t
 | Java                      | 1.8        | 11         |
 | Kotlin (Language and API) | 1.8        | 2.0        |
 
-### Embrace Gradle Plugin renamed
+### Embrace Gradle plugin renamed
 
 The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 
@@ -91,7 +91,7 @@ The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 Replace references to the old Embrace Gradle Plugin name with the new one. Your configuration files should reference the plugin in one
 of the following ways:
 
-#### Version Catalogs
+#### Version catalogs
 
 If you define your plugins in a TOML file (e.g. `gradle/libs.versions.toml`):
 
@@ -160,7 +160,7 @@ very little change as most alterations are internal. However, you should be awar
 - `embrace-android-fcm` has been renamed as `embrace-android-instrumentation-fcm`
 - `embrace-android-okhttp3` has been renamed as `embrace-android-instrumentation-okhttp`
 
-`embrace.autoAddEmbraceDependencies` is deprecated and will be removed in a future release. You should add the
+`embrace.autoAddEmbraceDependencies` is deprecated and will be removed in a future release. Add the
 `io.embrace:embrace-android-sdk` module to your classpath manually if you reference any Embrace Android SDK API directly in your app.
 
 ### Http(s)URLConnection network request instrumentation changes
@@ -204,7 +204,7 @@ get in touch if you do have a use-case that is no longer met.
 | `Embrace.getInstance().unregisterComposeActivityListener()`             | Obsolete - no alternative provided.                                                                    |
 | `Embrace.getInstance().logWebView(String)`                              | Obsolete - no alternative provided.                                                                    |
 
-#### New Embrace Gradle Plugin DSL
+#### New Embrace Gradle plugin DSL
 
 The Embrace Gradle Plugin previously had a DSL via the `swazzler` extension. This has been replaced with a new DSL via the `embrace`
 extension.
@@ -304,7 +304,7 @@ Below is a list of everything that has changed and how to address it in your cod
 - Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
 :::
 
-## Moments have been superseded by Traces
+## Moments have been superseded by traces
 
 [Traces](/android/features/traces.md) serve the same purposes as [Moments](/android/features/moments.md), with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
 

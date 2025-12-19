@@ -7,7 +7,7 @@ sidebar_position: 3
 # Android SDK Changelog
 
 :::info Important
-Please be sure to review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
+Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
 ## 8.0.0
