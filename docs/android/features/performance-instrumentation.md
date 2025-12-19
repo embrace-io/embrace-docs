@@ -4,7 +4,7 @@ description: Automatically capture the performance of various aspects of the app
 sidebar_position: 16
 ---
 
-# Performance Auto Instrumentation
+# Performance auto instrumentation
 
 ## Overview
 
@@ -12,7 +12,7 @@ The Embrace SDK can automatically instrument key workflows as the app goes throu
 
 These traces can be augmented with additional attributes and child spans, as well as configured in other ways.
 
-## App Startup
+## App startup
 
 Both [cold](https://developer.android.com/topic/performance/vitals/launch-time#cold) and [warm](https://developer.android.com/topic/performance/vitals/launch-time#warm) app startups will generate traces that track the time between when the app is launched in the foreground and when the designated Activity shows up on screen. Depending on which Android version the app is running on, the start and end times of the trace and what child spans and metadata on the root span that are recorded may differ.
 
@@ -72,7 +72,7 @@ It's difficult for the SDK to programmatically determine precisely when the app'
 
 As such, the `applicationInitEnd()` method can be used to notify the SDK when this happens, which will allow it to more accurately assess whether an app startup is cold or warm.
 
-### Child Spans
+### Child spans
 
 Depending on the version of Android and other additional data your app provides, the following child spans may be recorded as part of the app startup trace, with the cold or warm root span as their parent.
 
@@ -179,7 +179,7 @@ This documentation covers the app startup instrumentation as of Embrace Android 
 - Programmatic ending of app startup is not supported.
 - Start and end times of root spans as well as conditions for recording child spans differ slightly.
 
-## Activity Load
+## Activity load
 
 When an Activity is brought into view, its loading workflow will be appropriately traced.
 
