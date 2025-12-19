@@ -20,7 +20,7 @@ Instrumenting Jetpack Compose click events incurs a small performance penalty on
 
 ### Set local config and Gradle plugin block
 
-To enable onClick instrumentation, You will need to modify your `embrace-config.json` [file](/android/features/configuration-file.md)
+To enable onClick instrumentation, You will need to modify your `embrace-config.json` [file](/android/configuration/configuration-file.md)
 
 ```json
 {

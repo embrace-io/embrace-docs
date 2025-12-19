@@ -24,7 +24,7 @@ At this point everything should be working on iOS. For Android one additional co
 }
 ```
 
-For more information about this file please refer to the [Android / Configuration File section](/android/features/configuration-file/).
+For more information about this file please refer to the [Android / Configuration File section](/android/configuration/configuration-file/).
 
 ## Turning off the feature
 

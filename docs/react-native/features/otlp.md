@@ -282,7 +282,7 @@ if you were exporting to Grafana your config would look like:
 }
 ```
 
-See the [Android Configure File](/android/features/configuration-file/#networking---disabled_url_patterns-string-array)
+See the [Android Configure File](/android/configuration/configuration-file/#networking---disabled_url_patterns-string-array)
 page for more details.
 
 </TabItem>

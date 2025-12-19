@@ -1,5 +1,5 @@
 ---
-title: Android FAQ
+title: FAQ
 description: Frequently asked questions about the Android Embrace SDK
 sidebar_position: 5
 ---
@@ -76,7 +76,7 @@ A session is classified as dev if all of the following are true:
 
 ### **How can I define custom app IDs for different build types?**
 
-See [this section](/android/features/configuration-file#custom-settings-for-build-types-flavors-and-variants) on how to configure different app IDs.
+See [this section](/android/configuration/configuration-file/#custom-settings-for-build-types-flavors-and-variants) on how to configure different app IDs.
 
 ### **Does Embrace work with Buck / OKBuck?**
 
@@ -271,7 +271,7 @@ Refer to the [Traces feature guide](/android/features/traces) for a reference on
 
 ### **Can I disable the capture of tap coordinates?**
 
-Tap coordinates are disabled by default in 7.X and above. You can confirm this by checking the [`taps[capture_coordinates]` setting](/android/features/configuration-file/#taps---capture_coordinates-bool) in the `embrace-config.json` file.
+Tap coordinates are disabled by default in 7.X and above. You can confirm this by checking the [`taps[capture_coordinates]` setting](/android/configuration/configuration-file/#taps---capture_coordinates-bool) in the `embrace-config.json` file.
 
 ## Trace IDs
 

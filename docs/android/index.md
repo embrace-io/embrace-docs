@@ -1,22 +1,15 @@
 ---
-title: Getting Started
-description: Learn how to use Embrace for the Android platform
+title: Get Started
+description: Learn about Embrace for the Android platform
 sidebar_position: 0
 ---
 
 # Android Platform Documentation
 
-## Getting started
+## Get Started
 
-This documentation is split into two sections:
+If you are just starting out with Embrace, follow the [**Integration Guide**](/android/integration/) to integrate our SDK into your app.
 
-- [**Integration Guide**](/android/integration/)
-- [**Feature Reference**](/android/features/)
-
-If you are just starting out with Embrace, follow the [**Integration Guide**](/android/integration/) to learn how
-to successfully integrate the SDK into your app.
-
-Once you've completed that, browse through our [**Feature Reference**](/android/features/) guides to learn how
-to use some of the advanced features our SDK provides.
+If you're looking for documentation on a specific feature check out our [**Feature Reference**](/android/features/) guides.
 
 You can also view our [FAQ](/android/faq/) and [Changelog](/android/changelog/).

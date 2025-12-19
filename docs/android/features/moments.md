@@ -15,7 +15,7 @@ The moments feature is only available in version 6 and below of the Android SDK.
 Embrace contains a powerful stopwatch and abandonment tracking feature called **moments**.
 This mechanism is the same one used to measure application launch performance, which is covered in the [Integration guide](/android/integration) section.
 
-Similar to [Logs](/android/integration/log-message-api), moments will immediately make a network request.
+Similar to [Logs](/android/integration-advanced/log-message-api), moments will immediately make a network request.
 
 :::info
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.

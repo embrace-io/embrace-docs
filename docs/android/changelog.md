@@ -1,7 +1,7 @@
 ---
-title: Android SDK Changelog
+title: Changelog
 description: Changelog for the Android Embrace SDK
-sidebar_position: 3
+sidebar_position: 6
 ---
 
 # Android SDK Changelog
@@ -332,7 +332,7 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 
 *April 22, 2024*
 
-- Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
+- Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration-advanced/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
 
 ## 6.6.0
 

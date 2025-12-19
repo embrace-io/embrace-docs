@@ -1,7 +1,7 @@
 ---
 title: Feature Reference
 description: Learn about the advanced ways Embrace can help your application
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Android feature reference
@@ -18,10 +18,10 @@ how your application is performing in production.
 - [**Push notifications.**](/android/features/push-notifications.md) Embrace automatically captures push notifications received. Learn how to configure this feature.
 - [**Current session ID API.**](/android/features/current-session-id-api.md) This API lets you know what the current session ID is in case you need to track it separately.
 - [**Last run end state.**](/android/features/last-run-end-state.md) Understand if your last app instance ended in a crash.
-- [**Configuration file.**](/android/features/configuration-file.md) The SDK has many configuration options available.
+- [**Configuration file.**](/android/configuration/configuration-file.md) The SDK has many configuration options available.
 - [**Jetpack Compose.**](/android/features/jetpack-compose.md) Enable Jetpack Compose (beta) to track taps on composables.
 - [**Network body capture.**](/android/features/network-body-capture.md) Embrace can upload bodies from your network requests to help you troubleshoot. Learn how to enable this feature securely.
 - [**Disable data export.**](/android/features/disable-data-export.md) Embrace can be disabled at runtime through an API. Ideal to support user opt-out requirements.  
 - [**Performance auto instrumentation.**](/android/features/performance-instrumentation.md) The Embrace SDK can automatically instrument key workflows as the app goes through its operational lifecycle. The instrumentation generates traces.
 - [**Log attachments.**](/android/features/log_attachments.md) Embrace’s Log Message API allows binary attachments to be added to log messages.
-- [**Embrace Gradle plugin.**](/android/features/embrace-gradle-plugin.md) Overview and configuration of Embrace Gradle plugin (FKA the Swazzler).
+- [**Embrace Gradle plugin.**](/android/configuration/embrace-gradle-plugin.md) Overview and configuration of Embrace Gradle plugin.
