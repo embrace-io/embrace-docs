@@ -4,7 +4,7 @@ sidebar_position: 4
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
 
-# Adding Logs
+# Add logs
 
 Typically the Embrace SDK uploads data at the end of a session. However, some situations
 might require instant feedback, such as hunting an especially difficult bug, troubleshooting
@@ -12,9 +12,9 @@ on behalf of high-value users, or monitoring a new version rollout.
 
 You can leverage the log message API for this.
 
-## Using the Log Message API
+## Use the log message API
 
-The Log Message API enables you to log a message instantly.
+You can use the log message API to log a message instantly.
 
 Depending on your requirements, you can choose from three severity types: `logInfo`, `logWarning`, and `logError`.
 
@@ -40,7 +40,7 @@ props["propertyB"] = "valueB"
 Embrace.logMessage("Loading not finished in time.", Severity.ERROR, props)
 ```
 
-### Log Handled Exception
+### Log handled exceptions
 
 If there is a need to log an exception, but the severity level is something other than an error, the **`logException`** method can be used.
 
@@ -74,10 +74,10 @@ import LogLimit from '@site/shared/log-limit.md';
 
 <LogLimit />
 
-## Being Alerted on Logs
+## Get alerted on logs
 
-Once you start using our alerting feature you can also configure how these are handled on the backend.
-Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with log events.
+Once you start using our alerting feature, you can also configure how these are handled on the backend.
+You can use the Embrace dashboard to configure email alerts to be sent to your team when certain thresholds are met with log events.
 For example, let's say you have a steady rate of 1% for a given log event. You could set that as a threshold and receive an email if the rate rises beyond that in a sustained way.
 
 ## Export your telemetry
@@ -127,12 +127,12 @@ Embrace.addLogRecordExporter(grafanaCloudLogRecordExporter)
 Embrace.start(this)
 ```
 
-## Best Practices
+## Best practices
 
 Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
-### Log Batching
+### Log batching
 
 To reduce the device and network overhead, we batch logs according to the [following criteria](https://github.com/embrace-io/embrace-android-sdk/blob/15f3376641992c52e947869a018364fcfea857f6/embrace-android-sdk/src/main/java/io/embrace/android/embracesdk/internal/logs/LogOrchestrator.kt):
 

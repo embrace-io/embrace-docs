@@ -12,16 +12,16 @@ The moments feature is only available in version 6 and below of the Android SDK.
 
 ## Overview
 
-Embrace contains a powerful stopwatch and abandonment tracking feature, which we call **moments**.
-This mechanism is the same one used to measure application launch performance, which we covered in the [Integration guide](/android/integration) section.
+Embrace contains a powerful stopwatch and abandonment tracking feature called **moments**.
+This mechanism is the same one used to measure application launch performance, which is covered in the [Integration guide](/android/integration) section.
 
-Similar to [Logs](/android/integration/log-message-api), moments will immediately make a network request.
+Similar to [Logs](/android/integration-advanced/log-message-api), moments will immediately make a network request.
 
 :::info
 The performance of the networking calls that moments make are unrelated to the performance of the moment itself.
 :::
 
-## Keep It Short
+## Keep it short
 
 Moments are best used for tracking critical user flows that are generally short in nature, like:
 
@@ -32,7 +32,7 @@ Moments are best used for tracking critical user flows that are generally short 
 
 Longer events, such as filling out an entire form or taking a photo with the camera, are worse candidates for moments as these tasks can have a high variance from user to user. Only measure moments that truly matter to your business, and that you would dedicate engineering resources to improving.
 
-## Starting a Moment
+## Starting a moment
 
 Here's how you start a moment.
 
@@ -49,7 +49,7 @@ import PropertyLimit from '@site/shared/property-limit.md';
 
 <PropertyLimit />
 
-## Ending a Moment
+## Ending a moment
 
 Next, here's how you end a moment.
 
@@ -61,7 +61,7 @@ A timer is started once you make a call to start a moment.
 If you end the moment within a configurable threshold, then the timer ends and the client's measurement is used to report performance.
 You can end the moment from multiple locations in your app, or from multiple threads.
 
-## Tracking Abandonment
+## Tracking abandonment
 
 import Abandonment from '@site/shared/tracking-abandonment.md';
 

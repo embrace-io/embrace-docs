@@ -4,11 +4,11 @@ description: Embrace can capture network body requests and responses
 sidebar_position: 14
 ---
 
-# Network Body Capture
+# Network body capture
 
 Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.  
 
-This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you. Please make sure you have the following property set as `true` in your `embrace-config.json` file:
+This feature can only be enabled by your Embrace CS representative, so reach out to them on Slack or create a network body capture request by using the button in the dash. Once configured, your requests will be uploaded to Embrace's servers and delivered to you. Make sure you have the following property set as `true` in your `embrace-config.json` file:
 
 ```json
 {
@@ -22,7 +22,7 @@ This feature can only be enabled by your Embrace CS representative, so reach out
 }
 ```
 
-You can check the [configuration file documentation](/android/features/configuration-file)  for more information.
+You can check the [configuration file documentation](/android/configuration/configuration-file)  for more information.
 
 If your application handles sensitive or private data of any kind, you can protect that data by encrypting the network body capture payloads that are uploaded.  
 
@@ -41,7 +41,7 @@ In your `embrace-config.json` file, first create a new property entry titled:
 
 RSA encryption uses two keys: a private and a public key. You may already be familiar with this protocol and the security team in your organization may already have public keys available for you to use. Before generating new keys, check with your organization.  
 
-There are many ways to generate working key pairs. For these instructions we will use the CLI opensll tool installed by default on most linux-like systems using a size key of 2048:
+There are many ways to generate working key pairs. For these instructions, use the CLI openssl tool installed by default on most linux-like systems using a size key of 2048:
 
 ```shell-session
 openssl genrsa -des3 -out private.pem 2048

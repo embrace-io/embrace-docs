@@ -194,7 +194,7 @@ val activityLoadSpanId = activityLoad?.spanId
 Embrace.getSpan(activityLoadSpanId)?.stop()
 ```
 
-## Export to OpenTelemetry Collectors
+## Export to OpenTelemetry collectors
 
 Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded.  
 
@@ -208,7 +208,7 @@ Embrace.addLogRecordExporter(myLogExporter)
 ```
 
 :::info
-Please note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
+Note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
 :::
 
 ### Local testing
@@ -219,14 +219,14 @@ To see your recorded telemetry locally during developement, use [LoggingSpanExpo
 2024-03-05 14:15:15.342 29672-29756 LoggingSpanExporter     io.embrace.mysampleapp          I  'emb-startup-moment' : d38b4ac26baf1a862ed4a028af7d08ac e3e82dd0f86c0eed INTERNAL [tracer: io.embrace.android.embracesdk:={{ embrace_sdk_version platform="android" }}] AttributesMap{data={emb.sequence_id=4, emb.type=PERFORMANCE, emb.key=true}, capacity=128, totalAddedValues=3}
 ```
 
-### Sending to OpenTelemetry Collectors  
+### Sending to OpenTelemetry collectors  
 
 You can send all or some of your telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) by using existing Android-compatible exporters or writing your own. Note that not all Java exporters can be used on Android.
 
 :::warning
 **Network request to OpenTelemetry Collectors should not be logged**
 
-To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disabled_url_patterns` setting in the Embrace Configuration file. See [this page](/android/features/configuration-file/#networking---disabled_url_patterns-string-array) for details.
+To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disabled_url_patterns` setting in the Embrace Configuration file. See [this page](/android/configuration/configuration-file/#networking---disabled_url_patterns-string-array) for details.
 :::
 
 #### Send telemetry through gRPC
