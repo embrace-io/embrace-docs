@@ -4,7 +4,7 @@ description: Embrace can capture push notifications received by your app.
 sidebar_position: 8
 ---
 
-# Push Notifications
+# Push notifications
 
 The Embrace SDK is able to automatically capture Firebase push notifications received by your app.
 
