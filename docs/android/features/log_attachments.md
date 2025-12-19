@@ -4,7 +4,7 @@ description: Add attachments to your log messages to monitor production performa
 sidebar_position: 18
 ---
 
-# Log Attachments
+# Log attachments
 
 ## Overview
 
