@@ -83,7 +83,7 @@ only builds to save time.
 <TabItem value="android" label="Android">
 
 On Android React Native will [generate sourcemaps by default](https://reactnative.dev/docs/debugging-release-builds?platform=android#enabling-source-maps)
-which will then be uploaded by our [gradle-plugin](https://github.com/embrace-io/embrace-android-sdk/blob/96b45ca87f87e3d1217d1626532b9af65daa922b/embrace-gradle-plugin/src/main/java/io/embrace/android/gradle/plugin/tasks/reactnative).
+which will then be uploaded by our [gradle-plugin](https://github.com/embrace-io/embrace-android-sdk/tree/main/embrace-gradle-plugin/src/main/java/io/embrace/android/gradle/plugin/tasks/reactnative).
 This will happen for the "release" variant as well as for any other non-debuggable variants that produce a JavaScript
 bundle. Which variants are considered debuggable is defined by `debuggableVariants` in your app/build.gradle, see [React Native's documentation](https://reactnative.dev/docs/react-native-gradle-plugin#debuggablevariants)
 for more details.
