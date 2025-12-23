@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Get Started
 sidebar_position: 0
 description: Learn about Embrace for the Flutter platform
 ---
@@ -8,15 +8,8 @@ description: Learn about Embrace for the Flutter platform
 
 ## Getting Started
 
-This documentation is split into two sections:
+If you are just starting out with Embrace, follow the [**Integration Guide**](/flutter/integration/) to integrate our SDK into your app.
 
-- [**Integration Guide**](/flutter/integration/)
-- [**Feature Reference**](/flutter/features/)
+If you're looking for documentation on a specific feature check out our [**Feature Reference**](/flutter/features/) guides.
 
-If you are just starting out with Embrace, follow the [**Integration Guide**](/flutter/integration/) to learn
-the key steps to successfully using our product.
-
-Once you've completed that, browse through our [**Feature Reference**](/flutter/features/) guides to learn how
-to use some of the advanced features our SDK provides.
-
-You can also view our [Changelog](/flutter/changelog/).
+You can also view our [FAQ](/android/faq/) and [Changelog](/android/changelog/).

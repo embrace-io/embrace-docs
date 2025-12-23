@@ -12,4 +12,4 @@ Embrace captures native crashes in the context that they occurred, and bridges h
 - [**Crash Reporting in iOS.**](/ios/6x/manual-instrumentation/crash-reporting.md)
 - [**Crash Reporting in Unity.**](/unity/integration/crash-report.md)
 - [**Crash Reporting in React Native.**](/react-native/integration/crash-reporting.md)
-- [**Crash Reporting in Flutter.**](/flutter/integration/crash-reporting.md)
+- [**Crash Reporting in Flutter.**](/flutter/integration-advanced/crash-reporting.md)
