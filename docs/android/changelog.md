@@ -1,14 +1,26 @@
 ---
-title: Android SDK Changelog
+title: Changelog
 description: Changelog for the Android Embrace SDK
-sidebar_position: 4
+sidebar_position: 6
 ---
 
 # Android SDK Changelog
 
 :::info Important
-Please be sure to review the [Android Upgrade Guide](/android/upgrading/) when moving from Android v6.x to Android v7.x
+Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
+
+## 8.0.0
+
+*December 4, 2025*
+
+- New minimum versions for platform dependencies like Gradle, AGP, Kotlin, and JDK.
+  - Better support of new versions of these dependencies going forward, including the upcoming Kotlin 2.3
+- Renames of the Embrace Gradle Plugin artifact and in the Embrace Gradle DSL (RIP "Swazzler").
+- Reorganization and renames of certain classes, methods, and modules to improve clarity.
+- Removal of deprecated symbols that are no longer functional.
+- Changes to the default `HttpsURLConnection` instrumentation.
+- More information about this release, including step-by-step upgrade instructions, could be found in the [Upgrade Guide](/android/upgrading/).
 
 ## 7.9.3
 
@@ -320,7 +332,7 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 
 *April 22, 2024*
 
-- Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
+- Support configuration of OpenTelemetry Exporters to export [Logs](/android/integration-advanced/log-message-api/#export-your-telemetry) data as OpenTelemetry LogRecord.
 
 ## 6.6.0
 

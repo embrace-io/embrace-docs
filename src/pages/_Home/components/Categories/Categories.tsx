@@ -20,6 +20,7 @@ import {
   IconUsersGroup,
   IconWifi,
   IconDeviceDesktop,
+  IconSparkles,
 } from "@tabler/icons-react";
 import LogoUnity from "@site/static/images/unity.svg";
 import LogoReactNative from "@site/static/images/react-native.svg";
@@ -36,6 +37,7 @@ import LogoObserve from "@site/static/images/logo-observe.svg";
 import LogoIOS from "@site/static/images/ios.svg";
 import LogoFlutter from "@site/static/images/flutter.svg";
 import LogoAndroid from "@site/static/images/android.svg";
+import UserJourneys from "@site/static/images/user-journeys.svg";
 import type { HomeCardProps } from "@site/src/pages/_Home/components/HomeCard/HomeCard";
 import Category from "@site/src/pages/_Home/components/Category/Category";
 
@@ -101,11 +103,11 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "/product",
     },
     {
-      title: "Best Practices",
+      title: "Embrace AI",
       description:
-        "Discover best practices to get the most out of our product.",
-      icon: <IconCheck {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/best-practices",
+        "AI features powered by your Embrace data to help you query and find insights faster.",
+      icon: <IconSparkles {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/mcp",
     },
     {
       title: "Tutorials",
@@ -142,22 +144,29 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     {
       title: "Data Destinations",
       description:
-        "Deliver your metrics to your cross-platform observability tool of choice.",
+          "Configure your cross-platform observability tool of choice.",
       icon: <IconPuzzle {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/data-destinations",
     },
     {
+      title: "Metrics Forwarding",
+      description:
+          "Deliver your metrics to your cross-platform observability tool of choice.",
+      icon: <IconPuzzle {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/metrics-forwarding",
+    },
+    {
       title: "Custom Metrics API",
       description:
-        "Manage (create, get and delete) all the custom metrics of your organization.",
+          "Manage (create, get and delete) all the custom metrics of your organization.",
       icon: <IconChartLine {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/custom-metrics-api",
+      linkTo: "/metrics-forwarding/custom-metrics/custom-metrics-api",
     },
     {
       title: "Metrics API",
       description: "Query your metrics from Embrace using PromQL.",
       icon: <IconChartBar {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/embrace-api",
+      linkTo: "/metrics-forwarding/metrics-api",
     },
     {
       title: "Spans Forwarding",

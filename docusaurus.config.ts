@@ -393,6 +393,18 @@ const config: Config = {
             from: "/android/features/tracing",
           },
           {
+            to: "/android/integration",
+            from: "/android/integration/integration-steps",
+          },
+          {
+            to: "/android/integration",
+            from: "/android/integration/login-embrace-dashboard",
+          },
+          {
+            to: "/android/integration",
+            from: "/android/integration/session-reporting",
+          },
+          {
             to: "/flutter/features/traces",
             from: "/flutter/features/tracing",
           },
@@ -452,6 +464,22 @@ const config: Config = {
             to: "/data-destinations/splunk/",
             from: "/code/da-unexpected-input-splunk-credentials",
           },
+          {
+            to: "/metrics-forwarding/#standard-metrics",
+            from: "/embrace-api/supported_metrics_and_queries/",
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/",
+            from: "/embrace-api/"
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/grafana-integration",
+            from: "/embrace-api/grafana_integrations"
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/code-samples",
+            from: "/embrace-api/code_samples"
+          }
         ],
       },
     ],

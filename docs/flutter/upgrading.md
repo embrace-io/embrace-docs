@@ -1,4 +1,7 @@
-# Upgrade guide
+---
+title: Upgrade Guide
+sidebar_position: 6
+---
 
 ## Upgrading from 3.x to 4.x
 
@@ -17,7 +20,7 @@ If you have written additional Android code as part of your integration you may 
 
 ## Upgrading from 2.0.0 to 3.0.0
 
-Replace the contents of your iOS `AppDelegate` with the [new approach](/flutter/integration/add-embrace-sdk/#ios-setup) of initializing the Embrace SDK. If you have custom configuration or have written Swift/Obj-C code that invokes Embrace, please also follow the [iOS upgrade guide](/ios/6x/getting-started/migration-guide.md).
+Replace the contents of your iOS `AppDelegate` with the [new approach](/flutter/integration/#ios-setup) of initializing the Embrace SDK. If you have custom configuration or have written Swift/Obj-C code that invokes Embrace, please also follow the [iOS upgrade guide](/ios/6x/getting-started/migration-guide.md).
 
 `Embrace.instance.startMoment`, `Embrace.instance.endMoment`, and `Embrace.instance.endAppStartup` are all removed. Please use the [Traces API instead](/flutter/features/traces) which provides superior insights into your application's performance.
 
@@ -37,7 +40,7 @@ buildscript {
 }
 ```
 
-Please refer to the [Android setup guide](/flutter/integration/add-embrace-sdk/#android-setup) for further information.
+Please refer to the [Android setup guide](/flutter/integration/#android-setup) for further information.
 
 ## Upgrading from 1.4.0 to 1.5.0
 

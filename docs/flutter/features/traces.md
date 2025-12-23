@@ -98,7 +98,7 @@ Please follow [this guide](/android/features/traces/#export-to-opentelemetry-col
 
 Please follow [this guide](/ios/6x/advanced-features/opentelemetry-export.md) for details on setting up OpenTelemetry exporters on iOS.
 
-Exporters are set when the SDK is [configured](/flutter/integration/add-embrace-sdk/#ios-setup). A sample implementation might look like:
+Exporters are set when the SDK is [configured](/flutter/integration/#ios-setup). A sample implementation might look like:
 
 ```swift
 try Embrace

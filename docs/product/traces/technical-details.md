@@ -3,7 +3,7 @@ title: Technical Details
 sidebar_position: 1
 ---
 
-# Technical Details for Performance Tracing
+# Technical Details
 
 ## Definitions
 
@@ -19,21 +19,9 @@ sidebar_position: 1
 
 <img src={require('@site/static/images/span-relationships.png').default} alt="Spans: Parent-Child Relationship"/>
 
-### Span Outcomes
+## Span Outcomes
 
 - **Successful** (definition and if it’s auto or manual set)
-- **Error** (definition and if it’s auto or manual set)
-- **User Abandon** (definition and if it’s auto or manual set)
-- **Unknown** (definition and if it’s auto or manual set)
-
-### Span Filters
-
-- **All Spans**: Shows all Spans
-- **Slowest Spans**: Spans completed successfully with duration > p95.
-- **Fastest Spans**: Spans completed successfully and not slow (with duration < p95).
-
-### Types of Unsuccessful Spans
-
 - **Error**: Spans encountered an error.
-- **Unknown**: Insufficient data to determine outcome.
 - **User Abandon**: User navigated away before completion.
+- **Unknown**: Insufficient data to determine outcome.
