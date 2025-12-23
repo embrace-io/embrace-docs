@@ -70,6 +70,13 @@ Embrace.logInfo("User has entered checkout flow")
 
 :::
 
+- Maximum number of logs per session
+  - 500 Error Logs
+  - 200 Warning Logs
+  - 100 Info Logs
+
+If your application exceeds these limits, the newest logs will be ignored.
+
 import LogLimit from '@site/shared/log-limit.md';
 
 <LogLimit />
