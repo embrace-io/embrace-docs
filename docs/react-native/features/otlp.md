@@ -302,7 +302,7 @@ When initializing in Swift more configuration is required when setting up Embrac
 `EmbraceInitializer.swift`:
 
 ```swift
-import EmbraceCrash
+import KSCrash
 ```
 
 Then setup a custom `URLSessionCaptureService` that ignores the Grafana export (see [Configuring the iOS SDK](/ios/6x/getting-started/configuration-options.md)
@@ -330,7 +330,7 @@ try Embrace
           appId: "__YOUR APP ID__",
           platform: .reactNative,
           captureServices: servicesBuilder.build(),
-          crashReporter: EmbraceCrashReporter(),
+          crashReporter: KSCrashReporter(),
           export: OpenTelemetryExport(spanExporter: traceExporter, logExporter: logExporter) // passing the configuration into `export`
         )
     )

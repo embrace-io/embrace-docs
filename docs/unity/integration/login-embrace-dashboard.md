@@ -14,7 +14,9 @@ Open a browser and navigate to [dash.embrace.io](https://dash.embrace.io/)
 
 Once logged in, select your application and you will be taken to our integration page. We'll be working from here in this documentation.
 
-<img src={require('@site/static/images/android-integration.png').default} />
+<img src={require('@site/static/images/unity-android-integration.png').default} />
+
+<img src={require('@site/static/images/unity-ios-integration.png').default} />
 
 Keep your dashboard tab open throughout the integration process. This will help you become familiar with the user interface and features, and also assist in verifying that the integration is working as expected.
 

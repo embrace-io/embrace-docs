@@ -30,8 +30,11 @@ Take note of the app ID and API token, as you'll need those when integrating the
 Embrace SDK with your app.
 :::
 
-<img src={require('@site/static/images/android-integration.png').default} />
+<img src={require('@site/static/images/rn-android-integration.png').default} />
 
+<img src={require('@site/static/images/rn-ios-integration.png').default} />
+
+You would pick one platform per integration. At the end of the day you would have two app ids (one for Android and anothe one for iOS if integrating both).
 Now we are ready to add the SDK to your app.
 
 ## Use without an Embrace account
