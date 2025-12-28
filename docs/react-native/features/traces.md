@@ -161,7 +161,7 @@ span.end(new Date().getTime());
 ### Stop a Span for an operation that failed
 
 ```javascript
-import {endAsFailed} from "@embrace-io/native-tracer-provider";
+import {endAsFailed} from "@embrace-io/react-native-tracer-provider";
 
 endAsFailed(span);
 ```
@@ -169,7 +169,7 @@ endAsFailed(span);
 ### Set a parent-child Span relationship
 
 ```javascript
-import {asParent} from "@embrace-io/native-tracer-provider";
+import {asParent} from "@embrace-io/react-native-tracer-provider";
 
 const parentSpan = tracer.startSpan("the-parent");
 const childSpan = tracer.startSpan("the-child", {}, asParent(parentSpan));
@@ -184,7 +184,7 @@ If an operation you wish to track has already completed you can use the `recordC
 start and stop a span in a single call passing along all the relevant options for the span:
 
 ```javascript
-import {recordCompletedSpan} from "@embrace-io/native-tracer-provider";
+import {recordCompletedSpan} from "@embrace-io/react-native-tracer-provider";
 
 recordCompletedSpan(tracer, "my-completed-span", {
   startTime: previouslyStartedTime,

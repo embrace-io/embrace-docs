@@ -16,6 +16,12 @@ Here is an example of setting a session property:
 Embrace.addSessionProperty("launch type", "normal", permanent: false)
 ```
 
+You can also remove session properties that have been previously set:
+
+```kotlin
+Embrace.removeSessionProperty("launch type")
+```
+
 import PropertyLimit from '@site/shared/property-limit.md';
 
 <PropertyLimit />
