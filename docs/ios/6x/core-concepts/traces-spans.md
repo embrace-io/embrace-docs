@@ -226,4 +226,4 @@ If you're migrating from Embrace 5.x, note that Traces replace the Moments funct
 - Consider how spans relate to sessions in your application architecture
 - End spans properly to ensure they're recorded correctly
 
- <!-- TODO: Add examples of common use cases for traces like tracking API calls, user workflows, and performance bottlenecks  -->
+ <!-- TODO: Add examples of common use cases for traces like tracking API calls, user workflows, and performance bottlenecks -->

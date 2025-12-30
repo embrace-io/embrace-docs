@@ -20,7 +20,7 @@ specific metrics that suit your unique needs, beyond the default metrics provide
 
 Some Widgets on [custom Boards](/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.
 
-Open the menu on a Widget, and click "Create Custom Metric".  This will open up a Custom Metric creation form, pre-populated with the same parameters as the Widget.
+Open the menu on a Widget, and click "Create Custom Metric". This will open up a Custom Metric creation form, pre-populated with the same parameters as the Widget.
 
 <img src={require('@site/static/images/UI CMs > onramp.png').default} alt="Screenshot of Widgets settings menu" />
 
