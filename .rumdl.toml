@@ -1,5 +1,5 @@
 [global]
-disable = ["MD013", "MD033", "MD024", "MD029", "MD034", "MD036", "MD044", "MD059", "MD007"]
+disable = ["MD013", "MD033", "MD024", "MD029", "MD034", "MD036", "MD044", "MD059"]
 
 include = [
     "docs/**/*.md",

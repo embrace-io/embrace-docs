@@ -52,8 +52,8 @@ We use [rumdl](https://github.com/rvben/rumdl) to enforce standard lint (formatt
 You should install and run the linter before committing your changes:
 
 ```console
-brew tap rvben/rumdl
-brew install rumdl
+brew install uv
+uv tool install rumdl
 
 rumdl check --statistics
 rumdl check --fix
