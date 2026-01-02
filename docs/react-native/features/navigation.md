@@ -186,7 +186,7 @@ const initApp = async () => {
           <EmbraceNativeNavigationTracker
             ref={navRef}
             tracerProvider={embraceTracerProvider}
-            screenAttributes={{
+            screenAttributes={{ // at the moment attributes can't be modified or included after an span is started
               "test.attr": 98765,
               dev: true,
             }}>
@@ -240,7 +240,7 @@ for more details:
 ```swift
 import Foundation
 import EmbraceIO
-import EmbraceCrash
+import KSCrash
 
 @objcMembers class EmbraceInitializer: NSObject {
     static func start() -> Void {
@@ -255,7 +255,7 @@ import EmbraceCrash
                             .addDefaults()
                             .remove(ofType: ViewCaptureService.self)
                             .build(),
-                        crashReporter: EmbraceCrashReporter()
+                        crashReporter: KSCrashReporter()
                     )
                 )
                 .start()
