@@ -57,7 +57,7 @@ try {
 }
 ```
 
-LogType could be ERROR,  WARNING or INFO.
+LogType could be ERROR, WARNING or INFO.
 
 :::info Adjusting Severity
 

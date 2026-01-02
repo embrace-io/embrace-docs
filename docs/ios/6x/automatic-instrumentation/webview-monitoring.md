@@ -236,4 +236,4 @@ if let webViewSpan = Embrace.client?.getActiveWebViewSpan(for: myWebView) {
 }
 ```
 
- <!-- TODO: Add examples of how WebView data appears in the Embrace dashboard, including load time distributions and error visualizations  -->
+ <!-- TODO: Add examples of how WebView data appears in the Embrace dashboard, including load time distributions and error visualizations -->

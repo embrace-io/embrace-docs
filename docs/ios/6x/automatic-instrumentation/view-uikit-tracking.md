@@ -179,4 +179,4 @@ class MyViewController: UIViewController, InstrumentableViewController {
 - Detecting when users abandon screens before they fully load
 - Correlating network activity with view performance
 
- <!-- TODO: Add examples of how view tracking data appears in the Embrace dashboard and how to interpret the results  -->
+ <!-- TODO: Add examples of how view tracking data appears in the Embrace dashboard and how to interpret the results -->

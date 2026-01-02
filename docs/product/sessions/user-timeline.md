@@ -47,6 +47,6 @@ Scrolling through the Timeline Details section combines the activity for this us
 
 ### Search for Timeline events
 
-Timeline details can be quickly searched using the search bar in the upper right.  This searches on top-level text across all events, eg: network calls, breadcrumbs, taps, traces, etc.  Each search will highlight all found events, which can be navigated using the arrows in the search bar.
+Timeline details can be quickly searched using the search bar in the upper right. This searches on top-level text across all events, eg: network calls, breadcrumbs, taps, traces, etc. Each search will highlight all found events, which can be navigated using the arrows in the search bar.
 
 <img src={require('@site/static/images/features/user-session-insights/timeline-search.png').default} alt="Timeline Search" />

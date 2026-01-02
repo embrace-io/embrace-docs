@@ -224,7 +224,7 @@ Custom span attributes can be added to the root span of the trace by using the `
 
 #### Custom child spans
 
-Custom child spans can be added to the root span of the trace by using the `addLoadTraceChildSpan()`  method before the Activity load is completed or abandoned. Parameters for the name, start time, and end time must be specified, while optional parameters for attributes, span events, and error code may also be specified to customize the span.
+Custom child spans can be added to the root span of the trace by using the `addLoadTraceChildSpan()` method before the Activity load is completed or abandoned. Parameters for the name, start time, and end time must be specified, while optional parameters for attributes, span events, and error code may also be specified to customize the span.
 
 To ensure the timestamps of the custom spans are in sync with the timestamps of the other spans in the trace, use the `getSdkCurrentTimeMs()` method to obtain it from the same clock instance the SDK uses. This clock instance is locked after the SDK starts up and will not change even if the system clock changes.
 

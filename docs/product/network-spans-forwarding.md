@@ -13,7 +13,7 @@ Diagnosing network errors doesn't need to be an opaque process with finger-point
 
 ## ID every network requests
 
-Embrace can automatically add a unique identifier to **every** network request your app makes.  This makes it possible to trace the same request in our User Timeline *and* the backend monitoring service you already use.
+Embrace can automatically add a unique identifier to **every** network request your app makes. This makes it possible to trace the same request in our User Timeline *and* the backend monitoring service you already use.
 
 <img src={require('@site/static/images/nsf-example.png').default} alt="traceparent example" />
 

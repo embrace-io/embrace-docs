@@ -143,4 +143,4 @@ Network monitoring integrates with other Embrace features:
 - Monitor response times to identify slow endpoints
 - Track error rates to find problematic services
 
- <!-- TODO: Add more examples of common network request patterns and how they appear in the Embrace dashboard  -->
+ <!-- TODO: Add more examples of common network request patterns and how they appear in the Embrace dashboard -->

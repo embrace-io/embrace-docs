@@ -79,7 +79,7 @@ For iOS, sessions generated via XCUITest automation or other unit tests will not
 
 Both user personas and session properties are custom additions to an integration. User personas are attributes that describe a user, whereas session properties describe a session.
 
-For example, a user persona is attached to a user and could be a "payer," "heavy user," "buyer," or "seller," whereas a session property is attached to the session and describe session characteristics such as "dark mode," "purchase made," or "no internet connection."  User personas are assigned when a user logs in and are cleared when the user logs out, and session properties are assigned upon session start (session property persistence is determined by the 'permanent' parameter).
+For example, a user persona is attached to a user and could be a "payer," "heavy user," "buyer," or "seller," whereas a session property is attached to the session and describe session characteristics such as "dark mode," "purchase made," or "no internet connection." User personas are assigned when a user logs in and are cleared when the user logs out, and session properties are assigned upon session start (session property persistence is determined by the 'permanent' parameter).
 
 For more information and specifics, read about [user identification on iOS](/ios/6x/core-concepts/user-identification.md)
 
@@ -89,7 +89,7 @@ For more information and specifics, read about [user identification on iOS](/ios
 
 “For iOS, we don't recommend more than one crash reporter turned on at a time. Using more than one may lead to a loss of crashes due to handler collisions and competition to receive data upon a user returning to the app.
 
-If you decide to keep another tool like Firebase as your prominent crash reporter, Embrace will swizzle their message in an attempt to pull in  the crashes Firebase is reporting into Embrace. In some cases, Embrace cannot pull the crash fast enough from Firebase before the app crashes.
+If you decide to keep another tool like Firebase as your prominent crash reporter, Embrace will swizzle their message in an attempt to pull in the crashes Firebase is reporting into Embrace. In some cases, Embrace cannot pull the crash fast enough from Firebase before the app crashes.
 
 ## **Troubleshooting dSYM upload**
 

@@ -1127,7 +1127,7 @@ This version has known issues and should not be used
 
 *Sep 9, 2020*
 
-- Fix blocked downloads when using expo +  flex for debugging
+- Fix blocked downloads when using expo + flex for debugging
 
 ## 5.0.8
 
