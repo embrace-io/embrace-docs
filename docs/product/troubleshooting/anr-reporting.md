@@ -39,15 +39,15 @@ Embrace instantly auto-captures and detects a sample/snapshot of an ANR in produ
 
 This page will help you understand which parts of your app contribute most to ANRs. You can get to this page from each issue in the summary table from the previous page
 
-- **Drilling down on notable frames:**  The same hierarchical view from the summary list gets transferred to the flame graph. For the selected issue on the flame graph, you can access and inspect all the significant branches for that specific method across different ANR samples
-- **Common Issues:**  The user can explore different branches of the issue tree in the flame graph while seeing on the right side a list of possible known issues to explore
+- **Drilling down on notable frames:** The same hierarchical view from the summary list gets transferred to the flame graph. For the selected issue on the flame graph, you can access and inspect all the significant branches for that specific method across different ANR samples
+- **Common Issues:** The user can explore different branches of the issue tree in the flame graph while seeing on the right side a list of possible known issues to explore
 - **Sample Sessions:** We know the importance of referring to specific sessions that were affected by ANRs. In this case, the user will have a list of sessions with ANRs that present the issue selected
 - **Insights**: These outliers highlight over-indexed statistics for experiencing an issue and point to characteristics that you should investigate.
-- **Filters and tools:**  The user can explore and debug using the flame graph's new functionalities, different actions will allow the user to focus, group, and collapse on methods, adapting the view to the needs of the problem
-  - **Debugging:**  default filter, shows all the packages and methods in the sample stack traces. User will get the full picture
-  - **Prioritization:**  The focus is on important methods/packages, others will be collapsed and greyed out
+- **Filters and tools:** The user can explore and debug using the flame graph's new functionalities, different actions will allow the user to focus, group, and collapse on methods, adapting the view to the needs of the problem
+  - **Debugging:** default filter, shows all the packages and methods in the sample stack traces. User will get the full picture
+  - **Prioritization:** The focus is on important methods/packages, others will be collapsed and greyed out
   - **Custom**: The user can decide how they want to visualize the graph
-    - **Collapse on:**  join similar method groups under one root package (either common categories or all). Probably the most useful view is when we collapse all the Android system packages, which reduces the noise in the flame graph quite a bit
+    - **Collapse on:** join similar method groups under one root package (either common categories or all). Probably the most useful view is when we collapse all the Android system packages, which reduces the noise in the flame graph quite a bit
     - **Focus on:** Gray out unimportant categories (android packages) and focus only on the ones that matter (i.e ads packages)
     - **Min Width:** the min % of method appearances on the samples needed to appear on the flame graph
 
@@ -56,7 +56,7 @@ This page will help you understand which parts of your app contribute most to AN
 This graph is *anchored* around the selected method. This allows you to see all the code paths that lead to the selected method and the code paths following the method. Users can get to this page from branches in the flame graph and from the known issues list.
 
 - **Common Issues/Methods ANR contribution:** This view will break the percentage of appearances of the problematic methods across calling or being called by the selected one across the different samples
-- **Sample Sessions:**  same as above, users will have access to “Sample Sessions” from this issue's detailed view
+- **Sample Sessions:** same as above, users will have access to “Sample Sessions” from this issue's detailed view
 
 ## Learn more
 

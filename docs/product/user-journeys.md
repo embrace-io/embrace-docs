@@ -30,7 +30,7 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 
 ### Important Considerations
 
-1. **No concurrent User Flows on the same device**: On a single device, only one User Flow can be active at any given time.  
+1. **No concurrent User Flows on the same device**: On a single device, only one User Flow can be active at any given time.
    If a new User Flow starts while another is still in progress, the previous one is automatically terminated.
 
    **Example**: Two User Flows are defined for the same app

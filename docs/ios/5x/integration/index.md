@@ -28,7 +28,7 @@ make to help guide your process:
 1. Are you integrating a new App or an existing application?
 2. Are you replacing an existing automated debugging SDK?
 3. Do you plan to use multiple automated debugging SDKs?
-4. What integration path makes sense for you?  CocoaPods, Carthage, SPM or Manual?
+4. What integration path makes sense for you? CocoaPods, Carthage, SPM or Manual?
 
    Thinking about the above questions will help to define the path you will take
    through this documentation.

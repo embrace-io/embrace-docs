@@ -33,6 +33,6 @@ sidebar_position: 1
 
 ### Metrics
 
-To start analyzing your Embrace metrics open the "Dashboard" panel, and in the "metrics" field start typing "embrace".  All Metrics will be prefaced with `embrace_`.
+To start analyzing your Embrace metrics open the "Dashboard" panel, and in the "metrics" field start typing "embrace". All Metrics will be prefaced with `embrace_`.
 
 <img src={require('@site/static/images/data-destinations/chronosphere.png').default} alt="Screenshot of Chronosphere UI" />

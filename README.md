@@ -14,7 +14,7 @@ You can make edits to these docs from within GitHub UI or by forking/cloning the
 
 For quick edits that don't require adding or reorganizing pages, you can edit the specific Markdown file from within the [docs](./docs/) folder. Edit the file, commit your changes and make a PR.
 
-For larger reorganization, you should follow the structure of the [docs](./docs) folder to see where your new pages will go. Any change to the landing page organization will be in the [Categories.tsx](./src/pages/_Home/Categories/Categories.tsx) file. Any change to the outer-most level of organization will be in the [sidebars.ts](./sidebars.ts) file.
+For larger reorganization, you should follow the structure of the [docs](./docs) folder to see where your new pages will go. Any change to the landing page organization will be in the [Categories.tsx](src/pages/_Home/components/Categories/Categories.tsx) file. Any change to the outer-most level of organization will be in the [sidebars.ts](./sidebars.ts) file.
 
 ## Local Development
 
@@ -52,8 +52,8 @@ We use [rumdl](https://github.com/rvben/rumdl) to enforce standard lint (formatt
 You should install and run the linter before committing your changes:
 
 ```console
-brew tap rvben/rumdl
-brew install rumdl
+brew install uv
+uv tool install rumdl
 
 rumdl check --statistics
 rumdl check --fix
