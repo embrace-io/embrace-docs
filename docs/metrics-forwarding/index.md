@@ -18,7 +18,7 @@ This allows you to:
 
 ## Standard Metrics vs Custom Metrics
 
-Embrace captures mobile data with many dimensions. In order for this data to be useful as time series data, it must be aggregated. We automatically aggregate your metrics  into [Prometheus style metrics](https://prometheus.io/docs/concepts/data_model/) by default using some standard, common sense labels combinations. These are useful for common golden signals like app  adoption over several app versions.
+Embrace captures mobile data with many dimensions. In order for this data to be useful as time series data, it must be aggregated. We automatically aggregate your metrics into [Prometheus style metrics](https://prometheus.io/docs/concepts/data_model/) by default using some standard, common sense labels combinations. These are useful for common golden signals like app adoption over several app versions.
 
 If a standard metric doesn’t suit your needs you can define a custom metric. For example, you can define a session
 property to identify sessions associated with paying customers and filter for that session property to get app adoption
@@ -93,7 +93,7 @@ dimensions for consolidation.
 
 ### Device Models
 
-There are over 40,000 unique device models on the Android operating system. The bottom 39,000 models account for ~30% of data typically.  Aside from being expensive to store this many unique values, it is also unwieldy to visualize or review!
+There are over 40,000 unique device models on the Android operating system. The bottom 39,000 models account for ~30% of data typically. Aside from being expensive to store this many unique values, it is also unwieldy to visualize or review!
 
 <img src={require('@site/static/images/metrics-forwarding/device_other.png').default} alt="Chart showing data by device ranking" />
 

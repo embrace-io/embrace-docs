@@ -550,7 +550,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 *Apr 04, 2023*
 
 - Added the name and message of the Exception if it is used on logError or logHandledException methods.
-- Deprecated the current logPushNotification method and introduced a new one that fix  compatibility issues.
+- Deprecated the current logPushNotification method and introduced a new one that fix compatibility issues.
 
 ## 5.15.2
 
