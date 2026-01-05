@@ -1,10 +1,10 @@
 ---
-title: iOS/tvOS SDK Changelog
-description: Changelog for the iOS Embrace SDK
-sidebar_position: 4
+title: Changelog
+description: Changelog for the Embrace Apple SDK
+sidebar_position: 6
 ---
 
-# iOS/tvOS SDK Changelog
+# Changelog
 
 ## 6.15.1
 

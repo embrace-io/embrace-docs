@@ -1,7 +1,7 @@
 ---
 title: SDK source code
 description: Explore Embrace's Web SDK codebase
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Embrace Web SDK GitHub repository

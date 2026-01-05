@@ -1,10 +1,10 @@
 ---
 title: FAQ
-description: Frequently asked questions about the Android Embrace SDK
+description: Frequently asked questions about the Embrace Android SDK
 sidebar_position: 5
 ---
 
-# Android FAQ
+# Embrace Android SDK FAQ
 
 Here are some questions we commonly receive along with their answers.
 If you don't see your question or need more clarification, contact us on the [community Slack](https://community.embrace.io)
