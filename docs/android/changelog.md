@@ -1,10 +1,10 @@
 ---
 title: Changelog
-description: Changelog for the Android Embrace SDK
+description: Changelog for the Embrace Android SDK
 sidebar_position: 6
 ---
 
-# Android SDK Changelog
+# Embrace Android SDK Changelog
 
 :::info Important
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
