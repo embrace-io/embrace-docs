@@ -41,4 +41,4 @@ A filter can be made default for immediate use every time you visit.
 
 ## Session properties are ubiquitous
 
-Anything stored as a property on the Session is automatically associated with events in the same session.  So when filtering for Crashes, Logs, Spans, etc look for the dimensions `Session Property Key` and `Session Property Key/Value`.  This will allow you to find Crashes on Sessions tagged to (eg) "premium" users.
+Anything stored as a property on the Session is automatically associated with events in the same session. So when filtering for Crashes, Logs, Spans, etc look for the dimensions `Session Property Key` and `Session Property Key/Value`. This will allow you to find Crashes on Sessions tagged to (eg) "premium" users.
