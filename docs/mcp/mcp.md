@@ -54,7 +54,7 @@ For example, add to your `mcp.json` file:
 Run:
 
 ```bash
-$ claude mcp add --transport http embrace https://mcp.embrace.io/mcp
+claude mcp add --transport http embrace https://mcp.embrace.io/mcp
 ```
 
 Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: Bearer Token authentication is not currently supported.
@@ -80,7 +80,7 @@ For example, add to your `opencode.json` file:
 Then authenticate using:
 
 ```bash
-$ opencode mcp auth embrace
+opencode mcp auth embrace
 ```
 
 ### All others
