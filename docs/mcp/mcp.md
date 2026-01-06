@@ -31,7 +31,7 @@ Before you can use the Embrace MCP server, you need:
 - An MCP-compatible AI assistant
 - The MCP feature to be enabled for your org (reach out to your Customer Success Manager or Support to enable this)
 
-## Setup Examples
+## Setup examples
 
 ### Cursor
 
@@ -57,7 +57,7 @@ Run:
 $ claude mcp add --transport http embrace https://mcp.embrace.io/mcp
 ```
 
-Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: we do not support Bearer Token auth at this time.
+Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: Bearer Token authentication is not currently supported.
 
 ### Opencode
 
@@ -83,11 +83,11 @@ Then authenticate using:
 $ opencode mcp auth embrace
 ```
 
-### All Others
+### All others
 
 For other AI Assistants supporting MCP, please reference your relevant docs. Official support will come in the near future for these as we continue to improve and add functionality.
 
-The Embrace MCP Server uses an Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
+The Embrace MCP Server uses a Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
 
 ## Common use cases
 
