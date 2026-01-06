@@ -6,7 +6,7 @@ sidebar_position: 5
 
 # Embrace Android SDK FAQ
 
-Here are some questions we commonly receive along with their answers.
+Here are some commonly asked questions along with their answers.
 If you don't see your question or need more clarification, contact us on the [community Slack](https://community.embrace.io)
 or email us at [support@embrace.com](mailto:support@embrace.com).
 

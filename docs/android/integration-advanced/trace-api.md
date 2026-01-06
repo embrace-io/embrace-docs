@@ -1,5 +1,5 @@
 ---
-title: Recording Traces
+title: Recording traces
 sidebar_position: 3
 description: Trigger alerts for your Android application using traces with the Embrace SDK
 ---

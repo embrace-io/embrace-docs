@@ -1,5 +1,5 @@
 ---
-title: Push Notifications
+title: Push notifications
 description: Embrace can capture push notifications received by your app.
 sidebar_position: 8
 ---

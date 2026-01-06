@@ -1,5 +1,5 @@
 ---
-title: Adding Logs
+title: Adding logs
 sidebar_position: 4
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
@@ -59,7 +59,7 @@ try {
 
 LogType could be ERROR, WARNING or INFO.
 
-:::info Adjusting Severity
+:::info Adjusting severity
 
 You can also adjust the severity of the log by either calling the `logWarning` or `logInfo` methods.
 
