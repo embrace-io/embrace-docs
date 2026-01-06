@@ -1,5 +1,5 @@
 ---
-title: Current Session ID API
+title: Current session ID API
 sidebar_position: 9
 description: Track the current Embrace session by getting its ID.
 ---

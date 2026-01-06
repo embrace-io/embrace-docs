@@ -3,7 +3,7 @@ title: Versioning Strategy
 sidebar_position: 6
 ---
 
-# Versioning Strategy
+# Versioning strategy
 
 The Embrace Android SDK is built to evolve with the Android ecosystem while maintaining a stable integration experience. This document explains which versions of Android build tools and technologies are supported, and what guarantees you can expect when upgrading.
 
@@ -31,13 +31,13 @@ For versions **8.0.0 and newer**, the Embrace Android SDK requires the following
 
 Supporting very old versions of build tools and libraries has an ongoing maintenance cost. Outdated toolchains often prevent adoption of newer Android APIs and features.
 
-To provide the best experience — modern APIs, better performance, and faster support — the Embrace SDK intentionally follows the evolution of the Android toolchain. While aiming to minimize disruption and support a reasonable range of versions, we expect occasional updates to be necessary.
+To provide the best experience — modern APIs, better performance, and faster support — the Embrace SDK intentionally follows the evolution of the Android toolchain. While we aim to minimize disruption and support a reasonable range of versions, occasional updates may be necessary.
 
 ---
 
-## Our versioning principles
+## Versioning principles
 
-We follow these principles to stay aligned with the Android ecosystem:
+The following principles are used to stay aligned with the Android ecosystem:
 
 ### Kotlin
 
@@ -45,7 +45,7 @@ The SDK is built with the latest Kotlin version and targets up to four versions 
 
 ### AGP and Gradle
 
-We support the latest two major versions of AGP and Gradle, or higher if required by Kotlin. Because these tools don’t strictly follow semantic versioning, we may drop older versions when necessary to maintain compatibility or stability.
+The SDK supports the latest two major versions of AGP and Gradle, or higher if required by Kotlin. Because these tools don't strictly follow semantic versioning, older versions may be dropped when necessary to maintain compatibility or stability.
 
 ### minSdk and minCompileSdk
 
@@ -57,7 +57,7 @@ The SDK requires the JDK version needed by the minimum supported version of Grad
 
 ### sourceCompatibility
 
-We set `sourceCompatibility = 11` and rely on **desugaring**, which allows apps with lower `minSdk` values to use modern Java 11+ language features. More info: [Java 8+ desugaring in Android Studio](https://developer.android.com/studio/write/java8-support)
+The SDK sets `sourceCompatibility = 11` and relies on **desugaring**, which allows apps with lower `minSdk` values to use modern Java 11+ language features. More info: [Java 8+ desugaring in Android Studio](https://developer.android.com/studio/write/java8-support)
 
 ### OpenTelemetry API
 

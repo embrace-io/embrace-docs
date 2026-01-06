@@ -1,5 +1,5 @@
 ---
-title: Crash Reporting
+title: Crash reporting
 sidebar_position: 2
 description: Upload crash reports from your Android application using the Embrace SDK
 ---

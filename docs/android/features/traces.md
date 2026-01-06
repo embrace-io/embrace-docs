@@ -8,20 +8,20 @@ sidebar_position: 2
 
 ## Overview
 
-Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace's Traces solution gives you visibility into any app operation you'd like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With this tool, you can quickly spot any bottlenecks in your app's architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 See [this page](/product/traces/technical-details.md) for technical details and terminology definitions.
 
 ## Feature support
 
-:::info Minimum Requirements
+:::info Minimum requirements
 **We recommend using the latest Android SDK version for the most up-to-date API**. Even though Traces is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
 :::
 
 The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record data for past operations.
-  - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
+  - For real-time tracing, a "stopwatch" concept lets you start and stop a span's recording manually.
   - To record past operations, you can specify the start and end times of your spans that you might have captured already.
   - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
 - Add child spans to a parent span to track sub-operations within an operation.
@@ -61,7 +61,7 @@ Attributes and events are truncated by taking the first N values specified and d
 - There are no limits on the duration of a span as long as the app is running.
 - In the session timeline UI, a completed span will appear in the session in which it ended.
 
-:::warning Internal Prefixes
+:::warning Internal prefixes
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes. Behavior in such cases are undefined.
 :::
 

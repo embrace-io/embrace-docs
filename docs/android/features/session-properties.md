@@ -1,5 +1,5 @@
 ---
-title: Session Properties
+title: Session properties
 sidebar_position: 5
 description: Get to know the users of your Android application with the Embrace SDK
 ---

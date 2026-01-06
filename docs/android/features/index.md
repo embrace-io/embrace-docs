@@ -1,5 +1,5 @@
 ---
-title: Feature Reference
+title: Feature reference
 description: Learn about the advanced ways Embrace can help your application
 sidebar_position: 3
 ---

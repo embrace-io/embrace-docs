@@ -1,5 +1,5 @@
 ---
-title: Configuration File
+title: Configuration file
 description: Configuration file for the Android Embrace SDK
 sidebar_position: 11
 ---
