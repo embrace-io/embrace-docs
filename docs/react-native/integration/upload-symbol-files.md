@@ -1,16 +1,16 @@
 ---
-title: Uploading Symbol Files
+title: Uploading symbol files
 description: Learn how to upload source maps to Embrace to translate JavaScript stack traces for your React Native application
 sidebar_position: 4
 ---
 
-# Uploading Symbol Files
+# Uploading symbol files
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
 For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.  
 
-## Uploading Native And Javascript Symbol Files
+## Uploading native and JavaScript symbol files
 
 :::info
 If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page these changes have already been made for you.
@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
-To enable automatic dSYM uploads, we will need to locate a number of items first:
+To enable automatic dSYM uploads, you will need to locate a number of items first:
 
 - **Your App ID.** This is a 5 character code used to start Embrace. It was provided to you when you registered for an Embrace account.
 - **Your API token.** This is a longer character string. You can find it in the dashboard on the settings page, under the API section.
@@ -63,7 +63,7 @@ the new lines above the invocation of `react-native-xcode.sh` which on Expo will
 `"$NODE_BINARY" --print "require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'"`
 :::
 
-Now we will add a new phase:
+Now add a new phase:
 
 <img src={require('@site/static/images/ios-xcode-build-phase.png').default} />
 

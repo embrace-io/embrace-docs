@@ -38,7 +38,7 @@ package as a dependency, additional packages can then be included later as you i
 described in our [Feature Reference](/react-native/features/).
 :::
 
-## Native Setup
+## Native setup
 
 There are 3 options for applying the native side changes required by the SDK: using our Expo config plugin, using our
 setup script, or applying them manually. Each options is described below.
@@ -73,7 +73,7 @@ by the Embrace SDK. Note that there are other customizations and advanced featur
 which will still require manual editing of native files, at the moment the config plugin only covers this initial SDK
 setup.
 
-### Setup Script
+### Setup script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your

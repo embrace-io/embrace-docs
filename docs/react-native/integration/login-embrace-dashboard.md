@@ -1,12 +1,12 @@
 ---
-title: Login to the Embrace Dashboard
+title: Log in to the Embrace dashboard
 description: Login to the Embrace dashboard to get started with your React Native integration
 sidebar_position: 2
 ---
 
-# Getting Started with the Embrace Dashboard
+# Getting started with the Embrace dashboard
 
-## Logging In
+## Logging in
 
 Before being able to integrate, you'll need to create an account on the Embrace
 dashboard so you can access your app ID and API token. Open a browser and
@@ -34,8 +34,8 @@ Embrace SDK with your app.
 
 <img src={require('@site/static/images/rn-ios-integration.png').default} />
 
-You would pick one platform per integration. At the end of the day you would have two app ids (one for Android and anothe one for iOS if integrating both).
-Now we are ready to add the SDK to your app.
+You pick one platform per integration. At the end of the day you will have two app IDs (one for Android and another one for iOS if integrating both).
+Now you are ready to add the SDK to your app.
 
 ## Use without an Embrace account
 
