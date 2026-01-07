@@ -1,10 +1,10 @@
 ---
-title: Identify Users
+title: Identify users
 description: Get to know the users of your React Native application with the Embrace SDK
 sidebar_position: 1
 ---
 
-# Identify Users
+# Identify users
 
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find  
 sessions for an unhappy user.
@@ -12,7 +12,7 @@ sessions for an unhappy user.
 - [**User Personas**](/react-native/features/identify-users#user-personas). This is data you can set and update about the user of a session.
 - [**Session Properties**](/react-native/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
-## User Personas
+## User personas
 
 Embrace offers a set of methods to pass information about your users.
 
@@ -41,7 +41,7 @@ addUserPersona('high_value_cart');
 In the above example, the session is annotated with `"high_value_cart"`.
 This will help you identify users who have a certain dollar value in their shopping cart so you can prioritize fixing bugs that affect such users.
 
-## Session Properties
+## Session properties
 
 Session Properties are another way to annotate the session.
 The difference between session properties and [user personas](/react-native/features/identify-users#user-personas) is that the former are for items relating to the session or the device and not necessarily to the user.
