@@ -1,10 +1,10 @@
 ---
-title: Track Components
+title: Track components
 description: Track the mounting and unmounting of React Components for your React Native application using the Embrace SDK
 sidebar_position: 4
 ---
 
-# Track Components
+# Track components
 
 By default, Embrace will track native views.
 If you'd like to track when a React component is mounted and unmounted, you can do so with the `startView` helper
