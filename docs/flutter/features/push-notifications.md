@@ -1,16 +1,16 @@
 ---
-title: Push Notifications
+title: Push notifications
 description: Embrace can capture push notifications received by your app.
 sidebar_position: 4
 ---
 
 # Push notifications
 
-If using the [firebase_messaging](https://pub.dev/packages/firebase_messaging) package, push notifications received by your app can be automatically captured by Embrace. This behavior is disabled by default; it must be configured separately for the Embrace Android SDK and the Embrace iOS SDK.
+If you use the [firebase_messaging](https://pub.dev/packages/firebase_messaging) package, Embrace can automatically capture push notifications received by your app. This behavior is disabled by default and must be configured separately for the Embrace Android SDK and the Embrace iOS SDK.
 
 ## Android configuration
 
-To enable the push notifications capture, you must set `instrumentFirebaseMessaging` to true in the `app/build.gradle` file of your Android project.
+To enable push notifications capture, set `firebasePushNotificationsEnabled` to `true` in the `app/build.gradle` file of your Android project:
 
 ```groovy
 embrace {
@@ -21,12 +21,12 @@ embrace {
 ```
 
 :::info
-If you want to capture data from inside the notifications then you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_config`. This value is false by default.
+To capture data from inside the notifications, set `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_config`. This value is `false` by default.
 :::
 
 ## iOS configuration
 
-Push notifications capture is controlled by supplying a `captureService` when initializing the iOS SDK. To enable this functionality, add the following to where Embrace is initialized in your `AppDelegate`:
+Push notifications capture is controlled by supplying a `captureService` when initializing the iOS SDK. To enable this functionality, add the following where you initialize Embrace in your `AppDelegate`:
 
 ```swift
 let builder = CaptureServiceBuilder().addDefaults()
@@ -44,9 +44,9 @@ try Embrace
     .start()
 ```
 
-## Manually logging push notifications
+## Manually log push notifications
 
-Push notifications can also be manually logged from the Flutter SDK. This could be useful when using packages other than `firebase_messaging` or just if automatic capture is disabled. To register a push notification call the following method:
+You can also manually log push notifications from the Flutter SDK. This is useful when using packages other than `firebase_messaging` or if automatic capture is disabled. To register a push notification, call the following method:
 
 ```dart
   void logPushNotification(
@@ -63,4 +63,4 @@ Push notifications can also be manually logged from the Flutter SDK. This could 
   });
 ```
 
-The `title` and `body` parameters will be common to all push notifications. The parameters `subtitle`, `badge` and `category` are exclusive to iOS notifications, while the rest are exclusive are exclusive to Android notifications. The parameters `hasNotification` and `hasData` correspond to the FCM distinction between `notification` and `data` messages (as described in the [Firebase documentation](https://firebase.google.com/docs/cloud-messaging/customize-messages/set-message-type))
+The `title` and `body` parameters are common to all push notifications. The parameters `subtitle`, `badge`, and `category` are exclusive to iOS notifications, while the rest are exclusive to Android notifications. The parameters `hasNotification` and `hasData` correspond to the FCM distinction between `notification` and `data` messages (as described in the [Firebase documentation](https://firebase.google.com/docs/cloud-messaging/customize-messages/set-message-type)).

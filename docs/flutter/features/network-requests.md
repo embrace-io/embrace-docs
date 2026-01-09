@@ -1,17 +1,16 @@
 ---
-title: Capturing network requests
+title: Capture network requests
 description: Automatically capture network requests made by your application
 sidebar_position: 3
 ---
 
-# Network Requests
+# Network requests
 
-If you use the [http package](https://pub.dev/packages/http) or the [Dio package](https://pub.dev/packages/dio) to perform network operations, Embrace can capture that information with minimal modification to your codebase. If you are using other solutions, network requests can be manually logged through the Embrace SDK.
+If you use the [http package](https://pub.dev/packages/http) or the [Dio package](https://pub.dev/packages/dio) to perform network operations, Embrace can capture that information with minimal modification to your codebase. If you're using other solutions, you can manually log network requests through the Embrace SDK.
 
-## Using the http package
+## Use the http package
 
-If you use the [http package](https://pub.dev/packages/http), you should use an instance of `EmbraceHttpClient` to perform
-network operations, like this:
+If you use the [http package](https://pub.dev/packages/http), use an instance of `EmbraceHttpClient` to perform network operations:
 
 ```dart
 void main() async {
@@ -21,7 +20,7 @@ void main() async {
 }
 ```
 
-This can also be used with existing `Client`s to add in Embrace's logging functionality. For example:
+You can also use this with existing `Client`s to add Embrace's logging functionality:
 
 ```dart
 void main() async {
@@ -32,11 +31,11 @@ void main() async {
 }
 ```
 
-Be sure to close your client when it's no longer needed by calling `client.close()`.
+Close your client when it's no longer needed by calling `client.close()`.
 
-## Using Dio
+## Use Dio
 
-When using the [Dio package](https://pub.dev/packages/dio), an Embrace interceptor can be added to allow for automatic capture of the requests:
+When using the [Dio package](https://pub.dev/packages/dio), you can add an Embrace interceptor to automatically capture requests:
 
 ```dart
 import 'package:dio/dio.dart';
@@ -46,11 +45,11 @@ var dio = Dio();
 dio.interceptors.add(EmbraceInterceptor());
 ```
 
-Keep in mind that you will need to add the `embrace_dio` package to your `pubspec.yaml` to use `EmbraceInterceptor`.
+You need to add the `embrace_dio` package to your `pubspec.yaml` to use `EmbraceInterceptor`.
 
-## Manually logging network requests
+## Manually log network requests
 
-Alternatively, you can log any network request using this method from the Embrace SDK:
+You can also log any network request using this method from the Embrace SDK:
 
 ```dart
 /// Log a network request.
