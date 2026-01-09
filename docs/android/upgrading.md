@@ -237,7 +237,7 @@ The following project properties are now ignored and have no effect. You should 
 #### Embrace Android SDK overload changes
 
 The following functions had overloads manually defined. These have been replaced with one function
-that uses Kotlin's default parameter values.
+that uses Kotlin's default parameter values. Some parameters that used to be null now require non-null arguments.
 
 | Altered APIs                                  |
 |-----------------------------------------------|
