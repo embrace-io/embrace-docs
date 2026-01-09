@@ -110,7 +110,7 @@ Whether the Embrace Gradle Plugin should automatically add Embrace dependencies 
 
 #### autoAddEmbraceComposeClickDependency
 
-Whether the Embrace Gradle Plugin should automatically add the embrace-android-compose dependency to this module's classpath. Defaults to false.
+Whether the Embrace Gradle Plugin should automatically add the `embrace-android-instrumentation-compose-tap` dependency to this module's classpath. Defaults to false.
 
 #### customSymbolsDirectory
 
