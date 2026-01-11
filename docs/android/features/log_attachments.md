@@ -1,5 +1,5 @@
 ---
-title: Log Attachments
+title: Log attachments
 description: Add attachments to your log messages to monitor production performance within your mobile app.
 sidebar_position: 18
 ---

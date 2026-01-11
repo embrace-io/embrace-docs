@@ -1,12 +1,12 @@
 ---
-title: Getting Started
+title: Get Started
 description: Learn about Embrace for the iOS platform
 sidebar_position: 0
 ---
 
 # iOS/tvOS Platform Documentation
 
-## Getting Started
+## Get Started
 
 The Embrace Apple SDK is designed to provide first class observability and diagnostic data collection to your mobile application. It supports multiple platforms including iOS, iPadOS, and tvOS.
 
@@ -14,7 +14,7 @@ The Embrace Apple SDK is designed to provide first class observability and diagn
 
 Our Apple 6.x SDK is the **current recommended version** for all new and existing customers. The 6.x SDK is our [open-source](https://github.com/embrace-io/embrace-apple-sdk) superset of [OpenTelemetry](https://opentelemetry.io) instrumentation, built in Swift for modern language features (such as async/await) and mobile observability (spans, logs). It includes all the latest Embrace features and semantics, and will continue to grow as Embrace helps expand the OTel ecosystem for mobile.
 
-**Start here for new integrations:** [Getting Started with iOS SDK 6.x](/ios/6x/getting-started/index.md)
+**Start here for new integrations:** [Get Started with iOS SDK 6.x](/ios/6x/getting-started/index.md)
 
 If you are upgrading from our older 5.x SDK, a [migration guide](/ios/6x/getting-started/migration-guide.md) is available to implement the new features and interface in the 6.x SDK.
 

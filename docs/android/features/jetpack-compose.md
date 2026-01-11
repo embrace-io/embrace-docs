@@ -44,7 +44,7 @@ import TabItem from '@theme/TabItem';
 
 ```kotlin
 dependencies {
-    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
+    implementation("io.embrace:embrace-android-instrumentation-compose-tap:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
@@ -53,7 +53,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
+    implementation("io.embrace:embrace-android-instrumentation-compose-tap:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 

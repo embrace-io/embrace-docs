@@ -1,10 +1,10 @@
 ---
-title: Getting Started
-description: Getting started with the Embrace iOS SDK 6.x
+title: Get Started
+description: Get started with the Embrace iOS SDK 6.x
 sidebar_position: 1
 ---
 
-# Getting Started with Embrace iOS SDK 6.x
+# Get Started with Embrace iOS SDK 6.x
 
 This section will guide you through the process of adding the Embrace SDK to your iOS application and configuring it for optimal performance monitoring.
 

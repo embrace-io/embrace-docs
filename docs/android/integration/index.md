@@ -257,7 +257,7 @@ class MyApplication : Application {
 
 </Tabs>
 
-## Build and Run the Application
+## Build and run the application
 
 Build and run the application. You should see the following message in Logcat:
 
@@ -277,5 +277,5 @@ must always relaunch your app before data can show in Embrace's dashboard.
 
 ## Alter default behavior
 
-After completing an SDK integration we recommend you alter the [SDK's configuration](/android/configuration/configuration-file/) from the defaults to suit your needs.
+After completing an SDK integration, alter the [SDK's configuration](/android/configuration/configuration-file/) from the defaults to suit your needs.
 You can also alter the [Gradle Plugin's configuration](/android/configuration/embrace-gradle-plugin/) if needed.

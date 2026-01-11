@@ -1,5 +1,5 @@
 ---
-title: Push Notifications
+title: Push notifications
 description: Embrace can capture push notifications received by your app.
 sidebar_position: 8
 ---
@@ -22,7 +22,7 @@ embrace {
 }
 
 dependencies {
-    implementation("io.embrace:embrace-android-fcm:{{ embrace_sdk_version platform="android" }}")
+    implementation("io.embrace:embrace-android-instrumentation-fcm:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 

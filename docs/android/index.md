@@ -4,9 +4,9 @@ description: Learn about Embrace for the Android platform
 sidebar_position: 0
 ---
 
-# Android Platform Documentation
+# Android platform documentation
 
-## Get Started
+## Get started
 
 If you are just starting out with Embrace, follow the [**Integration Guide**](/android/integration/) to integrate our SDK into your app.
 

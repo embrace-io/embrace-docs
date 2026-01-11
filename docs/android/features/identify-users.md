@@ -1,5 +1,5 @@
 ---
-title: Identify Your Users
+title: Identify your users
 sidebar_position: 4
 description: Get to know the users of your Android application with the Embrace SDK
 ---
