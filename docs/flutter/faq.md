@@ -1,10 +1,10 @@
 ---
 title: FAQ
-description: Frequently asked questions about the Flutter Embrace SDK
+description: Frequently asked questions about the Embrace Flutter SDK
 sidebar_position: 5
 ---
 
-# Flutter FAQ
+# Embrace Flutter SDK FAQ
 
 Here are some questions we commonly receive along with their answers.
 If you don't see your question or need more clarification, contact us on the [community Slack](https://community.embrace.io)

@@ -1,5 +1,5 @@
 ---
-title: Last Run End State
+title: Last run end state
 description: Understand if the previous app instance ended in a crash
 sidebar_position: 10
 ---
@@ -8,7 +8,7 @@ sidebar_position: 10
 
 This API enables customers to automatically/programmatically understand if the previous app instance ended in a crash. Depending on your use case, having the ability to query an API to understand if the previous app instance ended in a crash will enable you to adjust the behavior or UI of your app after a crash has occurred.
 
-**What do we mean by previous app instance?**  
+**What does previous app instance mean?**  
 
 A cold launch, basically. If the app gets backgrounded/resumed so a new session starts, the value returned will not change. So:
 

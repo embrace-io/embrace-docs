@@ -1,6 +1,6 @@
 ---
 title: Sample Apps
-description: Explore sample code demonstrating the Flutter Embrace SDK
+description: Explore sample code demonstrating the Embrace Flutter SDK
 sidebar_position: 4
 ---
 
