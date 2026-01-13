@@ -10,6 +10,15 @@ sidebar_position: 6
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
+## 8.1.0
+
+*January 12, 2026*
+
+- Added support for setting an OpenTelemetry SpanProcessor and LogRecordProcessor
+- Added support for using OpenTelemetry's Logger API
+- Alterations to non-public, internal Embrace APIs
+- Internal improvements to SDK telemetry
+
 ## 8.0.0
 
 *December 4, 2025*

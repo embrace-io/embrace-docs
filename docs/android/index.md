@@ -6,7 +6,7 @@ sidebar_position: 0
 
 # Android platform documentation
 
-## Get started
+## Getting started
 
 If you are just starting out with Embrace, follow the [**Integration Guide**](/android/integration/) to integrate our SDK into your app.
 

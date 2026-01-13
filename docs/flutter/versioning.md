@@ -1,9 +1,9 @@
 ---
-title: Versioning Strategy
+title: Versioning strategy
 sidebar_position: 6
 ---
 
-# Versioning Strategy
+# Versioning strategy
 
 The Embrace Flutter SDK is built to evolve with the Flutter ecosystem while maintaining a stable integration experience. This document lists the versions of Flutter build tools and technologies the Embrace SDK supports.
 
