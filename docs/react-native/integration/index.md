@@ -1,15 +1,14 @@
 ---
-title: Integration Guide
+title: Integration guide
 description: Get started with integrating Embrace into your React Native application
 sidebar_position: 1
 ---
 
-# React Native Integration
+# React Native integration
 
-## Getting Started
+## Get started
 
-This guide will walk you through integrating Embrace into your React Native application with a series of articles. We
-recommend following them in order, although you are free to skip around.
+This guide walks you through integrating Embrace into your React Native application with a series of articles. Following them in order is recommended, although you are free to skip around.
 
 ## Requirements
 
@@ -41,10 +40,7 @@ configuration.
 
 ### Supported versions of React Native
 
-We test that apps integrated with Embrace across React Native minor versions from `0.71` to `0.79` build and launch without
-issue. Apps on versions of React Native older than 0.71 may work with Embrace after some modification but these are not
-directly supported. The templates used to generate apps for integration testing along with the exact patch versions of
-React Native we use can be found [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates).
+Embrace tests apps integrated across React Native minor versions from `0.71` to `0.79` to ensure they build and launch without issue. Apps on versions of React Native older than 0.71 may work with Embrace after some modification but these are not directly supported. The templates used to generate apps for integration testing along with the exact patch versions of React Native can be found [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates).
 
 ### Expo support
 

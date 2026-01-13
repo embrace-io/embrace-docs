@@ -33,7 +33,7 @@ void main() async {
 
 Close your client when it's no longer needed by calling `client.close()`.
 
-## Using Dio
+## Use Dio
 
 When using the [Dio package](https://pub.dev/packages/dio), you can add an Embrace interceptor to automatically capture requests:
 

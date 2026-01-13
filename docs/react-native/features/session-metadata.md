@@ -1,14 +1,14 @@
 ---
-title: Retrieve Session Metadata
+title: Retrieve session metadata
 sidebar_position: 11
 ---
 
-# Retrieve Session Metadata
+# Retrieve session metadata
 
 The Embrace SDK provides several methods for retrieving metadata about the current session. Note that each of the
 following methods should be called after the SDK has initialized in order for them to return valid data.
 
-## Current Session ID
+## Current session ID
 
 ```javascript
 import {getCurrentSessionId} from '@embrace-io/react-native';
@@ -29,7 +29,7 @@ the session that is still ending. You might need to delay the call or obtain the
 lifecycle to make sure the session ID you get is the one you are looking for.
 :::
 
-## Last Run End State
+## Last run end state
 
 ```javascript
 import {getLastRunEndState} from '@embrace-io/react-native';
@@ -65,14 +65,14 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
 :::
 
-### Possible Values
+### Possible values
 
 ```typescript
 /// Used to represent the end state of the last run of the application.
 export type SessionStatus = 'INVALID' | 'CRASH' | 'CLEAN_EXIT';
 ```
 
-## Current Device ID
+## Current device ID
 
 ```javascript
 import {getDeviceId} from '@embrace-io/react-native';
