@@ -1,5 +1,5 @@
 ---
-title: Performance Auto Instrumentation
+title: Performance auto instrumentation
 description: Automatically capture the performance of various aspects of the app
 sidebar_position: 16
 ---
@@ -121,7 +121,7 @@ Android provides app startup metrics via [Logcat](https://developer.android.com/
 
 If your app reports [Time to Full Display](https://developer.android.com/topic/performance/vitals/launch-time#time-full), you can synchronize the invocations of `reportFullyDrawn()` and `appReady()`, either manually, or utilizing the APIs provided by [FullyDrawnReporter](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter).
 
-### Code Example
+### Code example
 
 The following sample `Application` will add a custom span and attribute to the app startup trace. It will also inform the SDK of when the application object has finished being created.
 
@@ -185,11 +185,11 @@ When an Activity is brought into view, its loading workflow will be appropriatel
 
 For loads where the Activity object has to be created, a trace with a root span named `emb-{Activity Name}-cold-time-to-initial-display` will be generated, where `{Activity Name}` is the fully-qualified class name of the Activity that was loaded. This generally happens when you navigate from one Activity to another while the app is in the foreground.
 
-This trace begins at our best estimate of when Activity creation begins. It ends at our best estimate of when the Activity has reached the `RESUMED` stage of its lifecycle.
+This trace begins at the best estimate of when Activity creation begins. It ends at the best estimate of when the Activity has reached the `RESUMED` stage of its lifecycle.
 
 For loads where the Activity object has already been created, a trace with a root span named `emb-{Activity Name}-hot-time-to-initial-display` will be generated, where `{Activity Name}` is the fully-qualified class name of the Activity that was loaded. This generally happens when an already launched app gets foregrounded.
 
-This trace begins at our best estimate of when Activity begins to enter the `STARTED` stage of its lifecycle. It ends at our best estimate of when the Activity has reached the `RESUMED` stage of its lifecycle.
+This trace begins at the best estimate of when Activity begins to enter the `STARTED` stage of its lifecycle. It ends at the best estimate of when the Activity has reached the `RESUMED` stage of its lifecycle.
 
 Note: navigation using Jetpack Compose Navigation component should also generate a "hot" Activity Load trace.
 
@@ -224,7 +224,7 @@ Custom span attributes can be added to the root span of the trace by using the `
 
 #### Custom child spans
 
-Custom child spans can be added to the root span of the trace by using the `addLoadTraceChildSpan()`  method before the Activity load is completed or abandoned. Parameters for the name, start time, and end time must be specified, while optional parameters for attributes, span events, and error code may also be specified to customize the span.
+Custom child spans can be added to the root span of the trace by using the `addLoadTraceChildSpan()` method before the Activity load is completed or abandoned. Parameters for the name, start time, and end time must be specified, while optional parameters for attributes, span events, and error code may also be specified to customize the span.
 
 To ensure the timestamps of the custom spans are in sync with the timestamps of the other spans in the trace, use the `getSdkCurrentTimeMs()` method to obtain it from the same clock instance the SDK uses. This clock instance is locked after the SDK starts up and will not change even if the system clock changes.
 
@@ -244,7 +244,7 @@ If you wish to only have the instrumentation enabled for a subset of Activities,
 - Explicitly disabling select Activities
   - Annotate each Activity that you do not want to instrument with `@NotTracedActivity`
 
-### Code Example
+### Code example
 
 The following sample `Activity` will add a custom span and attribute to the Activity load trace in progress. It will also inform the SDK of when the Activity has finished loading via a callback when the Activity has completed all of its `onResume()` callbacks.
 

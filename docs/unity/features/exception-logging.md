@@ -28,4 +28,4 @@ Each exception log can include a managed stack trace provided by the Unity runti
 
 ## Stack Trace limit
 
-Embrace User Timeline and Exception Details pages will only display the first 200 frames of a stack trace.  This limit is set to protect your users' network data transfer, as well as maintain high-performance session tooling.  For Exceptions with over 200 frames, we recommend reviewing your logging to prevent recursion.
+Embrace User Timeline and Exception Details pages will only display the first 200 frames of a stack trace. This limit is set to protect your users' network data transfer, as well as maintain high-performance session tooling. For Exceptions with over 200 frames, we recommend reviewing your logging to prevent recursion.

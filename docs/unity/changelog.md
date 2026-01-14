@@ -1,10 +1,10 @@
 ---
-title: Unity SDK Changelog
-description: Changelog for the Unity Embrace SDK
+title: Changelog
+description: Changelog for the Embrace Unity SDK
 sidebar_position: 4
 ---
 
-# Unity SDK Changelog
+# Embrace Unity SDK Changelog
 
 ## 2.8.1
 

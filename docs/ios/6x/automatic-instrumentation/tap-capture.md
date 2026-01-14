@@ -138,4 +138,4 @@ When running A/B tests, tap data can provide insights into how different UI vari
 - Combine tap data with session information to build comprehensive user journey maps
 - Use tap coordinates sparingly, only when the precise location of interaction is important
 
- <!-- TODO: Add examples of how tap data appears in the Embrace dashboard, including any visualizations or reports that highlight user interaction patterns  -->
+ <!-- TODO: Add examples of how tap data appears in the Embrace dashboard, including any visualizations or reports that highlight user interaction patterns -->

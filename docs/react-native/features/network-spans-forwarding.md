@@ -1,9 +1,9 @@
 ---
-title: Network Spans Forwarding
+title: Network spans forwarding
 sidebar_position: 10
 ---
 
-# Network Spans Forwarding
+# Network spans forwarding
 
 For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/product/network-spans-forwarding/).  
 

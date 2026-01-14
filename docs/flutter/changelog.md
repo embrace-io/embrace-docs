@@ -1,10 +1,10 @@
 ---
 title: Changelog
-description: Changelog for the Flutter Embrace SDK
+description: Changelog for the Embrace Flutter SDK
 sidebar_position: 6
 ---
 
-# Flutter SDK Changelog
+# Embrace Flutter SDK changelog
 
 ## 4.3.0
 

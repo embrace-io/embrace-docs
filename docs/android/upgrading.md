@@ -3,7 +3,7 @@ title: Upgrade Guide
 sidebar_position: 6
 ---
 
-# Upgrade Guide
+# Upgrade guide
 
 ## Upgrading from 7.x to 8.x
 
@@ -237,7 +237,7 @@ The following project properties are now ignored and have no effect. You should 
 #### Embrace Android SDK overload changes
 
 The following functions had overloads manually defined. These have been replaced with one function
-that uses Kotlin's default parameter values.
+that uses Kotlin's default parameter values. Some parameters that used to be null now require non-null arguments.
 
 | Altered APIs                                  |
 |-----------------------------------------------|
@@ -263,23 +263,23 @@ Below is a list of everything that has changed and how to address it in your cod
 
 ### Breaking changes
 
-- The **embrace-android-fcm** and **embrace-android-compose** Gradle modules are no longer automatically added by Embrace’s Gradle plugin.  
+- The **embrace-android-fcm** and **embrace-android-compose** Gradle modules are no longer automatically added by Embrace’s Gradle plugin.
   - **Action**: Add them manually to your `build.gradle` if you need them.
-- The `startMoment/endMoment` APIs have been removed.  
+- The `startMoment/endMoment` APIs have been removed.
   - **Action**: Use `startSpan/recordSpan` instead.
 - `Embrace.AppFramework` is now a top-level class named `AppFramework`.
 - `Embrace.LastRunEndState` is now a top-level class named `LastRunEndState`.
-- Some public APIs are now implemented in Kotlin rather than Java, with slight changes to their signatures.  
+- Some public APIs are now implemented in Kotlin rather than Java, with slight changes to their signatures.
   - **Action**: Replace Java overloads with Kotlin default parameters where applicable.
-- View taps no longer capture coordinates by default.  
+- View taps no longer capture coordinates by default.
   - **Action**: Set `sdk_config.taps.capture_coordinates = true` in your `embrace-config.json` if you need them.
 - Several internally used classes and symbols have been hidden from the public API.
-- Recording a custom trace ID from a custom request header is no longer supported.  
+- Recording a custom trace ID from a custom request header is no longer supported.
   - **Action**: Continue using `x-emb-trace-id` for custom trace IDs.
-- Methods to add and remove the `payer` Persona have been removed.  
+- Methods to add and remove the `payer` Persona have been removed.
   - **Action**: Use the generic Persona API methods with the name `"payer"`.
 - The `setAppId` API has been removed (changing `appId` at runtime is no longer supported).
-- Several remote and local config properties have been removed.  
+- Several remote and local config properties have been removed.
   - **Action**: If you specify any of these in `embrace-config.json`, remove them:
     - `sdk_config.beta_features_enabled`
     - `sdk_config.anr.capture_google`
@@ -289,17 +289,17 @@ Below is a list of everything that has changed and how to address it in your cod
     - `sdk_config.base_urls.images`
     - `sdk_config.networking.trace_id_header`
     - `sdk_config.startup_moment.automatically_end`
-- The following properties are removed from the Embrace Gradle plugin.  
+- The following properties are removed from the Embrace Gradle plugin.
   - **Action**: Remove them if they appear in your build scripts:
     - `jarSkipList`
     - `encodeExtractedFileNames`
-- Embrace no longer attempts to detect other signal handlers and reinstall itself by default.  
+- Embrace no longer attempts to detect other signal handlers and reinstall itself by default.
   - **Action**: If you notice changes in NDK crash reports, you can re-enable this behavior with `sdk_config.sig_handler_detection = true`.
 
 :::info Summary
 
-- Remove deprecated properties from your Gradle files.  
-- Replace usage of any deprecated methods (see table below).  
+- Remove deprecated properties from your Gradle files.
+- Replace usage of any deprecated methods (see table below).
 - Remove references to internal symbols that were previously exposed.
 - Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
 :::
