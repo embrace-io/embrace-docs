@@ -79,6 +79,8 @@ If there is no such block, make sure to create the `sdk_config` block:
 ...
 ```
 
+For further information on this process, refer to the Android documentation [here](/android/integration-advanced/crash-reporting/)
+
 ---
 
 In the next guide, you'll learn how to add context to your sessions using Breadcrumb Logs.
