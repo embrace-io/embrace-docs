@@ -1,9 +1,9 @@
 ---
-title: Report Render Errors
+title: Report render errors
 sidebar_position: 7
 ---
 
-# Report Render Errors
+# Report render errors
 
 If the Embrace SDK detects a component stack trace in a React Native rendering error it will log it automatically. The
 resulting log will have a stack trace similar to:

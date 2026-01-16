@@ -1,9 +1,9 @@
 ---
-title: Track Redux Actions
+title: Track Redux actions
 sidebar_position: 5
 ---
 
-# Track Redux Actions
+# Track Redux actions
 
 Embrace provides the `@embrace-io/react-native-redux` package that can be used to collect telemetry around dispatching
 actions with Redux. It provides a custom middleware that can be configured with your Redux store.

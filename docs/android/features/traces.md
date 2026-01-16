@@ -211,6 +211,19 @@ Embrace.addLogRecordExporter(myLogExporter)
 Note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
 :::
 
+### Supply custom OpenTelemetry processors
+
+It's also possible to supply your own OpenTelemetry processors through the [SpanProcessor](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-processor) and [LogRecordProcessor](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordprocessor) interfaces. These will be invoked *after* Embrace's internal processors. Overriding embrace-specific attributes when processing telemetry will produce undefined behavior and is discouraged.
+
+```kotlin
+Embrace.addSpanProcessor(mySpanProcessor)
+Embrace.addLogRecordProcessor(myLogProcessor)
+```
+
+:::info
+Processors must be configured *before* the Embrace SDK is started. Processors added after the SDK has already been started will not be used.
+:::
+
 ### Local testing
 
 To see your recorded telemetry locally during developement, use [LoggingSpanExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/LoggingSpanExporter.java) and [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) to see spans and logs in logcat, respectively. Do not deploy these types of debugging exporters in production for performance reasons.

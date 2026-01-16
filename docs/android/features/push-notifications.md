@@ -22,7 +22,7 @@ embrace {
 }
 
 dependencies {
-    implementation("io.embrace:embrace-android-fcm:{{ embrace_sdk_version platform="android" }}")
+    implementation("io.embrace:embrace-android-instrumentation-fcm:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 

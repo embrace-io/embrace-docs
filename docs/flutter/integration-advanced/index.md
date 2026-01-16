@@ -4,9 +4,8 @@ sidebar_position: 1
 description: Get started with integrating Embrace into your Flutter application
 ---
 
-# Flutter Integration
+# Flutter integration
 
-## Getting Started
+## Getting started
 
-This section provides instructions for integrating Embrace's Flutter SDK into your app. Our minimum supported
-versions can be found [here](/flutter/versioning/).
+This section provides instructions for integrating the Embrace Flutter SDK into your app. You can find minimum supported versions [here](/flutter/versioning/).
