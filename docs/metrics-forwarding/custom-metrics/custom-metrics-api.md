@@ -20,12 +20,17 @@ All the endpoints have the same authentication, authorization method, url and pa
 
 - `URL`: `https://api.embrace.io/custom-metrics`
 
+If you account is using Embrace's [regional data residency](/region/) feature, then use the following URLs:
+
+- United States: `https://api-us1.embrace.io/custom-metrics`
+- European Union: `https://api-eu1.embrace.io/custom-metrics`
+
 ### Request
 
 Headers:
 
-- `Authorization`: we are going to use a Bearer token to authorize and authenticate our requests.  
-i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f03`.
+- `Authorization`: we are going to use a Bearer token to authorize and authenticate our requests.
+i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f0z`.
 
 URL Params:
 
