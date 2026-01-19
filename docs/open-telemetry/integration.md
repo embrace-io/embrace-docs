@@ -103,7 +103,7 @@ var grafanaOtelSpanExporter: OtlpHttpTraceExporter {
 try? Embrace
     .setup(
         options: Embrace.Options(
-            appId: "AppID",
+            appId: "your 5-character AppID here", // Obtained from https://dash.embrace.io/app/AppID/...
             export: OpenTelemetryExport(
                 spanExporter: MultiSpanExporter(
                     spanExporters: [
@@ -125,8 +125,8 @@ The Embrace React Native SDK also has the ability to configure custom [OTLP expo
 The Native side internally implements the Android/Apple exporters as described above letting this Hosted SDK send telemetry data to any backend.
 
 ```javascript
-const {isPending, isStarted} = useEmbrace({
-  ios: {appId: "__APP_ID__"},
+const { isPending, isStarted } = useEmbrace({
+  ios: { appId: "__APP_ID__" },
   exporters: {
     logExporter: {
       endpoint:

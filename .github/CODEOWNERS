@@ -1,11 +1,12 @@
-# DevOps
-.github @embrace-io/opensource-devops
-scripts @embrace-io/opensource-devops
-
 # JavaScript
 package*.json @embrace-io/opensource-frontend
 **/*.js @embrace-io/opensource-frontend
 **/*.ts @embrace-io/opensource-frontend
+*.config.ts @embrace-io/opensource-frontend @embrace-io/opensource-devops
+
+# DevOps
+.github @embrace-io/opensource-devops
+scripts @embrace-io/opensource-devops
 
 # SDK Teams
 docs/android @embrace-io/opensource-android
