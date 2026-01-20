@@ -22,6 +22,19 @@ With Embrace’s User Journeys feature, you can move beyond simple funnel analys
 
 User Flows are a powerful way to understand the sequence of events that users experience within your app. They’re created by defining the connection between two specific telemetry events, allowing you to track key performance elements between actions. Think about User Flows as the first order logical grouping of all the base telemetry events you can emit into a contextualized view of a user's experience.
 
+What User Flows **ARE**:
+
+- A task that has some defined entry point and a defined end point.
+  - **Example**: Login page rendered to home page rendered (e.g. the user logs in).
+  - **Example**: Clicks "Add Credit Card" button to "Save Credit Card" process successful.
+- The path to get from event A to event B may vary, but the intention of the task should nearly always to be to arrive at some end event.
+- The building blocks in a larger end-to-end journey.
+
+What User Flows **ARE NOT**:
+
+- A total experience through the application (e.g. a journey mapping).
+  - In upcoming versions, you will be able to "stitch" flows together end to end to understand how a user moves from task to task through your application.
+
 You can find User Flows under the Performance tab in the sidebar on the left of your dashboard. Here is a brief walkthrough video of User Flows in Embrace. Continue reading below for more details on creating and refining User Flows.
 
 <div>
@@ -45,7 +58,8 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 - 10:02 — "Breadcrumb A" occurs.
 - 10:03 — "Breadcrumb B" occurs.
 
-   **Result**
+  **Result**
+
 - "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
 - "User Flow B" ends with the outcome **Complete**.
 
