@@ -63,9 +63,7 @@ initialize({
 
 ### Disabling the crash reporter on Android
 
-For Android, much like iOS, Embrace's internal crash reporter will be used by default. If you would like to disable or replace this, the process is radically different.
-Finish adding the SDK using the recommended pathway (whether that be with or without Expo). Then, find your `embrace-config.json` file, and add the `crash_handler` block to the `sdk_config` block.
-If there is no such block, make sure to create the `sdk_config` block:
+For Android Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't want to interfere with you can disable this. After setting up the SDK find your `embrace-config.json` file, and add the `crash_handler` block to the `sdk_config` block. If there is no such block, make sure to create the `sdk_config` block:
 
 ```json
 ...
