@@ -88,7 +88,7 @@ export default App;
 <TabItem value="react-navigation/native" label="@react-navigation/native">
 
 ```javascript
-import React from "react";
+import React, {useRef} from "react";
 import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
 import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
 import {
