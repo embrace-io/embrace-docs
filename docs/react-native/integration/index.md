@@ -59,4 +59,3 @@ for tested and working configurations.
 - No Conflicting SDKs
   - `@datadog/mobile-react-native`. More details [here](/ios/6x/getting-started/installation.md#known-issues).
   - `react-native-flipper`. More details [here](/react-native/changelog/#630)
-  
