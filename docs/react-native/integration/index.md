@@ -25,7 +25,7 @@ Before starting, make sure to verify that your project meets the following minim
 
 ### Supported versions of React Native
 
-- RN 0.71 or higher
+- RN 0.71+
 
 We test that apps integrated with Embrace across React Native minor versions from `0.71` to `0.79` build and launch without
 issue. Apps on versions of React Native older than 0.71 may work with Embrace after some modification but these are not
