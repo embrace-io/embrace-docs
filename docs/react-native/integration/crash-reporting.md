@@ -77,7 +77,7 @@ For Android Embrace's internal crash reporter will be used by default. If you ar
 ...
 ```
 
-For further information on this process, refer to the Android documentation [here](/android/integration-advanced/crash-reporting/)
+For further information on this process, refer to the Android documentation [here](/android/configuration/configuration-file/#crash_handler---enabled-bool)
 
 ---
 
