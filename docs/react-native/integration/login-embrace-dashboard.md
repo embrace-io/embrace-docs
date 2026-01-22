@@ -35,8 +35,10 @@ Embrace SDK with your app.
 <img src={require('@site/static/images/rn-ios-integration.png').default} />
 
 Create **separate apps** in the Embrace dashboard for each platform:
+
 - One Android App :: One Android App ID
 - One iOS App :: One iOS App ID
+
 This setup allows us to have platform-specific SDK configuration as well as separate data streams.
 
 At the end of the day you would have two app ids (one for Android and another one for iOS if integrating both).
