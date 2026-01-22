@@ -4,9 +4,9 @@ description: Add the Embrace SDK as a dependency to your Flutter application
 sidebar_position: 1
 ---
 
-# Adding the Flutter Embrace SDK
+# Add the Embrace Flutter SDK
 
-## Add the Embrace Flutter SDK to the project
+## Add the Embrace SDK to your project
 
 Add the Embrace package to your `pubspec.yaml`:
 
@@ -16,10 +16,9 @@ flutter pub add embrace
 
 ## iOS setup
 
-Next, login to the [Embrace dashboard](https://dash.embrace.io/) and create a project if you haven't already.
-The dashboard contains the app ID and API token that are necessary for configuring your integration.
+Log in to the [Embrace dashboard](https://dash.embrace.io/) and create a project. The dashboard contains the app ID and API token that you need for configuring your integration.
 
-Then alter the AppDelegate to initialize Embrace in the `init` function:
+Then modify your `AppDelegate` to initialize Embrace in the `init` function:
 
 ```swift
 import EmbraceIO
@@ -46,13 +45,13 @@ import EmbraceCrash
 }
 ```
 
-### Uploading Symbol Files
+### Upload symbol files
 
 :::info
-Embrace uploads the dSYM symbol files of your application using a script bundled with the Embrace iOS SDK. This makes stacktraces from crashes human-readable.
+Embrace uploads your application's dSYM symbol files using a script bundled with the Embrace iOS SDK. This makes stacktraces from crashes human-readable.
 :::
 
-On the Xcode Build Phase tab, add a new run script. You can find your 5-character app ID and API token in the Embrace dashboard:
+On the Xcode **Build Phases** tab, add a new run script. You can find your 5-character app ID and API token in the Embrace dashboard:
 
 ```shell-session
 EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${PODS_ROOT}/EmbraceIO/run.sh"
@@ -96,7 +95,7 @@ In `app/src/main`, add a config file named `embrace-config.json`. You can find y
 
 ## Import Embrace
 
-Start by importing Embrace in the file where your `main()` function exists.
+Import Embrace in the file where your `main()` function exists:
 
 ```dart
 import 'package:embrace/embrace.dart';
@@ -104,7 +103,7 @@ import 'package:embrace/embrace.dart';
 
 ## Add the Flutter SDK start call
 
-Wrap the entire contents of your `main()` function in `Embrace.instance.start()`. It is essential do this if you want Embrace to capture Dart errors.
+Wrap the entire contents of your `main()` function in `Embrace.instance.start()`. This is essential if you want Embrace to capture Dart errors.
 
 ```dart
 import 'package:embrace/embrace.dart';
@@ -130,22 +129,18 @@ class MyApplication : Application() {
 }
 ```
 
-## Build and Run the Application
+## Build and run the application
 
-Now you're ready to build and run the application. Assuming the app launches correctly,
-pay attention to the system logging and look for Embrace to print its version number.
+Now you're ready to build and run the application. When the app launches, check the system logs and look for Embrace to print its version number:
 
 ```text
 Embrace Flutter SDK Version: {{ embrace_sdk_version platform="flutter" }}
 ```
 
 :::info
-If you encounter any errors, please get in touch on Slack and we can assist you.
+If you encounter any errors, reach out on Slack and we can help.
 :::
 
-## Trigger a Session Upload
+## Trigger a session upload
 
-To trigger a session upload, simply send the application to the background. Typically the SDK
-will be given sufficient time to upload the session, but sometimes the app is not able to complete
-the upload in the background. To ensure the session was uploaded, launch the application again.
-Refresh the dashboard in your browser and you should now see that you've moved on to the next step.
+To trigger a session upload, send the application to the background. The SDK usually has enough time to upload the session, but sometimes the app can't complete the upload in the background. To ensure the session was uploaded, launch the application again and refresh the dashboard in your browser. You should see that you've moved on to the next step.

@@ -1,12 +1,12 @@
 ---
-title: Login to the Embrace Dashboard
+title: Log in to the Embrace dashboard
 description: Login to the Embrace dashboard to get started with your React Native integration
 sidebar_position: 2
 ---
 
-# Getting Started with the Embrace Dashboard
+# Getting started with the Embrace dashboard
 
-## Logging In
+## Logging in
 
 Before being able to integrate, you'll need to create an account on the Embrace
 dashboard so you can access your app ID and API token. Open a browser and

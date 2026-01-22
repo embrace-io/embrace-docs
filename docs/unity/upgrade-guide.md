@@ -18,7 +18,7 @@ Unity 6.x already ships with AGP 8.13+ and Java 17, so there is no change requir
 - Remove deprecated properties from Gradle file
 - Remove scoped registry
 - Some features still have yet to be migrated
-:::
+  :::
 
 ## iOS SDK Code Initialization
 
@@ -31,7 +31,7 @@ You should continue to configure the Embrace Unity SDK on iOS the same as before
 Embrace.Instance.StartSDK();
 
 // New 2.x Method
-EmbraceStartupArgs args = new EmbraceStartupArgs("AppID");
+EmbraceStartupArgs args = new EmbraceStartupArgs("your 5-character AppID here"); // Obtained from https://dash.embrace.io/app/AppID/...
 Embrace.Instance.StartSDK(args);
 ```
 

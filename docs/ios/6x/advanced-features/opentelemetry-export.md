@@ -20,7 +20,7 @@ The OpenTelemetry-Swift repository lists [`publicly-available exporters`](https:
 try? Embrace
     .setup(
         options: Embrace.Options(
-            appId: "AppID",
+            appId: "your 5-character AppID here", // Obtained from https://dash.embrace.io/app/AppID/...
             logLevel: .debug,
             export: OpenTelemetryExport(
                 spanExporter: JaegerSpanExporter(
@@ -49,7 +49,7 @@ let client = BaseHTTPClient(session: session)
 try? Embrace
     .setup(
         options: Embrace.Options(
-            appId: "AppID",
+            appId: "your 5-character AppID here", // Obtained from https://dash.embrace.io/app/AppID/...
             logLevel: .debug,
             export: OpenTelemetryExport(
                 spanExporter: OtlpHttpTraceExporter(

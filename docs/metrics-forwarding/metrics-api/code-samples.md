@@ -8,6 +8,11 @@ sidebar_position: 30
 
 You can pull data from the Embrace Metrics API using any SDK for your language that supports PromQL.
 
+Note: if you account is using Embrace's [regional data residency](/region/) feature, then use the following URLs instead:
+
+- United States: `https://api-us1.embrace.io/metrics`
+- European Union: `https://api-eu1.embrace.io/metrics`
+
 ## Prerequisites
 
 - [Embrace Metrics API Token](/metrics-forwarding/metrics-api/#get-started)

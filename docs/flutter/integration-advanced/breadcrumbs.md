@@ -4,12 +4,11 @@ description: Add logging to your Flutter application using Breadcrumbs with the 
 sidebar_position: 7
 ---
 
-# Add a Breadcrumb
+# Add a breadcrumb
 
-## Adding Context to Sessions
+## Add context to sessions
 
-Embrace can also collect your logging data and include it as context within your sessions.
-Here's how you add a Breadcrumb to the session.
+Embrace can collect your logging data and include it as context within your sessions. Here's how you add a breadcrumb to the session:
 
 ```dart
 import 'package:embrace/embrace.dart';
@@ -17,15 +16,12 @@ import 'package:embrace/embrace.dart';
 Embrace.instance.addBreadcrumb('a test breadcrumb message');
 ```
 
-Use breadcrumbs to track the journey of the user through your application. Try not to replicate data that would otherwise be recorded. For example, if you make a network call, [Embrace can already track that](/flutter/features/network-requests/), so you do not need to also make a breadcrumb for that event.
+Use breadcrumbs to track the user's journey through your application. Avoid replicating data that would otherwise be recorded. For example, if you make a network call, [Embrace can already track that](/flutter/features/network-requests/), so you don't need to also create a breadcrumb for that event.
 
 :::info
-For how to best use Breadcrumbs, check out the [Best Practices](/best-practices/breadcrumbs/) page.
+For tips on using breadcrumbs effectively, check out the [Best Practices](/best-practices/breadcrumbs/) page.
 :::
 
 ---
 
-We generally use the Breadcrumb method for our logging and not the Log Message API to add context to sessions.
-Breadcrumbs are a lightweight way to add logging to your session. They add no CPU or memory overhead, and trigger no networking calls.
-The Log Message API is a much heavier mechanism. We will learn about it in the [Alerting](/flutter/integration-advanced/log-message-api/) section of the documentation.
-For now, just know that using Breadcrumbs is the right thing to do most of the time.
+We generally recommend using breadcrumbs for logging and not the Log Message API to add context to sessions. Breadcrumbs are a lightweight way to add logging to your session—they add no CPU or memory overhead and trigger no networking calls. The Log Message API is a much heavier mechanism. You can learn about it in the [Alerting](/flutter/integration-advanced/log-message-api/) section of the documentation. For most cases, breadcrumbs are the right choice.

@@ -1,15 +1,14 @@
 ---
-title: Integration Guide
+title: Integration guide
 description: Get started with integrating Embrace into your React Native application
 sidebar_position: 1
 ---
 
-# React Native Integration
+# React Native integration
 
-## Getting Started
+## Get started
 
-This guide will walk you through integrating Embrace into your React Native application with a series of articles. We
-recommend following them in order, although you are free to skip around.
+This guide walks you through integrating Embrace into your React Native application with a series of articles. Following them in order is recommended, although you are free to skip around.
 
 ## Requirements
 
