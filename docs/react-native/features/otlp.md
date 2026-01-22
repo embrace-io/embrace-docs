@@ -231,7 +231,7 @@ And then the following in the OnCreate method:
 
 ```java
 // Preparing Span Exporter config with the minimum required
-OtlpHttpSpanExporter spanExporter = OtlpHttpSpanExporter.builder();
+OtlpHttpSpanExporter spanExporter = OtlpHttpSpanExporter.builder()
                                 .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces")
                                 .addHeader("Authorization", "Basic __YOUR TOKEN__");
 
