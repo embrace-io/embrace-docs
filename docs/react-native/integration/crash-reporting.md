@@ -70,7 +70,7 @@ For Android Embrace's internal crash reporter will be used by default. If you ar
   "sdk_config": {
     ...
     "crash_handler": {
-      "enabled": true
+      "enabled": false
     },
     ...
   }
