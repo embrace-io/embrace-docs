@@ -40,6 +40,7 @@ import TabItem from '@theme/TabItem';
 
 ```javascript
 import React from "react";
+import {View, Text} from "react-native"
 import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
 import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
 import {useNavigationContainerRef} from "expo-router";
