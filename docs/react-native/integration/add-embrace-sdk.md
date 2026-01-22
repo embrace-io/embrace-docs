@@ -4,11 +4,6 @@ description: Add the Embrace SDK as a dependency to your React Native applicatio
 sidebar_position: 3
 ---
 
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 # Adding the React Native Embrace SDK
 
 ## Add the JavaScript library
@@ -44,8 +39,7 @@ described in our [Feature Reference](/react-native/features/).
 
 Choose from one of the following three methodologies for applying native changes to your application:
 
-<Tabs groupId="rn-setup-method" queryString="rn-setup-method">
-<TabItem value="expo" label="Expo Config Plugin">
+### Expo Config Plugin
 
 If you are using Expo's `prebuild` system to manage your native files you can make use of our config plugin. In your
 `app.json` configure the plugin with your Embrace application IDs and symbol upload API token:
@@ -75,13 +69,11 @@ by the Embrace SDK. Note that there are other customizations and advanced featur
 which will still require manual editing of native files, at the moment the config plugin only covers this initial SDK
 setup.
 
-</TabItem>
-
-<TabItem value="setup-script" label="Setup Scripts">
+### Setup Scripts
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
-`node_modules` folder at `node_modules/@embrace-io/react-native/lib/scripts/setup`
+`node_modules` folder at `node_modules/@embrace-io/react-native/lib/scripts/setup`.
 
 **Run the setup script**
 
@@ -111,9 +103,7 @@ git diff
 Compare the changes to the manual setup step to verify the changes were made
 correctly.
 
-</TabItem>
-
-<TabItem value="manual-ios" label="manual-ios">
+### Manual Setup - iOS
 
 Configuration for iOS is handled in code when initializing the SDK which we will cover in the next step. The native module
 should be setup using [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
@@ -121,7 +111,7 @@ so you're good to go!
 
 Since [6.3.0](/react-native/changelog/#630) there are a few changes required in the Podfile of the application described below.
 
-### Embrace Apple SDK depends on KSCrash
+#### Embrace Apple SDK depends on KSCrash
 
 KSCrash needs modular headers enabled to be able to build. In order to support this Pod, the Podfile in the iOS project needs to add the following line before the target is declared:
 
@@ -150,9 +140,7 @@ module.exports = {
 }
 ```
 
-</TabItem>
-
-<TabItem value="manual-android" label="manual-android">
+### Manual Setup - Android
 
 Update the `build.gradle` file (usually located at `<root>/android/build.gradle`) to include the Embrace Gradle Plugin.
 
@@ -197,14 +185,11 @@ Your API ID and token are available on the Embrace dashboard.
 :::
 
 :::info
-You’ll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
+You'll need to set the following permissions so the Embrace SDK can send events and monitor connectivity.
 
 - `android.permission.INTERNET`
 - `android.permission.ACCESS_NETWORK_STATE`
 :::
-
-</TabItem>
-</Tabs>
 
 ---
 
@@ -212,8 +197,7 @@ There's a little more configuration we have to do to set up the uploading of sym
 
 ## Troubleshooting
 
-<Tabs groupId="rn-troubleshooting" queryString="rn-troubleshooting">
-<TabItem value="expo-modules-provider-error" label="Expo - Cannot find interface declaration for 'ModulesProvider'">
+### Expo - Cannot find interface declaration for 'ModulesProvider'
 
 If you encounter the following build error on iOS after running through our setup using an expo app:
 
@@ -228,9 +212,7 @@ Update your `AppDelegate.m|mm` file to include the following import, making sure
 
 See [this GitHub issue](https://github.com/expo/expo/issues/17705) for more details.
 
-</TabItem>
-
-<TabItem groupId="android-build-error-71" label="Android build error on React Native 0.71">
+### Android build error on React Native 0.71
 
 In your `android/app/build.gradle` if you have
 
@@ -246,15 +228,9 @@ apply plugin: "com.facebook.react"
 
 See [this commit](https://github.com/facebook/react-native/commit/af6aafff90c4d40abfe160c4cfc8e1ae8fa0d956) for more details.
 
-
-</TabItem>
-
-<TabItem groupId="pkg-no-valid-config-plugin" label="Package does not contain a valid config plugin">
+### Package does not contain a valid config plugin
 
 Expo's plugin resolution method changed in version 52, the simplest way to guarantee our plugin is found across
 different Expo versions is to specify the full "@embrace-io/react-native/lib/app.plugin.js" path for the plugin in
 `app.json` rather just the "@embrace-io/react-native" package name. See [this PR](https://github.com/expo/expo/pull/31569)
 for more details.
-
-</TabItem>
-</Tabs>
