@@ -52,7 +52,7 @@ const App = () => {
     },
   });
 
-  // make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
+  // make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetry can be missed).
   const {tracerProvider, isLoading: isLoadingTracerProvider} =
     useEmbraceNativeTracerProvider({}, isStarted);
 
