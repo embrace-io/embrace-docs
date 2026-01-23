@@ -405,6 +405,10 @@ const config: Config = {
             from: "/android/integration/session-reporting",
           },
           {
+            to: "/android/legacy-integration/crash-reporting/",
+            from: "/android/integration/crash-reporting/",
+          },
+          {
             to: "/flutter/features/traces",
             from: "/flutter/features/tracing",
           },
