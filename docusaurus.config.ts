@@ -409,8 +409,20 @@ const config: Config = {
             from: "/android/integration/crash-reporting/",
           },
           {
-            to: "/android/legacy-integration/",
-            from: "/android/integration/",
+            to: "/android/legacy-integration/log-message-api/",
+            from: "/android/integration/log-message-api/",
+          },
+          {
+            to: "/android/legacy-integration/breadcrumbs/",
+            from: "/android/integration/breadcrumbs/",
+          },
+          {
+            to: "/android/legacy-integration/add-embrace-sdk/",
+            from: "/android/integration/add-embrace-sdk/",
+          },
+          {
+            to: "/android/legacy-integration/next-steps/",
+            from: "/android/integration/next-steps/",
           },
           {
             to: "/flutter/features/traces",
