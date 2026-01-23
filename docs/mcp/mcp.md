@@ -8,6 +8,8 @@ description: Access Embrace mobile observability data through the Model Context 
 
 The Embrace Model Context Protocol (MCP) server lets you query your mobile app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, monitor app health, and analyze trends without leaving your development workflow.
 
+Embrace's MCP server is available to all Embrace users.
+
 ## Available tools
 
 | Tool                      | Description                                                         |
@@ -21,15 +23,10 @@ The Embrace Model Context Protocol (MCP) server lets you query your mobile app's
 
 ## Prerequisites
 
-:::warning
-Embrace's MCP Server is in Beta and has only been officially tested with Claude Code. Please refer to the relevant documentation provided by your LLM Client on how to connect to a remote MCP server.
-:::
-
 Before you can use the Embrace MCP server, you need:
 
 - An active Embrace account with access to at least one application
 - An MCP-compatible AI assistant
-- The MCP feature to be enabled for your org (reach out to your Customer Success Manager or Support to enable this)
 
 ## Setup examples
 
