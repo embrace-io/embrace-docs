@@ -393,20 +393,24 @@ const config: Config = {
             from: "/android/features/tracing",
           },
           {
-            to: "/android/integration",
+            to: "/android/legacy-integration/",
             from: "/android/integration/integration-steps",
           },
           {
-            to: "/android/integration",
+            to: "/android/legacy-integration/",
             from: "/android/integration/login-embrace-dashboard",
           },
           {
-            to: "/android/integration",
+            to: "/android/legacy-integration/",
             from: "/android/integration/session-reporting",
           },
           {
             to: "/android/legacy-integration/crash-reporting/",
             from: "/android/integration/crash-reporting/",
+          },
+          {
+            to: "/android/legacy-integration/",
+            from: "/android/integration/",
           },
           {
             to: "/flutter/features/traces",
