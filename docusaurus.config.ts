@@ -393,15 +393,15 @@ const config: Config = {
             from: "/android/features/tracing",
           },
           {
-            to: "/android/legacy-integration/",
+            to: "/android/integration/",
             from: "/android/integration/integration-steps",
           },
           {
-            to: "/android/legacy-integration/",
+            to: "/android/integration/",
             from: "/android/integration/login-embrace-dashboard",
           },
           {
-            to: "/android/legacy-integration/",
+            to: "/android/integration/",
             from: "/android/integration/session-reporting",
           },
           {
