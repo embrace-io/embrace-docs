@@ -6,6 +6,21 @@ sidebar_position: 6
 
 # Changelog
 
+## 6.16.0
+
+*Jan 26, 2026*
+
+- Fixes
+  - Fixed iOS 16.4 simulator crashing.
+  - Fixed capturing invalid startup spans.
+  - Disabled MetricKit on macOS until further updates to prevent issues.
+- Improvements
+  - Added preliminary watchOS Support.
+  - Added OTel attribute os.name to Logs.
+  - Added remote configurable limit for Tap collection.
+  - Added ability to pass a child collector to SingleLogRecordProcessor.
+  - Re-introduced XCFramework generation.
+ 
 ## 6.15.1
 
 *Nov 19, 2025*
