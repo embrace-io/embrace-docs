@@ -15,11 +15,12 @@ To get started, click on "Add new widget" in the menu by your dashboard name.
 You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
 
 | Chart Type | Crashes | Network | Logs | Issues | Moments | Sessions | Spans | Historical | Multi-query |
-| ----------|-------|-------|----|------|-------|--------|-----|----------|----------- |
-| Line | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Table | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
-| Bar | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
-| Pie | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
+|------------|-------|-------|----|------|-------|--------|-----|----------|----------- |
+| Line       | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Table      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
+| Bar        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
+| Pie        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
+| KPI        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
 
 ## Spans (Traces)
 
@@ -33,7 +34,7 @@ Create graphs monitoring Spans performance. You can filter and group by name, ou
 
 ## Combined Time Series (Line Charts)
 
-You can also create Combined graphs in Line vizualizations. With Combined graphs, you can visualize up to 10 time series together and optionally create a custom time series using arithmetic operators.
+You can also create combined graphs in Line visualizations. With combined graphs, you can visualize up to 10 time series together and optionally create a custom time series using arithmetic operators.
 
 **NOTE:** as of 2025-05-20, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts.
 
@@ -41,7 +42,7 @@ You can also create Combined graphs in Line vizualizations. With Combined graphs
 
 For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relatve to your total sessions, grouped by App Version. To do this:
 
-1. For the inital query A, select Crashes as the source, Crash Count as the metric, and App Version in the group by field.\
+1. For the initial query A, select Crashes as the source, Crash Count as the metric, and App Version in the group by field.\
     a. You can also add a group by here. For this example, we group by App Version. See more on grouping functionality below.\
     b. Formulas and multiple queries are only supported on line charts currently.
 2. On query A, click the Filter By button below the query details and filter for State = foreground.
@@ -63,7 +64,7 @@ Since the Formula field is optional, you can visualize up to 10 time series on t
 
 When you combine time series that have groupings defined with a formula, it’s important to understand the rules for how time series are joined given their groupings. The examples below use two time series, but the same rules apply with any greater number of time series.
 
-As a rule, if you have **two timeseries that both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
+As a rule, if you have **two time series that both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
 
 #### **Valid Groupings:**
 
@@ -136,7 +137,7 @@ Our Issues Widget, lets you specify how to list a table of [Issues](/product/iss
 
 1. To get started, select the Table visualization option and Issues as the source when making a new Widget.
 2. Adjust the columns you want to display and how to filter the Issues.
-3. Then once you save, you'll see this table on your dashboard! Issues are sorted by percentage of users impacted in descending order.
+3. Then, once you save, you'll see this table on your dashboard! Issues are sorted by percentage of users impacted in descending order.
 
    <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
 
