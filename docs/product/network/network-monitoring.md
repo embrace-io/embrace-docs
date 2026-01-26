@@ -8,7 +8,16 @@ sidebar_position: 1
 
 ## Network Summary
 
-The Network Summary dashboard offers a high-level overview of your network requests. You can view the number of requests, average duration, and error counts grouped by 4xx and 5xx status codes. These metrics are also grouped by app version, enabling you to track changes in network performance over time with your releases. Use the filters to analyze network performance based on specific domains, countries, personas, and more.
+The Network Summary dashboard offers a high-level overview of your network requests. 
+You can view the number of requests, average duration, and error counts grouped by 4xx/5xx status codes and connection errors. 
+These metrics are also grouped by app version, enabling you to track changes in network performance over time with your releases. Use the filters to analyze network performance based on specific domains, countries, personas, and more.
+
+#### Total Successful Calls vs Total Failed Calls
+
+- **Total Successful Calls**: The percentage of network requests that returned a 2xx HTTP status code.
+- **Total Failed Calls**: The percentage of network requests that returned a 4xx or 5xx HTTP status code, or resulted in a connection error (e.g., timeouts, DNS failures, or network unavailability).
+
+Note that 1xx and 3xx responses (redirects) are excluded from both metrics. As a result, the sum of Total Successful Calls and Total Failed Calls may not equal 100%.
 
 <img src={require('@site/static/images/features/network-monitoring/network-monitoring-1.png').default} alt="Network Summary Overview" />
 
