@@ -20,7 +20,7 @@ sidebar_position: 6
   - Added remote configurable limit for Tap collection.
   - Added ability to pass a child collector to SingleLogRecordProcessor.
   - Re-introduced XCFramework generation.
- 
+
 ## 6.15.1
 
 *Nov 19, 2025*
