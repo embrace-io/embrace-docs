@@ -41,4 +41,3 @@ Embrace can help you diagnose network errors by forwarding network spans to your
 This table presents a comprehensive list of all your network requests, organized by method, domain, and path. For each endpoint, you can view the average duration, number of requests, median duration, and error percentage. The table is sortable by each column, allowing you to quickly identify the slowest endpoints or those with the highest error rates. Use the search bar to locate specific endpoints efficiently.
 
 <img src={require('@site/static/images/features/network-monitoring/network-monitoring-2.png').default} alt="Network Summary Overview" />
-
