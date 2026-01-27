@@ -40,7 +40,7 @@ You can also create combined graphs in Line visualizations. With combined graphs
 
 ### Adding Formulas to Graphs
 
-For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relatve to your total sessions, grouped by App Version. To do this:
+For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relative to your total sessions, grouped by App Version. To do this:
 
 1. For the initial query A, select Crashes as the source, Crash Count as the metric, and App Version in the group by field.\
     a. You can also add a group by here. For this example, we group by App Version. See more on grouping functionality below.\
