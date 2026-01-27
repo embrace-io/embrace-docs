@@ -25,7 +25,7 @@ These metrics are also grouped by app version, enabling you to track changes in 
 To analyze these responses, create a [custom dashboard](/product/boards/custom-dashboards/) using the **Network Request** metric grouped by **Status Code**.
 :::
 
-<img src={require('@site/static/images/features/network-monitoring/network-monitoring-1.1.png').default} alt="Custom Dashboard" />
+<img src={require('@site/static/images/features/network-monitoring/network-monitoring-1.1.png').default} alt="Total Successful vs Failed Calls metrics in Network Monitoring dashboard" />
 
 ### Domain Type
 
