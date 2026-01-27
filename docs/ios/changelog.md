@@ -8,7 +8,7 @@ sidebar_position: 6
 
 ## 6.16.0
 
-*Jan 26, 2026*
+*Jan 27, 2026*
 
 - Fixes
   - Fixed iOS 16.4 simulator crashing.
