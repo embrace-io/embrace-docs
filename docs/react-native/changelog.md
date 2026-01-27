@@ -7,6 +7,7 @@ sidebar_position: 4
 # Embrace React Native SDK Changelog
 
 ## 6.4.0
+
 _Jan 26, 2026_
 
 Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
