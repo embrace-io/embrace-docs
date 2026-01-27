@@ -1,15 +1,15 @@
 ---
 title: Upgrade Guide
-sidebar_position: 4
+sidebar_position: 6
 ---
 
-# Upgrade Guide
+# Upgrade guide
 
 ## Upgrading from 7.x to 8.x
 
-### Quick Start
+### Quick start
 
-If you wish to do the upgrade using step-by-step instructions that will work for most apps, follow this `Quick Start` guide. Scroll down to the rest of this guide to see all the changes described in greater detail.
+If you wish to do the upgrade using step-by-step instructions that will work for most apps, follow this `Quick start` guide. Scroll down to the rest of this guide to see all the changes described in greater detail.
 
 1. **Change Embrace version**
    - Set the version of the Embrace Android SDK to `{{ embrace_sdk_version platform="android" }}`.
@@ -79,7 +79,7 @@ The Embrace Android SDK is compiled using the following language compatibility t
 | Java                      | 1.8        | 11         |
 | Kotlin (Language and API) | 1.8        | 2.0        |
 
-### Embrace Gradle Plugin renamed
+### Embrace Gradle plugin renamed
 
 The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 
@@ -91,7 +91,7 @@ The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 Replace references to the old Embrace Gradle Plugin name with the new one. Your configuration files should reference the plugin in one
 of the following ways:
 
-#### Version Catalogs
+#### Version catalogs
 
 If you define your plugins in a TOML file (e.g. `gradle/libs.versions.toml`):
 
@@ -160,7 +160,7 @@ very little change as most alterations are internal. However, you should be awar
 - `embrace-android-fcm` has been renamed as `embrace-android-instrumentation-fcm`
 - `embrace-android-okhttp3` has been renamed as `embrace-android-instrumentation-okhttp`
 
-`embrace.autoAddEmbraceDependencies` is deprecated and will be removed in a future release. You should add the
+`embrace.autoAddEmbraceDependencies` is deprecated and will be removed in a future release. Add the
 `io.embrace:embrace-android-sdk` module to your classpath manually if you reference any Embrace Android SDK API directly in your app.
 
 ### Http(s)URLConnection network request instrumentation changes
@@ -188,7 +188,7 @@ get in touch if you do have a use-case that is no longer met.
 
 | Old API                                                                 | New API                                                                                                |
 |-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)`                                                                               |
+| `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)` and supply `sdk_config.app_framework` with 'flutter', 'react_native', or 'unity'                                                                               |
 | `Embrace.getInstance().addLogRecordExporter(LogRecordExporter)`         | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
 | `Embrace.getInstance().addSpanExporter(SpanExporter)`                   | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
 | `Embrace.getInstance().getOpenTelemetry()`                              | `Embrace.getOpenTelemetryKotlin()` or `Embrace.getJavaOpenTelemetry()`                                 |
@@ -204,7 +204,7 @@ get in touch if you do have a use-case that is no longer met.
 | `Embrace.getInstance().unregisterComposeActivityListener()`             | Obsolete - no alternative provided.                                                                    |
 | `Embrace.getInstance().logWebView(String)`                              | Obsolete - no alternative provided.                                                                    |
 
-#### New Embrace Gradle Plugin DSL
+#### New Embrace Gradle plugin DSL
 
 The Embrace Gradle Plugin previously had a DSL via the `swazzler` extension. This has been replaced with a new DSL via the `embrace`
 extension.
@@ -237,7 +237,7 @@ The following project properties are now ignored and have no effect. You should 
 #### Embrace Android SDK overload changes
 
 The following functions had overloads manually defined. These have been replaced with one function
-that uses Kotlin's default parameter values.
+that uses Kotlin's default parameter values. Some parameters that used to be null now require non-null arguments.
 
 | Altered APIs                                  |
 |-----------------------------------------------|
@@ -263,23 +263,23 @@ Below is a list of everything that has changed and how to address it in your cod
 
 ### Breaking changes
 
-- The **embrace-android-fcm** and **embrace-android-compose** Gradle modules are no longer automatically added by Embrace’s Gradle plugin.  
+- The **embrace-android-fcm** and **embrace-android-compose** Gradle modules are no longer automatically added by Embrace’s Gradle plugin.
   - **Action**: Add them manually to your `build.gradle` if you need them.
-- The `startMoment/endMoment` APIs have been removed.  
+- The `startMoment/endMoment` APIs have been removed.
   - **Action**: Use `startSpan/recordSpan` instead.
 - `Embrace.AppFramework` is now a top-level class named `AppFramework`.
 - `Embrace.LastRunEndState` is now a top-level class named `LastRunEndState`.
-- Some public APIs are now implemented in Kotlin rather than Java, with slight changes to their signatures.  
+- Some public APIs are now implemented in Kotlin rather than Java, with slight changes to their signatures.
   - **Action**: Replace Java overloads with Kotlin default parameters where applicable.
-- View taps no longer capture coordinates by default.  
+- View taps no longer capture coordinates by default.
   - **Action**: Set `sdk_config.taps.capture_coordinates = true` in your `embrace-config.json` if you need them.
 - Several internally used classes and symbols have been hidden from the public API.
-- Recording a custom trace ID from a custom request header is no longer supported.  
+- Recording a custom trace ID from a custom request header is no longer supported.
   - **Action**: Continue using `x-emb-trace-id` for custom trace IDs.
-- Methods to add and remove the `payer` Persona have been removed.  
+- Methods to add and remove the `payer` Persona have been removed.
   - **Action**: Use the generic Persona API methods with the name `"payer"`.
 - The `setAppId` API has been removed (changing `appId` at runtime is no longer supported).
-- Several remote and local config properties have been removed.  
+- Several remote and local config properties have been removed.
   - **Action**: If you specify any of these in `embrace-config.json`, remove them:
     - `sdk_config.beta_features_enabled`
     - `sdk_config.anr.capture_google`
@@ -289,22 +289,22 @@ Below is a list of everything that has changed and how to address it in your cod
     - `sdk_config.base_urls.images`
     - `sdk_config.networking.trace_id_header`
     - `sdk_config.startup_moment.automatically_end`
-- The following properties are removed from the Embrace Gradle plugin.  
+- The following properties are removed from the Embrace Gradle plugin.
   - **Action**: Remove them if they appear in your build scripts:
     - `jarSkipList`
     - `encodeExtractedFileNames`
-- Embrace no longer attempts to detect other signal handlers and reinstall itself by default.  
+- Embrace no longer attempts to detect other signal handlers and reinstall itself by default.
   - **Action**: If you notice changes in NDK crash reports, you can re-enable this behavior with `sdk_config.sig_handler_detection = true`.
 
 :::info Summary
 
-- Remove deprecated properties from your Gradle files.  
-- Replace usage of any deprecated methods (see table below).  
+- Remove deprecated properties from your Gradle files.
+- Replace usage of any deprecated methods (see table below).
 - Remove references to internal symbols that were previously exposed.
 - Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
 :::
 
-## Moments have been superseded by Traces
+## Moments have been superseded by traces
 
 [Traces](/android/features/traces.md) serve the same purposes as [Moments](/android/features/moments.md), with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
 

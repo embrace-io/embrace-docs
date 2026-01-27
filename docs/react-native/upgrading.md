@@ -1,5 +1,5 @@
 ---
-title: Upgrade Guide
+title: Upgrade guide
 sidebar_position: 5
 description: Upgrade guide for Embrace React Native SDK versions
 ---
@@ -45,7 +45,7 @@ module.exports = {
 }
 ```
 
-### Update your Embrace Symbol Upload build phase
+### Update your Embrace symbol upload build phase
 
 Ensure your Embrace Symbol Uploads build phase matches the following:
 
@@ -56,7 +56,7 @@ REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map
 Note: The upload scripts are now bundled with the `@embrace-io/react-native` package. They are no longer provided by the iOS native layer (before they were packed as part of the iOS Pods).  
 You can take a look at your `node_modules` and confirm that everything is there in `node_modules/@embrace-io/react-native/ios/scripts`.
 
-### Install the latest Cocoapods with
+### Install the latest CocoaPods
 
 Finally, install the latest CocoaPods with:
 
@@ -110,7 +110,7 @@ Then install the latest Cocoapods with:
 cd ios && pod update EmbraceIO && pod install --repo-update
 ```
 
-### Deprecated Packages
+### Deprecated packages
 
 | Package                                              | Comments                                                                    |
 | ---------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -160,7 +160,7 @@ upgrade replace it with:
 Embrace.getInstance().start(this)
 ```
 
-### Migrating Traces
+### Migrating traces
 
 The `@embrace-io/react-native-spans` package has been removed and the functionality it provided is now available from the
 `@embrace-io/react-native-tracer-provider` package. The interface for interacting with spans has also been updated to
@@ -230,7 +230,7 @@ Then install the latest Cocoapod with
 cd ios && pod install --repo-update
 ```
 
-### SDK initialization and configuration is triggered in-code
+### SDK initialization and configuration is triggered in code
 
 If you initialize the Embrace SDK in your JavaScript code it will need to be updated to include a `sdkConfig`
 parameter to configure the iOS SDK:
@@ -278,7 +278,7 @@ Embrace.sharedInstance().start(launchOptions: launchOptions, framework:.reactNat
 
 Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/5x/integration/session-reporting#initialize-embrace-sdk)
 
-### Moments have been replaced by Traces
+### Moments have been replaced by traces
 
 APIs related to moments should be removed from your code.
 

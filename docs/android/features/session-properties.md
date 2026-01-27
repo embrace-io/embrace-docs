@@ -1,10 +1,10 @@
 ---
-title: Session Properties
+title: Session properties
 sidebar_position: 5
 description: Get to know the users of your Android application with the Embrace SDK
 ---
 
-# Session Properties
+# Session properties
 
 Session Properties are another way to annotate the session.
 The difference between session properties and [user personas](/android/features/identify-users#user-personas) is that the former are for items relating to the session or the device and not necessarily to the user.
@@ -14,6 +14,12 @@ Here is an example of setting a session property:
 
 ```kotlin
 Embrace.addSessionProperty("launch type", "normal", permanent: false)
+```
+
+You can also remove session properties that have been previously set:
+
+```kotlin
+Embrace.removeSessionProperty("launch type")
 ```
 
 import PropertyLimit from '@site/shared/property-limit.md';

@@ -1,10 +1,10 @@
 ---
-title: Session Reporting
+title: Session reporting
 description: Upload session reports from your React Native application using the Embrace SDK
 sidebar_position: 5
 ---
 
-# Session Reporting
+# Session reporting
 
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 Here are the steps you’ll be taking to create your first session.
@@ -18,7 +18,7 @@ Here are the steps you’ll be taking to create your first session.
 
 ### Without hooks
 
-Calling the `initialize` method setups up the tracking for the SDK on the JS side. This is needed even if you choose
+Calling the `initialize` method sets up the tracking for the SDK on the JS side. This is needed even if you choose
 to start the SDK earlier on the native side as explained below, however in that case the configuration passed through
 in the `sdkConfig` object is ignored in favor of the native startup configuration.
 
@@ -60,7 +60,7 @@ export default App
 
 ### With hooks
 
-We expose also a hook that handles the initialization of Embrace in a more React friendly way:
+The SDK also exposes a hook that handles the initialization of Embrace in a more React-friendly way:
 
 ```javascript
 import React, { useEffect, useState } from 'react'
@@ -96,10 +96,9 @@ const App = () => {
 export default App
 ```
 
-In both cases we recommend to use these methods to initialize the React Native Embrace SDK at the top level of your
-application just once to prevent side effects in the JavaScript layer.
+In both cases, you should use these methods to initialize the React Native Embrace SDK at the top level of your application just once to prevent side effects in the JavaScript layer.
 
-## Start Embrace SDK in the Native side
+## Start Embrace SDK in the native side
 
 :::info
 If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk#setup-script)
@@ -217,7 +216,7 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 </Tabs>
 
-### Initializing Embrace SDK without an App Id or Token
+### Initializing Embrace SDK without an app ID or token
 
 If you prefer to send the data into a custom backend avoiding Embrace you should skip the app_id / token values from both platform configurations. For more information about it you can visit the how to [Use without an Embrace account](/react-native/integration/login-embrace-dashboard#use-without-an-embrace-account) section.
 

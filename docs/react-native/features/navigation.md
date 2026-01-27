@@ -1,20 +1,20 @@
 ---
-title: Track Navigation
+title: Track navigation
 description: Add logging to your React Native application to track navigation between screens using the Embrace SDK
 sidebar_position: 3
 ---
 
-# Track Navigation
+# Track navigation
 
-This package collect telemetry around Navigation based on [expo-router](https://github.com/expo/expo/tree/main/packages/expo-router), [@react-navigation/native](https://github.com/react-navigation/react-navigation) and [react-native-navigation](https://wix.github.io/react-native-navigation/).
+This package collects telemetry around navigation based on [expo-router](https://github.com/expo/expo/tree/main/packages/expo-router), [@react-navigation/native](https://github.com/react-navigation/react-navigation) and [react-native-navigation](https://wix.github.io/react-native-navigation/).
 
-## Adding Context to Sessions
+## Adding context to sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.
 Embrace can also collect the screens that your app opened and include it as context within your sessions.
 Here's how you add the screen tracker to the session.
 
-### Install the Package
+### Install the package
 
 npm:
 
@@ -186,7 +186,7 @@ const initApp = async () => {
           <EmbraceNativeNavigationTracker
             ref={navRef}
             tracerProvider={embraceTracerProvider}
-            screenAttributes={{
+            screenAttributes={{ // at the moment attributes can't be modified or included after an span is started
               "test.attr": 98765,
               dev: true,
             }}>
@@ -207,7 +207,7 @@ initApp();
 </TabItem>
 </Tabs>
 
-## Disable Auto Tracking for Native Screens
+## Disable auto tracking for native screens
 
 Embrace automatically collects the native screens, if you do not want to see them in the session you can disable it.
 
@@ -240,7 +240,7 @@ for more details:
 ```swift
 import Foundation
 import EmbraceIO
-import EmbraceCrash
+import KSCrash
 
 @objcMembers class EmbraceInitializer: NSObject {
     static func start() -> Void {
@@ -255,7 +255,7 @@ import EmbraceCrash
                             .addDefaults()
                             .remove(ofType: ViewCaptureService.self)
                             .build(),
-                        crashReporter: EmbraceCrashReporter()
+                        crashReporter: KSCrashReporter()
                     )
                 )
                 .start()

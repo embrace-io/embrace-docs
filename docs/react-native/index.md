@@ -1,12 +1,12 @@
 ---
-title: Getting Started
+title: Get started
 sidebar_position: 0
 description: Learn about Embrace for the React Native platform
 ---
 
-# React Native Platform Documentation
+# React Native platform documentation
 
-## Getting Started
+## Get started
 
 This documentation is split into two sections:
 

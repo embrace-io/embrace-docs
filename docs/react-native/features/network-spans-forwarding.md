@@ -1,9 +1,9 @@
 ---
-title: Network Spans Forwarding
+title: Network spans forwarding
 sidebar_position: 10
 ---
 
-# Network Spans Forwarding
+# Network spans forwarding
 
 For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/product/network-spans-forwarding/).  
 
@@ -25,7 +25,7 @@ At this point everything should be working on iOS. For Android one additional co
 }
 ```
 
-For more information about this file please refer to the [Android / Configuration File section](/android/features/configuration-file/).
+For more information about this file please refer to the [Android / Configuration File section](/android/configuration/configuration-file/).
 
 ## Turning off the feature
 

@@ -1,10 +1,10 @@
 ---
-title: React Native SDK Changelog
-description: Changelog for the React Native Embrace SDK
+title: Changelog
+description: Changelog for the Embrace React Native SDK
 sidebar_position: 4
 ---
 
-# React Native SDK Changelog
+# Embrace React Native SDK Changelog
 
 ## 6.3.0
 

@@ -1,15 +1,15 @@
 ---
-title: Configuration File
+title: Configuration file
 description: Configuration file for the Android Embrace SDK
 sidebar_position: 11
 ---
 
-# Android Configuration File
+# Android configuration file
 
 Certain SDK configs are only settable in a custom `embrace-config.json` file.
-This file should be located in app/src/main.
+This file should be located in `app/src/main`.
 The following is an example `embrace-config.json` file.
-Explanations for each of the fields are provided below.
+Explanations for each of the fields follow below.
 
 ```json
 {
@@ -34,7 +34,7 @@ Explanations for each of the fields are provided below.
       "ui_load_tracing_selected_only": false
     },
     "taps": {
-      "capture_coordinates": true
+      "capture_coordinates": false
     },
     "view_config": {
       "enable_automatic_activity_capture": false
@@ -133,7 +133,7 @@ Disables Activity load instrumention for Activities that are not explicitly anno
 
 #### taps - capture_coordinates *bool*
 
-Set to false to disable capturing tap coordinates. Defaults to `true`.
+Set to true to enable capturing tap coordinates. Defaults to `false`.
 
 #### view_config - enable_automatic_activity_capture *bool*
 
@@ -224,7 +224,7 @@ The SDK collects the disk usage for the app. Defaults to `true`.
 
 #### capture_enabled *bool*
 
-This value is a failsafe to enable or disable background activity capture. If the remote configuration is not set by Embrace's backend, this value will be determine whether or not to enable background capture. Defaults to `false`.
+This value is a failsafe to enable or disable background activity capture. If the remote configuration is not set by Embrace's backend, this value will determine whether or not to enable background capture. Defaults to `false`.
 
 #### base_urls - config *string*
 
@@ -258,7 +258,7 @@ Project's app framework, one of react\_native, unity, flutter or native.
 
 Custom file name for unity symbols.
 
-## Custom Settings for Build Types, Flavors, and Variants
+## Custom settings for build types, flavors, and variants
 
 It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/build/build-variants) specific configurations that take precedence of the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
 

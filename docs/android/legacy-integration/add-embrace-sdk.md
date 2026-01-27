@@ -238,7 +238,7 @@ Add a file at `app/src/main/embrace-config.json` with the following contents:
 ```
 
 :::info
-Further configuration options are documented [here](/android/features/configuration-file/).
+Further configuration options are documented [here](/android/configuration/configuration-file/).
 :::
 
 ---

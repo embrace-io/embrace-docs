@@ -8,20 +8,20 @@ sidebar_position: 2
 
 ## Overview
 
-Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace's Traces solution gives you visibility into any app operation you'd like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With this tool, you can quickly spot any bottlenecks in your app's architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 See [this page](/product/traces/technical-details.md) for technical details and terminology definitions.
 
 ## Feature support
 
-:::info Minimum Requirements
+:::info Minimum requirements
 **We recommend using the latest Android SDK version for the most up-to-date API**. Even though Traces is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
 :::
 
 The Embrace Traces API allows you to:
 
 - Create real-time performance timers or record data for past operations.
-  - For real-time tracing, we use a “stopwatch” concept that lets you start and stop a span's recording manually.
+  - For real-time tracing, a "stopwatch" concept lets you start and stop a span's recording manually.
   - To record past operations, you can specify the start and end times of your spans that you might have captured already.
   - You can mix and match real time and past events by specifying the start and end times when you start and stop your spans.
 - Add child spans to a parent span to track sub-operations within an operation.
@@ -61,7 +61,7 @@ Attributes and events are truncated by taking the first N values specified and d
 - There are no limits on the duration of a span as long as the app is running.
 - In the session timeline UI, a completed span will appear in the session in which it ended.
 
-:::warning Internal Prefixes
+:::warning Internal prefixes
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes. Behavior in such cases are undefined.
 :::
 
@@ -194,7 +194,7 @@ val activityLoadSpanId = activityLoad?.spanId
 Embrace.getSpan(activityLoadSpanId)?.stop()
 ```
 
-## Export to OpenTelemetry Collectors
+## Export to OpenTelemetry collectors
 
 Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded.  
 
@@ -208,7 +208,20 @@ Embrace.addLogRecordExporter(myLogExporter)
 ```
 
 :::info
-Please note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
+Note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
+:::
+
+### Supply custom OpenTelemetry processors
+
+It's also possible to supply your own OpenTelemetry processors through the [SpanProcessor](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-processor) and [LogRecordProcessor](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordprocessor) interfaces. These will be invoked *after* Embrace's internal processors. Overriding embrace-specific attributes when processing telemetry will produce undefined behavior and is discouraged.
+
+```kotlin
+Embrace.addSpanProcessor(mySpanProcessor)
+Embrace.addLogRecordProcessor(myLogProcessor)
+```
+
+:::info
+Processors must be configured *before* the Embrace SDK is started. Processors added after the SDK has already been started will not be used.
 :::
 
 ### Local testing
@@ -219,14 +232,14 @@ To see your recorded telemetry locally during developement, use [LoggingSpanExpo
 2024-03-05 14:15:15.342 29672-29756 LoggingSpanExporter     io.embrace.mysampleapp          I  'emb-startup-moment' : d38b4ac26baf1a862ed4a028af7d08ac e3e82dd0f86c0eed INTERNAL [tracer: io.embrace.android.embracesdk:={{ embrace_sdk_version platform="android" }}] AttributesMap{data={emb.sequence_id=4, emb.type=PERFORMANCE, emb.key=true}, capacity=128, totalAddedValues=3}
 ```
 
-### Sending to OpenTelemetry Collectors  
+### Sending to OpenTelemetry collectors  
 
 You can send all or some of your telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) by using existing Android-compatible exporters or writing your own. Note that not all Java exporters can be used on Android.
 
 :::warning
 **Network request to OpenTelemetry Collectors should not be logged**
 
-To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disabled_url_patterns` setting in the Embrace Configuration file. See [this page](/android/features/configuration-file/#networking---disabled_url_patterns-string-array) for details.
+To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disabled_url_patterns` setting in the Embrace Configuration file. See [this page](/android/configuration/configuration-file/#networking---disabled_url_patterns-string-array) for details.
 :::
 
 #### Send telemetry through gRPC

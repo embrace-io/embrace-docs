@@ -4,7 +4,7 @@ description: Get readable stacktraces in production with the Embrace Gradle Plug
 sidebar_position: 20
 ---
 
-# Embrace Gradle Plugin
+# Embrace Gradle plugin
 
 ## Overview
 
@@ -15,11 +15,11 @@ The Embrace Gradle Plugin performs several functions:
 - It adds Embrace dependencies to your project's compile classpath
 - It injects your specified configuration for the Embrace SDK into the APK/App Bundle
 
-## Apply the Embrace Gradle Plugin
+## Apply the Embrace Gradle plugin
 
 To apply the Embrace Gradle Plugin to your app follow the instructions in our [integration steps](/android/integration).
 
-## Configure the Embrace Gradle Plugin
+## Configure the Embrace Gradle plugin
 
 The Embrace Gradle Plugin should be configured via the `build.gradle` of the module where you applied the plugin. The full DSL is shown here, and explained in more detail below the code snippet:
 
@@ -110,7 +110,7 @@ Whether the Embrace Gradle Plugin should automatically add Embrace dependencies 
 
 #### autoAddEmbraceComposeClickDependency
 
-Whether the Embrace Gradle Plugin should automatically add the embrace-android-compose dependency to this module's classpath. Defaults to false.
+Whether the Embrace Gradle Plugin should automatically add the `embrace-android-instrumentation-compose-tap` dependency to this module's classpath. Defaults to false.
 
 #### customSymbolsDirectory
 
