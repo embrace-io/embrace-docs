@@ -1,3 +1,9 @@
+---
+title: Setup Guide
+description: A guide for administering your synthetics deployment
+sidebar_position: 1
+---
+
 # Setup Guide
 A guide for administering your synthetics deployment
 
@@ -64,7 +70,7 @@ We run all our synthetic test agents on Amazon AWS EC2 so that you get a consist
 | US East Coast | Northern Virginia | us-east-1 |
 | US West Coast | Northern California | us-west-1 |
 
-AWS EC2 Instance
+**AWS EC2 Instance**
 
 | Property | Value |
 |----------|-------|

@@ -1,5 +1,5 @@
 ---
-title: Web Synthetics
+title: Synthetic Monitoring
 sidebar_position: 6
 ---
 
