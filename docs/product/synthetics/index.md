@@ -1,13 +1,11 @@
 ---
-title: Synthetics
+title: Web Synthetics
 sidebar_position: 6
 ---
 
-# Get Total Insight into Activity with User Sessions
+# Production testing to evaluate baseline performance across pages and competitors 
 
-Embrace's User Sessions allow developers to recreate user activity with detailed data, helping identify and resolve issues efficiently.
-
-User Sessions give you every technical detail for every session that users were in your app. User Sessions are crucial for modeling and debugging app behavior, as they capture everything a user does from app launch to termination, including user actions and technical events.  
+Embrace's Syntheticss offering allows developers to monitor performance of key pages and transactions. This includes baseline performance monitoring, monitoring of competitor sites as well as expirements running in production. 
 
 ## What is a User Session?
 
