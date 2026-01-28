@@ -220,8 +220,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     },
     {
       title: "Network Monitoring",
-      description:
-        "Identify and resolve the networking issues behind your app’s crashes.",
+      description: "Identify and resolve the networking issues behind your app’s crashes.",
       icon: <IconWifi {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/network",
     },
