@@ -14,12 +14,12 @@ The site settings page is where you'll define the URLs you want to test for a gi
 
 ![Site settings interface showing configuration options for defining test URLs, selecting browsers and regions, and setting test recurrence frequency for synthetic monitoring](/images/synthetics/site-settings.png)
 
-**URLs**  
+**URLs**
 Within site settings, you will define which URLs you want to test for a site. This is accomplished by entering in a url or by creating a synthetic script (insert link to scripting guide). Beside each URL, you will also apply a page label name, which will help you to identify the URL in your dashboards and most importantly allow you to compare other urls in cases of competitive benchmarking and matching up with your RUM data.
 
 ![A web form within the site settings interface displaying a list of URLs to be tested for synthetic monitoring. The form contains input fields for entering URLs and corresponding page label names. Users can add multiple URLs, each with an associated label to help identify and compare test results across different pages and competitive benchmarking scenarios.](/images/synthetics/urls.png)
 
-**Settings***
+**Settings**
 Once you have added the url(s) you want to test, you'll proceed to configuring the test settings for the site. All urls for a site will use the same test settings.
 
 **Browsers**
@@ -75,8 +75,6 @@ AWS EC2 Instance
 | Storage | SSD |
 
 **Recurrence**
-
-
 Frequency of testing will depend on your use case. You have a number of options for testing from a daily test to 15 minute recurrence.
 
 ![Interface displaying selection boxes for choosing test recurrence frequency, including options for daily, hourly, and every 15 minutes. The primary focus is on dropdown menus and checkboxes that allow users to select relative or specific times to run synthetic tests. Visible text includes labels such as Recurrence, Daily, Hourly, Every 15 minutes, and checkboxes for selecting specific times.](/images/synthetics/recurrence.png)
