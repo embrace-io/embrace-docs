@@ -6,6 +6,19 @@ sidebar_position: 4
 
 # Embrace React Native SDK Changelog
 
+## 6.4.0
+
+_Jan 26, 2026_
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.15.1](/ios/changelog/#6151)
+
+- Updated iOS native Embrace SDK dependency to [version 6.15.1](/ios/changelog/#6151)
+
+:::info Important
+Be aware that this update has a behavior change on iOS ONLY. When using our OTLP exporter now, on iOS, we export spans on BOTH span start AND span end. This will result in a doubling of exported spans, but a net result of the same end data.
+:::
+
 ## 6.3.0
 
 _Nov 11, 2025_
