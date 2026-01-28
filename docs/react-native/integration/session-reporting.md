@@ -47,7 +47,7 @@ const App = () => {
     };
 
     initEmbrace();
-  });
+  }, []); // Empty array for mount only in example; you should only initialize the Embrace SDK once.
 
   // regular content of the application
   return (
@@ -226,7 +226,7 @@ Now you're ready to build and run the application.
 Launch the application how you usually would during development.
 
 :::info
-If you encounter any errors, please get in touch on Slack and we can assist you.
+If you encounter any errors, please get in touch on [Slack](https://community.embrace.io/) and we can assist you.
 :::
 
 ## Trigger a session upload
