@@ -61,6 +61,24 @@ initialize({
 })
 ```
 
+### Disabling the crash reporter on Android
+
+For Android Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't want to interfere with you can disable this. After setting up the SDK find your `embrace-config.json` file, and add the `crash_handler` block to the `sdk_config` block. If there is no such block, make sure to create the `sdk_config` block:
+
+```json
+...
+  "sdk_config": {
+    ...
+    "crash_handler": {
+      "enabled": false
+    },
+    ...
+  }
+...
+```
+
+For further information on this process, refer to the Android documentation [here](/android/configuration/configuration-file/#crash_handler---enabled-bool)
+
 ---
 
 In the next guide, you'll learn how to add context to your sessions using Breadcrumb Logs.

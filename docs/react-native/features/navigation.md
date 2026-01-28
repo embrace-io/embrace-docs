@@ -40,6 +40,7 @@ import TabItem from '@theme/TabItem';
 
 ```javascript
 import React from "react";
+import {View, Text} from "react-native"
 import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
 import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
 import {useNavigationContainerRef} from "expo-router";
@@ -52,7 +53,7 @@ const App = () => {
     },
   });
 
-  // make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise somo initial telemetrt can be missed).
+  // make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise some initial telemetry can be missed).
   const {tracerProvider, isLoading: isLoadingTracerProvider} =
     useEmbraceNativeTracerProvider({}, isStarted);
 
@@ -88,7 +89,7 @@ export default App;
 <TabItem value="react-navigation/native" label="@react-navigation/native">
 
 ```javascript
-import React from "react";
+import React, {useRef} from "react";
 import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
 import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
 import {

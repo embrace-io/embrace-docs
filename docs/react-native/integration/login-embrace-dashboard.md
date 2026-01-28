@@ -34,8 +34,15 @@ Embrace SDK with your app.
 
 <img src={require('@site/static/images/rn-ios-integration.png').default} />
 
-You pick one platform per integration. At the end of the day you will have two app IDs (one for Android and another one for iOS if integrating both).
-Now you are ready to add the SDK to your app.
+Create **separate apps** in the Embrace dashboard for each platform:
+
+- One Android App :: One Android App ID
+- One iOS App :: One iOS App ID
+
+This setup allows us to have platform-specific SDK configuration as well as separate data streams.
+
+At the end of the day you would have two app ids (one for Android and another one for iOS if integrating both).
+Once we have all of the relevant apps and app IDs, we are ready to add the SDK to your app.
 
 ## Use without an Embrace account
 
@@ -47,7 +54,7 @@ For Android both values can be omitted in the `embrace-config.json` file. For mo
 
 ### iOS
 
-For iOS the **appId** can be ommited as well when the SDK is initialized and configured through the code.
+For iOS the **appId** can be omitted as well when the SDK is initialized and configured through the code.
 
 :::info SDK initialized in the Native side
 If you already have the React Native Embrace SDK initialized in the Native Side or if you are planning to run the install scripts you would need to tweak manually both the Android/iOS sides.
