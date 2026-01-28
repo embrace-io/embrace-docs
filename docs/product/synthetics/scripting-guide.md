@@ -8,11 +8,10 @@ sidebar_position: 3
 
 You can add scripts to the URLs you test. When you edit a Site in your Settings, there's a script icon next to each URL that allows you to add scripts.
 
-<Image align="center" alt={900} border={false} caption="Script Icon" title="wpt-script-icon.png" src="https://files.readme.io/dedf045-wpt-script-icon.png" />
 
 With synthetic scripts you're able to do all sorts of things, such as add headers, set cookies, step through a number of pages, or perform actions on a page like logging in or adding an item to a shopping cart.
 
-See the [scripting guide](doc:synthetic-scripting-guide) for reference and more example scripts in the [Recipes](/recipes) section.
+See the scripting guide (link) for reference and more example scripts in the  section.
 
 ## SpeedCurve scripting caveats 
 
@@ -22,9 +21,9 @@ There are a few things to be aware of when writing synthetic scripts for SpeedCu
 
 More complex scripts will sometimes end up generating results with multiple steps, like this:
 
-<Image align="center" alt={443} border={false} caption="Results table from Multi-Step Script" title="wpt-multiple-step-results.png" src="https://files.readme.io/b18a031-wpt-multiple-step-results.png" />
 
-SpeedCurve will not be able to parse these results, because it does not know which step to use as the final result. Use the [`logData` ](https://support.speedcurve.com/docs/synthetic-scripting-guide#3-multi-step-scripts) command to isolate the specific step you want to be displayed in SpeedCurve. You can avoid generating multiple steps by putting `combineSteps` at the top of your script.
+
+SpeedCurve will not be able to parse these results, because it does not know which step to use as the final result. Use the log data command to isolate the specific step you want to be displayed in SpeedCurve. You can avoid generating multiple steps by putting `combineSteps` at the top of your script.
 
 ### setEventName command is not supported
 
@@ -48,13 +47,11 @@ Only allows requests for the first party domains listed. Great for blocking all 
 
 ### PWA: Repeat view while offline
 
-[Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) are great for delivering content while offline. This script loads your PWA, then blocks all network requests and reloads the page again allowing you to check what the offline performance is like and ensure that the user experience is still rendering via the filmstrips.
+PWAs are great for delivering content while offline. This script loads your PWA, then blocks all network requests and reloads the page again allowing you to check what the offline performance is like and ensure that the user experience is still rendering via the filmstrips.
 
 ### Don't add 'PTST' to user agent
 
 Some ad providers block all requests that include "PTST" in the user agent . This can skew your metrics if you want to test the full page load including ads. This script adds "speedcurve_removePTST" which does what it says on the tin.
-
-<Image align="center" alt={2216} border={false} caption="Example Synthetic Script" title="example-script.png" src="https://files.readme.io/8cb637a-example-script.png" />
 
 ## Extra SpeedCurve script options
 
@@ -68,4 +65,4 @@ Clears the OS certificate caches which causes IE to do OCSP/CRL checks during SS
 
 ## Scripts not working?
 
-[Here are some debugging tips and suggestions.](doc:troubleshooting-test-scripts)
+Here are some debugging tips and suggestions.
