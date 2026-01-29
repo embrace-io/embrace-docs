@@ -28,10 +28,8 @@ Before you get started, refer to the scripting guide (link) document for a revie
 Commands operating on the DOM identify the element with a format of `attribute=value`  
 If you are filling out a form and you want to populate an element like this:
 
-```
-<input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1"
-maxlength="99" name="loginId"/>
-```
+`<input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1"
+maxlength="99" name="loginId"/>`
 
 You can identify the element as `id=lgnld1`, `name=loginId` or `tabindex=1`. The `class` attribute is special and is referenced as `className`. Use the `name` attribute when possible for form fields.
 
@@ -375,8 +373,9 @@ setDnsName  mark.speedcurve.com www.speedcurve.com
 #### setUserAgent
 Overrides the User Agent string sent by the browser.
 
-### Caution
+:::warning
 You will still be using the same browser engine so you are still limited by the capabilities and behavior of that browser even if you are spoofing another browser.
+:::
 
 ```
 // usage: setUserAgent    <user agent string>

@@ -62,6 +62,9 @@ We've added support for preserving the user agent string and not adding "PTST". 
 
 Clears the OS certificate caches which causes IE to do OCSP/CRL checks during SSL negotiation if the certificates are not already cached.
 
-## Scripts not working?
+:::info
+Scripts not working?
 
 [Here are some debugging tips and suggestions.](./troubleshooting-scripts.md)
+:::
+

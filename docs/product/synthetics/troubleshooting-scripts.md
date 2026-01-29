@@ -4,7 +4,6 @@ description: Addressing common issues with test scripts
 sidebar_position: 5
 ---
 
-
 ## Debugging tips
 
 * **Tabs** - Scripts should be tab delimited with only some options accepting spaces between values. This is often the main cause of issues, so check your script in an IDE with invisible characters shown to ensure the formatting is correct**.**
