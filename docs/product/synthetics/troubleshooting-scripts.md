@@ -26,6 +26,8 @@ If you have a script that used to work, but suddenly stops working, the followin
 2. Run each of the steps in the console of your browser's DevTools. Check that each step produces the desired result.
 3. Check that all of the element selectors used in the script still exist on the page.
 
-## Need extra help?
+:::info
+###Need extra help?
 
 We try to help out where we can, but we don't provide support for deep debugging of test scripts. We can recommend consultants who are experts in scripting and can help out if you're interested.
+:::
