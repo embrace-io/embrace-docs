@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting scripts
 description: Addressing common issues with test scripts
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 ## Debugging tips
@@ -27,7 +27,7 @@ If you have a script that used to work, but suddenly stops working, the followin
 3. Check that all of the element selectors used in the script still exist on the page.
 
 :::info
-###Need extra help?
+Need extra help?
 
 We try to help out where we can, but we don't provide support for deep debugging of test scripts. We can recommend consultants who are experts in scripting and can help out if you're interested.
 :::

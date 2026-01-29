@@ -1,10 +1,8 @@
 ---
 title: Synthetic Dashboards
 description: Exploring your synthetic data
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Synthetic Dashboards
-Exploring your synthetic data
 
 
