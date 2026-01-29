@@ -385,14 +385,18 @@ setUserAgent    Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ 
 #### overrideHost
 Replaces the value of the Host: HTTP header for the given host with the provided replacement. It also adds a new header (x-Host:) with the original value.
 
-`// usage: overrideHost  <host>    <new host>
-overrideHost  www.speedcurve.com    www.notspeedcurve.com`
+```
+// usage: overrideHost  <host>    <new host>
+overrideHost  www.speedcurve.com    www.notspeedcurve.com
+```
 
 #### addHeader
 Adds the specified header to every http request (in addition to the headers that exist, DOES NOT overwrite an existing header).
 
-`// usage: addHeader <header>    {filter}
-addHeader Pragma: akamai-x-cache-on`
+```
+// usage: addHeader <header>    {filter}
+addHeader Pragma: akamai-x-cache-on
+```
 
 The optional filter uses a url pattern, for example:
 
@@ -409,23 +413,29 @@ The default pattern may result in CORS failures as the header is applied to all 
 #### setHeader
 Adds the specified header to every http request, overriding the header if it already exists.
 
-`// usage: setHeader <header>    {filter}
-setHeader UA-CPU: none-ya`
+```
+// usage: setHeader <header>    {filter}
+setHeader UA-CPU: none-ya
+```
 
 See `addHeader` for usage of the optional filter pattern
 
 #### resetHeaders
 Clears any headers that were specified through addHeaders or setHeaders (in case you want to only override headers for part of a script).
 
-`// usage: resetHeaders
-resetHeaders`
+```
+// usage: resetHeaders
+resetHeaders
+```
 
 ### Misc
 #### clearDocument
 Destroys the current page but can also be used to blank out the current page in the filmstrip when navigating from one page to another.
 
-`// Destroy the current document
-clearDocument`
+```
+// Destroy the current document
+clearDocument
+```
 
 As it destroys the current document then it's not possible to click on links or interact with any other elements in the page.
 
@@ -434,8 +444,10 @@ Any network requests scheduled by `sendBeacon` should fire when the current page
 #### clearScreen
 Makes the contents of the current page invisible by setting it's opacity to 0
 
-`// Visually clears the screen, underlying HTML document is still present
-clearScreen`
+```
+// Visually clears the screen, underlying HTML document is still present
+clearScreen
+```
 
 It's useful when creating scripts that navigate from one page to another but you want to blank out the initial page from the the filmstrip.
 
@@ -444,45 +456,59 @@ As the document still exists, it's possible to click on links and other elements
 #### combineSteps
 Causes multiple script steps to be combined into a single "step" in the results. Please note if you use combineSteps and any of the network requests in the test error, the test will fail.
 
-`// usage: combineSteps  [count]
-combineSteps`
+```
+// usage: combineSteps  [count]
+combineSteps
+```
 ​
-`// Sample Script:
+```
+// Sample Script:
 combineSteps
 navigate  www.google.com
 navigate  www.yahoo.com
-navigate  www.aol.com`
+navigate  www.aol.com
+```
 
 #### setLanguage
-Sets the locale used in the `accept-language` HTTP header, and `navigator.language`DOM property
+Sets the locale used in the `accept-language` HTTP header, and `navigator.language` DOM property
 
 Setting is applied when Chrome is launched so must appear at the start of the script
 
 Useful for reducing appearance of popups which ask whether the visitor wants to switch sites that are sometimes shown in tests
 
-`// Set the locale to be German language in Austria
-setLanguage de-AT`
+```
+// Set the locale to be German language in Austria
+setLanguage de-AT
+```
 
 #### setLocation
 Specifies a geolocation override position.
 
-`// usage: setLocation <lat>,<lng>    <accuracy>
-setLocation    38.954980,-77.447956    10`
+```
+// usage: setLocation <lat>,<lng>    <accuracy>
+setLocation    38.954980,-77.447956    10
+```
 
 #### sleep
 Pauses the script operation for a given number of seconds.
 
-`// usage: sleep <seconds to sleep>
-example: sleep  5`
+```
+// usage: sleep <seconds to sleep>
+example: sleep  5
+```
 
 #### speedcurve_removePTST
 Removes PTST/SpeedCurve from the User Agent string
 
-`// Usage: remove PTST/SpeedCurve from User Agent string
-speedcurve_removePTST 1`
+```
+// Usage: remove PTST/SpeedCurve from User Agent string
+speedcurve_removePTST 1
+```
 
 #### speedcurve_clearcerts
 Clears the OS certificate caches which causes IE to do OCSP/CRL checks during SSL negotiation if the certificates are not already cached.
 
-`// Usage: Clears certificate cache in IE
-speedcurve_clearcerts 1`
+```
+// Usage: Clears certificate cache in IE
+speedcurve_clearcerts 1
+```
