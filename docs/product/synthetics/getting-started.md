@@ -4,9 +4,6 @@ description: A guide for administering your synthetics deployment
 sidebar_position: 0
 ---
 
-# Setup Guide
-A guide for administering your synthetics deployment
-
 ## Add sites and URLs for testing
 
 ### Sites

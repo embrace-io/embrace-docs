@@ -4,19 +4,13 @@ description: A reference guide for scripting synthetic tests
 sidebar_position: 3
 ---
 
-# Scripting Reference
-Reference guide for scripting synthetic tests
-
 ## 1. Getting started
-Before you get started, refer to the scripting guide (link) document for a review of how to add synthetic scripts to your test configuration. Here are the basics you need to know before writing your first script.
-
+Before you get started, refer to the [scripting guide](./scripting-guide.md) for a review of how to add synthetic scripts to your test configuration. Here you will find the basics you need to know before writing your first script.
 
 ```
 // Comments like these are ignored
 // So are blank lines
 ```
-
-
 
 - Each line of the script contains a command and any parameters.
 
