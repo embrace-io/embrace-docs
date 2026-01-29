@@ -10,7 +10,7 @@ You can add scripts to the URLs you test. When you edit a Site in your Settings,
 
 With synthetic scripts you're able to do all sorts of things, such as add headers, set cookies, step through a number of pages, or perform actions on a page like logging in or adding an item to a shopping cart.
 
-See the [scripting reference](/product/synthetics/scripting-reference.md) for example scripts and usage.
+See the [scripting reference](./scripting-reference.md) for example scripts and usage.
 
 ## Scripting caveats 
 
@@ -64,4 +64,4 @@ Clears the OS certificate caches which causes IE to do OCSP/CRL checks during SS
 
 ## Scripts not working?
 
-[Here are some debugging tips and suggestions.](/products/synthetics/troubleshooting-scripts.md)
+[Here are some debugging tips and suggestions.](./troubleshooting-scripts.md)
