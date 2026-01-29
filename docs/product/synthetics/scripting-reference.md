@@ -11,9 +11,10 @@ Reference guide for scripting synthetic tests
 Before you get started, refer to the scripting guide (link) document for a review of how to add synthetic scripts to your test configuration. Here are the basics you need to know before writing your first script.
 
 
-`// Comments like these are ignored
-
-// So are blank lines`
+```
+// Comments like these are ignored
+// So are blank lines
+```
 
 
 
@@ -27,8 +28,10 @@ Before you get started, refer to the scripting guide (link) document for a revie
 Commands operating on the DOM identify the element with a format of `attribute=value`  
 If you are filling out a form and you want to populate an element like this:
 
-`<input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1"
-maxlength="99" name="loginId"/>`
+```
+<input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1"
+maxlength="99" name="loginId"/>
+```
 
 You can identify the element as `id=lgnld1`, `name=loginId` or `tabindex=1`. The `class` attribute is special and is referenced as `className`. Use the `name` attribute when possible for form fields.
 
@@ -41,7 +44,8 @@ This can be identified by `innerText=Delete`. Matching is case sensitive and mat
 ## 3. Multi-step scripts
 Embrace does not report data for multi-step scripts separately. If scripting a multi-step transaction, you need to disable data logging for intermediate steps.
 
-`// Supress data logging
+```
+// Suppress data logging
 logData 0
 ​
 // Navigate through a user journey
@@ -52,183 +56,233 @@ navigate  https://www.yoursite.com/pagetwo
 logData 1
 ​
 // Record this step
-navigate  https://www.yoursite.com/lastpage`
+navigate  https://www.yoursite.com/lastpage
+```
 
 ## 4. Working with variables
 In order to simplify your scripts and help with script maintenance, variable may be used.
 
 Replacing URL for a test using %URL%.  The %URL% is the initial URL defined in your site settings.
 
-`//URL being tested is https://speedcurve.com
+```
+//URL being tested is https://speedcurve.com
 navigate %URL%
-// output: navigate  https://speedcurve.com`
+// output: navigate  https://speedcurve.com
+```
 
 Host of the URL for the test (not including protocol) using %HOST%
 
-`//URL being tested is https://speedcurve.com
+```
+//URL being tested is https://speedcurve.com
 setDnsName %HOST% dns.example
-// output: setDnsName  speedcurve.com dns.example`
+// output: setDnsName  speedcurve.com dns.example
+```
+
 
 Origin of the URL (includes protocol and port if defined) using %ORIGIN%
 
-`//URL being tested is https://speedcurve.com/blog
+```
+//URL being tested is https://speedcurve.com/blog
 setCookie  %ORIGIN% foo=bar
 // output: setCookie https://speedcurve.com foo=bar
 ​
 //URL being tested is https://speedcurve.com:8080/blog
 setCookie  %ORIGIN% foo=bar
-// output: setCookie https://speedcurve.com:8080 foo=bar`
+// output: setCookie https://speedcurve.com:8080 foo=bar
+```
 
 %HOST_REGEX% – Using HOST compatible with regular expressions by escaping dots
 
-`//URL being tested is https://speedcurve.com
+```
+//URL being tested is https://speedcurve.com
 setHeader  Foo: Bar  %HOST_REGEX%
-// output: setHeader Foo: Bar  speedcurve\.com`
+// output: setHeader Foo: Bar  speedcurve\.com
+```
 
 %HOSTR% – Using the final host name of the URL after following redirects
 
-`//URL being tested is https://redirect.speedcurve.com
+```
+//URL being tested is https://redirect.speedcurve.com
 setDnsName %HOSTR% dns.example
-// output: setDnsName  speedcurve.com dns.example`
+// output: setDnsName  speedcurve.com dns.example
+```
 
 %TEST_ID% – replaced with the id of the current test
 
-`// URL being tested is https://speedcurve.com
+```
+// URL being tested is https://speedcurve.com
 navigate  %URL%/?tag=%TEST_ID%
-// output: navigate https://speedcurve.com/?tag=230518_XF_3`
+// output: navigate https://speedcurve.com/?tag=230518_XF_3
+```
 
 ## 5. Command reference
 ### Navigating and Interacting with the DOM
 #### navigate
 Navigates the browser to the provided url.
 
-`// usage: navigate <url>
-navigate  https://speedcurve.com`
+```
+// usage: navigate <url>
+navigate  https://speedcurve.com
+```
 
 NOTE: there is the hard limit of 20 `navigate` and `...AndWait` (f.i. `execAndWait`, `clickAndWait` etc.) commands added to the script. Once this limit is reached, the test will fail to execute.
 
 #### click
 Triggers a click event for the identified element. This **DOES NOT** have an implied wait after the event.
 
-`// usage: click <attribute=value>
-click id=Go`
+```
+// usage: click <attribute=value>
+click id=Go
+```
 
 #### clickAndWait
 Triggers a click event for the identified element and waits for the browser activity to complete.
 
-`// usage: clickAndWait <attribute=value>
-clickAndWait  innerText=Publish`
+```
+// usage: clickAndWait <attribute=value>
+clickAndWait  innerText=Publish
+```
 
 #### selectValue
 Selects a value from a dropdown list of the element.
 
-`// usage: selectValue <attribute=value> <value>
-selectValue id=country  usa`
+```
+// usage: selectValue <attribute=value> <value>
+selectValue id=country  usa
+```
 
 #### sendClick / sendClickAndWait
-`Creates a javascript OnClick event and sends it to the indicated element.`
+Creates a javascript OnClick event and sends it to the indicated element.
 
-`// usage: sendClickAndWait  <attribute=value>
-sendClickAndWait  innerText=Send`
+```
+// usage: sendClickAndWait  <attribute=value>
+sendClickAndWait  innerText=Send
+```
 
 #### sendKeyDown / sendKeyUp / sendKeyPress (AndWait)
 Creates a javascript keyboard event (OnKeyDown, OnKeyUp, OnKeyPress) and sends it to the indicated element.
 
-`// usage: sendKeyDownAndWait  <attribute=value>    <key>
+```
+// usage: sendKeyDownAndWait  <attribute=value>    <key>
 // <key> - Key command to send (special values are ENTER, DEL, DELETE, BACKSPACE,
 //TAB, ESCAPE, PAGEUP, PAGEDOWN)
-sendKeyDownAndWait  name=user    x`
+sendKeyDownAndWait  name=user    x
+```
 
 #### setInnerHTML
 Sets the innerHTML of the given DOM element to the provided value. INCLUDES HTML formatting.
 
-`// usage: setInnerHTML  <attribute=value> <value>
-setInnerHTML  myContent %MSG%`
+```
+// usage: setInnerHTML  <attribute=value> <value>
+setInnerHTML  myContent %MSG%
+```
 
 #### setInnerText
 Sets the innerText of the given DOM element to the provided value. DOES NOT INCLUDE HTML formatting.
 
-`// usage: setInnerText  <attribute=value> <value>
-setInnerText  myContent %MSG%`
+```
+// usage: setInnerText  <attribute=value> <value>
+setInnerText  myContent %MSG%
+```
 
 #### setOPTValue
 Generates a six digit Time-Based One Time Password (TOTP) and sets the value attribute of the given DOM element to the generated value.
 
-`// usage: setOTPValue <attribute=value> <seed value>
-setOTPValue id=totpmfa  I65VU7K5ZQL7WB4E`
+```
+// usage: setOTPValue <attribute=value> <seed value>
+setOTPValue id=totpmfa  I65VU7K5ZQL7WB4E
+```
 
 Here's an example of it's use with an example TOTP page (to see the whole flow in one test remove the `logData` commands and place a `combineSteps` command at the start)
 
-`logData 0
+```
+logData 0
 navigate  https://authenticationtest.com/totpChallenge/
 setValue  id=email  totp@authenticationtest.com
 setValue  id=password pa$$w0rd
 setOTPValue id=totpmfa  I65VU7K5ZQL7WB4E
 logData 1
-clickAndWait  type=submit`
+clickAndWait  type=submit
+```
 
 #### setValue
 Sets the value attribute of the given DOM element to the provided value. Currently only "input" and "textArea" element types are supported.
 
-`// usage: setValue  <attribute=value> <value>
-setValue  name=loginId  userName`
+```
+// usage: setValue  <attribute=value> <value>
+setValue  name=loginId  userName
+```
 
 #### setValueEx
 Sets the value attribute of the given DOM element to the provided value and updates the Virtual DOM value too.
 
-`// usage: setValueEx  <attribute=value> <value>
-setValueEx  name=username demo`
+```
+// usage: setValueEx  <attribute=value> <value>
+setValueEx  name=username demo
+```
 
 Writing scripts for forms on pages that use frameworks with a Virtual DOM is verbose and can be error prone.
 
 Typically scripts have used the `exec` command with a JavaScript snippet like this to complete a form field and then fire an input event to update the VDOM.
 
-`exec  el = document.querySelector('[name="username"]'); proto = Object.getPrototypeOf(el); set = Object.getOwnPropertyDescriptor(proto, 'value').set; set.call(el, 'demo'); el.dispatchEvent(new Event('input', { bubbles: true }));`
+```
+exec  el = document.querySelector('[name="username"]'); proto = Object.getPrototypeOf(el); set = Object.getOwnPropertyDescriptor(proto, 'value').set; set.call(el, 'demo'); el.dispatchEvent(new Event('input', { bubbles: true }));
+```
 
 `setValueEx` attempts to simplify the script by populating the input field and then firing both input and change events to signal it's been updated so the VDOM updates too.
 
 In the example below the _username_ and _password_ fields are both set to the value of _demo_ without needing the JavaScript snippet.
 
-`logData 0
+```
+logData 0
 navigate  %URL%
 setValueEx  name=username demo
 setValueEx  name=password demo
 logData 1
-clickAndWait  type=submit`
+clickAndWait  type=submit
+```
 
 **This is an experimental script command**
 
-If we're happy with its reliability then we will change the main `setValue` command to have the same behaviour.
+If we're happy with its reliability then we will change the main `setValue` command to have the same behavior.
 
 #### submitForm
 Triggers a submit event for the identified form.
 
-`// usage: submitForm  <attribute=value>
-example: submitForm name=AOLLoginForm`
+```
+// usage: submitForm  <attribute=value>
+example: submitForm name=AOLLoginForm
+```
 
 #### exec
 Executes javascript.
 
-`// usage: exec  <javascript code>
-exec  window.setInterval('window.scrollBy(0,600)', 1000);`
+```
+// usage: exec  <javascript code>
+exec  window.setInterval('window.scrollBy(0,600)', 1000);
+```
 
 #### execAndWait
 Executes javascript and waits for the browser to complete any activity generated from the action. Only use this if the action will cause network activity. If the action does not cause a page transition use `exec` instead.
 
-`// usage: execAndWait <javascript code>
-execAndWait window.setInterval('window.scrollBy(0,600)', 1000);`
+```
+// usage: execAndWait <javascript code>
+execAndWait window.setInterval('window.scrollBy(0,600)', 1000);
+```
 
 NOTE: there is the hard limit of 20 `navigate` and `...AndWait` (e.g. `execAndWait`, `clickAndWait` etc.) commands added to the script. Once this limit is reached, the test will fail to execute.
 
 #### injectScript
 Queues a javascript snippet to be executed soon after the next navigation.
 
-`// usage: injectscript  <javascript code>
+```
+// usage: injectscript  <javascript code>
 injectscript  (function () { style = document.createElement('style'); style.innerHTML = "p {filter: blur(5px) !important}"; document.head.appendChild(style); })();
 // navigate to the final URL where the p elements will be blurred
-navigate https://example.com`
+navigate https://example.com
+```
 
-When there is more than one 'injectScript' command the scripts are executed in the order they're listed.
+When there is more than one `injectScript` command the scripts are executed in the order they're listed.
 
 Each script is executed only once, but the command can be repeated before later navigation steps too.
 
@@ -246,59 +300,77 @@ Valid values are:
 - 1 - Enabled (Web 2.0 - Measure until activity stops)  
 The default if not specified in the script is 1 (Enabled) Browser Support: IE, Chrome, Firefox
 
-`// usage: setABM  <mode>
-setABM  0`
+```
+// usage: setABM  <mode>
+setABM  0
+```
 
 #### setActivityTimeout
 Overrides the timeout value for the time after the last network activity before a test is considered complete (defaults to 2000 which is 2 seconds).
 
-`// usage: setActivityTimeout  <timeout in milliseconds>
-setActivityTimeout  5000`
+```
+// usage: setActivityTimeout  <timeout in milliseconds>
+setActivityTimeout  5000
+```
 
 #### setTimeout
 Overrides the timeout value for the individual script steps.
 
-`// usage: setTimeout  <timeout in seconds>
-setTimeout  60`
+```
+// usage: setTimeout  <timeout in seconds>
+setTimeout  60
+```
 
 ### Request Manipulation
 #### block
 Blocks individual requests from loading. The command matches the list of things to block against the full url of each request (including host name). Takes a space-delimited list of requests to block.
 
-`// usage: block    <block strings>
-block    adswrapper.js addthis.com`
+```
+// usage: block    <block strings>
+block    adswrapper.js addthis.com
+```
 
 #### blockDomains
 Blocks all requests from the given domains from loading. Takes a space-delimited list of full domains to block.
 
-`// usage: blockDomains    <block domains>
-blockDomains    adswrapper.js addthis.com`
+```
+// usage: blockDomains    <block domains>
+blockDomains    adswrapper.js addthis.com
+```
 
 #### blockDomainsExcept
 Blocks all requests not from one of the given domains from loading. Takes a space-delimited list of full domains to allow.
 
-`// usage: blockDomainsExcept    <allow domains>
-blockDomainsExcept    www.example.com cdn.example.com`
+```
+// usage: blockDomainsExcept    <allow domains>
+blockDomainsExcept    www.example.com cdn.example.com
+```
 
 #### setCookie
 Stores a browser cookie to be used while navigating.
 
-`// usage: setCookie <path>  <value>
+```
+// usage: setCookie <path>  <value>
 setCookie http://www.speedcurve.com zip=80212
 // setting multiple cookies for a path
-setCookie http://www.speedcurve.com TestData = Test; expires = Sat,01-Jan-2031 00:00:00 GMT`
+setCookie http://www.speedcurve.com TestData = Test; expires = Sat,01-Jan-2031 00:00:00 GMT
+```
 
 #### setDns
 Allows for overriding the IP address to be used for a host name. The override is effectively the same as populating an entry in the hosts file and will eliminate the DNS lookup times.
 
-`// usage: setDns  <host name> <IP Address>
-setDns  www.speedcurve.com  127.0.0.1`
+```
+// usage: setDns  <host name> <IP Address>
+setDns  www.speedcurve.com  127.0.0.1
+```
 
 #### setDNSName
 Allows for overriding a host name (creating a fake CNAME). Browser Support: IE, Chrome, Firefox
 
-`// usage: setDnsName  <name to override>  <real name>
-setDnsName  mark.speedcurve.com www.speedcurve.com`
+```
+// usage: setDnsName  <name to override>  <real name>
+setDnsName  mark.speedcurve.com www.speedcurve.com
+```
 
 #### setUserAgent
 Overrides the User Agent string sent by the browser.
@@ -306,8 +378,10 @@ Overrides the User Agent string sent by the browser.
 ### Caution
 You will still be using the same browser engine so you are still limited by the capabilities and behavior of that browser even if you are spoofing another browser.
 
-`// usage: setUserAgent    <user agent string>
-setUserAgent    Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3`
+```
+// usage: setUserAgent    <user agent string>
+setUserAgent    Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3
+```
 
 #### overrideHost
 Replaces the value of the Host: HTTP header for the given host with the provided replacement. It also adds a new header (x-Host:) with the original value.
@@ -321,7 +395,7 @@ Adds the specified header to every http request (in addition to the headers that
 `// usage: addHeader <header>    {filter}
 addHeader Pragma: akamai-x-cache-on`
 
-The optional filter uses a urlpattern, for example:
+The optional filter uses a url pattern, for example:
 
 `https://www.speedcurve.com/*` applies the header to all requests that start with [https://www.speedcurve.com]
 
@@ -411,7 +485,5 @@ speedcurve_removePTST 1`
 #### speedcurve_clearcerts
 Clears the OS certificate caches which causes IE to do OCSP/CRL checks during SSL negotiation if the certificates are not already cached.
 
-`// Usage: Clears certificate chache in IE
-speedcurve_clearcerts 1
-// Usage: Clears certificate chache in IE
+`// Usage: Clears certificate cache in IE
 speedcurve_clearcerts 1`

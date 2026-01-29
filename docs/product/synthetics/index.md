@@ -5,7 +5,7 @@ sidebar_position: 6
 
 # Production testing to evaluate baseline performance across pages and competitors 
 
-Embrace's Syntheticss offering allows developers to monitor performance of key pages and transactions. This includes baseline performance monitoring, monitoring of competitor sites as well as expirements running in production. 
+Embrace's Synthetics offering allows developers to monitor performance of key pages and transactions. This includes baseline performance monitoring, monitoring of competitor sites as well as experiments running in production. 
 
 ## What is a User Session?
 

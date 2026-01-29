@@ -16,7 +16,7 @@ To setup a new site, from the synthetics overview page, click on **Create Site**
 
 ![Synthetics overview dashboard displaying a table of configured sites with the Create Site button highlighted in the top right corner, allowing users to add new sites for synthetic testing](/images/synthetics/add-site.png)
 
-The site settings page is where you'll define the URLs you want to test for a given site, as well as other test settings including browsers, regions, and test recurrance. The configuration of a site is intended to be used to declare the unique web property you are testing. This includes environments you may be testing (i.e. production, staging) or other sites outside of your control, such as a competitor's site.
+The site settings page is where you'll define the URLs you want to test for a given site, as well as other test settings including browsers, regions, and test recurrence. The configuration of a site is intended to be used to declare the unique web property you are testing. This includes environments you may be testing (i.e. production, staging) or other sites outside of your control, such as a competitor's site.
 
 ![Site settings interface showing configuration options for defining test URLs, selecting browsers and regions, and setting test recurrence frequency for synthetic monitoring](/images/synthetics/site-settings.png)
 
