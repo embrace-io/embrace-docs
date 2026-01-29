@@ -11,7 +11,7 @@ You can add scripts to the URLs you test. When you edit a Site in your Settings,
 
 With synthetic scripts you're able to do all sorts of things, such as add headers, set cookies, step through a number of pages, or perform actions on a page like logging in or adding an item to a shopping cart.
 
-See the scripting guide (link) for reference and more example scripts in the  section.
+See the [scripting reference](/product/synthetics/scripting-reference.md) for example scripts and usage.
 
 ## SpeedCurve scripting caveats 
 
