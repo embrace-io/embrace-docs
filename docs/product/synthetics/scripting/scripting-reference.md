@@ -1,7 +1,7 @@
 ---
 title: Scripting Reference
 description: A reference guide for scripting synthetic tests
-sidebar_position: 3
+sidebar_position: 0
 ---
 
 ## 1. Getting started

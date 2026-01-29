@@ -1,7 +1,7 @@
 ---
 title: Test Scripting
 description: How to write scripted tests, plus some caveats you should be aware of.
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 ## What are synthetic test scripts?

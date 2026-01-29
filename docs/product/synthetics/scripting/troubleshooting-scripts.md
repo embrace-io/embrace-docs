@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting scripts
 description: Addressing common issues with test scripts
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 ## Debugging tips
