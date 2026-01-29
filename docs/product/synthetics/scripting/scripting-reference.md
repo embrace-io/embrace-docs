@@ -5,7 +5,7 @@ sidebar_position: 0
 ---
 
 ## 1. Getting started
-Before you get started, refer to the [scripting guide](./scripting-guide.md) for a review of how to add synthetic scripts to your test configuration. Here you will find the basics you need to know before writing your first script.
+Before you get started, refer to the [scripting guide](./index.md) for a review of how to add synthetic scripts to your test configuration. Here you will find the basics you need to know before writing your first script.
 
 ```
 // Comments like these are ignored
