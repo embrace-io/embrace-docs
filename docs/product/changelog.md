@@ -16,7 +16,7 @@ sidebar_position: 99
 
 - [**Updated Release Health**](https://embrace.io/blog/refreshed-release-health/): Our refreshed [Release Health](/product/release-health) page gives engineers an effective launchpad to evaluate performance across app releases, examine trends, and quickly spot regressions
 
-- [**Updated User Journeys**](/product/user-journeys.md): Updates to User Journeys make User Flows ubiquitous across the entire Embrace dashboard, while making User Flows more intuitive and interactive. Also adds flexibility with more start and end event types in User Flows.
+- [**Updated User Journeys**](/product/user-journeys/): Updates to User Journeys make User Flows ubiquitous across the entire Embrace dashboard, while making User Flows more intuitive and interactive. Also adds flexibility with more start and end event types in User Flows.
 
 ## September 2025
 
@@ -24,7 +24,7 @@ sidebar_position: 99
 
 ## July 2025
 
-- [**User Journeys**](https://embrace.io/blog/user-journeys-walkthrough/): Embrace released the first feature of our User Journeys platform initiative, [User Flows](/product/user-journeys.md), which allows engineers to define and track custom intervals of app activity.
+- [**User Journeys**](https://embrace.io/blog/user-journeys-walkthrough/): Embrace released the first feature of our User Journeys platform initiative, [User Flows](/product/user-journeys/), which allows engineers to define and track custom intervals of app activity.
 
 ## June 2025
 
