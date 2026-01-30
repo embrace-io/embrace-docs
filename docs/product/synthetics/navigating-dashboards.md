@@ -11,21 +11,21 @@ The initial view of Synthetics begins with an overview, showing the performance 
 
 ## Site Dashboard
 
-![Site-level synthetic monitoring dashboard displaying performance metrics, test results, and historical data for a single configured site on a dark background with organized sections for quick assessment of site health and test execution details](/static/images/synthetics/site-dash.png)
+![Site-level synthetic monitoring dashboard with dark background showing multiple organized sections. The dashboard displays performance metrics, recent test results, and historical trend data for a single configured site. Sections include status indicators, test execution timeline, and performance graphs arranged for quick assessment of overall site health.](/static/images/synthetics/site-dash.png)
 
-![Arrow cursor selecting a specific cell within a data table on a dark-themed dashboard. The table displays site performance metrics in a structured grid, surrounded by other dashboard elements. The environment is professional and focused, with no visible text in the cell being clicked. The tone is neutral and informative, emphasizing user interaction with dashboard data.](/static/images/synthetics/site-table-click.png)
+![Arrow cursor positioned over a specific cell in a performance metrics table on a dark-themed dashboard. The table presents site performance data in a structured grid format with columns for different metrics. Surrounding dashboard elements include summary panels and navigation controls. The professional interface emphasizes interactive data exploration.](/static/images/synthetics/site-table-click.png)
 
 ## Pages Dashboard
 
-![Page-level dashboard displaying time series performance data on dark background](/static/images/synthetics/page-dash.png)
+![Page-level dashboard with dark background displaying time series performance data. The dashboard includes line charts and graphs showing performance metrics over time, with multiple data series visualized in different colors to track performance trends and variations.](/static/images/synthetics/page-dash.png)
 
-![Arrow cursor selecting a data point on a time series chart within a page-level synthetic dashboard. The chart displays performance metrics over time on a dark background, surrounded by dashboard controls and summary panels.](/static/images/synthetics/pages-chart-click.png)
+![Arrow cursor positioned over a data point on a time series chart in a page-level synthetic dashboard. The line chart displays performance metrics over time using multiple colored lines representing different measurements. The dark background interface includes dashboard controls at the top and summary panels on the sides, demonstrating interactive data point selection.](/static/images/synthetics/pages-chart-click.png)
 
 ## Test Details
 
 
 ## Tests
 
-![Dashboard section displaying a list of completed synthetic tests arranged in rows on a dark background. Each row contains test names, status indicators, and timestamps.](/static/images/synthetics/tests-dash.png)
+![Dashboard section with dark background showing a list of completed synthetic tests in a tabular format. Each row displays the test name, status indicator showing pass or fail, execution timestamp, and duration. The organized table provides a clear view of test execution history and results.](/static/images/synthetics/tests-dash.png)
 
 
