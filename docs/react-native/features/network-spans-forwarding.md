@@ -39,6 +39,7 @@ You may then pass the proper object into the `initialize` method for starting th
 ```javascript
 // App.tsx, or the root of the application
 import {initialize} from "@embrace-io/react-native";
+import {useState} from "react";
 
 export const App = () => {
   const [isEmbraceLoaded, setIsEmbraceLoaded] = useState(false);
@@ -54,8 +55,8 @@ export const App = () => {
         },
       };
 
-      await initialize(config); // passing the config to the Embrace React Native SDK.
-      setEmbraceLoaded(true);
+      await initialize(sdkConfig); // passing the config to the Embrace React Native SDK.
+      setIsEmbraceLoaded(true);
     };
 
     init();

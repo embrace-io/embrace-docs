@@ -6,6 +6,19 @@ sidebar_position: 4
 
 # Embrace React Native SDK Changelog
 
+## 6.4.0
+
+_Jan 26, 2026_
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.15.1](/ios/changelog/#6151)
+
+- Updated iOS native Embrace SDK dependency to [version 6.15.1](/ios/changelog/#6151)
+
+:::info Important
+Be aware that this update has a behavior change on iOS ONLY. When using our OTLP exporter now, on iOS, we export spans on BOTH span start AND span end. This will result in a doubling of exported spans, but a net result of the same end data.
+:::
+
 ## 6.3.0
 
 _Nov 11, 2025_
@@ -18,7 +31,7 @@ Embrace Apple SDK Version [6.14.1](/ios/changelog/#6141)
 - Fixed/improved install and uninstall scripts
 
 :::info Important
-This version introduces new requirements for iOS projects when integrating or upgrading the Embrace React Native SDK. Please refer to the [Integration](/react-native/integration/add-embrace-sdk/?platform=ios#manually) section for more information. This is especially important if your application is on either RN 0.73 or earlier, or if it uses `react-native-flipper`.
+This version introduces new requirements for iOS projects when integrating or upgrading the Embrace React Native SDK. Please refer to the [Integration](/react-native/integration/add-embrace-sdk/#manual-setup---ios) section for more information. This is especially important if your application is on either RN 0.73 or earlier, or if it uses `react-native-flipper`.
 :::
 
 ## 6.2.1
@@ -231,7 +244,7 @@ _Jul 26, 2023_
 
 - Fixed Android install script. Now it supports new projects created with RN 0.71+.
 - Changed the way we add swazzler dependency, now it will grab the swazzler version from a file.
-  **You need to update it manually. Please visit [add Embrace SDK](/react-native/integration/add-embrace-sdk/?rn-platform=android&platform=android#manually) for more information**
+  **You need to update it manually. Please visit [add Embrace SDK](/react-native/integration/add-embrace-sdk/#manual-setup---android) for more information**
 - Fix Redux Action Tracker, it was catching any error produced in reducers
 - Updated Android native Embrace SDK dependency to 5.22.0.
 - Updated iOS native Embrace SDK dependency to 5.21.1.
