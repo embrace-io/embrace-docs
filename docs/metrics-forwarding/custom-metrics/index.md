@@ -14,6 +14,20 @@ of your system. By default, Embrace provides standard, out-of-the-box metrics by
 Custom metrics allow you to define your own time series metrics with custom labels. This feature enables you to create
 specific metrics that suit your unique needs, beyond the default metrics provided.
 
+## Data Timing and Discrepancies
+
+:::note
+Custom metrics data may differ from dashboard data. Custom metrics are computed at the end of each time window and do not include late-arriving data.
+:::
+
+Mobile data presents a unique challenge: it can be delayed due to factors such as offline devices, intermittent internet connectivity, or other disruptions. Data can arrive up to 7 days after the event actually occurred.
+
+When our system computes custom metrics, it processes data immediately after each time window closes (5 minute, hour, day). The system assumes that the available data represents the most complete and accurate snapshot at that moment. Custom metrics are calculated based on this dataset, which may exclude some delayed data that has not yet arrived.
+
+In contrast, dashboards in the Embrace platform continuously incorporate late-arriving data as it becomes available. This means that dashboard values will update over time as more complete data arrives, while custom metric values remain fixed based on the data available when the time window closed.
+
+This difference enables you to understand both the real-time state of your metrics and the fuller picture that becomes available as delayed data arrives. When comparing custom metrics with dashboard data, differences are expected for recent time windows, especially within the last 7 days.
+
 ## Get Started
 
 ### via Boards
