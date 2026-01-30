@@ -1,14 +1,14 @@
 ---
-title: Track Components
+title: Track components
 description: Track the mounting and unmounting of React Components for your React Native application using the Embrace SDK
 sidebar_position: 4
 ---
 
-# Track Components
+# Track components
 
 By default, Embrace will track native views.
 If you'd like to track when a React component is mounted and unmounted, you can do so with the `startView` helper
-available from the `@embrace-io/native-tracer-provider` package.
+available from the `@embrace-io/react-native-tracer-provider` package.
 
 The `startView` helper simply provides a Span, so it's up to you as a developer to define when a view "starts" and "ends".
 Perhaps it's when a component is mounted and unmounted, or maybe it's when a style is applied that makes the component
@@ -18,7 +18,7 @@ First get a `tracer` following the instructions from the [Traces guide](/react-n
 The method can then be used as follows:
 
 ```javascript
-import {startView} from '@embrace-io/native-tracer-provider';
+import {startView} from '@embrace-io/react-native-tracer-provider';
 
 const viewSpan = startView(tracer, 'MyView');
 

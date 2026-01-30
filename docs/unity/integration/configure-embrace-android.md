@@ -28,7 +28,7 @@ To use the latest version of the Embrace Unity SDK you must be using:
 - At least version `7.5.1` of Gradle
 - At least version `7.4.2` of the Android Gradle Plugin (classpath `com.android.tools.build:gradle`)
 
-If your version of Unity does not come with supported versions of Gradle and AGP, you may need to upgrade them. See [this page](https://docs.unity3d.com/Manual/android-gradle-overview.html) for more information. Alternatively, see the instructions on [this page](https://developers.google.com/admob/unity/gradle) regarding how to upgrade these inside Unity. Please note that in upgrading, you may have to update values in the generated template files we require as they may still point to the older values.  
+If your version of Unity does not come with supported versions of Gradle and AGP, you may need to upgrade them. See [this page](https://docs.unity3d.com/Manual/android-gradle-overview.html) for more information. Alternatively, see the instructions on [this page](https://developers.google.com/admob/unity/android) regarding how to upgrade these inside Unity. Please note that in upgrading, you may have to update values in the generated template files we require as they may still point to the older values.
 
 ## External Dependency Manager - Android Resolver
 

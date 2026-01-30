@@ -1,6 +1,6 @@
 ---
 title: Grafana Integration
-description: Learn about the Embrace API to pull data  
+description: Learn about the Embrace API to pull data
 sidebar_position: 20
 ---
 
@@ -15,13 +15,13 @@ sidebar_position: 20
 
 Follow these steps to add Prometheus as a data source in the Grafana dashboard:
 
-1. Click the "Open Menu" icon to go to the "Connections -> Data sources" page.  
+1. Click the "Open Menu" icon to go to the "Connections -> Data sources" page.
 1. Click the "Add new data source" button on the top right page and select "Prometheus".
 1. Configure it with the following fields:
    - Name: `embrace-metrics-api`.
    - Under "Connection" section, set "Prometheus server URL": `https://api.embrace.io/metrics`.
    - Under "Authentication" section, click the button "Add header":
-     - Header: `Authorization`, Value: `Bearer <YOUR_METRICS_API_TOKEN>` as your token string. For example, if your Metrics API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
+   - Header: `Authorization`, Value: `Bearer <YOUR_METRICS_API_TOKEN>` as your token string. For example, if your Metrics API token is `e2d75f07a40843f0b8a53d1e3201edba`, your token string should be `Bearer e2d75f07a40843f0b8a53d1e3201edba`.
 
    <img src={require('@site/static/images/metrics-api/grafana.png').default} alt="Grafana Data Source" />
 
@@ -45,7 +45,7 @@ The following PromQL query will provide a time series graph for total sessions f
 hourly_sessions_total{app_id="<app ID>"}
 ```
 
-You'll notice that this gives you several time series, one for each combination of app version and OS version. We can  
+You'll notice that this gives you several time series, one for each combination of app version and OS version. We can
 make these more useful by grouping by app version. Each time series now shows the total sessions grouped by app version.
 
 ```promql
@@ -64,7 +64,7 @@ You can visualize multiple app versions in the same graph by creating multiple q
 
 ## Creating Tables
 
-Add a new panel and select the Table visualization.  
+Add a new panel and select the Table visualization.
 
 <img src={require('@site/static/images/metrics-api/table_visualization.png').default} alt="Image showing Grafana timeseries visualization" />
 
@@ -78,7 +78,7 @@ Select the Transform tab and add the Reduce transform. Set Mode to "Series to ro
 
 <img src={require('@site/static/images/metrics-api/transform_series_to_rows.png').default} alt="Image showing Grafana timeseries visualization" />
 
-The table should now have the columns Field, app_version, os_version, and Total. Let’s get rid of that "Field" column.  
+The table should now have the columns Field, app_version, os_version, and Total. Let’s get rid of that "Field" column.
 
 Add a new transformation, "Organize fields". You’ll see that each column can be renamed or hidden. Click the eye icon to hide the "Field" column.
 

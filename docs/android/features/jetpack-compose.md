@@ -18,9 +18,9 @@ Requires Jetpack Compose dependency at build time and run time
 Instrumenting Jetpack Compose click events incurs a small performance penalty on a tap as it requires searching Compose's UI tree. On lower-end devices this may manifest as dropped frames.
 :::
 
-### Set Local config and Gradle plugin block
+### Set local config and Gradle plugin block
 
-To enable onClick instrumentation, You will need to modify your `embrace-config.json` [file](/android/features/configuration-file.md)
+To enable onClick instrumentation, You will need to modify your `embrace-config.json` [file](/android/configuration/configuration-file.md)
 
 ```json
 {
@@ -44,7 +44,7 @@ import TabItem from '@theme/TabItem';
 
 ```kotlin
 dependencies {
-    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
+    implementation("io.embrace:embrace-android-instrumentation-compose-tap:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
@@ -53,7 +53,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation("io.embrace:embrace-android-compose:{{ embrace_sdk_version platform="android" }}")
+    implementation("io.embrace:embrace-android-instrumentation-compose-tap:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
@@ -127,5 +127,5 @@ Column(
 ```
 
 :::warning Important
-If you are facing issues at runtime, we can turn off Jetpack Compose instrumentation remotely. Please, contact us: [support@embrace.com](mailto:support@embrace.com)
+If you are facing issues at runtime, Jetpack Compose instrumentation can be turned off remotely. Contact us: [support@embrace.com](mailto:support@embrace.com)
 :::

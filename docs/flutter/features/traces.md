@@ -8,13 +8,13 @@ sidebar_position: 2
 
 ## Overview
 
-Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
+Embrace's Traces solution gives you visibility into any app operation you'd like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. You can quickly spot bottlenecks in your app's architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
-## API Usage Examples
+## API usage examples
 
 ### Start and stop a span
 
-A span typically models the lifecycle operation in your app. You can start it, let the operation finish, then stop the span, and Embrace will record how long the span took.
+A span typically models the lifecycle of an operation in your app. You start it, let the operation finish, then stop the span, and Embrace records how long the span took.
 
 ```dart
 final span = await Embrace.instance.startSpan('my-span');
@@ -82,23 +82,23 @@ if (span != null) {
 }
 ```
 
-## Export to OpenTelemetry Collectors
+## Export to OpenTelemetry collectors
 
-To send telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) directly from your app you can setup a [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter). When configured, telemetry will be sent to these exporters as soon as they are recorded. More than one exporter of each signal can be configured, but be aware of the performance impact of sending too many network requests if that is applicable.
+To send telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) directly from your app, you can set up a [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter). When configured, telemetry is sent to these exporters as soon as it's recorded. You can configure more than one exporter of each signal, but be aware of the performance impact of sending too many network requests if that applies.
 
 :::info
-All telemetry in Embrace's Flutter SDK is routed through Embrace's Android/iOS SDKs. You should configure Android/iOS exporters before initializing the SDK in order to send Dart telemetry to your desired destination.
+All telemetry in the Embrace Flutter SDK is routed through Embrace's Android/iOS SDKs. Configure Android/iOS exporters before initializing the SDK to send Dart telemetry to your desired destination.
 :::
 
 ### Android OTel export
 
-Please follow [this guide](/android/features/traces/#export-to-opentelemetry-collectors) to setup OpenTelemetry exporters on Android.
+Follow [this guide](/android/features/traces/#export-to-opentelemetry-collectors) to set up OpenTelemetry exporters on Android.
 
 ### iOS OTel export
 
-Please follow [this guide](/ios/6x/advanced-features/opentelemetry-export.md) for details on setting up OpenTelemetry exporters on iOS.
+Follow [this guide](/ios/6x/advanced-features/opentelemetry-export.md) for details on setting up OpenTelemetry exporters on iOS.
 
-Exporters are set when the SDK is [configured](/flutter/integration/add-embrace-sdk/#ios-setup). A sample implementation might look like:
+Exporters are set when the SDK is [configured](/flutter/integration/#ios-setup). A sample implementation looks like:
 
 ```swift
 try Embrace
@@ -122,5 +122,5 @@ try Embrace
 ```
 
 :::info
-Please note the OpenTelemetry-Swift repository does not support Cocoapods, so you will be unable to import ready-made exporters directly. We recommend adding a new file that implements a Swift [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) directly, and using the ready-made exporters as reference implementations.
+The OpenTelemetry-Swift repository does not support CocoaPods, so you can't import ready-made exporters directly. We recommend adding a new file that implements a Swift [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) directly, using the ready-made exporters as reference implementations.
 :::

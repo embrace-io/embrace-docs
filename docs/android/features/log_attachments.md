@@ -1,14 +1,14 @@
 ---
-title: Log Attachments
+title: Log attachments
 description: Add attachments to your log messages to monitor production performance within your mobile app.
 sidebar_position: 18
 ---
 
-# Log Attachments
+# Log attachments
 
 ## Overview
 
-Embrace’s [Log Message API](/android/integration/log-message-api/) allows binary attachments to be added to log messages. This can be useful if you wish your log messages to contain a snapshot of your application state at a given point in time.
+Embrace’s [Log Message API](/android/integration-advanced/log-message-api/) allows binary attachments to be added to log messages. This can be useful if you wish your log messages to contain a snapshot of your application state at a given point in time.
 
 There are two ways that attachments can be added to log message: by uploading the attachment to Embrace, or by uploading the attachment to a 3rd party file host.
 

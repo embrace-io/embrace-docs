@@ -1,12 +1,12 @@
 ---
-title: Getting Started
+title: Get started
 sidebar_position: 0
 description: Learn about Embrace for the React Native platform
 ---
 
-# React Native Platform Documentation
+# React Native platform documentation
 
-## Getting Started
+## Get started
 
 This documentation is split into two sections:
 
@@ -20,6 +20,11 @@ Once you've completed that, browse through our [**Feature Reference**](/react-na
 to use the advanced features our SDK provides.
 
 You can also view our [Changelog](/react-native/changelog/).
+
+:::info
+We do not provide an API docs reference through this website. To check our API docs, refer directly to the relevant package you
+are using [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages).
+:::
 
 ## Built on OpenTelemetry
 

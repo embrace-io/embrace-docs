@@ -1,12 +1,19 @@
 # https://github.com/lycheeverse/lychee/blob/master/lychee.example.toml
 cache = true
 exclude = [
-    '^https://webhook\.site',
-    'https://discussions.unity.com/t/how-to-set-up-a-fastlane-gymfile-and-multiple-provisioning-profiles/711408',
-    'https://opentelemetry.io',
+    'https://app.datadoghq.com',
     'https://cocoapods.org',
+    'https://community.embrace.io',
+    'https://discussions.unity.com',
+    'https://github.com/embrace-io/embrace-unity-sdk/releases/download',
+    'https://help.splunk.com',
+    'https://one.eu.newrelic.com',
+    'https://one.newrelic.com',
+    'https://opentelemetry.io',
+    'https://reactnative.dev',
+    'https://us5.datadoghq.com',
     'https://www.npmjs.com',
-    'https://reactnative.dev'
+    'https://webhook.site'
 ]
 max_cache_age = "1d"
 accept = ["200", "429", "503"]

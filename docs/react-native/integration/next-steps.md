@@ -1,25 +1,24 @@
 ---
-title: Next Steps
+title: Next steps
 description: Resources to help you take your Embrace integration for your React Native application to the next level
 sidebar_position: 9
 ---
 
-# Next Steps
+# Next steps
 
-## Wrapping Up
+## Wrapping up
 
 Congratulations on completing the React Native integration guide!  
 
 If you found anything confusing or have suggestions on improving the docs,
 please don't hesitate to reach out to us at [support@embrace.com](mailto:support@embrace.com) or on Slack.
 
-## Feature Reference
+## Feature reference
 
 Embrace includes many optional advanced features that can help you figure out some of  
 the most challenging issues. Learn about these features, and how to enable them, in
 our [Feature Reference](/react-native/features/).
 
-## Best Practices
+## Best practices
 
-We offer further guides in the [Best Practices](/best-practices/) section of the docs.
-Be sure to check these out, as they'll help you make decisions that will allow you to make the most of Embrace.
+Further guides are available in the [Best Practices](/best-practices/) section of the docs. Be sure to check these out, as they'll help you make decisions that allow you to make the most of Embrace.

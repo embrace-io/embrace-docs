@@ -8,7 +8,7 @@ sidebar_position: 2
 
 _Last Updated: June 12, 2025_
 
-This Privacy Policy explains how information is collected and utilized by Embrace Mobile, Inc. (“Embrace,” “Embrace.io,” “we,” or “us”). This Privacy Policy applies to the Embrace website at https://www.embrace.io and the Embrace services (“Services”).
+This Privacy Policy explains how information is collected and utilized by Embrace Mobile, Inc. (“Embrace,” “Embrace.io,” “we,” or “us”). This Privacy Policy applies to the Embrace website at https://embrace.io and the Embrace services (“Services”).
 
 ## INFORMATION EMBRACE COLLECTS THROUGH YOUR USE OF THE SERVICE
 
@@ -22,7 +22,7 @@ We may collect non-personally identifiable information regarding the behavior an
 
 ### End User Personal Information
 
-Our customers may optionally request personal information from End Users in order to use their mobile or web applications.  Such personally identifiable information may be included in the data sent to us and linked with end user session information. End Users should therefore review the privacy policies of the mobile or web applications they use to assess the security of any personally identifiable information they disclose. To the extent we do receive any personally identifiable information, we will maintain the confidentiality of such data.
+Our customers may optionally request personal information from End Users in order to use their mobile or web applications. Such personally identifiable information may be included in the data sent to us and linked with end user session information. End Users should therefore review the privacy policies of the mobile or web applications they use to assess the security of any personally identifiable information they disclose. To the extent we do receive any personally identifiable information, we will maintain the confidentiality of such data.
 
 ### Cookies
 

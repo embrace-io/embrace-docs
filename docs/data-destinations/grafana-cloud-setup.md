@@ -14,10 +14,10 @@ sidebar_position: 4
 
 ### Pulling your Grafana Cloud API Key or Access Policy / Token
 
-Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies).  
+Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies).
 It depends on your Grafana Cloud version the information that you need to share with us.
 
-> Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/authentication-and-permissions/cloud-roles/) for more information.
+> Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/security-and-account-management/authentication-and-permissions/cloud-roles/) for more information.
 
 #### Access Policy/Token
 
@@ -46,7 +46,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 3. Click **API Keys** from the SECURITY section on the left.
 4. Click **+Add API Key**.
 5. In **API Key Name**, enter a name for your API key.
-6. In **Role**, select  `MetricsPublisher` (is only given permission to send metric, log, and trace data to Grafana Cloud).
+6. In **Role**, select `MetricsPublisher` (is only given permission to send metric, log, and trace data to Grafana Cloud).
 7. Click **Create API Key**.
 8. A token is created and displayed. Copy the token and store it in a safe place, because it will not be displayed again.
 9. Share the token with an Embrace onboarding specialist.

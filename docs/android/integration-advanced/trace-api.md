@@ -1,12 +1,12 @@
 ---
-title: Recording Traces
+title: Recording traces
 sidebar_position: 3
 description: Trigger alerts for your Android application using traces with the Embrace SDK
 ---
 
-# Recording Traces
+# Record traces
 
-Embrace's Tracing API allows you to measure the performance of an operation with a defined start and end (spans).
+You can use Embrace's tracing API to measure the performance of an operation with a defined start and end (spans).
 A simple example is shown below:
 
 ```kotlin
