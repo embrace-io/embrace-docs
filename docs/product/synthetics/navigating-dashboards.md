@@ -4,15 +4,13 @@ description: Exploring your synthetic data
 sidebar_position: 1
 ---
 
-## Synthetic Sites Overview
-The Synthetic Sites view is the primary entry point for understanding synthetic performance across all of the sites you are monitoring. It presents a site level comparison of key Web Vitals metrics: TTFB, FCP, LCP, TBT, and CLS. This view can be filtered by regions and browsers for the selected time window. 
-
-From this view, teams can quickly identify which sites are underperforming and drill down into each site to begin to isolate root cause(s).
+## Synthetic Overview
+The Synthetic Sites view is the primary entry point for understanding synthetic performance across all of the sites you are monitoring. It presents a site level comparison of key Web Vitals metrics: TTFB, FCP, LCP, TBT, and CLS. This view can be filtered by regions and browsers for the selected time window. From this view, teams can quickly identify which sites are underperforming and drill down into each site to begin to isolate root cause. Clicking on a cell continues the investigation into site performance.
 
 ![Synthetics overview dashboard with dark background displaying a data table containing site names in the first column and color-coded performance metrics across multiple columns, providing an at-a-glance view of all configured site performance](/images/synthetics/synthetics-overview.png)
 
 ## Site Dashboard
-The site overview provides a consolidated view of synthetic performance for a single site, aggregating results across all configured pages, regions, and browsers. Summary indicators highlight which Web Vitals fall outside acceptable thresholds. In this example, strong TTFB alongside poor LCP and TBT suggests that performance problems are occurring after the initial response, likely due to render-blocking resources or JavaScript execution. This view helps teams confirm whether issues are isolated or site-wide before drilling into individual pages.
+The site overview provides a consolidated view of synthetic performance for a single site, aggregating results across all configured pages, regions, and browsers. Summary indicators highlight which Web Vitals fall outside acceptable thresholds. In this example, strong TTFB alongside poor FCP, LCP, and TBT suggests that performance problems are occurring after the initial response, likely due to blocking or slow resources in the critical rendering path as well as potential issues with JavaScript execution. This view helps teams confirm whether issues are isolated or site-wide before drilling into individual pages.
 
 ![Site-level synthetic monitoring dashboard with dark background showing multiple organized sections. The dashboard displays performance metrics, recent test results, and historical trend data for a single configured site. Sections include status indicators, test execution timeline, and performance graphs arranged for quick assessment of overall site health.](/images/synthetics/site-dash.png)
 
