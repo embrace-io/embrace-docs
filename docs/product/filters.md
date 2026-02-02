@@ -108,7 +108,7 @@ Each filter table in this page uses the same columns:
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
 | Country ISO<br /><code class="filters-table__key">country</code> | Device's country as a two letter ISO country code. | String | — |
-| Device Type<br /><code class="filters-table__key">device_type</code> | Type of device (e.g., mobile, tablet). | Choice (String) | Choices: `desktop`, `mobile`, `tablet` |
+| Device Type<br /><code class="filters-table__key">device_type</code> | Type of device (e.g., mobile, tablet). | Choice (String) | Choices: `desktop`, `mobile`, `tablet`, `unknown` |
 | Device Type<br /><code class="filters-table__key">model_type</code> | Type/Category of the device model. | String | — |
 | Jailbroken<br /><code class="filters-table__key">jailbroken</code> | Whether or not the device running an app is jailbroken. | Boolean | — |
 | Js Patch<br /><code class="filters-table__key">js_patch</code> | JavaScript patch version. | String | — |
