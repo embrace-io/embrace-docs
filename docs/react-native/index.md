@@ -21,6 +21,11 @@ to use the advanced features our SDK provides.
 
 You can also view our [Changelog](/react-native/changelog/).
 
+:::info
+We do not provide an API docs reference through this website. To check our API docs, refer directly to the relevant package you
+are using [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages).
+:::
+
 ## Built on OpenTelemetry
 
 The React Native SDK has been built to support and extend [OpenTelemetry](https://opentelemetry.io) for mobile. All the

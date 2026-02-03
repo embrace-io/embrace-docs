@@ -11,7 +11,7 @@ Make sense of all your application's requests with the Networking page.
 
 Embrace's SDKs provide automatic tracking of all network requests.
 
-In the dashboard, developers can see a comprehensive view of network requests, allowing them to assess the performance of each request and its impact on your users. Developers can:
+In the dashboard, you can see a comprehensive view of network requests, allowing you to assess the performance of each request and its impact on your users. You can:
 
 - [Monitor network calls](/product/network/network-monitoring.md).
 - [Group network requests by path](/product/network/network-grouping-rules.md) to dig deeper into correlated issues.
@@ -19,7 +19,7 @@ In the dashboard, developers can see a comprehensive view of network requests, a
 
 ## Learn more
 
-This walkthrough video will show you how developers make sense of networking in Embrace's dashboard:
+This walkthrough video will show you how you make sense of networking in Embrace's dashboard:
 
 <div>
     <iframe width="660" height="415" src="https://www.youtube.com/embed/3FR3dRDxZVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
