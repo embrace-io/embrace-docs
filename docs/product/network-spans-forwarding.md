@@ -58,7 +58,7 @@ Attributes:
 - emb.app_id: "abcde"
 - emb.app_version: "2.2.0"
 - emb.country_iso: "US"
-- emb.dashboard_session: "https://dash.io/app/abcde/grouped_sessions/day/45919F47E2AC4E0BA074110A6414F083/FEC3F288397343E9BC2F77870F01965A@/FEC3F288397343E9BC2F77870F01965A"
+- emb.dashboard_session: "https://dash.embrace.io/app/abcde/grouped_sessions/day/45919F47E2AC4E0BA074110A6414F083/FEC3F288397343E9BC2F77870F01965A@/FEC3F288397343E9BC2F77870F01965A"
 - emb.device_model: "arm64"
 - emb.device_id: "45919F47E2AC4E0BA074110A6414F083"
 - emb.os_version: "26.1"
