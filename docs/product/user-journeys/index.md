@@ -3,17 +3,6 @@ title: User Journeys
 sidebar_position: 6
 ---
 
-## :tada: What's New
-
-We've heard your feedback! Beginning in October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
-
-- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/metrics-forwarding/custom-metrics/#get-started).
-- More options for start and end events in User Flows.
-- Better User Flow visualization markers in the [User Timeline](/product/sessions/user-timeline.md).
-- User Flow filters on all Issues pages and on the Sessions page.
-
----
-
 # User Journeys
 
 With Embrace’s User Journeys feature, you can move beyond simple funnel analysis and gain deeper insights into how users experience your application. User Journeys allow engineering teams to track and analyze all the events in a journey that a user takes, providing valuable data on performance impacts and behavioral trends.
@@ -45,7 +34,8 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 - 10:02 — "Breadcrumb A" occurs.
 - 10:03 — "Breadcrumb B" occurs.
 
-   **Result**
+  **Result**
+
 - "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
 - "User Flow B" ends with the outcome **Complete**.
 

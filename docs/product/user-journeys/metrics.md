@@ -43,7 +43,7 @@ The percentage of User Flows that were abandoned because the user exited the app
 
 ### User Flow Abandoned Timeout Percentage
 
-The percentage of User Flows that were abandoned because they exceeded the configured timeout duration. The timeout is set when creating a User Flow and must be less than 5 minutes.
+The percentage of User Flows that were abandoned because they exceeded the configured timeout duration. The default timeout is 5 minutes. You can optionally set a timeout less than 5 minutes when you create a User Flow.
 
 ### User Flow Abandoned New User Flow Started Percentage
 
