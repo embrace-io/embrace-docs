@@ -283,6 +283,7 @@ Currently, domain patterns apply to all enabled destinations. All destinations r
 **How do I know if network spans forwarding is working?**
 
 You can validate your configuration in two ways:
+
 1. Use the **Test Connection** feature on your data destination configuration page to send a test payload
 2. Check your observability platform for incoming span data within 10-15 minutes
 
