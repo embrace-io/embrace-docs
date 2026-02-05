@@ -50,7 +50,7 @@ Your app must be running a minimum SDK version to use network spans forwarding:
 | Web | 2.2.0+ | Supported |
 | React Native | iOS/Android versions | Supported |
 | Flutter | iOS/Android versions | Supported |
-| Unity | - | Planned for 2026 |
+| Unity | - | Not yet supported |
 
 ### Data destination requirements
 
@@ -77,7 +77,7 @@ The Network Spans Forwarding settings page provides organization-level configura
 2. If you don't have any data destinations configured yet, click **Edit Destinations** to add and configure your destinations
 3. Under **Apps**, select which apps should forward network spans
 4. Under **Domains**, add domain patterns for the APIs you want to forward (you can use exact matches or regex patterns)
-5. Configure your sampling rates under **Spans %** (default is 1% for production apps, 100% for development apps)
+5. Default sampling rates are set to 1% for production apps and 100% for development apps. To adjust these rates, contact [support@embrace.io](mailto:support@embrace.io)
 6. Click **Save and Enable** to activate network spans forwarding
 
 <img src={require('@site/static/images/NSF > Settings Integrations.png').default} alt="Network Spans Forwarding settings in Integrations tab" />
@@ -109,7 +109,7 @@ You can quickly enable network spans forwarding for a specific domain while view
 The banner disappears once the domain is configured and actively forwarding spans.
 
 :::info First-time setup
-If this is your first time enabling network spans forwarding, the onboarding modal will walk you through all necessary steps, including adding a data destination and verifying your SDK version.
+If this is your first time enabling network spans forwarding, the onboarding modal will walk you through all necessary steps.
 :::
 
 ## Configure domain patterns
@@ -195,7 +195,6 @@ If you configured `api.example.com` as an exact match, requests to `API.example.
 The enable button appears only when all prerequisites are met:
 
 - You have an Enterprise plan or trial account
-- Your app meets the minimum SDK version
 - You have at least one data destination configured
 - The domain isn't already configured
 - Your app isn't a Unity app (not yet supported)
