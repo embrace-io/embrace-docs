@@ -5,7 +5,7 @@ sidebar_position: 100
 
 # Network spans forwarding
 
-Diagnosing network errors doesn't need to be an opaque process with finger-pointing between mobile and backend teams. Network spans forwarding sends your network telemetry data to third-party observability platforms, letting you trace every network call from your mobile or web app to your backend systems for complete end-to-end visibility.
+Diagnosing network errors doesn't need to be an opaque process with finger-pointing between teams. Network spans forwarding sends your network telemetry data to third-party observability platforms, letting you trace every network call from your mobile or web app to your backend systems for complete end-to-end visibility.
 
 <div>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/jJVlc8F89Qo?si=-udHrlujEMiTsOuV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -19,7 +19,7 @@ Embrace automatically adds a unique identifier to **every** network request your
 
 These traceparent identifiers automatically propagate through the traces products of Grafana Cloud, Honeycomb, Datadog, New Relic, Chronosphere, and other observability platforms. You can use the [`trace-id`](https://www.w3.org/TR/trace-context-1/#examples-of-http-traceparent-headers) portion of the traceparent to find your forwarded traces in your destination product.
 
-You can configure network spans forwarding yourself through the Embrace dashboard. The configuration is managed at the organization level, so domain patterns and settings are shared across all your data destinations. Once enabled, the configuration is applied remotely in the Embrace SDKs, so you don't need to add any client-side instrumentation.
+You can configure network spans forwarding yourself through the Embrace dashboard. The configuration is managed at the organization level for the apps with NSF enabled, so domain patterns and settings are shared across all your data destinations. Once enabled, the configuration is applied remotely in the Embrace SDKs, so you don't need to add any client-side instrumentation.
 
 ### Forwarding conditions
 
@@ -29,10 +29,6 @@ Network spans are forwarded to your observability platforms when **all three** c
 2. **Your app has network spans forwarding enabled** - You enable NSF for the apps you want to monitor
 3. **The request domain matches your configured patterns** - You specify which API domains to forward (for example, `api.example.com` or `.*\.stripe\.com`)
 
-:::tip Local development domains
-Localhost addresses (`localhost`, `127.0.0.1`, `0.0.0.0`, `::1`, `*.local`) are automatically allowed and don't require configuration.
-:::
-
 ## Before you begin
 
 ### Plan requirements
@@ -41,7 +37,7 @@ Network spans forwarding is available for:
 - Enterprise plans
 - Trial accounts (self-signup, managed, and internal use)
 
-If you're on a Pro or Free plan, you can request an Enterprise upgrade from the Network Spans Forwarding settings page.
+If you're on a Pro or Free plan, please contact support at [support@embrace.io](mailto:support@embrace.io) to upgrade to Enterprise.
 
 ### SDK version requirements
 

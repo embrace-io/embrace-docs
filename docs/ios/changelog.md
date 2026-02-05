@@ -432,7 +432,7 @@ This version has known issues and should not be used
 
 - Adds automatic instrumentation for `WKWebView` Web Views.
 - Adds `Embrace.flush(_ span: Span)` method to manual persist changes that occur to a long running Span.
-- Adds support for [Network Span Forwarding](https://embrace.io/docs/product/network-spans-forwarding/).
+- Adds support for [Network Span Forwarding](https://embrace.io/docs/data-forwarding/network-spans-forwarding/).
 - Support for receiving Firebase Crashlytics crash reports in the Embrace dashboard as well as the Firebase dashboard.
 
 ## 6.0.0
