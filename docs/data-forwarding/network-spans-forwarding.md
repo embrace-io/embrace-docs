@@ -34,6 +34,7 @@ Network spans are forwarded to your observability platforms when **all three** c
 ### Plan requirements
 
 Network spans forwarding is available for:
+
 - Enterprise plans
 - Trial accounts (self-signup, managed, and internal use)
 
@@ -98,6 +99,7 @@ You can quickly enable network spans forwarding for a specific domain while view
 2. Look for the **Network Spans Forwarding** banner
 3. Click **Enable Network Spans Forwarding**
 4. If you haven't completed the prerequisites, an onboarding modal appears with a checklist to guide you through:
+
    - Setting up a data destination
    - Verifying your SDK version meets requirements
    - Configuring your first domain
@@ -127,6 +129,7 @@ Use exact matching when you want to forward spans for a specific domain only. Th
 Use regex patterns when you need flexible matching across multiple subdomains or dynamic URLs.
 
 **Examples**:
+
 - `.*\.stripe\.com` matches any Stripe subdomain (`api.stripe.com`, `checkout.stripe.com`)
 - `^prod-[0-9]+\.service\.com$` matches numbered production services
 
@@ -153,6 +156,7 @@ After enabling network spans forwarding, you can verify that Embrace is successf
 4. Embrace sends a test payload to verify the configuration
 
 A successful test confirms that:
+
 - Your API credentials are correct
 - The destination endpoint is reachable
 - Data is flowing to your observability platform
@@ -174,14 +178,17 @@ If you don't see data after 10-15 minutes, check the troubleshooting section bel
 If your network spans aren't appearing in your observability platform, check these conditions in order:
 
 **1. Is the data destination enabled?**
+
 - Go to **Settings** → **Network Spans Forwarding**
 - Verify your destination appears in the enabled destinations list
 
 **2. Is your app enabled?**
+
 - Check that your app is listed in the enabled apps section
 - Verify you're testing with the correct app
 
 **3. Does the domain match your patterns?**
+
 - Review your configured domain patterns
 - Test that your API domain matches at least one pattern
 - Remember that exact matches are case-sensitive
@@ -210,10 +217,12 @@ These addresses are used for local development and internal networks, so they do
 ### Domain pattern isn't matching
 
 **For exact matches:**
+
 - Verify the domain matches exactly, including case
 - Check for extra characters like ports (`:8080`) or paths (`/api/v1`)
 
 **For regex patterns:**
+
 - Ensure your pattern uses valid regex syntax
 - Test your pattern includes the necessary regex metacharacters (`\`, `^`, `$`, `.`, `*`, `+`, `?`, `()`, `[]`, `{}`, `|`)
 - Remember to escape special characters (for example, `\.` to match a literal period)
