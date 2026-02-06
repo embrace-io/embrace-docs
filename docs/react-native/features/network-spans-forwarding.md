@@ -5,11 +5,11 @@ sidebar_position: 10
 
 # Network spans forwarding
 
-For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/product/network-spans-forwarding/).  
+For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/data-forwarding/network-spans-forwarding/).
 
 ## Enablement
 
-Once all requirements described in [Network Spans Forwarding](/product/network-spans-forwarding/#enable-network-spans-forwarding) are met (*local configuration*), the feature will be set up by an integrations specialist who will reach out to confirm details (*remote configuration*).
+Once all requirements described in [Network Spans Forwarding](/data-forwarding/network-spans-forwarding/#enable-network-spans-forwarding) are met (*local configuration*), the feature will be set up by an integrations specialist who will reach out to confirm details (*remote configuration*).
 At this point everything should be working on iOS. For Android one additional configuration is required in `android/app/src/main/embrace-config.json` placed in the Android folder. This feature **is not** enabled by default for this Platform but you can turn this ON by adding the `enable_network_span_forwarding` attribute:
 
 ```json

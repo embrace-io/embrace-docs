@@ -17,7 +17,7 @@ Embrace supports forwarding different types of telemetry data:
 
 Export aggregated metrics (crashes, sessions, user engagement, etc).
 
-### [Network Spans Forwarding](/product/network-spans-forwarding.md)
+### [Network Spans Forwarding](/data-forwarding/network-spans-forwarding.md)
 
 Export network request as spans with w3c traceparent headers, enabling distributed tracing between your mobile app and
 backend services.
@@ -27,7 +27,7 @@ backend services.
 Embrace integrates with the following observability platforms. Each platform supports different types of data
 forwarding:
 
-| Platform                                                   | [Metrics](/metrics-forwarding/) | [Network Spans](/product/network-spans-forwarding.md) | Integration Guide                                        |
+| Platform                                                   | [Metrics](/metrics-forwarding/) | [Network Spans](/data-forwarding/network-spans-forwarding.md) | Integration Guide                                        |
 |------------------------------------------------------------|---------------------------------|-------------------------------------------------------|----------------------------------------------------------|
 | [Chronosphere](/data-destinations/chronosphere-setup.md)   | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/chronosphere-setup.md)  |
 | [Datadog](/data-destinations/data-dog-setup.md)            | ✓                               | ✓                                                     | [Setup Guide](/data-destinations/data-dog-setup.md)      |
