@@ -7,7 +7,7 @@ sidebar_position: 3
 
 ## Exporting Traces via Data Destinations
 
-Spans for Network requests can be exported as part of [Network Span Forwarding](/product/network-spans-forwarding.md).
+Spans for Network requests can be exported as part of [Network Span Forwarding](/data-forwarding/network-spans-forwarding.md).
 
 ## Exporting Traces to OpenTelemetry Collectors
 

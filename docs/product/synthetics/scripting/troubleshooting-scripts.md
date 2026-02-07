@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Debugging tips
 
-- **Tabs** - Scripts should be tab delimited with only some options accepting spaces between values. This is often the main cause of issues, so check your script in an IDE with invisible characters shown to ensure the formatting is correct**.**
+- **Tabs** - Scripts should be tab delimited with only some options accepting spaces between values. This is often the main cause of issues, so check your script in an IDE with invisible characters shown to ensure the formatting is correct.
 
 - **Hidden errors** - Many scripts use **"logData 0"** to hide steps. If you're having issues try commenting out the **"logData 0"** command so that you can identify where in the script the test is failing (via Detailed Results).
 
