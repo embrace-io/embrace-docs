@@ -25,8 +25,8 @@
     "lychee": "^0.2.12",
     "prism-react-renderer": "^2.4.1",
     "pushfeedback-react": "^0.1.76",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "^3.9.2",
