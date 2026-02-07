@@ -3,17 +3,6 @@ title: User Journeys
 sidebar_position: 6
 ---
 
-## :tada: What's New
-
-We've heard your feedback! Beginning in October 2025, we are adding a series of features to allow User Flows to be more flexibly built and used contextually throughout the dash.
-
-- User Flows data in [Custom Dashboards](/product/boards/custom-dashboards.md), [Alerts](/product/alerting.md), and [Custom Metrics](/metrics-forwarding/custom-metrics/#get-started).
-- More options for start and end events in User Flows.
-- Better User Flow visualization markers in the [User Timeline](/product/sessions/user-timeline.md).
-- User Flow filters on all Issues pages and on the Sessions page.
-
----
-
 # User Journeys
 
 With Embrace’s User Journeys feature, you can move beyond simple funnel analysis and gain deeper insights into how users experience your application. User Journeys allow engineering teams to track and analyze all the events in a journey that a user takes, providing valuable data on performance impacts and behavioral trends.
@@ -45,7 +34,8 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 - 10:02 — "Breadcrumb A" occurs.
 - 10:03 — "Breadcrumb B" occurs.
 
-   **Result**
+  **Result**
+
 - "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
 - "User Flow B" ends with the outcome **Complete**.
 
@@ -53,18 +43,18 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 
 ### Outcomes
 
-There are different possibles outcomes related to a "User Flow" that it's important to understand.
+There are different possible outcomes for a User Flow:
 
-- **Completed:** User Flow made from the Start Event to the End Event inside the time threshold and without exiting the app.
-- **Error:** User Flow made the Start Event but ended in an error.
-  - **Android/iOS**: It happened a "Crash" before the end event.
-  - **Web**: Coming soon, it happened an "Exception" before the end event.
-- **Abandoned:** User Flow made the Start Event but didn't reach the End Event.
-  - **New User Flow Started**: it happened a new Start Event before the end event.
+- **Completed:** The User Flow progressed from the Start Event to the End Event within the configured timeout and without exiting the app.
+- **Error:** The User Flow started but ended in an error.
+  - **Android/iOS**: A crash occurred before the End Event.
+  - **Web**: An exception occurred before the End Event (coming soon).
+- **Abandoned:** The User Flow started but didn't reach the End Event.
+  - **New User Flow Started**: A new Start Event occurred before the End Event.
   - **App Exit**:
-    - **Android/iOS**: the customer exited the application.
-    - **Web**: it's not possible.
-  - **Timeout**: it exceeded the timeout configured.
+    - **Android/iOS**: The user exited the application.
+    - **Web**: Not applicable.
+  - **Timeout**: The User Flow exceeded the configured timeout.
 
 ### Start and End Events
 
