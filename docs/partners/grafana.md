@@ -25,4 +25,4 @@ See the [setup docs](/metrics-forwarding/metrics-api/grafana-integration/) for m
 
 ### Network Spans Forwarding
 
-[Network Span Forwarding](/product/network-spans-forwarding/) is an end-to-end network tracing feature offered by Embrace and Grafana. With this feature enabled, you can trace the result of a networking request from the mobile device to your web service, with rich detail in both the Embrace dashboard and Grafana Cloud. The [w3c traceheader](https://www.w3.org/TR/trace-context-1/#traceparent-header) connects networking requests in your web service to activity in your mobile app.
+[Network Span Forwarding](/data-forwarding/network-spans-forwarding/) is an end-to-end network tracing feature offered by Embrace and Grafana. With this feature enabled, you can trace the result of a networking request from the mobile device to your web service, with rich detail in both the Embrace dashboard and Grafana Cloud. The [w3c traceheader](https://www.w3.org/TR/trace-context-1/#traceparent-header) connects networking requests in your web service to activity in your mobile app.

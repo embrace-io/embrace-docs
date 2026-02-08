@@ -173,7 +173,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       description:
         "Automatically add a unique identifier to every network request your app makes.",
       icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/product/network-spans-forwarding",
+      linkTo: "/data-forwarding/network-spans-forwarding",
     },
     {
       title: "Custom Dashboards",
