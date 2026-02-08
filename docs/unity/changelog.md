@@ -1,10 +1,22 @@
 ---
-title: Unity SDK Changelog
-description: Changelog for the Unity Embrace SDK
+title: Changelog
+description: Changelog for the Embrace Unity SDK
 sidebar_position: 4
 ---
 
-# Unity SDK Changelog
+# Embrace Unity SDK Changelog
+
+## 2.8.1
+
+*November 25, 2025*
+
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
+Embrace Apple SDK Version: [6.15.1](https://embrace.io/docs/ios/changelog/#6141)
+
+- Upgraded Embrace Apple SDK version to 6.15.1
+- Removed broken reference to `getSessionProperties()`; it is now a no-op and marked as deprecated.
+- Patch addressing potential hang on iOS regarding `SpanRepository`
+- File patches addressing extraneous files being packaged into `npm pack`/`npm publish`
 
 ## 2.8.0
 

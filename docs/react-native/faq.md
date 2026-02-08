@@ -1,16 +1,14 @@
 ---
-title: React Native FAQ
+title: FAQ
 description: Frequently asked questions about the React Native Embrace SDK
 sidebar_position: 3
 ---
 
-# React Native FAQ
+# Embrace React Native SDK FAQ
 
-Here are a list of questions we commonly receive along with their answers.
-If you don't see your question here, or would like more clarification on one please reach out to use on Slack
-or email us at [support@embrace.com](mailto:support@embrace.com).
+Here is a list of frequently asked questions and their answers. If you don't see your question here, or would like more clarification on one, reach out on Slack or email [support@embrace.com](mailto:support@embrace.com).
 
-## Common Questions
+## Common questions
 
 ### **How do I support Android API levels < 26?**
 
@@ -62,7 +60,7 @@ Yes. We link all sessions to that user from the past and in the future. Search b
 
 Yes, we make the Embrace ID available to you via our SDK. See [these docs](/react-native/features/session-metadata/#current-device-id) for more details.
 
-## Network Requests
+## Network requests
 
 ### **Why are my API calls not displaying in the dashboard?**
 

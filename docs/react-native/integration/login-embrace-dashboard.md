@@ -1,12 +1,12 @@
 ---
-title: Login to the Embrace Dashboard
+title: Log in to the Embrace dashboard
 description: Login to the Embrace dashboard to get started with your React Native integration
 sidebar_position: 2
 ---
 
-# Getting Started with the Embrace Dashboard
+# Getting started with the Embrace dashboard
 
-## Logging In
+## Logging in
 
 Before being able to integrate, you'll need to create an account on the Embrace
 dashboard so you can access your app ID and API token. Open a browser and
@@ -30,9 +30,19 @@ Take note of the app ID and API token, as you'll need those when integrating the
 Embrace SDK with your app.
 :::
 
-<img src={require('@site/static/images/android-integration.png').default} />
+<img src={require('@site/static/images/rn-android-integration.png').default} />
 
-Now we are ready to add the SDK to your app.
+<img src={require('@site/static/images/rn-ios-integration.png').default} />
+
+Create **separate apps** in the Embrace dashboard for each platform:
+
+- One Android App :: One Android App ID
+- One iOS App :: One iOS App ID
+
+This setup allows us to have platform-specific SDK configuration as well as separate data streams.
+
+At the end of the day you would have two app ids (one for Android and another one for iOS if integrating both).
+Once we have all of the relevant apps and app IDs, we are ready to add the SDK to your app.
 
 ## Use without an Embrace account
 
@@ -44,7 +54,7 @@ For Android both values can be omitted in the `embrace-config.json` file. For mo
 
 ### iOS
 
-For iOS the **appId** can be ommited as well when the SDK is initialized and configured through the code.
+For iOS the **appId** can be omitted as well when the SDK is initialized and configured through the code.
 
 :::info SDK initialized in the Native side
 If you already have the React Native Embrace SDK initialized in the Native Side or if you are planning to run the install scripts you would need to tweak manually both the Android/iOS sides.

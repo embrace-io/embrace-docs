@@ -10,14 +10,14 @@ sidebar_position: 4
 
 - Have an active Grafana Cloud account.
 
-## Configure integration
+## Configuration
 
 ### Pulling your Grafana Cloud API Key or Access Policy / Token
 
-Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies).  
+Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies).
 It depends on your Grafana Cloud version the information that you need to share with us.
 
-> Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/authentication-and-permissions/cloud-roles/) for more information.
+> Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/security-and-account-management/authentication-and-permissions/cloud-roles/) for more information.
 
 #### Access Policy/Token
 
@@ -46,7 +46,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 3. Click **API Keys** from the SECURITY section on the left.
 4. Click **+Add API Key**.
 5. In **API Key Name**, enter a name for your API key.
-6. In **Role**, select  `MetricsPublisher` (is only given permission to send metric, log, and trace data to Grafana Cloud).
+6. In **Role**, select `MetricsPublisher` (is only given permission to send metric, log, and trace data to Grafana Cloud).
 7. Click **Create API Key**.
 8. A token is created and displayed. Copy the token and store it in a safe place, because it will not be displayed again.
 9. Share the token with an Embrace onboarding specialist.
@@ -64,7 +64,7 @@ It depends on your Grafana Cloud version the information that you need to share 
 ## Selecting the correct data source for Embrace Metrics
 
 :::tip
-If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this [guide](/embrace-api/grafana_integrations.md#setting-up-embrace-as-a-data-source).
+If you are using the Embrace Metrics API, ensure that you configure Grafana to treat the Embrace Metrics API as a data source, rather than setting up your own Prometheus instance. You can reference this [guide](/metrics-forwarding/metrics-api/grafana-integration/#setting-up-embrace-as-a-data-source).
 :::
 
 Embrace provides two main options for viewing metrics within Grafana: using the **Embrace Metrics API** (pull method) or setting up a **Data Destination** (push method).
@@ -103,7 +103,7 @@ Unsupported options:
 - The following aggregations are ignored when Embrace generates the dashboard backlink:
   - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_attribute_value`, `root_span_duration_bucket`,
   `session_property_value`, `status_code`, `tag_value`.
-- [Top N](/embrace-api/supported_metrics_and_queries/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations that are converted:
+- [Top N](/metrics-forwarding/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations that are converted:
   - `device_model` converted to `model_market_name` (Model Name).
   - `top_n_domain` converted to `domain`.
   - `top_n_market_name` converted to `model_market_name` (Model Name).

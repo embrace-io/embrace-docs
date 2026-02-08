@@ -1,10 +1,32 @@
 ---
-title: iOS/tvOS SDK Changelog
-description: Changelog for the iOS Embrace SDK
-sidebar_position: 4
+title: Changelog
+description: Changelog for the Embrace Apple SDK
+sidebar_position: 6
 ---
 
-# iOS/tvOS SDK Changelog
+# Changelog
+
+## 6.16.0
+
+*Jan 27, 2026*
+
+- Fixes
+  - Fixed iOS 16.4 simulator crashing.
+  - Fixed capturing invalid startup spans.
+  - Disabled MetricKit on macOS until further updates to prevent issues.
+- Improvements
+  - Added preliminary watchOS Support.
+  - Added OTel attribute os.name to Logs.
+  - Added remote configurable limit for Tap collection.
+  - Added ability to pass a child collector to SingleLogRecordProcessor.
+  - Re-introduced XCFramework generation.
+
+## 6.15.1
+
+*Nov 19, 2025*
+
+- Fixes
+  - Fixed crash on iOS 16.4 simulators.
 
 ## 6.15.0
 
@@ -410,7 +432,7 @@ This version has known issues and should not be used
 
 - Adds automatic instrumentation for `WKWebView` Web Views.
 - Adds `Embrace.flush(_ span: Span)` method to manual persist changes that occur to a long running Span.
-- Adds support for [Network Span Forwarding](https://embrace.io/docs/product/network-spans-forwarding/).
+- Adds support for [Network Span Forwarding](/data-forwarding/network-spans-forwarding/).
 - Support for receiving Firebase Crashlytics crash reports in the Embrace dashboard as well as the Firebase dashboard.
 
 ## 6.0.0
@@ -1120,7 +1142,7 @@ This version has known issues and should not be used
 
 *Sep 9, 2020*
 
-- Fix blocked downloads when using expo +  flex for debugging
+- Fix blocked downloads when using expo + flex for debugging
 
 ## 5.0.8
 

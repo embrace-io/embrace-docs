@@ -152,10 +152,9 @@ If you don’t see symbolicated crashes while using Proguard, reach out to us on
 
 ## Symbolication with CodePush
 
-If you use [App Center CodePush](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/) or any other service to deploy OTA (over the air) updates,
-you'll need to upload those source maps to Embrace using the upload script that ships with the iOS SDK.
+If you use a service to deploy OTA (over the air) updates, you'll need to upload those source maps to Embrace using the upload script that ships with the iOS SDK.
 
-For CodePush, you'll need to generate the bundle and source map to be uploaded.
+For App Center CodePush, you'll need to generate the bundle and source map to be uploaded.
 
 ```shell-session
 appcenter codepush release-react -a MyApp --output-dir ./build --sourcemap-output ./map

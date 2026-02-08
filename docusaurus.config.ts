@@ -393,6 +393,38 @@ const config: Config = {
             from: "/android/features/tracing",
           },
           {
+            to: "/android/integration",
+            from: "/android/integration/integration-steps",
+          },
+          {
+            to: "/android/integration",
+            from: "/android/integration/login-embrace-dashboard",
+          },
+          {
+            to: "/android/integration",
+            from: "/android/integration/session-reporting",
+          },
+          {
+            to: "/android/legacy-integration/crash-reporting/",
+            from: "/android/integration/crash-reporting/",
+          },
+          {
+            to: "/android/legacy-integration/log-message-api/",
+            from: "/android/integration/log-message-api/",
+          },
+          {
+            to: "/android/legacy-integration/breadcrumbs/",
+            from: "/android/integration/breadcrumbs/",
+          },
+          {
+            to: "/android/legacy-integration/add-embrace-sdk/",
+            from: "/android/integration/add-embrace-sdk/",
+          },
+          {
+            to: "/android/legacy-integration/next-steps/",
+            from: "/android/integration/next-steps/",
+          },
+          {
             to: "/flutter/features/traces",
             from: "/flutter/features/tracing",
           },
@@ -452,6 +484,22 @@ const config: Config = {
             to: "/data-destinations/splunk/",
             from: "/code/da-unexpected-input-splunk-credentials",
           },
+          {
+            to: "/metrics-forwarding/#standard-metrics",
+            from: "/embrace-api/supported_metrics_and_queries/",
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/",
+            from: "/embrace-api/"
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/grafana-integration",
+            from: "/embrace-api/grafana_integrations"
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/code-samples",
+            from: "/embrace-api/code_samples"
+          }
         ],
       },
     ],

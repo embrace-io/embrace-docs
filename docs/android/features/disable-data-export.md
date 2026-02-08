@@ -9,7 +9,7 @@ sidebar_position: 16
 If a user opts out of data collection and the Embrace SDK is already initialized you can stop data export with `disable()`:
 
 ```kotlin
-Embrace.getInstance().disable()
+Embrace.disable()
 ```
 
 This prevents the SDK from sending data to Embrace's servers or any configured OTel exporters. It will also delete any persisted data that Embrace has captured.
@@ -20,6 +20,6 @@ Once a user opts out of data collection you should save this preference in a sol
 
 ```kotlin
 if (embraceEnabled) { // boolean value read from your storage solution
-    Embrace.getInstance().start(this)
+    Embrace.start(this)
 }
 ```

@@ -10,7 +10,26 @@ Because the 6.x iOS SDK is built on OpenTelemetry, it has the ability to export 
 
 To send traces and logs from the SDK to your collector or vendor of choice, you will need to configure the SDK with an exporter capable of sending OTel signals to that destination. This will be done in the creation of the [`Embrace.Options`](/ios/6x/getting-started/configuration-options.md), by adding an [`OpenTelemetryExport`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/OpenTelemetryExport.swift).
 
+Here is an example of how you can initialize the Embrace SDK to only capture events and forward them to your custom Span and Log Exporters without the data ever hitting our backend:
+
+```swift
+try? Embrace
+    .setup(
+        options: Embrace.Options(
+            export: OpenTelemetryExport(
+                spanExporter: myCustomSpanExporter,
+                logExporter: myCustomLogRecordExporter
+            )
+        )
+    )
+    .start()
+```
+
+In this scenario, an App ID isn't even needed which means you don't even need to register to Embrace in order to use the SDK. All Embrace SDK features are available, the only difference is you'll need to handle the data yourself.
+
 ## Direct Exporters
+
+You can also opt to use Embrace as normal, sending the data to your Embrace dashboard, and also provide your own custom exporter for us to forward in parallel all the events being exported so you can handle them as you please.
 
 Some collectors have built or presently support direct export of traces or logs in Swift. In theory, any implementation of [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) that can point to the location of the collector should be able to send, respectively, spans and logs.
 
@@ -20,7 +39,7 @@ The OpenTelemetry-Swift repository lists [`publicly-available exporters`](https:
 try? Embrace
     .setup(
         options: Embrace.Options(
-            appId: "AppID",
+            appId: "your 5-character AppID here", // Obtained from https://dash.embrace.io/app/AppID/...
             logLevel: .debug,
             export: OpenTelemetryExport(
                 spanExporter: JaegerSpanExporter(
@@ -49,7 +68,7 @@ let client = BaseHTTPClient(session: session)
 try? Embrace
     .setup(
         options: Embrace.Options(
-            appId: "AppID",
+            appId: "your 5-character AppID here", // Obtained from https://dash.embrace.io/app/AppID/...
             logLevel: .debug,
             export: OpenTelemetryExport(
                 spanExporter: OtlpHttpTraceExporter(

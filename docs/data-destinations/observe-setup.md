@@ -8,25 +8,27 @@ sidebar_position: 6
 
 ## Prerequisites
 
-- Have an active Observe account
-- Have a [datastream](https://docs.observeinc.com/en/latest/content/data-ingestion/datastreams.html) configured and token to publish to that datastream
-- Have your customer ID ready. Your customer ID is a numerical ID that can be found in the URL of your observe dashboard:
+- Have an active Observe account.
 
-```shell
-# Format:
-https://<customer_id>.collect.observeinc.com
+## Configuration
 
-# Example:
-https://123456789012.collect.observeinc.com
-```
+### Pulling your Observe Datastream Token ([Observe documentation](https://docs.observeinc.com/docs/datastreams#/))
 
-## Create Observe Data Destination
+1. Log into your Observe account.
+2. Navigate to your "Data & Integrations -> Datastreams" settings in the left-side navigation menu.
+   <img src={require('@site/static/images/data-destinations/observe_left_menu.png').default} alt="Observe Left Menu" />
+3. Click on "Create datastream" at top right or click on an existing datastream.
+   <img src={require('@site/static/images/data-destinations/observe_create_token0.png').default} alt="Observe Create Datastream" />
+4. You must add a "Name" and "Description". Also, you need to decide how you much retention you want to have.
+   <img src={require('@site/static/images/data-destinations/observe_create_datastream.png').default} alt="Observe Create Datastream" />
+5. Click on "Create -> Token" at the middle or at the top right.
+   <img src={require('@site/static/images/data-destinations/observe_create_token.png').default} alt="Observe Create Token" />
+6. You must add a "Name" and "Description"  
+   <img src={require('@site/static/images/data-destinations/observe_create_token1.png').default} alt="Observe Create Token" />
+7. Copy the token value because you will not be able to get it again later. You will have to use it on the Embrace dashboard.
+   <img src={require('@site/static/images/data-destinations/observe_create_token2.png').default} alt="Observe Create Token" />
 
-1. Navigate to the [Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations) and select
+### Pulling your Observe Customer ID ([Observe Documentation](https://docs.observeinc.com/docs/where-do-i-find-my-customer-id))
 
-   Add Data Destination.
-
-2. Select Observe in the dropdown and the apps that you want to forward.
-3. Input the token and the customer ID.
-
-   <img src={require('@site/static/images/data-destinations/observe_config.png').default} alt="Image showing Observe data destination form" width="50%"/>
+1. Log into your Observe account.
+2. Get the "Customer ID" from your URL. If the URL is: `https://123456789012.observeinc.com`, customer id is: `123456789012`. You will have to use it on the Embrace dashboard.

@@ -1,10 +1,10 @@
 ---
-title: Push Notifications
+title: Push notifications
 description: Embrace can capture push notifications received by your app.
 sidebar_position: 8
 ---
 
-# Push Notifications
+# Push notifications
 
 The Embrace SDK is able to automatically capture Firebase push notifications received by your app.
 
@@ -22,7 +22,7 @@ embrace {
 }
 
 dependencies {
-    implementation("io.embrace:embrace-android-fcm:{{ embrace_sdk_version platform="android" }}")
+    implementation("io.embrace:embrace-android-instrumentation-fcm:{{ embrace_sdk_version platform="android" }}")
 }
 ```
 
@@ -39,7 +39,7 @@ If you don't want the notifications to get captured automatically, then you can 
 ```kotlin
 val isNotification = true
 val hasData = true
-Embrace.getInstance().logPushNotification(
+Embrace.logPushNotification(
     "my-notification-title",
     "my-notification-body",
     "my-notification-topic",

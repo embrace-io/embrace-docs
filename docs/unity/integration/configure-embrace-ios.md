@@ -17,7 +17,8 @@ Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace 
 Additionally, when you start the SDK you will need to pass the `App ID` to the StartSDK call as below:
 
 ```cs
-EmbraceStartupArgs args = new EmbraceStartupArgs("AppID");
+EmbraceStartupArgs args = new EmbraceStartupArgs("your 5-character AppID here"); // Obtained from https://dash.embrace.io/app/AppID/...
+
 Embrace.Instance.StartSDK(args);
 ```
 

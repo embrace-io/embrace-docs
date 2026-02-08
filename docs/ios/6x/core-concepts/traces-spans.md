@@ -29,17 +29,13 @@ With the Embrace Traces API, you can:
 
 ## Trace Limits
 
-| Type                               | Limit          |
-| ---------------------------------- | -------------- |
-| Max number of spans per session    | 100            |
-| Max number of spans per Root Span  | 10             |
-| Max number of attributes per span  | 50             |
-| Max number of events per span      | 10             |
-| Max number of attributes per event | 10             |
-| Length of attribute keys           | 50 characters  |
-| Length of attribute values         | 200 characters |
-| Length of Span names               | 50 characters  |
-| Length of Event names              | 100 characters |
+| Type                                  | Limit          |
+| ------------------------------------- | -------------- |
+| Max number of attributes per span     | 128            |
+| Max number of events per span         | 9999           |
+| Max number of attributes per event    | 128            |
+| Max number of breadcrumbs per session | 100            |
+| Length of Span names                  | 128 characters |
 
 If you exceed these limits, the operation with the limit-exceeding call will fail.
 
@@ -230,4 +226,4 @@ If you're migrating from Embrace 5.x, note that Traces replace the Moments funct
 - Consider how spans relate to sessions in your application architecture
 - End spans properly to ensure they're recorded correctly
 
- <!-- TODO: Add examples of common use cases for traces like tracking API calls, user workflows, and performance bottlenecks  -->
+ <!-- TODO: Add examples of common use cases for traces like tracking API calls, user workflows, and performance bottlenecks -->

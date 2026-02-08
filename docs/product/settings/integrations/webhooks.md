@@ -4,7 +4,7 @@ description: Webhook Integration
 sidebar_position: 1
 ---
 
-The Embrace Webhooks feature is an outgoing webhook sent by Embrace  when an alert condition is met. Here is a high-level flow diagram:
+The Embrace Webhooks feature is an outgoing webhook sent by Embrace when an alert condition is met. Here is a high-level flow diagram:
 
 <img src={require('@site/static/images/webhooks/image1.png').default} />
 
