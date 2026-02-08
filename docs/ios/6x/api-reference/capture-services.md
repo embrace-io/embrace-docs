@@ -19,6 +19,7 @@ The SDK includes the following built-in capture services:
 - **LowMemoryWarningCaptureService** - Detects low memory warnings
 - **LowPowerModeCaptureService** - Tracks low power mode
 - **PushNotificationCaptureService** - Captures push notification events
+- **HangCaptureService** - Captures app hangs
 
 ## NetworkCaptureService
 
@@ -177,6 +178,14 @@ This service doesn't have configurable options.
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
+## HangCaptureService
+
+Captures app hangs.
+
+This service is turned off when attached to a debugger (ie: while debugging in Xcode). You can enable it when connected to a debugger by setting the `EMBAllowWatchdogInDebugger` environment var to `1`.
+
+**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/Hang/HangCaptureService.swift)
+
 ## Custom Capture Services
 
 You can also extend the SDK by creating your own custom capture services.
@@ -294,6 +303,7 @@ let services = CaptureServiceBuilder()
     .add(.pushNotification(options: pushOptions))
     .add(.lowMemoryWarning)
     .add(.lowPowerMode)
+    .add(.hangWatchdog)
     .build()
 
 let options = Embrace.Options(

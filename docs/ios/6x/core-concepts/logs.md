@@ -64,10 +64,13 @@ The log method takes the following parameters:
 
 Embrace enforces certain limits on logs:
 
-- Maximum number of logs per session: 500
+- Maximum number of logs per session
+  - 500 Error Logs
+  - 200 Warning Logs
+  - 100 Info Logs
 - Maximum size of logs: 10,000 bytes
 
-If your application exceeds these limits, the newest logs will be kept and the oldest logs will be dropped.
+If your application exceeds these limits, the newest logs will be ignored.
 
 ## Log Batching
 

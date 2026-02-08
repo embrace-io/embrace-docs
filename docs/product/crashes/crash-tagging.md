@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Tagging Automatically Highlights the Most Relevant Person, Team, or Company to Fix a Crash
 
-Embrace tags each stack frame by the most specific matching condition in your CODEOWNERS file.  This is then rolled up to the Crash, and Crash Group levels.
+Embrace tags each stack frame by the most specific matching condition in your CODEOWNERS file. This is then rolled up to the Crash, and Crash Group levels.
 
 <img src={require('@site/static/images/Crash Tag example.png').default} alt="cartoon of crash tags" />
 
@@ -13,7 +13,7 @@ Embrace tags each stack frame by the most specific matching condition in your CO
 
 ### Directly in the Dashboard
 
-On any Crash, you can directly create a rule in the stack frame.  Click on the edit icon and fill out the modal with any RE2 regex rule and your desired tag.
+On any Crash, you can directly create a rule in the stack frame. Click on the edit icon and fill out the modal with any RE2 regex rule and your desired tag.
 
 <img src={require('@site/static/images/tagging-ui-1.png').default} alt="edit-in-stack" width="500px"/>
 
@@ -31,9 +31,9 @@ You can also see, create, and modify rules in the Settings view.
 
 ### With a CODEOWNERS File
 
-POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`.  Include your `app`,  
+POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`. Include your `app`,  
 `token` (the symbol upload token used to upload symbols files) , `file` and `base_direcory`. The `base_directory` is the
-prefix that will be stripped from the stack frame file paths before matching.  This is useful for matching stack traces
+prefix that will be stripped from the stack frame file paths before matching. This is useful for matching stack traces
 from React Native.
 
 <img src={require('@site/static/images/Postman-Codeowners example.png').default} alt="screenshot of Codeowners upload" />
@@ -54,6 +54,6 @@ curl https://dsym-store.emb-api.com/v2/store/tagging/codeowner \
 
 ## Consume tagged crashes via Metrics API
 
-New crashes will be automatically tagged as they happen.  Tags will show up on the Crash Summary page (as "Owners") and the Crash Details page (as header and in the stack frames).
+New crashes will be automatically tagged as they happen. Tags will show up on the Crash Summary page (as "Owners") and the Crash Details page (as header and in the stack frames).
 
-You can find an example query for `hourly_crashes_by_tag` at [Metrics API](/embrace-api/code_samples)
+You can find an example query for `hourly_crashes_by_tag` at [Metrics API](/metrics-forwarding/metrics-api/code-samples)

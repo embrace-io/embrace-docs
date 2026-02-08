@@ -1,10 +1,10 @@
 ---
-title: Getting Started
-description: Getting started with the Embrace Web SDK
+title: Get Started
+description: Get started with the Embrace Web SDK
 sidebar_position: 1
 ---
 
-# Getting Started with Embrace Web SDK
+# Get Started with the Embrace Web SDK
 
 This section will guide you through the process of adding the Embrace SDK to your web application and configuring it for
 optimal performance monitoring.

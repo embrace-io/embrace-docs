@@ -15,15 +15,16 @@ import {
   IconSdk,
   IconSettings,
   IconTelescope,
+  IconTimeline,
   IconTimelineEventExclamation,
   IconUsersGroup,
   IconWifi,
   IconDeviceDesktop,
+  IconSparkles,
 } from "@tabler/icons-react";
 import LogoUnity from "@site/static/images/unity.svg";
 import LogoReactNative from "@site/static/images/react-native.svg";
 import PerformanceTraces from "@site/static/images/performance_traces.svg";
-import UserJourneys from "@site/static/images/user-journeys.svg"
 import Logo from "@site/static/images/logo.svg";
 import LogoSplunk from "@site/static/images/logo-splunk.svg";
 import LogoNewRelic from "@site/static/images/logo-new-relic.svg";
@@ -36,6 +37,7 @@ import LogoObserve from "@site/static/images/logo-observe.svg";
 import LogoIOS from "@site/static/images/ios.svg";
 import LogoFlutter from "@site/static/images/flutter.svg";
 import LogoAndroid from "@site/static/images/android.svg";
+import UserJourneys from "@site/static/images/user-journeys.svg";
 import type { HomeCardProps } from "@site/src/pages/_Home/components/HomeCard/HomeCard";
 import Category from "@site/src/pages/_Home/components/Category/Category";
 
@@ -101,17 +103,18 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       linkTo: "/product",
     },
     {
-      title: "Best Practices",
+      title: "Embrace AI",
       description:
-        "Discover best practices to get the most out of our product.",
-      icon: <IconCheck {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/best-practices",
+        "AI features powered by your Embrace data to help you query and find insights faster.",
+      icon: <IconSparkles {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/mcp",
     },
     {
       title: "Tutorials",
-      description: "Check out our tutorials to easily learn about our product.",
+      description: "Check out our quick tutorials to learn about our product.",
       icon: <IconBrandYoutube {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "https://www.youtube.com/channel/UC8EjpY1ol3QGdp2qk1uZARQ",
+      linkTo:
+        "https://www.youtube.com/playlist?list=PLMZXEczVnK9SSdtKf0QSyfAutdCFwrw8o",
     },
   ],
   OpenTelemetry: [
@@ -141,29 +144,36 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     {
       title: "Data Destinations",
       description:
-        "Deliver your metrics to your cross-platform observability tool of choice.",
+          "Configure your cross-platform observability tool of choice.",
       icon: <IconPuzzle {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/data-destinations",
     },
     {
+      title: "Metrics Forwarding",
+      description:
+          "Deliver your metrics to your cross-platform observability tool of choice.",
+      icon: <IconPuzzle {...DEFAULT_TABLER_ICON_PROPS} />,
+      linkTo: "/metrics-forwarding",
+    },
+    {
       title: "Custom Metrics API",
       description:
-        "Manage (create, get and delete) all the custom metrics of your organization.",
+          "Manage (create, get and delete) all the custom metrics of your organization.",
       icon: <IconChartLine {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/custom-metrics-api",
+      linkTo: "/metrics-forwarding/custom-metrics/custom-metrics-api",
     },
     {
       title: "Metrics API",
       description: "Query your metrics from Embrace using PromQL.",
       icon: <IconChartBar {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/embrace-api",
+      linkTo: "/metrics-forwarding/metrics-api",
     },
     {
       title: "Spans Forwarding",
       description:
         "Automatically add a unique identifier to every network request your app makes.",
       icon: <IconChartArrows {...DEFAULT_TABLER_ICON_PROPS} />,
-      linkTo: "/product/network-spans-forwarding",
+      linkTo: "/data-forwarding/network-spans-forwarding",
     },
     {
       title: "Custom Dashboards",
@@ -185,7 +195,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
       title: "User Journeys",
       description:
         "Measure how performance affects your user's experience through key flows.",
-      icon: <UserJourneys className={styles.svgIcon} />,
+      icon: <IconTimeline {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/user-journeys",
     },
     {
@@ -210,8 +220,7 @@ const CATEGORIES: Record<Categories, HomeCardProps[]> = {
     },
     {
       title: "Network Monitoring",
-      description:
-        "Identify and resolve the networking issues behind your app’s crashes.",
+      description: "Identify and resolve the networking issues behind your app’s crashes.",
       icon: <IconWifi {...DEFAULT_TABLER_ICON_PROPS} />,
       linkTo: "/product/network",
     },

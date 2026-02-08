@@ -47,7 +47,7 @@ At this point you should be able to rebuild your app and have Embrace begin coll
 show up in the Embrace Dashboard once the SDK reports at least 1 completed session. You can learn more about how sessions
 are calculated [here](/web/core-concepts/sessions.md).
 
-:::note  
+:::note
 It may take a few minutes before the first sessions appear in your Embrace dashboard.
 :::
 
@@ -76,10 +76,10 @@ We recommend you include our SDK as a regular npm dependency (see above). If you
 snippet from CDN, you can do so by adding the following script tag to your main HTML file:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X"></script>
+<script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X" crossorigin="anonymous"></script>
 ```
 
-Replacing `X.X.X` with the version of the SDK you wish to include. Check available version on [npm](https://www.npmjs.com/package/@embrace-io/web-sdk).
+Replacing `X.X.X` with the version of the SDK you wish to include. Check available versions on [npm](https://www.npmjs.com/package/@embrace-io/web-sdk).
 
 We recommend you add this script tag to the `<head>` of your HTML file, so that it loads before your app code. This will
 expose the SDK as a global variable `EmbraceWebSdk` on the `window` object. This needs to be added before any script
@@ -91,8 +91,8 @@ mind as you refer to further instructions:
 1) Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
 
    ```diff
-   - import { initSDK } from '@embrace-io/web-sdk';
-   + const { initSDK } = window.EmbraceWebSdk;
+   - import { initSDK, log, page, session, trace, user } from '@embrace-io/web-sdk';
+   + const { initSDK, log, page, session, trace, user } = window.EmbraceWebSdk;
    ```
 
 2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
@@ -114,7 +114,7 @@ following snippet to your HTML file. Remember to replace `X.X.X` with the versio
 
 ```html
 <script>
-   !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
+   !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
 </script>
 ```
 
@@ -145,17 +145,19 @@ from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
 ### Compatibility with OTel packages
 
-The SDK is built on top of OpenTelemetry and as such it is possible to use it alongside other OTel libraries. If you
-wish to customize the SDK behavior by configuring custom resources, exporters, processors or instrumentations you
-should make sure to use versions of the OTel packages that are compatible with what the SDK uses. This table
-summarizes those compatible versions of the OTel packages:
+The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries.
+**Important: New projects should use OpenTelemetry 2.x.**
+OpenTelemetry 1.x support is limited to 1.x versions of the SDK, which are deprecated.
 
-| Open Telemetry APIs | Core  | Instrumentations & Contrib |
-|---------------------|-------|----------------------------|
-| ^1.9.0              | ^1.30 | ^0.57.0                    |
+If you wish to customize the SDK behavior by configuring custom resources, exporters, processors, or instrumentations,
+you must ensure that you are using versions of the OTel packages that are compatible with our SDK:
 
-For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json)
-and [package-lock.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package-lock.json) files in the SDK repository.
+| Embrace Web SDK | Open Telemetry APIs | Core   | Instrumentations & Contrib |
+|-----------------|---------------------|--------|----------------------------|
+| `^2.0.0`        | `^1.9.0`            | `^2.0.3` | `>=0.203.0 <0.300.0`     |
+| `1.8.2`         | `^1.9.0`            | `1.30.1` | `0.57.2`                 |
+
+For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json) file in the SDK repository.
 
 ### Turning on verbose logging in the SDK
 
@@ -168,9 +170,72 @@ import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
 initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
-  logLevel: DiagLogLevel.INFO,
+  logLevel: DiagLogLevel.ALL,
 });
 ```
+
+In addition, initializing the SDK with `ConsoleLogRecordExporter` and `ConsoleSpanExporter` exporters allows you to take
+a more detailed look at the spans and logs that are being exported from the SDK. These can be setup as custom exporters,
+in which case their output will be batched, or wrapped in custom processors to see the telemetry outputted as it gets
+emitted:
+
+```typescript
+import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
+import { ConsoleLogRecordExporter, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
+import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-web'
+
+initSDK({
+  appID: "YOUR_EMBRACE_APP_ID",
+  appVersion: "YOUR_APP_VERSION",
+  logLevel: DiagLogLevel.INFO,
+
+  // setup as exporters to output with the same batching as when exporting to a collector endpoint
+  spanExporters: [new ConsoleSpanExporter()],
+  logExporters: [new ConsoleLogRecordExporter()],
+
+  // OR, wrap exporters with simple processors to output as soon as telemetry is emitted
+  spanProcessors: [new SimpleSpanProcessor(new ConsoleSpanExporter())],
+  logProcessors: [new SimpleLogRecordProcessor(new ConsoleLogRecordExporter())],
+});
+```
+
+### Webpack 4 Configuration
+
+When using webpack 4, you need to add aliases to your webpack configuration to resolve dependency paths correctly:
+
+```javascript
+// webpack.config.js
+const path = require('node:path');
+
+module.exports = {
+  // ... other config
+  resolve: {
+    alias: {
+      '@opentelemetry/semantic-conventions/incubating': path.resolve(
+        __dirname,
+        './node_modules/@opentelemetry/semantic-conventions/build/src/index-incubating.js'
+      ),
+      uuid: path.resolve(__dirname, './node_modules/uuid/dist/index.js'),
+    },
+  },
+};
+```
+
+See the [webpack 4 integration test](https://github.com/embrace-io/embrace-web-sdk/blob/main/tests/integration/platforms/webpack-4/webpack.config.js) for a complete example.
+
+### Client-side only usage
+
+The Embrace SDK can **only be imported in code that executes exclusively in the browser**. Do not import the SDK in
+server-side code or code that runs in edge runtimes.
+
+Importing the SDK in server-side or edge runtime contexts will cause build errors due to the SDK's dependency on
+browser-specific APIs and OpenTelemetry packages that use dynamic code evaluation.
+
+**Next.js example:**
+
+- ✅ **Safe to import:** Client Components (files with `"use client"` directive), browser-only scripts
+- ❌ **Do not import:** `middleware.ts`, API routes (`pages/api/*` or `app/*/route.ts`), Server Components, Server
+  Actions
 
 ## Next Steps
 

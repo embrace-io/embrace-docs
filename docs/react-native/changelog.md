@@ -1,10 +1,62 @@
 ---
-title: React Native SDK Changelog
-description: Changelog for the React Native Embrace SDK
+title: Changelog
+description: Changelog for the Embrace React Native SDK
 sidebar_position: 4
 ---
 
-# React Native SDK Changelog
+# Embrace React Native SDK Changelog
+
+## 6.4.0
+
+_Jan 26, 2026_
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.15.1](/ios/changelog/#6151)
+
+- Updated iOS native Embrace SDK dependency to [version 6.15.1](/ios/changelog/#6151)
+
+:::info Important
+Be aware that this update has a behavior change on iOS ONLY. When using our OTLP exporter now, on iOS, we export spans on BOTH span start AND span end. This will result in a doubling of exported spans, but a net result of the same end data.
+:::
+
+## 6.3.0
+
+_Nov 11, 2025_
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.14.1](/ios/changelog/#6141)
+
+- Updated iOS native Embrace SDK dependency to [version 6.14.1](/ios/changelog/#6141)
+- Packing the Upload Utility scripts instead of pulling them from the Embrace Apple SDK (native) into @embrace-io/react-native
+- Fixed/improved install and uninstall scripts
+
+:::info Important
+This version introduces new requirements for iOS projects when integrating or upgrading the Embrace React Native SDK. Please refer to the [Integration](/react-native/integration/add-embrace-sdk/#manual-setup---ios) section for more information. This is especially important if your application is on either RN 0.73 or earlier, or if it uses `react-native-flipper`.
+:::
+
+## 6.2.1
+
+_Oct 27, 2025_
+
+- Updated Android native SDK dependency to [version 7.9.2](/android/changelog/#792)
+
+:::info Important
+This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package; if you must use Kotlin 1.x you will have to add the following `resolutionStrategy` block to your app's `build.gradle` (groovy):
+
+```groovy
+configurations.all {
+      resolutionStrategy {
+          force("io.opentelemetry:opentelemetry-bom:1.51.0")
+          force("io.opentelemetry:opentelemetry-api:1.51.0")
+          force("io.opentelemetry:opentelemetry-sdk:1.51.0")
+          force("io.opentelemetry:opentelemetry-context:1.51.0")
+          force("io.opentelemetry:opentelemetry-exporter-otlp:1.51.0")
+      }
+  }
+```
+
+Note that this may require an upgrade to Java 17.
+:::
 
 ## 6.2.0
 
@@ -192,7 +244,7 @@ _Jul 26, 2023_
 
 - Fixed Android install script. Now it supports new projects created with RN 0.71+.
 - Changed the way we add swazzler dependency, now it will grab the swazzler version from a file.
-  **You need to update it manually. Please visit [add Embrace SDK](/react-native/integration/add-embrace-sdk/?rn-platform=android&platform=android#manually) for more information**
+  **You need to update it manually. Please visit [add Embrace SDK](/react-native/integration/add-embrace-sdk/#manual-setup---android) for more information**
 - Fix Redux Action Tracker, it was catching any error produced in reducers
 - Updated Android native Embrace SDK dependency to 5.22.0.
 - Updated iOS native Embrace SDK dependency to 5.21.1.

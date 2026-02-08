@@ -1,15 +1,40 @@
 ---
-title: Unity SDK Changelog
-description: Changelog for the Unity Embrace SDK
+title: Changelog
+description: Changelog for the Embrace Unity SDK
 sidebar_position: 4
 ---
 
-# Unity SDK Changelog
+# Embrace Unity SDK Changelog
+
+## 2.8.1
+
+*November 25, 2025*
+
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
+Embrace Apple SDK Version: [6.15.1](https://embrace.io/docs/ios/changelog/#6141)
+
+- Upgraded Embrace Apple SDK version to 6.15.1
+- Removed broken reference to `getSessionProperties()`; it is now a no-op and marked as deprecated.
+- Patch addressing potential hang on iOS regarding `SpanRepository`
+- File patches addressing extraneous files being packaged into `npm pack`/`npm publish`
+
+## 2.8.0
+
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
+Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
+
+*November 10, 2025*
+
+- Trying to start a span that doesn't exist now throws an error
+- Added the ability to ignore URLs for WebView captures
+- Removed scriptable objects
+- Updated native iOS SDK
+- Bug fixes
 
 ## 2.7.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#730)
-Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
+Embrace Apple SDK Version: [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *September 4, 2025*
 
@@ -21,7 +46,7 @@ Both options are opt-in and low overhead. Please try them!
 
 ## 2.6.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#730)
+Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
 Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 *August 14, 2025*

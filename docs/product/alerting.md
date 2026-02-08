@@ -8,6 +8,12 @@ sidebar_position: 12
 
 You can set up alerts for various types of issues, including crashes, ANRs, error logs, networking problems, and more.
 
+Here is a brief walkthrough video of alerting in Embrace. Continue reading below for more details on creating and refining alerts.
+
+<div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ev7Xws7sOgQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 ## Alert Creation
 
 You can create a new alert by navigating to the Alerts page and clicking on the "Add Alert" button or by using the shortcut from an existing Widget or Custom Metric.
@@ -148,3 +154,40 @@ Here's a sample webhook data for an alert:
   "ts": 1717030759
 }
 ```
+
+## Alert Rate Limiting
+
+  To ensure reliable alert delivery and prevent notification fatigue, Embrace applies rate limits to alert notifications. This means there's a maximum number of notifications that can be sent within a specific time
+  period.
+
+  When a rate limit is reached, additional alerts are suppressed until the time window resets.
+
+  **Important**: Even if a notification is suppressed, all triggered alerts are still recorded and visible in your Alert History
+   in the dashboard.
+
+### Rate Limits by Channel
+
+**Slack Notifications**
+
+- **10 messages per hour** per app
+- **40 messages per day** per app
+
+**Email Notifications**
+
+- **10 messages per hour** per email address
+- **20 messages per day** per email address
+
+**Webhook Notifications**
+
+- **20 messages per hour** per app
+- **200 messages per day** per app
+
+### How It Works
+
+Rate limits are applied independently for each channel and reset automatically:
+
+- Hourly limits reset at the top of each hour
+- Daily limits reset at midnight UTC
+
+For example, if a Slack channel receives 10 alert notifications between 2:00 PM and 3:00 PM, any additional Slack alerts for that app will be suppressed until 3:00 PM. Email and webhook notifications for the same app
+would continue to be delivered normally (up to their own limits).

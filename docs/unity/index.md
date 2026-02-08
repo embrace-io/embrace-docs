@@ -1,12 +1,12 @@
 ---
-title: Getting Started
+title: Get Started
 description: Learn about Embrace for the Unity platform
 sidebar_position: 0
 ---
 
 # Unity Platform Documentation
 
-## Getting Started
+## Get Started
 
 Embrace's Unity SDK lets you bring the deep, introspective and native debugging power of Embrace into your Unity game or application.
 

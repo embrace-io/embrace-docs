@@ -1,15 +1,15 @@
 ---
-title: Network Spans Forwarding
+title: Network spans forwarding
 sidebar_position: 10
 ---
 
-# Network Spans Forwarding
+# Network spans forwarding
 
-For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/product/network-spans-forwarding/).  
+For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/data-forwarding/network-spans-forwarding/).
 
 ## Enablement
 
-Once all requirements described in [Network Spans Forwarding](/product/network-spans-forwarding/#enable-network-spans-forwarding) are met (*local configuration*), the feature will be set up by an integrations specialist who will reach out to confirm details (*remote configuration*).
+Once all requirements described in [Network Spans Forwarding](/data-forwarding/network-spans-forwarding/#enable-network-spans-forwarding) are met (*local configuration*), the feature will be set up by an integrations specialist who will reach out to confirm details (*remote configuration*).
 At this point everything should be working on iOS. For Android one additional configuration is required in `android/app/src/main/embrace-config.json` placed in the Android folder. This feature **is not** enabled by default for this Platform but you can turn this ON by adding the `enable_network_span_forwarding` attribute:
 
 ```json
@@ -25,7 +25,7 @@ At this point everything should be working on iOS. For Android one additional co
 }
 ```
 
-For more information about this file please refer to the [Android / Configuration File section](/android/features/configuration-file/).
+For more information about this file please refer to the [Android / Configuration File section](/android/configuration/configuration-file/).
 
 ## Turning off the feature
 
@@ -39,6 +39,7 @@ You may then pass the proper object into the `initialize` method for starting th
 ```javascript
 // App.tsx, or the root of the application
 import {initialize} from "@embrace-io/react-native";
+import {useState} from "react";
 
 export const App = () => {
   const [isEmbraceLoaded, setIsEmbraceLoaded] = useState(false);
@@ -54,8 +55,8 @@ export const App = () => {
         },
       };
 
-      await initialize(config); // passing the config to the Embrace React Native SDK.
-      setEmbraceLoaded(true);
+      await initialize(sdkConfig); // passing the config to the Embrace React Native SDK.
+      setIsEmbraceLoaded(true);
     };
 
     init();

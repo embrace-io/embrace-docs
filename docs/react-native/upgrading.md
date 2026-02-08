@@ -1,10 +1,94 @@
 ---
-title: Upgrade Guide
+title: Upgrade guide
 sidebar_position: 5
 description: Upgrade guide for Embrace React Native SDK versions
 ---
 
 # Upgrade guide
+
+## Upgrading to 6.3.0
+
+:::info Summary
+
+- `react-native-flipper` is no longer supported for iOS builds.
+:::
+
+Upgrade to version `6.3.0` of the Embrace React Native SDK packages by either updating the versions manually in your package.json and running `yarn install` or `npm install`, or by removing the existing packages and reinstalling them.
+
+### Embrace Apple SDK now depends on KSCrash
+
+The Apple SDK now includes a dependency on KSCrash, which requires modular headers to build successfully.
+To support this Pod, update your Podfile by adding the following line before your target declaration:
+
+```ruby
+# insert this line here to enable modular headers only for KSCrash
+pod 'KSCrash', :modular_headers => true
+
+target 'YourTargetName' do
+  config = use_native_modules!
+  flags = get_default_flags()
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    ...
+```
+
+### If you have `react-native-flipper` in your project
+
+Disable the package for the iOS platform by updating your `react-native.config.js`:
+
+```js
+module.exports = {
+  dependencies: {
+    ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {})
+  }
+}
+```
+
+### Update your Embrace symbol upload build phase
+
+Ensure your Embrace Symbol Uploads build phase matches the following:
+
+```shell
+REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=__YOUR_5_DIGIT_ID__ EMBRACE_TOKEN=__YOUR_30_CHAR_TOKEN__ "$SRCROOT/../node_modules/@embrace-io/react-native/ios/scripts/run.sh"
+```
+
+Note: The upload scripts are now bundled with the `@embrace-io/react-native` package. They are no longer provided by the iOS native layer (before they were packed as part of the iOS Pods).  
+You can take a look at your `node_modules` and confirm that everything is there in `node_modules/@embrace-io/react-native/ios/scripts`.
+
+### Install the latest CocoaPods
+
+Finally, install the latest CocoaPods with:
+
+```shell
+cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
+```
+
+That’s it! Your application should now build successfully.
+
+## Upgrading to 6.2.1
+
+:::info Summary
+
+- Kotlin 2.x or higher is required when using `react-native-otlp`.
+:::
+
+This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package.
+If you must use Kotlin 1.x you will have to add the following `resolutionStrategy` block to your app's `build.gradle` (groovy):
+
+```groovy
+configurations.all {
+      resolutionStrategy {
+          force("io.opentelemetry:opentelemetry-bom:1.51.0")
+          force("io.opentelemetry:opentelemetry-api:1.51.0")
+          force("io.opentelemetry:opentelemetry-sdk:1.51.0")
+          force("io.opentelemetry:opentelemetry-context:1.51.0")
+          force("io.opentelemetry:opentelemetry-exporter-otlp:1.51.0")
+      }
+  }
+```
+
+Note that this may require an upgrade to Java 17.
 
 ## Upgrading from 5.x to 6.x
 
@@ -26,7 +110,7 @@ Then install the latest Cocoapods with:
 cd ios && pod update EmbraceIO && pod install --repo-update
 ```
 
-### Deprecated Packages
+### Deprecated packages
 
 | Package                                              | Comments                                                                    |
 | ---------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -76,7 +160,7 @@ upgrade replace it with:
 Embrace.getInstance().start(this)
 ```
 
-### Migrating Traces
+### Migrating traces
 
 The `@embrace-io/react-native-spans` package has been removed and the functionality it provided is now available from the
 `@embrace-io/react-native-tracer-provider` package. The interface for interacting with spans has also been updated to
@@ -146,7 +230,7 @@ Then install the latest Cocoapod with
 cd ios && pod install --repo-update
 ```
 
-### SDK initialization and configuration is triggered in-code
+### SDK initialization and configuration is triggered in code
 
 If you initialize the Embrace SDK in your JavaScript code it will need to be updated to include a `sdkConfig`
 parameter to configure the iOS SDK:
@@ -194,7 +278,7 @@ Embrace.sharedInstance().start(launchOptions: launchOptions, framework:.reactNat
 
 Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/5x/integration/session-reporting#initialize-embrace-sdk)
 
-### Moments have been replaced by Traces
+### Moments have been replaced by traces
 
 APIs related to moments should be removed from your code.
 

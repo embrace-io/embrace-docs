@@ -1,10 +1,49 @@
 ---
-title: iOS/tvOS SDK Changelog
-description: Changelog for the iOS Embrace SDK
-sidebar_position: 4
+title: Changelog
+description: Changelog for the Embrace Apple SDK
+sidebar_position: 6
 ---
 
-# iOS/tvOS SDK Changelog
+# Changelog
+
+## 6.16.0
+
+*Jan 27, 2026*
+
+- Fixes
+  - Fixed iOS 16.4 simulator crashing.
+  - Fixed capturing invalid startup spans.
+  - Disabled MetricKit on macOS until further updates to prevent issues.
+- Improvements
+  - Added preliminary watchOS Support.
+  - Added OTel attribute os.name to Logs.
+  - Added remote configurable limit for Tap collection.
+  - Added ability to pass a child collector to SingleLogRecordProcessor.
+  - Re-introduced XCFramework generation.
+
+## 6.15.1
+
+*Nov 19, 2025*
+
+- Fixes
+  - Fixed crash on iOS 16.4 simulators.
+
+## 6.15.0
+
+*Nov 12, 2025*
+
+- Fixes
+  - Fixed a potential deadlock on the Session Controller.
+  - Fixed potential crashes by Objective C exceptions thrown by Core Data not being caught.
+  - Fixed a main thread hang caused by Objective C Runtime calls during backtrace capture.
+  - tvOS: Fixed App Lifecycle notifications not being tracked.
+  - tvOS: Fixed Sessions not being sent when App is sent to background.
+
+- Improvements
+  - Improved storage performance when dealing with many span events.
+  - Changed lock-based synchronization approach for lock-free atomics via newely introduced EmbraceAtomic.
+  - Revamped URL Session Swizzling.
+  - Simplified Breadcrumbs by removing custom attributes and only allowing a Message parameter.
 
 ## 6.14.1
 
@@ -17,7 +56,7 @@ sidebar_position: 4
 
 ## 6.14.0
 
-*Oct 7, 2025**
+*Oct 7, 2025*
 
 - Fixes
   - Fixed `autoTerminationCode` being missing from Spans.
@@ -29,6 +68,16 @@ sidebar_position: 4
   - Backtrace and Symbolication: Added ability for users to pass their own versions, using KSCrash as default.
   - Added profiling to Main Thread for Hang detection.
   - General internal stability improvements.
+
+## 6.13.2
+
+*Oct 27, 2025*
+
+- Fixes
+  - Fixed issues related to the internal metadata migration database.
+- Improvements
+  - Updated OpenTelementry dependency to accept versions from v2.0.2 (instead of exact).
+  - Added support for swift-syntax 6 (support from v509 to v602).
 
 ## 6.13.1
 
@@ -383,7 +432,7 @@ This version has known issues and should not be used
 
 - Adds automatic instrumentation for `WKWebView` Web Views.
 - Adds `Embrace.flush(_ span: Span)` method to manual persist changes that occur to a long running Span.
-- Adds support for [Network Span Forwarding](https://embrace.io/docs/product/network-spans-forwarding/).
+- Adds support for [Network Span Forwarding](/data-forwarding/network-spans-forwarding/).
 - Support for receiving Firebase Crashlytics crash reports in the Embrace dashboard as well as the Firebase dashboard.
 
 ## 6.0.0
@@ -1093,7 +1142,7 @@ This version has known issues and should not be used
 
 *Sep 9, 2020*
 
-- Fix blocked downloads when using expo +  flex for debugging
+- Fix blocked downloads when using expo + flex for debugging
 
 ## 5.0.8
 

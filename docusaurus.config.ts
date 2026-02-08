@@ -55,14 +55,6 @@ const config: Config = {
       id: "reo-script",
       src: "scripts/reo.js",
     },
-    ...(process.env.EMBR_ENV === "production"
-      ? [
-          {
-            src: `https://js.qualified.com/qualified.js?token=${process.env.QUALIFIED_TOKEN}`,
-            async: true,
-          },
-        ]
-      : []),
   ],
 
   themes: [
@@ -401,6 +393,38 @@ const config: Config = {
             from: "/android/features/tracing",
           },
           {
+            to: "/android/integration",
+            from: "/android/integration/integration-steps",
+          },
+          {
+            to: "/android/integration",
+            from: "/android/integration/login-embrace-dashboard",
+          },
+          {
+            to: "/android/integration",
+            from: "/android/integration/session-reporting",
+          },
+          {
+            to: "/android/legacy-integration/crash-reporting/",
+            from: "/android/integration/crash-reporting/",
+          },
+          {
+            to: "/android/legacy-integration/log-message-api/",
+            from: "/android/integration/log-message-api/",
+          },
+          {
+            to: "/android/legacy-integration/breadcrumbs/",
+            from: "/android/integration/breadcrumbs/",
+          },
+          {
+            to: "/android/legacy-integration/add-embrace-sdk/",
+            from: "/android/integration/add-embrace-sdk/",
+          },
+          {
+            to: "/android/legacy-integration/next-steps/",
+            from: "/android/integration/next-steps/",
+          },
+          {
             to: "/flutter/features/traces",
             from: "/flutter/features/tracing",
           },
@@ -460,6 +484,22 @@ const config: Config = {
             to: "/data-destinations/splunk/",
             from: "/code/da-unexpected-input-splunk-credentials",
           },
+          {
+            to: "/metrics-forwarding/#standard-metrics",
+            from: "/embrace-api/supported_metrics_and_queries/",
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/",
+            from: "/embrace-api/"
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/grafana-integration",
+            from: "/embrace-api/grafana_integrations"
+          },
+          {
+            to: "/metrics-forwarding/metrics-api/code-samples",
+            from: "/embrace-api/code_samples"
+          }
         ],
       },
     ],
@@ -515,12 +555,13 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20251016", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20251112", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://get.embrace.io/embrace-grafana-cloud-webinar?utm_source=website&utm_medium=website&utm_campaign=docs-banner">WEBINAR Nov 6: End-to-end mobile observability with Embrace and Grafana Cloud. Learn how to connect Embrace mobile telemetry with Grafana Cloud data.</a>',
+        '<a target="_blank" href="https://embrace.io/blog/speedcurve-joins-embrace/?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Embrace acquires SpeedCurve, expands user-focused observability platform with web performance insights.</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
+
 
     navbar: {
       logo: {
@@ -549,6 +590,11 @@ const config: Config = {
           to: "https://embrace.io/pricing?utm_source=docs&utm_medium=banner&utm_campaign=pricing_tab",
           label: "Pricing",
           position: "left",
+        },
+        {
+          to: "https://demo.embrace.io/try?utm_source=docs&utm_medium=banner&utm_campaign=sandbox_tab",
+          label: "Launch Sandbox",
+          position: "right",
         },
       ],
     },
