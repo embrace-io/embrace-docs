@@ -270,7 +270,7 @@ Embrace SDK version X.Y.Z started for appId = xxxxx
 Launch your app, send it to the background by switching to another app, and then relaunch it.
 
 After refreshing the [Embrace dashboard](https://dash.embrace.io/) you should see the uploaded session in your browser.
-Depending on network conditions this may ocassionally take a few minutes to show up.
+Depending on network conditions this may occasionally take a few minutes to show up.
 
 If you stop your app by force killing it Embrace will not upload the completed session until it is relaunched. You
 must always relaunch your app before data can show in Embrace's dashboard.

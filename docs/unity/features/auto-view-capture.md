@@ -12,7 +12,7 @@ The AutoViewCapture component will automatically track views that get disabled/e
 
 On the component you want to track (typically a base UI component) attach the `AutoViewCapture` component and ensure it's enabled.
 
-Next up fill in the View Name with the name of the view you are capture. If left blank it will use the GameObject's name.
+Next up fill in the View Name with the name of the view you are capturing. If left blank it will use the GameObject's name.
 
 ## Extending
 
@@ -23,4 +23,4 @@ public virtual void HideView()
 public virtual void ShowView()
 ```
 
-In your extended class call `base.HideView` or `base.ShowView` to capture the view. This is provided in case you have a UI component that is not shown/hidden in a traditional matter like turning on or off the GameObject. For example you may have a view that slides off the screen so it's technically hidden, but not disabled.
+In your extended class call `base.HideView` or `base.ShowView` to capture the view. This is provided in case you have a UI component that is not shown/hidden in a traditional manner like turning on or off the GameObject. For example you may have a view that slides off the screen so it's technically hidden, but not disabled.

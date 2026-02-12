@@ -74,7 +74,7 @@ Please note that in upgrading, you may have to update values in the generated te
 
 Currently the latest version of Xcode and Unity's iOS build pipeline have an issue where including a Swift library (such as the Embrace Apple SDK) does not result in Xcode invoking its linker toolchain correctly. This can block builds and will generally involve messages mentioning symbols such as `swift_FORCE_LOAD_$_swiftCompatibility`. The issue is rather recent, and listed [here](https://developer.apple.com/forums/thread/762854).
 
-The easiest solution to this is to add a Dummy Swift file in the exported Xcode project out of Unity by right clicking the `Unity-iPhone` Xcode project in the Project Navigator and selecting the `New File from Template` option. When doing this make sure to add the Swift file to the UnityFramework in Xcode. Make sure to add the file to BOTH the game target AND the UnityFramework target. Then, make sure to create the bridging heading. There's no need to add any code. The sole purpose of the file is to provide Xcode the necessary hints so that it invokes its toolchain correctly.
+The easiest solution to this is to add a Dummy Swift file in the exported Xcode project out of Unity by right clicking the `Unity-iPhone` Xcode project in the Project Navigator and selecting the `New File from Template` option. When doing this make sure to add the Swift file to the UnityFramework in Xcode. Make sure to add the file to BOTH the game target AND the UnityFramework target. Then, make sure to create the bridging header. There's no need to add any code. The sole purpose of the file is to provide Xcode the necessary hints so that it invokes its toolchain correctly.
 
 ## Remove scoped registry
 

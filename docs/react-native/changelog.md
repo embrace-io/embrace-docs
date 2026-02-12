@@ -198,7 +198,7 @@ _March 8, 2024_
 
 _March 7, 2024_
 
-- Fix a bug that prevent we loggin Screens
+- Fix a bug that prevented logging Screens
 
 ## 4.0.3
 
@@ -296,7 +296,7 @@ _March 29, 2023_
 This version has known issues and should not be used
 :::
 
-- Added two new scripts, one to install the dependencies for Androd and the other for iOS
+- Added two new scripts, one to install the dependencies for Android and the other for iOS
 
 ## 3.10.8
 

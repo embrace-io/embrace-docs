@@ -30,9 +30,9 @@ Individual data points link directly to the underlying synthetic test details, e
 
 ![Arrow cursor positioned over a data point on a time series chart in a page-level synthetic dashboard. The line chart displays performance metrics over time using multiple colored lines representing different measurements. The dark background interface includes dashboard controls at the top and summary panels on the sides, demonstrating interactive data point selection.](/images/synthetics/pages-chart-click.png)
 
-## Sythetic Test Details
+## Synthetic Test Details
 
-The test details view lists the individual results that make up the aggregated metrics seen previously. The comprehensive diagnostics include filmstrips, waterfall, JavaScript, and third-party impact. This view gives users the ability to identify exactly what is impact the user experience.
+The test details view lists the individual results that make up the aggregated metrics seen previously. The comprehensive diagnostics include filmstrips, waterfall, JavaScript, and third-party impact. This view gives users the ability to identify exactly what is impacting the user experience.
 
 ## Tests
 

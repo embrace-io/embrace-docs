@@ -122,7 +122,7 @@ This process can be scripted into your CI backend as well. Simply include the up
 
 ## Javascript Manual Uploads
 
-When you uplad the dSYM manually you also have to upload the javascript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
+When you upload the dSYM manually you also have to upload the javascript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
 
 ```javascript
 react-native bundle \

@@ -484,7 +484,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 - Added new API method to get the current session ID.
 - Set custom folders for native symbols to upload during build process.
 - Added Dexguard support.
-- Exposed beta API for Performacing Tracing.
+- Exposed beta API for Performance Tracing.
 
 ## 5.23.0
 

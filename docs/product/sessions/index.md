@@ -38,6 +38,6 @@ This walkthrough video will show you how developers use User Sessions to make se
 
 Additionally, you can read about [use cases](/product/sessions/use-cases.md) to learn more about how developers use Sessions to dig into user experiences.
 
-Finally, read about these User Session topics on our bog:
+Finally, read about these User Session topics on our blog:
 
 - [Track complete user sessions to deliver optimal user experiences](https://embrace.io/blog/track-complete-user-sessions-to-deliver-optimal-mobile-experiences/)
