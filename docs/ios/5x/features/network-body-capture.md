@@ -27,7 +27,7 @@ CAPTURE_PUBLIC_KEY
 
 RSA encryption uses two keys: a private and a public key. You may already be familiar with this protocol and the security team in your organization may already have public keys available for you to use. Before generating new keys, check with your organization.  
 
-There are many ways to generate working key pairs. For these instructions we will use the CLI opensll tool installed by default on most linux-like systems:
+There are many ways to generate working key pairs. For these instructions we will use the CLI openssl tool installed by default on most linux-like systems:
 
 ```shell-session
 openssl genrsa -des3 -out private.pem 2048

@@ -53,7 +53,7 @@ You can also manually log push notifications from the Flutter SDK. This is usefu
     String? title,
     String? body, {
     String? subtitle,
-    Int? badge,
+    int? badge,
     String? category,
     String? from,
     String? messageId,

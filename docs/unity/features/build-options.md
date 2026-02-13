@@ -18,7 +18,7 @@ Configuration options can be accessed in the **Configurations** tab of the **Set
 
 ## Creating and Editing Configurations
 
-Some applications have complex build pipelines. For example, it's common practice for a development team to work in a "Dev" environment, then push their changes to a "Staging" when features are complete and ready to be tested, and finally released to a "Production" upon final approval. In such cases it may be beneficial define different configuration options for each environment. The Embrace SDK supports this this type of workflow through the **Configurations** list available in the **Settings** window.
+Some applications have complex build pipelines. For example, it's common practice for a development team to work in a "Dev" environment, then push their changes to a "Staging" when features are complete and ready to be tested, and finally released to a "Production" upon final approval. In such cases it may be beneficial to define different configuration options for each environment. The Embrace SDK supports this this type of workflow through the **Configurations** list available in the **Settings** window.
 
 <img src={require('@site/static/images/unity-configuration-editor.png').default} />
 
@@ -32,7 +32,7 @@ You can select and edit each configuration by clicking on the toggle to the left
 
 ## Specifying Configurations At Build Time
 
-The Embrace SDK also supports specifying a configuration at build-time through the use of environment variables defined at the OS level. This feature can enable a CI/CD pipeline to define which configuration to build with. We support the follwing definitions:
+The Embrace SDK also supports specifying a configuration at build-time through the use of environment variables defined at the OS level. This feature can enable a CI/CD pipeline to define which configuration to build with. We support the following definitions:
 
 `EMBRACE_ENVIRONMENTS_INDEX`
 
@@ -54,7 +54,7 @@ For example, let's assume the following configurations are defined ("Dev", "Stag
 
 <img src={require('@site/static/images/unity-configuration-closeup.png').default} />
 
-If you'd like to specify "Staging" via it's index, you would define the following:
+If you'd like to specify "Staging" via its index, you would define the following:
 
 **macOS/Linux:**
 

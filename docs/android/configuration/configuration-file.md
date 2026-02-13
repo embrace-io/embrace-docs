@@ -125,11 +125,11 @@ Enables ANR capture. Defaults to `true`.
 
 #### automatic_data_capture - ui_load_tracing_disabled *bool*
 
-Disables all Activity load instrumention. Defaults to `false`.
+Disables all Activity load instrumentation. Defaults to `false`.
 
 #### automatic_data_capture - ui_load_tracing_selected_only *bool*
 
-Disables Activity load instrumention for Activities that are not explicitly annotated with @`LoadTracedActivity` or `@CustomLoadTracedActivity`. Defaults to `false`.
+Disables Activity load instrumentation for Activities that are not explicitly annotated with @`LoadTracedActivity` or `@CustomLoadTracedActivity`. Defaults to `false`.
 
 #### taps - capture_coordinates *bool*
 

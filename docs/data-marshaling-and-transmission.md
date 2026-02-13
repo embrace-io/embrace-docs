@@ -16,7 +16,7 @@ Embrace is designed to be a “good citizen” within your mobile application. W
 - **We do not send data if we detect there is no network connection** and use an exponential backoff scheme to handle retries so the queue won't be overwhelmed by requests timing out if the network condition is poor.
 - **We do not share any domain or session resources** with your primary application requests, so there is no direct contention with your core APIs.
 
-These design principles ensure that user-facing requests (such as booking flows, checkouts, or other high-priority transactions) will be impacted as little as possible by the overhead of transimitting telemetry.
+These design principles ensure that user-facing requests (such as booking flows, checkouts, or other high-priority transactions) will be impacted as little as possible by the overhead of transmitting telemetry.
 
 ## FAQs
 

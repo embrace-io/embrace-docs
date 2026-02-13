@@ -46,13 +46,13 @@ The log workflow is identical to that of crashes and will follow the same logic 
 
 ## ANRs
 
-ANRs that negatively impact user experience can be investigated and triaged directly through the Issues page alognside other issues. ANRs are grouped by the most representative sample and include ANR durations of 5 seconds or greater.
+ANRs that negatively impact user experience can be investigated and triaged directly through the Issues page alongside other issues. ANRs are grouped by the most representative sample and include ANR durations of 5 seconds or greater.
 
 The ANRs workflow follows the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.  
 
 ## Exceptions
 
-Unity exceptions are also represented on the Issues page for Unity applications and can be investigated and triaged alonside other issues. The exceptions workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.  
+Unity exceptions are also represented on the Issues page for Unity applications and can be investigated and triaged alongside other issues. The exceptions workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.  
 
 ## Slow Root Span Instances
 

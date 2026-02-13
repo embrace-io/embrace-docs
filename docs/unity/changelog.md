@@ -437,7 +437,7 @@ Please update to the latest version.
 *January 11, 2023*
 
 - Updated Android SDK to version 5.11.0
-- Fixed a bug that could cause the value of `Exception-Free Sessions` shown in the dashboard to be innacurate for Unity Android apps
+- Fixed a bug that could cause the value of `Exception-Free Sessions` shown in the dashboard to be inaccurate for Unity Android apps
 - Updated iOS SDK to version 5.14.1
 - Further improved reliability of exception logs on iOS when app is immediately terminated after the exception
 
@@ -506,7 +506,7 @@ This version includes a compatibility issue with Embrace Android SDK versions 5.
 :::
 
 - Fixed an issue that could cause the Embrace SDK to fail to load the active configuration in the editor.
-- Fixed the list of available configurations in the settings window getting out of sync with the configurtations available in the project.
+- Fixed the list of available configurations in the settings window getting out of sync with the configurations available in the project.
 
 ## 1.7.3
 
@@ -517,7 +517,7 @@ This version includes a compatibility issue with Embrace Android SDK versions 5.
 
 - Updated Android SDK to version 5.6.1
 - Updated iOS SDK to version 5.9.3
-- Fixed a UI bug with the Getting Started and Embrace Settings windows that occured when the Environments object was deleted from Embrace data directory manually.
+- Fixed a UI bug with the Getting Started and Embrace Settings windows that occurred when the Environments object was deleted from Embrace data directory manually.
 
 ## 1.7.2
 
@@ -795,13 +795,13 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 *May 4, 2021*
 
-- Use correct group id in external depedency xml
+- Use correct group id in external dependency xml
 
 ## 1.2.1
 
 *May 4, 2021*
 
-- Update Android artifact version in external depedency xml
+- Update Android artifact version in external dependency xml
 
 ## 1.2
 

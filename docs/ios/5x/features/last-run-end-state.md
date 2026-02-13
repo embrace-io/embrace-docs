@@ -116,4 +116,4 @@ typedef NS_ENUM(NSInteger, EMBLastRunEndState) {
 
 ---
 
-If you have any questions or there’s something that is not working as intended, please reach out to your Customer Success Manger.
+If you have any questions or there's something that is not working as intended, please reach out to your Customer Success Manager.
