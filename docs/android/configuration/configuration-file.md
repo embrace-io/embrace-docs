@@ -105,7 +105,7 @@ Your API 32-hexdigit token.
 
 #### ndk_enabled *bool*
 
-Enables NDK crash capture. Defaults to `false`.
+Enables NDK crash capture. Defaults to `true`.
 
 #### automatic_data_capture - memory_info *bool*
 
