@@ -21,6 +21,7 @@ Embrace's MCP server is available to all Embrace users.
 | `get_crash_details`       | Get detailed information about a specific crash group               |
 | `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
 | `list_exceptions`         | Top exceptions ranked by frequency and user impact                  |
+| `get_exception_details`   | Get detailed information about a specific exception group           |
 
 ## Prerequisites
 
@@ -115,7 +116,7 @@ Use `list_exceptions` to find the most common exceptions in your Web, Unity, or 
 and user impact, and obtain exception group IDs for further investigation.
 
 1. Use `list_exceptions` to see exceptions ranked by total occurrences and unique users affected
-2. TODO use `get_exception_details`
+2. Use `get_exception_details` to get detailed information about a specific exception group
 
 :::note When not to use
 `list_exceptions` is not available for native iOS or Android apps. For crash data on those platforms, use `list_crashes` instead.
