@@ -12,14 +12,15 @@ Embrace's MCP server is available to all Embrace users.
 
 ## Available tools
 
-| Tool                      | Description                                                         |
-| ------------------------- | ------------------------------------------------------------------- |
-| `list_apps`               | Find and search applications in your Embrace workspace              |
-| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app |
-| `get_top_versions`        | Identify which app versions are most widely used                    |
-| `list_crashes`            | List top crashes ranked by frequency and user impact                |
-| `get_crash_details`       | Get detailed information about a specific crash group               |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
+| Tool                       | Description                                                         |
+| -------------------------- | ------------------------------------------------------------------- |
+| `list_apps`                | Find and search applications in your Embrace workspace              |
+| `get_app_details`          | Get health metrics, crash-free rates, and session counts for an app |
+| `get_top_versions`         | Identify which app versions are most widely used                    |
+| `list_crashes`             | List top crashes ranked by frequency and user impact                |
+| `get_crash_details`        | Get detailed information about a specific crash group               |
+| `get_crash_stack_samples`  | Fetch actual stack traces for crash analysis                        |
+| `get_session_distribution` | See how sessions are distributed across dimensions                  |
 
 ## Prerequisites
 
@@ -107,6 +108,22 @@ Deep dive into a specific crash to understand its root cause:
 3. Use `get_crash_stack_samples` to analyze actual stack traces by crash group ID and identify the bug
 
 **Example query:** "What's causing the top crash in my app and how do I fix it?"
+
+### Understand session distribution
+
+Use `get_session_distribution` to see how your sessions break down across a
+dimension, such as OS version, device model, or country. This establishes a
+baseline that can be used for other comparisons.
+
+1. Use `get_session_distribution` with `group_by: "os_version"` to see which OS
+   versions have the most sessions
+2. Use `get_crash_distribution` with `group_by: "os_version"` to see how the
+   crash distrubtion compares to the baseline.
+
+**Example queries:**
+
+- "Is this crash happening more often in certain OS versions?"
+- "What's the country breakdown for my app's sessions?"
 
 ### Version-specific analysis
 
