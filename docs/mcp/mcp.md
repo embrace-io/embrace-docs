@@ -13,13 +13,15 @@ Embrace's MCP server is available to all Embrace users.
 ## Available tools
 
 | Tool                      | Description                                                         |
-| ------------------------- | ------------------------------------------------------------------- |
+|---------------------------|---------------------------------------------------------------------|
 | `list_apps`               | Find and search applications in your Embrace workspace              |
 | `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app |
 | `get_top_versions`        | Identify which app versions are most widely used                    |
 | `list_crashes`            | List top crashes ranked by frequency and user impact                |
 | `get_crash_details`       | Get detailed information about a specific crash group               |
 | `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
+| `list_exceptions`         | Top exceptions ranked by frequency and user impact                  |
+| `get_exception_details`   | Get detailed information about a specific exception group           |
 
 ## Prerequisites
 
@@ -107,6 +109,20 @@ Deep dive into a specific crash to understand its root cause:
 3. Use `get_crash_stack_samples` to analyze actual stack traces by crash group ID and identify the bug
 
 **Example query:** "What's causing the top crash in my app and how do I fix it?"
+
+### Investigate a critical exception
+
+Use `list_exceptions` to find the most common exceptions in your Web, Unity, or Flutter app, prioritize them by frequency
+and user impact, and obtain exception group IDs for further investigation.
+
+1. Use `list_exceptions` to see exceptions ranked by total occurrences and unique users affected
+2. Use `get_exception_details` to get detailed information about a specific exception group
+
+:::note When not to use
+`list_exceptions` is not available for native iOS or Android apps. For crash data on those platforms, use `list_crashes` instead.
+:::
+
+**Example query:** "What are the top unhandled exceptions in my web app over the last 7 days?"
 
 ### Version-specific analysis
 
