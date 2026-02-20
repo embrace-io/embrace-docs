@@ -12,14 +12,15 @@ Embrace's MCP server is available to all Embrace users.
 
 ## Available tools
 
-| Tool                      | Description                                                         |
-| ------------------------- | ------------------------------------------------------------------- |
-| `list_apps`               | Find and search applications in your Embrace workspace              |
-| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app |
-| `get_top_versions`        | Identify which app versions are most widely used                    |
-| `list_crashes`            | List top crashes ranked by frequency and user impact                |
-| `get_crash_details`       | Get detailed information about a specific crash group               |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
+| Tool                      | Description                                                           |
+| ------------------------- | --------------------------------------------------------------------- |
+| `list_apps`               | Find and search applications in your Embrace workspace                |
+| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app   |
+| `get_top_versions`        | Identify which app versions are most widely used                      |
+| `list_crashes`            | List top crashes ranked by frequency and user impact                  |
+| `get_crash_details`       | Get detailed information about a specific crash group                 |
+| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                          |
+| `list_root_spans`         | List root spans with performance metrics and outcome rates for an app |
 
 ## Prerequisites
 
@@ -127,3 +128,18 @@ Monitor how your app's health changes:
 3. Use `get_top_versions` to track version adoption velocity
 
 **Example query:** "How has my crash-free rate changed over the last 7 days?"
+
+### Identify slow or failing operations {#identify-slow-or-failing-operations}
+
+Discover which operations in your app have the worst performance or highest failure rates:
+
+1. Use `list_root_spans` to see all operations ranked by frequency
+2. Use `list_root_spans` with `order_by: "failure_pct"` to find spans with the highest failure rates
+3. Use `list_root_spans` with `order_by: "p95"` to identify the slowest operations
+4. Use `list_root_spans` with `root_span_name_filter` to search for a specific operation by name
+
+**Example queries:**
+
+- "Which operations in my app have the highest failure rates?"
+- "What are the slowest spans in my app over the last 7 days?"
+- "Show me performance metrics for all checkout-related operations"
