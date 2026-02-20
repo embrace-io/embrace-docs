@@ -6,20 +6,23 @@ description: Access Embrace mobile observability data through the Model Context 
 
 # Embrace MCP Server
 
-The Embrace Model Context Protocol (MCP) server lets you query your mobile app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, monitor app health, and analyze trends without leaving your development workflow.
+The Embrace Model Context Protocol (MCP) server lets you query your mobile app's performance and crash data directly
+from AI assistants like Claude. You can investigate crashes, monitor app health, and analyze trends without leaving your
+development workflow.
 
 Embrace's MCP server is available to all Embrace users.
 
 ## Available tools
 
-| Tool                      | Description                                                         |
-| ------------------------- | ------------------------------------------------------------------- |
-| `list_apps`               | Find and search applications in your Embrace workspace              |
-| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app |
-| `get_top_versions`        | Identify which app versions are most widely used                    |
-| `list_crashes`            | List top crashes ranked by frequency and user impact                |
-| `get_crash_details`       | Get detailed information about a specific crash group               |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
+| Tool                      | Description                                                              |
+|---------------------------|--------------------------------------------------------------------------|
+| `list_apps`               | Find and search applications in your Embrace workspace                   |
+| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app      |
+| `get_top_versions`        | Identify which app versions are most widely used                         |
+| `list_crashes`            | List top crashes ranked by frequency and user impact                     |
+| `get_crash_details`       | Get detailed information about a specific crash group                    |
+| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                             |
+| `get_root_span_stats`     | Get timing percentiles, duration histogram, and outcomes for a root span |
 
 ## Prerequisites
 
@@ -54,11 +57,14 @@ Run:
 claude mcp add --transport http embrace https://mcp.embrace.io/mcp
 ```
 
-Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: Bearer Token authentication is not currently supported.
+Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official
+docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: Bearer Token authentication is not currently
+supported.
 
 ### Opencode
 
-Follow the OAuth MCP integration instructions in [Opencode's official docs](https://opencode.ai/docs/mcp-servers/#oauth).
+Follow the OAuth MCP integration instructions
+in [Opencode's official docs](https://opencode.ai/docs/mcp-servers/#oauth).
 
 For example, add to your `opencode.json` file:
 
@@ -82,7 +88,8 @@ opencode mcp auth embrace
 
 ### All others
 
-For other AI Assistants supporting MCP, please reference your relevant docs. Official support will come in the near future for these as we continue to improve and add functionality.
+For other AI Assistants supporting MCP, please reference your relevant docs. Official support will come in the near
+future for these as we continue to improve and add functionality.
 
 The Embrace MCP Server uses a Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
 
@@ -117,6 +124,17 @@ Focus on a particular app version:
 3. Use `get_crash_stack_samples` to see if patterns emerge
 
 **Example query:** "Show me all crashes in version 2.1.0"
+
+### Analyze root span performance
+
+Understand the duration distribution and outcome rates of a root span such as a screen render or app startup:
+
+1. Use `get_root_span_stats` with the span name to see percentiles (p50/p90/p95/p99), a duration histogram, and outcome
+   breakdown (success, failure, user abandon, unknown)
+2. Use `app_versions` to compare performance across releases
+3. Use different `time_window` values to spot regressions
+
+**Example query:** "What does the duration distribution look like for the screen-render span?"
 
 ### Track trends over time
 
