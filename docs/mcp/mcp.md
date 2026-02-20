@@ -12,14 +12,15 @@ Embrace's MCP server is available to all Embrace users.
 
 ## Available tools
 
-| Tool                      | Description                                                         |
-| ------------------------- | ------------------------------------------------------------------- |
-| `list_apps`               | Find and search applications in your Embrace workspace              |
-| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app |
-| `get_top_versions`        | Identify which app versions are most widely used                    |
-| `list_crashes`            | List top crashes ranked by frequency and user impact                |
-| `get_crash_details`       | Get detailed information about a specific crash group               |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
+| Tool                      | Description                                                                        |
+| ------------------------- | ---------------------------------------------------------------------------------- |
+| `list_apps`               | Find and search applications in your Embrace workspace                             |
+| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app                |
+| `get_top_versions`        | Identify which app versions are most widely used                                   |
+| `list_crashes`            | List top crashes ranked by frequency and user impact                               |
+| `get_crash_details`       | Get detailed information about a specific crash group                              |
+| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                                       |
+| `get_root_span_breakdown` | Analyze root span performance across dimensions like app version, OS, or country   |
 
 ## Prerequisites
 
@@ -127,3 +128,17 @@ Monitor how your app's health changes:
 3. Use `get_top_versions` to track version adoption velocity
 
 **Example query:** "How has my crash-free rate changed over the last 7 days?"
+
+### Investigate span performance
+
+Analyze how a specific root span performs across different segments:
+
+1. Use `get_root_span_breakdown` with `dimension: "app_version"` to see if certain versions have worse latency
+2. Use `get_root_span_breakdown` with `dimension: "country"` to identify geographic performance issues
+3. Use `get_root_span_breakdown` with `dimension: "model"` to find device-specific problems
+
+**Example queries:**
+
+- "Why is checkout_flow slow on version 2.1.0?"
+- "Which countries have the highest p95 latency for my payment span?"
+- "Is the login span failing more on certain device models?"
