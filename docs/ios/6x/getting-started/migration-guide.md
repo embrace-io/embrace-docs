@@ -561,4 +561,4 @@ After migrating to the 6.x SDK, we recommend:
 
 ## Need Help?
 
-If you encounter issues during migration, please reach out on the [community slack](https://community.embrace.io) or email [support@embrace.com](mailto:support@embrace.com).
+If you encounter issues during migration, please reach out on the [community slack](https://community.embrace.io) or email [support@embrace.io](mailto:support@embrace.io).
