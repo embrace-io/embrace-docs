@@ -8,7 +8,7 @@ sidebar_position: 5
 
 Here are some commonly asked questions along with their answers.
 If you don't see your question or need more clarification, contact us on the [community Slack](https://community.embrace.io)
-or email us at [support@embrace.com](mailto:support@embrace.com).
+or email us at [support@embrace.io](mailto:support@embrace.io).
 
 ## Integration
 
@@ -80,7 +80,7 @@ See [this section](/android/configuration/configuration-file/#custom-settings-fo
 
 ### **Does Embrace work with Buck / OKBuck?**
 
-Not currently. Contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
+Not currently. Contact us at [support@embrace.io](mailto:support@embrace.io) or on Slack if you would like to request support.
 
 ### **Does Embrace support Hermes for React Native?**
 
@@ -218,7 +218,7 @@ All network calls are automatically tracked without any code changes. Network ca
 - OkHttp (including support for Retrofit)
 - Http(s)URLConnection
 
-If you use a library not listed or do not see expected network calls, contact us at [support@embrace.com](mailto:support@embrace.com) or via Slack.
+If you use a library not listed or do not see expected network calls, contact us at [support@embrace.io](mailto:support@embrace.io) or via Slack.
 
 ### **Compatibility with Akamai, Cloudflare, PacketZoom and other networking services**
 

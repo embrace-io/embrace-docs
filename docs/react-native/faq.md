@@ -6,7 +6,7 @@ sidebar_position: 3
 
 # Embrace React Native SDK FAQ
 
-Here is a list of frequently asked questions and their answers. If you don't see your question here, or would like more clarification on one, reach out on Slack or email [support@embrace.com](mailto:support@embrace.com).
+Here is a list of frequently asked questions and their answers. If you don't see your question here, or would like more clarification on one, reach out on Slack or email [support@embrace.io](mailto:support@embrace.io).
 
 ## Common questions
 
@@ -44,7 +44,7 @@ for the React Native version you are using in your application.
 
 ### **Does Embrace work with Buck / OKBuck?**
 
-Not currently. Please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
+Not currently. Please contact us at [support@embrace.io](mailto:support@embrace.io) or on Slack if you would like to request support.
 
 ### **Does Embrace support Hermes for React Native?**
 
