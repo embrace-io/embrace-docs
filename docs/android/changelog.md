@@ -672,7 +672,7 @@ This version has a known issue with Gradle < 6.2
 
 *Oct 18, 2022*
 
-- Fixed an ANR occurring in React Native projects using a custom Javascript bundle URL.
+- Fixed an ANR occurring in React Native projects using a custom JavaScript bundle URL.
 
 ## 5.7.0
 

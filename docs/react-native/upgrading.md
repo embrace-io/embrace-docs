@@ -206,7 +206,7 @@ more details.
 ### Fixed process for uploading sourcemaps on iOS Expo apps
 
 If your app is using Expo and you have previously followed our symbol file upload guide or ran our automated install script
-then please update your build phases with our latest instructions from [Uploading Native And Javascript Symbol Files](/react-native/integration/upload-symbol-files/?platform=ios#uploading-native-and-javascript-symbol-files)
+then please update your build phases with our latest instructions from [Uploading Native And JavaScript Symbol Files](/react-native/integration/upload-symbol-files/?platform=ios#uploading-native-and-javascript-symbol-files)
 to ensure that sourcemaps are uploaded correctly.
 
 ## Upgrading from 4.x to 5.x

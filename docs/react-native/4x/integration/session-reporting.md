@@ -17,7 +17,7 @@ Here are the steps you’ll be taking to create your first session.
 
 ## Initialize Embrace SDK
 
-Initialize method applies the necessary listener to your application. This allows Embrace to track javascript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
+Initialize method applies the necessary listener to your application. This allows Embrace to track JavaScript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -77,7 +77,7 @@ The initialize method will apply the interceptors that we need to get informatio
 ## Starting Embrace SDK from Android / iOS
 
 :::info
-Initializing the Embrace SDK from React Native (Javascript) will initialize the native Embrace SDKs (Android / iOS). This means that the network, crash, and metrics interceptors will be initialized once JavaScript is loaded and has called initialize method mentioned in the previous step. This is useful only if you perform some function/have custom code before initializing the application. If you want to start applying the interceptors as soon as Android / iOS has started, you can proceed with the Native integration.
+Initializing the Embrace SDK from React Native (JavaScript) will initialize the native Embrace SDKs (Android / iOS). This means that the network, crash, and metrics interceptors will be initialized once JavaScript is loaded and has called initialize method mentioned in the previous step. This is useful only if you perform some function/have custom code before initializing the application. If you want to start applying the interceptors as soon as Android / iOS has started, you can proceed with the Native integration.
 
 :::
 

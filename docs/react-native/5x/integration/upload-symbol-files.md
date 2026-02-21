@@ -59,7 +59,7 @@ This creates a bundle and sets the debuggable flag to false.
 </TabItem>
 </Tabs>
 
-## Uploading Native And Javascript Symbol Files
+## Uploading Native And JavaScript Symbol Files
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
@@ -122,7 +122,7 @@ This process can be scripted into your CI backend as well. Simply include the up
 
 ## JavaScript Manual Uploads
 
-When you upload the dSYM manually you also have to upload the javascript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
+When you upload the dSYM manually you also have to upload the JavaScript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
 
 ```javascript
 react-native bundle \

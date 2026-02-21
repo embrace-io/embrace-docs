@@ -23,7 +23,7 @@ The Overview page is built on metrics for a given time period (configurable on t
 
 Additionally, for mobile apps, the Overview page will display **Crash-free Session** and **Crash-free Users** percentages, as well as **App Launch** metrics.
 
-For web apps, the Overview page will display **Core Web Vitals** scores and **Javascript Exceptions** percentages.
+For web apps, the Overview page will display **Core Web Vitals** scores and **JavaScript Exceptions** percentages.
 
 <img src={require('@site/static/images/web-overview-page.png').default} />
 

@@ -61,6 +61,6 @@ Slow Instances serve as a valuable tool for pinpointing performance bottlenecks 
 They're grouped by Root Span name and comprise instances with durations surpassing the defined threshold of successful root spans bearing the same name.
 You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-root-spans).
 
-## javascript Exceptions
+## JavaScript Exceptions
 
 Exceptions are available for apps instrumented with the Embrace Web SDK, with entries pointing to the function or module responsible for the exception. You can see more information about trends over time and exception grouping in the [Exceptions](/product/troubleshooting/js-exceptions.md) page in the Troubleshooting tab.
