@@ -31,7 +31,7 @@ jobs:
           echo >> rumdl.md
           echo '```' >> rumdl.md
 
-          rumdl check --statistics > output.md || echo ""
+          rumdl check --output-format github --statistics > output.md || echo ""
 
           if grep 'Rule Violation Statistics:' output.md > /dev/null; then
             cat output.md | sed -n '/^Rule Violation Statistics:/,$p' | grep -v 'Rule Violation Statistics:' >> rumdl.md
