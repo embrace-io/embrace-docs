@@ -10,7 +10,7 @@ sidebar_position: 99
 
 - [**New Overview Page**](https://embrace.io/blog/new-overview-page/): A unified starting point for web and mobile observability makes the Embrace dashboard even more powerful by providing quick, actionable insight.
 
-- [**Javascript Exception Scoring**](https://embrace.io/blog/javascript-exception-scoring/): Embrace now automatically calculates a [severity score](/docs/product/exceptions/severity-score.md) for every JavaScript exception captured by the WebSDK, to help you prioritize the most critical issues affecting your users.
+- [**JavaScript Exception Scoring**](https://embrace.io/blog/javascript-exception-scoring/): Embrace now automatically calculates a [severity score](/docs/product/exceptions/severity-score.md) for every JavaScript exception captured by the WebSDK, to help you prioritize the most critical issues affecting your users.
 
 - [**Page Load Insights**](https://embrace.io/blog/page-load-insights-in-embrace-web-rum/): The new Page Load Insights feature for Web RUM shows you exactly what’s slowing your pages down and impacting your end users.
 

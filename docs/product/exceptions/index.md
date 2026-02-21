@@ -44,7 +44,7 @@ exceptions when needed.
 
 ## Learn more
 
-This walkthrough video will show you how developers dig into Javascript exceptions in Embrace's dashboard.
+This walkthrough video will show you how developers dig into JavaScript exceptions in Embrace's dashboard.
 
 <div>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/Slhx5ByO-l0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

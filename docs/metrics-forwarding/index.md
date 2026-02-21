@@ -56,12 +56,12 @@ Embrace forwards standard and custom metrics at different time granularities to 
 
 :::info
 The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a
-specific UTC day.  
+specific UTC day.
 It is important to note that this metric is not designed for cumulative aggregation across days, as doing so would
 result in double-counting users.
 
 Summing the users metric across various dimensions within the same day does not yield the overall count of unique users
-per day.  
+per day.
 This discrepancy arises from the potential overlap of users across different dimensions; for instance, users who update
 the app version on the same day may be present in multiple dimensions.
 

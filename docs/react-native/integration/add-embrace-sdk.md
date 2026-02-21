@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ## Add the JavaScript library
 
-To add the Javascript library to your React Native project, use one of the following commands.
+To add the JavaScript library to your React Native project, use one of the following commands.
 
 npm:
 

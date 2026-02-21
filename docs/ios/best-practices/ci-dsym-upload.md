@@ -17,7 +17,7 @@ Here are quick links to documentation for storing artifacts in common mobile CI 
 - [Bitrise](https://docs.bitrise.io/en/bitrise-ci/run-and-analyze-builds/managing-build-files/uploading-files-for-your-builds.html)
 - [Buildkite](https://buildkite.com/docs/pipelines/configure/artifacts)
 - [CircleCI](https://circleci.com/docs/guides/optimize/artifacts/)
-- [Github Actions](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#about-workflow-artifacts)
+- [GitHub Actions](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#about-workflow-artifacts)
 - **Xcode Cloud** - As of writing, does not support storing custom artifacts. If using Xcode Cloud [see this section below](#working-with-xcode-cloud) for more specific instructions.
 
 ## Summary

@@ -21,7 +21,7 @@ Our workflow feature set is diverse for crashes. Unlike other traditional crash 
 
 ### **Resolve**
 
-Resolve will close out the selected crash grouping(s). You can Resolve crash grouping(s) by selecting one of two options:  
+Resolve will close out the selected crash grouping(s). You can Resolve crash grouping(s) by selecting one of two options:
 
 - **Now** - Close until we receive another crash instance.
 - **Next** - Close until we receive a crash instance from a later version.
@@ -40,27 +40,27 @@ Reopens issue(s) that have been resolved, snoozed or ignored.
 
 ## Logs
 
-Log messages are powerful tools when it comes to debugging issues. When we detect changes in new and existing logs, we will also surface them in the issues page for you to prioritize with our workflow.  
+Log messages are powerful tools when it comes to debugging issues. When we detect changes in new and existing logs, we will also surface them in the issues page for you to prioritize with our workflow.
 
-The log workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.  
+The log workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.
 
 ## ANRs
 
 ANRs that negatively impact user experience can be investigated and triaged directly through the Issues page alongside other issues. ANRs are grouped by the most representative sample and include ANR durations of 5 seconds or greater.
 
-The ANRs workflow follows the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.  
+The ANRs workflow follows the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.
 
 ## Exceptions
 
-Unity exceptions are also represented on the Issues page for Unity applications and can be investigated and triaged alongside other issues. The exceptions workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.  
+Unity exceptions are also represented on the Issues page for Unity applications and can be investigated and triaged alongside other issues. The exceptions workflow is identical to that of crashes and will follow the same logic when **Resolving**, **Snoozing**, **Ignoring**, and **Reopening**.
 
 ## Slow Root Span Instances
 
-Slow Instances serve as a valuable tool for pinpointing performance bottlenecks swiftly.  
+Slow Instances serve as a valuable tool for pinpointing performance bottlenecks swiftly.
 
 They're grouped by Root Span name and comprise instances with durations surpassing the defined threshold of successful root spans bearing the same name.
 You can see slow instances on the [traces tab](/product/traces/traces-ui/#slow-root-spans).
 
-## Javascript Exceptions
+## JavaScript Exceptions
 
 Exceptions are available for apps instrumented with the Embrace Web SDK, with entries pointing to the function or module responsible for the exception. You can see more information about trends over time and exception grouping in the [Exceptions](/product/troubleshooting/js-exceptions.md) page in the Troubleshooting tab.

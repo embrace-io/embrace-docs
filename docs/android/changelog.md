@@ -325,7 +325,7 @@ Do not use these versions of the SDK. This issue has been addressed in 6.9.2.
 
 *June 4, 2024*
 
-- Fix a build error while reading the api_token from an environment variable.
+- Fix a build error while reading the `api_token` from an environment variable.
 
 ## 6.8.0
 
@@ -672,7 +672,7 @@ This version has a known issue with Gradle < 6.2
 
 *Oct 18, 2022*
 
-- Fixed an ANR occurring in React Native projects using a custom Javascript bundle URL.
+- Fixed an ANR occurring in React Native projects using a custom JavaScript bundle URL.
 
 ## 5.7.0
 
@@ -764,7 +764,7 @@ This version has a known issue with Gradle < 6.1
 This version has a known issue with Gradle < 6.1
 :::
 
-- ASM bytecode transformation API is now the default api.
+- ASM bytecode transformation API is now the default API.
 
 ## 5.2.0
 

@@ -237,7 +237,7 @@ Additionally, the following attributes are required on the span for your network
 
 ### Naming convention
 
-For the span's name, use the format: `"{METHOD} {path}"` (e.g., "GET /api/users", "POST /UserService/GetUser")
+For the span's name, use the format: `"{METHOD} {path}"` (e.g., `GET /api/users`, `POST /UserService/GetUser`)
 
 ## Best practices
 

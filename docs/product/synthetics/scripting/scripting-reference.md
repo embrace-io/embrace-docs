@@ -21,7 +21,7 @@ Before you get started, refer to the [scripting guide](./index.md) for a review 
 
 ## 2. Operating on the DOM
 
-Commands operating on the DOM identify the element with a format of `attribute=value`  
+Commands operating on the DOM identify the element with a format of `attribute=value`
 If you are filling out a form and you want to populate an element like this:
 
 `<input type="text" class="tabInputFields" id="lgnId1" value="" tabindex="1"
@@ -61,53 +61,53 @@ In order to simplify your scripts and help with script maintenance, variable may
 Replacing URL for a test using %URL%. The %URL% is the initial URL defined in your site settings.
 
 ```text
-//URL being tested is https://speedcurve.com
+//URL being tested is https://example.com
 navigate %URL%
-// output: navigate  https://speedcurve.com
+// output: navigate  https://example.com
 ```
 
 Host of the URL for the test (not including protocol) using %HOST%
 
 ```text
-//URL being tested is https://speedcurve.com
+//URL being tested is https://example.com
 setDnsName %HOST% dns.example
-// output: setDnsName  speedcurve.com dns.example
+// output: setDnsName  example.com dns.example
 ```
 
 Origin of the URL (includes protocol and port if defined) using %ORIGIN%
 
 ```text
-//URL being tested is https://speedcurve.com/blog
+//URL being tested is https://example.com/blog
 setCookie  %ORIGIN% foo=bar
-// output: setCookie https://speedcurve.com foo=bar
+// output: setCookie https://example.com foo=bar
 ​
-//URL being tested is https://speedcurve.com:8080/blog
+//URL being tested is https://example.com:8080/blog
 setCookie  %ORIGIN% foo=bar
-// output: setCookie https://speedcurve.com:8080 foo=bar
+// output: setCookie https://example.com:8080 foo=bar
 ```
 
 %HOST_REGEX% – Using HOST compatible with regular expressions by escaping dots
 
 ```text
-//URL being tested is https://speedcurve.com
+//URL being tested is https://example.com
 setHeader  Foo: Bar  %HOST_REGEX%
-// output: setHeader Foo: Bar  speedcurve\.com
+// output: setHeader Foo: Bar  example\.com
 ```
 
 %HOSTR% – Using the final host name of the URL after following redirects
 
 ```text
-//URL being tested is https://redirect.speedcurve.com
+//URL being tested is https://redirect.example.com
 setDnsName %HOSTR% dns.example
-// output: setDnsName  speedcurve.com dns.example
+// output: setDnsName  example.com dns.example
 ```
 
 %TEST_ID% – replaced with the id of the current test
 
 ```text
-// URL being tested is https://speedcurve.com
+// URL being tested is https://example.com
 navigate  %URL%/?tag=%TEST_ID%
-// output: navigate https://speedcurve.com/?tag=230518_XF_3
+// output: navigate https://example.com/?tag=230518_XF_3
 ```
 
 ## 5. Command reference
@@ -120,7 +120,7 @@ Navigates the browser to the provided url.
 
 ```text
 // usage: navigate <url>
-navigate  https://speedcurve.com
+navigate  https://example.com
 ```
 
 NOTE: there is the hard limit of 20 `navigate` and `...AndWait` (f.i. `execAndWait`, `clickAndWait` etc.) commands added to the script. Once this limit is reached, the test will fail to execute.
@@ -154,7 +154,7 @@ selectValue id=country  usa
 
 #### sendClick / sendClickAndWait
 
-Creates a javascript OnClick event and sends it to the indicated element.
+Creates a JavaScript OnClick event and sends it to the indicated element.
 
 ```text
 // usage: sendClickAndWait  <attribute=value>
@@ -163,7 +163,7 @@ sendClickAndWait  innerText=Send
 
 #### sendKeyDown / sendKeyUp / sendKeyPress (AndWait)
 
-Creates a javascript keyboard event (OnKeyDown, OnKeyUp, OnKeyPress) and sends it to the indicated element.
+Creates a JavaScript keyboard event (OnKeyDown, OnKeyUp, OnKeyPress) and sends it to the indicated element.
 
 ```text
 // usage: sendKeyDownAndWait  <attribute=value>    <key>
@@ -265,19 +265,19 @@ example: submitForm name=AOLLoginForm
 
 #### exec
 
-Executes javascript.
+Executes JavaScript.
 
 ```text
-// usage: exec  <javascript code>
+// usage: exec  <JavasSript code>
 exec  window.setInterval('window.scrollBy(0,600)', 1000);
 ```
 
 #### execAndWait
 
-Executes javascript and waits for the browser to complete any activity generated from the action. Only use this if the action will cause network activity. If the action does not cause a page transition use `exec` instead.
+Executes JavaScript and waits for the browser to complete any activity generated from the action. Only use this if the action will cause network activity. If the action does not cause a page transition use `exec` instead.
 
 ```text
-// usage: execAndWait <javascript code>
+// usage: execAndWait <JavaScript code>
 execAndWait window.setInterval('window.scrollBy(0,600)', 1000);
 ```
 
@@ -285,10 +285,10 @@ NOTE: there is the hard limit of 20 `navigate` and `...AndWait` (e.g. `execAndWa
 
 #### injectScript
 
-Queues a javascript snippet to be executed soon after the next navigation.
+Queues a JavaScript snippet to be executed soon after the next navigation.
 
 ```text
-// usage: injectscript  <javascript code>
+// usage: injectscript  <JavaScript code>
 injectscript  (function () { style = document.createElement('style'); style.innerHTML = "p {filter: blur(5px) !important}"; document.head.appendChild(style); })();
 // navigate to the final URL where the p elements will be blurred
 navigate https://example.com
@@ -306,12 +306,12 @@ This is only supported in Chrome and the emulated mobile browsers which are base
 
 #### setABM
 
-Sets the "Activity Based Measurement" mode.  
+Sets the "Activity Based Measurement" mode.
 Valid values are:
 
 - 0 - Disabled (Web 1.0 - Measure based off of document complete)
 
-- 1 - Enabled (Web 2.0 - Measure until activity stops)  
+- 1 - Enabled (Web 2.0 - Measure until activity stops)
 The default if not specified in the script is 1 (Enabled) Browser Support: IE, Chrome, Firefox
 
 ```text
@@ -372,9 +372,9 @@ Stores a browser cookie to be used while navigating.
 
 ```text
 // usage: setCookie <path>  <value>
-setCookie http://www.speedcurve.com zip=80212
+setCookie http://www.example.com zip=80212
 // setting multiple cookies for a path
-setCookie http://www.speedcurve.com TestData = Test; expires = Sat,01-Jan-2031 00:00:00 GMT
+setCookie http://www.example.com TestData = Test; expires = Sat,01-Jan-2031 00:00:00 GMT
 ```
 
 #### setDns
@@ -383,7 +383,7 @@ Allows for overriding the IP address to be used for a host name. The override is
 
 ```text
 // usage: setDns  <host name> <IP Address>
-setDns  www.speedcurve.com  127.0.0.1
+setDns  www.example.com  127.0.0.1
 ```
 
 #### setDNSName
@@ -392,7 +392,7 @@ Allows for overriding a host name (creating a fake CNAME). Browser Support: IE, 
 
 ```text
 // usage: setDnsName  <name to override>  <real name>
-setDnsName  mark.speedcurve.com www.speedcurve.com
+setDnsName  mark.example.com www.example.com
 ```
 
 #### setUserAgent
@@ -414,7 +414,7 @@ Replaces the value of the Host: HTTP header for the given host with the provided
 
 ```text
 // usage: overrideHost  <host>    <new host>
-overrideHost  www.speedcurve.com    www.notspeedcurve.com
+overrideHost  www.example.com    www.not.example.com
 ```
 
 #### addHeader
@@ -428,11 +428,11 @@ addHeader Pragma: akamai-x-cache-on
 
 The optional filter uses a url pattern, for example:
 
-`https://www.speedcurve.com/*` applies the header to all requests that start with [https://www.speedcurve.com]
+`https://www.example.com/*` applies the header to all requests that start with [https://www.example.com]
 
-`https://www.speedcurve.com/` applies the header to just the request to [https://www.speedcurve.com/]
+`https://www.example.com/` applies the header to just the request to [https://www.example.com/]
 
-`https://*.speedcurve.com/*` applies the header to all requests to [https://www.speedcurve.com], [https://app.speedcurve.com] and [https://support.speedcurve.com]
+`https://*.example.com/*` applies the header to all requests to [https://www.example.com], [https://app.example.com] and [https://support.example.com]
 
 `*://*/*` applies the header to all requests and is the default when no pattern is specified.
 
@@ -500,9 +500,9 @@ combineSteps
 ```text
 // Sample Script:
 combineSteps
-navigate  www.google.com
-navigate  www.yahoo.com
-navigate  www.aol.com
+navigate  www1.example.com
+navigate  www2.example.com
+navigate  www3.example.com
 ```
 
 #### setLanguage

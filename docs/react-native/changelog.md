@@ -261,7 +261,7 @@ _Jun 21, 2023_
 
 _May 30, 2023_
 
-- Fix a bug when the app crash with a Javascript error.
+- Fix a bug when the app crash with a JavaScript error.
 - Update Android SDK to 5.19.0
 - Update iOS SDK to 5.19.4
 
