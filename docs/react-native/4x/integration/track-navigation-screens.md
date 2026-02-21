@@ -102,7 +102,7 @@ Navigation.events().registerAppLaunchedListener(() => {
 ```
 
 :::info
-Currently we are only supporting 'React Native Navigation SDK' and 'React Navigation SDK', if you are using another library please contact us at [support@embrace.com](mailto:support@embrace.com) or on Slack if you would like to request support.
+Currently we are only supporting 'React Native Navigation SDK' and 'React Navigation SDK', if you are using another library please contact us at [support@embrace.io](mailto:support@embrace.io) or on Slack if you would like to request support.
 :::
 
 ### Disable Auto Tracking for Native Screens

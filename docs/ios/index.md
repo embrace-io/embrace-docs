@@ -31,6 +31,6 @@ Legacy 5.x documentation:
 
 ## Any questions
 
-If you would like clarification on which SDK to use, please reach out to us on the [community slack](https://community.embrace.io) or email us at [support@embrace.com](mailto:support@embrace.com).
+If you would like clarification on which SDK to use, please reach out to us on the [community slack](https://community.embrace.io) or email us at [support@embrace.io](mailto:support@embrace.io).
 
 You can also view our [FAQ](/ios/faq/) and [Changelog](/ios/changelog/).
