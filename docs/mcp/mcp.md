@@ -20,6 +20,7 @@ Embrace's MCP server is available to all Embrace users.
 | `list_crashes`            | List top crashes ranked by frequency and user impact                |
 | `get_crash_details`       | Get detailed information about a specific crash group               |
 | `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
+| `get_crash_distribution`  | Break down crash occurrences across a dimension and compare against session baselines |
 
 ## Prerequisites
 
@@ -107,6 +108,23 @@ Deep dive into a specific crash to understand its root cause:
 3. Use `get_crash_stack_samples` to analyze actual stack traces by crash group ID and identify the bug
 
 **Example query:** "What's causing the top crash in my app and how do I fix it?"
+
+### Investigate crash distribution
+
+Use `get_crash_distribution` to see where a crash is concentrated by comparing
+its occurrence across a dimension against the session baseline.
+
+1. Use `list_crashes` to find a crash group ID
+2. Use `get_crash_distribution` with `group_by: "os_version"` to see which OS
+   versions are over-represented relative to their session share
+3. Use `get_crash_distribution` with `group_by: "model"` or `group_by: "country"`
+   to further narrow down affected segments
+
+**Example queries:**
+
+- "Which device models are most affected by this crash?"
+- "Is this crash happening more often on specific OS versions?"
+- "Is this crash concentrated in a particular country?"
 
 ### Version-specific analysis
 
