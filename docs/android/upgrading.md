@@ -135,7 +135,7 @@ call the `Embrace.getOpenTelemetryKotlin()` function once the Embrace SDK is ini
 you can instantiate OTel Tracers and Loggers. You can also add your own implementations of Kotlin Span and Log exporters, then configure
 the Embrace Android SDK to use them by calling them `Embrace.addSpanExporter()` and `Embrace.addLogRecordExporter()`.
 
-As part of this evolution, opentelemetry-java's API are not used internally or exported by default by the Embrace SDK. A compatibility
+As part of this evolution, `opentelemetry-java`'s API are not used internally or exported by default by the Embrace SDK. A compatibility
 layer is provided for those who currently use the Java OTel Tracing API or Java exporters with the Embrace SDK. To access that,
 include the new `io.embrace:embrace-android-otel-java` module in your app's classpath, which adds the following extension functions
 to the `Embrace` object:
@@ -189,8 +189,8 @@ get in touch if you do have a use-case that is no longer met.
 | Old API                                                                 | New API                                                                                                |
 |-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)` and supply `sdk_config.app_framework` with 'flutter', 'react_native', or 'unity'                                                                               |
-| `Embrace.getInstance().addLogRecordExporter(LogRecordExporter)`         | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
-| `Embrace.getInstance().addSpanExporter(SpanExporter)`                   | Type changed to opentelemetry-kotlin API. Alternative available in `embrace-android-otel-java` module. |
+| `Embrace.getInstance().addLogRecordExporter(LogRecordExporter)`         | Type changed to `opentelemetry-kotlin` API. Alternative available in `embrace-android-otel-java` module. |
+| `Embrace.getInstance().addSpanExporter(SpanExporter)`                   | Type changed to `opentelemetry-kotlin` API. Alternative available in `embrace-android-otel-java` module. |
 | `Embrace.getInstance().getOpenTelemetry()`                              | `Embrace.getOpenTelemetryKotlin()` or `Embrace.getJavaOpenTelemetry()`                                 |
 | `Embrace.getInstance().setResourceAttribute(AttributeKey, String)`      | `Embrace.setResourceAttribute(String, String)`                                                         |
 | `EmbraceSpan.addLink(SpanContext)`                                      | Type changed to symbol declared in embrace-android-sdk.                                                |

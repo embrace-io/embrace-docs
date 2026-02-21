@@ -129,20 +129,20 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 
 #### iOS
 
-Go to your Embrace-info.plist inside ios/YOURAPPNAME and add ENABLE_AUTOMATIC_VIEW_CAPTURE as false, your file should be like this
+Go to your `Embrace-info.plist` inside `ios/YOURAPPNAME` and add `ENABLE_AUTOMATIC_VIEW_CAPTURE` as false, your file should be like this
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>API_KEY</key>
-	<string>{API_KEY}</string>
-	<key>CRASH_REPORT_ENABLED</key>
-	<true/>
-   <!-- Add this key and the value as false-->
-	<key>ENABLE_AUTOMATIC_VIEW_CAPTURE</key>
-	<false/>
+    <key>API_KEY</key>
+    <string>{API_KEY}</string>
+    <key>CRASH_REPORT_ENABLED</key>
+    <true/>
+    <!-- Add this key and the value as false-->
+    <key>ENABLE_AUTOMATIC_VIEW_CAPTURE</key>
+    <false/>
 </dict>
 </plist>
 ```

@@ -268,7 +268,7 @@ example: submitForm name=AOLLoginForm
 Executes JavaScript.
 
 ```text
-// usage: exec  <javascript code>
+// usage: exec  <JavasSript code>
 exec  window.setInterval('window.scrollBy(0,600)', 1000);
 ```
 
@@ -277,7 +277,7 @@ exec  window.setInterval('window.scrollBy(0,600)', 1000);
 Executes JavaScript and waits for the browser to complete any activity generated from the action. Only use this if the action will cause network activity. If the action does not cause a page transition use `exec` instead.
 
 ```text
-// usage: execAndWait <javascript code>
+// usage: execAndWait <JavaScript code>
 execAndWait window.setInterval('window.scrollBy(0,600)', 1000);
 ```
 
@@ -288,7 +288,7 @@ NOTE: there is the hard limit of 20 `navigate` and `...AndWait` (e.g. `execAndWa
 Queues a JavaScript snippet to be executed soon after the next navigation.
 
 ```text
-// usage: injectscript  <javascript code>
+// usage: injectscript  <JavaScript code>
 injectscript  (function () { style = document.createElement('style'); style.innerHTML = "p {filter: blur(5px) !important}"; document.head.appendChild(style); })();
 // navigate to the final URL where the p elements will be blurred
 navigate https://example.com

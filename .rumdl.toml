@@ -28,9 +28,9 @@ respect_gitignore = true
 # headings = true  # Include headings in line length check
 
 [MD044]
-names = ["embrace.COM", "GitHub", "iOS", "Xcode", "macOS", "Node.js", "JavaScript", "OpenTelemetry", "OTel", "New Relic", "Datadog", "Honeycomb", "Embrace", "SDK", "API", "embrace.COM"]
-code_blocks = true
-html_elements = true
+names = ["Datadog", "Honeycomb", "JavaScript", "New Relic", "Node.js", "OTel", "Xcode", "EmBrAcE.CoM", "iOS", "macOS"] # "API", "Embrace", "GitHub", "OpenTelemetry", "sdk"
+code_blocks = false
+html_elements = false
 html_comments = true
 
 [MD004]

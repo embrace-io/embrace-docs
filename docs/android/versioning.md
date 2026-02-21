@@ -23,7 +23,7 @@ For versions **8.0.0 and newer**, the Embrace Android SDK requires the following
 | **Build JDK version**           | 17                  |
 | **sourceCompatibility**         | 11                  |
 
-\* Due to a dependency in **opentelemetry-java** that requires a Java 11 class, **you need to enable desugaring** to use Embrace with a lower `minSdk`. With desugaring enabled, Embrace supports `minSdk 21`, though you should update Gradle to 8.4 and AGP to 8.3.0.
+\* Due to a dependency in `opentelemetry-java` that requires a Java 11 class, **you need to enable desugaring** to use Embrace with a lower `minSdk`. With desugaring enabled, Embrace supports `minSdk 21`, though you should update Gradle to 8.4 and AGP to 8.3.0.
 
 ---
 
