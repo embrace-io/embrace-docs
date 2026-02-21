@@ -12,7 +12,7 @@ With synthetic scripts you're able to do all sorts of things, such as add header
 
 See the [scripting reference](./scripting-reference.md) for example scripts and usage.
 
-## Scripting caveats 
+## Scripting caveats
 
 There are a few things to be aware of when writing synthetic scripts for Embrace:
 

@@ -13,7 +13,7 @@ This rich [OpenTelemetry signal](https://opentelemetry.io/docs/concepts/signals/
 
 ## How Traces work
 
-Traces are added to key flows in your app using the Embrace SDKs. Once you've begun to find user activity, you can make sense of the  
+Traces are added to key flows in your app using the Embrace SDKs. Once you've begun to trace user activity, you can make sense of the results using these resources:
 
 - [Technical details](/product/traces/technical-details.md): How to conceptualize and use Traces.
 - [Traces in the Dashboard](/product/traces/traces-ui.md): How to measure performance in the Traces page.

@@ -19,7 +19,7 @@ GraphQL requests broken out by "path" in the Dashboard.
 
 ## Override Paths of Requests
 
-It's possible to override the path of a network request that the Embrace SDK. iOS 5.X and Android
+It's possible to override the path of a network request that the Embrace SDK captures. iOS 5.X and Android
 allows this override by setting the `x-emb-path` header on the request. For example, if your network request is made
 to `https://example.com/graphql`, and you set the `x-emb-path` header to `/graphql/friends_list`, the request will
 be reported as `https://example.com/graphql/friends_list`.

@@ -34,7 +34,7 @@ sidebar_position: 99
 ## May 2025
 
 - [**Startup auto-instrumentation**](https://embrace.io/blog/introducing-automatic-startup-instrumentation/): Embrace now automatically instruments spans around the key processes that occur during an application’s startup  
-- [**Grafana deep-link**](https://embrace.io/blog/deep-dive-into-embrace-data-directly-from-grafana-with-seamless-back-links/): Grafana users who also use Embrace can now seamlessly pivot from the Embrace data in their Grafana insurance directly to the corresponding data in their Embrace dashboard using a deep-link.  
+- [**Grafana deep-link**](https://embrace.io/blog/deep-dive-into-embrace-data-directly-from-grafana-with-seamless-back-links/): Grafana users who also use Embrace can now seamlessly pivot from the Embrace data in their Grafana instance directly to the corresponding data in their Embrace dashboard using a deep-link.  
 - **Greater availability of Profile Groups**: Profile Groups are available for charting, alerting, and building custom metrics  
 - **Removal of 14-day query restriction**: Users can now select any date range within their retention period when querying data, not just the last 14 days.  
 - **Embrace is [Okta-verified](/product/settings/sso.md#okta)**: Embrace is now listed in [Okta’s SSO directory](https://www.okta.com/integrations/embrace/), allowing enterprise customers to easily configure Single Sign On with Embrace.  

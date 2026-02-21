@@ -126,16 +126,16 @@ Defines the capture mode for push notifications. Possible values:
 
 #### ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE *boolean, optional*
 
-Enables or disables the ability to capture the data inside push notifications. We recommend you disable this functionallty if your push notifications contain sensitive information. The default is enabled.
+Enables or disables the ability to capture the data inside push notifications. We recommend you disable this functionality if your push notifications contain sensitive information. The default is enabled.
 
 #### CUSTOM_PATH_HEADER_INFO *dictionary, optional*
 
-This is for auto generating relative paths for network requests similiar to how x-emb-path works.
+This is for auto generating relative paths for network requests similar to how x-emb-path works.
 
 This is a dictionary that contains Two Keys.
 
 - `HEADER` - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
-- `RELATIVE_URL_PATH` - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash, in the following format:
+- `RELATIVE_URL_PATH` - This is an optional key and when specified will be used as the beginning value of all generated url paths seen on the dash, in the following format:
 
 ```swift
 /(`RELATIVE_URL_PATH` value)/(value for http header thats name is equal to the value of HEADER)

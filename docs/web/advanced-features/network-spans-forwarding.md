@@ -6,11 +6,11 @@ sidebar_position: 2
 
 # Network Spans Forwarding
 
-For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/docs/product/network-spans-forwarding.md).  
+For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/data-forwarding/network-spans-forwarding.md).
 
 ## Enablement
 
-Once all requirements described in [Enable Network Spans Forwarding](/docs/product/network-spans-forwarding.md#enable-network-spans-forwarding)
+Once all requirements described in [Enable Network Spans Forwarding](/data-forwarding/network-spans-forwarding.md#enable-network-spans-forwarding)
 are met, the feature will be set up on the Embrace backend by an integrations specialist who will reach out to confirm
 details. At that point network spans for non-CORS requests will forward without any additional changes in your app
 instrumentation, however there are a few SDK-side configurations that prevent the feature to be aware of:

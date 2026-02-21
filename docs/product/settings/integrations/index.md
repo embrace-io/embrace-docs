@@ -3,7 +3,7 @@ title: Integrations
 sidebar_position: 4
 ---
 
-Aside from its alertings, Embrace offers many kinds of integrations into your workflows.
+Aside from its alerting, Embrace offers many kinds of integrations into your workflows.
 
 See how you can integrate using:
 

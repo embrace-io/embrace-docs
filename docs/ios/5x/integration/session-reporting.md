@@ -213,7 +213,7 @@ You can learn more about moments and measuring performance yourself in the
 
 Alright, you're ready to build and run your application. Assuming the app launches
 correctly, pay attention to the system logging and look for Embrace to print out
-it's version number.
+its version number.
 
 ```text
 [Embrace] Embrace SDK enabled. Version: {{ embrace_sdk_version platform="ios" }}

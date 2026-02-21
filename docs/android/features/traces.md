@@ -198,7 +198,7 @@ Embrace.getSpan(activityLoadSpanId)?.stop()
 
 Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded.  
 
-While than one exporter for each signal can be configured, be aware of the performance impact on the instrumentation of each additional exporter given that they run serially and will block the instrumentation thread.
+While more than one exporter for each signal can be configured, be aware of the performance impact on the instrumentation of each additional exporter given that they run serially and will block the instrumentation thread.
 
 If non-trivial work is being done in the configured exporters that do not need to block the instrumentation thread, consider doing the heavy-lifting asynchronously.
 
@@ -226,7 +226,7 @@ Processors must be configured *before* the Embrace SDK is started. Processors ad
 
 ### Local testing
 
-To see your recorded telemetry locally during developement, use [LoggingSpanExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/LoggingSpanExporter.java) and [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) to see spans and logs in logcat, respectively. Do not deploy these types of debugging exporters in production for performance reasons.
+To see your recorded telemetry locally during development, use [LoggingSpanExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/LoggingSpanExporter.java) and [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) to see spans and logs in logcat, respectively. Do not deploy these types of debugging exporters in production for performance reasons.
 
 ```text
 2024-03-05 14:15:15.342 29672-29756 LoggingSpanExporter     io.embrace.mysampleapp          I  'emb-startup-moment' : d38b4ac26baf1a862ed4a028af7d08ac e3e82dd0f86c0eed INTERNAL [tracer: io.embrace.android.embracesdk:={{ embrace_sdk_version platform="android" }}] AttributesMap{data={emb.sequence_id=4, emb.type=PERFORMANCE, emb.key=true}, capacity=128, totalAddedValues=3}
