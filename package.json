@@ -19,7 +19,7 @@
     "@docusaurus/preset-classic": "^3.9.2",
     "@easyops-cn/docusaurus-search-local": "0.55.0",
     "@mdx-js/react": "3.1.1",
-    "@tabler/icons-react": "^3.36.1",
+    "@tabler/icons-react": "^3.37.1",
     "clsx": "2.1.1",
     "docusaurus-pushfeedback": "^1.0.9",
     "lychee": "^0.2.12",
