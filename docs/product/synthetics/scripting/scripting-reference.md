@@ -482,7 +482,7 @@ Makes the contents of the current page invisible by setting it's opacity to 0
 clearScreen
 ```
 
-It's useful when creating scripts that navigate from one page to another but you want to blank out the initial page from the the filmstrip.
+It's useful when creating scripts that navigate from one page to another but you want to blank out the initial page from the filmstrip.
 
 As the document still exists, it's possible to click on links and other elements in the page. Network requests that might be fired as the page is unloaded e.g. analytics data sent via `sendBeacon`, will still be sent and seen in the waterfall for the destination page
 

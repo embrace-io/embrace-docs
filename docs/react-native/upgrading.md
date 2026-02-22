@@ -171,13 +171,13 @@ detailed in the [6.x Traces guide](/react-native/features/traces/).
 ### Migrating startView/endView calls
 
 If you had previously been calling the `startView` and `endView` methods directly these have been moved from
-`@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to setup that package and invoke
+`@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to set up that package and invoke
 `startView` using its updated signature as described in [Track Components](/react-native/features/components/).
 
 ### Migrating Redux actions instrumentation
 
 If you had previously been using the `buildEmbraceMiddleware` method from the `@embrace-io/react-native-action-tracker`
-package this has been renamed and moved to `@embrace-io/react-native-redux`. You will need to setup that package and
+package this has been renamed and moved to `@embrace-io/react-native-redux`. You will need to set up that package and
 create the Embrace middleware using one of the updated methods as described in [Track Redux Actions](/react-native/features/redux-actions/).
 
 ### Migrating navigation instrumentation

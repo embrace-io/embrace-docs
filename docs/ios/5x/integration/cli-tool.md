@@ -53,7 +53,7 @@ embtool project install --api-key <api-key> --token <token> <path-to-xcodeproj>
 The `project install` subcommand is great when you are first integrating with
 Embrace or if your project relies on a project generation step as it builds
 in a CI environment. This tool will edit your .xcodeproj in order to inject the
-necessary configuration for use alongside the Embrace SDK. Some examples if
+necessary configuration for use alongside the Embrace SDK. Some examples of
 edits it will make are:
 
 1) Configure the `DEBUG_INFORMATION_FORMAT` build setting to include dsym files
@@ -74,6 +74,6 @@ The `dsym lookup` command will search for dSYM files in your
 ~/Library/Developer/Xcode/DerivedData directory. It is suggested to use this
 after a build has been made to verify the output to your expected dSYM files.
 
-If you have many projects on your computer, its recommend to pipe the output
+If you have many projects on your computer, it's recommended to pipe the output
 of this command to `grep` to filter the output to a specific project build
 directory.

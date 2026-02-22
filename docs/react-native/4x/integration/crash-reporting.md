@@ -21,7 +21,8 @@ initialize().then(hasStarted=>{
     }
 });
 :::info Note for initialize method
-The initialize method will apply the interceptors needed to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else. 
+The initialize method will apply the interceptors needed to get information from your app. Since it's a Promise, you might want to "await" or "then" it before doing something else.
+ 
 :::
 
 

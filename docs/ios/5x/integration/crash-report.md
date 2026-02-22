@@ -35,7 +35,7 @@ When working on your app, this is exactly what you want. However, when trying to
 
 It is important when testing crashes to not be connected to any debugger, including Xcode.
 If you launch your app with the play button in Xcode, then it is attached to a debugger and Embrace will not receive any crash reports.
-If you can, test on a device that is no longer plugged into your mac over USB and launch the app by tapping the icon directly.
+If you can, test on a device that is no longer plugged into your Mac over USB and launch the app by tapping the icon directly.
 On the simulator, you can replicate this by running the app once with Xcode, pressing stop, then tapping the app icon in the simulator directly to launch it without Xcode.
 
 ## Triggering a Crash

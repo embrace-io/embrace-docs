@@ -6,7 +6,7 @@ description: Get to know the users of your Android application with the Embrace 
 
 # Know your users
 
-Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find  
+Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find
 sessions for an unhappy user.
 
 - [**User personas and identifiers**](/android/features/identify-users#user-personas). This is data you can set and update about the user of a session.

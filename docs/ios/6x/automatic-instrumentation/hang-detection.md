@@ -78,7 +78,7 @@ do {
     try Embrace.setup(options: options)
     try Embrace.client?.start()
 } catch {
-    print("Failed to setup Embrace: \(error)")
+    print("Failed to set up Embrace: \(error)")
 }
 ```
 

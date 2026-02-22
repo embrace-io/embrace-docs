@@ -18,11 +18,11 @@ Both [cold](https://developer.android.com/topic/performance/vitals/launch-time#c
 
 ### Start
 
-Cold startups generate a trace with a root span called `emb-app-startup-cold`. Warm startups generate a trace with a root span called `emb-app-startup-warm`.  
+Cold startups generate a trace with a root span called `emb-app-startup-cold`. Warm startups generate a trace with a root span called `emb-app-startup-warm`.
 
-The cold startup trace usually begins at the best estimated time of when the app process is created and specialized for the app. On Android versions before 7, it begins when the Embrace SDK starts, which is recommended to be the first line of the `onCreate()` method of the app's `Application` object.  
+The cold startup trace usually begins at the best estimated time of when the app process is created and specialized for the app. On Android versions before 7, it begins when the Embrace SDK starts, which is recommended to be the first line of the `onCreate()` method of the app's `Application` object.
 
-The warm startup trace begins at the best estimated time of when the first Activity is beginning to be instantiated.  
+The warm startup trace begins at the best estimated time of when the first Activity is beginning to be instantiated.
 
 ### End
 
@@ -44,12 +44,12 @@ Note: Be mindful of when these customization methods are invoked. They will only
 
 #### End startup programmatically
 
-If you want something other than an Activity rendering to end a startup trace, you can configure the SDK so that it waits for the app to manually end it.  
+If you want something other than an Activity rendering to end a startup trace, you can configure the SDK so that it waits for the app to manually end it.
 
 To do that, first set the configuration property `end_startup_with_app_ready` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`. Then, in your app code, call the method `appReady()` when you wish to signal that app startup has ended successfully.  
 
 :::tip Synchronize with Android metrics
-If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see [this section](#mapping-to-android-startup-metrics).  
+If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see [this section](#mapping-to-android-startup-metrics).
 :::
 
 #### Ignore interstitial Activities during app startup
@@ -206,7 +206,7 @@ Note: Be mindful of when these customization methods are invoked. Doing so on a 
 
 #### Custom end event
 
-If you don't want to consider when the UI first loads as the end time for your Activity load traces, you can end it with manually instead by invoking the `activityLoad()` method. This is useful, for instance, if you want to end the trace when `reportFullyDrawn()` is reported for the Activity.  
+If you don't want to consider when the UI first loads as the end time for your Activity load traces, you can end it with manually instead by invoking the `activityLoad()` method. This is useful, for instance, if you want to end the trace when `reportFullyDrawn()` is reported for the Activity.
 
 To use this configuration, annotate the Activity class with `@CustomLoadTracedActivity`.
 

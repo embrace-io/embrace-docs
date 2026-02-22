@@ -51,7 +51,7 @@ sidebar_position: 6
 
 - Fixes
   - Fixed issues with the internal proxy on `URLSession`.
-- Improvemenets
+- Improvements
   - Improved logic around the automatic startup instrumentation.
 
 ## 6.14.0
@@ -246,7 +246,7 @@ sidebar_position: 6
 *Feb 12th, 2025*
 
 - Features
-  - Enabled Automatic View Capture functionallity by default.
+  - Enabled Automatic View Capture functionality by default.
 - Fixes
   - Fixed an issue that causes incompatibilities with libraries/apps reusing the same `URLSessionDelegate` across multiple `URLSession` objects.
 - Changes
@@ -331,7 +331,7 @@ This version has known issues please use v6.7.1
   - Improved performance during the startup of the SDK.
 - Fixes
   - Fixed compilation errors in WatchOS.
-  - Fixed visbility of `LogLevel`.
+  - Fixed visibility of `LogLevel`.
 
 ## 6.5.0
 
@@ -412,7 +412,7 @@ This version has known issues and should not be used
   - Adds `PushNotificationCaptureService` to instrument notifications received using Apple's `UserNotifications` framework
   - Adds `Embrace.lastRunEndState` method to retrieve an indication of how the previous start of the SDK finished
     - Provided values can be `unavailable`, `crash`, and `cleanExit`
-  - Adds `CaptureServiceBuilder` to provide easier interface to setup/configure `CaptureService` instances
+  - Adds `CaptureServiceBuilder` to provide easier interface to set up/configure `CaptureService` instances
   - Adds `Embrace.tracer(instrumentationName: String)` method to retrieve OpenTelemetry `Tracer`
     - This is useful for manual instrumentation using the `OpenTelemetryApi` directly
   - Adds ability to set "User Personas" in the `MetadataHandler`
@@ -498,7 +498,7 @@ This version has known issues and should not be used
 *March 6, 2024*
 
 - Add interface for hosted SDKs to use updated traces
-- Fixed missing network body capture data in some scenerios
+- Fixed missing network body capture data in some scenarios
 - Adds ability for EmbraceExtensions to disable Embrace data uploads. Data will be deferred to the host app for the upload.
 - Improvements to SDK startup time
 
@@ -660,7 +660,7 @@ This version has been pulled as an issue was discovered that would cause the app
 
 *April 19, 2023*
 
-- Fixed issue where cold start sessions could report the incorrect app state (i.e. forground sessions shows as background)
+- Fixed issue where cold start sessions could report the incorrect app state (i.e. foreground sessions shows as background)
 - Fixed memory leak on swift class name demangling
 - Fix to allow manual end session calls for extensions
 
@@ -731,7 +731,7 @@ This version has known issues and should not be used
 *January 9th, 2023*
 
 - Unity: Fixed an issue where unhandled logs would sometimes not be saved.
-- Made endAppStartup return when the SDK hasnt been started to prevent a crash
+- Made endAppStartup return when the SDK hasn't been started to prevent a crash
 - React Native: implemented a RN exclusive breadcrumb to handle actions from State Management.
 
 ## 5.14.0
@@ -937,7 +937,7 @@ This version has known issues and should not be used
 
 *July 27th, 2021*
 
-- Fixed memory leak that occured during startup
+- Fixed memory leak that occurred during startup
 - Fix for missing sessions on upgrading between v4 of SDK to v5
 
 ## 5.5.3

@@ -6,7 +6,7 @@ description: Add the Embrace SDK as a dependency to your Android application
 
 ## Add the Embrace Gradle Plugin
 
-The Embrace Gradle Plugin uploads mapping files that gets human-readable stacktraces from production. It also
+The Embrace Gradle Plugin uploads mapping files that get human-readable stacktraces from production. It also
 instruments bytecode so that some telemetry is automatically captured.
 
 Add the Embrace Gradle Plugin to your build using one of the methods below:

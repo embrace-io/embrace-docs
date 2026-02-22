@@ -75,4 +75,4 @@ Above is an example of a valid, public RSA key in text form. Each aspect of that
 
 Now copy that entire string from the first dash, through all the return characters and including the final dash. Copy that into the value of the `capture_public_key` entry in your `embrace-config.json` file.
 
-At this point Embrace is setup to encrypt network body captures. If you'd like to test this feature before going live, setup a session with your customer support representative. We can inspect a captured session and send you the encrypted data for verification.
+At this point Embrace is set up to encrypt network body captures. If you'd like to test this feature before going live, setup a session with your customer support representative. We can inspect a captured session and send you the encrypted data for verification.

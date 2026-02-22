@@ -191,9 +191,9 @@ Yes there is, you can set a value in the Embrace-Info.plist in your main bundle 
 The above example is for Apollo's GraphQL implementation. As you can see there are two Keys:
 
 1. HEADER - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
-2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the begining value of all generated url paths seen on the dash.
+2. RELATIVE_URL_PATH - This is an optional key and when specified will be used as the beginning value of all generated url paths seen on the dash.
 
-   The the format for the above example will be this
+   The format for the above example will be this
 
 ```text
 /graphql/(value for X-APOLLO-OPERATION-NAME header)

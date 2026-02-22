@@ -40,7 +40,7 @@ sidebar_position: 6
 1. Log into your Splunk account.
 2. Locate your Profile:
 
-   In the left navigation bar select Settings, than press **View Profile** button. A page with your profile appears appears.
+   In the left navigation bar select Settings, then press **View Profile** button. A page with your profile appears.
    <img src={require('@site/static/images/data-destinations/splunk_access_tokens.png').default} alt="Image showing view profile button" />
 
 3. Click on **Organizations** button

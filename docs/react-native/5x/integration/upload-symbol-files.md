@@ -93,7 +93,7 @@ REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/main.jsbundle.map" EMBRACE_ID=US
 Notice how the script's location is a reference to the CocoaPods installation folder.
 
 :::info
-If you do not use Cocoapods please see the [Uploading dSYMs](/ios/5x/integration/dsym-upload) page from the iOS integration guide to setup automatic uploading of dSYM files in Xcode.
+If you do not use Cocoapods please see the [Uploading dSYMs](/ios/5x/integration/dsym-upload) page from the iOS integration guide to set up automatic uploading of dSYM files in Xcode.
 :::
 
 ## Native Manual Uploads

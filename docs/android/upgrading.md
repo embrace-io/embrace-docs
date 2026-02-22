@@ -51,7 +51,7 @@ If you wish to do the upgrade using step-by-step instructions that will work for
 
 8. **Fix deprecation warnings** (optional but recommended)
    - Deprecated methods should be replaced with the suggested alternatives to ensure a smoother upgrade in the future.
-   - The bulk of this can be achieved by replaces calls to `Embrace.getInstance()` with `Embrace`.
+   - The bulk of this can be achieved by replacing calls to `Embrace.getInstance()` with `Embrace`.
 
 9. **Build and install your app**
    - Verify the migration was successful by sending a test session and seeing it on the dashboard.

@@ -20,7 +20,7 @@ Instrumenting Jetpack Compose click events incurs a small performance penalty on
 
 ### Set local config and Gradle plugin block
 
-To enable onClick instrumentation, You will need to modify your `embrace-config.json` [file](/android/configuration/configuration-file.md)
+To enable onClick instrumentation, you will need to modify your `embrace-config.json` [file](/android/configuration/configuration-file.md)
 
 ```json
 {
@@ -104,7 +104,7 @@ IconToggleButton(
 
 Content description will be considered only if the element contains an OnClick modifier.
 
-Content description can be added as part of Modifer semantics properties, but some elements take it as a parameter, such as `Icon`:
+Content description can be added as part of Modifier semantics properties, but some elements take it as a parameter, such as `Icon`:
 
 ```kotlin
 Icon(
@@ -113,7 +113,7 @@ Icon(
 )
 ```
 
-Content description as Modifer semantics properties:
+Content description as Modifier semantics properties:
 
 ```kotlin
 Column(

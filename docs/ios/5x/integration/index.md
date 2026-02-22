@@ -34,7 +34,7 @@ make to help guide your process:
    through this documentation.
 
    If you are starting a new application, are thinking about Embrace and unsure what package manager to choose,  
-   CocoaPods is a very popular choice among developers, but we invite you to take a moment to evaluate all options and pick the one that better suits your needs.
+   CocoaPods is a very popular choice among developers, but we invite you to take a moment to evaluate all options and pick the one that best suits your needs.
 
    If you have an established application then follow the path that most closely
    matches the processes you are already using to build your application.
