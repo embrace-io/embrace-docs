@@ -50,7 +50,7 @@ There are no limits to the number of child spans you can have per root span, pro
 
 #### Exceeding limits
 
-If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit to be exceeded.
+If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit being exceeded.
 
 Attributes and events are truncated by taking the first N values specified and dropping the rest such that N is the limit.
 

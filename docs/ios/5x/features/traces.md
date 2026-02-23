@@ -1,6 +1,6 @@
 ---
 title: Traces
-description: Record spans to monitor the production performance and success rates of operations within in your application.
+description: Record spans to monitor the production performance and success rates of operations within your application.
 sidebar_position: 10
 ---
 
@@ -45,7 +45,7 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 ### Naming Conventions
 
 - Span Names are **case-sensitive** and are a **max of 50 characters.**
-- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alpha-numeric**
+- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric**
 
 :::warning Internal Prefixes
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with `emb-` and `emb.` prefixes
@@ -60,7 +60,7 @@ The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and 
 To use this feature:
 
 1. Ensure you’re using a version of the Embrace SDK that supports Traces.
-2. Instrument your app using the reference guide in this sections to start adding spans to your operations.
+2. Instrument your app using the reference guide in this section to start adding spans to your operations.
 3. See the spans in the [Traces](/product/traces/index.md) section of the Embrace dashboard.
 
 ### Create Span

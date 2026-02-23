@@ -8,13 +8,13 @@ sidebar_position: 6
 
 ## Setting up the Crash Reporter
 
-If you've been following along, you should be setup to collect native crash reports.  
+If you've been following along, you should be setup to collect native crash reports.
 To upload crash reports from unhandled JavaScript exceptions, add the following in the entrypoint of the React app.
 
 ```javascript
 import {initialize} from '@embrace-io/react-native'
-// Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
+// Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 initialize().then(hasStarted=>{
     if(hasStarted){
         //doSomething
@@ -23,7 +23,7 @@ initialize().then(hasStarted=>{
 ```
 
 :::info Note for initialize method
-The initialize method will apply the interceptors needed to get information from your app. Since its a Promise, so you might want to "await" or "then" it before doing something else.  
+The initialize method will apply the interceptors needed to get information from your app. Since it's a Promise, you might want to "await" or "then" it before doing something else.
 :::
 
 This will setup a hook that gets called and uploads a crash report when the application crashes because of an unhandled JavaScript exception.
@@ -31,7 +31,6 @@ You can also pass in a patch number to the `initialize` function to use along si
 
 ```javascript
 // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-
 initialize({patch: 'v1'});
 ```
 
@@ -80,7 +79,7 @@ Play Store, you will
 need to point the Embrace SDK to where the most up to date bundle is installed
 on the device. Otherwise, the stack traces will not be translated properly.
 If you use CodePush, this is done automatically and there is no need to point
-the Embrace SDK to where CodePush downloads the latest JavaScript bundle.  
+the Embrace SDK to where CodePush downloads the latest JavaScript bundle.
 
 <Tabs groupId="rn-language" queryString="rn-language">
 <TabItem value="javascript" label="JavaScript">

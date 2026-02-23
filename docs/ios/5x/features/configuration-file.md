@@ -39,8 +39,8 @@ As you can see there are many properties available. Even so most apps that use E
 
 Determines which type of crash reporting Embrace uses. It accepts three values
 
-- `embrace` - this is the default value and enables embraces internal crash reporting
-- `crashlytics` - this enables the Crashlytics support for crash reporting, this must be the value if you intended to use both Embrace and Crashlytics together.
+- `embrace` - this is the default value and enables Embrace's internal crash reporting
+- `crashlytics` - this enables the Crashlytics support for crash reporting, this must be the value if you intend to use both Embrace and Crashlytics together.
 - `none` - this completely turns off all crashes reporting for embrace, but other functionality, like view tracking, continues to work the values are case insensitive.
 
 If omitted, Embrace attempts to guess the right configuration by looking at the runtime classes.
@@ -59,7 +59,7 @@ If enabled, Embrace will capture detailed performance statistics about network r
 
 #### ENABLE_AUTOMATIC_VIEW_CAPTURE *boolean, optional*
 
-Controls Embrace's automatic view capture service. When enabled Embrace will automatically capture all displayed view controllers. This can help give you useful timeline data for your sessions. Some apps have a single-view UI, such has media or gaming applications. In those cases it makes sense to disable this feature and record the data manually instead. Default is on.
+Controls Embrace's automatic view capture service. When enabled Embrace will automatically capture all displayed view controllers. This can help give you useful timeline data for your sessions. Some apps have a single-view UI, such as media or gaming applications. In those cases it makes sense to disable this feature and record the data manually instead. Default is on.
 
 #### ENABLE_WK_AUTO_RELOAD *boolean, optional*
 
@@ -71,7 +71,7 @@ Use this field to specify an array of regex strings that prevent network request
 
 #### URLSESSION_CAPTURE_FILTERS *array\[string\], optional*
 
-This field can be used to make Embrace ignore certain URLSessions entirely. Classes who's names match the regex strings in this array are not swizzled.
+This field can be used to make Embrace ignore certain URLSessions entirely. Classes whose names match the regex strings in this array are not swizzled.
 
 #### STARTUP_AUTOEND_SECONDS *int, optional*
 
@@ -132,13 +132,13 @@ Enables or disables the ability to capture the data inside push notifications. W
 
 This is for auto generating relative paths for network requests similar to how x-emb-path works.
 
-This is a dictionary that contains Two Keys.
+This is a dictionary that contains two keys.
 
 - `HEADER` - This is a required key and its value is the name of the http header that is used to generate the relative URL paths
 - `RELATIVE_URL_PATH` - This is an optional key and when specified will be used as the beginning value of all generated url paths seen on the dash, in the following format:
 
 ```swift
-/(`RELATIVE_URL_PATH` value)/(value for http header thats name is equal to the value of HEADER)
+/(`RELATIVE_URL_PATH` value)/(value for http header whose name is equal to the value of HEADER)
 ```
 
 Here is an example use case

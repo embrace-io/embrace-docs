@@ -10,7 +10,7 @@ sidebar_position: 0
 
 It's important to know that each site you test can have a different settings configuration. For example, you may wish to test your own site several times a day across a number of browsers and regions. You may wish to test a competitor's site only once a day across a smaller number of browsers and regions.
 
-To setup a new site, from the synthetics overview page, click on **Create Site**. If you want to edit an existing site in the list, click on the **Edit** option in the associated row of the table.
+To set up a new site, from the synthetics overview page, click on **Create Site**. If you want to edit an existing site in the list, click on the **Edit** option in the associated row of the table.
 
 ![Synthetics overview dashboard displaying a table of configured sites with the Create Site button highlighted in the top right corner, allowing users to add new sites for synthetic testing](/images/synthetics/add-site.png)
 

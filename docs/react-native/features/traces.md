@@ -45,7 +45,7 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 ### Naming conventions
 
 - Span Names are **case-sensitive** and are a **max of 50 characters.**
-- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alpha-numeric**
+- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric**
 
 :::warning Internal Prefixes
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with `emb-` and `emb.` prefixes

@@ -15,7 +15,7 @@ sidebar_position: 4
 ### Pulling your Grafana Cloud API Key or Access Policy / Token
 
 Grafana Cloud migrated from [API Keys to Access Policies](https://grafana.com/docs/grafana-cloud/account-management/authentication-and-permissions/access-policies/#grafana-cloud-migration-from-api-keys-to-access-policies).
-It depends on your Grafana Cloud version the information that you need to share with us.
+The information you need to share with us depends on your Grafana Cloud version.
 
 > Only Grafana administrators can create or delete API Keys and Access Policies. See [Grafana Cloud roles and permissions](https://grafana.com/docs/grafana-cloud/security-and-account-management/authentication-and-permissions/cloud-roles/) for more information.
 

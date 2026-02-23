@@ -108,7 +108,7 @@ typedef NS_ENUM(NSInteger, EMBLastRunEndState) {
 ```
 
 <aside>
-⚠️ If the last run resulted in a sigkill, then `EMBLastRunEndStateCleanExit` will be returned anyway. This is because Embrace, and basically anybody except apple, is unable to catch sigkill crashes.
+⚠️ If the last run resulted in a sigkill, then `EMBLastRunEndStateCleanExit` will be returned anyway. This is because Embrace, and basically anybody except Apple, is unable to catch sigkill crashes.
 
 </aside>
 

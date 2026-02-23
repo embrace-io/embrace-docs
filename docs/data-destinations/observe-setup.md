@@ -19,7 +19,7 @@ sidebar_position: 6
    <img src={require('@site/static/images/data-destinations/observe_left_menu.png').default} alt="Observe Left Menu" />
 3. Click on "Create datastream" at top right or click on an existing datastream.
    <img src={require('@site/static/images/data-destinations/observe_create_token0.png').default} alt="Observe Create Datastream" />
-4. You must add a "Name" and "Description". Also, you need to decide how you much retention you want to have.
+4. You must add a "Name" and "Description". Also, you need to decide how much retention you want to have.
    <img src={require('@site/static/images/data-destinations/observe_create_datastream.png').default} alt="Observe Create Datastream" />
 5. Click on "Create -> Token" at the middle or at the top right.
    <img src={require('@site/static/images/data-destinations/observe_create_token.png').default} alt="Observe Create Token" />

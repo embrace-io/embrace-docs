@@ -87,8 +87,7 @@ You can end the moment from multiple locations in your app, or from multiple thr
 
 ## Tracking Abandonment
 
-In addition to performance, moments also measure abandonment by default.  
-Moments measure abandonment by default. If the moment never completes, because:
+In addition to performance, moments also measure abandonment by default. If the moment never completes, because:
 
 - the user exits the app before the moment ends
 - the app crashes

@@ -23,7 +23,7 @@ Minimum SDK version required:
 
 ## How to choose your region
 
-You can choose your region when you create a new app. You can select the region from the dropdown menu on the app creation page.  
+You can choose your region when you create a new app. You can select the region from the dropdown menu on the app creation page.
 Embrace allows organizations with apps in different regions. You can create apps in both regions and switch between them as needed.
 Once your app is created, you can not change the region. Existing customer data within an app cannot be transferred to a different region.
 

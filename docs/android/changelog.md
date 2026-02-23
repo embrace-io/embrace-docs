@@ -470,7 +470,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 *October 10, 2023*
 
 - Added support for tap tracking on Jetpack Compose elements.
-- Added support for the Network Span Forwarding feature that enables the propagate of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers.
+- Added support for the Network Span Forwarding feature that enables the propagation of a W3C-compliant traceheader in requests to Embrace so a span can be created and forwarded to the customer servers.
 - Fixed propagation of error type and message when recording incomplete network requests.
 - The SDK now captures ANR data using the ApplicationExitInfo API for Android 11+.
 - Fixed a rare issue when network logging was being done on a URLConnection whose Response is no longer accessible.
@@ -789,7 +789,7 @@ This version has a known issue with Gradle < 6.1
 
 *May 4, 2022*
 
-- Fixed an issue where "Bytes in" and "Bytes out" where shown reversed when logging network requests manually.
+- Fixed an issue where "Bytes in" and "Bytes out" were shown reversed when logging network requests manually.
 
 ## 5.0.3
 

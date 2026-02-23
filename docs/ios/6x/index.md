@@ -14,7 +14,7 @@ Embrace's 6.x SDK is open-source and can be found on [GitHub](https://github.com
 
 The Embrace Apple SDK is built on OpenTelemetry signals like logs and spans, which allow you to [export the telemetry](/ios/6x/advanced-features/opentelemetry-export.md) captured in your app to other sources. We encourage you to add the SDK to your app and view the logs and traces that the SDK automatically captures, with the caveat that we can't guarantee you'll quickly make sense of it all. Embrace 6.x SDK is also built in Swift, which allows us to provide more support for modern language features like async/await.
 
-Please note that some prior functionality has been deprecated and that some method names or implementation details may differ. Further details are available in the [migration guide](/ios/6x/getting-started/migration-guide.md). Please reach out to in the [Community Slack](https://community.embrace.io) if you have any questions.  
+Please note that some prior functionality has been deprecated and that some method names or implementation details may differ. Further details are available in the [migration guide](/ios/6x/getting-started/migration-guide.md). Please reach out to in the [Community Slack](https://community.embrace.io) if you have any questions.
 
 ## Built on OpenTelemetry
 
@@ -24,7 +24,7 @@ The 6.x iOS SDK has been rearchitected from the foundations to support and exten
 
 As an example, [Sessions](https://embrace.io/product/user-session-insights/) are the core of Embrace's reproduce-and-fix approach to insights. An individual Session takes place while the app is in foreground, or separately while the app is in the background, and captures everything that your app is doing until the user starts or stops using the app. Given that Sessions take place in a given time period, with different related activities occurring in that time, it shouldn't surprise anyone OTel-aware that we model Sessions as a **trace**.
 
-Whenever a Session starts, as we can see in the [`SessionController`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Session/SessionController.swift#L68), a span begins that will endure until the session ends:  
+Whenever a Session starts, as we can see in the [`SessionController`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Session/SessionController.swift#L68), a span begins that will endure until the session ends:
 
 ```swift
 // from [`SessionSpanUtils`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Session/SessionSpanUtils.swift#L15)

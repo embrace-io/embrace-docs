@@ -10,7 +10,7 @@ The Embrace SDK can be configured to enable the capturing of background sessions
 
 A background session will contain any activity that happens when the app goes to the background, and its duration will be how long the app remains in this state.
 Please note that when an app is backgrounded, it is only "alive" for a short period of time and it is then sent to "sleep" by the OS.  
-How long the app remains active in the background may vary depending on what the app is doing, but ultimately it is the OS the one that has the control.
+How long the app remains active in the background may vary depending on what the app is doing, but ultimately it is the OS that has the control.
 This means that a background session could be 1 hour long, but only 1 minute in that hour will have any kind of activity.
 
 Here are some examples of what can start a background session:
@@ -23,5 +23,5 @@ Capturing background sessions requires v5.15.0 or higher.
 :::
 
 :::warning Important
-Enabling the collection of background session will increase the amount of sessions that are collected.
+Enabling the collection of background sessions will increase the amount of sessions that are collected.
 :::

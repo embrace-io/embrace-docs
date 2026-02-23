@@ -10,7 +10,7 @@ The Embrace Webhooks feature is an outgoing webhook sent by Embrace when an aler
 
 # Generic Webhook
 
-In order to see a sample of the payload sent by the Embrace dash, you can setup a test webhook with [webhook.site](https://webhook.site/):
+In order to see a sample of the payload sent by the Embrace dash, you can set up a test webhook with [webhook.site](https://webhook.site/):
 
 First, within the Embrace dashboard, click on the gear icon to access the Settings page.
 
@@ -56,7 +56,7 @@ Complete the rest of the Jira automation per your organization’s needs.
 
 ## PagerDuty Integration
 
-You will need to setup a Custom Event Transformer integration (CET).
+You will need to set up a Custom Event Transformer integration (CET).
 
 Follow the instructions on the [PagerDuty documentation for CET](https://developer.pagerduty.com/docs/custom-event-transformer)
 

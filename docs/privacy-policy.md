@@ -74,7 +74,7 @@ Embrace and the Services are not intended for anyone under the age of 13. Embrac
 
 ## SPECIAL NOTE TO INTERNATIONAL USERS
 
-Embrace is hosted in the United States. If you are an user accessing Embrace from the European Union, Asia, or any other region with laws or regulations governing personal data collection, use, and disclosure, that differ from United States laws, please be advised that through your continued use of Embrace, which is governed by U.S. law, this Privacy Policy, and Embrace’s Terms of Service, you are transferring your personal information to the United States and you consent to that transfer.
+Embrace is hosted in the United States. If you are a user accessing Embrace from the European Union, Asia, or any other region with laws or regulations governing personal data collection, use, and disclosure, that differ from United States laws, please be advised that through your continued use of Embrace, which is governed by U.S. law, this Privacy Policy, and Embrace’s Terms of Service, you are transferring your personal information to the United States and you consent to that transfer.
 
 ## UPDATES AND CHANGES TO PRIVACY POLICY
 

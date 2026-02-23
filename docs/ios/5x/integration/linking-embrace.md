@@ -32,7 +32,7 @@ and project throughout. You can find that project on [GitHub](https://github.com
 
 ## CocoaPods
 
-CocoaPods is a dependency management system for iOS; You can learn more about it
+CocoaPods is a dependency management system for iOS; you can learn more about it
 [here](https://cocoapods.org/). You'll work with CocoaPods from the command line via
 the `pod` command, and you'll configure it via a `PodFile` at the root of your
 project.
@@ -59,7 +59,7 @@ following steps:
 
 ## Carthage
 
-Carthage is a dependency manager for iOS applications; You can learn more about
+Carthage is a dependency manager for iOS applications; you can learn more about
 it [here](https://github.com/Carthage/Carthage). Carthage handles less of the
 integration for you so there will be more manual steps. However, you get to
 retain more control over how your project is built and linked. Note that
@@ -169,7 +169,7 @@ curl -o embrace_{{ embrace_sdk_version platform="ios" }} https://downloads.embra
    Now move to the ‘Build Phases’ tab in Xcode and expand the “Link Binary with
    Libraries” phase.
 
-   <img src={require('@site/static/images/ios-build-phase-tab.png').default} alt="Build Phases tab" title="Build Phases tab" caption="On the Build Phases tab with the the Linking phase expanded" />
+   <img src={require('@site/static/images/ios-build-phase-tab.png').default} alt="Build Phases tab" title="Build Phases tab" caption="On the Build Phases tab with the Linking phase expanded" />
 
    We’re going to drag the Embrace.framework into the Linking phase in Xcode. Make
    sure to drag the .framework and not the outer folder containing the readme file.
