@@ -24,7 +24,7 @@ Breadcrumb messages must be 256 characters or less.
 
 ### OpenTelemetry Foundation
 
-Note that the `addBreacrumb` method adds an OpenTelemetry SpanEvent to the session Span. In the Embrace Dashboard these
+Note that the `addBreadcrumb` method adds an OpenTelemetry SpanEvent to the session Span. In the Embrace Dashboard these
 are surfaced in-context in the User Timeline.
 
 ## Best Practices

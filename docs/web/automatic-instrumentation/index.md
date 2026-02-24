@@ -46,7 +46,7 @@ initSDK({
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
     omit: new Set(['@opentelemetry/instrumentation-fetch']),
-    'web-vitals': {
+    'web-vital': {
       trackingLevel: 'all'
     }
   },

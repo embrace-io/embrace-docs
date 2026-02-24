@@ -85,9 +85,9 @@ If your custom traces aren't appearing:
    ```typescript
    import { trace } from '@embrace-io/web-sdk';
 
-   const parentSpan = tracer.startSpan("parent-peration");
+   const parentSpan = trace.startSpan("parent-operation");
    // Correct - child span is related to parent
-   const childSpan = tracer.startSpan("the-child", { parentSpan });
+   const childSpan = trace.startSpan("the-child", { parentSpan });
 
    // ... operations ...
    childSpan.end();
