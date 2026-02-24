@@ -37,7 +37,7 @@ If you're experiencing issues with SDK initialization:
      appVersion: "YOUR_APP_VERSION",
    });
 
-   if (!!result) {
+   if (result) {
      console.log("Successfully initialized the Embrace SDK");
    } else {
      console.log("Failed to initialize the Embrace SDK");
