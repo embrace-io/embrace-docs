@@ -15,7 +15,7 @@ In the dashboard, you can see a comprehensive view of network requests, allowing
 
 - [Monitor network calls](/product/network/network-monitoring.md).
 - [Group network requests by path](/product/network/network-grouping-rules.md) to dig deeper into correlated issues.
-- [Enable first-party domains](/docs/product/settings/app-settings/network.md) to prioritize requests to known sources, such as your app's backend.
+- [Enable first-party domains](/product/settings/app-settings/network.md) to prioritize requests to known sources, such as your app's backend.
 
 ## Learn more
 
