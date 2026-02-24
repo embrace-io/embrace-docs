@@ -23,9 +23,9 @@ You can specify particular URLs that you wish to forward CORS requests for and f
 the additional header by configuring the fetch or XHR instrumentations with an allow list of strings and regexes:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
   defaultInstrumentationConfig: {
@@ -51,9 +51,9 @@ Particular configurations of the SDK are incompatible with Network Span Forwardi
 turned off if set:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
 
@@ -63,7 +63,9 @@ sdk.initSDK({
   // 2. Providing a custom propagator
   propagator: myCustomPropagator,
   // 3. Omitting both network instrumentations
-  omit: new Set(['@opentelemetry/instrumentation-fetch', '@opentelemetry/instrumentation-xml-http-request']),
+  defaultInstrumentationConfig: {
+    omit: new Set(['@opentelemetry/instrumentation-fetch', '@opentelemetry/instrumentation-xml-http-request']),
+  },
 });
 ```
 
@@ -73,9 +75,9 @@ A `blockNetworkSpanForwarding` configuration flag is available to block the Netw
 of what has been configured server-side:
 
 ```typescript
-import { sdk } from '@embrace-io/web-sdk';
+import { initSDK } from '@embrace-io/web-sdk';
 
-sdk.initSDK({
+initSDK({
   appID: "YOUR_EMBRACE_APP_ID",
   appVersion: "YOUR_APP_VERSION",
 

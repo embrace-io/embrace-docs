@@ -11,5 +11,5 @@ can be found on the [Releases page](https://github.com/embrace-io/embrace-web-sd
 
 ## Upgrading between major versions
 
-Specific steps required to upgrade to new major versions are described in the [Upgrade Guide](https://github.com/embrace-io/embrace-web-sdk/blob/main/UPGRADING.md)
+Specific steps required to upgrade to new major versions are described in the [Upgrade Guide](https://github.com/embrace-io/embrace-web-sdk/blob/main/packages/web-sdk/UPGRADING.md)
 available on the GitHub repository.

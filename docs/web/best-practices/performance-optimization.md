@@ -54,7 +54,7 @@ const processItems = items => {
   });
 
   // End the parent span
-  parentSpan.end()
+  span.end()
 };
 ```
 
@@ -67,7 +67,7 @@ For very high-volume operations, consider implementing trace sampling to reduce 
 function highFrequencyOperation() {
 
   // Simple sampling approach
-  const shouldTrace = math.random() < 0.1; // 10% sample rate
+  const shouldTrace = Math.random() < 0.1; // 10% sample rate
 
   if (shouldTrace) {
     const span = trace.startSpan("high-frequency-operation");

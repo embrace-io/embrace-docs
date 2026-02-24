@@ -28,7 +28,7 @@ application without requiring manual code changes.
 ## Configuration Options
 
 Document load monitoring behavior can be customized through the process described in [Configuring Automatic Instrumentation](/web/automatic-instrumentation/index.md#configuring-automatic-instrumentation).
-Specific configuration options can be found in the [@opentelemetry/instrumentation-document-load](https://www.npmjs.com/package/@opentelemetry/instrumentation-document-load/v/0.44.1#document-load-instrumentation-options)
+Specific configuration options can be found in the [@opentelemetry/instrumentation-document-load](https://www.npmjs.com/package/@opentelemetry/instrumentation-document-load#document-load-instrumentation-options)
 package documentation.
 
 ## Data Captured
