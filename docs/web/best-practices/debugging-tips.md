@@ -37,7 +37,7 @@ If you're experiencing issues with SDK initialization:
      appVersion: "YOUR_APP_VERSION",
    });
 
-   if (!!result) {
+   if (result) {
      console.log("Successfully initialized the Embrace SDK");
    } else {
      console.log("Failed to initialize the Embrace SDK");
@@ -85,9 +85,9 @@ If your custom traces aren't appearing:
    ```typescript
    import { trace } from '@embrace-io/web-sdk';
 
-   const parentSpan = tracer.startSpan("parent-peration");
+   const parentSpan = trace.startSpan("parent-operation");
    // Correct - child span is related to parent
-   const childSpan = tracer.startSpan("the-child", { parentSpan });
+   const childSpan = trace.startSpan("the-child", { parentSpan });
 
    // ... operations ...
    childSpan.end();

@@ -1,6 +1,6 @@
 ---
 title: User Identification
-description: Identifying and segmenting users in the Embrace iOS SDK 6.x
+description: Identifying and segmenting users in the Embrace Web SDK
 sidebar_position: 4
 ---
 

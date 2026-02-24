@@ -64,8 +64,8 @@ Create parent-child relationships between spans to represent nested operations:
 ```typescript
 import { trace } from '@embrace-io/web-sdk';
 
-const parentSpan = tracer.startSpan("the-parent");
-const childSpan = tracer.startSpan("the-child", { parentSpan });
+const parentSpan = trace.startSpan("the-parent");
+const childSpan = trace.startSpan("the-child", { parentSpan });
 
 await someNestedOperation();
 childSpan.end();

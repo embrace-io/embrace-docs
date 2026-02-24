@@ -36,7 +36,7 @@ const result = initSDK({
   appVersion: "YOUR_APP_VERSION",
 });
 
-if (!!result) {
+if (result) {
   console.log("Successfully initialized the Embrace SDK");
 } else {
   console.log("Failed to initialize the Embrace SDK");
@@ -44,8 +44,7 @@ if (!!result) {
 ```
 
 At this point you should be able to rebuild your app and have Embrace begin collecting telemetry. Data should start to
-show up in the Embrace Dashboard once the SDK reports at least 1 completed session. You can learn more about how sessions
-are calculated [here](/web/core-concepts/sessions.md).
+show up in the Embrace Dashboard once the SDK reports at least 1 completed session. Learn more about [how sessions are calculated](/web/core-concepts/sessions.md).
 
 :::note
 It may take a few minutes before the first sessions appear in your Embrace dashboard.
@@ -225,17 +224,17 @@ See the [webpack 4 integration test](https://github.com/embrace-io/embrace-web-s
 
 ### Client-side only usage
 
-The Embrace SDK can **only be imported in code that executes exclusively in the browser**. Do not import the SDK in
-server-side code or code that runs in edge runtimes.
+The Embrace SDK is designed for browser environments. Importing it in server-side code (e.g. Next.js Server Components,
+API routes, edge middleware) will not cause runtime errors because `initSDK` detects non-browser environments and returns
+`false`. SDK APIs like `session` and `trace` require browser context and will not function on the server.
 
-Importing the SDK in server-side or edge runtime contexts will cause build errors due to the SDK's dependency on
-browser-specific APIs and OpenTelemetry packages that use dynamic code evaluation.
+For best results, import and initialize the SDK in client-only code.
 
 **Next.js example:**
 
-- ✅ **Safe to import:** Client Components (files with `"use client"` directive), browser-only scripts
-- ❌ **Do not import:** `middleware.ts`, API routes (`pages/api/*` or `app/*/route.ts`), Server Components, Server
-  Actions
+- ✅ **Recommended:** Client Components (files with `"use client"` directive), browser-only scripts
+- ⚠️ **Safe but inert:** Server Components, API routes, middleware, Server Actions — `initSDK` returns `false` without error
+- ❌ **Avoid:** Calling SDK APIs (e.g. `session`, `trace`) on the server — they require browser context
 
 ## Next Steps
 

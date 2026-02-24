@@ -29,8 +29,8 @@ changes.
 ## Configuration Options
 
 Network monitoring behavior can be customized through the process described in [Configuring Automatic Instrumentation](/web/automatic-instrumentation/index.md#configuring-automatic-instrumentation).
-Specific configuration options can be found in the [@opentelemetry/instrumentation-fetch](https://github.com/open-telemetry/opentelemetry-js/blob/experimental/v0.57.0/experimental/packages/opentelemetry-instrumentation-fetch/src/fetch.ts#L60)
-and [@opentelemetry/instrumentation-xml-http-request](https://github.com/open-telemetry/opentelemetry-js/blob/experimental/v0.57.0/experimental/packages/opentelemetry-instrumentation-xml-http-request/src/xhr.ts#L66)
+Specific configuration options can be found in the [@opentelemetry/instrumentation-fetch](https://github.com/open-telemetry/opentelemetry-js/blob/main/experimental/packages/opentelemetry-instrumentation-fetch/src/fetch.ts)
+and [@opentelemetry/instrumentation-xml-http-request](https://github.com/open-telemetry/opentelemetry-js/blob/main/experimental/packages/opentelemetry-instrumentation-xml-http-request/src/xhr.ts)
 package documentations.
 
 In addition, to avoid having to set `ignoreUrls` twice the 'network' key can be used to configure both packages at the
