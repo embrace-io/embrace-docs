@@ -53,7 +53,7 @@ initSDK({
 });
 ```
 
-View the type definition for [defaultInstrumentationConfig](https://github.com/embrace-io/embrace-web-sdk/blob/main/src/sdk/types.ts)
+View the type definition for [defaultInstrumentationConfig](https://github.com/embrace-io/embrace-web-sdk/blob/main/packages/web-sdk/src/sdk/types.ts)
 to see the full set of configuration options.
 
 ## Extending Automatic Instrumentations
@@ -72,7 +72,7 @@ initSDK({
 ```
 
 These custom instrumentations must conform to the same OpenTelemetry `Instrumentation` interface used by the [SDK's
-built-in instrumentations](https://github.com/embrace-io/embrace-web-sdk/blob/main/src/instrumentations/InstrumentationAbstract/InstrumentationAbstract.ts).
+built-in instrumentations](https://github.com/embrace-io/embrace-web-sdk/blob/main/packages/web-sdk/src/instrumentations/InstrumentationAbstract/InstrumentationAbstract.ts).
 
 ## Best Practices
 
