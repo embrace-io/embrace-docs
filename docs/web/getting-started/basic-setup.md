@@ -44,8 +44,7 @@ if (result) {
 ```
 
 At this point you should be able to rebuild your app and have Embrace begin collecting telemetry. Data should start to
-show up in the Embrace Dashboard once the SDK reports at least 1 completed session. You can learn more about how sessions
-are calculated [here](/web/core-concepts/sessions.md).
+show up in the Embrace Dashboard once the SDK reports at least 1 completed session. Learn more about [how sessions are calculated](/web/core-concepts/sessions.md).
 
 :::note
 It may take a few minutes before the first sessions appear in your Embrace dashboard.
