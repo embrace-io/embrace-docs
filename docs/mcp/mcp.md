@@ -6,20 +6,38 @@ description: Access Embrace mobile observability data through the Model Context 
 
 # Embrace MCP Server
 
-The Embrace Model Context Protocol (MCP) server lets you query your mobile app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, monitor app health, and analyze trends without leaving your development workflow.
+The Embrace Model Context Protocol (MCP) server lets you query your mobile app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, diagnose network issues, monitor app health, and analyze trends without leaving your development workflow.
 
 Embrace's MCP server is available to all Embrace users.
 
 ## Available tools
 
-| Tool                      | Description                                                         |
-| ------------------------- | ------------------------------------------------------------------- |
-| `list_apps`               | Find and search applications in your Embrace workspace              |
-| `get_app_details`         | Get health metrics, crash-free rates, and session counts for an app |
-| `get_top_versions`        | Identify which app versions are most widely used                    |
-| `list_crashes`            | List top crashes ranked by frequency and user impact                |
-| `get_crash_details`       | Get detailed information about a specific crash group               |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                        |
+### App tools
+
+| Tool               | Description                                                         |
+|--------------------|---------------------------------------------------------------------|
+| `list_apps`        | List and filter applications in your Embrace workspace              |
+| `get_app_details`  | Get health metrics, crash-free rates, and session counts for an app |
+| `get_top_versions` | Identify which app versions are most widely used                    |
+
+### Crash tools
+
+| Tool                      | Description                                           |
+|---------------------------|-------------------------------------------------------|
+| `list_crashes`            | List top crashes ranked by frequency                  |
+| `get_crash_details`       | Get detailed information about a specific crash group |
+| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis          |
+
+### Network tools
+
+| Tool                              | Description                                                                                      |
+|-----------------------------------|--------------------------------------------------------------------------------------------------|
+| `list_network_domains`            | List all domains an app communicates with, with basic health indicators                          |
+| `list_network_endpoints`          | List endpoints ranked by latency, errors, or volume                                              |
+| `get_network_endpoint_errors`     | Get error breakdown for a specific endpoint by HTTP status code and connection error type        |
+| `get_network_endpoint_latency`    | Get latency distribution and percentiles for a specific endpoint                                 |
+| `get_network_endpoint_timeseries` | Get time-series metrics showing how an endpoint's performance changes over time                  |
+| `get_network_endpoint_breakdown`  | Break down endpoint performance by dimension — country, OS version, app version, or device model |
 
 ## Prerequisites
 
@@ -107,6 +125,18 @@ Deep dive into a specific crash to understand its root cause:
 3. Use `get_crash_stack_samples` to analyze actual stack traces by crash group ID and identify the bug
 
 **Example query:** "What's causing the top crash in my app and how do I fix it?"
+
+### Investigate network performance
+
+Identify slow or error-prone endpoints and scope who is affected:
+
+1. Use `list_network_domains` to get an overview of all domains the app communicates with
+2. Use `list_network_endpoints` to find the worst-performing endpoints within a domain
+3. Use `get_network_endpoint_errors` or `get_network_endpoint_latency` to understand what's wrong
+4. Use `get_network_endpoint_timeseries` to see whether the problem is worsening over time
+5. Use `get_network_endpoint_breakdown` to scope impact by country, app version, OS version, or device model
+
+**Example query:** "Which network endpoints are causing the most errors in version 3.2.0?"
 
 ### Version-specific analysis
 
