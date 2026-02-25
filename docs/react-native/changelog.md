@@ -10,7 +10,8 @@ sidebar_position: 4
 
 _Feb 24, 2026_
 
-- Updated code paths around logging and setting default JS bundle path to fire telemetry in addition to local device logging.
+- Improve logging for cases when `setJavaScriptBundlePath` returns an error
+- Emit OTel logs for certain warnings in addition to console logging to help debugging
 
 ## 6.4.0
 
