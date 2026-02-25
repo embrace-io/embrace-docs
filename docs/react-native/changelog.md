@@ -6,6 +6,13 @@ sidebar_position: 4
 
 # Embrace React Native SDK Changelog
 
+## 6.4.1
+
+_Feb 24, 2026_
+
+- Improve logging for cases when `setJavaScriptBundlePath` returns an error
+- Emit OTel logs for certain warnings in addition to console logging to help debugging
+
 ## 6.4.0
 
 _Jan 26, 2026_
