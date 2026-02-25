@@ -21,7 +21,7 @@ Domains must match exactly. Subdomains are **not** included automatically.
 For example, if your API calls go to `api.example.com` and `cdn.example.com`, adding only `example.com` will **not** match those calls. You would need to either:
 
 - Add each subdomain individually (`api.example.com`, `cdn.example.com`)
-- Use `*.example.com` to match all subdomains at once
+- Use a wildcarded domain (`<<wildcard>>.example.com`) to match all subdomains at once, if the domain is wildcarded
 :::
 
 <img src={require('@site/static/images/settings/First-Party-Domains.png').default} style={{ width: '75%', height: '75%' }} alt="Creating first-party domains" />
