@@ -6,6 +6,12 @@ sidebar_position: 4
 
 # Embrace React Native SDK Changelog
 
+## 6.4.1
+
+_Feb 24, 2026_
+
+- Updated code paths around logging and setting default JS bundle path to fire telemetry in addition to local device logging.
+
 ## 6.4.0
 
 _Jan 26, 2026_
