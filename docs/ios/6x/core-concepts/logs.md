@@ -68,7 +68,7 @@ Embrace enforces certain limits on logs:
   - 500 Error Logs
   - 200 Warning Logs
   - 100 Info Logs
-- Maximum size of logs: 10,000 bytes
+- Maximum length of a log message: 4,000 characters
 
 If your application exceeds these limits, the newest logs will be ignored.
 
@@ -76,9 +76,9 @@ If your application exceeds these limits, the newest logs will be ignored.
 
 To optimize device and network performance, Embrace batches logs according to the following criteria:
 
-- A maximum of **2 seconds** between logs: After receiving a log, we wait for 2 seconds. If no additional log arrives during that period, we send it to the backend.
-- A maximum of **5 seconds** for batch lifetime: Log batches should not exist for more than 5 seconds.
-- A maximum of **50 logs** per batch: This prevents issues with large batches.
+- A maximum of **20 seconds** between logs: After receiving a log, we wait for 20 seconds. If no additional log arrives during that period, we send it to the backend.
+- A maximum of **60 seconds** for batch lifetime: Log batches should not exist for more than 60 seconds.
+- A maximum of **20 logs** per batch: This prevents issues with large batches.
 
 ## File Attachments with Logs
 
