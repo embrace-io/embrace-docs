@@ -269,6 +269,7 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| Surface Label<br /><code class="filters-table__key">surface_label</code> | Label of the surface. | String | — |
 | Surface Name<br /><code class="filters-table__key">surface_name</code> | Name of the surface. | String | — |
 
 </div>
