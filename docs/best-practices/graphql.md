@@ -146,3 +146,39 @@ httpClient.addInterceptor(chain -> {
 
 </TabItem>
 </Tabs>
+
+## Configuring Network Grouping Rules
+
+After setting up the path override, you may find that your GraphQL operations appear correctly
+in the session timeline but are missing or inconsistent in the **Network** section of the dashboard.
+
+This happens because the Embrace backend automatically groups network paths with high cardinality
+into wildcard entries. For example, if your app tracks many distinct GraphQL operations
+(`/graphql/getUser`, `/graphql/createOrder`, `/graphql/deleteItem`, etc.), the backend
+may collapse them into a single wildcard entry like `/graphql/*`. When this occurs, individual
+operations will not appear as their own entries in the Network section, even though
+they are being captured and sent correctly.
+
+You can verify that the requests are being captured by checking the **session timeline** for
+a session where the GraphQL calls were made. If the individual paths appear there
+(e.g., `/graphql/getUser`), the SDK integration is working and the issue is
+with how the dashboard groups the paths.
+
+To resolve this, create **network grouping rules** for each GraphQL operation you want to
+track individually:
+
+1. Navigate to the **Network** section in the Embrace dashboard.
+2. Locate the wildcarded GraphQL endpoint.
+3. Click the pencil icon next to the path, or click **Create rule** in the tooltip that reads
+   "There is no matching grouping rule for this endpoint."
+4. Enter the full path for the operation you want to track, e.g.,
+   `example.com/graphql/getUser`.
+5. Repeat for each GraphQL operation you want to monitor separately.
+
+Once the rules are in place, each operation will have its own Network Path Details page with
+per-operation metrics including latency, error rates, and individual session matching.
+
+:::info Note
+Network grouping rules apply going forward. Historical data that was already grouped under a
+wildcard will not be retroactively split.
+:::
