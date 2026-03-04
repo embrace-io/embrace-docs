@@ -155,7 +155,7 @@ in the session timeline but are missing or inconsistent in the **Network** secti
 This happens because the Embrace backend automatically groups network paths with high cardinality
 into wildcard entries. For example, if your app tracks many distinct GraphQL operations
 (`/graphql/getUser`, `/graphql/createOrder`, `/graphql/deleteItem`, etc.), the backend
-may collapse them into a single wildcard entry like `/graphql/*`. When this occurs, individual
+may collapse them into a single wildcard entry like `/graphql/«wildcard»`. When this occurs, individual
 operations will not appear as their own entries in the Network section, even though
 they are being captured and sent correctly.
 
