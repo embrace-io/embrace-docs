@@ -6,6 +6,17 @@ sidebar_position: 6
 
 # Changelog
 
+## 6.16.1
+
+*March 5, 2026*
+
+- Fixes
+  - Fixed crash logs sometimes not having an app id.
+  - Fixed the upload processes sometimes getting stuck.
+  - Bumped KSCrash dependency to v2.5.1 which contains a crash fix.
+- Improvements
+  - Added support for OTel SDK Resources.
+
 ## 6.16.0
 
 *Jan 27, 2026*
