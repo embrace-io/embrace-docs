@@ -4,6 +4,9 @@ description: Understanding sessions in the Embrace iOS SDK 6.x
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Sessions
 
 Sessions are a fundamental concept in the Embrace iOS SDK that help you understand how users interact with your application over time.
@@ -89,6 +92,29 @@ The session span contains all relevant session information and serves as a paren
 
 Get information about the current session:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Get the current session ID
+if let sessionId = EmbraceIO.shared.currentSessionId {
+    print("Current session: \(sessionId)")
+    // Use session ID for logging or analytics
+}
+
+// Check if SDK is enabled and session is active
+if EmbraceIO.shared.isSDKEnabled == true {
+    print("Session is active and SDK is enabled")
+}
+
+// Get device identifier for session attribution
+let deviceId = EmbraceIO.shared.deviceId
+print("Device ID: \(deviceId)")
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Get the current session ID
 if let sessionId = Embrace.client?.currentSessionId() {
@@ -107,9 +133,69 @@ if let deviceId = Embrace.client?.currentDeviceId() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Managing Session Lifecycle
 
 Control session lifecycle manually when needed:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class SessionManager {
+    func handleUserLogin(userId: String) {
+        // Start a new session for the logged-in user
+        EmbraceIO.shared.endCurrentSession()
+
+        // Set user identification for the new session
+        EmbraceIO.shared.userIdentifier = userId
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag("authenticated"),
+            lifespan: .session
+        )
+
+        // Start new session with user context
+        EmbraceIO.shared.startNewSession()
+
+        // Log session start for analytics
+        try? EmbraceIO.shared.log(
+            "New user session started",
+            severity: .info,
+            attributes: [
+                "user.login_method": "credentials",
+                "session.type": "authenticated"
+            ]
+        )
+    }
+
+    func handleUserLogout() {
+        // Log session end
+        try? EmbraceIO.shared.log(
+            "User session ended",
+            severity: .info,
+            attributes: [
+                "user.logout_method": "manual",
+                "session.duration": String(getCurrentSessionDuration())
+            ]
+        )
+
+        // Clear user context and start anonymous session
+        EmbraceIO.shared.clearUserProperties()
+        EmbraceIO.shared.endCurrentSession()
+        EmbraceIO.shared.startNewSession()
+    }
+
+    private func getCurrentSessionDuration() -> TimeInterval {
+        // Calculate session duration based on your app's logic
+        return Date().timeIntervalSince(sessionStartTime)
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class SessionManager {
@@ -162,9 +248,93 @@ class SessionManager {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Adding Custom Properties to Sessions
 
 Enrich sessions with custom properties and metadata:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class SessionEnrichment {
+    func configureSessionProperties() {
+        // Add permanent properties that persist across sessions
+        try? EmbraceIO.shared.setProperty(
+            key: "app.flavor",
+            value: Bundle.main.bundleIdentifier?.contains("debug") == true ? "debug" : "release",
+            lifespan: .permanent
+        )
+
+        // Add process-level properties
+        try? EmbraceIO.shared.setProperty(
+            key: "app.version",
+            value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown",
+            lifespan: .process
+        )
+
+        // Add session-specific properties
+        try? EmbraceIO.shared.setProperty(
+            key: "session.start_method",
+            value: determineStartMethod(),
+            lifespan: .session
+        )
+    }
+
+    func updateSessionContext(userTier: String, feature: String) {
+        // Update session context as user progresses through the app
+        try? EmbraceIO.shared.setProperty(
+            key: "user.tier",
+            value: userTier,
+            lifespan: .session
+        )
+
+        try? EmbraceIO.shared.setProperty(
+            key: "current.feature",
+            value: feature,
+            lifespan: .session
+        )
+
+        // Add persona tags for segmentation
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag(userTier.lowercased()),
+            lifespan: .session
+        )
+    }
+
+    func trackBusinessContext(context: [String: String]) {
+        // Add business-specific context to sessions
+        for (key, value) in context {
+            try? EmbraceIO.shared.setProperty(
+                key: "business.\(key)",
+                value: value,
+                lifespan: .session
+            )
+        }
+    }
+
+    private func determineStartMethod() -> String {
+        // Determine how the app was started
+        if ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil {
+            return "simulator"
+        } else if isAppStoreReceipt() {
+            return "app_store"
+        } else {
+            return "development"
+        }
+    }
+
+    private func isAppStoreReceipt() -> Bool {
+        guard let receiptURL = Bundle.main.appStoreReceiptURL else { return false }
+        return receiptURL.lastPathComponent == "receipt"
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class SessionEnrichment {
@@ -241,9 +411,103 @@ class SessionEnrichment {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Session Event Tracking
 
 Track important events within sessions:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class SessionEventTracker {
+    func trackMilestone(milestone: String, metadata: [String: String] = [:]) {
+        // Add milestone events to the current session span
+        let event = SpanEvent(
+            name: "session.milestone",
+            timestamp: Date(),
+            attributes: [
+                "milestone.name": milestone,
+                "milestone.timestamp": ISO8601DateFormatter().string(from: Date())
+            ].merging(metadata) { _, new in new }
+        )
+
+        EmbraceIO.shared.add(event: event)
+
+        // Also log for detailed tracking
+        try? EmbraceIO.shared.log(
+            "Session milestone reached",
+            severity: .info,
+            attributes: [
+                "milestone.name": milestone
+            ].merging(metadata) { _, new in new }
+        )
+    }
+
+    func trackUserFlow(step: String, totalSteps: Int, currentStep: Int) {
+        // Track user progress through multi-step flows
+        let progressPercentage = Int((Double(currentStep) / Double(totalSteps)) * 100)
+
+        try? EmbraceIO.shared.setProperty(
+            key: "flow.current_step",
+            value: "\(currentStep)/\(totalSteps)",
+            lifespan: .session
+        )
+
+        try? EmbraceIO.shared.setProperty(
+            key: "flow.progress_percentage",
+            value: String(progressPercentage),
+            lifespan: .session
+        )
+
+        try? EmbraceIO.shared.log(
+            "User flow progress",
+            severity: .info,
+            attributes: [
+                "flow.step": step,
+                "flow.current_step": String(currentStep),
+                "flow.total_steps": String(totalSteps),
+                "flow.progress_percentage": String(progressPercentage)
+            ]
+        )
+    }
+
+    func trackFeatureUsage(feature: String, action: String) {
+        // Track feature usage within sessions
+        let featureKey = "feature.\(feature.lowercased()).usage_count"
+
+        // Increment feature usage counter
+        let currentCount = getCurrentUsageCount(for: featureKey)
+        try? EmbraceIO.shared.setProperty(
+            key: featureKey,
+            value: String(currentCount + 1),
+            lifespan: .session
+        )
+
+        // Log the specific action
+        try? EmbraceIO.shared.log(
+            "Feature action performed",
+            severity: .debug,
+            attributes: [
+                "feature.name": feature,
+                "feature.action": action,
+                "feature.usage_count": String(currentCount + 1)
+            ]
+        )
+    }
+
+    private func getCurrentUsageCount(for key: String) -> Int {
+        // In a real implementation, you'd retrieve this from your metadata storage
+        // For this example, we'll return 0
+        return 0
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class SessionEventTracker {
@@ -330,9 +594,82 @@ class SessionEventTracker {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Session Performance Monitoring
 
 Monitor session health and performance:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class SessionPerformanceMonitor {
+    private let startTime = Date()
+    private var lastMemoryCheck = Date()
+
+    func monitorSessionHealth() {
+        // Check session duration
+        let sessionDuration = Date().timeIntervalSince(startTime)
+        if sessionDuration > 3600 { // 1 hour
+            try? EmbraceIO.shared.log(
+                "Long session detected",
+                severity: .warning,
+                attributes: [
+                    "session.duration_minutes": String(Int(sessionDuration / 60)),
+                    "session.health_check": "long_duration"
+                ]
+            )
+        }
+
+        // Check memory usage periodically
+        if Date().timeIntervalSince(lastMemoryCheck) > 300 { // Every 5 minutes
+            checkMemoryUsage()
+            lastMemoryCheck = Date()
+        }
+    }
+
+    private func checkMemoryUsage() {
+        let memoryUsage = getCurrentMemoryUsage()
+        let memoryMB = Double(memoryUsage) / 1024 / 1024
+
+        if memoryMB > 500 { // Warn if over 500MB
+            try? EmbraceIO.shared.log(
+                "High memory usage detected",
+                severity: .warning,
+                attributes: [
+                    "memory.usage_mb": String(format: "%.1f", memoryMB),
+                    "memory.threshold_exceeded": "true"
+                ]
+            )
+        }
+
+        // Update session property with current memory usage
+        try? EmbraceIO.shared.setProperty(
+            key: "session.peak_memory_mb",
+            value: String(format: "%.1f", memoryMB),
+            lifespan: .session
+        )
+    }
+
+    private func getCurrentMemoryUsage() -> UInt64 {
+        var info = mach_task_basic_info()
+        var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.size)/4
+
+        let kerr: kern_return_t = withUnsafeMutablePointer(to: &info) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
+                task_info(mach_task_self_, task_flavor_t(MACH_TASK_BASIC_INFO), $0, &count)
+            }
+        }
+
+        return kerr == KERN_SUCCESS ? info.resident_size : 0
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class SessionPerformanceMonitor {
@@ -397,5 +734,8 @@ class SessionPerformanceMonitor {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 These examples demonstrate how to effectively work with session data, add custom properties, and monitor session health to gain deeper insights into user behavior and app performance.

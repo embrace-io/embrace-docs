@@ -4,6 +4,9 @@ description: Instrumentation around the application startup
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Automatic Instrumentation
 
 The Embrace SDK will automatically create spans to instrument the startup process of the application. These should help you understand how your app is performing during startup and also give more context if your users are running into issues when launching it.
@@ -35,12 +38,31 @@ If the Embrace SDK is setup and started within the `appDidFinishLaunching` metho
 On top of this, the `emb-sdk-setup` and `emb-sdk-start` spans will be created to measure the Embrace SDK initialization process.
 
 :::warning
-Note that in order for these spans to be included, the Embrace SDK has to be setup and started within the `appDidFinishLaunching` method.  
+Note that in order for these spans to be included, the Embrace SDK has to be setup and started within the `appDidFinishLaunching` method.
 :::
 
 ## Manual Instrumentation
 
 You can add your own child spans and attributes to the startup traces through the Embrace client public API.
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// add attributes to all startup traces
+EmbraceIO.shared.startupInstrumentation.addAttributesToTrace(["myKey": "myValue"])
+
+// build a startup child span
+let span = EmbraceIO.shared.startupInstrumentation.buildChildSpan(name: "mySpan")?.startSpan()
+// ...
+span?.end()
+
+// record a startup child span
+EmbraceIO.shared.startupInstrumentation.recordCompletedChildSpan(name: "myOtherSpan", startTime: someStartTime, endTime: someEndTime)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // add attributes to all startup traces
@@ -54,3 +76,6 @@ span?.end()
 // record a startup child span
 Embrace.client?.startupInstrumentation.recordCompletedChildSpan(name: "myOtherSpan", startTime: someStartTime, endTime: someEndTime)
 ```
+
+</TabItem>
+</Tabs>

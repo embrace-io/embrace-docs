@@ -4,6 +4,9 @@ description: Capture log messages with different severity levels in your iOS app
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Logging
 
 Embrace's logging capabilities allow you to capture log messages with different severity levels, providing valuable context for troubleshooting and debugging issues in your app.
@@ -32,6 +35,26 @@ Embrace supports multiple log severity levels:
 
 The simplest way to log a message is with the `logMessage` method:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Log an informational message
+try EmbraceIO.shared.log("User viewed product details", severity: .info)
+
+// Log a warning
+try EmbraceIO.shared.log("Image failed to load but fallback displayed", severity: .warn)
+
+// Log an error
+try EmbraceIO.shared.log("Payment processing failed", severity: .error)
+
+// Log debug information
+try EmbraceIO.shared.log("Cache hit ratio: 0.85", severity: .debug)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Log an informational message
 Embrace.client?.log("User viewed product details", severity: .info)
@@ -46,9 +69,32 @@ Embrace.client?.log("Payment processing failed", severity: .error)
 Embrace.client?.log("Cache hit ratio: 0.85", severity: .debug)
 ```
 
+</TabItem>
+</Tabs>
+
 ## Adding Properties to Logs
 
 You can add additional context to your logs with properties:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Log with attributes
+try EmbraceIO.shared.log(
+    "Purchase attempt failed",
+    severity: .error,
+    attributes: [
+        "product_id": productId,
+        "price": price.description,
+        "payment_method": paymentMethod,
+        "error_code": errorCode.description
+    ]
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Log with attributes
@@ -64,6 +110,9 @@ Embrace.client?.log(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 Properties help you filter and search logs more effectively.
 
 ## Integrating with Existing Logging Systems
@@ -71,6 +120,44 @@ Properties help you filter and search logs more effectively.
 ### Using OSLog / Unified Logging
 
 If you're using Apple's Unified Logging system, you can integrate it with Embrace:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+import os.log
+
+class Logger {
+    private static let subsystem = "com.yourcompany.yourapp"
+    static let network = OSLog(subsystem: subsystem, category: "network")
+    static let ui = OSLog(subsystem: subsystem, category: "ui")
+    static let data = OSLog(subsystem: subsystem, category: "data")
+
+    static func log(_ message: String, to log: OSLog, type: OSLogType) {
+        os_log("%{public}@", log: log, type: type, message)
+
+        // Mirror to Embrace
+        switch type {
+        case .debug:
+            try? EmbraceIO.shared.log(message, severity: .debug)
+        case .info:
+            try? EmbraceIO.shared.log(message, severity: .info)
+        case .error:
+            try? EmbraceIO.shared.log(message, severity: .error)
+        case .fault:
+            try? EmbraceIO.shared.log(message, severity: .error)
+        default:
+            try? EmbraceIO.shared.log(message, severity: .info)
+        }
+    }
+}
+
+// Usage
+Logger.log("API request started", to: Logger.network, type: .info)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 import os.log
@@ -104,9 +191,59 @@ class Logger {
 Logger.log("API request started", to: Logger.network, type: .info)
 ```
 
+</TabItem>
+</Tabs>
+
 ### Using CocoaLumberjack
 
 If you're using CocoaLumberjack, you can create a custom logger that forwards logs to Embrace:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+import CocoaLumberjack
+
+class EmbraceLogger: DDAbstractLogger {
+    override func log(message logMessage: DDLogMessage) {
+        let message = logMessage.message
+
+        // Map CocoaLumberjack log levels to Embrace severities
+        let severity: LogSeverity
+        switch logMessage.level {
+        case .verbose, .debug:
+            severity = .debug
+        case .info:
+            severity = .info
+        case .warning:
+            severity = .warning
+        case .error:
+            severity = .error
+        @unknown default:
+            severity = .info
+        }
+
+        // Forward to Embrace
+        try? EmbraceIO.shared.log(message, severity: severity)
+    }
+}
+
+// Setup in AppDelegate
+func setupLogging() {
+    let embraceLogger = EmbraceLogger()
+    DDLog.add(embraceLogger)
+
+    // Other logger setup
+    let fileLogger = DDFileLogger()
+    DDLog.add(fileLogger)
+
+    let consoleLogger = DDOSLogger.sharedInstance
+    DDLog.add(consoleLogger)
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 import CocoaLumberjack
@@ -149,9 +286,47 @@ func setupLogging() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Common Logging Patterns
 
 ### Logging App Lifecycle
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Setup Embrace
+        setupEmbrace()
+
+        // Log app launch
+        try? EmbraceIO.shared.log(
+            "App launched",
+            severity: .info,
+            attributes: [
+                "launch_type": launchOptions != nil ? "from_notification" : "normal",
+                "os_version": UIDevice.current.systemVersion
+            ]
+        )
+
+        return true
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        try? EmbraceIO.shared.log("App entered background", severity: .info)
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        try? EmbraceIO.shared.log("App will enter foreground", severity: .info)
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -182,7 +357,88 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Logging Network Activity
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class APIClient {
+    func performRequest<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
+        let requestId = UUID().uuidString
+
+        try? EmbraceIO.shared.log(
+            "API request started",
+            severity: .info,
+            attributes: [
+                "request_id": requestId,
+                "url": request.url?.absoluteString ?? "unknown",
+                "method": request.httpMethod ?? "GET"
+            ]
+        )
+
+        let startTime = Date()
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            let duration = Date().timeIntervalSince(startTime)
+
+            if let error = error {
+                try? EmbraceIO.shared.log(
+                    "API request failed: \(error.localizedDescription)",
+                    severity: .error,
+                    attributes: [
+                        "request_id": requestId,
+                        "duration": String(format: "%.2f", duration)
+                    ]
+                )
+                completion(.failure(error))
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                let error = NSError(domain: "APIClient", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])
+                try? EmbraceIO.shared.log(
+                    "API request failed: \(error.localizedDescription)",
+                    severity: .error
+                )
+                completion(.failure(error))
+                return
+            }
+
+            if httpResponse.statusCode >= 400 {
+                try? EmbraceIO.shared.log(
+                    "API request failed with status \(httpResponse.statusCode)",
+                    severity: .error,
+                    attributes: [
+                        "request_id": requestId,
+                        "status_code": String(httpResponse.statusCode),
+                        "duration": String(format: "%.2f", duration)
+                    ]
+                )
+            } else {
+                try? EmbraceIO.shared.log(
+                    "API request completed successfully",
+                    severity: .info,
+                    attributes: [
+                        "request_id": requestId,
+                        "status_code": String(httpResponse.statusCode),
+                        "duration": String(format: "%.2f", duration),
+                        "response_size": data?.count.description ?? "0"
+                    ]
+                )
+            }
+
+            // Process response and call completion handler
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class APIClient {
@@ -255,6 +511,9 @@ class APIClient {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Best Practices for Logging
 

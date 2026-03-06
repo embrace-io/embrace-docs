@@ -4,6 +4,9 @@ description: Add custom telemetry to your iOS app with Embrace's manual instrume
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Manual Instrumentation
 
 While Embrace's [automatic instrumentation](../automatic-instrumentation/index.md) captures many important metrics and events out of the box, manual instrumentation allows you to add custom telemetry data that's specific to your application's unique workflows and business logic.
@@ -56,6 +59,32 @@ Effective manual instrumentation follows these principles:
 
 The most common way to start with manual instrumentation is by creating custom spans:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Create and start a span
+let span = EmbraceIO.shared.buildSpan(name: "important_operation").startSpan()
+
+// Perform your operation
+// ...
+
+// Add some context to the span
+span.setAttribute(key: "operation_size", value: "large")
+
+// Record success or failure
+if success {
+    span.end()
+} else {
+    span.recordError(error)
+    span.setStatus(.error)
+    span.end()
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Create and start a span
 let span = Embrace.client?.startSpan(name: "important_operation")
@@ -75,6 +104,9 @@ if success {
     span?.end()
 }
 ```
+
+</TabItem>
+</Tabs>
 
 Explore the sections in this documentation to learn about all the available manual instrumentation capabilities.
 

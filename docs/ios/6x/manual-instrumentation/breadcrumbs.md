@@ -4,6 +4,9 @@ description: Add lightweight logging context to your iOS 6.x app sessions with b
 sidebar_position: 6
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Breadcrumbs
 
 Breadcrumbs are a lightweight way to add logging to your session. They provide context to user activity in sessions, while adding little CPU or memory overhead.
@@ -16,9 +19,22 @@ Embrace can collect basic session data and crashes as you've already seen in the
 
 Here's how you add a breadcrumb to the session:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.shared.add(event: .breadcrumb("User tapped checkout button"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 Embrace.client?.add(event: .breadcrumb("User tapped checkout button"))
 ```
+
+</TabItem>
+</Tabs>
 
 :::info Character Limit
 Breadcrumb messages must be 256 characters or less.
@@ -34,6 +50,19 @@ Note that the `.add(event:)` method adds a SpanEvent to the session span. Embrac
 
 #### User Actions
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// User interface interactions
+EmbraceIO.shared.add(event: .breadcrumb("User opened settings screen"))
+EmbraceIO.shared.add(event: .breadcrumb("User enabled notifications"))
+EmbraceIO.shared.add(event: .breadcrumb("User logged out"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // User interface interactions
 Embrace.client?.add(event: .breadcrumb("User opened settings screen"))
@@ -41,7 +70,23 @@ Embrace.client?.add(event: .breadcrumb("User enabled notifications"))
 Embrace.client?.add(event: .breadcrumb("User logged out"))
 ```
 
+</TabItem>
+</Tabs>
+
 #### Application State Changes
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// App lifecycle events
+EmbraceIO.shared.add(event: .breadcrumb("App entered background"))
+EmbraceIO.shared.add(event: .breadcrumb("App became active"))
+EmbraceIO.shared.add(event: .breadcrumb("Memory warning received"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // App lifecycle events
@@ -50,7 +95,23 @@ Embrace.client?.add(event: .breadcrumb("App became active"))
 Embrace.client?.add(event: .breadcrumb("Memory warning received"))
 ```
 
+</TabItem>
+</Tabs>
+
 #### Business Logic Events
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Important business events
+EmbraceIO.shared.add(event: .breadcrumb("Cart updated"))
+EmbraceIO.shared.add(event: .breadcrumb("Search performed"))
+EmbraceIO.shared.add(event: .breadcrumb("Filter applied"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Important business events
@@ -58,6 +119,9 @@ Embrace.client?.add(event: .breadcrumb("Cart updated"))
 Embrace.client?.add(event: .breadcrumb("Search performed"))
 Embrace.client?.add(event: .breadcrumb("Filter applied"))
 ```
+
+</TabItem>
+</Tabs>
 
 ## Best Practices
 
@@ -82,6 +146,23 @@ Embrace.client?.add(event: .breadcrumb("Filter applied"))
 
 Use clear, consistent naming for your breadcrumbs:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Good: Clear and descriptive
+EmbraceIO.shared.add(event: .breadcrumb("User started checkout process"))
+EmbraceIO.shared.add(event: .breadcrumb("Payment validation failed"))
+EmbraceIO.shared.add(event: .breadcrumb("Order confirmation displayed"))
+
+// Avoid: Vague or inconsistent
+EmbraceIO.shared.add(event: .breadcrumb("Something happened"))
+EmbraceIO.shared.add(event: .breadcrumb("Error"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Good: Clear and descriptive
 Embrace.client?.add(event: .breadcrumb("User started checkout process"))
@@ -92,6 +173,9 @@ Embrace.client?.add(event: .breadcrumb("Order confirmation displayed"))
 Embrace.client?.add(event: .breadcrumb("Something happened"))
 Embrace.client?.add(event: .breadcrumb("Error"))
 ```
+
+</TabItem>
+</Tabs>
 
 ### Performance Considerations
 
@@ -107,6 +191,24 @@ When using breadcrumbs in SwiftUI views, be aware that view lifecycle methods li
 
 **Common Issue:**
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// This will log multiple times as the view re-renders
+struct ProductView: View {
+    var body: some View {
+        Text("Product Details")
+            .onAppear {
+                EmbraceIO.shared.add(event: .breadcrumb("Product Viewed"))
+            }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // This will log multiple times as the view re-renders
 struct ProductView: View {
@@ -119,9 +221,33 @@ struct ProductView: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 **Recommended Approach:**
 
 Use state-based tracking to prevent duplicates:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+struct ProductView: View {
+    @State private var hasLogged = false
+
+    var body: some View {
+        Text("Product Details")
+            .onAppear {
+                guard !hasLogged else { return }
+                EmbraceIO.shared.add(event: .breadcrumb("Product Viewed"))
+                hasLogged = true
+            }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 struct ProductView: View {
@@ -138,7 +264,28 @@ struct ProductView: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 Alternatively, move tracking logic to a ViewModel:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class ProductViewModel: ObservableObject {
+    private var hasTracked = false
+
+    func trackView() {
+        guard !hasTracked else { return }
+        EmbraceIO.shared.add(event: .breadcrumb("Product Viewed"))
+        hasTracked = true
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class ProductViewModel: ObservableObject {
@@ -152,6 +299,9 @@ class ProductViewModel: ObservableObject {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 For comprehensive SwiftUI instrumentation patterns, including navigation tracking, multi-step forms, and action handlers, see the [SwiftUI-Specific Patterns](/ios/6x/best-practices/common-patterns#swiftui-specific-patterns) guide.
 
 ## Integration with Other Features
@@ -159,6 +309,20 @@ For comprehensive SwiftUI instrumentation patterns, including navigation trackin
 ### Breadcrumbs and Crash Reports
 
 Breadcrumbs provide valuable context when analyzing crash reports. They show the sequence of user actions leading up to a crash:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// These breadcrumbs will appear in crash reports
+EmbraceIO.shared.add(event: .breadcrumb("User started video playback"))
+EmbraceIO.shared.add(event: .breadcrumb("Video buffer underrun detected"))
+EmbraceIO.shared.add(event: .breadcrumb("Attempting to recover playback"))
+// Crash occurs here - breadcrumbs provide context
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // These breadcrumbs will appear in crash reports
@@ -168,9 +332,31 @@ Embrace.client?.add(event: .breadcrumb("Attempting to recover playback"))
 // Crash occurs here - breadcrumbs provide context
 ```
 
+</TabItem>
+</Tabs>
+
 ### Breadcrumbs and Custom Traces
 
 Breadcrumbs can complement [custom traces](/ios/6x/manual-instrumentation/custom-traces) by providing additional context:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Start a custom trace for a complex operation
+let trace = EmbraceIO.shared.buildSpan(name: "user_onboarding")
+    .startSpan()
+
+// Add breadcrumbs to provide detailed context
+EmbraceIO.shared.add(event: .breadcrumb("Onboarding step 1: Welcome screen"))
+EmbraceIO.shared.add(event: .breadcrumb("Onboarding step 2: Permissions requested"))
+EmbraceIO.shared.add(event: .breadcrumb("Onboarding step 3: Account creation"))
+
+trace.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Start a custom trace for a complex operation
@@ -185,6 +371,9 @@ Embrace.client?.add(event: .breadcrumb("Onboarding step 3: Account creation"))
 trace?.end()
 ```
 
+</TabItem>
+</Tabs>
+
 ## Viewing Breadcrumbs in the Dashboard
 
 Breadcrumbs appear in several places in the Embrace dashboard:
@@ -197,6 +386,20 @@ Breadcrumbs appear in several places in the Embrace dashboard:
 
 ### E-commerce App
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.shared.add(event: .breadcrumb("Product search"))
+EmbraceIO.shared.add(event: .breadcrumb("Product viewed"))
+EmbraceIO.shared.add(event: .breadcrumb("Added to cart"))
+EmbraceIO.shared.add(event: .breadcrumb("Checkout initiated"))
+EmbraceIO.shared.add(event: .breadcrumb("Payment completed"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 Embrace.client?.add(event: .breadcrumb("Product search"))
 Embrace.client?.add(event: .breadcrumb("Product viewed"))
@@ -205,7 +408,23 @@ Embrace.client?.add(event: .breadcrumb("Checkout initiated"))
 Embrace.client?.add(event: .breadcrumb("Payment completed"))
 ```
 
+</TabItem>
+</Tabs>
+
 ### Media App
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.shared.add(event: .breadcrumb("Content browsing"))
+EmbraceIO.shared.add(event: .breadcrumb("Video selected"))
+EmbraceIO.shared.add(event: .breadcrumb("Playback started"))
+EmbraceIO.shared.add(event: .breadcrumb("Playback paused"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 Embrace.client?.add(event: .breadcrumb("Content browsing"))
@@ -214,7 +433,23 @@ Embrace.client?.add(event: .breadcrumb("Playback started"))
 Embrace.client?.add(event: .breadcrumb("Playback paused"))
 ```
 
+</TabItem>
+</Tabs>
+
 ### Social App
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.shared.add(event: .breadcrumb("Feed refreshed"))
+EmbraceIO.shared.add(event: .breadcrumb("Post liked"))
+EmbraceIO.shared.add(event: .breadcrumb("Comment added"))
+EmbraceIO.shared.add(event: .breadcrumb("Profile viewed"))
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 Embrace.client?.add(event: .breadcrumb("Feed refreshed"))
@@ -222,6 +457,9 @@ Embrace.client?.add(event: .breadcrumb("Post liked"))
 Embrace.client?.add(event: .breadcrumb("Comment added"))
 Embrace.client?.add(event: .breadcrumb("Profile viewed"))
 ```
+
+</TabItem>
+</Tabs>
 
 ## Next Steps
 

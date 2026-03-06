@@ -4,6 +4,9 @@ description: Automatically detect and monitor main thread hangs in your iOS app 
 sidebar_position: 7
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Hang Detection
 
 The Embrace SDK automatically monitors your application's main thread for app hangs, providing visibility into UI freezes and unresponsive behavior that can frustrate users.
@@ -47,6 +50,47 @@ The SDK automatically monitors the main thread using a dedicated watchdog thread
 
 Hang detection is enabled by default. You can customize settings during development or testing by implementing a custom `EmbraceConfigurable`:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+import EmbraceIO
+import EmbraceConfiguration
+
+// Create a custom configuration class
+class CustomConfig: EmbraceConfigurable {
+    // Customize hang detection limits
+    var hangLimits = HangLimits(
+        hangPerSession: 200,    // Max hangs to capture per session
+        samplesPerHang: 5       // Max stack trace samples per hang
+    )
+
+    // Required EmbraceConfigurable properties with defaults
+    var isSDKEnabled: Bool = true
+    // ... add all other configs here
+
+    func update(completion: (Bool, (any Error)?) -> Void) {
+        completion(false, nil)
+    }
+}
+
+// Initialize Embrace with custom configuration
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    platform: .default
+)
+
+do {
+    try EmbraceIO.setup(options: options)
+    try EmbraceIO.shared.start()
+} catch {
+    print("Failed to set up Embrace: \(error)")
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 import EmbraceIO
 import EmbraceConfiguration
@@ -81,6 +125,9 @@ do {
     print("Failed to set up Embrace: \(error)")
 }
 ```
+
+</TabItem>
+</Tabs>
 
 :::info
 In production, hang detection is typically controlled via Embrace's remote configuration system.

@@ -4,6 +4,9 @@ description: Determine how the previous app session ended
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Last Run End State
 
 The Last Run End State API enables you to programmatically determine if the previous app instance ended in a crash. This powerful feature allows you to adjust your app's behavior or UI based on how the previous session terminated.
@@ -49,9 +52,22 @@ The API will return a value noting the last run end state of the application. No
 - The API can only be called after the SDK has been started. If a call is made prior to starting the Embrace SDK you will get a response of `.unavailable`.
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let lastRunEndState = EmbraceIO.shared.lastRunEndState()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let lastRunEndState = Embrace.client?.lastRunEndState()
 ```
+
+</TabItem>
+</Tabs>
 
 ### Possible Values
 
@@ -65,7 +81,7 @@ case unavailable
 case crash
 
 // Last app run ended cleanly
-case cleanExit 
+case cleanExit
 ```
 
 ## Common Use Cases
@@ -73,6 +89,47 @@ case cleanExit
 ### Crash Recovery
 
 Implement crash recovery logic to restore user state after a crash:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func configureApp() {
+    // First check if we're returning from a crash
+    if let lastRunEndState = EmbraceIO.shared.lastRunEndState(),
+       lastRunEndState == .crash {
+        // Implement crash recovery
+        restoreUserState()
+        showCrashRecoveryMessage()
+
+        // Log the crash recovery attempt
+        try EmbraceIO.shared.log(
+            "Performing crash recovery",
+            severity: .info
+        )
+    }
+
+    // Continue with normal app initialization
+    setupAppComponents()
+}
+
+func showCrashRecoveryMessage() {
+    // Show a user-friendly message
+    let alertController = UIAlertController(
+        title: "We noticed the app closed unexpectedly",
+        message: "We've restored your previous state. If you continue experiencing issues, please contact support.",
+        preferredStyle: .alert
+    )
+
+    alertController.addAction(UIAlertAction(title: "OK", style: .default))
+
+    // Present the alert
+    window?.rootViewController?.present(alertController, animated: true)
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func configureApp() {
@@ -109,9 +166,42 @@ func showCrashRecoveryMessage() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Special Handling for Repeated Crashes
 
 Detect and handle situations where the app crashes repeatedly in the same area:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func handleFeatureEntry(featureId: String) {
+    // Check if we're returning from a crash
+    if let lastRunEndState = EmbraceIO.shared.lastRunEndState(),
+       lastRunEndState == .crash,
+       let lastCrashFeature = UserDefaults.standard.string(forKey: "lastActiveFeature"),
+       lastCrashFeature == featureId {
+
+        // The app crashed last time in this feature
+        // Implement safe mode for this feature
+        enterSafeMode(forFeature: featureId)
+
+        try EmbraceIO.shared.log(
+            "Entering safe mode for feature that previously crashed",
+            severity: .warning,
+            attributes: ["feature_id": featureId]
+        )
+    }
+
+    // Track currently active feature
+    UserDefaults.standard.set(featureId, forKey: "lastActiveFeature")
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func handleFeatureEntry(featureId: String) {
@@ -137,9 +227,41 @@ func handleFeatureEntry(featureId: String) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Diagnostic Information Collection
 
 Gather additional diagnostic information after a crash to help with debugging:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func applicationDidFinishLaunching(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Setup Embrace
+    setupEmbrace()
+
+    // Check for crash
+    if let lastRunEndState = EmbraceIO.shared.lastRunEndState(),
+       lastRunEndState == .crash {
+        // Collect diagnostic information
+        let diagnosticInfo = collectExtendedDiagnostics()
+
+        // Log the additional diagnostic information
+        try EmbraceIO.shared.log(
+            "Additional post-crash diagnostics",
+            severity: .info,
+            attributes: diagnosticInfo
+        )
+    }
+
+    return true
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func applicationDidFinishLaunching(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -163,6 +285,9 @@ func applicationDidFinishLaunching(_ application: UIApplication, didFinishLaunch
     return true
 }
 ```
+
+</TabItem>
+</Tabs>
 
 <!-- TODO: Add examples of using Last Run End State with SwiftUI apps
 TODO: Show examples of coordinating crash recovery across multiple app components

@@ -4,6 +4,9 @@ description: Reference documentation for Embrace SDK configuration options
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configuration
 
 The Embrace SDK is configured using the `Embrace.Options` class. This reference document covers the available configuration options and how to use them.
@@ -15,6 +18,25 @@ The main configuration class for the Embrace SDK.
 ### Initializers
 
 #### Standard Initializer
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.Options.withAppId(
+    appId: String,
+    appGroupId: String? = nil,
+    platform: Embrace.Platform = .default,
+    endpoints: Embrace.Endpoints? = nil,
+    logLevel: LogLevel = .default,
+    captureServices: CaptureServices = .automatic,
+    crashReporter: CrashReporter? = EmbraceCrashReporter(),
+    export: OpenTelemetryExport? = nil
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 Embrace.Options(
@@ -28,6 +50,9 @@ Embrace.Options(
     export: OpenTelemetryExport? = nil
 )
 ```
+
+</TabItem>
+</Tabs>
 
 **Parameters**:
 
@@ -46,6 +71,21 @@ Embrace.Options(
 
 For developers who want to use the SDK without connecting to the Embrace backend:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.Options(
+    export: OpenTelemetryExport,
+    captureServices: CaptureServices = .automatic,
+    crashReporter: CrashReporter? = nil,
+    runtimeConfiguration: EmbraceConfigurable? = nil
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 Embrace.Options(
     export: OpenTelemetryExport,
@@ -54,6 +94,9 @@ Embrace.Options(
     runtimeConfiguration: EmbraceConfigurable? = nil
 )
 ```
+
+</TabItem>
+</Tabs>
 
 **Parameters**:
 
@@ -184,13 +227,44 @@ protocol EmbraceConfigurable {
 
 ### Basic Configuration
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID"
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let options = Embrace.Options(
     appId: "YOUR_APP_ID"
 )
 ```
 
+</TabItem>
+</Tabs>
+
 ### Configuration with Custom Endpoints
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    endpoints: Embrace.Endpoints(
+        baseURL: "https://custom-collector.example.com",
+        configBaseURL: "https://custom-config.example.com"
+    )
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let options = Embrace.Options(
@@ -202,7 +276,30 @@ let options = Embrace.Options(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 ### Debug vs. Release Configuration
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+#if DEBUG
+var embraceOptions = EmbraceIO.Options.withAppId(
+    "YOUR_DEBUG_APP_ID",
+    logLevel: .debug
+)
+#else
+var embraceOptions = EmbraceIO.Options.withAppId(
+    "YOUR_PROD_APP_ID",
+    logLevel: .error
+)
+#endif
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 #if DEBUG
@@ -218,7 +315,49 @@ var embraceOptions = Embrace.Options(
 #endif
 ```
 
+</TabItem>
+</Tabs>
+
 ### Custom Capture Services Configuration
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Configure network capture service with custom options
+let networkOptions = NetworkCaptureServiceOptions(
+    captureRequestHeaders: true,
+    captureResponseHeaders: true,
+    requestBodyCapturePredicate: { request, data in
+        // Only capture non-sensitive requests
+        return !request.url?.absoluteString.contains("secure") ?? false
+    }
+)
+
+// Configure view capture with custom options
+let viewOptions = ViewCaptureServiceOptions(
+    viewNameFilter: { controller in
+        // Only track important screens
+        return controller is CheckoutViewController || controller is HomeViewController
+    }
+)
+
+// Create custom capture services
+let services = CaptureServiceBuilder()
+    .add(.network(options: networkOptions))
+    .add(.view(options: viewOptions))
+    .add(.tap)
+    .build()
+
+// Use custom services in Embrace options
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    captureServices: services
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Configure network capture service with custom options
@@ -253,7 +392,27 @@ let options = Embrace.Options(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 ### OpenTelemetry Export Configuration
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let options = EmbraceIO.Options(
+    export: OpenTelemetryExport(
+        spanExporter: JaegerSpanExporter(
+            serviceName: "YourAppName",
+            collectorAddress: "http://jaeger.example.com:14268/api/traces"
+        )
+    )
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let options = Embrace.Options(
@@ -265,5 +424,8 @@ let options = Embrace.Options(
     )
 )
 ```
+
+</TabItem>
+</Tabs>
 
 <!-- TODO: Add examples for custom EmbraceConfigurable implementation.  -->

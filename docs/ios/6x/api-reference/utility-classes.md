@@ -4,6 +4,9 @@ description: Reference documentation for Embrace SDK helper classes and utilitie
 sidebar_position: 5
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Utility Classes
 
 The Embrace SDK provides various utility classes to help with common tasks in your application. These utilities make it easier to work with the SDK's core functionality.
@@ -217,6 +220,29 @@ struct SymbolUpload {
 
 ### Working with Spans
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Create and customize a span
+let span = EmbraceIO.shared.buildSpan(name: "checkout-process", type: .performance)
+    .setAttribute("order_id", value: orderId)
+    .setAttribute("total_amount", value: totalAmount)
+    .startSpan()
+
+// Perform the work
+performCheckoutProcess()
+
+// Add events during the span
+span?.addEvent("payment-started", attributes: ["payment_provider": "stripe"])
+
+// End the span when complete
+span?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Create and customize a span
 let span = Embrace.client?.buildSpan(name: "checkout-process", type: .performance)
@@ -234,7 +260,42 @@ span?.addEvent("payment-started", attributes: ["payment_provider": "stripe"])
 span?.end()
 ```
 
+</TabItem>
+</Tabs>
+
 ### Creating and Managing Logs
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Log an informational message
+try EmbraceIO.shared.log(
+    "User completed checkout",
+    severity: .info,
+    attributes: [
+        "order_id": orderId,
+        "user_id": userId
+    ]
+)
+
+// Log an error
+do {
+    try performRiskyOperation()
+} catch let error {
+    try EmbraceIO.shared.log(
+        "Risky operation failed: \(error.localizedDescription)",
+        severity: .error,
+        attributes: [
+            "operation": "risky-operation",
+            "context": "checkout-flow"
+        ]
+    )
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Log an informational message
@@ -261,6 +322,9 @@ do {
     )
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ### Custom Network Header Filtering
 

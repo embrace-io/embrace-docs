@@ -4,6 +4,9 @@ description: Common implementation patterns for the Embrace iOS SDK 6.x
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Common Implementation Patterns
 
 This guide presents several common implementation patterns for the Embrace iOS SDK 6.x that can help you get the most value from mobile observability in your app.
@@ -39,6 +42,82 @@ class InternalViewController: UIViewController, EmbraceViewControllerCustomizati
 ### Tracing Multi-Step Processes
 
 For complex user flows like checkout or onboarding:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class CheckoutCoordinator {
+    private var checkoutSpan: Span?
+
+    func startCheckout() {
+        // Start a parent span for the whole checkout flow
+        // You can add attributes through the builder or after starting the span
+        checkoutSpan = EmbraceIO.shared
+            .buildSpan(
+                name: "checkout_flow",
+                attributes: [
+                    "cart_value": String(cart.totalValue),
+                    "items_count": String(cart.items.count)
+                ]
+            )
+            .startSpan()
+
+        navigateToShippingScreen()
+    }
+
+    func navigateToShippingScreen() {
+        // Child span for the shipping step
+        // Use if-let to avoid blocking navigation if span tracking fails
+        if let parentSpan = checkoutSpan {
+            let shippingSpan = EmbraceIO.shared.buildSpan(name: "checkout_shipping")
+                .setParent(parentSpan)
+                .startSpan()
+            // Span will be ended after shipping screen is shown
+            shippingSpan?.end()
+        }
+        // Show shipping screen
+        // ...
+    }
+
+    func navigateToPaymentScreen() {
+        // Child span for the payment step
+        // Use if-let to avoid blocking navigation if span tracking fails
+        if let parentSpan = checkoutSpan {
+            let paymentSpan = EmbraceIO.shared.buildSpan(name: "checkout_payment")
+                .setParent(parentSpan)
+                .startSpan()
+            // Span will be ended after payment screen is shown
+            paymentSpan?.end()
+        }
+        // Show payment screen
+        // ...
+    }
+
+    func completeCheckout(success: Bool) {
+        // Record the outcome
+        checkoutSpan?.setAttribute(key: "checkout_success", value: String(success))
+
+        // Log a business event
+        if success {
+            try EmbraceIO.shared.log("Checkout completed successfully",
+                               severity: .info,
+                               attributes: ["order_id": orderId])
+        } else {
+            try EmbraceIO.shared.log("Checkout failed",
+                               severity: .warn,
+                               attributes: ["failure_reason": failureReason])
+        }
+
+        // End the parent span
+        checkoutSpan?.end()
+        checkoutSpan = nil
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class CheckoutCoordinator {
@@ -94,11 +173,11 @@ class CheckoutCoordinator {
 
         // Log a business event
         if success {
-            Embrace.client?.log("Checkout completed successfully", 
+            Embrace.client?.log("Checkout completed successfully",
                                severity: .info,
                                attributes: ["order_id": orderId])
         } else {
-            Embrace.client?.log("Checkout failed", 
+            Embrace.client?.log("Checkout failed",
                                severity: .warn,
                                attributes: ["failure_reason": failureReason])
         }
@@ -109,6 +188,9 @@ class CheckoutCoordinator {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Handling Network Requests
 
@@ -156,6 +238,64 @@ let networkOptions = URLSessionCaptureService.Options(
 ### Consistent Error Logging
 
 Establish a consistent error logging pattern:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+enum AppError: Error {
+    case networkFailure(underlying: Error)
+    case dataParsingFailure(reason: String)
+    case businessLogicError(code: Int, message: String)
+    // Other error types...
+}
+
+// Extension to provide consistent error logging
+extension AppError {
+    func logToEmbrace() {
+        var attributes: [String: String] = [:]
+        var errorName = ""
+        var errorMessage = ""
+
+        switch self {
+        case .networkFailure(let error):
+            errorName = "network_failure"
+            errorMessage = error.localizedDescription
+            attributes["underlying_error"] = String(describing: error)
+
+        case .dataParsingFailure(let reason):
+            errorName = "parsing_failure"
+            errorMessage = reason
+
+        case .businessLogicError(let code, let message):
+            errorName = "business_logic_error"
+            errorMessage = message
+            attributes["error_code"] = String(code)
+        }
+
+        // Log the error with consistent formatting
+        try EmbraceIO.shared.log(errorMessage,
+                            severity: .error,
+                            attributes: attributes)
+    }
+}
+
+// Usage
+func fetchData() {
+    apiClient.fetch() { result in
+        switch result {
+        case .success(let data):
+            // Handle success
+        case .failure(let error):
+            let appError = AppError.networkFailure(underlying: error)
+            appError.logToEmbrace()
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 enum AppError: Error {
@@ -209,11 +349,41 @@ func fetchData() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Feature Flagging Integration
 
 ### Tracking Feature Flag Impact
 
 If your app uses feature flags, track their effect on performance:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func initializeFeatureFlags() {
+    // Start a span for feature flag initialization
+    let span = EmbraceIO.shared.buildSpan(name: "feature_flags_initialization").startSpan()
+
+    featureFlagSystem.initialize { flags in
+        // Record which flags are active
+        for (flagName, isEnabled) in flags {
+            span?.setAttribute(key: "flag_\(flagName)", value: String(isEnabled))
+
+            // Also add key flags as session attributes for easier filtering
+            if ["new_checkout", "experimental_algorithm"].contains(flagName) {
+                try? EmbraceIO.shared.setProperty(key: "flag_\(flagName)", value: String(isEnabled), lifespan: .session)
+            }
+        }
+
+        span?.end()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func initializeFeatureFlags() {
@@ -236,11 +406,82 @@ func initializeFeatureFlags() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Dependency Injection Pattern
 
 ### SDK Abstraction for Testing
 
 Create an abstraction for the Embrace SDK to facilitate testing:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+protocol AnalyticsProvider {
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String])
+    func buildSpan(name: String, type: SpanType) -> SpanBuilder
+    func addSessionProperty(key: String, value: String, permanent: Bool)
+    // Other methods...
+}
+
+// Production implementation
+class EmbraceAnalyticsProvider: AnalyticsProvider {
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String] = [:]) {
+        try EmbraceIO.shared.log(message, severity: severity, attributes: attributes ?? [:])
+    }
+
+    func buildSpan(name: String, type: SpanType) -> SpanBuilder {
+        return EmbraceIO.shared.buildSpan(name: name, type: type) ?? EmptySpanBuilder()
+    }
+
+    func addSessionProperty(key: String, value: String, permanent: Bool) {
+        try? EmbraceIO.shared.setProperty(key: key, value: value, lifespan: permanent ? .permanent : .session)
+    }
+    // Implement other methods...
+}
+
+// Mock implementation for testing
+class MockAnalyticsProvider: AnalyticsProvider {
+    var loggedMessages: [(message: String, severity: LogSeverity, attributes: [String: String])] = []
+    var builtSpans: [(name: String, type: SpanType)] = []
+    var sessionProperties: [String: String] = [:]
+
+    func log(_ message: String, severity: LogSeverity, attributes: [String: String] = [:]) {
+        loggedMessages.append((message, severity, attributes))
+    }
+
+    func buildSpan(name: String, type: SpanType) -> SpanBuilder {
+        builtSpans.append((name, type))
+        return MockSpanBuilder(name: name)
+    }
+
+    func addSessionProperty(key: String, value: String, permanent: Bool) {
+        sessionProperties[key] = value
+    }
+    // Implement other methods...
+}
+
+// Usage in your app
+class AppFeature {
+    private let analytics: AnalyticsProvider
+
+    init(analytics: AnalyticsProvider = EmbraceAnalyticsProvider()) {
+        self.analytics = analytics
+    }
+
+    func performAction() {
+        let span = analytics.buildSpan(name: "perform_action", type: .performance).startSpan()
+        // Do something
+        analytics.log("Action performed", severity: .info, attributes: [:])
+        span.end()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 protocol AnalyticsProvider {
@@ -304,11 +545,53 @@ class AppFeature {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Handling Asynchronous Operations
 
 ### Tracing Asynchronous Tasks
 
 For long-running asynchronous operations:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func performAsyncTask() async throws -> Result {
+    // Start a span for the entire async operation
+    let span = EmbraceIO.shared.buildSpan(name: "async_operation").startSpan()
+
+    do {
+        // First step
+        span?.addEvent(name: "starting_first_step")
+        let intermediateResult = try await firstStep()
+        span?.addEvent(name: "completed_first_step")
+
+        // Second step
+        span?.addEvent(name: "starting_second_step")
+        let finalResult = try await secondStep(intermediateResult)
+        span?.addEvent(name: "completed_second_step")
+
+        // Record success
+        span?.setAttribute(key: "status", value: "success")
+        span?.end()
+
+        return finalResult
+    } catch {
+        // Record error details
+        span?.setAttribute(key: "status", value: "error")
+        span?.setAttribute(key: "error_type", value: String(describing: type(of: error)))
+        span?.setAttribute(key: "error_message", value: error.localizedDescription)
+        span?.end()
+
+        throw error
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func performAsyncTask() async throws -> Result {
@@ -343,17 +626,23 @@ func performAsyncTask() async throws -> Result {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Handling Background Tasks
 
 ### Background Session Management
 
 For monitoring background tasks:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
 ```swift
 class BackgroundTaskManager {
     func beginBackgroundTask(identifier: String) {
         // Log the start of a background task
-        Embrace.client?.log("Background task started", 
+        try EmbraceIO.shared.log("Background task started",
                            severity: .info,
                            attributes: ["task_id": identifier])
 
@@ -361,7 +650,7 @@ class BackgroundTaskManager {
         var backgroundTaskID = UIBackgroundTaskIdentifier.invalid
         backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: identifier) {
             // Log when the background task is about to expire
-            Embrace.client?.log("Background task expiring", 
+            try EmbraceIO.shared.log("Background task expiring",
                                severity: .warn,
                                attributes: ["task_id": identifier])
 
@@ -376,7 +665,7 @@ class BackgroundTaskManager {
         guard let taskID = backgroundTaskIDs[identifier] else { return }
 
         // Log the completion of a background task
-        Embrace.client?.log("Background task completed", 
+        try EmbraceIO.shared.log("Background task completed",
                            severity: .info,
                            attributes: ["task_id": identifier])
 
@@ -388,6 +677,52 @@ class BackgroundTaskManager {
     private var backgroundTaskIDs: [String: UIBackgroundTaskIdentifier] = [:]
 }
 ```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+class BackgroundTaskManager {
+    func beginBackgroundTask(identifier: String) {
+        // Log the start of a background task
+        Embrace.client?.log("Background task started",
+                           severity: .info,
+                           attributes: ["task_id": identifier])
+
+        // Begin UIApplication background task
+        var backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+        backgroundTaskID = UIApplication.shared.beginBackgroundTask(withName: identifier) {
+            // Log when the background task is about to expire
+            Embrace.client?.log("Background task expiring",
+                               severity: .warn,
+                               attributes: ["task_id": identifier])
+
+            UIApplication.shared.endBackgroundTask(backgroundTaskID)
+        }
+
+        // Store the background task ID
+        backgroundTaskIDs[identifier] = backgroundTaskID
+    }
+
+    func endBackgroundTask(identifier: String) {
+        guard let taskID = backgroundTaskIDs[identifier] else { return }
+
+        // Log the completion of a background task
+        Embrace.client?.log("Background task completed",
+                           severity: .info,
+                           attributes: ["task_id": identifier])
+
+        // End the UIApplication background task
+        UIApplication.shared.endBackgroundTask(taskID)
+        backgroundTaskIDs.removeValue(forKey: identifier)
+    }
+
+    private var backgroundTaskIDs: [String: UIBackgroundTaskIdentifier] = [:]
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## SwiftUI-Specific Patterns
 
@@ -411,6 +746,27 @@ SwiftUI views re-render when their state changes, which can cause `onAppear` to 
 
 #### Problem: Duplicate Breadcrumbs
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// AVOID: This will log multiple times as the view re-renders
+struct CartView: View {
+    var body: some View {
+        VStack {
+            Text("Shopping Cart")
+        }
+        .onAppear {
+            // This gets called every time the view appears or re-renders
+            EmbraceIO.shared.add(event: .breadcrumb("Cart Page Viewed"))
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // AVOID: This will log multiple times as the view re-renders
 struct CartView: View {
@@ -426,9 +782,36 @@ struct CartView: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 #### Solution 1: State-Based Tracking
 
 Use `@State` to track whether the breadcrumb has been logged:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// RECOMMENDED: Logs once per view lifecycle
+struct CartView: View {
+    @State private var hasLoggedView = false
+
+    var body: some View {
+        VStack {
+            Text("Shopping Cart")
+        }
+        .onAppear {
+            guard !hasLoggedView else { return }
+            EmbraceIO.shared.add(event: .breadcrumb("Cart Page Viewed"))
+            hasLoggedView = true
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // RECOMMENDED: Logs once per view lifecycle
@@ -448,9 +831,44 @@ struct CartView: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 #### Solution 2: ViewModel-Based Tracking
 
 Move breadcrumb logic to a ViewModel with built-in duplicate protection:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// RECOMMENDED: Centralized tracking with protection
+class CartViewModel: ObservableObject {
+    private var hasTrackedView = false
+
+    func trackPageView() {
+        guard !hasTrackedView else { return }
+        EmbraceIO.shared.add(event: .breadcrumb("Cart Page Viewed"))
+        hasTrackedView = true
+    }
+}
+
+struct CartView: View {
+    @StateObject private var viewModel = CartViewModel()
+
+    var body: some View {
+        VStack {
+            Text("Shopping Cart")
+        }
+        .onAppear {
+            viewModel.trackPageView()
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // RECOMMENDED: Centralized tracking with protection
@@ -478,9 +896,33 @@ struct CartView: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 #### Solution 3: Task-Based Approach
 
 For iOS 15+, use the `.task` modifier which provides better lifecycle management:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// RECOMMENDED: Task automatically cancels when view disappears
+struct CheckoutView: View {
+    var body: some View {
+        VStack {
+            Text("Checkout")
+        }
+        .task {
+            // Runs once when view appears, cancels when view disappears
+            EmbraceIO.shared.add(event: .breadcrumb("Checkout Page Viewed"))
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // RECOMMENDED: Task automatically cancels when view disappears
@@ -497,9 +939,44 @@ struct CheckoutView: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Navigation-Based Breadcrumb Tracking
 
 For simple navigation flows, track breadcrumbs in navigation events rather than view lifecycle:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+struct ProductListView: View {
+    @State private var selectedProduct: Product?
+
+    var body: some View {
+        NavigationStack {
+            List(products) { product in
+                NavigationLink(value: product) {
+                    ProductRow(product: product)
+                }
+            }
+            .navigationDestination(for: Product.self) { product in
+                ProductDetailView(product: product)
+                    .onAppear {
+                        // Track navigation event, not view appearance
+                        EmbraceIO.shared.add(event: .breadcrumb(
+                            "Product Detail Viewed",
+                            properties: ["product_id": product.id]
+                        ))
+                    }
+            }
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 struct ProductListView: View {
@@ -527,6 +1004,9 @@ struct ProductListView: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 :::note
 For more complex navigation flows with multiple steps or when you need centralized navigation tracking, consider using a coordinator pattern as shown in the [Multi-Step Form Tracking](#multi-step-form-tracking) section below.
 :::
@@ -534,6 +1014,35 @@ For more complex navigation flows with multiple steps or when you need centraliz
 ### User Action Tracking in SwiftUI
 
 Track user actions in event handlers rather than view rendering methods:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+struct AddToCartButton: View {
+    let product: Product
+    @EnvironmentObject var cart: CartManager
+
+    var body: some View {
+        Button("Add to Cart") {
+            // Track user action when button is tapped
+            EmbraceIO.shared.add(event: .breadcrumb(
+                "Product Added to Cart",
+                properties: [
+                    "product_id": product.id,
+                    "product_name": product.name,
+                    "product_price": String(product.price)
+                ]
+            ))
+
+            cart.add(product)
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 struct AddToCartButton: View {
@@ -558,9 +1067,61 @@ struct AddToCartButton: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Multi-Step Form Tracking
 
 Track form progression without duplicates using a coordinator:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class CheckoutFlowCoordinator: ObservableObject {
+    @Published var currentStep: CheckoutStep = .shipping
+    private var trackedSteps: Set<CheckoutStep> = []
+
+    func trackStep(_ step: CheckoutStep) {
+        guard !trackedSteps.contains(step) else { return }
+
+        EmbraceIO.shared.add(event: .breadcrumb(
+            "Checkout Step Viewed",
+            properties: ["step": step.rawValue]
+        ))
+
+        trackedSteps.insert(step)
+    }
+
+    func advanceToStep(_ step: CheckoutStep) {
+        currentStep = step
+        trackStep(step)
+    }
+}
+
+struct CheckoutFlow: View {
+    @StateObject private var coordinator = CheckoutFlowCoordinator()
+
+    var body: some View {
+        VStack {
+            switch coordinator.currentStep {
+            case .shipping:
+                ShippingView(coordinator: coordinator)
+            case .payment:
+                PaymentView(coordinator: coordinator)
+            case .review:
+                ReviewView(coordinator: coordinator)
+            }
+        }
+        .onAppear {
+            coordinator.trackStep(.shipping)
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class CheckoutFlowCoordinator: ObservableObject {
@@ -605,9 +1166,36 @@ struct CheckoutFlow: View {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Observable Macro Pattern (iOS 17+)
 
 For apps using the `@Observable` macro, use a similar pattern:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+@Observable
+class ProductViewModel {
+    private var hasTrackedView = false
+
+    func trackProductView(productId: String) {
+        guard !hasTrackedView else { return }
+
+        EmbraceIO.shared.add(event: .breadcrumb(
+            "Product Viewed",
+            properties: ["product_id": productId]
+        ))
+
+        hasTrackedView = true
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 @Observable
@@ -626,6 +1214,9 @@ class ProductViewModel {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ### Best Practices Summary for SwiftUI
 

@@ -4,6 +4,9 @@ description: Security best practices for using the Embrace iOS SDK 6.x
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Security Considerations
 
 When implementing the Embrace iOS SDK, it's essential to consider security and privacy implications. Following these best practices will help you protect sensitive data and comply with privacy regulations.
@@ -13,6 +16,22 @@ When implementing the Embrace iOS SDK, it's essential to consider security and p
 ### Sensitive Data Protection
 
 Be careful not to log sensitive user information:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// DON'T: Log sensitive personal information
+try EmbraceIO.shared.log("User password is \(password)", severity: .info)
+try EmbraceIO.shared.log("Credit card \(cardNumber) verified", severity: .info)
+
+// DO: Log non-identifying information
+try EmbraceIO.shared.log("Password validation completed", severity: .info)
+try EmbraceIO.shared.log("Payment method verified", severity: .info)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // DON'T: Log sensitive personal information
@@ -24,9 +43,27 @@ Embrace.client.logMessage("Password validation completed")
 Embrace.client.logMessage("Payment method verified")
 ```
 
+</TabItem>
+</Tabs>
+
 ### Personally Identifiable Information (PII)
 
 When setting user identifiers, avoid using direct PII:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// DON'T: Use direct PII as identifier
+EmbraceIO.shared.userIdentifier = "john.smith@example.com"
+
+// DO: Use hashed or tokenized identifiers
+let hashedEmail = hashFunction(userEmail)
+EmbraceIO.shared.userIdentifier = hashedEmail
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // DON'T: Use direct PII as identifier
@@ -36,6 +73,9 @@ Embrace.client.setUserIdentifier("john.smith@example.com")
 let hashedEmail = hashFunction(userEmail)
 Embrace.client.setUserIdentifier(hashedEmail)
 ```
+
+</TabItem>
+</Tabs>
 
 ## Network Security
 
@@ -52,8 +92,8 @@ let networkOptions = NetworkCaptureServiceOptions(
         }
 
         if let queryItems = components.queryItems {
-            components.queryItems = queryItems.filter { 
-                !["token", "auth", "key", "password"].contains($0.name.lowercased()) 
+            components.queryItems = queryItems.filter {
+                !["token", "auth", "key", "password"].contains($0.name.lowercased())
             }
         }
 
@@ -101,6 +141,27 @@ let networkOptions = NetworkCaptureServiceOptions(
 
 Consider implementing mechanisms to respect user privacy choices:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func updatePrivacyConsent(userConsented: Bool) {
+    if userConsented {
+        // Start Embrace with user consent
+        try? EmbraceIO.setup(options: options)
+        try? EmbraceIO.shared.start()
+    } else {
+        // If user does not consent, don't start Embrace
+        // or limit what you collect
+        try? EmbraceIO.setup(options: limitedOptions)
+        try? EmbraceIO.shared.start()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 func updatePrivacyConsent(userConsented: Bool) {
     if userConsented {
@@ -113,6 +174,9 @@ func updatePrivacyConsent(userConsented: Bool) {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ### Data Retention
 
@@ -152,6 +216,26 @@ Ensure your app and the Embrace SDK adhere to App Transport Security (ATS) requi
 
 Consider using different Embrace configurations for development and production:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+#if DEBUG
+let options = EmbraceIO.Options.withAppId(
+    "DEV_APP_ID",
+    logLevel: .verbose
+)
+#else
+let options = EmbraceIO.Options.withAppId(
+    "PROD_APP_ID",
+    logLevel: .error
+)
+#endif
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 #if DEBUG
 let options = Embrace.Options(
@@ -165,6 +249,9 @@ let options = Embrace.Options(
 )
 #endif
 ```
+
+</TabItem>
+</Tabs>
 
 ## Crash Reports and Stack Traces
 
