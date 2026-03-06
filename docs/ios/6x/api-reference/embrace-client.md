@@ -6,6 +6,10 @@ sidebar_position: 2
 
 # Embrace Client
 
+:::warning
+The `Embrace` client is still fully functional, but we recommend using the new [`EmbraceIO` client](./embraceio-client.md) instead. The `Embrace` client will be deprecated in a future release and eventually removed. Some newer features, such as custom OpenTelemetry resources, are only available through `EmbraceIO`.
+:::
+
 The `Embrace` class is the main interface for interacting with the Embrace SDK. It provides methods to configure, start, and interact with the SDK.
 
 ## Setup and Initialization

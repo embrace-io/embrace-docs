@@ -4,6 +4,9 @@ description: Advanced configuration options for the Embrace iOS SDK 6.x
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Configuration Options
 
 The `Embrace.Options` object used to initialize your Embrace client provides extensive configuration capabilities for the SDK. Many of these arguments are optional and are not required for basic functionality but allow you to customize Embrace's behavior to suit your needs.
@@ -11,6 +14,32 @@ The `Embrace.Options` object used to initialize your Embrace client provides ext
 ## Available Configuration Options
 
 Here is a comprehensive view of the available options:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.Options.withAppId(
+    "Your App ID",
+    appGroupId: "Your App Group ID",
+    platform: .default,
+    endpoints: Embrace.Endpoints(
+        baseURL: "baseURLString",
+        developmentBaseURL: "developmentBaseURLString",
+        configBaseURL: "configBaseURLString"
+    ),
+    logLevel: .default,
+    export: OpenTelemetryExport(
+        spanExporter: JaegerSpanExporter(
+            serviceName: "jaegerServiceName",
+            collectorAddress: "jaegerCollectorAddress"
+        )
+    )
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 Embrace.Options(
@@ -32,6 +61,9 @@ Embrace.Options(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 ### Core Setup Parameters
 
 - **`appId`**: The App ID for your Embrace application. This is the only required field for basic setup. You can find this in your Embrace dashboard.
@@ -52,6 +84,22 @@ Additional arguments from the [core Embrace.Options initializer](https://github.
 
 Versions 6.5 and higher of the Embrace Apple SDK allow developers to use the SDK without connecting to Embrace. You can initialize the SDK without an `appId` argument if you are using an exporter to send your mobile telemetry to a different source:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.Options(
+    export: .init(
+        spanExporter: OtlpHttpTraceExporter(
+            // Set up the destination for your exported spans
+        )
+    )
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 Embrace.Options(
     export: .init(
@@ -62,7 +110,31 @@ Embrace.Options(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 You can also set up different capabilities to replace the configuration that Embrace offers:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.Options(
+    export: .init(
+        spanExporter: OtlpHttpTraceExporter(
+            // Set up the destination for your exported spans
+        ),
+        logExporter: OtlpHttpLogExporter(
+            // Set up the destination for your exported logs
+        )
+    ),
+    logLevel: .debug,
+    runtimeConfiguration: MyConfigurable()  // Custom configuration implementation
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 Embrace.Options(
@@ -79,11 +151,39 @@ Embrace.Options(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 Note that with this setup, the SDK does not connect to the Embrace backend and doesn't receive remote configuration options. The `runtimeConfiguration` argument uses an [EmbraceConfigurable object](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceConfiguration/EmbraceConfigurable.swift) that replaces the remote configuration.
 
 ## Environment-Specific Configurations
 
 You can create different configurations for different environments (development, staging, production) using compile-time conditions:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+#if DEBUG
+    var embraceOptions: EmbraceIO.Options {
+        return .withAppId(
+            "Your Debug App ID",
+            appGroupId: nil,
+            logLevel: .debug
+        )
+    }
+#else
+    var embraceOptions: EmbraceIO.Options {
+        return .withAppId(
+            "Your Production App ID",
+            appGroupId: nil
+        )
+    }
+#endif
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 #if DEBUG
@@ -103,6 +203,9 @@ You can create different configurations for different environments (development,
     }
 #endif
 ```
+
+</TabItem>
+</Tabs>
 
 This allows you to have more verbose logging in development while keeping production builds streamlined.
 

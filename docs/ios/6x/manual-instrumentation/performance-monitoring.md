@@ -4,6 +4,9 @@ description: Monitor and optimize your iOS app's performance with Embrace
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Performance Monitoring
 
 Performance monitoring helps you track, measure, and optimize your app's performance. Embrace provides tools to monitor various aspects of your app's performance and identify bottlenecks.
@@ -21,6 +24,24 @@ You can track several types of performance metrics in your iOS app:
 
 The most common performance metric is operation duration, which you can track using spans:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func loadData() {
+    let span = EmbraceIO.shared.buildSpan(name: "data_loading").startSpan()
+
+    // Perform data loading
+    let data = fetchDataFromCache()
+
+    span.setAttribute(key: "data_size", value: "\(data.count)")
+    span.end()
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 func loadData() {
     let span = Embrace.client?.startSpan(name: "data_loading")
@@ -33,7 +54,43 @@ func loadData() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 For more complex operations, create a hierarchy of spans:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func renderFeed() {
+    let renderSpan = EmbraceIO.shared.buildSpan(name: "feed_rendering").startSpan()
+
+    // 1. Load data
+    let dataSpan = EmbraceIO.shared.buildSpan(name: "feed_data_loading")
+        .setParent(renderSpan).startSpan()
+    let feedItems = loadFeedData()
+    dataSpan.setAttribute(key: "item_count", value: "\(feedItems.count)")
+    dataSpan.end()
+
+    // 2. Process images
+    let imageSpan = EmbraceIO.shared.buildSpan(name: "feed_image_processing")
+        .setParent(renderSpan).startSpan()
+    processFeedImages(feedItems)
+    imageSpan.end()
+
+    // 3. Update UI
+    let uiSpan = EmbraceIO.shared.buildSpan(name: "feed_ui_update")
+        .setParent(renderSpan).startSpan()
+    updateUI(with: feedItems)
+    uiSpan.end()
+
+    renderSpan.end()
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func renderFeed() {
@@ -59,9 +116,31 @@ func renderFeed() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Custom Performance Events
 
 Custom events allow you to mark significant points in your code execution:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Track when the app finishes initial loading
+try? EmbraceIO.shared.log(
+    "App fully loaded",
+    severity: .info,
+    attributes: [
+        "initial_load_time_ms": "\(loadTimeInMilliseconds)",
+        "cached_resources": "\(cachedResourceCount)",
+        "network_resources": "\(networkResourceCount)"
+    ]
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Track when the app finishes initial loading
@@ -76,9 +155,48 @@ Embrace.client?.logMessage(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 ## Tracking Resource Usage
 
 You can track resource usage manually at key points:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func trackMemoryUsage(operation: String) {
+    var info = mach_task_basic_info()
+    var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.size)/4
+
+    let result: kern_return_t = withUnsafeMutablePointer(to: &info) {
+        $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
+            task_info(mach_task_self_, task_flavor_t(MACH_TASK_BASIC_INFO), $0, &count)
+        }
+    }
+
+    if result == KERN_SUCCESS {
+        let usedMemory = Float(info.resident_size) / (1024 * 1024) // Convert to MB
+
+        try? EmbraceIO.shared.log(
+            "Memory usage checkpoint",
+            severity: .info,
+            attributes: [
+                "operation": operation,
+                "memory_used_mb": String(format: "%.2f", usedMemory)
+            ]
+        )
+    }
+}
+
+// Usage at key points
+trackMemoryUsage(operation: "after_image_processing")
+trackMemoryUsage(operation: "after_data_loaded")
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func trackMemoryUsage(operation: String) {
@@ -110,9 +228,38 @@ trackMemoryUsage(operation: "after_image_processing")
 trackMemoryUsage(operation: "after_data_loaded")
 ```
 
+</TabItem>
+</Tabs>
+
 ## Performance Attributes
 
 Add performance attributes to spans to provide more context:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func loadUserProfile() {
+    let span = EmbraceIO.shared.buildSpan(name: "user_profile_loading").startSpan()
+
+    // Set attributes that impact performance
+    span.setAttribute(key: "cache_state", value: isCached ? "hit" : "miss")
+    span.setAttribute(key: "image_count", value: "\(profile.images.count)")
+    span.setAttribute(key: "connection_type", value: networkType.rawValue)
+
+    // Load the profile
+    let profile = fetchUserProfile()
+
+    // Add result attributes
+    span.setAttribute(key: "profile_size_kb", value: "\(profileSizeInKB)")
+    span.setAttribute(key: "loading_time_ms", value: "\(loadingTimeInMS)")
+
+    span.end()
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func loadUserProfile() {
@@ -134,9 +281,88 @@ func loadUserProfile() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Monitoring Critical User Flows
 
 Track performance across user flows by linking spans:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func checkoutProcess() {
+    // 1. Start the main checkout span
+    let checkoutSpan = EmbraceIO.shared.buildSpan(name: "checkout_flow").startSpan()
+
+    // 2. Cart validation
+    validateCart { [weak self] success in
+        if success {
+            // 3. Payment processing
+            self?.processPayment { paymentSuccess in
+                if paymentSuccess {
+                    // 4. Order confirmation
+                    self?.confirmOrder { orderSuccess in
+                        if orderSuccess {
+                            checkoutSpan.setAttribute(key: "checkout_result", value: "success")
+                        } else {
+                            checkoutSpan.setAttribute(key: "checkout_result", value: "failed_at_confirmation")
+                        }
+                        checkoutSpan.end()
+                    }
+                } else {
+                    checkoutSpan.setAttribute(key: "checkout_result", value: "failed_at_payment")
+                    checkoutSpan.end()
+                }
+            }
+        } else {
+            checkoutSpan.setAttribute(key: "checkout_result", value: "failed_at_validation")
+            checkoutSpan.end()
+        }
+    }
+}
+
+// Helper methods with their own spans
+func validateCart(completion: @escaping (Bool) -> Void) {
+    let span = EmbraceIO.shared.buildSpan(name: "cart_validation").startSpan()
+
+    // Validation logic
+    let isValid = performCartValidation()
+
+    span.setAttribute(key: "cart_valid", value: isValid ? "true" : "false")
+    span.end()
+
+    completion(isValid)
+}
+
+func processPayment(completion: @escaping (Bool) -> Void) {
+    let span = EmbraceIO.shared.buildSpan(name: "payment_processing").startSpan()
+
+    // Payment logic
+    performPayment { success in
+        span.setAttribute(key: "payment_success", value: success ? "true" : "false")
+        span.end()
+
+        completion(success)
+    }
+}
+
+func confirmOrder(completion: @escaping (Bool) -> Void) {
+    let span = EmbraceIO.shared.buildSpan(name: "order_confirmation").startSpan()
+
+    // Order confirmation logic
+    confirmOrderOnServer { success in
+        span.setAttribute(key: "confirmation_success", value: success ? "true" : "false")
+        span.end()
+
+        completion(success)
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func checkoutProcess() {
@@ -208,9 +434,59 @@ func confirmOrder(completion: @escaping (Bool) -> Void) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Tracking UI Performance
 
 Monitor UI rendering and user interaction performance:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class ProductListViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        try? EmbraceIO.shared.log("ProductList viewDidLoad started", severity: .info)
+
+        // Setup UI
+        setupUI()
+
+        try? EmbraceIO.shared.log("ProductList viewDidLoad completed", severity: .info)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let span = EmbraceIO.shared.buildSpan(name: "product_list_loading").startSpan()
+
+        // Load data
+        loadProducts { [weak self, weak span] products in
+            self?.updateUI(with: products)
+
+            span?.setAttribute(key: "product_count", value: "\(products.count)")
+            span?.end()
+        }
+    }
+
+    private func loadProducts(completion: @escaping ([Product]) -> Void) {
+        // Loading logic
+    }
+
+    private func updateUI(with products: [Product]) {
+        let span = EmbraceIO.shared.buildSpan(name: "product_list_ui_update").startSpan()
+
+        // UI update logic
+        collectionView.reloadData()
+
+        span.end()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class ProductListViewController: UIViewController {
@@ -253,9 +529,36 @@ class ProductListViewController: UIViewController {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Custom Attributes for Performance Context
 
 Add custom attributes to provide context for performance analysis:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Track device-specific attributes
+try? EmbraceIO.shared.setProperty(
+    key: "device_performance_tier",
+    value: determineDevicePerformanceTier(), // e.g., "high", "medium", "low"
+    lifespan: .session
+)
+
+// Track user-specific attributes that might affect performance
+if let userSubscriptionTier = userManager.currentUser?.subscriptionTier {
+    try? EmbraceIO.shared.setProperty(key: "subscription_tier", value: userSubscriptionTier, lifespan: .session)
+}
+
+// Track app configuration that impacts performance
+try? EmbraceIO.shared.setProperty(key: "image_quality", value: appSettings.imageQuality.rawValue, lifespan: .session)
+try? EmbraceIO.shared.setProperty(key: "animations_enabled", value: appSettings.animationsEnabled ? "true" : "false", lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Track device-specific attributes
@@ -274,11 +577,49 @@ Embrace.client?.addSessionProperty(name: "image_quality", value: appSettings.ima
 Embrace.client?.addSessionProperty(name: "animations_enabled", value: appSettings.animationsEnabled ? "true" : "false")
 ```
 
+</TabItem>
+</Tabs>
+
 ## Performance Optimization Best Practices
 
 ### Set Performance Budgets
 
 Define performance thresholds and log when they're exceeded:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func measureOperation(name: String, budget: TimeInterval, operation: () -> Void) {
+    let startTime = CFAbsoluteTimeGetCurrent()
+
+    operation()
+
+    let duration = CFAbsoluteTimeGetCurrent() - startTime
+
+    // Log if the operation exceeds its budget
+    if duration > budget {
+        try? EmbraceIO.shared.log(
+            "Performance budget exceeded",
+            severity: .warning,
+            attributes: [
+                "operation": name,
+                "duration": String(format: "%.4f", duration),
+                "budget": String(format: "%.4f", budget),
+                "overage_pct": String(format: "%.2f", (duration - budget) / budget * 100)
+            ]
+        )
+    }
+}
+
+// Usage
+measureOperation(name: "image_processing", budget: 0.1) {
+    processImage(image)
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func measureOperation(name: String, budget: TimeInterval, operation: () -> Void) {
@@ -309,6 +650,9 @@ measureOperation(name: "image_processing", budget: 0.1) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 While client-side performance budgeting like this can provide immediate feedback during development, for production monitoring it's generally better to:
 
 1. Instrument your code with spans for all important operations
@@ -321,6 +665,29 @@ This approach provides more flexibility and allows you to adjust performance bud
 ### Identify Performance Regressions
 
 Use custom events to track performance metrics over time:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func trackStartupPerformance() {
+    let metrics = collectStartupMetrics()
+
+    try? EmbraceIO.shared.log(
+        "App startup completed",
+        severity: .info,
+        attributes: [
+            "time_to_interactive_ms": "\(metrics.timeToInteractive)",
+            "initialization_time_ms": "\(metrics.initializationTime)",
+            "resource_loading_time_ms": "\(metrics.resourceLoadingTime)",
+            "first_frame_time_ms": "\(metrics.firstFrameTime)"
+        ]
+    )
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func trackStartupPerformance() {
@@ -339,9 +706,42 @@ func trackStartupPerformance() {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Correlate Performance with User Experience
 
 Track how performance impacts user experience:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func trackScrollPerformance() {
+    let scrollSpan = EmbraceIO.shared.buildSpan(name: "feed_scrolling").startSpan()
+
+    var dropFrameCount = 0
+    let fpsCalculator = FPSCalculator()
+
+    // Start monitoring scroll performance
+    fpsCalculator.start()
+
+    // When scrolling ends
+    scrollDidEnd { [weak scrollSpan] in
+        let performanceMetrics = fpsCalculator.stop()
+
+        scrollSpan?.setAttribute(key: "avg_fps", value: String(format: "%.2f", performanceMetrics.averageFPS))
+        scrollSpan?.setAttribute(key: "min_fps", value: String(format: "%.2f", performanceMetrics.minFPS))
+        scrollSpan?.setAttribute(key: "max_fps", value: String(format: "%.2f", performanceMetrics.maxFPS))
+        scrollSpan?.setAttribute(key: "dropped_frames", value: "\(performanceMetrics.droppedFrames)")
+
+        scrollSpan?.end()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func trackScrollPerformance() {
@@ -366,6 +766,9 @@ func trackScrollPerformance() {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 <!-- TODO: Add examples for measuring performance in SwiftUI
 TODO: Include examples for tracking performance with async/await operations

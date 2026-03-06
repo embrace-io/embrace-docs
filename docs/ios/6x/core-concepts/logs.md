@@ -40,6 +40,22 @@ The Embrace SDK provides a simple API for logging messages:
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let attributes = ["property_a": "value_a", "property_b": "value_b"]
+try EmbraceIO.shared.log(
+    "Loading not finished in time.", // message
+    severity: .warn,
+    timestamp: Date.now,
+    attributes: attributes
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let attributes = ["property_a": "value_a", "property_b": "value_b"]
 Embrace.client?.log(
@@ -49,6 +65,9 @@ Embrace.client?.log(
     attributes: attributes
 )
 ```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
@@ -86,6 +105,23 @@ You can attach data to logs to provide more context for troubleshooting:
 
 ### Embrace-Hosted Attachments
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let attributes = ["property_a": "value_a", "property_b": "value_b"]
+try EmbraceIO.shared.log(
+    "This is a log with an Embrace-hosted attachment", // message
+    severity: .info,
+    timestamp: Date.now,
+    attachment: someData, // NSData/Data
+    attributes: attributes
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let attributes = ["property_a": "value_a", "property_b": "value_b"]
 Embrace.client?.log(
@@ -97,6 +133,9 @@ Embrace.client?.log(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 Limitations for Embrace-hosted attachments:
 
 - Maximum of 5 attachments per session
@@ -105,6 +144,24 @@ Limitations for Embrace-hosted attachments:
 ### User-Hosted Attachments
 
 If you need more attachments or larger files, you can host the attachments yourself and reference them:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let attributes = ["property_a": "value_a", "property_b": "value_b"]
+try EmbraceIO.shared.log(
+    "This is a log with a user-hosted attachment", // message
+    severity: .info,
+    timestamp: Date.now,
+    attachmentId: attachmentId, // String
+    attachmentUrl: attachmentUrl, // URL
+    attributes: attributes
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let attributes = ["property_a": "value_a", "property_b": "value_b"]
@@ -117,6 +174,9 @@ Embrace.client?.log(
     attributes: attributes
 )
 ```
+
+</TabItem>
+</Tabs>
 
 ## Log Alerting
 
@@ -144,6 +204,66 @@ For example, if you have a steady rate of 1% for a given log event, you can set 
 ### Network Failure Logging
 
 Track network issues with detailed context for troubleshooting:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func handleNetworkRequest(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+    let startTime = Date()
+
+    URLSession.shared.dataTask(with: url) { data, response, error in
+        let duration = Date().timeIntervalSince(startTime)
+        let httpResponse = response as? HTTPURLResponse
+
+        if let error = error {
+            // Log network errors with detailed context
+            try? EmbraceIO.shared.log(
+                "Network request failed",
+                severity: .error,
+                attributes: [
+                    "network.url": url.absoluteString,
+                    "network.error_code": String((error as NSError).code),
+                    "network.error_domain": (error as NSError).domain,
+                    "network.duration_ms": String(Int(duration * 1000)),
+                    "network.retry_count": "0" // Increment if retrying
+                ]
+            )
+        } else if let httpResponse = httpResponse {
+            if httpResponse.statusCode >= 400 {
+                // Log HTTP errors
+                try? EmbraceIO.shared.log(
+                    "HTTP request returned error status",
+                    severity: .warning,
+                    attributes: [
+                        "network.url": url.absoluteString,
+                        "network.status_code": String(httpResponse.statusCode),
+                        "network.duration_ms": String(Int(duration * 1000)),
+                        "network.response_size": String(data?.count ?? 0)
+                    ]
+                )
+            } else {
+                // Log successful requests for monitoring
+                try? EmbraceIO.shared.log(
+                    "Network request completed successfully",
+                    severity: .info,
+                    attributes: [
+                        "network.url": url.absoluteString,
+                        "network.status_code": String(httpResponse.statusCode),
+                        "network.duration_ms": String(Int(duration * 1000)),
+                        "network.response_size": String(data?.count ?? 0)
+                    ]
+                )
+            }
+        }
+
+        completion(data != nil ? .success(data!) : .failure(error ?? URLError(.unknown)))
+    }.resume()
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func handleNetworkRequest(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
@@ -199,9 +319,93 @@ func handleNetworkRequest(url: URL, completion: @escaping (Result<Data, Error>) 
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Authentication Flow Logging
 
 Track authentication events for security monitoring:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class AuthenticationManager {
+    func login(username: String, password: String) async throws -> AuthResult {
+        let loginStartTime = Date()
+
+        // Log login attempt
+        try? EmbraceIO.shared.log(
+            "User login attempt started",
+            severity: .info,
+            attributes: [
+                "auth.username_hash": username.sha256, // Hash for privacy
+                "auth.method": "password",
+                "auth.client_version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
+            ]
+        )
+
+        do {
+            let result = try await performLogin(username: username, password: password)
+            let duration = Date().timeIntervalSince(loginStartTime)
+
+            // Log successful login
+            try? EmbraceIO.shared.log(
+                "User login successful",
+                severity: .info,
+                attributes: [
+                    "auth.username_hash": username.sha256,
+                    "auth.duration_ms": String(Int(duration * 1000)),
+                    "auth.user_tier": result.userTier,
+                    "auth.session_type": result.sessionType
+                ]
+            )
+
+            // Update user context
+            EmbraceIO.shared.userIdentifier = result.userId
+            try? EmbraceIO.shared.addPersona(PersonaTag("authenticated"), lifespan: .process)
+
+            return result
+
+        } catch let authError as AuthenticationError {
+            let duration = Date().timeIntervalSince(loginStartTime)
+
+            // Log authentication failure with detailed error info
+            try? EmbraceIO.shared.log(
+                "User login failed",
+                severity: .warning,
+                attributes: [
+                    "auth.username_hash": username.sha256,
+                    "auth.error_type": authError.type.rawValue,
+                    "auth.error_code": String(authError.code),
+                    "auth.duration_ms": String(Int(duration * 1000)),
+                    "auth.retry_count": String(authError.retryCount)
+                ]
+            )
+
+            throw authError
+        }
+    }
+
+    func logout() {
+        try? EmbraceIO.shared.log(
+            "User logout initiated",
+            severity: .info,
+            attributes: [
+                "auth.logout_type": "user_initiated",
+                "auth.session_duration": String(getCurrentSessionDuration())
+            ]
+        )
+
+        // Clear user context
+        EmbraceIO.shared.userIdentifier = nil
+        EmbraceIO.shared.clearUserProperties()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class AuthenticationManager {
@@ -278,9 +482,15 @@ class AuthenticationManager {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Performance Bottleneck Logging
 
 Log performance issues with detailed timing information:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
 
 ```swift
 class PerformanceLogger {
@@ -300,8 +510,101 @@ class PerformanceLogger {
 
             // Log performance metrics
             let severity: LogSeverity = duration > expectedDuration ? .warning : .info
-            let message = duration > expectedDuration ? 
-                "Operation exceeded expected duration" : 
+            let message = duration > expectedDuration ?
+                "Operation exceeded expected duration" :
+                "Operation completed within expected time"
+
+            try? EmbraceIO.shared.log(
+                message,
+                severity: severity,
+                attributes: [
+                    "performance.operation": operation,
+                    "performance.duration_ms": String(Int(duration * 1000)),
+                    "performance.expected_duration_ms": String(Int(expectedDuration * 1000)),
+                    "performance.memory_delta_mb": String(format: "%.2f", memoryDelta / 1024 / 1024),
+                    "performance.exceeded_threshold": String(duration > expectedDuration),
+                    "performance.device_model": UIDevice.current.model
+                ]
+            )
+
+            return result
+
+        } catch {
+            let duration = Date().timeIntervalSince(startTime)
+
+            // Log performance issues that led to errors
+            try? EmbraceIO.shared.log(
+                "Critical operation failed with performance implications",
+                severity: .error,
+                attributes: [
+                    "performance.operation": operation,
+                    "performance.duration_ms": String(Int(duration * 1000)),
+                    "performance.error_type": String(describing: type(of: error)),
+                    "performance.error_message": error.localizedDescription
+                ]
+            )
+
+            throw error
+        }
+    }
+
+    func logMemoryPressure(level: MemoryPressureLevel) {
+        try? EmbraceIO.shared.log(
+            "Memory pressure detected",
+            severity: level == .critical ? .error : .warning,
+            attributes: [
+                "memory.pressure_level": level.rawValue,
+                "memory.current_usage_mb": String(format: "%.2f", getCurrentMemoryUsage() / 1024 / 1024),
+                "memory.available_mb": String(format: "%.2f", getAvailableMemory() / 1024 / 1024),
+                "memory.app_state": UIApplication.shared.applicationState.description
+            ]
+        )
+    }
+
+    private func getCurrentMemoryUsage() -> UInt64 {
+        var info = mach_task_basic_info()
+        var count = mach_msg_type_number_t(MemoryLayout<mach_task_basic_info>.size)/4
+
+        let kerr: kern_return_t = withUnsafeMutablePointer(to: &info) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
+                task_info(mach_task_self_, task_flavor_t(MACH_TASK_BASIC_INFO), $0, &count)
+            }
+        }
+
+        return kerr == KERN_SUCCESS ? info.resident_size : 0
+    }
+}
+
+enum MemoryPressureLevel: String {
+    case normal = "normal"
+    case warning = "warning"
+    case critical = "critical"
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+class PerformanceLogger {
+    func trackCriticalOperation<T>(
+        operation: String,
+        expectedDuration: TimeInterval,
+        work: () async throws -> T
+    ) async rethrows -> T {
+        let startTime = Date()
+        let startMemory = getCurrentMemoryUsage()
+
+        do {
+            let result = try await work()
+            let duration = Date().timeIntervalSince(startTime)
+            let endMemory = getCurrentMemoryUsage()
+            let memoryDelta = endMemory - startMemory
+
+            // Log performance metrics
+            let severity: LogSeverity = duration > expectedDuration ? .warning : .info
+            let message = duration > expectedDuration ?
+                "Operation exceeded expected duration" :
                 "Operation completed within expected time"
 
             Embrace.client?.log(
@@ -367,14 +670,74 @@ class PerformanceLogger {
 
 enum MemoryPressureLevel: String {
     case normal = "normal"
-    case warning = "warning" 
+    case warning = "warning"
     case critical = "critical"
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Database Operation Logging
 
 Track database performance and errors:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class DatabaseLogger {
+    func logDatabaseOperation<T>(
+        operation: String,
+        table: String,
+        work: () throws -> T
+    ) rethrows -> T {
+        let startTime = Date()
+
+        do {
+            let result = try work()
+            let duration = Date().timeIntervalSince(startTime)
+
+            // Log successful database operations
+            try? EmbraceIO.shared.log(
+                "Database operation completed",
+                severity: duration > 1.0 ? .warning : .debug, // Warn if over 1 second
+                attributes: [
+                    "database.operation": operation,
+                    "database.table": table,
+                    "database.duration_ms": String(Int(duration * 1000)),
+                    "database.thread": Thread.isMainThread ? "main" : "background"
+                ]
+            )
+
+            return result
+
+        } catch {
+            let duration = Date().timeIntervalSince(startTime)
+
+            // Log database errors with context
+            try? EmbraceIO.shared.log(
+                "Database operation failed",
+                severity: .error,
+                attributes: [
+                    "database.operation": operation,
+                    "database.table": table,
+                    "database.duration_ms": String(Int(duration * 1000)),
+                    "database.error_code": String((error as NSError).code),
+                    "database.error_domain": (error as NSError).domain,
+                    "database.error_message": error.localizedDescription,
+                    "database.thread": Thread.isMainThread ? "main" : "background"
+                ]
+            )
+
+            throw error
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class DatabaseLogger {
@@ -427,9 +790,56 @@ class DatabaseLogger {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### UI Responsiveness Logging
 
 Track UI performance issues:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class UIPerformanceLogger {
+    func logViewControllerLifecycle(
+        viewController: String,
+        lifecycle: String,
+        duration: TimeInterval
+    ) {
+        let severity: LogSeverity = duration > 0.5 ? .warning : .debug
+
+        try? EmbraceIO.shared.log(
+            "View controller lifecycle event",
+            severity: severity,
+            attributes: [
+                "ui.view_controller": viewController,
+                "ui.lifecycle_event": lifecycle,
+                "ui.duration_ms": String(Int(duration * 1000)),
+                "ui.is_slow": String(duration > 0.5),
+                "ui.device_orientation": UIDevice.current.orientation.description
+            ]
+        )
+    }
+
+    func logMainThreadBlock(duration: TimeInterval, operation: String) {
+        if duration > 0.1 { // Log if main thread blocked for more than 100ms
+            try? EmbraceIO.shared.log(
+                "Main thread blocked",
+                severity: duration > 0.5 ? .error : .warning,
+                attributes: [
+                    "ui.blocked_duration_ms": String(Int(duration * 1000)),
+                    "ui.blocking_operation": operation,
+                    "ui.severity_level": duration > 0.5 ? "critical" : "moderate"
+                ]
+            )
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class UIPerformanceLogger {
@@ -468,5 +878,8 @@ class UIPerformanceLogger {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 These patterns provide comprehensive logging for the most common performance and reliability issues in iOS applications, helping you quickly identify and resolve problems.

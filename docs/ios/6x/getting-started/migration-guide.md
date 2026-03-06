@@ -25,6 +25,36 @@ As of version 6.0.0, Embrace Apple SDK no longer uses a .plist file to hold conf
 
 Initialize the SDK as close as possible to the launch of your app, using the Embrace client with an `Embrace.Options` object:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+import EmbraceIO
+import SwiftUI
+
+struct NewEmbraceApp: App {
+    init() {
+        do {
+            try EmbraceIO
+                .setup(
+                    options: EmbraceIO.Options.withAppId(
+                        "12345",
+                        logLevel: .default,
+                        crashReporter: EmbraceCrashReporter(),
+                        // Other configuration options
+                    )
+                )
+            try EmbraceIO.shared.start()
+        } catch let e {
+            print("Error starting Embrace \(e.localizedDescription)")
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 import EmbraceIO
 import SwiftUI
@@ -49,6 +79,9 @@ struct NewEmbraceApp: App {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 For more information, see:
 
 - [Basic Setup](/ios/6x/getting-started/basic-setup)
@@ -69,6 +102,27 @@ Traces, built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/tra
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+/* ******************************* */
+// Using Moments in Embrace 5.X
+Embrace.sharedInstance().startMoment(withName: "add-cart-item")
+// Perform add cart logic
+Embrace.sharedInstance().endMoment(withName: "add-cart-item")
+
+/* ******************************* */
+// Using Traces in Embrace 6.x
+let span = EmbraceIO.shared.buildSpan(name: "add-cart-item")
+                .startSpan()
+// Perform add cart logic
+span?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 /* ******************************* */
@@ -94,10 +148,41 @@ span?.end()
 </TabItem>
 </Tabs>
 
+</TabItem>
+</Tabs>
+
 Traces can be extended with parent/child relationships and point-in-time "SpanEvents":
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+/* ******************************* */
+// Tracing in Embrace 6.x
+// Create root span
+let addCartSpan = EmbraceIO.shared.buildSpan(name: "add-cart-item")
+                .startSpan()
+
+
+// Add SpanEvent
+addCartSpan?.addEvent(name: "quantity-changed")
+
+// Add child Span
+let addCartUIUpdateSpan = EmbraceIO.shared.buildSpan(name: "add-cart-ui-update")
+                            .setParent(addCartSpan)
+                            .startSpan()
+// Perform UI update logic
+addCartUIUpdateSpan?.end()
+
+// Perform other add-cart-item logic
+addCartSpan?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 /* ******************************* */
@@ -124,10 +209,61 @@ addCartSpan?.end()
 </TabItem>
 </Tabs>
 
+</TabItem>
+</Tabs>
+
 To store a Span in object scope, you need to import the OpenTelemetry API:
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+/* ******************************* */
+// Imports for new object
+import Foundation
+import EmbraceIO
+import OpenTelemetryApi
+
+// New object definition
+class MyClass {
+
+    // Create a Span property that will be available across the object
+    var activitySpan: Span? = nil // Span here comes from `OpenTelemetryApi`, not `EmbraceIO`
+
+    func activityStart() {
+        // Something starts
+        // ...
+        // And we want to trace it
+        activitySpan = EmbraceIO.shared.buildSpan(name: "activity")
+                .startSpan()
+    }
+
+    func activityChanged() {
+        // Something changed
+        // ...
+        // And we want to note it
+        activitySpan?.addEvent(name: "activity-changed")
+    }
+
+    func activitySuccessfully() {
+        // Something ended
+        // ...
+        activitySpan?.end()
+    }
+
+    func activityEnded(with failure: EmbraceIO.ErrorCode) {
+        // Something ended unsuccessfully
+        // ...
+        activitySpan?.end(errorCode: failure)
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 /* ******************************* */
@@ -174,6 +310,9 @@ class MyClass {
 </TabItem>
 </Tabs>
 
+</TabItem>
+</Tabs>
+
 ### App Startup Changes
 
 The `endAppStartup` Moment from prior versions has been **removed** in 6.x. Instead, measure app startup using a **custom trace**.
@@ -181,6 +320,31 @@ The `endAppStartup` Moment from prior versions has been **removed** in 6.x. Inst
 The SDK now automatically creates a span called **`emb-process-launch`** to measure process startup time and a span called **`emb-setup`** to measure SDK initialization time.
 
 To track app startup more comprehensively, create a custom trace with child spans that capture key moments in your app's initialization. You can even measure events that occurred before the Embrace SDK initialized by using timestamps:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Example of custom app startup tracking
+let startupSpan = EmbraceIO.shared.buildSpan(name: "app-startup")
+                          .startSpan()
+
+// Record child spans for important startup events
+let databaseInitSpan = EmbraceIO.shared.buildSpan(name: "database-initialization")
+                              .setParent(startupSpan)
+                              .startSpan()
+// Initialize database
+databaseInitSpan?.end()
+
+// Add more child spans for other initialization components
+// ...
+
+// End the startup span when the app is fully loaded
+startupSpan?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Example of custom app startup tracking
@@ -201,32 +365,35 @@ databaseInitSpan?.end()
 startupSpan?.end()
 ```
 
+</TabItem>
+</Tabs>
+
 ## API Method Changes
 
-Many methods from the 5.x SDK have been replaced with new equivalents in 6.x:
+Many methods from the 5.x SDK have been replaced with new equivalents. The table below shows the recommended API using the [`EmbraceIO` client](../api-reference/embraceio-client.md). The legacy [`Embrace` client](../api-reference/embrace-client.md) is still available but will be deprecated in a future release.
 
 | 5.x Method | 6.x Equivalent | Comments |
 |------------|----------------|----------|
-| `Embrace.sharedInstance()` | `Embrace.client` | Access the client instance |
-| `isStarted` | `state == .started` | Check SDK state |
-| `startWithLaunchOptions` | `setup(options)` and `start()` | Two-step initialization |
-| `startMoment()` / `endMoment()` | `buildSpan().startSpan()` / `span.end()` | See Traces documentation |
-| `logMessage()` | `log(_ message:severity:timestamp:attributes:)` | Improved logging API with severity levels |
+| `Embrace.sharedInstance()` | `EmbraceIO.shared` | Access the client instance |
+| `isStarted` | `.state == .started` | Check SDK state |
+| `startWithLaunchOptions` | `EmbraceIO.setup(options:)` and `.start()` | Two-step initialization |
+| `startMoment()` / `endMoment()` | `.buildSpan().startSpan()` / `span.end()` | See Traces documentation |
+| `logMessage()` | `.log(_:severity:timestamp:attributes:)` | Improved logging API with severity levels |
 | `getLastRunEndState` | `lastRunEndState()` | Method signature change |
-| `addSessionProperty` | `metadata.addProperty(key:value:lifespan:)` | Properties now in metadata |
-| `removeSessionProperty` | `metadata.removeProperty(key:lifespan:)` | Properties now in metadata |
-| `endSession` | `endSession` | Same method name |
-| `getCurrentSessionId` | `currentSessionId()` | Method signature change |
-| `logBreadcrumbWithMessage()` | `add(event: .breadcrumb())` | Breadcrumbs are now SpanEvents |
-| `startSpanWithName` | `buildSpan(name:type:attributes:).startSpan()` | More flexible span creation |
+| `addSessionProperty` | `.setProperty(key:value:lifespan:)` | Simplified property API |
+| `removeSessionProperty` | `.setProperty(key:value: nil, lifespan:)` | Pass `nil` value to remove |
+| `endSession` | `.endCurrentSession()` | Same behavior |
+| `getCurrentSessionId` | `.currentSessionId` | Now a property |
+| `logBreadcrumbWithMessage()` | `.add(event: .breadcrumb())` | Breadcrumbs are now SpanEvents |
+| `startSpanWithName` | `.buildSpan(name:type:attributes:).startSpan()` | More flexible span creation |
 | `stopSpanWithId` | Use `span.end()` on existing Span | Direct span manipulation |
-| `setUserIdentifier()` | `metadata.userIdentifier = "id"` | User identification now through metadata |
-| `clearUserIdentifier()` | `metadata.userIdentifier = nil` | Clear through metadata |
-| `setUserPersona()` | `metadata.add(persona:lifespan:)` | Personas now use tags and lifespans |
-| `setUserAsPayer()` | `metadata.add(persona: .payer, lifespan:)` | Predefined persona tags available |
-| `clearUserPersona()` | `metadata.removePersonaTag(value:lifespan:)` | Remove specific persona tag |
-| `clearAllUserPersonas()` | `metadata.removeAllPersonaTags(lifespans:)` | Clear all personas |
-| `getDeviceId` | `currentDeviceId()` | Method signature change |
+| `setUserIdentifier()` | `.userIdentifier = "id"` | Direct property |
+| `clearUserIdentifier()` | `.userIdentifier = nil` | Direct property |
+| `setUserPersona()` | `.addPersona(_:lifespan:)` | Simplified API |
+| `setUserAsPayer()` | `.addPersona("payer", lifespan:)` | Predefined persona tags available |
+| `clearUserPersona()` | `.removePersona(_:lifespan:)` | Simplified API |
+| `clearAllUserPersonas()` | `.removeAllPersonas(lifespans:)` | Simplified API |
+| `getDeviceId` | `.deviceId` | Now a property |
 | `endAppStartup()` | No direct replacement | Create a custom trace/span |
 | `startView()` / `endView()` | Create spans with `SpanType.ux` | View tracking is now span-based |
 
@@ -269,6 +436,29 @@ customFlow.momentComplete()
 
 **6.x Implementation:**
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Create and start a custom span
+let onboardingSpan = EmbraceIO.shared.buildSpan(
+    name: "onboarding_flow",
+    type: .ux
+).startSpan()
+
+// Add attributes to the span
+onboardingSpan?.setAttribute(key: "user_type", value: "new_user")
+
+// Complete successfully
+onboardingSpan?.end()
+
+// Or end with error
+// onboardingSpan?.end(errorCode: .failure)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Create and start a custom span
 let onboardingSpan = Embrace.client?.buildSpan(
@@ -286,7 +476,40 @@ onboardingSpan?.end()
 // onboardingSpan?.end(errorCode: .failure)
 ```
 
+</TabItem>
+</Tabs>
+
 For more complex flows, use child spans to track individual steps:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let onboardingSpan = EmbraceIO.shared.buildSpan(
+    name: "onboarding_flow",
+    type: .ux
+).startSpan()
+
+// Track individual onboarding steps as child spans
+let profileSetupSpan = EmbraceIO.shared.buildSpan(
+    name: "profile_setup",
+    type: .ux
+).setParent(onboardingSpan).startSpan()
+// Perform profile setup
+profileSetupSpan?.end()
+
+let prefsSpan = EmbraceIO.shared.buildSpan(
+    name: "preferences_configuration",
+    type: .ux
+).setParent(onboardingSpan).startSpan()
+// Configure preferences
+prefsSpan?.end()
+
+onboardingSpan?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let onboardingSpan = Embrace.client?.buildSpan(
@@ -314,6 +537,9 @@ Embrace.recordSpan(
 onboardingSpan?.end()
 ```
 
+</TabItem>
+</Tabs>
+
 ### EMBPurchaseFlow Migration
 
 The `EMBPurchaseFlow` class has been removed. Use custom spans to track purchase flows with relevant attributes.
@@ -332,6 +558,33 @@ purchaseFlow.momentComplete()
 ```
 
 **6.x Implementation:**
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let purchaseSpan = EmbraceIO.shared.buildSpan(
+    name: "purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "premium_monthly",
+        "price": "$9.99",
+        "payment_method": "credit_card"
+    ]
+).startSpan()
+
+// Add dynamic attributes during the flow
+purchaseSpan?.setAttribute(key: "transaction_id", value: transactionId)
+
+// Complete successfully
+purchaseSpan?.end()
+
+// Or end with error if purchase fails
+// purchaseSpan?.end(errorCode: .failure)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let purchaseSpan = Embrace.client?.buildSpan(
@@ -354,7 +607,47 @@ purchaseSpan?.end()
 // purchaseSpan?.end(errorCode: .failure)
 ```
 
+</TabItem>
+</Tabs>
+
 For a more comprehensive purchase flow with multiple stages:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let purchaseSpan = EmbraceIO.shared.buildSpan(
+    name: "purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "premium_monthly",
+        "price": "$9.99"
+    ]
+).startSpan()
+
+// Track payment validation
+let validationSpan = EmbraceIO.shared.buildSpan(
+    name: "payment_validation",
+    type: .performance
+).setParent(purchaseSpan).startSpan()
+// Validate payment method
+validationSpan?.setAttribute(key: "validation_result", value: "success")
+validationSpan?.end()
+
+// Track purchase confirmation
+let confirmSpan = EmbraceIO.shared.buildSpan(
+    name: "purchase_confirmation",
+    type: .ux
+).setParent(purchaseSpan).startSpan()
+// Process confirmation
+confirmSpan?.setAttribute(key: "confirmation_sent", value: "true")
+confirmSpan?.end()
+
+purchaseSpan?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let purchaseSpan = Embrace.client?.buildSpan(
@@ -389,6 +682,9 @@ Embrace.recordSpan(
 purchaseSpan?.end()
 ```
 
+</TabItem>
+</Tabs>
+
 ### EMBRegistrationFlow Migration
 
 The `EMBRegistrationFlow` class has been removed. Use custom spans to track user registration flows.
@@ -407,6 +703,31 @@ registrationFlow.momentComplete()
 ```
 
 **6.x Implementation:**
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let registrationSpan = EmbraceIO.shared.buildSpan(
+    name: "registration_flow",
+    type: .ux,
+    attributes: [
+        "registration_method": "email"
+    ]
+).startSpan()
+
+// Add dynamic attributes
+registrationSpan?.setAttribute(key: "user_id", value: newUserId)
+
+// Complete successfully
+registrationSpan?.end()
+
+// Or end with error if registration fails
+// registrationSpan?.end(errorCode: .failure)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let registrationSpan = Embrace.client?.buildSpan(
@@ -427,7 +748,46 @@ registrationSpan?.end()
 // registrationSpan?.end(errorCode: .failure)
 ```
 
+</TabItem>
+</Tabs>
+
 Track individual registration steps with child spans:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let registrationSpan = EmbraceIO.shared.buildSpan(
+    name: "registration_flow",
+    type: .ux,
+    attributes: [
+        "registration_method": "email"
+    ]
+).startSpan()
+
+// Track email verification step
+let verifySpan = EmbraceIO.shared.buildSpan(
+    name: "email_verification",
+    type: .ux
+).setParent(registrationSpan).startSpan()
+// Send and verify email
+verifySpan?.setAttribute(key: "verification_method", value: "code")
+verifySpan?.end()
+
+// Track profile creation step
+let profileSpan = EmbraceIO.shared.buildSpan(
+    name: "profile_creation",
+    type: .ux
+).setParent(registrationSpan).startSpan()
+// Create user profile
+profileSpan?.setAttribute(key: "profile_complete", value: "true")
+profileSpan?.end()
+
+registrationSpan?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let registrationSpan = Embrace.client?.buildSpan(
@@ -461,6 +821,9 @@ Embrace.recordSpan(
 registrationSpan?.end()
 ```
 
+</TabItem>
+</Tabs>
+
 ### EMBSubscriptionPurchaseFlow Migration
 
 The `EMBSubscriptionPurchaseFlow` class has been removed. Use custom spans to track subscription purchases.
@@ -484,6 +847,32 @@ subscriptionFlow.momentComplete()
 
 **6.x Implementation:**
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let subscriptionSpan = EmbraceIO.shared.buildSpan(
+    name: "subscription_purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "annual_premium",
+        "price": "$99.99",
+        "period": "annual",
+        "auto_renew": "true"
+    ]
+).startSpan()
+
+// Add dynamic subscription details
+subscriptionSpan?.setAttribute(key: "subscription_id", value: subscriptionId)
+subscriptionSpan?.setAttribute(key: "start_date", value: startDate)
+
+// Complete successfully
+subscriptionSpan?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let subscriptionSpan = Embrace.client?.buildSpan(
     name: "subscription_purchase_flow",
@@ -504,7 +893,54 @@ subscriptionSpan?.setAttribute(key: "start_date", value: startDate)
 subscriptionSpan?.end()
 ```
 
+</TabItem>
+</Tabs>
+
 For detailed subscription flow tracking:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let subscriptionSpan = EmbraceIO.shared.buildSpan(
+    name: "subscription_purchase_flow",
+    type: .ux,
+    attributes: [
+        "product_id": "annual_premium",
+        "price": "$99.99",
+        "period": "annual"
+    ]
+).startSpan()
+
+// Track subscription selection
+let selectionSpan = EmbraceIO.shared.buildSpan(
+    name: "subscription_selection",
+    type: .ux
+).setParent(subscriptionSpan).startSpan()
+selectionSpan?.setAttribute(key: "plan_selected", value: "annual")
+selectionSpan?.end()
+
+// Track payment processing
+let paymentSpan = EmbraceIO.shared.buildSpan(
+    name: "subscription_payment",
+    type: .performance
+).setParent(subscriptionSpan).startSpan()
+paymentSpan?.setAttribute(key: "payment_processor", value: "stripe")
+paymentSpan?.end()
+
+// Track subscription activation
+let activationSpan = EmbraceIO.shared.buildSpan(
+    name: "subscription_activation",
+    type: .ux
+).setParent(subscriptionSpan).startSpan()
+activationSpan?.setAttribute(key: "activation_status", value: "active")
+activationSpan?.end()
+
+subscriptionSpan?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let subscriptionSpan = Embrace.client?.buildSpan(
@@ -546,6 +982,9 @@ Embrace.recordSpan(
 
 subscriptionSpan?.end()
 ```
+
+</TabItem>
+</Tabs>
 
 ### Additional Resources
 

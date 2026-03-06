@@ -4,6 +4,9 @@ description: Upload sessions from your mobile application using the Embrace SDK
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Session Reporting
 
 ## Understanding Sessions
@@ -26,6 +29,20 @@ The Embrace SDK manages session lifecycle automatically:
 
 You can also manually control sessions if needed:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Force start a new session
+EmbraceIO.shared.startNewSession()
+
+// Force end the current session
+EmbraceIO.shared.endCurrentSession()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Force start a new session
 Embrace.client?.startSession()
@@ -33,6 +50,9 @@ Embrace.client?.startSession()
 // Force end the current session
 Embrace.client?.endSession()
 ```
+
+</TabItem>
+</Tabs>
 
 ## Session Data Structure
 

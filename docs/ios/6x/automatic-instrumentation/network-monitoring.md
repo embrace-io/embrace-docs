@@ -4,6 +4,9 @@ description: Automatically track network requests in your iOS app with Embrace
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Network Capture
 
 The Embrace SDK automatically monitors network requests made through `URLSession` in your application, providing visibility into network performance, errors, and behavior.
@@ -30,6 +33,37 @@ This automatic instrumentation gives you immediate visibility into all network a
 
 You can customize network monitoring behavior when initializing the Embrace SDK:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let urlSessionOptions = URLSessionCaptureService.Options(
+    injectTracingHeader: true,
+    requestsDataSource: MyDataSource(), // For obfuscating sensitive data
+    ignoredURLs: ["analytics.example.com"] // URLs to ignore
+)
+
+let services = CaptureServiceBuilder()
+    .add(.urlSession(options: urlSessionOptions))
+    .addDefaults()
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    appId,
+    platform: .native,
+    captureServices: services,
+    crashReporter: EmbraceCrashReporter()
+)
+
+do {
+    try EmbraceIO.setup(options: options)
+    try EmbraceIO.shared.start()
+} catch { }
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let urlSessionOptions = URLSessionCaptureService.Options(
     injectTracingHeader: true,
@@ -54,6 +88,9 @@ do {
     try Embrace.client?.start()
 } catch { }
 ```
+
+</TabItem>
+</Tabs>
 
 ### Tracing Header Injection
 

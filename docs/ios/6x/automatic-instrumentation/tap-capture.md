@@ -4,6 +4,9 @@ description: Automatically monitor user interactions with your iOS app
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Tap Capture
 
 The Embrace SDK's `TapCaptureService` automatically instruments tap events throughout your app, providing visibility into user interactions and the screens they engage with most.
@@ -22,6 +25,31 @@ This data helps identify screens with high user engagement, troubleshoot UI resp
 ## Configuration
 
 You can customize tap capture behavior when initializing the Embrace SDK:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let services = CaptureServiceBuilder()
+    .add(.tap(options: TapCaptureService.Options(
+        ignoreClassNames: ["UITableView", "UIScrollView"],
+        captureTapCoordinates: true,
+        delegate: myCustomDelegate
+    )))
+    .addDefaults()
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "APPID",
+    captureServices: services
+    //...other options
+)
+try EmbraceIO.setup(options: options)
+try EmbraceIO.shared.start()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let services = CaptureServiceBuilder()
@@ -43,6 +71,9 @@ try Embrace
     )
     .start()
 ```
+
+</TabItem>
+</Tabs>
 
 ## Customization Options
 
