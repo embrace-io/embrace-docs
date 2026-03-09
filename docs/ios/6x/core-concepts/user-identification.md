@@ -4,6 +4,9 @@ description: Identifying and segmenting users in the Embrace iOS SDK 6.x
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # User Identification
 
 User identification and segmentation are critical for effective app monitoring and troubleshooting. The Embrace SDK provides robust mechanisms to identify users and understand their characteristics.
@@ -32,6 +35,19 @@ User Personas allow you to dynamically segment app users according to their beha
 
 ### Retrieving Current Personas
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.shared.getCurrentPersonas { personas in
+    print("Current personas: \(personas)")
+    // Use personas here
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 Embrace.client?.metadata.getCurrentPersonas { personas in
     print("Current personas: \(personas)")
@@ -39,9 +55,26 @@ Embrace.client?.metadata.getCurrentPersonas { personas in
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Adding User Personas
 
 The SDK provides both pre-defined tags and the ability to create custom tags:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Using pre-defined tag
+try? EmbraceIO.shared.addPersona(PersonaTag.mvp, lifespan: .permanent)
+
+// Using custom tag
+try? EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Using pre-defined tag
@@ -50,6 +83,9 @@ try? Embrace.client?.metadata.add(persona: PersonaTag.mvp, lifespan: .permanent)
 // Using custom tag
 try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
 ```
+
+</TabItem>
+</Tabs>
 
 ### Creating Custom Persona Tags
 
@@ -69,9 +105,22 @@ extension PersonaTag {
 
 For tracking specific users across sessions, you can assign a unique identifier:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.shared.userIdentifier = "user-12345"
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 Embrace.client?.metadata.userIdentifier = "user-12345"
 ```
+
+</TabItem>
+</Tabs>
 
 :::warning Note on Privacy
 The value set for `userIdentifier` is not validated by the SDK to follow a specific format. Ensure that this value accurately represents the user without directly storing Personally Identifiable Information (PII). Consider using references, aliases, or hashed values to maintain user privacy and comply with data protection regulations.
@@ -81,9 +130,22 @@ The value set for `userIdentifier` is not validated by the SDK to follow a speci
 
 Session Properties provide context about the session or device. They're useful for tracking information that's specific to a particular session:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+try? EmbraceIO.shared.setProperty(key: "launch_type", value: "normal", lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 try? Embrace.client?.metadata.addProperty(key: "launch_type", value: "normal", lifespan: .session)
 ```
+
+</TabItem>
+</Tabs>
 
 ## Metadata Lifespan
 
@@ -91,21 +153,60 @@ Each piece of metadata can have one of three lifespans:
 
 1. **Session**: Tied to a single user session and automatically cleared when the session ends
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+   ```swift
+   try? EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
+   ```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
    ```swift
    try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
    ```
 
+</TabItem>
+</Tabs>
+
 2. **Process**: Scoped to the lifetime of the application process and cleared if the app restarts
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+   ```swift
+   try? EmbraceIO.shared.addPersona("first_launch", lifespan: .process)
+   ```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
    ```swift
    try? Embrace.client?.metadata.add(persona: "first_launch", lifespan: .process)
    ```
 
+</TabItem>
+</Tabs>
+
 3. **Permanent**: Remains associated with the user across multiple sessions until explicitly removed
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+   ```swift
+   try? EmbraceIO.shared.addPersona("vip", lifespan: .permanent)
+   ```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
    ```swift
    try? Embrace.client?.metadata.add(persona: "vip", lifespan: .permanent)
    ```
+
+</TabItem>
+</Tabs>
 
 ## Best Practices for User Identification
 
@@ -133,6 +234,132 @@ Implement user identification:
 
 Implement user identification throughout the authentication lifecycle:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class AuthenticationFlow {
+    func handleSignUp(email: String, userTier: String) async throws {
+        // Track signup attempt
+        try? EmbraceIO.shared.log("User signup initiated", severity: .info)
+
+        do {
+            let user = try await performSignUp(email: email)
+
+            // Set user identification immediately after signup (use anonymized ID)
+            EmbraceIO.shared.userIdentifier = user.anonymizedId
+
+            // Add personas for new user
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag("new_user"),
+                lifespan: .session
+            )
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag(userTier.lowercased()),
+                lifespan: .permanent
+            )
+
+            // Track successful signup
+            try? EmbraceIO.shared.log(
+                "User signup completed",
+                severity: .info,
+                attributes: [
+                    "auth.signup_method": "email",
+                    "user.tier": userTier
+                ]
+            )
+
+        } catch {
+            try? EmbraceIO.shared.log(
+                "User signup failed",
+                severity: .error,
+                attributes: [
+                    "auth.error_type": error.localizedDescription
+                ]
+            )
+            throw error
+        }
+    }
+
+    func handleLogin(credentials: LoginCredentials) async throws {
+        do {
+            let user = try await performLogin(credentials)
+
+            // Update user identification for returning user (use anonymized ID)
+            EmbraceIO.shared.userIdentifier = user.anonymizedId
+
+            // Remove new_user persona if present, add authenticated
+            try? EmbraceIO.shared.removePersona(
+                PersonaTag("new_user"),
+                lifespan: .session
+            )
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag("authenticated"),
+                lifespan: .session
+            )
+
+            // Add user tier information
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag(user.tier.lowercased()),
+                lifespan: .permanent
+            )
+
+            // Track login success
+            try? EmbraceIO.shared.log(
+                "User login successful",
+                severity: .info,
+                attributes: [
+                    "auth.method": credentials.type,
+                    "user.returning": String(user.isReturning),
+                    "user.tier": user.tier
+                ]
+            )
+
+        } catch let authError as AuthenticationError {
+            // Track failed login attempts with privacy-safe info
+            try? EmbraceIO.shared.log(
+                "User login failed",
+                severity: .warning,
+                attributes: [
+                    "auth.error_code": String(authError.code),
+                    "auth.method": credentials.type
+                ]
+            )
+            throw authError
+        }
+    }
+
+    func handleLogout() {
+        // Log logout with session context
+        if let userId = EmbraceIO.shared.userIdentifier {
+            try? EmbraceIO.shared.log(
+                "User logout initiated",
+                severity: .info,
+                attributes: [
+                    "user.was_authenticated": "true"
+                ]
+            )
+        }
+
+        // Clear user identification but preserve some anonymous analytics
+        EmbraceIO.shared.clearUserProperties()
+
+        // Remove authenticated persona, keep anonymous tracking
+        try? EmbraceIO.shared.removePersona(
+            PersonaTag("authenticated"),
+            lifespan: .session
+        )
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag("anonymous"),
+            lifespan: .session
+        )
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 class AuthenticationFlow {
     func handleSignUp(email: String, userTier: String) async throws {
@@ -147,11 +374,11 @@ class AuthenticationFlow {
 
             // Add personas for new user
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag("new_user"), 
+                persona: PersonaTag("new_user"),
                 lifespan: .session
             )
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag(userTier.lowercased()), 
+                persona: PersonaTag(userTier.lowercased()),
                 lifespan: .permanent
             )
 
@@ -186,17 +413,17 @@ class AuthenticationFlow {
 
             // Remove new_user persona if present, add authenticated
             try? Embrace.client?.metadata.remove(
-                persona: PersonaTag("new_user"), 
+                persona: PersonaTag("new_user"),
                 lifespan: .session
             )
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag("authenticated"), 
+                persona: PersonaTag("authenticated"),
                 lifespan: .session
             )
 
             // Add user tier information
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag(user.tier.lowercased()), 
+                persona: PersonaTag(user.tier.lowercased()),
                 lifespan: .permanent
             )
 
@@ -242,20 +469,96 @@ class AuthenticationFlow {
 
         // Remove authenticated persona, keep anonymous tracking
         try? Embrace.client?.metadata.remove(
-            persona: PersonaTag("authenticated"), 
+            persona: PersonaTag("authenticated"),
             lifespan: .session
         )
         try? Embrace.client?.metadata.add(
-            persona: PersonaTag("anonymous"), 
+            persona: PersonaTag("anonymous"),
             lifespan: .session
         )
     }
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Feature Gating and A/B Testing
 
 Use user identification for feature access control and testing:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class FeatureGateManager {
+    func checkFeatureAccess(feature: String) -> Bool {
+        let hasAccess = determineFeatureAccess(feature: feature)
+
+        // Track feature access attempts
+        try? EmbraceIO.shared.log(
+            "Feature access check",
+            severity: .debug,
+            attributes: [
+                "feature.name": feature,
+                "feature.access_granted": String(hasAccess),
+                "user.authenticated": String(isUserAuthenticated())
+            ]
+        )
+
+        if hasAccess {
+            // Add persona for feature usage
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag("\(feature)_user"),
+                lifespan: .session
+            )
+        }
+
+        return hasAccess
+    }
+
+    func enrollInExperiment(experimentId: String, variant: String) {
+        // Track A/B test enrollment
+        try? EmbraceIO.shared.setProperty(
+            key: "experiment.\(experimentId)",
+            value: variant,
+            lifespan: .session
+        )
+
+        // Add experiment personas
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag("experiment_\(experimentId)"),
+            lifespan: .session
+        )
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag("variant_\(variant)"),
+            lifespan: .session
+        )
+
+        try? EmbraceIO.shared.log(
+            "User enrolled in experiment",
+            severity: .info,
+            attributes: [
+                "experiment.id": experimentId,
+                "experiment.variant": variant,
+                "user.enrolled_experiments_count": String(getCurrentExperimentCount())
+            ]
+        )
+    }
+
+    private func isUserAuthenticated() -> Bool {
+        return EmbraceIO.shared.userIdentifier != nil
+    }
+
+    private func getCurrentExperimentCount() -> Int {
+        // Implementation would count active experiments for this user
+        return 0
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class FeatureGateManager {
@@ -276,7 +579,7 @@ class FeatureGateManager {
         if hasAccess {
             // Add persona for feature usage
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag("\(feature)_user"), 
+                persona: PersonaTag("\(feature)_user"),
                 lifespan: .session
             )
         }
@@ -294,11 +597,11 @@ class FeatureGateManager {
 
         // Add experiment personas
         try? Embrace.client?.metadata.add(
-            persona: PersonaTag("experiment_\(experimentId)"), 
+            persona: PersonaTag("experiment_\(experimentId)"),
             lifespan: .session
         )
         try? Embrace.client?.metadata.add(
-            persona: PersonaTag("variant_\(variant)"), 
+            persona: PersonaTag("variant_\(variant)"),
             lifespan: .session
         )
 
@@ -324,9 +627,170 @@ class FeatureGateManager {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Progressive User Journey Tracking
 
 Track user progression through onboarding and feature adoption:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class UserJourneyTracker {
+    func trackOnboardingProgress(step: OnboardingStep, completed: Bool) {
+        let stepName = step.rawValue
+
+        // Update onboarding progress
+        try? EmbraceIO.shared.setProperty(
+            key: "onboarding.current_step",
+            value: stepName,
+            lifespan: .session
+        )
+
+        if completed {
+            try? EmbraceIO.shared.setProperty(
+                key: "onboarding.completed_steps",
+                value: getCompletedStepsString(),
+                lifespan: .permanent
+            )
+
+            // Add milestone personas
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag("onboarding_\(stepName)_completed"),
+                lifespan: .permanent
+            )
+        }
+
+        // Check if onboarding is complete
+        if isOnboardingComplete() {
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag("onboarding_complete"),
+                lifespan: .permanent
+            )
+            try? EmbraceIO.shared.removePersona(
+                PersonaTag("new_user"),
+                lifespan: .session
+            )
+        }
+
+        try? EmbraceIO.shared.log(
+            "Onboarding step update",
+            severity: .info,
+            attributes: [
+                "onboarding.step": stepName,
+                "onboarding.completed": String(completed),
+                "onboarding.progress_percentage": String(getOnboardingProgress())
+            ]
+        )
+    }
+
+    func trackFeatureAdoption(feature: String, adopted: Bool) {
+        if adopted {
+            // Track feature adoption
+            try? EmbraceIO.shared.setProperty(
+                key: "features.adopted",
+                value: getAdoptedFeaturesString(),
+                lifespan: .permanent
+            )
+
+            try? EmbraceIO.shared.addPersona(
+                PersonaTag("\(feature)_adopter"),
+                lifespan: .permanent
+            )
+
+            // Check for power user status
+            if getAdoptedFeaturesCount() >= 5 {
+                try? EmbraceIO.shared.addPersona(
+                    PersonaTag("power_user"),
+                    lifespan: .permanent
+                )
+            }
+        }
+
+        try? EmbraceIO.shared.log(
+            "Feature adoption update",
+            severity: .info,
+            attributes: [
+                "feature.name": feature,
+                "feature.adopted": String(adopted),
+                "user.adopted_features_count": String(getAdoptedFeaturesCount())
+            ]
+        )
+    }
+
+    func trackUserMilestone(milestone: UserMilestone) {
+        // Add milestone persona
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag(milestone.rawValue),
+            lifespan: .permanent
+        )
+
+        // Update user level/tier if applicable
+        if let newTier = milestone.associatedTier {
+            try? EmbraceIO.shared.setProperty(
+                key: "user.tier",
+                value: newTier,
+                lifespan: .permanent
+            )
+        }
+
+        try? EmbraceIO.shared.log(
+            "User milestone achieved",
+            severity: .info,
+            attributes: [
+                "milestone.name": milestone.rawValue,
+                "milestone.category": milestone.category,
+                "user.total_milestones": String(getTotalMilestonesCount())
+            ]
+        )
+    }
+
+    // Helper methods
+    private func isOnboardingComplete() -> Bool { /* Implementation */ return false }
+    private func getOnboardingProgress() -> Int { /* Implementation */ return 0 }
+    private func getCompletedStepsString() -> String { /* Implementation */ return "" }
+    private func getAdoptedFeaturesString() -> String { /* Implementation */ return "" }
+    private func getAdoptedFeaturesCount() -> Int { /* Implementation */ return 0 }
+    private func getTotalMilestonesCount() -> Int { /* Implementation */ return 0 }
+}
+
+enum OnboardingStep: String {
+    case welcome = "welcome"
+    case permissions = "permissions"
+    case tutorial = "tutorial"
+    case profile_setup = "profile_setup"
+    case first_action = "first_action"
+}
+
+enum UserMilestone: String {
+    case first_purchase = "first_purchase"
+    case tenth_session = "tenth_session"
+    case feature_expert = "feature_expert"
+    case community_contributor = "community_contributor"
+
+    var category: String {
+        switch self {
+        case .first_purchase: return "commerce"
+        case .tenth_session: return "engagement"
+        case .feature_expert, .community_contributor: return "expertise"
+        }
+    }
+
+    var associatedTier: String? {
+        switch self {
+        case .first_purchase: return "customer"
+        case .feature_expert: return "advanced"
+        case .community_contributor: return "vip"
+        default: return nil
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class UserJourneyTracker {
@@ -349,7 +813,7 @@ class UserJourneyTracker {
 
             // Add milestone personas
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag("onboarding_\(stepName)_completed"), 
+                persona: PersonaTag("onboarding_\(stepName)_completed"),
                 lifespan: .permanent
             )
         }
@@ -357,11 +821,11 @@ class UserJourneyTracker {
         // Check if onboarding is complete
         if isOnboardingComplete() {
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag("onboarding_complete"), 
+                persona: PersonaTag("onboarding_complete"),
                 lifespan: .permanent
             )
             try? Embrace.client?.metadata.remove(
-                persona: PersonaTag("new_user"), 
+                persona: PersonaTag("new_user"),
                 lifespan: .session
             )
         }
@@ -387,14 +851,14 @@ class UserJourneyTracker {
             )
 
             try? Embrace.client?.metadata.add(
-                persona: PersonaTag("\(feature)_adopter"), 
+                persona: PersonaTag("\(feature)_adopter"),
                 lifespan: .permanent
             )
 
             // Check for power user status
             if getAdoptedFeaturesCount() >= 5 {
                 try? Embrace.client?.metadata.add(
-                    persona: PersonaTag("power_user"), 
+                    persona: PersonaTag("power_user"),
                     lifespan: .permanent
                 )
             }
@@ -414,7 +878,7 @@ class UserJourneyTracker {
     func trackUserMilestone(milestone: UserMilestone) {
         // Add milestone persona
         try? Embrace.client?.metadata.add(
-            persona: PersonaTag(milestone.rawValue), 
+            persona: PersonaTag(milestone.rawValue),
             lifespan: .permanent
         )
 
@@ -480,9 +944,90 @@ enum UserMilestone: String {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Privacy-Safe User Segmentation
 
 Implement user identification while respecting privacy:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class PrivacySafeUserIdentification {
+    func setUserIdentification(email: String, consentLevel: ConsentLevel) {
+        // Use hashed identifiers for privacy
+        let hashedEmail = email.sha256
+        EmbraceIO.shared.userIdentifier = hashedEmail
+
+        // Set privacy level as metadata
+        try? EmbraceIO.shared.setProperty(
+            key: "user.privacy_consent_level",
+            value: consentLevel.rawValue,
+            lifespan: .permanent
+        )
+
+        // Note: Email storage should only be done if user explicitly consented
+        // and your privacy policy allows it. Consider using hashed identifiers instead.
+
+        // Add privacy-aware personas
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag("consent_\(consentLevel.rawValue)"),
+            lifespan: .permanent
+        )
+
+        try? EmbraceIO.shared.log(
+            "User identification set with privacy controls",
+            severity: .info,
+            attributes: [
+                "privacy.consent_level": consentLevel.rawValue,
+                "privacy.email_stored": String(consentLevel.allowsEmailStorage)
+            ]
+        )
+    }
+
+    func updateConsentLevel(newLevel: ConsentLevel) {
+        // Update consent level
+        try? EmbraceIO.shared.setProperty(
+            key: "user.privacy_consent_level",
+            value: newLevel.rawValue,
+            lifespan: .permanent
+        )
+
+        // Clear any stored personal data if consent was withdrawn
+        // (implementation depends on what data you're storing)
+
+        // Update personas
+        try? EmbraceIO.shared.removeAllPersonas(lifespans: [.permanent])
+        try? EmbraceIO.shared.addPersona(
+            PersonaTag("consent_\(newLevel.rawValue)"),
+            lifespan: .permanent
+        )
+    }
+}
+
+enum ConsentLevel: String {
+    case minimal = "minimal"
+    case analytics = "analytics"
+    case full = "full"
+
+    var allowsEmailStorage: Bool {
+        return self == .full
+    }
+}
+
+extension String {
+    var sha256: String {
+        // Implementation would use CryptoKit or CommonCrypto
+        // This is a placeholder
+        return "hashed_\(self.hashValue)"
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class PrivacySafeUserIdentification {
@@ -503,7 +1048,7 @@ class PrivacySafeUserIdentification {
 
         // Add privacy-aware personas
         try? Embrace.client?.metadata.add(
-            persona: PersonaTag("consent_\(consentLevel.rawValue)"), 
+            persona: PersonaTag("consent_\(consentLevel.rawValue)"),
             lifespan: .permanent
         )
 
@@ -531,7 +1076,7 @@ class PrivacySafeUserIdentification {
         // Update personas
         try? Embrace.client?.metadata.removeAllPersonas(lifespans: [.permanent])
         try? Embrace.client?.metadata.add(
-            persona: PersonaTag("consent_\(newLevel.rawValue)"), 
+            persona: PersonaTag("consent_\(newLevel.rawValue)"),
             lifespan: .permanent
         )
     }
@@ -539,7 +1084,7 @@ class PrivacySafeUserIdentification {
 
 enum ConsentLevel: String {
     case minimal = "minimal"
-    case analytics = "analytics"  
+    case analytics = "analytics"
     case full = "full"
 
     var allowsEmailStorage: Bool {
@@ -555,5 +1100,8 @@ extension String {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 These patterns provide comprehensive user identification strategies that balance analytics needs with privacy considerations, enabling effective user segmentation and personalized experiences.

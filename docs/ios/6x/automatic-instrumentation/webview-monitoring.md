@@ -4,6 +4,9 @@ description: Track WKWebView performance and errors in your iOS app
 sidebar_position: 7
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # WebView Monitoring
 
 The Embrace SDK's `WebViewCaptureService` automatically instruments `WKWebView` instances in your app, providing visibility into web content loading, performance, and error states.
@@ -23,6 +26,31 @@ This data helps you identify slow-loading web content, troubleshoot web errors, 
 ## Configuration
 
 You can customize WebView monitoring behavior when initializing the Embrace SDK:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let services = CaptureServiceBuilder()
+    .add(.webView(options: WebViewCaptureService.Options(
+        captureResourceLoads: true,
+        captureJavaScriptErrors: true,
+        ignoredURLPatterns: ["analytics\\.example\\.com"]
+    )))
+    .addDefaults()
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "APPID",
+    captureServices: services
+    //...other options
+)
+try EmbraceIO.setup(options: options)
+try EmbraceIO.shared.start()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let services = CaptureServiceBuilder()
@@ -44,6 +72,9 @@ try Embrace
     )
     .start()
 ```
+
+</TabItem>
+</Tabs>
 
 ## Customization Options
 
@@ -215,6 +246,33 @@ Ensure smooth performance when transitioning between native views and PWA compon
 
 For advanced use cases, you can manually instrument specific WebView operations:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Get the current WebView span for custom instrumentation
+if let webViewSpan = EmbraceIO.shared.getActiveWebViewSpan(for: myWebView) {
+    // Add custom attributes
+    webViewSpan.setAttribute(key: "custom_attribute", value: "custom_value")
+
+    // Create a child span for a specific operation
+    let childSpan = webViewSpan.createChildSpan(name: "js-execution")
+    childSpan.start()
+
+    // Execute JavaScript
+    myWebView.evaluateJavaScript("calculateComplexValue()") { result, error in
+        if let error = error {
+            childSpan.recordError(error)
+            childSpan.setStatus(.error)
+        }
+        childSpan.end()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Get the current WebView span for custom instrumentation
 if let webViewSpan = Embrace.client?.getActiveWebViewSpan(for: myWebView) {
@@ -235,5 +293,8 @@ if let webViewSpan = Embrace.client?.getActiveWebViewSpan(for: myWebView) {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
  <!-- TODO: Add examples of how WebView data appears in the Embrace dashboard, including load time distributions and error visualizations -->

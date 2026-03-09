@@ -4,6 +4,9 @@ description: Configure crash reporting in your iOS 6.x app with Embrace
 sidebar_position: 5
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Crash Reporting
 
 Embrace is so much more than just a crash reporting service. Still, knowing when and how your application crashed is important. Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
@@ -16,6 +19,20 @@ The first step in initializing crash reporting is configuring which mode you wan
 
 By default, Embrace includes its own crash reporter. No additional configuration is needed:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+try EmbraceIO.setup(
+    options: EmbraceIO.Options.withAppId("YOUR_APP_ID")
+        // Embrace's crash reporter is enabled by default
+)
+try EmbraceIO.shared.start()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 try Embrace
     .setup(
@@ -26,6 +43,9 @@ try Embrace
     )
     .start()
 ```
+
+</TabItem>
+</Tabs>
 
 ### Using Crashlytics with Embrace
 
@@ -55,6 +75,24 @@ Add `pod 'EmbraceIO/EmbraceCrashlyticsSupport'` to your Podfile
 
 Then, configure the SDK to use Crashlytics:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+import EmbraceCrashlyticsSupport
+import EmbraceIO
+
+try EmbraceIO.setup(
+    options: EmbraceIO.Options.withAppId("YOUR_APP_ID",
+        crashReporter: CrashlyticsReporter()
+    )
+)
+try EmbraceIO.shared.start()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 import EmbraceCrashlyticsSupport
 import EmbraceIO
@@ -68,6 +106,9 @@ try Embrace
     )
     .start()
 ```
+
+</TabItem>
+</Tabs>
 
 ## Choosing the Right Crash Reporter
 
@@ -129,6 +170,21 @@ Embrace offers two crash reporting options with different capabilities and data 
 
 If you wish not to use any crash reporting (including Embrace's crash reporting), you can disable it:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+try EmbraceIO.setup(
+    options: EmbraceIO.Options.withAppId("YOUR_APP_ID",
+        crashReporter: nil
+    )
+)
+try EmbraceIO.shared.start()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 try Embrace
     .setup(
@@ -140,6 +196,9 @@ try Embrace
     .start()
 ```
 
+</TabItem>
+</Tabs>
+
 ## Testing Crash Reporting
 
 You can trigger a crash in your app organically, or Embrace provides a test crash function you can call from anywhere in your application.
@@ -150,9 +209,24 @@ Obviously, this function will crash your app. Use it for testing purposes and be
 
 ### Swift
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Note: There is no EmbraceIO equivalent for crash().
+// Use the Embrace client API for testing crashes.
+Embrace.client?.crash()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 Embrace.client?.crash()
 ```
+
+</TabItem>
+</Tabs>
 
 ### Objective-C
 
@@ -194,6 +268,19 @@ You can add custom data that will be included with crash reports using two diffe
 
 Session properties are automatically included in crash reports when using EmbraceCrashReporter:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Add session properties that will be included in crash reports
+try EmbraceIO.shared.setProperty(key: "user_tier", value: "premium", lifespan: .session)
+try EmbraceIO.shared.setProperty(key: "feature_flags", value: "checkout_v2", lifespan: .session)
+try EmbraceIO.shared.setProperty(key: "experiment_group", value: "control", lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Add session properties that will be included in crash reports
 try Embrace.client?.metadata.addProperty(key: "user_tier", value: "premium", lifespan: .session)
@@ -201,11 +288,28 @@ try Embrace.client?.metadata.addProperty(key: "feature_flags", value: "checkout_
 try Embrace.client?.metadata.addProperty(key: "experiment_group", value: "control", lifespan: .session)
 ```
 
+</TabItem>
+</Tabs>
+
 **Note:** Session properties are only included when using `EmbraceCrashReporter`. They are not available with `CrashlyticsReporter`.
 
 #### Custom Crash Info (Both crash reporters)
 
 Both crash reporters support adding custom key-value pairs directly to crash reports:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Note: appendCrashInfo has no EmbraceIO equivalent.
+// Use the Embrace client API for this functionality.
+try Embrace.client?.appendCrashInfo(key: "user_action", value: "checkout_attempt")
+try Embrace.client?.appendCrashInfo(key: "cart_items", value: "3")
+try Embrace.client?.appendCrashInfo(key: "screen_name", value: "payment_form")
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Add custom crash info that will be included in the crash report
@@ -213,6 +317,9 @@ try Embrace.client?.appendCrashInfo(key: "user_action", value: "checkout_attempt
 try Embrace.client?.appendCrashInfo(key: "cart_items", value: "3")
 try Embrace.client?.appendCrashInfo(key: "screen_name", value: "payment_form")
 ```
+
+</TabItem>
+</Tabs>
 
 This method works with both `EmbraceCrashReporter` and `CrashlyticsReporter`.
 

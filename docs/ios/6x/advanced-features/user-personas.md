@@ -4,6 +4,9 @@ description: Segment users based on behaviors or characteristics
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # User Personas
 
 User Personas allow you to dynamically segment app users according to their behavior, characteristics, or other criteria. These personas help you analyze user segments, understand variations in use patterns, and tailor the application experience to meet the diverse ways that users interact with your app.
@@ -33,19 +36,47 @@ The `MetadataHandler` provides an [extension](https://github.com/embrace-io/embr
 
 To retrieve the current set of persona tags, use the `currentPersonas` property. This property fetches persona tags from the storage that apply to the user at the current point in time.
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let personas = EmbraceIO.shared.getCurrentPersonas { }
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let personas = Embrace.client?.metadata.currentPersonas
 ```
 
+</TabItem>
+</Tabs>
+
 ### Adding User Personas
 
 There are [pre-defined tags](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/PersonaTag.swift#L8-L17) that we think are useful, and you can feel free to add your own. Here are some examples on how to add user personas:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+try? EmbraceIO.shared.addPersona(PersonaTag.mvp, lifespan: .permanent)
+
+try? EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 try? Embrace.client?.metadata.add(persona: PersonaTag.mvp, lifespan: .permanent)
 
 try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
 ```
+
+</TabItem>
+</Tabs>
 
 It's recommended to extend `PersonaTag` when you define your own persona tags. This is a good practice to make sure these values stay consistent wherever they are used.
 
@@ -77,6 +108,24 @@ There are three metadata lifespans:
 
 Adding personas allows you to segment users in the Embrace dashboard:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Tag premium users
+if user.subscriptionTier == .premium {
+    try? EmbraceIO.shared.addPersona("premium_subscriber", lifespan: .permanent)
+}
+
+// Tag users who have completed onboarding
+if user.hasCompletedOnboarding {
+    try? EmbraceIO.shared.addPersona("completed_onboarding", lifespan: .permanent)
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Tag premium users
 if user.subscriptionTier == .premium {
@@ -89,9 +138,30 @@ if user.hasCompletedOnboarding {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Feature Adoption Tracking
 
 Track which users are using specific features:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// When user enables dark mode
+func didEnableDarkMode() {
+    try? EmbraceIO.shared.addPersona("uses_dark_mode", lifespan: .permanent)
+}
+
+// When user starts using a beta feature
+func didOptIntoBeta(featureName: String) {
+    try? EmbraceIO.shared.addPersona("beta_\(featureName)", lifespan: .permanent)
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // When user enables dark mode
@@ -105,9 +175,33 @@ func didOptIntoBeta(featureName: String) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### User Journey Analysis
 
 Add personas at key points in the user journey:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Shopping cart flow
+func didAddItemToCart() {
+    try? EmbraceIO.shared.addPersona("has_items_in_cart", lifespan: .session)
+}
+
+func didCheckout() {
+    try? EmbraceIO.shared.addPersona("completed_checkout", lifespan: .session)
+}
+
+func didAbandonCart() {
+    try? EmbraceIO.shared.addPersona("abandoned_cart", lifespan: .session)
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Shopping cart flow
@@ -123,6 +217,9 @@ func didAbandonCart() {
     try? Embrace.client?.metadata.add(persona: "abandoned_cart", lifespan: .session)
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Difference from Session Properties
 

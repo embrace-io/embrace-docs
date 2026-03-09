@@ -12,7 +12,8 @@ This section provides detailed reference documentation for the key classes and i
 
 The Embrace iOS SDK is organized around several core components:
 
-- **[Embrace Client](./embrace-client.md)** - The main interface for interacting with the SDK
+- **[EmbraceIO Client](./embraceio-client.md)** - The new main entry point for interacting with the SDK (v6.16.1+)
+- **[Embrace Client](./embrace-client.md)** - The legacy interface for interacting with the SDK
 - **[Configuration](./configuration.md)** - Options and settings for configuring the SDK
 - **[Capture Services](./capture-services.md)** - Services that automatically instrument your application
 - **[Utility Classes](./utility-classes.md)** - Helper classes and utilities for common tasks
@@ -21,7 +22,8 @@ The Embrace iOS SDK is organized around several core components:
 
 This reference is designed to provide a comprehensive overview of all available APIs in the Embrace iOS SDK 6.x:
 
-- **Embrace Client** - Methods for initializing the SDK, managing sessions, logging, error handling, and user identification
+- **EmbraceIO Client** - The recommended entry point, with methods for initializing the SDK, managing sessions, logging, performance monitoring, and user identification. Includes exclusive features like custom OpenTelemetry resources.
+- **Embrace Client** - The legacy interface, still fully functional for existing integrations
 - **Configuration** - Available options and properties to customize the SDK's behavior
 - **Capture Services** - Reference for built-in automatic instrumentation services including network monitoring, view tracking, tap capture, and more
 - **Utility Classes** - Helper classes and utilities for common tasks and advanced use cases

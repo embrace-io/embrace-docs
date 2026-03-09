@@ -4,6 +4,9 @@ description: Monitor UIViewController lifecycle and performance in your iOS app
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # UIKit View Tracking
 
 The Embrace SDK's `ViewCaptureService` automatically instruments `UIViewController` load and render times, giving you visibility into screen performance and user experience.
@@ -24,6 +27,30 @@ This data helps you identify slow screens, optimize user experience, and underst
 
 You can customize view tracking behavior when initializing the Embrace SDK:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let services = CaptureServiceBuilder()
+    .add(.view(options: ViewCaptureService.Options(
+        instrumentVisibility: true,  // Track screen visibility
+        instrumentFirstRender: true  // Track first render time
+    )))
+    .addDefaults()
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "APPID",
+    captureServices: services
+    //...other options
+)
+try EmbraceIO.setup(options: options)
+try EmbraceIO.shared.start()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let services = CaptureServiceBuilder()
     .add(.view(options: ViewCaptureService.Options(
@@ -43,6 +70,9 @@ try Embrace
     )
     .start()
 ```
+
+</TabItem>
+</Tabs>
 
 ## Available Tracking Features
 

@@ -4,6 +4,9 @@ description: Track push notification events in your iOS app with Embrace
 sidebar_position: 6
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Push Notifications
 
 The Embrace SDK's `PushNotificationCaptureService` automatically captures push notification events in your app, providing visibility into notification delivery, user interaction, and impact on app engagement.
@@ -22,11 +25,37 @@ This data helps you understand how push notifications impact user behavior and a
 
 You can customize push notification tracking when initializing the Embrace SDK:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
 ```swift
 let services = CaptureServiceBuilder()
     .add(.pushNotification(options: PushNotificationCaptureService.Options(
         captureNotificationContent: true,
-        payloadAttributesFilter: { key, _ in 
+        payloadAttributesFilter: { key, _ in
+            return ["campaign_id", "message_id", "notification_type"].contains(key)
+        }
+    )))
+    .addDefaults()
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "APPID",
+    captureServices: services
+    //...other options
+)
+try EmbraceIO.setup(options: options)
+try EmbraceIO.shared.start()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+let services = CaptureServiceBuilder()
+    .add(.pushNotification(options: PushNotificationCaptureService.Options(
+        captureNotificationContent: true,
+        payloadAttributesFilter: { key, _ in
             return ["campaign_id", "message_id", "notification_type"].contains(key)
         }
     )))
@@ -43,6 +72,9 @@ try Embrace
     )
     .start()
 ```
+
+</TabItem>
+</Tabs>
 
 ## Customization Options
 

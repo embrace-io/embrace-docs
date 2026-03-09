@@ -4,6 +4,9 @@ description: Reference documentation for Embrace SDK's automatic instrumentation
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Capture Services
 
 Capture Services are core components of the Embrace SDK that provide automatic instrumentation of your application. Each service focuses on capturing specific types of data and events.
@@ -208,6 +211,36 @@ protocol CaptureService {
 
 ### Configuring Network Capture
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let networkOptions = NetworkCaptureServiceOptions(
+    captureRequestHeaders: true,
+    captureResponseHeaders: true,
+    urlPatternBlocklist: [
+        "^https://analytics\\.example\\.com",
+        "^https://.*\\.sensitiveapi\\.com"
+    ],
+    headerKeys: .init(
+        requestHeadersBlocklist: ["Authorization", "Cookie"],
+        responseHeadersBlocklist: ["Set-Cookie"]
+    )
+)
+
+let services = CaptureServiceBuilder()
+    .add(.network(options: networkOptions))
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    captureServices: services
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let networkOptions = NetworkCaptureServiceOptions(
     captureRequestHeaders: true,
@@ -231,6 +264,9 @@ let options = Embrace.Options(
     captureServices: services
 )
 ```
+
+</TabItem>
+</Tabs>
 
 ### Configuring View Capture
 
@@ -294,6 +330,30 @@ let services = CaptureServiceBuilder()
 
 ### Configuring All Capture Services
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let services = CaptureServiceBuilder()
+    .add(.network(options: networkOptions))
+    .add(.view(options: viewOptions))
+    .add(.tap(options: tapOptions))
+    .add(.webView(options: webViewOptions))
+    .add(.pushNotification(options: pushOptions))
+    .add(.lowMemoryWarning)
+    .add(.lowPowerMode)
+    .add(.hangWatchdog)
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    captureServices: services
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let services = CaptureServiceBuilder()
     .add(.network(options: networkOptions))
@@ -311,5 +371,8 @@ let options = Embrace.Options(
     captureServices: services
 )
 ```
+
+</TabItem>
+</Tabs>
 
 <!-- TODO: Add examples of implementing and registering custom capture services.  -->

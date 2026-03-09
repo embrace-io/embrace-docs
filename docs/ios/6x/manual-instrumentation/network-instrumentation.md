@@ -4,6 +4,9 @@ description: Manually instrument network requests from third-party libraries lik
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Network instrumentation
 
 While Embrace's [automatic instrumentation](../automatic-instrumentation/network-monitoring.md) captures [`URLSession`](https://developer.apple.com/documentation/foundation/urlsession) requests out of the box, manual network instrumentation allows you to track requests made by third-party libraries like gRPC that don't use URLSession.
@@ -30,6 +33,69 @@ import EmbraceIO
 Since gRPC libraries like [`grpc-swift`](https://github.com/grpc/grpc-swift) don't use `URLSession`, their network requests aren't automatically captured. You can manually create spans that appear as HTTP requests in the [networking section](/product/network/index.md) of the Embrace dashboard.
 
 ### Basic gRPC span creation
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class GRPCInstrumentation {
+    func recordGRPCRequest(
+        service: String,
+        method: String,
+        startTime: Date,
+        endTime: Date,
+        statusCode: Int? = nil,
+        requestSize: Int? = nil,
+        responseSize: Int? = nil,
+        error: Error? = nil
+    ) {
+        // Create a URL-like identifier for the gRPC call
+        let grpcURL = "grpc://\(service)/\(method)"
+
+        // Build attributes using HTTP semantic conventions
+        var attributes: [String: String] = [
+            "url.full": grpcURL,
+            "http.request.method": "POST", // gRPC uses POST
+            "rpc.service": service,
+            "rpc.method": method
+        ]
+
+        if let requestSize = requestSize {
+            attributes["http.request.body.size"] = String(requestSize)
+        }
+
+        if let statusCode = statusCode {
+            attributes["http.response.status_code"] = String(statusCode)
+        }
+
+        if let responseSize = responseSize {
+            attributes["http.response.body.size"] = String(responseSize)
+        }
+
+        if let error = error {
+            let nsError = error as NSError
+            attributes["error.type"] = nsError.domain
+            attributes["error.code"] = String(nsError.code)
+            attributes["error.message"] = error.localizedDescription
+        }
+
+        // Record the span
+        EmbraceIO.shared.recordCompletedSpan(
+            name: "POST /\(service)/\(method)",
+            type: .networkRequest,
+            parent: nil,
+            startTime: startTime,
+            endTime: endTime,
+            attributes: attributes,
+            events: [],
+            errorCode: error != nil ? .failure : nil
+        )
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class GRPCInstrumentation {
@@ -90,9 +156,43 @@ class GRPCInstrumentation {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Real-time gRPC span creation
 
 For ongoing gRPC requests, create spans that you can update during the call:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func startGRPCSpan(service: String, method: String) -> Span? {
+    let grpcURL = "grpc://\(service)/\(method)"
+    let attributes = [
+        "url.full": grpcURL,
+        "http.request.method": "POST",
+        "rpc.service": service,
+        "rpc.method": method
+    ]
+
+    return EmbraceIO.shared.buildSpan(
+        name: "POST /\(service)/\(method)",
+        type: .networkRequest,
+        attributes: attributes
+    ).startSpan()
+}
+
+// Usage example
+let span = startGRPCSpan(service: "UserService", method: "GetUser")
+// ... perform gRPC call ...
+span?.setAttribute(key: "http.response.status_code", value: "200")
+span?.setAttribute(key: "http.response.body.size", value: "1024")
+span?.end()
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 func startGRPCSpan(service: String, method: String) -> Span? {
@@ -120,6 +220,9 @@ span?.setAttribute(key: "http.response.status_code", value: "200")
 span?.setAttribute(key: "http.response.body.size", value: "1024")
 span?.end()
 ```
+
+</TabItem>
+</Tabs>
 
 ### Integration with grpc-swift
 
@@ -169,6 +272,54 @@ extension GRPCClient {
 
 ### Alamofire integration
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+import Alamofire
+import EmbraceIO
+
+extension Session {
+    func instrumentedRequest(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil
+    ) -> DataRequest {
+        let span = EmbraceIO.shared.buildSpan(
+            name: "\(method.rawValue) \(url)",
+            type: .networkRequest
+        )?.startSpan()
+
+        let request = self.request(
+            url,
+            method: method,
+            parameters: parameters,
+            encoding: encoding,
+            headers: headers
+        )
+
+        return request.responseData { response in
+            // Add response details to span
+            if let statusCode = response.response?.statusCode {
+                span?.setAttribute(key: "http.response.status_code", value: String(statusCode))
+            }
+
+            if let error = response.error {
+                span?.setAttribute(key: "error.message", value: error.localizedDescription)
+                span?.end(errorCode: .failure)
+            } else {
+                span?.end()
+            }
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 import Alamofire
 import EmbraceIO
@@ -210,6 +361,9 @@ extension Session {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Required information for manual networking
 
@@ -332,6 +486,50 @@ let preferencesSpan = embrace.buildSpan(
 
 ### Request wrapper function
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+func trackNetworkRequest<T>(
+    name: String,
+    url: String,
+    method: String,
+    operation: @escaping () async throws -> T
+) async throws -> T {
+    let span = EmbraceIO.shared.buildSpan(
+        name: name,
+        type: .networkRequest,
+        attributes: [
+            "url.full": url,
+            "http.request.method": method
+        ]
+    )?.startSpan()
+
+    do {
+        let result = try await operation()
+        span?.setAttribute(key: "http.response.status_code", value: "200")
+        span?.end()
+        return result
+    } catch {
+        span?.setAttribute(key: "error.message", value: error.localizedDescription)
+        span?.end(errorCode: .failure)
+        throw error
+    }
+}
+
+// Usage
+let userData = try await trackNetworkRequest(
+    name: "GET /api/user",
+    url: "https://api.example.com/user/123",
+    method: "GET"
+) {
+    return try await fetchUserData()
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 func trackNetworkRequest<T>(
     name: String,
@@ -370,9 +568,54 @@ let userData = try await trackNetworkRequest(
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Custom protocol instrumentation
 
 For WebSocket or other custom protocols:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+class WebSocketInstrumentation {
+    private var connectionSpan: Span?
+
+    func startConnection(url: String) {
+        connectionSpan = EmbraceIO.shared.buildSpan(
+            name: "WebSocket Connection",
+            type: .networkRequest,
+            attributes: [
+                "url.full": url,
+                "protocol": "websocket"
+            ]
+        )?.startSpan()
+    }
+
+    func recordMessage(direction: String, size: Int) {
+        connectionSpan?.addEvent(
+            name: "websocket.message",
+            attributes: [
+                "direction": direction,
+                "size": String(size)
+            ]
+        )
+    }
+
+    func endConnection(error: Error? = nil) {
+        if let error = error {
+            connectionSpan?.setAttribute(key: "error.message", value: error.localizedDescription)
+            connectionSpan?.end(errorCode: .failure)
+        } else {
+            connectionSpan?.end()
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 class WebSocketInstrumentation {
@@ -409,6 +652,9 @@ class WebSocketInstrumentation {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Summary
 

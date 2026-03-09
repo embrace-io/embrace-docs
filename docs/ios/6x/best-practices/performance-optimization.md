@@ -4,6 +4,9 @@ description: Tips for optimizing performance with the Embrace iOS SDK 6.x
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Performance Optimization
 
 The Embrace iOS SDK is designed to have minimal impact on your application's performance. However, there are several best practices you can follow to ensure the SDK operates efficiently.
@@ -14,6 +17,19 @@ The Embrace iOS SDK is designed to have minimal impact on your application's per
 
 In production builds, set the log level to `.error` or `.warning` to minimize console logging:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    logLevel: .error // Use .verbose only for debugging
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 let options = Embrace.Options(
     appId: "YOUR_APP_ID",
@@ -21,9 +37,29 @@ let options = Embrace.Options(
 )
 ```
 
+</TabItem>
+</Tabs>
+
 ### Configure Capture Services Selectively
 
 Only enable the capture services you need:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    enabledCaptureServices: [
+        .networkCaptureService,
+        .viewCaptureService
+        // Only include services you actually need
+    ]
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 let options = Embrace.Options(
@@ -35,6 +71,9 @@ let options = Embrace.Options(
     ]
 )
 ```
+
+</TabItem>
+</Tabs>
 
 ## Network Monitoring Optimization
 
@@ -91,6 +130,21 @@ let viewOptions = ViewCaptureServiceOptions(
 
 Be mindful of the number and size of custom attributes you add to sessions, logs, or spans:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Good practice: use small, relevant attributes
+try? EmbraceIO.shared.setProperty(key: "user_tier", value: "premium", lifespan: .session)
+
+// Avoid: large string values or too many attributes
+// This could impact memory usage
+try? EmbraceIO.shared.setProperty(key: "user_full_details", value: largeJSONString, lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Good practice: use small, relevant attributes
 Embrace.client.addSessionAttribute(key: "user_tier", value: "premium")
@@ -100,9 +154,31 @@ Embrace.client.addSessionAttribute(key: "user_tier", value: "premium")
 Embrace.client.addSessionAttribute(key: "user_full_details", value: largeJSONString)
 ```
 
+</TabItem>
+</Tabs>
+
 ### Avoid Excessive Logging
 
 Use logs strategically and avoid excessive logging, particularly for high-frequency events:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Avoid logging high-frequency events like scrolling
+tableView.didScroll { [weak self] in
+    // Don't do this:
+    // try EmbraceIO.shared.log("User scrolled table view", severity: .info)
+
+    // Instead, maybe log only significant scroll events
+    if reachedBottom {
+        try EmbraceIO.shared.log("User reached end of content", severity: .info)
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Avoid logging high-frequency events like scrolling
@@ -117,9 +193,34 @@ tableView.didScroll { [weak self] in
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ## Batch Operations
 
 For operations that generate many log entries or spans, consider batching them or using a single parent span:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Instead of starting/ending many small spans
+func processItems(items: [Item]) {
+    // Start a parent span
+    let parentSpan = EmbraceIO.shared.buildSpan(name: "process_items_batch").startSpan()
+
+    for item in items {
+        // Process each item
+        processItem(item)
+    }
+
+    // End the parent span
+    parentSpan.end()
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
 
 ```swift
 // Instead of starting/ending many small spans
@@ -136,6 +237,9 @@ func processItems(items: [Item]) {
     parentSpan.end()
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Background Execution
 
@@ -159,6 +263,28 @@ func sceneDidEnterBackground(_ scene: UIScene) {
 
 For very high-volume operations, consider implementing trace sampling to reduce the volume of data:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Only trace some percentage of a high-frequency operation
+func highFrequencyOperation() {
+    // Simple sampling approach
+    let shouldTrace = Double.random(in: 0...1) < 0.1 // 10% sample rate
+
+    if shouldTrace {
+        let span = EmbraceIO.shared.buildSpan(name: "high_frequency_operation").startSpan()
+        // Perform operation
+        span.end()
+    } else {
+        // Just perform operation without tracing
+    }
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Only trace some percentage of a high-frequency operation
 func highFrequencyOperation() {
@@ -174,6 +300,9 @@ func highFrequencyOperation() {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ## Testing Performance Impact
 

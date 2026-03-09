@@ -4,6 +4,9 @@ description: Overview of automatic instrumentation capabilities in the Embrace i
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Automatic Instrumentation
 
 The Embrace iOS SDK provides several built-in Capture Services that automatically instrument your application with minimal setup. These services collect valuable telemetry data and convert them into OpenTelemetry signals like spans and events.
@@ -46,6 +49,41 @@ All of this data is collected automatically and integrated with your session dat
 
 The capture services are configured when you initialize the Embrace SDK. You can use default settings or customize the behavior of each service:
 
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Use all default capture services
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID"
+    // Other options...
+)
+
+// OR customize specific services
+let urlSessionOptions = URLSessionCaptureService.Options(
+    injectTracingHeader: true,
+    ignoredURLs: ["analytics.example.com"]
+)
+
+let services = CaptureServiceBuilder()
+    .add(.urlSession(options: urlSessionOptions))
+    .add(.view(options: ViewCaptureService.Options(
+        instrumentVisibility: true,
+        instrumentFirstRender: true
+    )))
+    .addDefaults() // Add other default services
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    captureServices: services
+    // Other options...
+)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
 ```swift
 // Use all default capture services
 let options = Embrace.Options(
@@ -56,13 +94,13 @@ let options = Embrace.Options(
 // OR customize specific services
 let urlSessionOptions = URLSessionCaptureService.Options(
     injectTracingHeader: true,
-    ignoredURLs: ["analytics.example.com"] 
+    ignoredURLs: ["analytics.example.com"]
 )
 
 let services = CaptureServiceBuilder()
     .add(.urlSession(options: urlSessionOptions))
     .add(.view(options: ViewCaptureService.Options(
-        instrumentVisibility: true, 
+        instrumentVisibility: true,
         instrumentFirstRender: true
     )))
     .addDefaults() // Add other default services
@@ -74,6 +112,9 @@ let options = Embrace.Options(
     // Other options...
 )
 ```
+
+</TabItem>
+</Tabs>
 
 ## Extending Automatic Instrumentation
 
