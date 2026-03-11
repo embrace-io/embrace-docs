@@ -6,7 +6,32 @@ sidebar_position: 4
 
 # Embrace React Native SDK Changelog
 
+## 6.6.0
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.16.2](/ios/changelog/#6151)
+
+- Updated iOS native Embrace SDK dependency to [version 6.15.1](/ios/changelog/#6162)
+
+- Updated iOS
+
+_Mar 11, 2026_
+
+- Upd
+
+## 6.5.0
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.16.1](/ios/changelog/#6151)
+
+- Updated iOS native Embrace SDK dependency to [version 6.15.1](/ios/changelog/#6161)
+
+_Mar 10, 2026_
+
 ## 6.4.1
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.15.1](/ios/changelog/#6151)
 
 _Feb 24, 2026_
 
