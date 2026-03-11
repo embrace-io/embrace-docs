@@ -6,6 +6,13 @@ sidebar_position: 6
 
 # Changelog
 
+## 6.16.3
+
+*March 11, 2026*
+
+- Fixes
+  - Fixed OTel SDK Resources not being correctly used during setup.
+
 ## 6.16.2
 
 *March 10, 2026*
