@@ -43,7 +43,7 @@ Note that in order for these spans to be included, the Embrace SDK has to be set
 
 ## Impact of late SDK initialization
 
-The Embrace SDK should be initialized as early as possible — ideally in `AppDelegate.application(_:didFinishLaunchingWithOptions:)` (or the `App` initializer for SwiftUI). If the SDK is started after `didFinishLaunching` completes or after the app becomes active, the following startup spans will be affected:
+The Embrace SDK should be initialized as early as possible — ideally in `AppDelegate.application(_:didFinishLaunchingWithOptions:)` (or the `App` initializer for SwiftUI), before other third party libraries. If the SDK is started after `didFinishLaunching` completes or after the app becomes active, the following startup spans will be affected:
 
 - **`emb-app-startup-app-init`**: This span will **not be created**. It relies on receiving the `UIApplicationDidFinishLaunchingNotification`, which will have already fired before the SDK had a chance to observe it.
 - **`emb-sdk-setup` and `emb-sdk-start`**: These spans will **not be created**, since they measure the SDK initialization process during `didFinishLaunching`.
