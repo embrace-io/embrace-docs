@@ -15,7 +15,7 @@ The Embrace SDK is built on several key concepts:
 - **[Sessions](./sessions.md)** - Comprehensive records of user interactions during app usage, both in foreground and background states
 - **[Traces & Spans](/sdk/features/traces/?platform=ios)** - OpenTelemetry-based instrumentation for tracking operations and their performance
 - **[Logs](./logs.md)** - Messages and events that provide contextual information about application state
-- **[User Identification](./user-identification.md)** - Methods to identify and segment users for better analytics
+- **[User Identification](/sdk/features/user-identification/?platform=ios)** - Methods to identify and segment users for better analytics
 
 ## How These Concepts Work Together
 

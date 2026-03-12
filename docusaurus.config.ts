@@ -137,7 +137,7 @@ const config: Config = {
             from: "/ios/open-source/features/last-run-end-state/",
           },
           {
-            to: "/ios/6x/core-concepts/user-identification/",
+            to: "/sdk/features/user-identification/",
             from: "/ios/open-source/features/identify-users/",
           },
           {
@@ -475,6 +475,34 @@ const config: Config = {
           {
             to: "/product/traces/",
             from: "/features/performance-tracing",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/android/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/android/features/session-properties",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/ios/6x/core-concepts/user-identification",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/flutter/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/react-native/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/unity/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/web/core-concepts/user-identification",
           },
           {
             to: "/data-destinations/chronosphere-setup",

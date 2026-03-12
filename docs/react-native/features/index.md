@@ -9,7 +9,7 @@ sidebar_position: 2
 Embrace's SDK includes many advanced features that you can enable to help you understand more about
 how your application is performing in production.
 
-- [**Know your users.**](/react-native/features/identify-users/) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
+- [**Know your users.**](/sdk/features/user-identification/?platform=react-native) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 - [**Traces.**](/sdk/features/traces/?platform=react-native) Gain visibility into app operations to help debug the root cause of your mobile app's performance issues.
 - [**Track Navigation.**](/react-native/features/navigation/) Track screen changes as users navigate through your app.
 - [**Track Components.**](/react-native/features/components/) Track the mounting and unmounting of React Components within your app.

@@ -1,0 +1,44 @@
+### User identifier
+
+```kotlin
+Embrace.setUserIdentifier("internal_user_id_123")
+```
+
+:::warning Important
+This data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
+We recommend using an anonymized or hashed user ID that only your agents can search for.
+:::
+
+### User personas
+
+Set a persona to segment users by behavior or characteristics:
+
+```kotlin
+Embrace.addUserPersona("high_value_cart")
+```
+
+You can also remove a persona:
+
+```kotlin
+Embrace.clearUserPersona("high_value_cart")
+```
+
+For the full set of user-related APIs, see the [Android API docs](/api/android/).
+
+### Session properties
+
+Session properties annotate the session with information about the device or session context:
+
+```kotlin
+Embrace.addSessionProperty("launch type", "normal", permanent = false)
+```
+
+You can remove a previously set session property:
+
+```kotlin
+Embrace.removeSessionProperty("launch type")
+```
+
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />

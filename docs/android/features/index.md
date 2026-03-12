@@ -12,8 +12,7 @@ how your application is performing in production.
 - [**Traces.**](/sdk/features/traces/?platform=android) Record traces to monitor the production performance and success rates of operations within your application.
 - [**Breadcrumbs.**](/android/features/breadcrumbs.md) Enrich your sessions with Breadcrumb, a lightweight way to add logging to your session.
 - [**ANRs.**](/product/troubleshooting/anr-reporting.md) Dig into main thread blockages that cause Application Not Responding errors in a user's session.
-- [**Know your users.**](/android/features/identify-users.md) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
-- [**Session properties.**](/android/features/session-properties.md) Session properties provide a way to annotate the session with additional information.
+- [**Know your users.**](/sdk/features/user-identification/?platform=android) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 - [**Background sessions.**](/android/features/background-sessions.md) Embrace can track sessions that occur in the background.
 - [**Push notifications.**](/android/features/push-notifications.md) Embrace automatically captures push notifications received. Learn how to configure this feature.
 - [**Current session ID API.**](/android/features/current-session-id-api.md) This API lets you know what the current session ID is in case you need to track it separately.

@@ -1,0 +1,32 @@
+### User identifier
+
+```cs
+Embrace.Instance.SetUserIdentifier("internal_random_id_1234");
+```
+
+:::warning Important
+This data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
+We recommend using an anonymized or hashed user ID that only your agents can search for.
+:::
+
+For more methods on setting user values, see the [Unity API docs](/api/unity/).
+
+### User personas
+
+Set a persona to segment users by behavior or characteristics:
+
+```cs
+Embrace.Instance.AddUserPersona("high_value_cart");
+```
+
+### Session properties
+
+Session properties annotate the session with information about the device or session context:
+
+```cs
+Embrace.Instance.AddSessionProperty("launch type", "normal", false);
+```
+
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />

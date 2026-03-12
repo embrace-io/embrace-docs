@@ -1,0 +1,31 @@
+### User identifier
+
+```dart
+Embrace.instance.setUserIdentifier('internal_random_id_1234');
+```
+
+:::warning Important
+This data will be uploaded to Embrace, so think about the privacy of your users and only include data you're willing to share. We recommend using an anonymized or hashed user ID that only your agents can search for.
+:::
+
+### User personas
+
+Set a persona to segment users by behavior or characteristics:
+
+```dart
+Embrace.instance.setUserPersona('high_value_cart');
+```
+
+For more methods on setting user values, see the [Flutter API docs](/api/flutter/).
+
+### Session properties
+
+Session properties annotate the session with information about the device or session context:
+
+```dart
+Embrace.instance.addSessionProperty('launch type', 'normal');
+```
+
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />
