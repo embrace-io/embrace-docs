@@ -87,7 +87,7 @@ Embrace enforces certain limits on logs:
   - 500 Error Logs
   - 200 Warning Logs
   - 100 Info Logs
-- Maximum size of logs: 10,000 bytes
+- Maximum log message length: 4,000 characters. Messages are truncated if they exceed the limit.
 
 If your application exceeds these limits, the newest logs will be ignored.
 
