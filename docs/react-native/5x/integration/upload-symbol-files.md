@@ -37,7 +37,9 @@ Change the contents to the following:
 ```shell-session
 export NODE_BINARY=node
 
-export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/main.jsbundle.map"; <-- Add this line
+# Add these two lines
+mkdir -p "$CONFIGURATION_BUILD_DIR/embrace-assets"
+export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map"
 
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```
@@ -87,7 +89,7 @@ See the section relevant for your integration for how to call the run script.
 Use this command format for CocoaPods integrations.
 
 ```shell-session
-REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/main.jsbundle.map" EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
+REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map" EMBRACE_ID=USE_YOUR_APP_ID EMBRACE_TOKEN=USE_YOUR_TOKEN "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
 
 Notice how the script's location is a reference to the CocoaPods installation folder.

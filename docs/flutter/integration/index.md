@@ -48,14 +48,24 @@ import EmbraceCrash
 ### Upload symbol files
 
 :::info
-Embrace uploads your application's dSYM symbol files using a script bundled with the Embrace iOS SDK. This makes stacktraces from crashes human-readable.
+Embrace requires your application's dSYM symbol files to make stacktraces from crashes human-readable.
 :::
 
-On the Xcode **Build Phases** tab, add a new run script. You can find your 5-character app ID and API token in the Embrace dashboard:
+On the Xcode **Build Phases** tab, add a new run script. You can find your 5-character app ID and API token in the Embrace dashboard.
+
+If you are using CocoaPods, the `run.sh` script is bundled with the SDK:
 
 ```shell-session
 EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${PODS_ROOT}/EmbraceIO/run.sh"
 ```
+
+If you are using Swift Package Manager, you must download the support utility from https://downloads.embrace.io/embrace_support.zip, extract it, and place the scripts in your project:
+
+```shell-session
+EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${SRCROOT}/path/to/your/run.sh"
+```
+
+Also ensure that `DEBUG_INFORMATION_FORMAT` is set to `DWARF with dSYM File` in your Build Settings. For more details, see the [iOS dSYM Upload guide](/ios/6x/getting-started/dsym-upload).
 
 ## Android setup
 
