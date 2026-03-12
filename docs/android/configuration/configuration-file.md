@@ -17,8 +17,6 @@ Explanations for each of the fields follow below.
   "api_token": "0123456789abcdef0123456789abcdef",
   "ndk_enabled": true,
   "sdk_config": {
-    "capture_fcm_pii_data": false,
-    "sensitive_keys_denylist": ["secret", "password"],
     "app": {
       "report_disk_usage": true
     },
@@ -26,7 +24,6 @@ Explanations for each of the fields follow below.
       "enabled": true
     },
     "automatic_data_capture": {
-      "memory_info": true,
       "power_save_mode_info": true,
       "network_connectivity_info": true,
       "anr_info": true,
@@ -42,9 +39,6 @@ Explanations for each of the fields follow below.
     "webview": {
       "capture_query_params": false,
       "enable": true
-    },
-    "crash_handler": {
-      "enabled": true
     },
     "compose": {
       "capture_compose_onclick": true
@@ -69,19 +63,12 @@ Explanations for each of the fields follow below.
     "anr": {
       "capture_unity_thread": false
     },
-    "app": {
-      "report_disk_usage": false
-    },
     "background_activity": {
       "capture_enabled": true
     },
     "base_urls": {
       "config": "ABCDEFGH",
       "data": "ABCDEFGH"
-    },
-    "session": {
-      "components": ["ABCDEFGHIJKLMNOPQRSTUV"],
-      "send_full_for": ["ABCDEFGHIJKLMNOPQRST"]
     },
     "sig_handler_detection": false,
     "app_exit_info": {
@@ -106,10 +93,6 @@ Your API 32-hexdigit token.
 #### ndk_enabled *bool*
 
 Enables NDK crash capture. Defaults to `false`.
-
-#### automatic_data_capture - memory_info *bool*
-
-Enables memory warning capture. Defaults to `true`.
 
 #### automatic_data_capture - power_save_mode_info *bool*
 
@@ -233,14 +216,6 @@ Base config URL for the SDK.
 #### base_urls - data *string*
 
 Base data URL for the SDK.
-
-#### session - components *string array*
-
-Allowlist of session components that should be included in the session payload. The presence of this property denotes that the gating feature is enabled.
-
-#### session - send_full_for *string array*
-
-List of events allowed to send a full session payload if the gating feature is enabled.
 
 #### sig_handler_detection *bool*
 
