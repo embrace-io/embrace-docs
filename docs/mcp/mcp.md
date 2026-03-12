@@ -6,9 +6,9 @@ description: Access Embrace mobile observability data through the Model Context 
 
 # Embrace MCP Server
 
-The Embrace Model Context Protocol (MCP) server lets you query your mobile app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, diagnose network issues, monitor app health, and analyze trends without leaving your development workflow.
+The Embrace Model Context Protocol (MCP) server lets you query your mobile and web app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, diagnose network issues, monitor app health, and analyze trends without leaving your development workflow.
 
-Embrace's MCP server is available to all Embrace users.
+Embrace's MCP server is available to all Embrace users and supports iOS, Android, React Native, Unity, and web applications.
 
 ## Available tools
 
@@ -22,11 +22,40 @@ Embrace's MCP server is available to all Embrace users.
 
 ### Crash tools
 
-| Tool                      | Description                                           |
-|---------------------------|-------------------------------------------------------|
-| `list_crashes`            | List top crashes ranked by frequency                  |
-| `get_crash_details`       | Get detailed information about a specific crash group |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis          |
+| Tool                      | Description                                                                                 |
+|---------------------------|---------------------------------------------------------------------------------------------|
+| `list_crashes`            | List top crashes ranked by frequency                                                        |
+| `get_crash_details`       | Get detailed information about a specific crash group                                       |
+| `get_crash_distribution`  | Get distribution of a crash group across a dimension (OS version, device model, country, etc.) compared against session baselines |
+| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                                                |
+
+### Exception tools
+
+| Tool                    | Description                                                                     |
+|-------------------------|---------------------------------------------------------------------------------|
+| `list_exceptions`       | List top exceptions ranked by frequency and user impact                         |
+| `get_exception_details` | Get detailed information about a specific exception group, including counts, affected users, and history |
+
+### Log tools
+
+| Tool                   | Description                                                                                     |
+|------------------------|-------------------------------------------------------------------------------------------------|
+| `list_logs`            | List top log messages grouped by aggregated message pattern                                     |
+| `get_log_details`      | Get detailed information about a specific log group including message template and token analysis |
+| `get_log_distribution` | Get distribution of a log group across a dimension (OS version, device model, country, etc.) compared against session baselines |
+
+### Session tools
+
+| Tool                       | Description                                                    |
+|----------------------------|----------------------------------------------------------------|
+| `get_session_distribution` | Get session counts distributed across a single dimension       |
+
+### Span tools
+
+| Tool                        | Description                                                                             |
+|-----------------------------|-----------------------------------------------------------------------------------------|
+| `list_root_spans`           | List all root spans in an app with performance metrics and outcome rates                |
+| `get_root_span_distribution`| Get distribution by various dimensions for a specific root span                         |
 
 ### Network tools
 
