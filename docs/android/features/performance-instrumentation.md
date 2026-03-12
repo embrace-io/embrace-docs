@@ -171,7 +171,7 @@ class SampleApplication(private val nativeLibName: String) : Application() {
 
 ### Impact of late SDK initialization
 
-The Embrace SDK should be initialized as the first line of `Application.onCreate()` on the main thread. If the SDK is started later than this, the following startup data will be affected:
+The Embrace SDK should be initialized as the first line of `Application.onCreate()` on the main thread, before other third party libraries. If the SDK is started later than this, the following startup data will be affected:
 
 - **Cold vs warm misclassification**: The SDK classifies a launch as cold or warm based on the time gap between SDK initialization and the first Activity creation. If this gap exceeds 2 seconds, the launch is classified as warm. Late SDK initialization increases this gap, which means **actual cold starts can be incorrectly classified as warm starts**.
 - **Cold startup trace start time (Android < 7)**: On Android versions before 7, the SDK cannot determine the process creation time from the system. It falls back to the SDK initialization time as the trace start. If the SDK starts late, the cold startup trace will begin later than the actual process start, resulting in an artificially shorter startup duration.
