@@ -70,13 +70,9 @@ Embrace.getInstance().logInfo("User has entered checkout flow")
 
 :::
 
-:::warning Limits on Log Messages
+import LogLimit from '@site/shared/log-limit.md';
 
-- Properties are limited to 100 per log.
-- Property keys have a limit of 128 characters.
-- Property values have a limit of 1024 characters.
-
-:::
+<LogLimit />
 
 ## Being Alerted on Logs
 
