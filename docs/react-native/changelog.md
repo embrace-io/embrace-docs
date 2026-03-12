@@ -9,22 +9,18 @@ sidebar_position: 4
 ## 6.6.0
 
 Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
-Embrace Apple SDK Version [6.16.2](/ios/changelog/#6151)
+Embrace Apple SDK Version [6.16.2](/ios/changelog/#6162)
 
-- Updated iOS native Embrace SDK dependency to [version 6.15.1](/ios/changelog/#6162)
-
-- Updated iOS
+- Updated iOS native Embrace SDK dependency to [version 6.16.2](/ios/changelog/#6162)
 
 _Mar 11, 2026_
-
-- Upd
 
 ## 6.5.0
 
 Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
-Embrace Apple SDK Version [6.16.1](/ios/changelog/#6151)
+Embrace Apple SDK Version [6.16.1](/ios/changelog/#6161)
 
-- Updated iOS native Embrace SDK dependency to [version 6.15.1](/ios/changelog/#6161)
+- Updated iOS native Embrace SDK dependency to [version 6.16.1](/ios/changelog/#6161)
 
 _Mar 10, 2026_
 
