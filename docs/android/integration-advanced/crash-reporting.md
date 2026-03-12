@@ -48,7 +48,11 @@ If another NDK crash capture tool is initialized **after** Embrace, it will over
 
 The SDK can detect when another library overwrites its signal handlers after installation. When enabled, the SDK checks 5 seconds after initialization whether its handlers are still in place. If they have been overwritten by a library not in the allowlist (currently only `libwebviewchromium.so`), the SDK automatically reinstalls its handlers.
 
-This feature is controlled by the [`sig_handler_detection`](/android/configuration/configuration-file/#sig_handler_detection-bool) setting in `embrace-config.json` and is disabled by default.
+This feature is controlled by the [`sig_handler_detection`](/android/configuration/configuration-file/#sig_handler_detection-bool) setting in `embrace-config.json` and is disabled by default. It can also be overridden remotely by Embrace's backend via a kill switch.
+
+:::warning Changed in 7.0
+Prior to SDK version 7.0, `sig_handler_detection` defaulted to `true` (enabled). Starting with 7.0, it defaults to `false` (disabled). If you are upgrading from a pre-7.0 version and rely on this behavior, you must explicitly set `"sig_handler_detection": true` in your `embrace-config.json`.
+:::
 
 ## Symbolicate stack traces
 
