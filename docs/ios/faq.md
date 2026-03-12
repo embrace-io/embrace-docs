@@ -81,7 +81,7 @@ Both user personas and session properties are custom additions to an integration
 
 For example, a user persona is attached to a user and could be a "payer," "heavy user," "buyer," or "seller," whereas a session property is attached to the session and describe session characteristics such as "dark mode," "purchase made," or "no internet connection." User personas are assigned when a user logs in and are cleared when the user logs out, and session properties are assigned upon session start (session property persistence is determined by the 'permanent' parameter).
 
-For more information and specifics, read about [user identification on iOS](/ios/6x/core-concepts/user-identification.md)
+For more information and specifics, read about [user identification on iOS](/sdk/features/user-identification/?platform=ios)
 
 ## Crashes
 

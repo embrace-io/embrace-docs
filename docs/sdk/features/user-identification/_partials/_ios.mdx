@@ -1,0 +1,124 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### User identifier
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+EmbraceIO.shared.userIdentifier = "user-12345"
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+Embrace.client?.metadata.userIdentifier = "user-12345"
+```
+
+</TabItem>
+</Tabs>
+
+:::warning Note on Privacy
+The value set for `userIdentifier` is not validated by the SDK to follow a specific format. Ensure that this value accurately represents the user without directly storing Personally Identifiable Information (PII). Consider using references, aliases, or hashed values to maintain user privacy and comply with data protection regulations.
+:::
+
+### User personas
+
+Add pre-defined or custom persona tags to segment users:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Using pre-defined tag
+try? EmbraceIO.shared.addPersona(PersonaTag.mvp, lifespan: .permanent)
+
+// Using custom tag
+try? EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+// Using pre-defined tag
+try? Embrace.client?.metadata.add(persona: PersonaTag.mvp, lifespan: .permanent)
+
+// Using custom tag
+try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
+```
+
+</TabItem>
+</Tabs>
+
+It's best practice to extend the `PersonaTag` type to ensure consistent usage:
+
+```swift
+extension PersonaTag {
+  static let authenticated: PersonaTag = "authenticated"
+
+  static func bucket(name: StaticString) -> PersonaTag {
+    return PersonaTag("bucket_\(name)")
+  }
+}
+```
+
+### Session properties
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+try? EmbraceIO.shared.setProperty(key: "launch_type", value: "normal", lifespan: .session)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+try? Embrace.client?.metadata.addProperty(key: "launch_type", value: "normal", lifespan: .session)
+```
+
+</TabItem>
+</Tabs>
+
+### Metadata lifespan
+
+Each piece of metadata can have one of three lifespans:
+
+- **Session** — tied to a single user session and automatically cleared when the session ends.
+- **Process** — scoped to the lifetime of the application process and cleared if the app restarts.
+- **Permanent** — remains associated with the user across multiple sessions until explicitly removed.
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+// Session lifespan
+try? EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
+
+// Process lifespan
+try? EmbraceIO.shared.addPersona("first_launch", lifespan: .process)
+
+// Permanent lifespan
+try? EmbraceIO.shared.addPersona("vip", lifespan: .permanent)
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+// Session lifespan
+try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
+
+// Process lifespan
+try? Embrace.client?.metadata.add(persona: "first_launch", lifespan: .process)
+
+// Permanent lifespan
+try? Embrace.client?.metadata.add(persona: "vip", lifespan: .permanent)
+```
+
+</TabItem>
+</Tabs>

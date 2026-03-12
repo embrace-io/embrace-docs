@@ -1,0 +1,33 @@
+{
+  "platform": "android",
+  "appliesTo": ["android"],
+  "traces": {
+    "maxSpansPerSession": 500,
+    "maxAttributesPerSpan": 100,
+    "maxEventsPerSpan": 10,
+    "maxAttributesPerEvent": 10,
+    "maxLinksPerSpan": 10,
+    "maxAttributeKeyLength": 128,
+    "maxAttributeValueLength": 1024,
+    "maxSpanNameLength": 128,
+    "maxEventNameLength": 128
+  },
+  "logs": {
+    "maxMessageLength": 4000,
+    "maxPropertiesPerLog": 10,
+    "maxPropertyKeyLength": 128,
+    "maxPropertyValueLength": 256,
+    "maxErrorLogsPerSession": 500,
+    "maxWarningLogsPerSession": 200,
+    "maxInfoLogsPerSession": 100
+  },
+  "breadcrumbs": {
+    "maxMessageLength": 256
+  },
+  "sessionProperties": {
+    "maxKeyLength": 128,
+    "maxValueLength": 256,
+    "defaultLimit": 10,
+    "maxLimit": 100
+  }
+}

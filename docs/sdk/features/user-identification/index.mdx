@@ -1,0 +1,63 @@
+---
+title: User Identification
+description: Identify and segment users across all Embrace SDK platforms for effective app monitoring and troubleshooting.
+sidebar_position: 3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import AndroidContent from './_partials/_android.mdx';
+import IosContent from './_partials/_ios.mdx';
+import FlutterContent from './_partials/_flutter.mdx';
+import ReactNativeContent from './_partials/_react-native.mdx';
+import UnityContent from './_partials/_unity.mdx';
+import WebContent from './_partials/_web.mdx';
+
+# User Identification
+
+## Overview
+
+Embrace offers mechanisms to identify users and understand their characteristics. Proper user identification allows you to:
+
+- Find problem sessions for specific users
+- Understand the severity of issues based on affected user segments
+- Provide personalized support to high-value users
+- Track user behavior across multiple sessions
+
+## Methods for user context
+
+The Embrace SDK offers up to three approaches for adding user context, depending on your platform:
+
+- **User Identifier** — a unique ID for tracking specific users across sessions.
+- **User Personas** — tags about user characteristics and behaviors (e.g. `"high_value_cart"`, `"internal_user"`).
+- **Session Properties** — key-value pairs about the device or session context (e.g. launch type, experiment variant).
+
+## Best practices
+
+- **Set early in the session** — add user identity information as early as possible, such as after login.
+- **Be consistent** — use the same identifiers across app sessions.
+- **Protect privacy** — avoid storing PII directly; use IDs, hashes, or references instead.
+- **Update when needed** — change user context when user status changes (e.g., after login/logout).
+
+## API usage examples
+
+<Tabs groupId="platform" queryString="platform">
+  <TabItem value="android" label="Android">
+    <AndroidContent />
+  </TabItem>
+  <TabItem value="ios" label="iOS">
+    <IosContent />
+  </TabItem>
+  <TabItem value="flutter" label="Flutter">
+    <FlutterContent />
+  </TabItem>
+  <TabItem value="react-native" label="React Native">
+    <ReactNativeContent />
+  </TabItem>
+  <TabItem value="unity" label="Unity">
+    <UnityContent />
+  </TabItem>
+  <TabItem value="web" label="Web">
+    <WebContent />
+  </TabItem>
+</Tabs>

@@ -179,7 +179,7 @@ This version has an issue where JVM symbol mapping files are sometimes not being
 :::
 
 - API and functional changes in this major release are documented in the [Upgrade Guide](/android/upgrading/). Key ones to be aware of include:
-  - Moments feature and API have been removed in favor of [Traces](/android/features/traces/), which should be used instead to track how long workflows in the app took to complete.
+  - Moments feature and API have been removed in favor of [Traces](/sdk/features/traces/?platform=android), which should be used instead to track how long workflows in the app took to complete.
   - Public API methods are all implemented in Kotlin, so passing in nulls in Java for parameters annotated with `@NonNull` will cause a runtime exception and could cause a crash.
   - Firebase Cloud Messaging and Compose tap instrumentation require explicit inclusion of modules in your Gradle files.
   - Remove support for deprecated properties in `embrace-config.json` and the Embrace Gradle plugin.
@@ -370,7 +370,7 @@ API Desugaring is now a requirement for apps that support Android 5 and 6. This 
 *March 6, 2024*
 
 - Traces improvements
-  - Support configuration of OpenTelemetry Exporters to export [Traces](/android/features/traces/#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
+  - Support configuration of OpenTelemetry Exporters to export [Traces](/sdk/features/traces/?platform=android#export-to-opentelemetry-collectors) data as OpenTelemetry Spans (beta).
   - Change timestamps parameters of the APIs to use milliseconds to better align with Android developer expectations.
     - Note: timestamps that are in nanoseconds will be detected and converted for now so existing instrumentation will still work, but this will be removed in an upcoming release.
   - Increase per-session limit of spans to 500 in total.
@@ -438,7 +438,7 @@ Gradle 8.4+ is not supported by this version when the NDK crash capture feature 
 
 *November 24, 2023*
 
-- Enabled [Traces](/android/features/traces/) by default
+- Enabled [Traces](/sdk/features/traces/?platform=android) by default
 - Improved build performance of the Gradle plugin
 - Improved session data delivery retries
 - Enforce network call per session limits properly

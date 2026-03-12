@@ -8,7 +8,7 @@ sidebar_position: 16
 
 ## Overview
 
-The Embrace SDK can automatically instrument key workflows as the app goes through its operational lifecycle. The instrumentation generates traces (root span and child spans) similar to the spans that are created when using the [Performance Tracing](/android/features/traces/) API. They will appear in the Embrace UI and be exported via the configured `SpanExporter` just like any other span.
+The Embrace SDK can automatically instrument key workflows as the app goes through its operational lifecycle. The instrumentation generates traces (root span and child spans) similar to the spans that are created when using the [Performance Tracing](/sdk/features/traces/?platform=android) API. They will appear in the Embrace UI and be exported via the configured `SpanExporter` just like any other span.
 
 These traces can be augmented with additional attributes and child spans, as well as configured in other ways.
 

@@ -50,7 +50,7 @@ If you prefer to send the data into a custom backend avoiding Embrace it could b
 
 ### Android
 
-For Android both values can be omitted in the `embrace-config.json` file. For more information visit [Avoiding sending telemetry to Embrace](/android/features/traces/#avoiding-sending-telemetry-to-embrace). Please, make sure you also add `embrace.disableMappingFileUpload = true` to your `gradle.properties` file.
+For Android both values can be omitted in the `embrace-config.json` file. For more information visit [Avoiding sending telemetry to Embrace](/sdk/features/traces/?platform=android). Please, make sure you also add `embrace.disableMappingFileUpload = true` to your `gradle.properties` file.
 
 ### iOS
 

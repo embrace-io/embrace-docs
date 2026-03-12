@@ -1,57 +1,5 @@
----
-title: Traces & Spans
-description: Understanding traces and spans in the Embrace iOS SDK 6.x
-sidebar_position: 2
----
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Traces & Spans
-
-Traces are a powerful feature in the Embrace iOS SDK that give you complete visibility into any operation you'd like to track in your application.
-
-## What are Traces and Spans?
-
-In the Embrace SDK (built on OpenTelemetry):
-
-- A **trace** represents an entire operation or workflow in your application
-- A **span** represents a single unit of work within that trace
-- Spans can be nested, forming parent-child relationships to create a trace
-
-Traces help you identify, prioritize, and resolve performance issues by providing detailed information about operations in your app.
-
-## Key Capabilities
-
-With the Embrace Traces API, you can:
-
-- Create real-time performance timers or record past operations
-- Create child spans that can be attached to a parent
-- Add attributes and events to each span for context
-- Track success/failure states of operations
-
-## Trace Limits
-
-| Type                                  | Limit          |
-| ------------------------------------- | -------------- |
-| Max number of attributes per span     | 128            |
-| Max number of events per span         | 9999           |
-| Max number of attributes per event    | 128            |
-| Max number of breadcrumbs per session | 100            |
-| Length of Span names                  | 128 characters |
-
-If you exceed these limits, the operation with the limit-exceeding call will fail.
-
-## Naming Conventions
-
-- Span Names are **case-sensitive** and are a **max of 50 characters**
-- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric**
-
-:::warning Internal Prefixes
-The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with these prefixes.
-:::
-
-## Creating and Using Spans
 
 ### Creating a Span Builder
 
@@ -391,11 +339,11 @@ let span = Embrace
 
 Child spans of a span flagged for auto termination will also be terminated when their parent is terminated.
 
-## Traces vs Moments
+### Traces vs Moments
 
 If you're migrating from Embrace 5.x, note that Traces replace the Moments functionality with enhanced capabilities. They serve the same purpose of tracking operations, but with the added power of OpenTelemetry's tracing model.
 
-## Best Practices
+### Best Practices
 
 - Use meaningful names for spans that reflect the operation being performed
 - Create parent-child relationships to represent operation hierarchies
@@ -403,5 +351,3 @@ If you're migrating from Embrace 5.x, note that Traces replace the Moments funct
 - Keep span names consistent across your application for better analytics
 - Consider how spans relate to sessions in your application architecture
 - End spans properly to ensure they're recorded correctly
-
- <!-- TODO: Add examples of common use cases for traces like tracking API calls, user workflows, and performance bottlenecks -->

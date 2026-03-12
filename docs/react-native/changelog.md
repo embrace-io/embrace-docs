@@ -219,7 +219,7 @@ _April 15, 2024_
 
 _March 8, 2024_
 
-- [New Feature Traces](/react-native/features/traces/)
+- [New Feature Traces](/sdk/features/traces/?platform=react-native)
 - Updated iOS native Embrace SDK dependency to 5.25.0.
 
 ## 4.0.4

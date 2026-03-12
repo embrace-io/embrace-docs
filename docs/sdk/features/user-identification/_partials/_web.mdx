@@ -1,0 +1,31 @@
+### User identifier
+
+```typescript
+import { user } from '@embrace-io/web-sdk';
+
+user.setUserId("user-12345");
+```
+
+:::warning Note on Privacy
+The value set in `setUserId` is not validated by the SDK to follow a specific format. Ensure that this value accurately represents the user without directly storing Personally Identifiable Information (PII). Consider using references, aliases, or hashed values to maintain user privacy and comply with data protection regulations.
+:::
+
+After setting the user ID, all subsequent sessions will be associated with this user. Every span and log created after this call will also include the user ID as an attribute following the OpenTelemetry semantic conventions.
+
+### Clearing the user identifier
+
+To remove the user identifier:
+
+```typescript
+import { user } from '@embrace-io/web-sdk';
+
+user.clearUserId();
+```
+
+:::info Mixing user identifiers
+Embrace sets the user identifier property on sessions and spans when they end. If you change the user identifier during a session, the new identifier will be used for all subsequent spans and logs. You may [manually end the current session](/web/core-concepts/sessions#what-is-a-session) to ensure that you don't have mixed user activities in the same session with different user identifiers.
+:::
+
+:::info
+The Web SDK does not currently support user personas or session properties. Use the user identifier to track specific users across sessions.
+:::

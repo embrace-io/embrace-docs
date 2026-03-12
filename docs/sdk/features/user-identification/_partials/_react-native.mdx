@@ -1,0 +1,38 @@
+### User identifier
+
+```javascript
+import {setUserIdentifier} from '@embrace-io/react-native';
+
+setUserIdentifier('internal_random_id_1234');
+```
+
+:::warning Important
+This data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
+We recommend using an anonymized or hashed user ID that only your agents can search for.
+:::
+
+For more methods to set and clear user values, see the [source code](https://github.com/embrace-io/embrace-react-native-sdk/blob/main/packages/core/src/api/user.ts).
+
+### User personas
+
+Set a persona to segment users by behavior or characteristics:
+
+```javascript
+import {addUserPersona} from '@embrace-io/react-native';
+
+addUserPersona('high_value_cart');
+```
+
+### Session properties
+
+Session properties annotate the session with information about the device or session context:
+
+```javascript
+import {addSessionProperty} from '@embrace-io/react-native';
+
+addSessionProperty('launch type', 'normal', false);
+```
+
+import PropertyLimit from '@site/shared/property-limit.md';
+
+<PropertyLimit />

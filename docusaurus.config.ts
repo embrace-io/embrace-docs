@@ -125,7 +125,7 @@ const config: Config = {
             from: "/ios/open-source/getting-started/",
           },
           {
-            to: "/ios/6x/core-concepts/traces-spans/",
+            to: "/sdk/features/traces/",
             from: "/ios/open-source/features/traces/",
           },
           {
@@ -137,7 +137,7 @@ const config: Config = {
             from: "/ios/open-source/features/last-run-end-state/",
           },
           {
-            to: "/ios/6x/core-concepts/user-identification/",
+            to: "/sdk/features/user-identification/",
             from: "/ios/open-source/features/identify-users/",
           },
           {
@@ -377,8 +377,32 @@ const config: Config = {
             from: "/ios/integration/update-embrace/",
           },
           {
-            to: "/android/features/traces/",
+            to: "/sdk/features/traces/",
             from: "/android/features/performance-monitoring/",
+          },
+          {
+            to: "/sdk/features/traces/",
+            from: "/android/features/traces/",
+          },
+          {
+            to: "/sdk/features/traces/",
+            from: "/ios/6x/core-concepts/traces-spans/",
+          },
+          {
+            to: "/sdk/features/traces/",
+            from: "/flutter/features/traces/",
+          },
+          {
+            to: "/sdk/features/traces/",
+            from: "/react-native/features/traces/",
+          },
+          {
+            to: "/sdk/features/traces/",
+            from: "/unity/features/traces/",
+          },
+          {
+            to: "/sdk/features/traces/",
+            from: "/web/core-concepts/traces-spans/",
           },
           {
             to: "/product/logs/logs-ui",
@@ -389,7 +413,7 @@ const config: Config = {
             from: "/product/performance-tracing",
           },
           {
-            to: "/android/features/traces",
+            to: "/sdk/features/traces/",
             from: "/android/features/tracing",
           },
           {
@@ -425,7 +449,7 @@ const config: Config = {
             from: "/android/integration/next-steps/",
           },
           {
-            to: "/flutter/features/traces",
+            to: "/sdk/features/traces/",
             from: "/flutter/features/tracing",
           },
           {
@@ -441,16 +465,44 @@ const config: Config = {
             from: "/react-native/4x/features/tracing",
           },
           {
-            to: "/react-native/features/traces",
+            to: "/sdk/features/traces/",
             from: "/react-native/features/tracing",
           },
           {
-            to: "/unity/features/traces",
+            to: "/sdk/features/traces/",
             from: "/unity/features/performance-tracing",
           },
           {
             to: "/product/traces/",
             from: "/features/performance-tracing",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/android/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/android/features/session-properties",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/ios/6x/core-concepts/user-identification",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/flutter/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/react-native/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/unity/features/identify-users",
+          },
+          {
+            to: "/sdk/features/user-identification/",
+            from: "/web/core-concepts/user-identification",
           },
           {
             to: "/data-destinations/chronosphere-setup",

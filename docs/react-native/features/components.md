@@ -14,7 +14,7 @@ The `startView` helper simply provides a Span, so it's up to you as a developer 
 Perhaps it's when a component is mounted and unmounted, or maybe it's when a style is applied that makes the component
 visible or not visible to the user.
 
-First get a `tracer` following the instructions from the [Traces guide](/react-native/features/traces/#integration-steps).
+First get a `tracer` following the instructions from the [Traces guide](/sdk/features/traces/?platform=react-native).
 The method can then be used as follows:
 
 ```javascript

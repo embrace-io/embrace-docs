@@ -190,7 +190,7 @@ You also can pass a User ID to identify users through a set of methods related t
 
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share. Include an anonymized user ID that only your agents can search for.
 
-If no user identifier is set, Embrace sets a random string as the identifier, which is available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/android/features/identify-users.md).
+If no user identifier is set, Embrace sets a random string as the identifier, which is available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/sdk/features/user-identification/?platform=android).
 
 ### **If a user registered in a later session, are previous sessions still linked to that user?**
 
@@ -265,7 +265,7 @@ Embrace automatically adds the following permissions so that it can make HTTP re
 
 ### **How do I measure operations running in parallel?**
 
-Refer to the [Traces feature guide](/android/features/traces) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
+Refer to the [Traces feature guide](/sdk/features/traces/?platform=android) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
 
 ## Tap coordinates
 
@@ -313,7 +313,7 @@ Let’s say your game loads a large 3D environment when the user taps a button i
 
 #### Identify long-running synchronous operations
 
-Use [Traces](/android/features/traces) to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
+Use [Traces](/sdk/features/traces/?platform=android) to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
 
 #### Optimize your game loop
 

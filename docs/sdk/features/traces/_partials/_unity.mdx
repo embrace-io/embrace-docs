@@ -1,0 +1,73 @@
+:::info Minimum Requirements
+**We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Traces is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
+
+For limits pertaining to each platform, see the [Android](/sdk/features/traces/?platform=android) and [iOS](/sdk/features/traces/?platform=ios) limits.
+:::
+
+### Create a Span
+
+```csharp
+// Create a span with a given name.
+// It is important to note that the millisecond time is given
+// in Unix Epoch/POSIX time rather than in .NET ticks.
+Embrace.Instance.StartSpan("SpanName", startTimeMillisPosix);
+```
+
+### Add an Attribute to a Span
+
+```csharp
+var spanId = Embrace.Instance.StartSpan("SpanId", startTimeMillisPosix);
+Embrace.Instance.AddSpanAttribute(spanId, "key", "value");
+```
+
+### Add an Event to a Span
+
+```csharp
+var spanId = Embrace.Instance.StartSpan("spanName", startTime);
+Embrace.Instance.AddSpanEvent(
+    spanId,
+    "EventName",
+    startTime,
+    new Dictionary<string, string> { // attributes for the event
+        {
+            "exampleAttributeKey",
+            "exampleAttributeValue"
+        }
+    }
+);
+```
+
+### Stop Span For Operation That Ended Earlier
+
+```csharp
+Embrace.Instance.StopSpan(spanId, endTimeMillisPosix);
+```
+
+### Stop Span For an Operation That Failed
+
+```csharp
+Embrace.Instance.StopSpan(spanId, stopTimeMillisPosix, EmbraceSpanErrorCode.FAILURE);
+```
+
+### Add a Child Span If the Parent Started Properly
+
+```csharp
+Embrace.Instance.StartSpan("childSpanName", startTimeMillisPosix, parentSpanId)
+```
+
+### Record a completed span
+
+```csharp
+Embrace.Instance.RecordCompletedSpan(
+    "spanName",
+    startTimeMillisPosix,
+    endTimeMillisPosix,
+    EmbraceSpanErrorCode.NONE,
+    attributesMap,
+    parentSpanId
+);
+```
+
+:::info
+In order for a child span to be recorded, you must stop it before stopping the parent span.
+:::

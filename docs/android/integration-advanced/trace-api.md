@@ -27,4 +27,4 @@ span.end()
 In this example a trace measures how long it takes to fetch and process an image. The captured span will have attributes and events
 added to it, along with the start/end time.
 
-The tracing API is very powerful. For further examples and detail, please see the [feature reference docs](/android/features/traces/).
+The tracing API is very powerful. For further examples and detail, please see the [feature reference docs](/sdk/features/traces/?platform=android).
