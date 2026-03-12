@@ -35,6 +35,7 @@ Gradle plugin will automatically upload mapping files at build time to get you h
 
 :::info Configuration
 Mapping file uploads are skipped for debuggable builds or when API credentials are missing. You can control upload behavior with these Gradle properties:
+
 - `embrace.disableMappingFileUpload=true` in `gradle.properties` to disable mapping file uploads entirely
 - `embrace.failBuildOnUploadErrors` (default: `true`) in the `embrace` DSL block to control whether upload failures break the build
 
