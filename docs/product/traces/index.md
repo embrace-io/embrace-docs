@@ -19,13 +19,7 @@ Traces are added to key flows in your app using the Embrace SDKs. Once you've be
 - [Traces in the Dashboard](/product/traces/traces-ui.md): How to measure performance in the Traces page.
 - [Exporting Traces](/product/traces/exporting-traces.md): How to export Traces to other platforms.
 
-To add Traces to your application, use the detailed instrumentation instructions by platform:
-
-- [Android](/android/features/traces.md)
-- [iOS](/ios/6x/core-concepts/traces-spans.md)
-- [React Native](/react-native/features/traces.md)
-- [Unity](/unity/features/traces.md)
-- [Flutter](/flutter/features/traces.md)
+To add Traces to your application, see the [Traces instrumentation guide](/sdk/features/traces/).
 
 ## Learn more
 

@@ -265,7 +265,7 @@ Embrace automatically adds the following permissions so that it can make HTTP re
 
 ### **How do I measure operations running in parallel?**
 
-Refer to the [Traces feature guide](/android/features/traces) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
+Refer to the [Traces feature guide](/sdk/features/traces/?platform=android) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
 
 ## Tap coordinates
 
@@ -313,7 +313,7 @@ Let’s say your game loads a large 3D environment when the user taps a button i
 
 #### Identify long-running synchronous operations
 
-Use [Traces](/android/features/traces) to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
+Use [Traces](/sdk/features/traces/?platform=android) to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
 
 #### Optimize your game loop
 

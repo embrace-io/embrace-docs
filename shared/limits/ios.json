@@ -1,0 +1,33 @@
+{
+  "platform": "ios",
+  "appliesTo": ["ios"],
+  "traces": {
+    "maxAttributesPerSpan": 128,
+    "maxEventsPerSpan": 9999,
+    "maxAttributesPerEvent": 128,
+    "maxSpanNameLength": 128,
+    "maxBreadcrumbsPerSession": 100
+  },
+  "logs": {
+    "maxMessageLength": 4000,
+    "maxLogSize": 10000,
+    "maxPropertiesPerLog": 10,
+    "maxPropertyKeyLength": 128,
+    "maxPropertyValueLength": 256,
+    "maxErrorLogsPerSession": 500,
+    "maxWarningLogsPerSession": 200,
+    "maxInfoLogsPerSession": 100,
+    "maxAttachmentsPerSession": 5,
+    "maxAttachmentSize": 1048576
+  },
+  "breadcrumbs": {
+    "maxMessageLength": 256,
+    "maxPerSession": 100
+  },
+  "sessionProperties": {
+    "maxKeyLength": 128,
+    "maxValueLength": 256,
+    "defaultLimit": 10,
+    "maxLimit": 100
+  }
+}

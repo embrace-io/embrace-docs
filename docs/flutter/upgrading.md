@@ -22,7 +22,7 @@ If you've written additional Android code as part of your integration, you may n
 
 Replace the contents of your iOS `AppDelegate` with the [new approach](/flutter/integration/#ios-setup) for initializing the Embrace SDK. If you have custom configuration or have written Swift/Obj-C code that invokes Embrace, also follow the [iOS upgrade guide](/ios/6x/getting-started/migration-guide.md).
 
-`Embrace.instance.startMoment`, `Embrace.instance.endMoment`, and `Embrace.instance.endAppStartup` are all removed. Use the [Traces API instead](/flutter/features/traces), which provides superior insights into your application's performance.
+`Embrace.instance.startMoment`, `Embrace.instance.endMoment`, and `Embrace.instance.endAppStartup` are all removed. Use the [Traces API instead](/sdk/features/traces/?platform=flutter), which provides superior insights into your application's performance.
 
 `Embrace.instance.getSessionProperties` is removed.
 

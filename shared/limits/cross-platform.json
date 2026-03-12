@@ -1,0 +1,32 @@
+{
+  "platform": "cross-platform",
+  "appliesTo": ["react-native", "flutter", "unity"],
+  "traces": {
+    "maxSpansPerSession": 500,
+    "maxAttributesPerSpan": 50,
+    "maxEventsPerSpan": 10,
+    "maxAttributesPerEvent": 10,
+    "maxAttributeKeyLength": 50,
+    "maxAttributeValueLength": 200,
+    "maxSpanNameLength": 50,
+    "maxEventNameLength": 100
+  },
+  "logs": {
+    "maxMessageLength": 4000,
+    "maxPropertiesPerLog": 10,
+    "maxPropertyKeyLength": 128,
+    "maxPropertyValueLength": 256,
+    "maxErrorLogsPerSession": 500,
+    "maxWarningLogsPerSession": 200,
+    "maxInfoLogsPerSession": 100
+  },
+  "breadcrumbs": {
+    "maxMessageLength": 256
+  },
+  "sessionProperties": {
+    "maxKeyLength": 128,
+    "maxValueLength": 256,
+    "defaultLimit": 10,
+    "maxLimit": 100
+  }
+}

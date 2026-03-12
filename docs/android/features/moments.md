@@ -7,7 +7,7 @@ sidebar_position: 15
 # Moments
 
 :::warning Important
-The moments feature is only available in version 6 and below of the Android SDK. You should use the [Traces API](/android/features/traces) instead.
+The moments feature is only available in version 6 and below of the Android SDK. You should use the [Traces API](/sdk/features/traces/?platform=android) instead.
 :::
 
 ## Overview

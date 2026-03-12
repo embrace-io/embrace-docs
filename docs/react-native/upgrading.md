@@ -166,7 +166,7 @@ The `@embrace-io/react-native-spans` package has been removed and the functional
 `@embrace-io/react-native-tracer-provider` package. The interface for interacting with spans has also been updated to
 conform to the OTel specification. To update, first switch your dependency to the new package and then migrate any
 method calls in your code that used the [5.x Traces methods](/react-native/5x/features/traces) to the updated methods as
-detailed in the [6.x Traces guide](/react-native/features/traces/).
+detailed in the [6.x Traces guide](/sdk/features/traces/?platform=react-native).
 
 ### Migrating startView/endView calls
 
@@ -283,7 +283,7 @@ Replace these with the updated initialization code outlined in [Starting Embrace
 APIs related to moments should be removed from your code.
 
 Any place that you were previously instrumenting your app's performance using Moments can now be done using Performance
-Tracing, please refer to [this guide](/react-native/features/traces/) for more information.
+Tracing, please refer to [this guide](/sdk/features/traces/?platform=react-native) for more information.
 
 ### Troubleshooting
 

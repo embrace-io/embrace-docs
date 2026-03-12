@@ -12,7 +12,7 @@ actions with Redux. It provides a custom middleware that can be configured with 
 
 :::info
 Note that this package requires a Tracer Provider to record its telemetry, if you haven't already you can set that up by
-following the instructions from our [Traces guide](/react-native/features/traces/#integration-steps).
+following the instructions from our [Traces guide](/sdk/features/traces/?platform=react-native).
 :::
 
 npm:

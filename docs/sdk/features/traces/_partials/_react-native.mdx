@@ -1,63 +1,3 @@
----
-title: Traces
-description: Record spans to monitor the production performance and success rates of operations within your mobile app.
-sidebar_position: 2
----
-
-# Traces
-
-## Overview
-
-Embrace’s Traces gives you complete visibility into any customized operation you’d like to track, enabling you to identify, prioritize, and resolve any performance issue. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user
-
-## Feature support
-
-The Embrace Traces API allows you to:
-
-- Create real-time performance timers or record past operations.
-  - For real-time tracing, we use a “Stopwatch” concept that enables you to start and stop the timing of a span manually
-  - To record a past operation, you can pass in start and end times during span creation.
-- Create child spans that can be attached to a parent.
-- Add attributes and events to each span
-  - Attributes have `String` keys and `String` values
-  - Events also have a set of attributes that have `String` keys and values.
-
-There is no limit on the duration of spans, but **if a crash occurs during a span that is in progress, that span will not be recorded.**
-
-### Limits
-
-| Type                               | Limit          |
-| ---------------------------------- | -------------- |
-| Max number of spans per session    | 100            |
-| Max number of spans per Root Span  | 10             |
-| Max number of attributes per span  | 50             |
-| Max number of events per span      | 10             |
-| Max number of attributes per event | 10             |
-| Length of attribute keys           | 50 characters  |
-| Length of attribute values         | 200 characters |
-| Length of Span names               | 50 characters  |
-| Length of Event names              | 100 characters |
-
-:::warning Exceeding Limits
-If you exceed the listed limits, the operation with the limit-exceeding call will fail and return a value indicating that there is a failure. See the API documentation for details.
-:::
-
-### Naming conventions
-
-- Span Names are **case-sensitive** and are a **max of 50 characters.**
-- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric**
-
-:::warning Internal Prefixes
-The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with `emb-` and `emb.` prefixes
-:::
-
-## Integration steps
-
-To use this feature:
-
-1. Instrument your app using the reference guide in this section to start adding spans to your operations.
-2. See the spans in the [Traces](/product/traces/index.md) section of the Embrace dashboard.
-
 ### Install the tracer provider package
 
 npm:
@@ -77,8 +17,6 @@ For iOS you will also need to install or update pods for the application:
 ```sh
 cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
 ```
-
-## API usage examples
 
 ### Getting a tracer
 
@@ -202,7 +140,3 @@ recordCompletedSpan(tracer, "my-completed-span", {
   parent: someParentSpan,
 });
 ```
-
-## Support
-
-If you have any questions or if something is not working as intended, please get in touch with your Customer Success Manager.

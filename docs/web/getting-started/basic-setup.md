@@ -242,5 +242,5 @@ After basic setup, you can:
 
 - Configure [Sourcemap Upload](/web/getting-started/sourcemap-uploads.md) to view symbolicated stack traces for
 - Learn about [Sessions](/web/core-concepts/sessions.md) and how they track user activity exceptions and logs in the Embrace dashboard
-- Explore [Traces & Spans](/web/core-concepts/traces-spans.md) for performance monitoring
+- Explore [Traces & Spans](/sdk/features/traces/?platform=web) for performance monitoring
 - Dig into what is available through [automatic instrumentation](/web/automatic-instrumentation/index.md)
