@@ -34,13 +34,14 @@ With the Embrace Traces API, you can:
 
 | Type                                  | Limit          |
 | ------------------------------------- | -------------- |
+| Max custom spans per session          | 1000           |
 | Max number of attributes per span     | 128            |
 | Max number of events per span         | 9999           |
 | Max number of attributes per event    | 128            |
 | Max number of breadcrumbs per session | 100            |
 | Length of Span names                  | 128 characters |
 
-If you exceed these limits, the operation with the limit-exceeding call will fail.
+Custom spans exceeding the per-session limit will be dropped by the backend. If you exceed the other limits, the operation with the limit-exceeding call will fail.
 
 ## Naming Conventions
 
