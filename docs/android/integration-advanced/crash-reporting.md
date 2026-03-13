@@ -58,3 +58,12 @@ Prior to SDK version 7.0, `sig_handler_detection` defaulted to `true` (enabled).
 
 If you have obfuscated your application with ProGuard, DexGuard, or R8, the captured crashes will contain obfuscated method names. The Embrace
 Gradle plugin will automatically upload mapping files at build time to get you human-readable stacktraces from production.
+
+:::info Configuration
+Mapping file uploads are skipped for debuggable builds or when API credentials are missing. You can control upload behavior with these Gradle properties:
+
+- `embrace.disableMappingFileUpload=true` in `gradle.properties` to disable mapping file uploads entirely
+- `embrace.failBuildOnUploadErrors` (default: `true`) in the `embrace` DSL block to control whether upload failures break the build
+
+For more details, see the [Embrace Gradle Plugin configuration](/android/configuration/embrace-gradle-plugin).
+:::

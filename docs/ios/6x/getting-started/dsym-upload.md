@@ -12,6 +12,22 @@ When applications are uploaded to the App Store they are often stripped of symbo
 Starting on April 25, 2023 Apple requires all apps to be built with Xcode 14. Apple deprecated bitcode in Xcode 14. This means you may be unable to download dSYMs from Apple in the near future. We recommend that you setup automatic uploads. [Apple Announcement](https://developer.apple.com/news/?id=2ygwqlzd)
 :::
 
+:::info Retroactive Symbolication
+Embrace performs symbolication server-side and retroactively. If a dSYM is uploaded after a crash has already been received, Embrace will automatically re-symbolicate older crashes when the matching dSYM arrives. This means you don't lose crash data if dSYMs are uploaded later.
+:::
+
+## Prerequisites
+
+Before setting up dSYM uploads, ensure your Xcode project is configured to generate dSYM files:
+
+1. Select your project in the Project Navigator
+2. Select the appropriate target
+3. Go to **Build Settings** > **All**
+4. Search for **Debug Information Format**
+5. Set the value to **DWARF with dSYM File** (`dwarf-with-dsym`) for both Debug and Release configurations
+
+If this setting is set to `dwarf` (without dSYM), no dSYM files will be generated and the upload script will skip the upload with a warning message.
+
 ## Automatic Uploads
 
 Automatically uploading dSYM files is the recommended approach for symbolication. This ensures that crash reports are properly symbolicated without manual intervention.
@@ -95,10 +111,20 @@ If you are using GitHub Actions, you may instead use [embrace-io/action-symbol-u
 
 If your crashes are not being symbolicated:
 
-1. Verify that dSYM files are being generated in your build settings
+1. Verify that `DEBUG_INFORMATION_FORMAT` is set to `dwarf-with-dsym` in your build settings
 2. Check that the upload script is running successfully in your build logs
 3. Ensure your App ID and API Token are correct
 4. Verify that the dSYM files match the build that crashed
+
+### Debug Mode
+
+The upload script runs in the background by default, which means upload logs appear in your system logs rather than in Xcode's build output. If you need to troubleshoot upload issues, enable debug mode by adding `EMBRACE_DEBUG_DSYM=1` to your run script:
+
+```bash
+EMBRACE_DEBUG_DSYM=1 EMBRACE_ID=YOUR_APP_ID EMBRACE_TOKEN=YOUR_API_TOKEN "${SRCROOT}/path/to/your/run.sh"
+```
+
+In debug mode, the upload runs synchronously and all logs appear directly in the Xcode build output. This slows down the build, so only enable it while troubleshooting.
 
 For more troubleshooting tips, see our [FAQ section](/ios/faq#troubleshooting-dsym-upload).
 

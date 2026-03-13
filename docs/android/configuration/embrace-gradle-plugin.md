@@ -128,6 +128,18 @@ Whether the Embrace Gradle Plugin should report telemetry on its own performance
 
 Whether the Embrace Gradle Plugin should fail the build if it encounters an error during a HTTP request. Defaults to true.
 
+### Gradle Properties
+
+The following properties can be set in your `gradle.properties` file:
+
+#### embrace.disableMappingFileUpload
+
+Set to `true` to disable the automatic upload of ProGuard/R8 mapping files and NDK symbol files. This is useful when using Embrace solely as an OTel exporter without sending data to Embrace's backend. Example:
+
+```properties
+embrace.disableMappingFileUpload=true
+```
+
 #### bytecodeInstrumentation.enabled
 
 Global flag that overrides all others & decides whether Embrace should perform any bytecode instrumentation. Defaults to true.

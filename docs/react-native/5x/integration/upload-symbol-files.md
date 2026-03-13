@@ -37,7 +37,7 @@ Change the contents to the following:
 ```shell-session
 export NODE_BINARY=node
 
-export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/main.jsbundle.map"; <-- Add this line
+export SOURCEMAP_FILE="$CONFIGURATION_BUILD_DIR/main.jsbundle.map"; # <-- Add this line
 
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ```

@@ -169,6 +169,20 @@ class SampleApplication(private val nativeLibName: String) : Application() {
 </TabItem>
 </Tabs>
 
+### Impact of late SDK initialization
+
+The Embrace SDK should be initialized as the first line of `Application.onCreate()` on the main thread, before other third-party libraries. If the SDK is started on a background thread or later in the lifecycle, **all startup data becomes unreliable**. This introduces race conditions where data might occasionally be correct but cannot be trusted. The following areas are affected:
+
+- **Cold vs warm misclassification**: The SDK classifies a launch as cold or warm based on the time gap between SDK initialization and the first Activity creation. If this gap exceeds 2 seconds, the launch is classified as warm. Late SDK initialization increases this gap, which means **actual cold starts can be incorrectly classified as warm starts**.
+- **Cold startup trace start time (Android < 7)**: On Android versions before 7, the SDK cannot determine the process creation time from the system. It falls back to the SDK initialization time as the trace start. If the SDK starts late, the cold startup trace will begin later than the actual process start, resulting in an artificially shorter startup duration.
+- **`emb-process-init` span**: This span measures the time from process creation to `Application` object creation. It is only recorded if the SDK's bytecode instrumentation hooks into `Application.onCreate()`, which requires the SDK to be present at that time.
+- **`emb-embrace-init` span**: This span measures SDK initialization time. While it will still be recorded with late initialization, its relationship to other startup spans may be misleading since the SDK started after the app was already running. Additionally, initializing on a background thread results in artificially longer SDK init times due to lower thread priority and core scheduling.
+- **Missed Activity lifecycle callbacks**: The SDK registers `Application.ActivityLifecycleCallbacks` to detect the first Activity creation and track lifecycle timestamps. If the SDK starts after the first Activity has already been created, these callbacks are missed entirely, and **no startup trace will be generated**. This also affects foreground/background state detection, which is critical for determining when sessions start and end — potentially impacting all session data, not just startup traces.
+
+:::warning
+Late SDK initialization is the most common cause of missing or inaccurate startup and session data. Always initialize the Embrace SDK as the first line of `Application.onCreate()` on the main thread.
+:::
+
 ### App startup traces in old Embrace SDK versions
 
 This documentation covers the app startup instrumentation as of Embrace Android SDK version 7.3.0. For earlier versions, there are the following differences:
