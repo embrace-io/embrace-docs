@@ -170,8 +170,8 @@ Embrace offers two crash reporting options with different capabilities and data 
 
 If you wish not to use the KSCrash-based crash reporter, you can disable it by passing `nil`:
 
-:::info MetricKit still active
-Setting `crashReporter: nil` disables the KSCrash-based crash reporter, but MetricKit crash capture services remain active on iOS 14+. This means the SDK may still capture some OS-level crashes (such as watchdog terminations) even with the crash reporter disabled.
+:::info MetricKit also disabled
+Setting `crashReporter: nil` disables both the KSCrash-based crash reporter and MetricKit crash capture services. The SDK uses the crash reporter reference to determine whether to register MetricKit services, so passing `nil` prevents all crash capture — including OS-level diagnostics from MetricKit.
 :::
 
 <Tabs groupId="embrace-client">
