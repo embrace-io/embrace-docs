@@ -18,6 +18,8 @@ Available artifacts include:
 
 Upload iOS/macOS dSYMs and view upload history. Valid dSYMs enable symbolicated crash stacks.
 
+Embrace performs symbolication server-side and retroactively. When a dSYM is uploaded after crashes have already been received, Embrace automatically re-symbolicates those older crashes with the newly available symbols. This means crash grouping remains consistent regardless of when the dSYM was uploaded.
+
 Developers can use DSYMs to:
 
 - Ensure iOS crashes show symbolicated function names and files.
