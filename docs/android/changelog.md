@@ -10,6 +10,23 @@ sidebar_position: 6
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
+## 8.2.0
+
+*March 13, 2026*
+
+- Adopt official OpenTelemetry Kotlin API (`io.opentelemetry.kotlin`)
+  - This new package is based on the Embrace Kotlin OTel API use in previous versions, which was donated and renamed.
+  - Under the hood, the official OTel Java SDK is still used, so there's no change there.
+- Fail the app build with a warning if an invalid entry is found in `embrace-config.json`.
+- Capture sessions from app instances terminated unexpectedly even if native crash capture is disabled.
+- Block network requests to Embrace when the server cannot be reached, even if the device has a network connection.
+  - The SDK will test at a reasonable cadence whether the Embrace server can be reached and send all the blocked requests when it can.
+- Enable native crash capture by default, i.e. if unspecified in `embrace-config.json`.
+- Track in-process OkHttp network requests in a session that ended with a crash.
+- Inject traceparent that matches the ID of the span exported through OTel SpanExporters that represents the request.
+- Make consistent thread blockage (ANR) data in session when the main thread is unblocking at the same time the session is ending.
+- Update OpenTelemetry Java API and SDK to `1.60.1`.
+
 ## 8.1.0
 
 *January 12, 2026*
