@@ -143,8 +143,6 @@ Each filter table in this page uses the same columns:
 | Has File Attachment<br /><code class="filters-table__key">has_attachment</code> | Whether the log has a file attachment. | Boolean | — |
 | Has Logs<br /><code class="filters-table__key">has_log</code> | Whether the session contains logs. | Choice (String) | Choices: `true` |
 | Log Property Key<br /><code class="filters-table__key">log_property_key</code> | Key of a log property. | String | — |
-| Message<br /><code class="filters-table__key">log_raw_msg</code> | Message content of the log. | String | — |
-| Message<br /><code class="filters-table__key">raw_msg</code> | Message content of the log. | String | — |
 | Type<br /><code class="filters-table__key">log_type</code> | Type of the log or event. | Choice (String) | Choices: `info`, `warning`, `error`, `system` |
 | Type<br /><code class="filters-table__key">type</code> | Type of the log or event. | Choice (String) | Choices: `info`, `warning`, `error`, `system` |
 
