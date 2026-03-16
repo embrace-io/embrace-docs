@@ -47,8 +47,8 @@ try Embrace
     .start()
 ```
 
-If instead you only initialized the SDK through JS then the `disableCrashReporter` property can be set during the
-call to initialize the SDK:
+Alternatively the `disableCrashReporter` property can be set during the JavaScript call to initialize the SDK if you
+are not configuring this on the native side:
 
 ```javascript
 initialize({
