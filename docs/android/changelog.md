@@ -14,10 +14,17 @@ Please review the [Upgrade Guide](/android/upgrading/) when moving from one majo
 
 *March 13, 2026*
 
+:::info Important
+This release uses the official OpenTelemetry Kotlin API (`io.opentelemetry.kotlin`), switching from the Embrace Kotlin OTel API (`io.embrace.opentelemetry.kotlin`) from which the new API is based. Please change your dependencies if you explicitly referenced the old Embrace Kotlin OTel API in your app.
+:::
+
+:::info Important
+This release also requires `embrace-config.json` to ONLY contain valid keys. The app build will fail if it contains a key that the plugin does not recognize.
+:::
+
 - Adopt official OpenTelemetry Kotlin API (`io.opentelemetry.kotlin`)
   - This new package is based on the Embrace Kotlin OTel API use in previous versions, which was donated and renamed.
   - Under the hood, the official OTel Java SDK is still used, so there's no change there.
-- Fail the app build with a warning if an invalid entry is found in `embrace-config.json`.
 - Capture sessions from app instances terminated unexpectedly even if native crash capture is disabled.
 - Block network requests to Embrace when the server cannot be reached, even if the device has a network connection.
   - The SDK will test at a reasonable cadence whether the Embrace server can be reached and send all the blocked requests when it can.
