@@ -27,12 +27,12 @@ Setting [`crash_handler.enabled`](/android/configuration/configuration-file/#cra
 
 ## NDK crash capture
 
-The Embrace SDK does not automatically capture NDK crash reports. To enable NDK crash reports add the
+The Embrace SDK automatically captures NDK crash reports. To disable NDK crash reports add the
  `ndk_enabled` setting to your `app/src/main/embrace-config.json` file:
 
 ```json
 {
-  "ndk_enabled": true
+  "ndk_enabled": false
 }
 ```
 
