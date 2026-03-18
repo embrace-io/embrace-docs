@@ -143,8 +143,6 @@ Each filter table in this page uses the same columns:
 | Has File Attachment<br /><code class="filters-table__key">has_attachment</code> | Whether the log has a file attachment. | Boolean | — |
 | Has Logs<br /><code class="filters-table__key">has_log</code> | Whether the session contains logs. | Choice (String) | Choices: `true` |
 | Log Property Key<br /><code class="filters-table__key">log_property_key</code> | Key of a log property. | String | — |
-| Message<br /><code class="filters-table__key">log_raw_msg</code> | Message content of the log. | String | — |
-| Message<br /><code class="filters-table__key">raw_msg</code> | Message content of the log. | String | — |
 | Type<br /><code class="filters-table__key">log_type</code> | Type of the log or event. | Choice (String) | Choices: `info`, `warning`, `error`, `system` |
 | Type<br /><code class="filters-table__key">type</code> | Type of the log or event. | Choice (String) | Choices: `info`, `warning`, `error`, `system` |
 
@@ -332,6 +330,10 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| Element<br /><code class="filters-table__key">element</code> | CSS selector of the relevant element. | String | — |
+| Interaction Target<br /><code class="filters-table__key">interaction_target</code> | CSS selector of the interaction target. | String | — |
+| LCP Target<br /><code class="filters-table__key">lcp_target</code> | CSS selector of the LCP element. | String | — |
+| Largest Shift Target<br /><code class="filters-table__key">largest_shift_target</code> | CSS selector of the largest shift target. | String | — |
 | Web Vital Name<br /><code class="filters-table__key">name</code> | Name of the web vital. | String | — |
 | Web Vital Rating<br /><code class="filters-table__key">rating</code> | Rating of the web vital (e.g., good, poor). | Choice (String) | Choices: `poor`, `needs_improvement`, `good` |
 
