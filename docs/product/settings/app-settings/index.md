@@ -11,4 +11,4 @@ Key tabs and their functions:
 - [**Data Usage:**](/product/settings/app-settings/data-usage.md) Control sampling rates globally and per-version; manage iOS WebView log collection.
 - [**Network:**](/product/settings/app-settings/network.md) Define first-party domains and grouping rules for network monitoring.
 - [**Artifact uploads:**](/product/settings/app-settings/dsym-symbols.md) Upload and audit symbol files (dSYMs for iOS, Proguard/NDK for Android, Source Maps for JS/Web) to enable stack trace symbolication.
-- [**Page Labels:**](/product/settings/app-settings/page-labels.md) Use Page Labels to group web pages by their type or template 
+- [**Page Labels:**](/product/settings/app-settings/page-labels.md) Use Page Labels to group web pages by their type or template.
