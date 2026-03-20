@@ -7,7 +7,7 @@ sidebar_position: 8
 
 Grouping pages by their type or the template they use makes Web Vitals data more actionable and filters easier to use.
 
-By default pages are grouped by their title – `document.title` – but we recommend creating your own Page Labels to group pages in a way that makes sense for your site or app – a retailer might choose Home, PLP, PDP etc, or a news publisher Home, Section, Article, Video article etc. for their page labels.
+By default pages are grouped by their title – `document.title` – but we recommend creating your own Page Labels to group pages in a way that makes sense for your site or app. A retailer might choose Home, PLP, PDP etc, or a news publisher Home, Section, Article, Video article etc. for their page labels.
 
 :::info
 Page Labels are supported by SDK v2.14.0 or later.
