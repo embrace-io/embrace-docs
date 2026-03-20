@@ -22,10 +22,10 @@ Open the settings for your App and click on the *Page Labels* tab.
 
 The rules are evaluated in the order they are listed so the most specific rules should be at the top of the list.
 
-<img src={require('@site/static/images/settings/page-labels/list-of-page-labels.png').default} alt="Screenshot of List of Page Labels on Settings page" />   
+<img src={require('@site/static/images/settings/page-labels/list-of-page-labels.png').default} alt="Screenshot of List of Page Labels on Settings page" />
 
 
-### Adding a New Label 
+### Adding a New Label
 
 *Add Rule* allows you to create more Labels.
 
@@ -42,7 +42,6 @@ You can test patterns by adding a URL to the field at the bottom of the dialog a
 
 <img src={require('@site/static/images/settings/page-labels/testing-a-page-label-rule.png').default} alt="Screenshot of Checking a URL Pattern on Settings page" />
 
-  
 :::note
 
 Patterns are evaluated when the RUM data is ingested and labels are immutable once ingested.
@@ -56,7 +55,7 @@ Only the protocol, domain and path components of a URL are used when matching la
 
 Page Labels can also be set directly via the SDK. URL based rules will take precedence over SDK set ones.
 
-```
+``` js
     pageManager.setPageLabel('my-custom-label');
     pageManager.setRoute({label:'my-custom-label', ...});
 ```
