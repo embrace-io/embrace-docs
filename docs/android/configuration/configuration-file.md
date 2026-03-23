@@ -92,7 +92,7 @@ Your API 32-hexdigit token.
 
 #### ndk_enabled *bool*
 
-Enables NDK crash capture. Defaults to `false`.
+Enables NDK crash capture. Defaults to `true`.
 
 #### automatic_data_capture - power_save_mode_info *bool*
 
@@ -219,7 +219,7 @@ Base data URL for the SDK.
 
 #### sig_handler_detection *bool*
 
-Enables 3rd party signal handler detection. Defaults to `true`.
+Enables 3rd party signal handler detection. When enabled, the SDK checks if its NDK signal handlers have been overwritten by other libraries and reinstalls them if needed. Defaults to `false`.
 
 #### app_exit_info - aei_enabled *bool*
 

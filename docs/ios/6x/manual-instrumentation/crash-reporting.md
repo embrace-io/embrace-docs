@@ -168,7 +168,11 @@ Embrace offers two crash reporting options with different capabilities and data 
 
 ### Disabling Crash Reporting
 
-If you wish not to use any crash reporting (including Embrace's crash reporting), you can disable it:
+If you wish not to use the KSCrash-based crash reporter, you can disable it by passing `nil`:
+
+:::info MetricKit also disabled
+Setting `crashReporter: nil` disables both the KSCrash-based crash reporter and MetricKit crash capture services. The SDK uses the crash reporter reference to determine whether to register MetricKit services, so passing `nil` prevents all crash capture — including OS-level diagnostics from MetricKit.
+:::
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>

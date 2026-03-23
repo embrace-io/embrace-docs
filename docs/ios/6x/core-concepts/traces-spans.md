@@ -34,18 +34,19 @@ With the Embrace Traces API, you can:
 
 | Type                                  | Limit          |
 | ------------------------------------- | -------------- |
+| Max custom spans per session          | 1000           |
 | Max number of attributes per span     | 128            |
 | Max number of events per span         | 9999           |
 | Max number of attributes per event    | 128            |
 | Max number of breadcrumbs per session | 100            |
 | Length of Span names                  | 128 characters |
 
-If you exceed these limits, the operation with the limit-exceeding call will fail.
+Custom spans exceeding the per-session limit will be dropped by the backend. If you exceed the other limits, the operation with the limit-exceeding call will fail.
 
 ## Naming Conventions
 
-- Span Names are **case-sensitive** and are a **max of 50 characters**
-- Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric**
+- Span Names are **case-sensitive** and are a **max of 128 characters**
+- Key Names are **case-sensitive**, have a **max of 128 characters**, and are **alphanumeric**
 
 :::warning Internal Prefixes
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with these prefixes.
