@@ -24,7 +24,9 @@ The Web Vitals dashboard is split into six tabs – an overview tab and one for 
 
 Each tab has an red / amber / green marker allowing you to quickly see the current rating for each Vital.
 
-<img src={require('@site/static/images/web-vitals/tab-bar.png').default} alt="Screenshot of Web Vitals Tab Bar" />
+<figure>
+    <img src={require('@site/static/images/web-vitals/tab-bar.png').default} alt="Screenshot of Web Vitals Tab Bar" />
+</figure>
 
 As with other dashboards, it can be filtered to a subset using the filters at the top of the page.
 
@@ -32,7 +34,9 @@ As with other dashboards, it can be filtered to a subset using the filters at th
 
 The top panel contains a distribution chart for each Vital showing the proportion Good, Needs Improvement and Poor measurements along with the 75th percentile value for the Vital.
 
-<img src={require('@site/static/images/web-vitals/overview.png').default} alt="Screenshot of Web Vitals Overview" />
+<figure>
+    <img src={require('@site/static/images/web-vitals/overview.png').default} alt="Screenshot of Web Vitals Overview" />
+</figure>
 
 The table allows you to understand how the Vitals vary across the different areas of your application and highlights areas where they need improving.
 
@@ -40,7 +44,9 @@ By default the table is grouped by [Page Label](/docs/product/settings/app-setti
 
 The other columns show the 75th percentile value for relevant Vital and the color indicates whether the Vital is rated Good, Needs Improvement or Poor.
 
-<img src={require('@site/static/images/web-vitals/overview-heatmap-table.png').default} alt="Screenshot of Heatmap Table with Page Label as the grouping dimension" />
+<figure>
+    <img src={require('@site/static/images/web-vitals/overview-heatmap-table.png').default} alt="Screenshot of Heatmap Table with Page Label as the grouping dimension" />
+</figure>
 
 Clicking on a table cell will reveal a tooltip. The *Show Details* link will switch to the relevant Vital tab and apply the chosen Page Label as a filter.
 
@@ -53,20 +59,28 @@ Each of the Vitals tabs follows a similar pattern and the examples below are tak
 
 The top panel shows the distribution chart for LCP split by the proportion of Good, Needs Improvement and Poor measurements along with the 75th percentile value for LCP.
 
-<img src={require('@site/static/images/web-vitals/lcp-distribution.png').default} alt="Screenshot of LCP summary distribution" />
+<figure>
+    <img src={require('@site/static/images/web-vitals/lcp-distribution.png').default} alt="Screenshot of LCP summary distribution" />
+</figure>
 
 The timeseries chart illustrates how the 75th percentile varies by time. Seasonality is common in timeseries data and metrics can vary between day and night or between weekdays and weekends depending on the visitor mix. The chart line is colored by the corresponding Vital rating for the time interval.
 
-<img src={require('@site/static/images/web-vitals/lcp-timeseries.png').default} alt="Screenshot of timeseries chart showing LCP" />
+<figure>
+    <img src={require('@site/static/images/web-vitals/lcp-timeseries.png').default} alt="Screenshot of timeseries chart showing LCP" />
+</figure>
 
 
 The stacked column chart shows how the split of Good, Needs Improvement and Poor ratings vary over time.
 
-<img src={require('@site/static/images/web-vitals/lcp-distribution-over-time.png').default} alt="Screenshot of stacked column chart showing the rating for LCP over time" />
+<figure>
+    <img src={require('@site/static/images/web-vitals/lcp-distribution-over-time.png').default} alt="Screenshot of stacked column chart showing the rating for LCP over time" />
+</figure>
 
 At the bottom of the dashboard is a table showing examples of LCP measurements. Clicking on a row takes you to the [User Timeline](https://embrace.io/docs/product/sessions/user-timeline/) for the chosen example.
 
-<img src={require('@site/static/images/web-vitals/lcp-examples.png').default} alt="Screenshot of table showing examples of the LCP measurements " />
+<figure>
+    <img src={require('@site/static/images/web-vitals/lcp-examples.png').default} alt="Screenshot of table showing examples of the LCP measurements " />
+</figure>
 
 Web Vitals are available in context with the other technical operations of a user's session in the [User Timeline](/product/sessions/user-timeline.md). For a given Core Web Vital, Embrace displays the element that is most responsible for creating the Core Web Vital calculation.
 
