@@ -88,6 +88,3 @@ Web Vitals for pages can also be aggregated and analyzed across all users with [
 ## Implementation
 
 Web Vitals are automatically collected by the [Embrace Web SDK](/web/getting-started/index.md).
-
-
-
