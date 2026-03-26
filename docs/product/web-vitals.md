@@ -43,7 +43,7 @@ The other columns show the 75th percentile value for relevant Vital and the colo
 
 <img src={require('@site/static/images/web-vitals/overview-heatmap-table.png').default} alt="Screenshot of Heatmap Table with Page Label as the grouping dimension" />
 
-Hovering over a table cell reveals a tooltip. *Show Details* will switch to the relevant Vitals tab and filter by the chosen Page Label.
+Hovering over a table cell reveals a tooltip. *See Details* will switch to the relevant Vitals tab and filter by the chosen Page Label.
 
 Other tables in the overview tab show how performance varies by Device Type, Browser and Location.
 
