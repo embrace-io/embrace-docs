@@ -53,5 +53,5 @@ Page Labels can also be set directly via the SDK. URL based rules will take prec
 
 ``` js
     pageManager.setPageLabel('my-custom-label');
-    pageManager.setRoute({label:'my-custom-label', ...});
+    pageManager.setCurrentRoute({ label: 'my-custom-label', path: '/products/:productId', url: '/products/123' });
 ```
