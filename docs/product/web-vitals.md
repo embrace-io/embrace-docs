@@ -25,7 +25,9 @@ The Web Vitals dashboard is split into six tabs – an overview tab and one for 
 
 Each tab has an red / amber / green marker allowing you to quickly see the current rating for each Vital.
 
-<img src={require('@site/static/images/web-vitals/tab-bar.png').default} alt="Screenshot of Web Vitals Tab Bar" />
+<figure>
+    <img src={require('@site/static/images/web-vitals/tab-bar.png').default} alt="Screenshot of Web Vitals Tab Bar" />
+</figure>
 
 As with other dashboards, it can be filtered to a subset using the filters at the top of the page.
 
