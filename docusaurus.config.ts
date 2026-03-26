@@ -499,6 +499,10 @@ const config: Config = {
           {
             to: "/metrics-forwarding/metrics-api/code-samples",
             from: "/embrace-api/code_samples"
+          },
+          {
+            to: "/product/web-vitals",
+            from: "/product/core-web-vitals"
           }
         ],
       },
