@@ -6,6 +6,13 @@ sidebar_position: 6
 
 # Changelog
 
+## 6.17.1
+
+*March 27, 2026*
+
+- Fixes
+  - Fixed a crash when launching the sdk on arm64_32 devices like most Apple Watches.
+
 ## 6.17.0
 
 *March 26, 2026*
