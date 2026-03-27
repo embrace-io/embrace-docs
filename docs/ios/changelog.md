@@ -6,6 +6,19 @@ sidebar_position: 6
 
 # Changelog
 
+## 6.17.0
+
+*March 26, 2026*
+
+- Fixes
+  - Fixed a crash caused when GZipping the payload data under memory pressure situations.
+  - Added missing --library-evolution flag on xccache when building the XCFramework release, which adds the missing BUILD_LIBRARY_FOR_DISTRIBUTION=YES flag.
+  - Fixed a crash on launch when compiling with Xcode 26.4 and launching the app with iOS 26.2 or below due to a silent, undocumented breaking change on MetricKit.
+  - Fixed the session counter logic.
+  - Fixed Errors on spans missing localizedDescription caused by early cast from Error to NSError before reading errorDescription.
+  - Fixed a memory leak caused by URLSession in situations where the session was invalidated but its reference was never cleared, leaving an internal strong reference to the delegate alive, preventing the delegate from dealocating.
+  - Fixed SDK not compiling for watchOS, tvOS and macOS.
+
 ## 6.16.3
 
 *March 11, 2026*
