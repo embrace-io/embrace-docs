@@ -37,7 +37,7 @@ The top panel contains a distribution chart for each Vital showing the proportio
 
 The table allows you to understand how the Vitals vary across the different areas of your application and highlights areas where they need improving.
 
-By default the table is grouped by [Page Label](/docs/product/settings/app-settings/page-labels/) and the percentage column shows the relative number of data samples.
+By default the table is grouped by [Page Label](/product/settings/app-settings/page-labels/) and the percentage column shows the relative number of data samples.
 
 The other columns show the 75th percentile value for relevant Vital and the color indicates whether the Vital is rated Good, Needs Improvement or Poor.
 
