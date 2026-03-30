@@ -245,4 +245,3 @@ embrace {
 | `sdk_config.app.report_disk_usage` | Boolean | `true` | Disk usage reporting |
 | `sdk_config.capture_fcm_pii_data` | Boolean | `false` | FCM notification title/body |
 | `sdk_config.sig_handler_detection` | Boolean | `false` | 3rd party signal handler detection |
-
