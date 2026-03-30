@@ -246,20 +246,3 @@ embrace {
 | `sdk_config.capture_fcm_pii_data` | Boolean | `false` | FCM notification title/body |
 | `sdk_config.sig_handler_detection` | Boolean | `false` | 3rd party signal handler detection |
 
-### Key Remote Config Options
-
-| Config Key | Default | Controls |
-|-----------|---------|----------|
-| `threshold` | `100` | Percentage of devices SDK is enabled on |
-| `pct_state_enabled_v2` | Enabled | Percentage with state capture enabled |
-| `pct_thermal_status_enabled` | Enabled | Percentage with thermal state capture |
-| `pct_aei_enabled_v2` | Enabled | Percentage with AEI capture |
-| `pct_enabled` (thread blockage) | `100` | Percentage with ANR capture |
-| `pct_enabled` (network span forwarding) | Disabled | Percentage with NSF enabled |
-| `breadcrumbs` limit | `100` | Custom breadcrumbs per session |
-| `taps` limit | `100` | Tap events per session |
-| `web_views` limit | `100` | WebView events per session |
-| `fragments` limit | `100` | View/Activity events per session |
-| `info_limit` | `100` | Info logs per session |
-| `warn_limit` | `200` | Warning logs per session |
-| `error_limit` | `500` | Error logs per session |
