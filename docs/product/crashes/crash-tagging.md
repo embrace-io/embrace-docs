@@ -31,16 +31,21 @@ You can also see, create, and modify rules in the Settings view.
 
 ### With a CODEOWNERS File
 
-POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`. Include your `app`,  
+POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`. Include your `app`,
 `token` (the symbol upload token used to upload symbols files), `file` and `base_directory`. The `base_directory` is the
 prefix that will be stripped from the stack frame file paths before matching. This is useful for matching stack traces
-from React Native.
+from React Native. For Android apps, `base_directory` is also used to extract Java/Kotlin package names from file paths.
 
 <img src={require('@site/static/images/Postman-Codeowners example.png').default} alt="screenshot of Codeowners upload" />
 
 **NOTE: Automatically tagging owners using a CODEOWNERS file is most useful in crashes where the stack trace information
 matches your source code layout. Matching will not work in cases where the crash frame does not match your source code.
 For example, a native Android crash in a React Native app will not match the JavaScript source code for the app.**
+
+**Android support:** When `type=android` is provided, Embrace will automatically generate additional matching rules
+based on Java/Kotlin package names derived from file paths in your CODEOWNERS file. This allows CODEOWNERS entries like
+`src/main/java/com/example/feature/ @team-name` to match Android crash frames that report method names
+(e.g., `com.example.feature.MyClass.onCreate`).
 
 Use the following curl command to upload the CODEOWNERS file:
 
