@@ -5,6 +5,8 @@ sidebar_position: 6
 
 # Owner Rules
 
+<img src={require('@site/static/images/settings/owner-rules-list.png').default} alt="Owner Rules list view" />
+
 Owner Rules let you assign crash ownership to teams or individuals based on patterns in the stack trace. When a crash matches a rule, the corresponding owner is displayed on the Crash Summary and Crash Details pages, making it easy to route issues to the right team.
 
 Rules can be created in two ways: directly in the dashboard or by uploading a CODEOWNERS file. See [Crash Tagging with Codeowners](/product/crashes/crash-tagging) for full details on the CODEOWNERS upload flow.
@@ -18,6 +20,8 @@ Rules can be created in two ways: directly in the dashboard or by uploading a CO
 From here you can create, edit, reorder, and delete rules.
 
 ### Rule Fields
+
+<img src={require('@site/static/images/settings/owner-rules-create-modal.png').default} alt="Create New Rule modal" width="500px"/>
 
 Each rule has three fields:
 
