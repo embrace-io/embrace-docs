@@ -1,4 +1,4 @@
-name: CI - Markdown Lint
+name: "CI - Markdown Lint"
 
 on:
   pull_request:
@@ -12,11 +12,11 @@ jobs:
   rumdl:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          python-version: "3.13"
+          persist-credentials: false
+
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
 
       - name: Install rumdl
         run: pip install -r requirements.txt
@@ -41,16 +41,28 @@ jobs:
             echo >> rumdl.md
             echo 'You can find an explanation of all linting rules [here](https://github.com/rvben/rumdl/blob/main/docs/RULES.md).' >> rumdl.md
             echo 'Run `rumdl check` locally, use `--fix` to fix issues automatically where possible.' >> rumdl.md
+
+            echo 'RUMDL_LINT_ANY_FINDINGS=true' | tee -a $GITHUB_ENV
           else
             grep '^Success:' output.md >> rumdl.md
             echo '```' >> rumdl.md
+
+            echo 'RUMDL_LINT_ANY_FINDINGS=false' | tee -a $GITHUB_ENV
           fi
 
       - name: Add output as PR comment
         uses: embrace-io/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
+        if: ${{ env.RUMDL_LINT_ANY_FINDINGS == 'true' }}
         with:
           comment-tag: rumdl
           file-path: rumdl.md
+
+      - name: Delete PR comment
+        uses: embrace-io/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
+        if: ${{ env.RUMDL_LINT_ANY_FINDINGS == 'false' }}
+        with:
+          comment-tag: rumdl
+          mode: delete
 
       - name: Fail on lint violations
         run: |
