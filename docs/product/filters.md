@@ -131,6 +131,18 @@ Each filter table in this page uses the same columns:
 
 </div>
 
+## LoAF Script Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Script Domain<br /><code class="filters-table__key">script_domain</code> | Domain of the long animation frame script. | String | — |
+| Script Path<br /><code class="filters-table__key">script_path</code> | Path of the long animation frame script. | String | — |
+| Was From INP<br /><code class="filters-table__key">was_from_inp</code> | Whether the script contributed to an INP interaction. | Boolean | — |
+
+</div>
+
 ## Log Filters
 
 <div class="filters-table">
