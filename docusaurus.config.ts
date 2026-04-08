@@ -48,13 +48,6 @@ const config: Config = {
       "runllm-preset": "docusaurus",
       async: true,
     },
-    {
-      src: "scripts/init.js",
-    },
-    {
-      id: "reo-script",
-      src: "scripts/reo.js",
-    },
   ],
 
   themes: [
