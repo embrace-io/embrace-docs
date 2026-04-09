@@ -6,6 +6,13 @@ sidebar_position: 6
 
 # Embrace Flutter SDK changelog
 
+## 4.5.0
+
+*Apr 8, 2026*
+
+- Updated Embrace iOS SDK to 6.17.1
+- Fixed embrace_dio not recording HTTP error responses with status code
+
 ## 4.4.0
 
 *Mar 23, 2026*
