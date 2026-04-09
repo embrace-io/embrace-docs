@@ -131,6 +131,18 @@ Each filter table in this page uses the same columns:
 
 </div>
 
+## LoAF Script Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Script Domain<br /><code class="filters-table__key">script_domain</code> | Domain of the long animation frame script. | String | — |
+| Script Path<br /><code class="filters-table__key">script_path</code> | Path of the long animation frame script. | String | — |
+| Was From INP<br /><code class="filters-table__key">was_from_inp</code> | Whether the script contributed to an INP interaction. | Boolean | — |
+
+</div>
+
 ## Log Filters
 
 <div class="filters-table">
@@ -334,6 +346,7 @@ Each filter table in this page uses the same columns:
 | Interaction Target<br /><code class="filters-table__key">interaction_target</code> | CSS selector of the interaction target. | String | — |
 | LCP Target<br /><code class="filters-table__key">lcp_target</code> | CSS selector of the LCP element. | String | — |
 | Largest Shift Target<br /><code class="filters-table__key">largest_shift_target</code> | CSS selector of the largest shift target. | String | — |
+| Value<br /><code class="filters-table__key">value</code> | Value of the web vital. | float | — |
 | Web Vital Name<br /><code class="filters-table__key">name</code> | Name of the web vital. | String | — |
 | Web Vital Rating<br /><code class="filters-table__key">rating</code> | Rating of the web vital (e.g., good, poor). | Choice (String) | Choices: `poor`, `needs_improvement`, `good` |
 
