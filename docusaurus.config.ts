@@ -490,20 +490,20 @@ const config: Config = {
           },
           {
             to: "/metrics-forwarding/metrics-api/",
-            from: "/embrace-api/"
+            from: "/embrace-api/",
           },
           {
             to: "/metrics-forwarding/metrics-api/grafana-integration",
-            from: "/embrace-api/grafana_integrations"
+            from: "/embrace-api/grafana_integrations",
           },
           {
             to: "/metrics-forwarding/metrics-api/code-samples",
-            from: "/embrace-api/code_samples"
+            from: "/embrace-api/code_samples",
           },
           {
             to: "/product/web-vitals",
-            from: "/product/core-web-vitals"
-          }
+            from: "/product/core-web-vitals",
+          },
         ],
       },
     ],
@@ -559,13 +559,12 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20251112", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20260414", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://embrace.io/blog/speedcurve-joins-embrace/?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Embrace acquires SpeedCurve, expands user-focused observability platform with web performance insights.</a>',
+        '<a target="_blank" href="https://get.embrace.io/ai-powered-observability?utm_source=website&utm_medium=website&utm_campaign=docs-banner">LIVE SESSION on April 29: Less toil, faster fixes: AI-powered observability with Embrace</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
-
 
     navbar: {
       logo: {

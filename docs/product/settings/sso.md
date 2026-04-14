@@ -85,11 +85,11 @@ Embrace application is published in Okta's Integration Network, which simplifies
 
 The following SAML attributes are supported:
 
-| Name | Value |
-|--------|--------|
+| Name      | Value          |
+| --------- | -------------- |
 | FirstName | user.firstName |
-| LastName | user.lastName |
-| Email | user.email |
+| LastName  | user.lastName  |
+| Email     | user.email     |
 
 ### Optional Attributes
 
@@ -97,9 +97,9 @@ Role- and project-based provisioning can be enabled by the Embrace team at the o
 
 Once support has enabled the feature for your org, you may add the following attributes to your SAML assertion:
 
-| Attribute | Description |
-|-----------|-------------|
-| `Role` | Maps IdP group values to Embrace roles. Values containing `admin` resolve to Admin; values containing `member`/`user` resolve to Member. |
+| Attribute  | Description                                                                                                                                                    |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Role`     | Maps IdP group values to Embrace roles. Values containing `admin` resolve to Admin; values containing `member`/`user` resolve to Member.                       |
 | `Projects` | Scopes Member access to specific projects. Each value should be `<project_external_id>[:grant]` where grant is `manage`, `edit`, or `view` (default `manage`). |
 
 Project external IDs are the short hashes shown in the dashboard URL and the project settings page.
