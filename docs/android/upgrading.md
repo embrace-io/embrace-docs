@@ -5,6 +5,62 @@ sidebar_position: 6
 
 # Upgrade guide
 
+## Upgrading from 8.x to 9.x
+
+### Quick start
+
+1. **Change Embrace version**
+   - Set the version of the Embrace Android SDK to `{{ embrace_sdk_version platform="android" }}`.
+
+2. **Compile the app and fix errors**
+   - You will get build errors due to renamed and removed symbols in the user session API.
+   - See the [Altered APIs](/android/upgrading/#altered-apis-1) section for a full list of changes.
+
+3. **Build and install your app**
+   - Verify the migration was successful by sending a session to your dashboard.
+
+### Altered APIs
+
+All session-related methods have been renamed to use the `UserSession` prefix.
+
+| Old API | New API |
+|---|---|
+| `Embrace.addSessionProperty(String, String, Boolean)` | `Embrace.addUserSessionProperty(String, String, PropertyScope)` |
+| `Embrace.removeSessionProperty(String)` | `Embrace.removeUserSessionProperty(String)` |
+| `Embrace.endSession(Boolean)` | `Embrace.endUserSession()` |
+| `Embrace.getCurrentSessionId()` | `Embrace.getCurrentUserSessionId()` |
+
+### PropertyScope
+
+The `Boolean permanent` parameter in `addUserSessionProperty` has been replaced with a `PropertyScope` enum. This makes the lifetime of a property explicit:
+
+| Old API | New API | Behaviour |
+|---|---|---|
+| `addUserSessionProperty(key, value, true)` | `addUserSessionProperty(key, value, PropertyScope.PERMANENT)` | Property persists across all user sessions |
+| `addUserSessionProperty(key, value, false)` | `addUserSessionProperty(key, value, PropertyScope.USER_SESSION)` | Property is cleared at the start of the next user session |
+| _(no equivalent)_ | `addUserSessionProperty(key, value, PropertyScope.PROCESS)` | Property is cleared when the process ends |
+
+### UserSessionListener
+
+A new callback API allows you to observe when user sessions start and end. Register a listener after starting the SDK:
+
+```kotlin
+Embrace.addUserSessionListener(object : UserSessionListener {
+    override fun onSessionStateEvent(event: SessionStateEvent) {
+        when (event) {
+            is SessionStateEvent.UserSessionActive -> {
+                // A new session has started; event.getUserSessionId() returns its ID
+            }
+            is SessionStateEvent.UserSessionEnded -> {
+                // A session has ended; event.getUserSessionId() returns its ID
+            }
+        }
+    }
+})
+```
+
+If you previously specified `clearUserInfo` when ending sessions manually you should use `addUserSessionListener` to clear user information.
+
 ## Upgrading from 7.x to 8.x
 
 ### Quick start
