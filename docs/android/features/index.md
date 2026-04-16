@@ -13,10 +13,10 @@ how your application is performing in production.
 - [**Breadcrumbs.**](/android/features/breadcrumbs.md) Enrich your sessions with Breadcrumb, a lightweight way to add logging to your session.
 - [**ANRs.**](/product/troubleshooting/anr-reporting.md) Dig into main thread blockages that cause Application Not Responding errors in a user's session.
 - [**Know your users.**](/android/features/identify-users.md) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
-- [**Session properties.**](/android/features/session-properties.md) Session properties provide a way to annotate the session with additional information.
+- [**User session properties.**](/android/features/session-properties.md) User session properties provide a way to annotate the user session with additional information.
 - [**Background sessions.**](/android/features/background-sessions.md) Embrace can track sessions that occur in the background.
 - [**Push notifications.**](/android/features/push-notifications.md) Embrace automatically captures push notifications received. Learn how to configure this feature.
-- [**Current session ID API.**](/android/features/current-session-id-api.md) This API lets you know what the current session ID is in case you need to track it separately.
+- [**Current user session ID API.**](/android/features/current-session-id-api.md) This API lets you know what the current user session ID is in case you need to track it separately.
 - [**Last run end state.**](/android/features/last-run-end-state.md) Understand if your last app instance ended in a crash.
 - [**Configuration file.**](/android/configuration/configuration-file.md) The SDK has many configuration options available.
 - [**Jetpack Compose.**](/android/features/jetpack-compose.md) Enable Jetpack Compose (beta) to track taps on composables.
