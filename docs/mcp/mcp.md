@@ -4,15 +4,15 @@ sidebar_position: 0
 description: Access Embrace mobile observability data through the Model Context Protocol
 ---
 
-# Embrace MCP Server
+## Embrace MCP Server
 
 The Embrace Model Context Protocol (MCP) server lets you query your mobile and web app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, diagnose network issues, monitor app health, and analyze trends without leaving your development workflow.
 
 Embrace's MCP server is available to all Embrace users and supports iOS, Android, React Native, Unity, and web applications.
 
-## Available tools
+### Available tools
 
-### App tools
+#### App tools
 
 | Tool               | Description                                                         |
 |--------------------|---------------------------------------------------------------------|
@@ -20,7 +20,7 @@ Embrace's MCP server is available to all Embrace users and supports iOS, Android
 | `get_app_details`  | Get health metrics, crash-free rates, and session counts for an app |
 | `get_top_versions` | Identify which app versions are most widely used                    |
 
-### Crash tools
+#### Crash tools
 
 | Tool                      | Description                                                                                 |
 |---------------------------|---------------------------------------------------------------------------------------------|
@@ -29,14 +29,14 @@ Embrace's MCP server is available to all Embrace users and supports iOS, Android
 | `get_crash_distribution`  | Get distribution of a crash group across a dimension (OS version, device model, country, etc.) compared against session baselines |
 | `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                                                |
 
-### Exception tools
+#### Exception tools
 
 | Tool                    | Description                                                                     |
 |-------------------------|---------------------------------------------------------------------------------|
 | `list_exceptions`       | List top exceptions ranked by frequency and user impact                         |
 | `get_exception_details` | Get detailed information about a specific exception group, including counts, affected users, and history |
 
-### Log tools
+#### Log tools
 
 | Tool                   | Description                                                                                     |
 |------------------------|-------------------------------------------------------------------------------------------------|
@@ -44,20 +44,20 @@ Embrace's MCP server is available to all Embrace users and supports iOS, Android
 | `get_log_details`      | Get detailed information about a specific log group including message template and token analysis |
 | `get_log_distribution` | Get distribution of a log group across a dimension (OS version, device model, country, etc.) compared against session baselines |
 
-### Session tools
+#### Session tools
 
 | Tool                       | Description                                                    |
 |----------------------------|----------------------------------------------------------------|
 | `get_session_distribution` | Get session counts distributed across a single dimension       |
 
-### Span tools
+#### Span tools
 
 | Tool                        | Description                                                                             |
 |-----------------------------|-----------------------------------------------------------------------------------------|
 | `list_root_spans`           | List all root spans in an app with performance metrics and outcome rates                |
 | `get_root_span_distribution`| Get distribution by various dimensions for a specific root span                         |
 
-### Network tools
+#### Network tools
 
 | Tool                              | Description                                                                                      |
 |-----------------------------------|--------------------------------------------------------------------------------------------------|
@@ -68,16 +68,16 @@ Embrace's MCP server is available to all Embrace users and supports iOS, Android
 | `get_network_endpoint_timeseries` | Get time-series metrics showing how an endpoint's performance changes over time                  |
 | `get_network_endpoint_breakdown`  | Break down endpoint performance by dimension — country, OS version, app version, or device model |
 
-## Prerequisites
+### Prerequisites
 
 Before you can use the Embrace MCP server, you need:
 
 - An active Embrace account with access to at least one application
 - An MCP-compatible AI assistant
 
-## Setup examples
+### Setup examples
 
-### Cursor
+#### Cursor
 
 Follow the MCP Integration instructions in [Cursor's official docs](https://cursor.com/docs/context/mcp#using-mcpjson).
 
@@ -93,7 +93,7 @@ For example, add to your `mcp.json` file:
 }
 ```
 
-### Claude Code
+#### Claude Code
 
 Run:
 
@@ -103,7 +103,7 @@ claude mcp add --transport http embrace https://mcp.embrace.io/mcp
 
 Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: Bearer Token authentication is not currently supported.
 
-### Opencode
+#### Opencode
 
 Follow the OAuth MCP integration instructions in [Opencode's official docs](https://opencode.ai/docs/mcp-servers/#oauth).
 
@@ -127,15 +127,15 @@ Then authenticate using:
 opencode mcp auth embrace
 ```
 
-### All others
+#### All others
 
 For other AI Assistants supporting MCP, please reference your relevant docs. Official support will come in the near future for these as we continue to improve and add functionality.
 
 The Embrace MCP Server uses a Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
 
-## Common use cases
+### Common use cases
 
-### Daily health check
+#### Daily health check
 
 Check your app's overall health and identify any issues:
 
@@ -145,7 +145,7 @@ Check your app's overall health and identify any issues:
 
 **Example query:** "What's the health status of my app today?"
 
-### Investigate a critical crash
+#### Investigate a critical crash
 
 Deep dive into a specific crash to understand its root cause:
 
@@ -155,7 +155,7 @@ Deep dive into a specific crash to understand its root cause:
 
 **Example query:** "What's causing the top crash in my app and how do I fix it?"
 
-### Investigate network performance
+#### Investigate network performance
 
 Identify slow or error-prone endpoints and scope who is affected:
 
@@ -167,7 +167,7 @@ Identify slow or error-prone endpoints and scope who is affected:
 
 **Example query:** "Which network endpoints are causing the most errors in version 3.2.0?"
 
-### Version-specific analysis
+#### Version-specific analysis
 
 Focus on a particular app version:
 
@@ -177,7 +177,7 @@ Focus on a particular app version:
 
 **Example query:** "Show me all crashes in version 2.1.0"
 
-### Track trends over time
+#### Track trends over time
 
 Monitor how your app's health changes:
 

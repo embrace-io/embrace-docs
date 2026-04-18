@@ -4,7 +4,7 @@ description: Reference documentation for the EmbraceIO client, the new main entr
 sidebar_position: 1
 ---
 
-# EmbraceIO Client
+## EmbraceIO Client
 
 The `EmbraceIO` class is the new main entry point for interacting with the Embrace SDK, introduced in **v6.16.1**. It provides a simplified and streamlined API for configuring, starting, and interacting with the SDK.
 
@@ -12,9 +12,9 @@ The `EmbraceIO` class is the new main entry point for interacting with the Embra
 The existing [`Embrace` client](./embrace-client.md) can still be used and remains fully functional. However, `EmbraceIO` is now considered the primary entry point for the SDK APIs. Some features, such as passing a custom OpenTelemetry `Resource` during initialization, are only available through the `EmbraceIO` client.
 :::
 
-## Setup and Initialization
+### Setup and Initialization
 
-### `setup(options:)`
+#### `setup(options:)`
 
 Configures the Embrace SDK with the provided options.
 
@@ -33,7 +33,7 @@ static func setup(options: EmbraceIO.Options) throws
 - Must be called from the main thread
 - Won't do anything if the SDK was already set up
 
-### `shared`
+#### `shared`
 
 Provides access to the singleton instance of the `EmbraceIO` class.
 
@@ -43,11 +43,11 @@ static let shared: EmbraceIO
 
 **Note**: While the singleton is always available, you must call `setup(options:)` before calling `start()`.
 
-## Creating Options
+### Creating Options
 
 `EmbraceIO.Options` is created using factory methods rather than direct initialization.
 
-### `Options.withAppId(_:...)`
+#### `Options.withAppId(_:...)`
 
 Creates options for use with an Embrace app ID. This is the most common configuration.
 
@@ -73,7 +73,7 @@ class func withAppId(
 - `logLevel`: Verbosity level for console logs. Defaults to `.default`.
 - `otel`: Optional `EmbraceIO.OTelOptions` to configure the OpenTelemetry SDK. See [Custom OpenTelemetry Resource](#custom-opentelemetry-resource).
 
-### `Options.withLocalConfiguration(_:...)`
+#### `Options.withLocalConfiguration(_:...)`
 
 Creates options without an app ID, using a local configuration instead. In this mode, data is not uploaded to Embrace servers, so you should provide custom exporters via `EmbraceIO.OTelOptions`.
 
@@ -90,11 +90,11 @@ class func withLocalConfiguration(
 
 **Note**: The `otel` parameter is required when using local configuration, since you need to provide exporters to handle the generated data.
 
-## Instance Methods and Properties
+### Instance Methods and Properties
 
-### Core Functionality
+#### Core Functionality
 
-#### `start()`
+##### `start()`
 
 Starts the Embrace SDK, initiating data collection and session tracking.
 
@@ -106,7 +106,7 @@ func start() throws
 
 **Note**: Won't do anything if the SDK was already started or if it was disabled via remote configurations.
 
-#### `stop()`
+##### `stop()`
 
 Stops the Embrace SDK from capturing and generating data.
 
@@ -122,7 +122,7 @@ func stop() throws
 - All active spans will be automatically ended
 - All capture services and session tracking will be stopped
 
-#### `state`
+##### `state`
 
 Returns the current state of the SDK.
 
@@ -132,7 +132,7 @@ var state: EmbraceSDKState { get }
 
 **Returns**: The current SDK state: `.notInitialized`, `.initialized`, `.started`, or `.stopped`.
 
-#### `isSDKEnabled`
+##### `isSDKEnabled`
 
 Returns true if the SDK is started and was not disabled through remote configurations.
 
@@ -140,7 +140,7 @@ Returns true if the SDK is started and was not disabled through remote configura
 var isSDKEnabled: Bool { get }
 ```
 
-#### `logLevel`
+##### `logLevel`
 
 Controls the verbosity level of the Embrace SDK console logs.
 
@@ -148,7 +148,7 @@ Controls the verbosity level of the Embrace SDK console logs.
 var logLevel: LogLevel { get set }
 ```
 
-#### `sdkVersion`
+##### `sdkVersion`
 
 Returns the version of the Embrace SDK.
 
@@ -156,9 +156,9 @@ Returns the version of the Embrace SDK.
 class var sdkVersion: String { get }
 ```
 
-### Session Management
+#### Session Management
 
-#### `startNewSession()`
+##### `startNewSession()`
 
 Forces the Embrace SDK to start a new session.
 
@@ -168,7 +168,7 @@ func startNewSession()
 
 **Note**: If there was a session running, it will be ended before starting a new one. Won't do anything if the SDK is stopped.
 
-#### `endCurrentSession()`
+##### `endCurrentSession()`
 
 Forces the Embrace SDK to stop the current session, if any.
 
@@ -176,7 +176,7 @@ Forces the Embrace SDK to stop the current session, if any.
 func endCurrentSession()
 ```
 
-#### `currentSessionId`
+##### `currentSessionId`
 
 Returns the identifier for the current Embrace session, if any.
 
@@ -184,7 +184,7 @@ Returns the identifier for the current Embrace session, if any.
 var currentSessionId: String? { get }
 ```
 
-#### `deviceId`
+##### `deviceId`
 
 Returns the identifier used by Embrace for the current device, if any.
 
@@ -192,7 +192,7 @@ Returns the identifier used by Embrace for the current device, if any.
 var deviceId: String? { get }
 ```
 
-#### `resetUploadCache()`
+##### `resetUploadCache()`
 
 Clears the upload cache data on the next launch.
 
@@ -200,9 +200,9 @@ Clears the upload cache data on the next launch.
 func resetUploadCache()
 ```
 
-### Logging
+#### Logging
 
-#### `log(_:severity:type:timestamp:attachment:attributes:stackTraceBehavior:)`
+##### `log(_:severity:type:timestamp:attachment:attributes:stackTraceBehavior:)`
 
 Creates and emits a log for the current session.
 
@@ -230,9 +230,9 @@ func log(
 
 **Throws**: `EmbraceOTelError.logLimitReached` if the log limit has been reached for the current session.
 
-### Performance Monitoring
+#### Performance Monitoring
 
-#### `buildSpan(name:type:attributes:autoTerminationCode:)`
+##### `buildSpan(name:type:attributes:autoTerminationCode:)`
 
 Creates a span builder for creating and customizing a performance span.
 
@@ -254,7 +254,7 @@ func buildSpan(
 
 **Returns**: A `SpanBuilder`, or `nil` if the SDK was not initialized yet.
 
-#### `recordCompletedSpan(...)`
+##### `recordCompletedSpan(...)`
 
 Records a span after the fact with all details.
 
@@ -271,7 +271,7 @@ func recordCompletedSpan(
 )
 ```
 
-#### `flush(_:)`
+##### `flush(_:)`
 
 Flushes a span to disk, useful for long-running spans.
 
@@ -279,7 +279,7 @@ Flushes a span to disk, useful for long-running spans.
 func flush(_ span: Span)
 ```
 
-#### Adding Events to the current Session Span
+##### Adding Events to the current Session Span
 
 ```swift
 // Add a single event to the current session span
@@ -289,9 +289,9 @@ func add(event: SpanEvent)
 func add(events: [SpanEvent])
 ```
 
-### User Identification and Metadata
+#### User Identification and Metadata
 
-#### User Properties
+##### User Properties
 
 Set user information directly on the `EmbraceIO.shared` instance:
 
@@ -306,7 +306,7 @@ EmbraceIO.shared.clearUserProperties()
 
 **Important**: The `userIdentifier` should be an anonymized identifier. Use hashed values, UUIDs, or other privacy-safe identifiers.
 
-#### Session Properties
+##### Session Properties
 
 ```swift
 // Set a property (pass nil to remove)
@@ -320,7 +320,7 @@ try EmbraceIO.shared.setProperty(
 EmbraceIO.shared.removeAllProperties(lifespans: [.session])
 ```
 
-#### Persona Tags
+##### Persona Tags
 
 ```swift
 // Add a persona tag
@@ -338,7 +338,7 @@ EmbraceIO.shared.getCurrentPersonas { personas in
 }
 ```
 
-#### Metadata Lifespans
+##### Metadata Lifespans
 
 Properties and persona tags can have different lifespans:
 
@@ -346,7 +346,7 @@ Properties and persona tags can have different lifespans:
 - `.process` - Removed when app process ends
 - `.permanent` - Persists until app is uninstalled
 
-## Custom OpenTelemetry Resource
+### Custom OpenTelemetry Resource
 
 :::tip New in v6.16.1
 This feature is exclusive to the `EmbraceIO` client and is not available through the legacy `Embrace` client.
@@ -354,7 +354,7 @@ This feature is exclusive to the `EmbraceIO` client and is not available through
 
 You can pass a custom OpenTelemetry `Resource` object when initializing the Embrace SDK. This allows you to attach custom resource attributes to all telemetry data (spans, logs) generated by the SDK. Custom resources take priority over any default resources generated by the Embrace SDK.
 
-### Usage
+#### Usage
 
 ```swift
 import EmbraceIO
@@ -377,7 +377,7 @@ try EmbraceIO.setup(options: options)
 try EmbraceIO.shared.start()
 ```
 
-### OTelOptions
+#### OTelOptions
 
 The `EmbraceIO.OTelOptions` class provides full control over the OpenTelemetry pipeline:
 
@@ -399,9 +399,9 @@ public init(
 - `logProcessors`: Custom log record processors to add to the pipeline.
 - `logExporter`: Custom log record exporter to receive exported log data.
 
-## Code Examples
+### Code Examples
 
-### Basic Setup and Start
+#### Basic Setup and Start
 
 ```swift
 import EmbraceIO
@@ -426,7 +426,7 @@ struct MyApp: App {
 }
 ```
 
-### Setup with Custom Resource and Capture Services
+#### Setup with Custom Resource and Capture Services
 
 ```swift
 import EmbraceIO
@@ -447,7 +447,7 @@ try EmbraceIO.setup(options: options)
 try EmbraceIO.shared.start()
 ```
 
-### Logging and Spans
+#### Logging and Spans
 
 ```swift
 // Basic logging
@@ -471,7 +471,7 @@ let span = EmbraceIO.shared.buildSpan(
 span?.end()
 ```
 
-### Session and User Management
+#### Session and User Management
 
 ```swift
 // Set user info

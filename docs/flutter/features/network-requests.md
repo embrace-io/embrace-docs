@@ -4,11 +4,11 @@ description: Automatically capture network requests made by your application
 sidebar_position: 3
 ---
 
-# Network requests
+## Network requests
 
 If you use the [http package](https://pub.dev/packages/http) or the [Dio package](https://pub.dev/packages/dio) to perform network operations, Embrace can capture that information with minimal modification to your codebase. If you're using other solutions, you can manually log network requests through the Embrace SDK.
 
-## Use the http package
+### Use the http package
 
 If you use the [http package](https://pub.dev/packages/http), use an instance of `EmbraceHttpClient` to perform network operations:
 
@@ -33,7 +33,7 @@ void main() async {
 
 Close your client when it's no longer needed by calling `client.close()`.
 
-## Use Dio
+### Use Dio
 
 When using the [Dio package](https://pub.dev/packages/dio), you can add an Embrace interceptor to automatically capture requests:
 
@@ -47,7 +47,7 @@ dio.interceptors.add(EmbraceInterceptor());
 
 You need to add the `embrace_dio` package to your `pubspec.yaml` to use `EmbraceInterceptor`.
 
-## Manually log network requests
+### Manually log network requests
 
 You can also log any network request using this method from the Embrace SDK:
 

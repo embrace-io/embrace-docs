@@ -4,7 +4,7 @@ description: Retrieve the current session ID
 sidebar_position: 9
 ---
 
-# Current Session ID API
+## Current Session ID API
 
 import GetSessionId from '@site/shared/get-session-id.md';
 
@@ -15,7 +15,7 @@ import GetSessionId from '@site/shared/get-session-id.md';
 - If you use the Session ID to form a `URL` that points to the session view in our dashboard, please consider that the URL is suitable to be updated at any time.
 :::
 
-## Integration Steps
+### Integration Steps
 
 In order to use this feature, you will need to follow these steps:
 

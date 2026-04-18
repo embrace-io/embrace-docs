@@ -4,7 +4,7 @@ description: Upload session reports from your React Native application using the
 sidebar_position: 5
 ---
 
-# Session Reporting
+## Session Reporting
 
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 Here are the steps you’ll be taking to create your first session.
@@ -14,7 +14,7 @@ Here are the steps you’ll be taking to create your first session.
 3. [Build and run the application](/react-native/5x/integration/session-reporting#build-and-run-the-application)
 4. [Trigger a session upload](/react-native/5x/integration/session-reporting#trigger-a-session-upload)
 
-## Initialize Embrace SDK
+### Initialize Embrace SDK
 
 Initialize method applies the necessary listener to your application. This allows Embrace to track JavaScript errors,
 check js bundle changes (if you use OTA), track js patch and react native versions. For iOS this is also where you'll
@@ -85,7 +85,7 @@ export default App
 The initialize method will apply the interceptors that we need to get information from your app. Since it's a Promise, you might want to "await" or "then" it before doing something else.
 :::
 
-## Starting Embrace SDK from Android / iOS
+### Starting Embrace SDK from Android / iOS
 
 Initializing the Embrace SDK from the JavaScript side as shown above will automatically initialize the underlying native
 Embrace SDKs (Android / iOS). This means that the network, crash, and metrics interceptors will only be initialized once
@@ -195,7 +195,7 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 </Tabs>
 
-## Build and Run the Application
+### Build and Run the Application
 
 Now you're ready to build and run the application.
 Launch the application how you usually would during development.
@@ -204,7 +204,7 @@ Launch the application how you usually would during development.
 If you encounter any errors, please get in touch on Slack and we can assist you.
 :::
 
-## Trigger a Session Upload
+### Trigger a Session Upload
 
 To trigger a session upload, simply stop the application by either force killing
 it or using the stop button in either Xcode for iOS or Android Studio for Android.

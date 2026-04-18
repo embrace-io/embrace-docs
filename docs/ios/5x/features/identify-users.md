@@ -4,7 +4,7 @@ description: Get to know the users of your iOS application with the Embrace SDK
 sidebar_position: 2
 ---
 
-# Know Your Users
+## Know Your Users
 
 Months after your app has been released and your user base is growing, you are going to want to start triaging issues you find in your app based on segments of your user base.
 Setting the stage for that activity now means you will be well positioned to do that work when the time comes.
@@ -18,7 +18,7 @@ Embrace offers two mechanisms for annotating sessions in a searchable way:
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 
-## User Personas
+### User Personas
 
 Embrace offers a set of methods to pass information about your users.
 
@@ -79,7 +79,7 @@ The session is annotated with `"high_value_cart"` in the above example.
 This property helps you to identify users who have a certain dollar value in their shopping cart so  
 you can prioritize fixing bugs that affect such users.
 
-## Session Properties
+### Session Properties
 
 Session Properties are another way to annotate the session.
 The difference between session properties and [user personas](/ios/5x/features/identify-users/#user-personas) is that the former are for items relating to the session or the device, and not necessarily to the user.

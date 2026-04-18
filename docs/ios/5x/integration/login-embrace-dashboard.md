@@ -4,7 +4,7 @@ description: Login to the Embrace dashboard to get started with your iOS integra
 sidebar_position: 2
 ---
 
-# Login to the Embrace Dashboard
+## Login to the Embrace Dashboard
 
 Before you start sending data, let's get logged into the dashboard so you have a place to verify everything you are about to work on.
 

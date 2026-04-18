@@ -4,15 +4,15 @@ description: Record span to monitor the production performance and success rates
 sidebar_position: 2
 ---
 
-# Traces
+## Traces
 
-## Overview
+### Overview
 
 Embrace's Traces solution gives you visibility into any app operation you'd like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With this tool, you can quickly spot any bottlenecks in your app's architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
 See [this page](/product/traces/technical-details.md) for technical details and terminology definitions.
 
-## Feature support
+### Feature support
 
 :::info Minimum requirements
 **We recommend using the latest Android SDK version for the most up-to-date API**. Even though Traces is enabled in earlier versions as well, they only support a subset of features described in this doc, which applies to versions 6.4.0 and above.
@@ -32,7 +32,7 @@ The Embrace Traces API allows you to:
   - Links create unidirectional relationships between spans so that you can formally relate two spans that belong to different traces.
     - Attributes on a link can be used to store data and metadata that further describes the relationship.
 
-### Limits
+#### Limits
 
 | Type                                    | Limit           |
 |-----------------------------------------|-----------------|
@@ -48,13 +48,13 @@ The Embrace Traces API allows you to:
 
 There are no limits to the number of child spans you can have per root span, provided the total number of spans does not exceed the per-session maximum.
 
-#### Exceeding limits
+##### Exceeding limits
 
 If you exceed the listed limits, the operation with the limit-exceeding call will truncate the limit exceeding value, or fail in the case of API calls that would result in a count limit being exceeded.
 
 Attributes and events are truncated by taking the first N values specified and dropping the rest such that N is the limit.
 
-### Feature details
+#### Feature details
 
 - Span Names are **case-sensitive**
 - Key Names are **case-sensitive** and are **alphanumeric ASCII characters**
@@ -65,16 +65,16 @@ Attributes and events are truncated by taking the first N values specified and d
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes. Behavior in such cases are undefined.
 :::
 
-## Adding traces to your app
+### Adding traces to your app
 
-### Create a span
+#### Create a span
 
 ```kotlin
 // recording will not begin until the span has been started
 val activityLoad = Embrace.createSpan("load-activity")
 ```
 
-### Create and start span atomically
+#### Create and start span atomically
 
 ```kotlin
 // activityLoad will either be a span that has already started or null if 
@@ -82,7 +82,7 @@ val activityLoad = Embrace.createSpan("load-activity")
 val activityLoad = Embrace.startSpan("load-activity")
 ```
 
-### Create a Span that automatically terminates
+#### Create a Span that automatically terminates
 
 By default spans do not terminate until `stop()` has been invoked. If your span might take a long time & you want it to stop when a session ends you should supply the `AutoTerminationMode` parameter when creating the span.
 
@@ -94,7 +94,7 @@ val span = Embrace.startSpan("my-span", AutoTerminationMode.ON_BACKGROUND)
 Spans created with `recordSpan` or `recordCompletedSpan` will stop once the function call is complete & rarely require `AutoTerminationMode`.
 :::
 
-### Start span that tracks an operation started at an earlier time
+#### Start span that tracks an operation started at an earlier time
 
 ```kotlin
 val appStartTimeMillis = getAppStartTime()
@@ -105,7 +105,7 @@ val appLaunchSpan = Embrace.createSpan("app-launch")
 appLaunchSpan?.start(startTimeMs = appStartTimeMillis)
 ```
 
-### Add attributes and span events
+#### Add attributes and span events
 
 ```kotlin
 val activityLoad = Embrace.startSpan("load-activity")
@@ -120,7 +120,7 @@ imageLoad?.addEvent("network-request-finished")
 imageLoad?.addAttribute("image-name", image.name)
 ```
 
-### Add links
+#### Add links
 
 ```kotlin
 val activityLoad = Embrace.startSpan("load-activity")
@@ -137,7 +137,7 @@ val showLoader = Embrace.startSpan("showLoader")?.apply {
 }
 ```
 
-### Stop span for operation that ended earlier
+#### Stop span for operation that ended earlier
 
 ```kotlin
 val activityLoad = Embrace.startSpan("load-activity")
@@ -147,7 +147,7 @@ val activityLoad = Embrace.startSpan("load-activity")
 activityLoad?.stop(endTimeMs = getActualEndTimeMilllis())
 ```
 
-### Stop span for an operation that failed
+#### Stop span for an operation that failed
 
 ```kotlin
 val activityLoad = Embrace.startSpan("load-activity")
@@ -163,7 +163,7 @@ try {
 }
 ```
 
-### Add a child span
+#### Add a child span
 
 ```kotlin
 val activityLoad = Embrace.startSpan("load-activity")
@@ -172,7 +172,7 @@ val activityLoad = Embrace.startSpan("load-activity")
 val imageLoad = activityLoad?.apply { Embrace.startSpan("load-image", this) }
 ```
 
-### Record a span for an operation that occurred in the past
+#### Record a span for an operation that occurred in the past
 
 ```kotlin
 // record a span based on start and end times that are in the past
@@ -183,7 +183,7 @@ Embrace.recordCompletedSpan(
 )
 ```
 
-### Get a reference to an in-progress span with its spanId
+#### Get a reference to an in-progress span with its spanId
 
 ```kotlin
 val activityLoad = Embrace.startSpan("load-activity")
@@ -194,7 +194,7 @@ val activityLoadSpanId = activityLoad?.spanId
 Embrace.getSpan(activityLoadSpanId)?.stop()
 ```
 
-## Export to OpenTelemetry collectors
+### Export to OpenTelemetry collectors
 
 Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded.  
 
@@ -211,7 +211,7 @@ Embrace.addLogRecordExporter(myLogExporter)
 Note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
 :::
 
-### Supply custom OpenTelemetry processors
+#### Supply custom OpenTelemetry processors
 
 It's also possible to supply your own OpenTelemetry processors through the [SpanProcessor](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-processor) and [LogRecordProcessor](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordprocessor) interfaces. These will be invoked *after* Embrace's internal processors. Overriding embrace-specific attributes when processing telemetry will produce undefined behavior and is discouraged.
 
@@ -224,7 +224,7 @@ Embrace.addLogRecordProcessor(myLogProcessor)
 Processors must be configured *before* the Embrace SDK is started. Processors added after the SDK has already been started will not be used.
 :::
 
-### Local testing
+#### Local testing
 
 To see your recorded telemetry locally during development, use [LoggingSpanExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/LoggingSpanExporter.java) and [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) to see spans and logs in logcat, respectively. Do not deploy these types of debugging exporters in production for performance reasons.
 
@@ -232,7 +232,7 @@ To see your recorded telemetry locally during development, use [LoggingSpanExpor
 2024-03-05 14:15:15.342 29672-29756 LoggingSpanExporter     io.embrace.mysampleapp          I  'emb-startup-moment' : d38b4ac26baf1a862ed4a028af7d08ac e3e82dd0f86c0eed INTERNAL [tracer: io.embrace.android.embracesdk:={{ embrace_sdk_version platform="android" }}] AttributesMap{data={emb.sequence_id=4, emb.type=PERFORMANCE, emb.key=true}, capacity=128, totalAddedValues=3}
 ```
 
-### Sending to OpenTelemetry collectors  
+#### Sending to OpenTelemetry collectors
 
 You can send all or some of your telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) by using existing Android-compatible exporters or writing your own. Note that not all Java exporters can be used on Android.
 
@@ -242,7 +242,7 @@ You can send all or some of your telemetry to any [OpenTelemetry Collector](http
 To prevent an infinite loop of network requests spans, any requests used to export telemetry to OpenTelemetry Collectors should be excluded from being recorded by the Embrace SDK using the `disabled_url_patterns` setting in the Embrace Configuration file. See [this page](/android/configuration/configuration-file/#networking---disabled_url_patterns-string-array) for details.
 :::
 
-#### Send telemetry through gRPC
+##### Send telemetry through gRPC
 
 To send telemetry via gRPC to a Collector endpoint, use the `OtlpGrpcSpanExporter` and specify the URL.
 
@@ -255,7 +255,7 @@ val customDockerExporter = OtlpGrpcSpanExporter.builder()
 Embrace.addSpanExporter(customDockerExporter)
 ```
 
-#### Sending telemetry to Grafana Cloud
+##### Sending telemetry to Grafana Cloud
 
 To send telemetry to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/), set up the Collector and add an authorization token as a header.
 
@@ -269,7 +269,7 @@ val grafanaCloudExporter = OtlpHttpSpanExporter.builder()
 Embrace.addSpanExporter(grafanaCloudExporter)
 ```
 
-### Avoiding sending telemetry to Embrace
+#### Avoiding sending telemetry to Embrace
 
 If you prefer to send telemetry only to your custom OpenTelemetry Collectors and don't want to send data to Embrace, like if you are not an Embrace customer, do the following:
 

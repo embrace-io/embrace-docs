@@ -4,12 +4,12 @@ description: Automatically track Web Vital reports from your web app with Embrac
 sidebar_position: 3
 ---
 
-# Web Vitals
+## Web Vitals
 
 The Embrace SDK automatically reports Web Vital metrics from your application providing visibility into user perceived
 performance issues.
 
-## How Web Vital Instrumentation Works
+### How Web Vital Instrumentation Works
 
 The SDK leverages the [web-vitals](https://www.npmjs.com/package/web-vitals) package to record specific Web Vital scores
 as SpanEvents on the current session Span. By default, this includes just the
@@ -23,7 +23,7 @@ with LCP reports to provide more context in the Embrace Dashboard.
 This automatic instrumentation gives you immediate visibility into performance issues encountered by your users
 without requiring manual code changes.
 
-## Data Captured
+### Data Captured
 
 For each Web Vital, the SDK captures:
 
@@ -32,7 +32,7 @@ For each Web Vital, the SDK captures:
 - The element most attributed to the score
 - The URL of the page being reported on
 
-## Integration with Other Features
+### Integration with Other Features
 
 Web Vitals integrates with other Embrace features:
 
@@ -41,7 +41,7 @@ and user interactions
 - Performance dashboards monitor Web Vitals and surface issues on particular pages
 - Alerts can be set on Web Vital scores exceeding specific thresholds
 
-## Browser Support
+### Browser Support
 
 Due to browser limitations not all Web Vitals are available from user interactions on all browsers. See
 [Browser Support](https://www.npmjs.com/package/web-vitals#browser-support) in the web-vitals package documentation for

@@ -4,15 +4,15 @@ description: Upload crash reports from your Unity application using the Embrace 
 sidebar_position: 7
 ---
 
-# Collect Your First Crash Report  
+## Collect Your First Crash Report
 
-## Debuggers
+### Debuggers
 
 Before we actually trigger a crash, we need to talk about debuggers. Xcode and Android Studio are both debuggers. This means that they can attach to a program and stop/start/pause/modify that program, including stepping through and around exceptions and signals. When working on your app, this is exactly what you want. However, when trying to test crashes, this functionality is always in the way.
 
 It is important when testing crashes to not be connected to any debugger, including Xcode, Android Studio, or even Unity's own profiler. If you can, test on a device that is no longer plugged into your computer over USB and launch the app by tapping its icon directly.
 
-## Triggering a Crash
+### Triggering a Crash
 
 Now we're ready to trigger a crash. You can trigger a crash organically, or you can use Embrace's test crash function that you can call from anywhere in your application (iOS only).
 
@@ -39,7 +39,7 @@ UnityEngine.Diagnostics.Utils.ForceCrash(UnityEngine.Diagnostics.ForcedCrashCate
 
 In the next section, you'll be learning how to add Breadcrumb logs to add context to sessions.  
 
-## iOS Crash Report Settings
+### iOS Crash Report Settings
 
 For iOS Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
 

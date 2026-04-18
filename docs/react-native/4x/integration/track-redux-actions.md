@@ -4,9 +4,9 @@ description: Add logging to your React Native application to track actions dispa
 sidebar_position: 9
 ---
 
-# Add React Actions tracker
+## Add React Actions tracker
 
-## Adding Context to Sessions
+### Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/4x/integration/crash-reporting) and [Session Reporting](/react-native/4x/integration/session-reporting) sections.
 Embrace can also collect the redux's actions that are being dispatched and include it as context within your sessions.
@@ -16,11 +16,11 @@ Here's how you add the action tracker to the session.
 Currently we are only supporting the Redux SDK and other libraries that support middleware such as Saga, if you are using another library please contact us at [support@embrace.io](mailto:support@embrace.io) or on Slack if you would like to request support.
 :::
 
-## Adding the component
+### Adding the component
 
 Embrace has a separate module for tracking Redux's Actions, to use it you will need to add the Action Tracker
 
-### Install the component
+#### Install the component
 
 ```shell-session
 yarn add @embrace-io/react-native-action-tracker
@@ -30,7 +30,7 @@ yarn add @embrace-io/react-native-action-tracker
 npm install @embrace-io/react-native-action-tracker
 ```
 
-### Adding the component to your code
+#### Adding the component to your code
 
 Add the Embrace's Middleware to your middleware's list
 

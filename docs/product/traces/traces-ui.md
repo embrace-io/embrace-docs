@@ -3,9 +3,9 @@ title: Traces in the Dashboard
 sidebar_position: 2
 ---
 
-# Traces in the Dashboard
+## Traces in the Dashboard
 
-## Root Spans
+### Root Spans
 
 The primary page shows all root spans in your app, as well as summary metrics like count, error rate, percentiles of duration, and changes from a previous version.
 
@@ -21,7 +21,7 @@ To narrow down the root spans that are summarized in this view, you can apply th
 
 *failed Spans are not included for duration aggregates, they are displayed as `0`
 
-### Root Span Summary View
+#### Root Span Summary View
 
 By clicking on the name of a Root Span in the Root Spans View, you can see a partial listing of all the instances of that Root Span.
 
@@ -51,13 +51,13 @@ Filter your instances by outcome with these filters:
   - **Unknown**: insufficient data to determine instance outcome.
   - **User Abandon**: user navigated away before instance completion.
 
-### Root Span Instance View
+#### Root Span Instance View
 
 This view shows a Root Span in its entirety. Not only you can see all the information in trace instance preview, you can also see at the individual events and attributes recorded as part of on a each child span, along with metadata about the device and app.
 
 <img src={require('@site/static/images/traces/root-span-instance-1.png').default} alt="Trace instance"/>
 
-### Slow Root Spans
+#### Slow Root Spans
 
 With the Slow Root Spans feature, you can identify performance bottlenecks and prioritize your optimization efforts.
 Slow root spans are fully customizable, allowing you to define performance thresholds based on your specific SLOs and business objectives rather than relying solely on percentile calculations.
@@ -73,14 +73,14 @@ For `render-UserSessions` (it has a threshold configured), the "Slowest instance
 For `render-RootSpansDetails` (it doesn't have a threshold configured), the "Slowest instances" and "Fastest instances" filters are disabled and at the top right you can configure the threshold.
 <img src={require('@site/static/images/traces/slow-root-spans-without-threshold.png').default} alt="Traces"/>
 
-#### Setting Thresholds
+##### Setting Thresholds
 
 - You can configure millisecond-based thresholds for any span in the Root Span Summary page. The suggested value is based on the p95 historical duration of the root span (top versions and last 7 days).
 
 Once you saved the threshold, Embrace will start computing the slow root spans.
   <img src={require('@site/static/images/traces/slow-root-spans-configuration.png').default} alt="Traces"/>
 
-#### Where You'll See Slow Spans
+##### Where You'll See Slow Spans
 
 - **Root Span Summary**: Slow Span indicator at the end of the row if root span instance took longer than defined threshold.
 - [**Sessions**](/product/sessions): Issue indicators when sessions contain slow spans
@@ -91,7 +91,7 @@ Once you saved the threshold, Embrace will start computing the slow root spans.
 - [**Boards**](/product/alerting): New "Root Span Slowness Percentage" metric.
 - [**Filtering**](/product/sessions/filter-sessions): New "Has Slow Root Span" session attribute
 
-## User Timeline view
+### User Timeline view
 
 Root Spans appear in both the Timeline View and Timeline Details.
 
@@ -99,13 +99,13 @@ Clicking on "See Details" for any Root Span within the timeline will take you di
 
 <img src={require('@site/static/images/traces-timeline.png').default} alt="User timeline"/>
 
-### Sessions Filters
+#### Sessions Filters
 
 Not only you can filter spans in the various pages dedicated to Traces, you can filter sessions in the Sessions View by whether or not they contain specific spans with certain attributes and events.
 
 <img src={require('@site/static/images/trace-session-filters.png').default} alt="Session filters"/>
 
-## Boards, Alerts, and Custom Metrics
+### Boards, Alerts, and Custom Metrics
 
 You can create Boards, Alerts, and Custom Metrics based on span data.
 

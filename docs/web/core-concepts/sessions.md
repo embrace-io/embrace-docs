@@ -4,12 +4,12 @@ description: Understanding sessions in the Embrace Web SDK
 sidebar_position: 1
 ---
 
-# Sessions
+## Sessions
 
 Sessions are a fundamental concept in the Embrace Web SDK that help you understand how users interact with your
 application over time.
 
-## What is a Session?
+### What is a Session?
 
 A session is a comprehensive record of user interaction that occurs within your app. Embrace manages session lifecycle
 automatically when your app is started and the SDK is initialized.
@@ -40,11 +40,11 @@ user interaction. So, for example, a user switching away from your web app to an
 more actions would be recorded as two sessions but presented as one stitched session in the Embrace Dashboard.
 :::
 
-## Session Properties
+### Session Properties
 
 Session properties let you attach custom information to a user’s session, such as feature flags, experiment groups, or temporary user states. By default, properties are included only in the session where they are set, helping you analyze user behavior in context.
 
-### Property Lifespans
+#### Property Lifespans
 
 Session properties in the Embrace SDK can have two different lifespans: **current session** or **permanent**.
 
@@ -60,7 +60,7 @@ Session properties in the Embrace SDK can have two different lifespans: **curren
 If localStorage is unavailable (such as in private or incognito mode), permanent properties will be added to the current session but will not persist after it ends. For more details, see [localStorage availability](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#testing_for_availability).
 :::
 
-### Adding and Removing Properties
+#### Adding and Removing Properties
 
 To add a property to the current session:
 
@@ -84,20 +84,20 @@ To remove a property:
 session.removeProperty("my-custom-property");
 ```
 
-### Limits on Properties
+#### Limits on Properties
 
 - Property keys have a limit of 128 characters.
 - Property values have a limit of 256 characters.
 - There can be a maximum of 100 properties per session.
 
-## Sessions vs Other Concepts
+### Sessions vs Other Concepts
 
 It's important to understand how sessions relate to other core concepts in the SDK:
 
 - **Sessions and Traces**: A session can contain multiple traces. Traces represent specific operations within a session.
 - **Sessions and Logs**: Logs provide additional context within a session, helping you understand what happened during user interaction.
 
-## Implementation Details
+### Implementation Details
 
 In the Embrace SDK, sessions are implemented as OpenTelemetry spans. When a session starts, a span begins that will
 continue until the session ends:

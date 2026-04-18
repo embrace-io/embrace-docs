@@ -4,11 +4,11 @@ sidebar_position: 4
 description: Upload session reports from your Android application using the Embrace SDK
 ---
 
-# Session Reporting
+## Session Reporting
 
 Now that you've added the Embrace SDK to your project and can login to the Embrace dashboard, you are ready to create your first session.
 
-## Start the Embrace SDK
+### Start the Embrace SDK
 
 Initialize the Embrace SDK in the `onCreate` method of your `Application` subclass.
 
@@ -23,7 +23,7 @@ class MyApplication : Application {
 
 We recommend to start the SDK on the main thread to ensure you're capturing mobile telemetry and crashes as soon as possible.
 
-## Build and Run the Application
+### Build and Run the Application
 
 Now you are ready to build and run the application. Assuming the app launches correctly,
 pay attention to the system logging and confirm Embrace prints its version number:
@@ -36,7 +36,7 @@ Embrace SDK version X.Y.Z started for appId = xxxxx
 If you encounter any errors, please get in touch on Slack and we can assist you.
 :::
 
-## Trigger a Session Upload
+### Trigger a Session Upload
 
 You can trigger a session upload by sending your app to the background, and restarting it again. Refresh the dashboard in
 your browser and you should now see that you've moved on to the next step.
@@ -47,7 +47,7 @@ the Embrace SDK will not be able to upload the session that was just completed u
 your application. During the next application launch the previous session will be immediately uploaded.
 :::
 
-### Manually Ending a Session
+#### Manually Ending a Session
 
 In addition to the application lifecycle events that will automatically end a session, the Embrace SDK also lets you manually end sessions in code, if that fits your use-case.
 

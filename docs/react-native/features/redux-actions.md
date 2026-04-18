@@ -3,12 +3,12 @@ title: Track Redux actions
 sidebar_position: 5
 ---
 
-# Track Redux actions
+## Track Redux actions
 
 Embrace provides the `@embrace-io/react-native-redux` package that can be used to collect telemetry around dispatching
 actions with Redux. It provides a custom middleware that can be configured with your Redux store.
 
-## Install the component
+### Install the component
 
 :::info
 Note that this package requires a Tracer Provider to record its telemetry, if you haven't already you can set that up by
@@ -27,9 +27,9 @@ yarn:
 yarn add @embrace-io/react-native-redux
 ```
 
-## Add the middleware
+### Add the middleware
 
-### With hooks
+#### With hooks
 
 ```javascript
 import React, {useEffect, useState} from "react";
@@ -60,7 +60,7 @@ const MyApp = () => {
 };
 ```
 
-### Without hooks
+#### Without hooks
 
 ```javascript
 import {configureStore, Tuple} from "@reduxjs/toolkit";

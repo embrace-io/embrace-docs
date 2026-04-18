@@ -4,7 +4,7 @@ sidebar_position: 2
 description: Linking Embrace with your application is quick and easy.
 ---
 
-# Linking Embrace with your Unity project
+## Linking Embrace with your Unity project
 
 To install Embrace, download our latest SDK below.
 

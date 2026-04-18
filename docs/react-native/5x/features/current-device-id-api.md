@@ -4,7 +4,7 @@ sidebar_position: 4
 description: Get the Device ID.
 ---
 
-# Current Device ID API
+## Current Device ID API
 
 ```javascript
 import {getDeviceId} from '@embrace-io/react-native';
@@ -16,7 +16,7 @@ const myMethod = () =>{
 }
 ```  
 
-## Overview
+### Overview
 
 Embrace SDK’s API enables customers to programmatically obtain the current Embrace Device ID.
 

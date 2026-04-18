@@ -5,7 +5,7 @@ sidebar_position: 4
 
 ---
 
-# Network Body Capture
+## Network Body Capture
 
 Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.  
 

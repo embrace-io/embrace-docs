@@ -7,11 +7,11 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Logs
+## Logs
 
 Logs provide contextual information about your application's state and events that occur during a session. The Embrace SDK's logging capabilities help you track, troubleshoot, and receive alerts about important events.
 
-## What are Logs?
+### What are Logs?
 
 In the Embrace SDK, logs are records of events with associated severity levels, timestamps, and optional attributes. They provide critical information that can help you understand:
 
@@ -23,7 +23,7 @@ In the Embrace SDK, logs are records of events with associated severity levels, 
 
 Logs are especially valuable for capturing information that requires immediate attention or for troubleshooting specific issues.
 
-## When to Use Logs
+### When to Use Logs
 
 While Embrace automatically captures sessions and their associated data, there are scenarios where you may want to add custom logs:
 
@@ -33,7 +33,7 @@ While Embrace automatically captures sessions and their associated data, there a
 - Tracking critical business events
 - Capturing error conditions that need immediate attention
 
-## Using the Log API
+### Using the Log API
 
 The Embrace SDK provides a simple API for logging messages:
 
@@ -79,7 +79,7 @@ The log method takes the following parameters:
 - **timestamp**: When this log event occurred
 - **attributes**: A dictionary of key-value pairs for additional context and filtering
 
-## Log Limits
+### Log Limits
 
 Embrace enforces certain limits on logs:
 
@@ -91,7 +91,7 @@ Embrace enforces certain limits on logs:
 
 If your application exceeds these limits, the newest logs will be ignored.
 
-## Log Batching
+### Log Batching
 
 To optimize device and network performance, Embrace batches logs according to the following criteria:
 
@@ -99,11 +99,11 @@ To optimize device and network performance, Embrace batches logs according to th
 - A maximum of **60 seconds** for batch lifetime: Log batches should not exist for more than 60 seconds.
 - A maximum of **20 logs** per batch: This prevents issues with large batches.
 
-## File Attachments with Logs
+### File Attachments with Logs
 
 You can attach data to logs to provide more context for troubleshooting:
 
-### Embrace-Hosted Attachments
+#### Embrace-Hosted Attachments
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -141,7 +141,7 @@ Limitations for Embrace-hosted attachments:
 - Maximum of 5 attachments per session
 - Maximum attachment size of 1 MiB (1048576 bytes)
 
-### User-Hosted Attachments
+#### User-Hosted Attachments
 
 If you need more attachments or larger files, you can host the attachments yourself and reference them:
 
@@ -178,19 +178,19 @@ Embrace.client?.log(
 </TabItem>
 </Tabs>
 
-## Log Alerting
+### Log Alerting
 
 One of the most powerful features of Embrace logs is the ability to set up alerts based on log events. Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met.
 
 For example, if you have a steady rate of 1% for a given log event, you can set a threshold to receive an alert if it rises significantly.
 
-## Logs vs Other Concepts
+### Logs vs Other Concepts
 
 - **Logs vs Traces**: While traces focus on performance and operation flow, logs provide contextual information about events and states
 - **Logs vs Sessions**: Logs are events within a session that provide additional context
 - **Logs vs Breadcrumbs**: Logs are more detailed and can trigger alerts, while breadcrumbs are simpler markers of user journey steps
 
-## Best Practices
+### Best Practices
 
 - **Be selective**: Excessive logging can impact performance and battery life
 - **Use appropriate severity levels**: Reserve error and warning levels for actual problematic situations
@@ -199,9 +199,9 @@ For example, if you have a steady rate of 1% for a given log event, you can set 
 - **Consider timing**: Use the timestamp parameter to accurately reflect when events actually occurred
 - **Batch related logs**: Log related information together using consistent attribute keys
 
-## Common Logging Patterns
+### Common Logging Patterns
 
-### Network Failure Logging
+#### Network Failure Logging
 
 Track network issues with detailed context for troubleshooting:
 
@@ -322,7 +322,7 @@ func handleNetworkRequest(url: URL, completion: @escaping (Result<Data, Error>) 
 </TabItem>
 </Tabs>
 
-### Authentication Flow Logging
+#### Authentication Flow Logging
 
 Track authentication events for security monitoring:
 
@@ -485,7 +485,7 @@ class AuthenticationManager {
 </TabItem>
 </Tabs>
 
-### Performance Bottleneck Logging
+#### Performance Bottleneck Logging
 
 Log performance issues with detailed timing information:
 
@@ -678,7 +678,7 @@ enum MemoryPressureLevel: String {
 </TabItem>
 </Tabs>
 
-### Database Operation Logging
+#### Database Operation Logging
 
 Track database performance and errors:
 
@@ -793,7 +793,7 @@ class DatabaseLogger {
 </TabItem>
 </Tabs>
 
-### UI Responsiveness Logging
+#### UI Responsiveness Logging
 
 Track UI performance issues:
 

@@ -4,9 +4,9 @@ description: Log network requests made by your application
 sidebar_position: 5
 ---
 
-# Log Network Requests
+## Log Network Requests
 
-## Manual Logging
+### Manual Logging
 
 Network requests of any type can be logged manually via the log message API.
 
@@ -18,7 +18,7 @@ Embrace.Instance.LogNetworkRequest(...)
 On iOS, requests sent through `UnityWebRequest` are logged automatically by the native Embrace SDK.
 :::
 
-## HttpClient Message Handler (BETA)
+### HttpClient Message Handler (BETA)
 
 Embrace provides an implementation of `HttpMessageHandler` that automatically logs all network requests passed through it. To enable this behavior, pass an instance of the Embrace handler to the constructor when instantiating your `HttpClient`.
 
@@ -33,7 +33,7 @@ var handler = new EmbraceLoggingHttpMessageHandler(new MyHandler());
 var client = new HttpClient(handler);
 ```
 
-## Automatic Network Capture (BETA)
+### Automatic Network Capture (BETA)
 
 The Embrace Unity SDK includes a compilation post-processor that can weave code to automatically capture all network requests sent through `UnityWebRequest` and `HttpClient`.  
 
@@ -41,7 +41,7 @@ The Embrace Unity SDK includes a compilation post-processor that can weave code 
 Internally, the Embrace weaver uses `Mono.Cecil` to inspect and modify CIL assemblies. The Embrace package resolves this dependency through the Unity Package Manager. If your project already includes `Mono.Cecil` from another source, we recommend switching to the package manager version to avoid conflicts.
 :::
 
-### Enabling Automatic Network Capture Weaving
+#### Enabling Automatic Network Capture Weaving
 
 Automatic network capture weaving can be enabled in the **Network Capture** tab of the Embrace settings window (**Tools > Embrace > Settings**).  
 
@@ -51,7 +51,7 @@ By default, the code weaver processes assemblies any time they are recompiled, i
 
 The **Verbose Logging** option instructs the weaver to log diagnostic information to the Unity console for each assembly it inspects. This can lead to thousands of log messages, and it is recommended to leave this option disabled.
 
-### Excluding Code from Network Capture Weaving
+#### Excluding Code from Network Capture Weaving
 
 Use the `[EmbraceWeaverExclude]` attribute to instruct the network capture weaver to ignore certain sections of code. It can be applied to a method, class, or an entire assembly. Assemblies can also be excluded by adding the assembly definition to the **Excluded Assemblies** list in the **Network Capture** settings tab. Editor-only assemblies are automatically excluded.
 

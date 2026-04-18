@@ -4,9 +4,9 @@ sidebar_position: 5
 description: Upgrade guide for Embrace React Native SDK versions
 ---
 
-# Upgrade guide
+## Upgrade guide
 
-## Upgrading to 6.3.0
+### Upgrading to 6.3.0
 
 :::info Summary
 
@@ -15,7 +15,7 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 Upgrade to version `6.3.0` of the Embrace React Native SDK packages by either updating the versions manually in your package.json and running `yarn install` or `npm install`, or by removing the existing packages and reinstalling them.
 
-### Embrace Apple SDK now depends on KSCrash
+#### Embrace Apple SDK now depends on KSCrash
 
 The Apple SDK now includes a dependency on KSCrash, which requires modular headers to build successfully.
 To support this Pod, update your Podfile by adding the following line before your target declaration:
@@ -33,7 +33,7 @@ target 'YourTargetName' do
     ...
 ```
 
-### If you have `react-native-flipper` in your project
+#### If you have `react-native-flipper` in your project
 
 Disable the package for the iOS platform by updating your `react-native.config.js`:
 
@@ -45,7 +45,7 @@ module.exports = {
 }
 ```
 
-### Update your Embrace symbol upload build phase
+#### Update your Embrace symbol upload build phase
 
 Ensure your Embrace Symbol Uploads build phase matches the following:
 
@@ -56,7 +56,7 @@ REACT_NATIVE_MAP_PATH="$CONFIGURATION_BUILD_DIR/embrace-assets/main.jsbundle.map
 Note: The upload scripts are now bundled with the `@embrace-io/react-native` package. They are no longer provided by the iOS native layer (before they were packed as part of the iOS Pods).  
 You can take a look at your `node_modules` and confirm that everything is there in `node_modules/@embrace-io/react-native/ios/scripts`.
 
-### Install the latest CocoaPods
+#### Install the latest CocoaPods
 
 Finally, install the latest CocoaPods with:
 
@@ -66,7 +66,7 @@ cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
 
 That’s it! Your application should now build successfully.
 
-## Upgrading to 6.2.1
+### Upgrading to 6.2.1
 
 :::info Summary
 
@@ -90,7 +90,7 @@ configurations.all {
 
 Note that this may require an upgrade to Java 17.
 
-## Upgrading from 5.x to 6.x
+### Upgrading from 5.x to 6.x
 
 :::info Summary
 
@@ -110,7 +110,7 @@ Then install the latest Cocoapods with:
 cd ios && pod update EmbraceIO && pod install --repo-update
 ```
 
-### Deprecated packages
+#### Deprecated packages
 
 | Package                                              | Comments                                                                    |
 | ---------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -121,7 +121,7 @@ cd ios && pod update EmbraceIO && pod install --repo-update
 | `@embrace-io/react-native-apollo-graphql`            | No longer supported.                                                        |
 | `@embrace-io/react-native-action-tracker`            | Functionality has been moved to `@embrace-io/react-native-redux`.           |
 
-### Removed APIs
+#### Removed APIs
 
 | Old API            | Comments                                                                               |
 | ------------------ | -------------------------------------------------------------------------------------- |
@@ -131,7 +131,7 @@ cd ios && pod update EmbraceIO && pod install --repo-update
 | `startView`        | Interface changed and moved to the `@embrace-io/react-native-tracer-provider` package. |
 | `endView`          | No longer supported. Call `end()` on the span returned by `startView` instead.         |
 
-### Updating native initialization on Android
+#### Updating native initialization on Android
 
 Specifying "react_native" as the app framework in the Android config is now required whereas previously only "app_id" and
 "app_token" were. To update edit `android/app/src/main/embrace-config.json` in your app so that it matches the following:
@@ -160,7 +160,7 @@ upgrade replace it with:
 Embrace.getInstance().start(this)
 ```
 
-### Migrating traces
+#### Migrating traces
 
 The `@embrace-io/react-native-spans` package has been removed and the functionality it provided is now available from the
 `@embrace-io/react-native-tracer-provider` package. The interface for interacting with spans has also been updated to
@@ -168,26 +168,26 @@ conform to the OTel specification. To update, first switch your dependency to th
 method calls in your code that used the [5.x Traces methods](/react-native/5x/features/traces) to the updated methods as
 detailed in the [6.x Traces guide](/react-native/features/traces/).
 
-### Migrating startView/endView calls
+#### Migrating startView/endView calls
 
 If you had previously been calling the `startView` and `endView` methods directly these have been moved from
 `@embrace-io/react-native` to `@embrace-io/react-native-tracer-provider`. You will need to set up that package and invoke
 `startView` using its updated signature as described in [Track Components](/react-native/features/components/).
 
-### Migrating Redux actions instrumentation
+#### Migrating Redux actions instrumentation
 
 If you had previously been using the `buildEmbraceMiddleware` method from the `@embrace-io/react-native-action-tracker`
 package this has been renamed and moved to `@embrace-io/react-native-redux`. You will need to set up that package and
 create the Embrace middleware using one of the updated methods as described in [Track Redux Actions](/react-native/features/redux-actions/).
 
-### Migrating navigation instrumentation
+#### Migrating navigation instrumentation
 
 Navigation instrumentation was previously split into two separate packages (`@embrace-io/react-navigation` + `@embrace-io/react-native-navigation`)
 depending on which style of navigation was being instrumented. Now all navigation instrumentations resides in `@embrace-io/react-native-navigation`.
 To migrate please review the instructions on the [Migrating from older versions](/react-native/features/navigation/#migrating-from-older-versions)
 section of the navigation feature page.
 
-### Removal of automated CodePush support
+#### Removal of automated CodePush support
 
 Previously our SDK would check if CodePush was integrated in the app and track OTA JS bundle updates for the purposes of
 keeping symbolication of stack traces consistent. Given the [retirement of CodePush](https://learn.microsoft.com/en-us/appcenter/retirement)
@@ -197,19 +197,19 @@ If your app uses OTA updates you can call `setJavaScriptBundlePath(path: string)
 in order to have properly symbolicated stack traces. See [Symbolication with OTA updates](/react-native/integration/upload-symbol-files/#symbolication-with-ota-updates)
 for more details.
 
-### Unhandled promise rejection tracking is now opt-in
+#### Unhandled promise rejection tracking is now opt-in
 
 Previously our SDK setup tracking for unhandled promise rejection tracking automatically. Now this feature must be
 explicitly enabled, see [Report Unhandled Promise Rejections](/react-native/features/unhandled-promise-rejections) for
 more details.
 
-### Fixed process for uploading sourcemaps on iOS Expo apps
+#### Fixed process for uploading sourcemaps on iOS Expo apps
 
 If your app is using Expo and you have previously followed our symbol file upload guide or ran our automated install script
 then please update your build phases with our latest instructions from [Uploading Native And JavaScript Symbol Files](/react-native/integration/upload-symbol-files/?platform=ios#uploading-native-and-javascript-symbol-files)
 to ensure that sourcemaps are uploaded correctly.
 
-## Upgrading from 4.x to 5.x
+### Upgrading from 4.x to 5.x
 
 :::info Summary
 
@@ -230,7 +230,7 @@ Then install the latest Cocoapod with
 cd ios && pod install --repo-update
 ```
 
-### SDK initialization and configuration is triggered in code
+#### SDK initialization and configuration is triggered in code
 
 If you initialize the Embrace SDK in your JavaScript code it will need to be updated to include a `sdkConfig`
 parameter to configure the iOS SDK:
@@ -259,7 +259,7 @@ const App = ()=> {
 export default App
 ```
 
-#### Upgrade of native iOS code
+##### Upgrade of native iOS code
 
 The `Embrace-Info.plist` is no longer used for configuration and can be safely removed from your project.
 
@@ -278,16 +278,16 @@ Embrace.sharedInstance().start(launchOptions: launchOptions, framework:.reactNat
 
 Replace these with the updated initialization code outlined in [Starting Embrace SDK from Android / iOS](/react-native/5x/integration/session-reporting#initialize-embrace-sdk)
 
-### Moments have been replaced by traces
+#### Moments have been replaced by traces
 
 APIs related to moments should be removed from your code.
 
 Any place that you were previously instrumenting your app's performance using Moments can now be done using Performance
 Tracing, please refer to [this guide](/react-native/features/traces/) for more information.
 
-### Troubleshooting
+#### Troubleshooting
 
-#### Android
+##### Android
 
 The minimum version of AGP required for the Embrace Gradle Plugin to work as expected is `7.4.2`. If an older version is used for building the React Native Android application it will still build successfully but the SDK won't be able to initialize properly, getting the following error in runtime even when everything is configured as expected:
 
@@ -324,7 +324,7 @@ Caused by: java.lang.IllegalArgumentException: No appId supplied in embrace-conf
 
 The application will still work but the Embrace SDK won't initialize, causing unexpected issues. To resolve this please ensure you have the required minimum versions set in your Android build files ([more details here](/react-native/integration/))
 
-### Deprecated APIs
+#### Deprecated APIs
 
 | Old API                | Comments                                    |
 | ---------------------- | ------------------------------------------- |

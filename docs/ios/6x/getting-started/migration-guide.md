@@ -7,11 +7,11 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Migration Guide: 5.x to 6.x
+## Migration Guide: 5.x to 6.x
 
 This guide will help you transition from the Embrace iOS 5.x SDK to the new 6.x SDK. The 6.x SDK is our open-source implementation built on OpenTelemetry, providing enhanced functionality and modern Swift support.
 
-## Key Changes Summary
+### Key Changes Summary
 
 - SDK initialization and configuration is now done in code (not .plist files)
 - Moments have been replaced by Traces (based on OpenTelemetry spans)
@@ -19,7 +19,7 @@ This guide will help you transition from the Embrace iOS 5.x SDK to the new 6.x 
 - Some features have been removed or changed significantly
 - Architecture is now based on OpenTelemetry primitives
 
-## SDK Initialization Changes
+### SDK Initialization Changes
 
 As of version 6.0.0, Embrace Apple SDK no longer uses a .plist file to hold configuration. Instead, you set up the SDK in your code.
 
@@ -87,7 +87,7 @@ For more information, see:
 - [Basic Setup](/ios/6x/getting-started/basic-setup)
 - [Configuration Options](/ios/6x/getting-started/configuration-options)
 
-## Moments to Traces Transition
+### Moments to Traces Transition
 
 Moments have been replaced by Traces in the 6.x SDK. This change is part of our migration to build on top of OpenTelemetry APIs and standardize telemetry.
 
@@ -98,7 +98,7 @@ Traces, built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/tra
 - They support attributes and events for flexibility and aggregation
 - A trace is effectively the root span for a given workflow
 
-### Migration Examples
+#### Migration Examples
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
@@ -313,7 +313,7 @@ class MyClass {
 </TabItem>
 </Tabs>
 
-### App Startup Changes
+#### App Startup Changes
 
 The `endAppStartup` Moment from prior versions has been **removed** in 6.x. Instead, measure app startup using a **custom trace**.
 
@@ -368,7 +368,7 @@ startupSpan?.end()
 </TabItem>
 </Tabs>
 
-## API Method Changes
+### API Method Changes
 
 Many methods from the 5.x SDK have been replaced with new equivalents. The table below shows the recommended API using the [`EmbraceIO` client](../api-reference/embraceio-client.md). The legacy [`Embrace` client](../api-reference/embrace-client.md) is still available but will be deprecated in a future release.
 
@@ -397,7 +397,7 @@ Many methods from the 5.x SDK have been replaced with new equivalents. The table
 | `endAppStartup()` | No direct replacement | Create a custom trace/span |
 | `startView()` / `endView()` | Create spans with `SpanType.ux` | View tracking is now span-based |
 
-## Removed and Deprecated Features
+### Removed and Deprecated Features
 
 The following features have been removed or significantly changed in 6.x:
 
@@ -409,11 +409,11 @@ The following features have been removed or significantly changed in 6.x:
 - Network Request logging (will be available in future versions)
 - Custom Flow classes (`EMBCustomFlow`, `EMBPurchaseFlow`, `EMBRegistrationFlow`, `EMBSubscriptionPurchaseFlow`) - use custom traces with spans instead (see migration examples below)
 
-## Custom Flow Classes Migration
+### Custom Flow Classes Migration
 
 In the 5.x SDK, specialized flow classes provided convenience methods for tracking common user flows. In 6.x, these have been replaced with the more flexible custom traces API using OpenTelemetry spans.
 
-### EMBCustomFlow Migration
+#### EMBCustomFlow Migration
 
 The `EMBCustomFlow` class has been removed. Replace it with custom spans that provide the same functionality with more flexibility.
 
@@ -540,7 +540,7 @@ onboardingSpan?.end()
 </TabItem>
 </Tabs>
 
-### EMBPurchaseFlow Migration
+#### EMBPurchaseFlow Migration
 
 The `EMBPurchaseFlow` class has been removed. Use custom spans to track purchase flows with relevant attributes.
 
@@ -685,7 +685,7 @@ purchaseSpan?.end()
 </TabItem>
 </Tabs>
 
-### EMBRegistrationFlow Migration
+#### EMBRegistrationFlow Migration
 
 The `EMBRegistrationFlow` class has been removed. Use custom spans to track user registration flows.
 
@@ -824,7 +824,7 @@ registrationSpan?.end()
 </TabItem>
 </Tabs>
 
-### EMBSubscriptionPurchaseFlow Migration
+#### EMBSubscriptionPurchaseFlow Migration
 
 The `EMBSubscriptionPurchaseFlow` class has been removed. Use custom spans to track subscription purchases.
 
@@ -986,11 +986,11 @@ subscriptionSpan?.end()
 </TabItem>
 </Tabs>
 
-### Additional Resources
+#### Additional Resources
 
 For more detailed examples of tracking complex user flows, including e-commerce checkout and navigation flows, see the [Custom Traces](/ios/6x/manual-instrumentation/custom-traces) documentation.
 
-## Next Steps
+### Next Steps
 
 After migrating to the 6.x SDK, we recommend:
 
@@ -998,6 +998,6 @@ After migrating to the 6.x SDK, we recommend:
 2. Explore the new [Automatic Instrumentation](/ios/6x/automatic-instrumentation/) capabilities
 3. Learn about [Manual Instrumentation](/ios/6x/manual-instrumentation/) for custom traces and logs
 
-## Need Help?
+### Need Help?
 
 If you encounter issues during migration, please reach out on the [community slack](https://community.embrace.io) or email [support@embrace.io](mailto:support@embrace.io).

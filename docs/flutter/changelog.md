@@ -4,23 +4,23 @@ description: Changelog for the Embrace Flutter SDK
 sidebar_position: 6
 ---
 
-# Embrace Flutter SDK changelog
+## Embrace Flutter SDK changelog
 
-## 4.5.0
+### 4.5.0
 
 *Apr 8, 2026*
 
 - Updated Embrace iOS SDK to 6.17.1
 - Fixed embrace_dio not recording HTTP error responses with status code
 
-## 4.4.0
+### 4.4.0
 
 *Mar 23, 2026*
 
 - Updated Embrace Android SDK to 8.2.0
 - Updated Embrace iOS SDK to 6.16.3
 
-## 4.3.0
+### 4.3.0
 
 *Nov 11, 2025*
 
@@ -28,27 +28,27 @@ sidebar_position: 6
 - Updated Embrace iOS SDK to 6.14.1
 - Added `recordSpan` feature which allows lambda execution alongside recording spans
 
-## 4.2.0
+### 4.2.0
 
 *Jul 25, 2025*
 
 - Updated Embrace Android SDK to 7.7.0
 - Fixed w3cTraceparent header not being set in Dio/HttpClient requests when network spans forwarding enabled
 
-## 4.1.0
+### 4.1.0
 
 *Apr 24, 2025*
 
 - Updated Embrace Android SDK to 7.3.0
 - Updated Embrace iOS SDK to 6.8.5
 
-## 4.0.1
+### 4.0.1
 
 *Apr 1, 2025*
 
 - Fixed crash in Dio interceptors when SDK is disabled but interceptor is applied
 
-## 4.0.0
+### 4.0.0
 
 *Feb 19, 2025*
 
@@ -56,25 +56,25 @@ sidebar_position: 6
 - Updated Embrace iOS SDK to 6.8.1
 - Added ability to access trace ID for spans
 
-## 3.2.0
+### 3.2.0
 
 *Jan 3, 2025*
 
 - Updated Embrace Android SDK to 6.14.0.
 
-## 3.1.0
+### 3.1.0
 
 *Oct 28, 2024*
 
 - Updated Embrace iOS SDK to 6.5.0.
 
-## 3.0.1
+### 3.0.1
 
 *Oct 7, 2024*
 
 - Updated Embrace iOS SDK to 6.4.2.
 
-## 3.0.0
+### 3.0.0
 
 *Sep 17, 2024*
 
@@ -82,7 +82,7 @@ sidebar_position: 6
 - Updated Embrace iOS SDK to 6.4.0.
 - Added Tracing API for capturing spans/events
 
-## 2.0.0
+### 2.0.0
 
 *Mar 13, 2024*
 
@@ -91,7 +91,7 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 6.4.0. Updated the minimum Android version supported to 21.
 - Updated Embrace iOS SDK to 5.25.0.
 
-## 1.5.0
+### 1.5.0
 
 *Oct 2, 2023*
 
@@ -100,7 +100,7 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.24.0
 - Updated Embrace iOS SDK to 5.23.1
 
-## 1.4.0
+### 1.4.0
 
 *Jul 20, 2023*
 
@@ -108,7 +108,7 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.22.0
 - Updated Embrace iOS SDK to 5.21.1
 
-## 1.3.0
+### 1.3.0
 
 *Jul 5, 2023*
 
@@ -118,14 +118,14 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.21.0
 - Updated Embrace iOS SDK to 5.21.0
 
-## 1.2.1
+### 1.2.1
 
 *May 5, 2023*
 
 - Make the internal dependencies between Embrace packages fixed.
 - Updated Embrace Android SDK to 5.18.0
 
-## 1.2.0
+### 1.2.0
 
 *May 3, 2023*
 
@@ -133,14 +133,14 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.17.1
 - Updated Embrace iOS SDK to 5.19.2
 
-## 1.1.0
+### 1.1.0
 
 *Apr 5, 2023*
 
 - Updated Embrace Android SDK to 5.16.0
 - Updated Embrace iOS SDK to 5.17.1
 
-## 1.0.0
+### 1.0.0
 
 *Mar 30, 2023*
 
@@ -148,7 +148,7 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.15.3
 - Updated Embrace iOS SDK to 5.17.0
 
-## 0.4.0
+### 0.4.0
 
 *Feb 28, 2023*
 
@@ -158,7 +158,7 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.13.0
 - Updated Embrace iOS SDK to 5.16.1
 
-## 0.3.2
+### 0.3.2
 
 *Jan 23, 2023*
 
@@ -166,14 +166,14 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.12.0
 - Updated Embrace iOS SDK to 5.15.0
 
-## 0.3.1
+### 0.3.1
 
 *Dec 8, 2022*
 
 - Updated Embrace Android SDK to 5.10.0
 - Updated Embrace iOS SDK to 5.12.4
 
-## 0.3.0
+### 0.3.0
 
 > This is a development version and not intended for general use.
 - Added `debugEmbraceOverride` to allow `Embrace.instance` to be mocked for testing.
@@ -181,7 +181,7 @@ sidebar_position: 6
 - Updated Embrace iOS SDK to 5.12.2
   - Fixed an issue in the dSYM upload tool that could cause some uploads to fail
 
-## 0.2.0
+### 0.2.0
 
 > This is a development version and not intended for general use.
 - Added session properties to Embrace API
@@ -193,7 +193,7 @@ sidebar_position: 6
 - Updated Embrace Android SDK to 5.8.0
 - Updated Embrace iOS SDK to 5.12.0
 
-## 0.1.0
+### 0.1.0
 
 > Initial release of the Embrace SDK for Flutter. This is a development version and not intended for general use.
 - This release introduces support for the following features:

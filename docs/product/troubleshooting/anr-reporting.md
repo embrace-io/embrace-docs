@@ -4,9 +4,9 @@ description: ANR Reporting
 sidebar_position: 1
 ---
 
-# ANR Reporting
+## ANR Reporting
 
-## What is an ANR?
+### What is an ANR?
 
 Application Not Responding (ANRs) are Android errors indicating that an app is stuck or frozen during a user interaction. It is triggered when the Main Thread (UI thread) of an Android app is blocked for too long. They are triggered mostly if the app does not respond to user input within 5 seconds.
 
@@ -18,13 +18,13 @@ ANRs can also be caused by:
 - Improper use of JobScheduler (new in Android 14)
 - When the app is unresponsive the user is presented with an ANR dialog that gives them the option to force quit the application. ANRs may not cause your app to crash but are just as disruptive as crashes to the user experience
 
-## How does Embrace capture ANRs?
+### How does Embrace capture ANRs?
 
 Embrace instantly auto-captures and detects a sample/snapshot of an ANR in production every 100ms as soon as the main thread is not responding for 1 second and until the ANR interval is over
 
-## Troubleshooting your ANRs
+### Troubleshooting your ANRs
 
-### Issue Summary List
+#### Issue Summary List
 
 - **Issue Prioritization**: Is done as a combination of the number of occurrences, and user and session impact
 - **Issue Categories**: Ad SDK, Android, Java, and IO.
@@ -35,7 +35,7 @@ Embrace instantly auto-captures and detects a sample/snapshot of an ANR in produ
   - **Most Representative Sample**: Our SDK records multiple samples during an ANR and not just a single sample after 5 seconds. Select this option to use the sample that was most common during the ANR.
   - **Ad-Focused Sample**: Similar to Most Representative Sample, but this option only considers samples that contain at least one frame associated with an ad SDK.
 
-### ANR Flame Graph Troubleshooting View
+#### ANR Flame Graph Troubleshooting View
 
 This page will help you understand which parts of your app contribute most to ANRs. You can get to this page from each issue in the summary table from the previous page
 
@@ -51,14 +51,14 @@ This page will help you understand which parts of your app contribute most to AN
     - **Focus on:** Gray out unimportant categories (android packages) and focus only on the ones that matter (i.e ads packages)
     - **Min Width:** the min % of method appearances on the samples needed to appear on the flame graph
 
-### ANR Method Troubleshooting View
+#### ANR Method Troubleshooting View
 
 This graph is *anchored* around the selected method. This allows you to see all the code paths that lead to the selected method and the code paths following the method. Users can get to this page from branches in the flame graph and from the known issues list.
 
 - **Common Issues/Methods ANR contribution:** This view will break the percentage of appearances of the problematic methods across calling or being called by the selected one across the different samples
 - **Sample Sessions:** same as above, users will have access to “Sample Sessions” from this issue's detailed view
 
-## Learn more
+### Learn more
 
 This walkthrough video will show you how to dig into and diagnose ANRs in Embrace's dashboard:
 

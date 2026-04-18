@@ -4,7 +4,7 @@ description: Setting up the Embrace Web SDK in your application
 sidebar_position: 1
 ---
 
-# Install the package
+## Install the package
 
 npm:
 
@@ -22,7 +22,7 @@ yarn add @embrace-io/web-sdk
 For CDN installs, see [Including the SDK as a code snippet from CDN](#including-the-sdk-as-a-code-snippet-from-cdn).
 :::
 
-## Initialize the SDK
+### Initialize the SDK
 
 Once you've created an Embrace web application you can initialize the SDK using the appID you were given along with
 the app version of your application. The following should be done as early in your app's lifecycle as possible to start
@@ -50,7 +50,7 @@ show up in the Embrace Dashboard once the SDK reports at least 1 completed sessi
 It may take a few minutes before the first sessions appear in your Embrace dashboard.
 :::
 
-## Keeping your app version up-to-date
+### Keeping your app version up-to-date
 
 Embrace uses the `appVersion` you provide to segment collected telemetry and allow you to view differences between
 releases, as such you should make sure this value is updated whenever you release a new version of your application. If
@@ -69,7 +69,7 @@ initSDK({
 Alternatively if your app version is generated as part of your CI/CD process, you can use our CLI tool to inject your
 app version into your bundle at build time. The process is done as part of [uploading sourcemaps](/web/getting-started/sourcemap-uploads.md).
 
-## Including the SDK as a code snippet from CDN
+### Including the SDK as a code snippet from CDN
 
 We recommend you include our SDK as a regular npm dependency (see above). If you prefer to include the SDK as a code
 snippet from CDN, you can do so by adding the following script tag to your main HTML file:
@@ -105,7 +105,7 @@ the following example:
    });
    ```
 
-### Async CDN Loading
+#### Async CDN Loading
 
 If you prefer to load the SDK asynchronously to avoid blocking the rendering of your page, you'll need to add the
 following snippet to your HTML file. Remember to replace `X.X.X` with the version of the SDK you want to include:
@@ -133,15 +133,15 @@ This is necessary to ensure that the SDK is fully loaded before you start using 
 The SDK may miss some early telemetry events emitted before the SDK is initialized if you use this method.
 :::
 
-## Using the SDK without the Embrace Dashboard
+### Using the SDK without the Embrace Dashboard
 
 If you'd prefer not to send data to Embrace you can simply omit the Embrace app id when calling `initSDK`. Note that in
 this case at least one custom exporter needs to be configured following the steps
 from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
-## Troubleshooting
+### Troubleshooting
 
-### Compatibility with OTel packages
+#### Compatibility with OTel packages
 
 The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries.
 **Important: New projects should use OpenTelemetry 2.x.**
@@ -157,7 +157,7 @@ you must ensure that you are using versions of the OTel packages that are compat
 
 For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json) file in the SDK repository.
 
-### Turning on verbose logging in the SDK
+#### Turning on verbose logging in the SDK
 
 By default, the SDK will only send error level logs to the console. The log level of the SDK can be increased when
 initializing as follows:
@@ -197,7 +197,7 @@ initSDK({
 });
 ```
 
-### Webpack 4 Configuration
+#### Webpack 4 Configuration
 
 When using webpack 4, you need to add aliases to your webpack configuration to resolve dependency paths correctly:
 
@@ -221,7 +221,7 @@ module.exports = {
 
 See the [webpack 4 integration test](https://github.com/embrace-io/embrace-web-sdk/blob/main/tests/integration/platforms/webpack-4/webpack.config.js) for a complete example.
 
-### Client-side only usage
+#### Client-side only usage
 
 The Embrace SDK is designed for browser environments. Importing it in server-side code (e.g. Next.js Server Components,
 API routes, edge middleware) will not cause runtime errors because `initSDK` detects non-browser environments and returns
@@ -235,7 +235,7 @@ For best results, import and initialize the SDK in client-only code.
 - ⚠️ **Safe but inert:** Server Components, API routes, middleware, Server Actions — `initSDK` returns `false` without error
 - ❌ **Avoid:** Calling SDK APIs (e.g. `session`, `trace`) on the server — they require browser context
 
-## Next Steps
+### Next Steps
 
 After basic setup, you can:
 

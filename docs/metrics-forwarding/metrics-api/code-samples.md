@@ -4,7 +4,7 @@ description: Learn how to integrate the Embrece Metrics API using code
 sidebar_position: 30
 ---
 
-# Code Samples
+## Code Samples
 
 You can pull data from the Embrace Metrics API using any SDK for your language that supports PromQL.
 
@@ -13,11 +13,11 @@ Note: if you account is using Embrace's [regional data residency](/region/) feat
 - United States: `https://api-us1.embrace.io/metrics`
 - European Union: `https://api-eu1.embrace.io/metrics`
 
-## Prerequisites
+### Prerequisites
 
 - [Embrace Metrics API Token](/metrics-forwarding/metrics-api/#get-started)
 
-## Node Example
+### Node Example
 
 This example uses the [prometheus-query](https://www.npmjs.com/package/prometheus-query) NPM library for JavaScript/TypeScript.
 
@@ -71,7 +71,7 @@ const fetchData = (query, start, end, step) => {
 fetchData(QUERY, start, end, TIME_STEP_SECS);
 ```
 
-## Python Example
+### Python Example
 
 This example uses the [prometheus-api-client](https://pypi.org/project/prometheus-api-client/) package for python.
 

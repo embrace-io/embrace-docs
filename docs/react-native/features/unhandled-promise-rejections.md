@@ -3,7 +3,7 @@ title: Report unhandled promise rejections
 sidebar_position: 8
 ---
 
-# Report unhandled promise rejections
+## Report unhandled promise rejections
 
 The Embrace SDK can be configured to automatically log an error with a stack trace when it detects a promise rejection
 that wasn't handled. This does add overhead to the use of Promises in your app so the feature is opt-in and can be

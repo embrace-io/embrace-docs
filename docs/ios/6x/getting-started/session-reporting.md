@@ -7,9 +7,9 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Session Reporting
+## Session Reporting
 
-## Understanding Sessions
+### Understanding Sessions
 
 Once Embrace is configured and started in your app, it automatically starts capturing user sessions.  
 
@@ -17,7 +17,7 @@ A session is any length of user experience that occurs while the app is in the f
 
 In iOS SDK 6.x and greater, sessions are recorded as OpenTelemetry spans with Attributes and SpanEvents that capture various app lifecycle events, user interactions, and device information. This OpenTelemetry foundation provides a standardized way to instrument your application and collect telemetry data.
 
-## Session Lifecycle
+### Session Lifecycle
 
 The Embrace SDK manages session lifecycle automatically:
 
@@ -54,7 +54,7 @@ Embrace.client?.endSession()
 </TabItem>
 </Tabs>
 
-## Session Data Structure
+### Session Data Structure
 
 Each session in iOS SDK 6.x includes:
 
@@ -68,7 +68,7 @@ Each session in iOS SDK 6.x includes:
 
 All this information is structured as OpenTelemetry spans and attributes, allowing for consistent and standardized telemetry collection.
 
-## Triggering a Session Upload
+### Triggering a Session Upload
 
 To trigger a session upload during development, simply send the application to the background by:
 

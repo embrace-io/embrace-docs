@@ -4,12 +4,12 @@ description: Best practices for using the Embrace Web SDK
 sidebar_position: 6
 ---
 
-# Best practices for using the Embrace Web SDK
+## Best practices for using the Embrace Web SDK
 
 This section provides guidelines and recommendations to help you get the most out of the Embrace Web SDK. Following
 these best practices will ensure optimal performance, security, and user experience for your application.
 
-## In This Section
+### In This Section
 
 - **[Performance Optimization](./performance-optimization.md)** - Tips for minimizing the SDK's impact on your app's performance
 - **[Security Considerations](./security-considerations.md)** - Guidelines for ensuring data privacy and security

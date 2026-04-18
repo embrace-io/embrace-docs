@@ -4,9 +4,9 @@ description: Add the Embrace SDK as a dependency to your Flutter application
 sidebar_position: 1
 ---
 
-# Add the Embrace Flutter SDK
+## Add the Embrace Flutter SDK
 
-## Add the Embrace SDK to your project
+### Add the Embrace SDK to your project
 
 Add the Embrace package to your `pubspec.yaml`:
 
@@ -14,7 +14,7 @@ Add the Embrace package to your `pubspec.yaml`:
 flutter pub add embrace
 ```
 
-## iOS setup
+### iOS setup
 
 Log in to the [Embrace dashboard](https://dash.embrace.io/) and create a project. The dashboard contains the app ID and API token that you need for configuring your integration.
 
@@ -45,7 +45,7 @@ import EmbraceCrash
 }
 ```
 
-### Upload symbol files
+#### Upload symbol files
 
 :::info
 Embrace requires your application's dSYM symbol files to make stacktraces from crashes human-readable.
@@ -67,7 +67,7 @@ EMBRACE_ID={YOUR_APP_ID} EMBRACE_TOKEN={YOUR_API_TOKEN} "${SRCROOT}/path/to/your
 
 Also ensure that `DEBUG_INFORMATION_FORMAT` is set to `DWARF with dSYM File` in your Build Settings. For more details, see the [iOS dSYM Upload guide](/ios/6x/getting-started/dsym-upload).
 
-## Android setup
+### Android setup
 
 In the root-level `build.gradle` file, add the `embrace-swazzler` dependency:
 
@@ -103,7 +103,7 @@ In `app/src/main`, add a config file named `embrace-config.json`. You can find y
 }
 ```
 
-## Import Embrace
+### Import Embrace
 
 Import Embrace in the file where your `main()` function exists:
 
@@ -111,7 +111,7 @@ Import Embrace in the file where your `main()` function exists:
 import 'package:embrace/embrace.dart';
 ```
 
-## Add the Flutter SDK start call
+### Add the Flutter SDK start call
 
 Wrap the entire contents of your `main()` function in `Embrace.instance.start()`. This is essential if you want Embrace to capture Dart errors.
 
@@ -123,7 +123,7 @@ Future<void> main() async {
 }
 ```
 
-### Add the Android SDK start call
+#### Add the Android SDK start call
 
 The call to start the Embrace Android SDK should be placed in the `onCreate` method of an `Application` subclass:
 
@@ -139,7 +139,7 @@ class MyApplication : Application() {
 }
 ```
 
-## Build and run the application
+### Build and run the application
 
 Now you're ready to build and run the application. When the app launches, check the system logs and look for Embrace to print its version number:
 
@@ -151,6 +151,6 @@ Embrace Flutter SDK Version: {{ embrace_sdk_version platform="flutter" }}
 If you encounter any errors, reach out on Slack and we can help.
 :::
 
-## Trigger a session upload
+### Trigger a session upload
 
 To trigger a session upload, send the application to the background. The SDK usually has enough time to upload the session, but sometimes the app can't complete the upload in the background. To ensure the session was uploaded, launch the application again and refresh the dashboard in your browser. You should see that you've moved on to the next step.

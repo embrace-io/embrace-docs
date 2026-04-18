@@ -3,14 +3,14 @@ title: Custom Dashboards
 sidebar_position: 1
 ---
 
-# Custom Dashboards
+## Custom Dashboards
 
 In addition to our pre-built dashboards for topics like Crashes, Logs, and Network Requests, each project can create Custom Dashboards. In these dashboards, you can create new analyses. For example, you can visualize a time series of Crash data segmented by app-version, or get a ranking of Logs filtered by a specific property.
 
 To get started, click on "Add new widget" in the menu by your dashboard name.
 <img src={require('@site/static/images/custom_dashboards/Add_Widget_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
-## Creating a Chart
+### Creating a Chart
 
 You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
 
@@ -22,7 +22,7 @@ You can create multiple types of visualizations. A table of which visualizations
 | Pie        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
 | KPI        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: | :x: |
 
-## Spans (Traces)
+### Spans (Traces)
 
 Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any custom Attributes you have set on the Span.
 
@@ -32,13 +32,13 @@ Create graphs monitoring Spans performance. You can filter and group by name, ou
 
 <img src={require('@site/static/images/custom_dashboards/Spans_Chart_Builder.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
 
-## Combined Time Series (Line Charts)
+### Combined Time Series (Line Charts)
 
 You can also create combined graphs in Line visualizations. With combined graphs, you can visualize up to 10 time series together and optionally create a custom time series using arithmetic operators.
 
 **NOTE:** as of 2025-05-20, the chart builder has been improved. Any legacy charts using fills have been moved to multi-query line charts.
 
-### Adding Formulas to Graphs
+#### Adding Formulas to Graphs
 
 For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relative to your total sessions, grouped by App Version. To do this:
 
@@ -56,17 +56,17 @@ For example, you want to get a rate over the last 24 hours of the sum of crashes
 
    <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
 
-### Multiple Combined Time Series without a Formula
+#### Multiple Combined Time Series without a Formula
 
 Since the Formula field is optional, you can visualize up to 10 time series on the same chart with the steps above. Use the eye symbols to show or hide each, and leave the Formula field blank.
 
-### Grouping with Combined Time Series
+#### Grouping with Combined Time Series
 
 When you combine time series that have groupings defined with a formula, it’s important to understand the rules for how time series are joined given their groupings. The examples below use two time series, but the same rules apply with any greater number of time series.
 
 As a rule, if you have **two time series that both have groupings**, the grouping of one time series **must be a subset of the other**. The common subset is the join key. Otherwise the combination is invalid.
 
-#### **Valid Groupings:**
+##### **Valid Groupings:**
 
 - Grouping only on one time series
 
@@ -102,7 +102,7 @@ As a rule, if you have **two time series that both have groupings**, the groupin
   - `B`: *grouped by* `[]`
   - `A` and `B` have no groupings. Their common join key is the empty set.
 
-#### **Invalid Groupings:**
+##### **Invalid Groupings:**
 
 - Grouping with no overlapping set
 
@@ -116,7 +116,7 @@ As a rule, if you have **two time series that both have groupings**, the groupin
   - `B`: *grouped by* `[”App Version”, “Country”, “Model”]`
   - If A and B have no similar `App Version` and `Country`, the grouping is valid, but neither is a subset of the other and no results are returned.
 
-#### Order of Operations
+##### Order of Operations
 
 Additionally, order of operations matters. Consider a situation where you create three queries:
 
@@ -131,7 +131,7 @@ Then you were to combine them in the formula field:
 
 <img src={require('@site/static/images/custom_dashboards/Grouping_Error.png').default} style={{ width: '75%', height: '75%' }} alt="Example of Grouping Error" />
 
-## Table of Issues
+### Table of Issues
 
 Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) . You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/crashes/crash-tagging.md)
 
@@ -141,7 +141,7 @@ Our Issues Widget, lets you specify how to list a table of [Issues](/product/iss
 
    <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
 
-## Copying widgets to other dashboards
+### Copying widgets to other dashboards
 
 You can reuse a widget you've already built by copying it to one or more other dashboards in the same app. You can copy to existing dashboards or create a new one in the process.
 
@@ -155,7 +155,7 @@ You can reuse a widget you've already built by copying it to one or more other d
 
 Copied widgets are fully independent. They contain no back-reference to the source dashboard or original widget, so edits to a copy do not affect the original or any other dashboard.
 
-## Copying dashboards across apps
+### Copying dashboards across apps
 
 If you manage multiple apps in Embrace, you can copy a dashboard from one app to another instead of rebuilding it. This is useful for teams that want to maintain a consistent monitoring setup across apps.
 
@@ -168,13 +168,13 @@ You can start the copy from two places:
 
 In the **Copy dashboard to app** modal, select one or more apps in your organization to copy the dashboard to. All copy actions respect app-level access permissions, so only apps you have access to appear in the list. Once you confirm, you can open the new dashboard in the destination app or stay on the current page.
 
-### Error states in copied dashboards
+#### Error states in copied dashboards
 
 A widget copied across apps may not render correctly if something it depends on, such as a filter key, metric, or dimension, is not available in the destination app. When this happens, the dashboard shows an inline warning, and affected widgets display an error indicator. Hover over the indicator to see a tooltip that explains the specific cause so you can adjust the widget.
 
 <img src={require('@site/static/images/custom_dashboards/Copied_Dashboard_Error_States.png').default} style={{ width: '75%', height: '75%' }} alt="Copied dashboard showing warning banner and per-widget error indicators" />
 
-## Emailing Custom Dashboards
+### Emailing Custom Dashboards
 
 You can also email your Custom Dashboards to yourself or your team.
 
@@ -187,7 +187,7 @@ Before sending the report, you can send a test email to the recipients to ensure
 
 <img src={require('@site/static/images/email-report.png').default} style={{ width: '75%', height: '75%' }} alt="Email Report" />
 
-## Grouping by Exploded Properties {#exploded-properties}
+### Grouping by Exploded Properties {#exploded-properties}
 
 You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
 

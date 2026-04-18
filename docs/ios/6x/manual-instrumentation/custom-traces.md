@@ -7,11 +7,11 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Traces
+## Traces
 
 Custom traces allow you to measure the duration of specific operations in your app, providing insights into performance and behavior of code paths that matter to your business. Traces are implemented using spans from the OpenTelemetry standard.
 
-## What are Traces and Spans?
+### What are Traces and Spans?
 
 In OpenTelemetry:
 
@@ -29,7 +29,7 @@ Each span:
 
 Embrace uses spans to visualize and analyze the performance of operations in your app.
 
-## Required Imports
+### Required Imports
 
 To use custom traces in your Swift code, you need the following imports:
 
@@ -47,11 +47,11 @@ import OpenTelemetryApi  // Only required for parent-child span relationships
 
 For basic span creation and `recordSpan` usage, only `EmbraceIO` is needed.
 
-## Creating Spans
+### Creating Spans
 
 Embrace provides several ways to create custom spans depending on your needs:
 
-### Basic Span Creation
+#### Basic Span Creation
 
 Create a span using the `buildSpan` method:
 
@@ -88,7 +88,7 @@ span.end()
 </TabItem>
 </Tabs>
 
-### Using Closures
+#### Using Closures
 
 For operations contained within a single function, you can use the closure-based API:
 
@@ -144,7 +144,7 @@ let result = Embrace.recordSpan(
 - The `span` parameter in the closure is optional (`Span?`), so always use optional chaining (`span?.setAttribute`) when calling methods on it.
 - **Never call `span?.end()` within a `recordSpan` closure** - the span is automatically ended when the closure completes. Calling `end()` manually can cause undefined behavior.
 
-### Async Operations
+#### Async Operations
 
 For asynchronous operations, start the span before the operation begins and end it when the operation completes:
 
@@ -190,11 +190,11 @@ performAsyncOperation { result, error in
 </TabItem>
 </Tabs>
 
-## Span Attributes
+### Span Attributes
 
 Add context to your spans with attributes. You can set attributes in two ways:
 
-### Setting Multiple Attributes at Creation
+#### Setting Multiple Attributes at Creation
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -235,7 +235,7 @@ span.end()
 </TabItem>
 </Tabs>
 
-### Setting Individual Attributes
+#### Setting Individual Attributes
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -281,7 +281,7 @@ span.end()
 </TabItem>
 </Tabs>
 
-### Hybrid Approach
+#### Hybrid Approach
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -340,7 +340,7 @@ span.end()
 - **Attribute values must be strings** - convert numbers and booleans to strings
 - You can add attributes at any point before the span is ended
 
-## Span Hierarchy
+### Span Hierarchy
 
 Create parent-child relationships between spans to represent nested operations:
 
@@ -409,7 +409,7 @@ parentSpan.end()
 
 This creates a hierarchy that helps visualize the relationship between operations.
 
-## Custom Span Types
+### Custom Span Types
 
 You can specify a span type to categorize different kinds of operations:
 
@@ -452,7 +452,7 @@ Available span types include:
 
 **Note:** If you don't specify a `type` parameter, `.performance` is used by default.
 
-## Span Links
+### Span Links
 
 Span links correlate one or more spans together that are causally related but don't have a typical parent-child relationship. These links may correlate spans within the same trace or across different traces.
 
@@ -497,9 +497,9 @@ span?.end()
 </TabItem>
 </Tabs>
 
-## Best Practices
+### Best Practices
 
-### Naming Conventions
+#### Naming Conventions
 
 Use clear, descriptive names for your spans. Consider a naming convention such as:
 
@@ -513,7 +513,7 @@ Good examples:
 - `databaseSavePreferences`
 - `renderingProductList`
 
-### Granularity
+#### Granularity
 
 Choose an appropriate level of granularity for your spans:
 
@@ -521,7 +521,7 @@ Choose an appropriate level of granularity for your spans:
 - Too fine-grained: `increment_counter` (likely too small to be useful)
 - Just right: `image_cache_lookup`, `user_authentication`
 
-### Resource Management
+#### Resource Management
 
 Always end your spans to avoid memory leaks. Consider using Swift's `defer` statement for safety:
 
@@ -555,7 +555,7 @@ defer { span.end() }
 </TabItem>
 </Tabs>
 
-### Capturing Meaningful Data
+#### Capturing Meaningful Data
 
 Add attributes that would be useful for troubleshooting:
 
@@ -589,9 +589,9 @@ span.end()
 </TabItem>
 </Tabs>
 
-## Common Use Cases
+### Common Use Cases
 
-### API Client Instrumentation
+#### API Client Instrumentation
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -655,7 +655,7 @@ func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile,
 </TabItem>
 </Tabs>
 
-### Database Operations
+#### Database Operations
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -712,7 +712,7 @@ func saveUserPreferences(preferences: Preferences) throws {
 </TabItem>
 </Tabs>
 
-### Performance-Critical Algorithms
+#### Performance-Critical Algorithms
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -764,9 +764,9 @@ func processFeed(posts: [Post]) -> [ProcessedPost] {
 </TabItem>
 </Tabs>
 
-## Complex User Flow Examples
+### Complex User Flow Examples
 
-### Navigation Flow Tracking
+#### Navigation Flow Tracking
 
 Track user navigation through your app with hierarchical spans:
 
@@ -875,7 +875,7 @@ class NavigationFlowTracker {
 </TabItem>
 </Tabs>
 
-### Game or Interaction Flow Measurement
+#### Game or Interaction Flow Measurement
 
 Track complex multi-stage user interactions:
 
@@ -1036,7 +1036,7 @@ class GameFlowTracker {
 </TabItem>
 </Tabs>
 
-### E-commerce Checkout Flow
+#### E-commerce Checkout Flow
 
 Track a complete user purchase journey:
 
@@ -1201,7 +1201,7 @@ class CheckoutFlowTracker {
 </TabItem>
 </Tabs>
 
-### SwiftUI Navigation with Embrace Integration
+#### SwiftUI Navigation with Embrace Integration
 
 Track navigation in SwiftUI apps with automatic and manual instrumentation:
 

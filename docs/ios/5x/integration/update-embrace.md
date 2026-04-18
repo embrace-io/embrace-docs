@@ -4,9 +4,9 @@ description: Learn how to update the Embrace SDK
 sidebar_position: 9
 ---
 
-# Keeping Embrace Up To Date
+## Keeping Embrace Up To Date
 
-## Updating Using CocoaPods
+### Updating Using CocoaPods
 
 If you've already integrated Embrace with your application using CocoaPods, it will be simple to update Embrace with each new version.
 
@@ -18,12 +18,12 @@ To verify an update was successful, build and run your application and watch the
 [Embrace] Embrace SDK enabled. Version: {{ embrace_sdk_version platform="ios" }}
 ```
 
-## Updating Using Carthage
+### Updating Using Carthage
 
 Carthage is a dependency management system. As such, pulling the latest version of Embrace is as easy as running `carthage update` from the root of the project.
 There are even instructions to [automatically monitor for new releases](https://github.com/Carthage/Carthage#optionally-add-build-phase-to-warn-about-outdated-dependencies).  
 
-## Updating Manually  
+### Updating Manually
 
 When a new version of the Embrace SDK is published we announce it in our Slack channels.  
 

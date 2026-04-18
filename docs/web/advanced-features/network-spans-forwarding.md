@@ -4,18 +4,18 @@ description: Correlate network spans between Embrace and your backend monitoring
 sidebar_position: 2
 ---
 
-# Network Spans Forwarding
+## Network Spans Forwarding
 
 For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/data-forwarding/network-spans-forwarding.md).
 
-## Enablement
+### Enablement
 
 Once all requirements described in [Enable Network Spans Forwarding](/data-forwarding/network-spans-forwarding.md#enable-network-spans-forwarding)
 are met, the feature will be set up on the Embrace backend by an integrations specialist who will reach out to confirm
 details. At that point network spans for non-CORS requests will forward without any additional changes in your app
 instrumentation, however there are a few SDK-side configurations that prevent the feature to be aware of:
 
-### Enabling for specific CORS requests
+#### Enabling for specific CORS requests
 
 By default, the `traceparent` header will not be included on outgoing CORS requests. This is because the server being
 hit may not be configured to allow additional headers for CORS requests (see [Access-Control-Allow-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Headers)).
@@ -45,7 +45,7 @@ initSDK({
 });
 ```
 
-### Conflicting configuration
+#### Conflicting configuration
 
 Particular configurations of the SDK are incompatible with Network Span Forwarding and will cause the feature to be
 turned off if set:
@@ -69,7 +69,7 @@ initSDK({
 });
 ```
 
-### Blocking client-side
+#### Blocking client-side
 
 A `blockNetworkSpanForwarding` configuration flag is available to block the Network Span Forwarding feature regardless
 of what has been configured server-side:

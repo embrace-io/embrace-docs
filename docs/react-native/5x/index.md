@@ -4,7 +4,7 @@ sidebar_position: 6
 description: Using the Embrace React Native 5.x SDK
 ---
 
-# React Native Platform Documentation
+## React Native Platform Documentation
 
 :::warning
 
@@ -13,7 +13,7 @@ the latest.
 
 :::
 
-## Getting Started
+### Getting Started
 
 This documentation is split into two sections:
 

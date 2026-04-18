@@ -4,13 +4,13 @@ description: Learn how to upload source maps to Embrace to translate JavaScript 
 sidebar_position: 4
 ---
 
-# Uploading Symbol Files
+## Uploading Symbol Files
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
 For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.
 
-## Uploading Source Maps
+### Uploading Source Maps
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -59,12 +59,12 @@ This creates a bundle and sets the debuggable flag to false.
 </TabItem>
 </Tabs>
 
-## Uploading Native And JavaScript Symbol Files
+### Uploading Native And JavaScript Symbol Files
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
-## Automatic Uploads
+### Automatic Uploads
 
 Automatically uploading dSYM files is a good option for you if you are not using bitcode to distribute your application.
 
@@ -96,7 +96,7 @@ Notice how the script's location is a reference to the CocoaPods installation fo
 If you do not use Cocoapods please see the [Uploading dSYMs](/ios/5x/integration/dsym-upload) page from the iOS integration guide to set up automatic uploading of dSYM files in Xcode.
 :::
 
-## Native Manual Uploads
+### Native Manual Uploads
 
 If your app is using bitcode or a CI system that makes accessing or modifying the build phases impossible, you can still upload your dSYM files manually.
 
@@ -120,7 +120,7 @@ Run the upload tool and your dSYM will be sent to Embrace.
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
 
-## JavaScript Manual Uploads
+### JavaScript Manual Uploads
 
 When you upload the dSYM manually you also have to upload the JavaScript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
 
@@ -150,7 +150,7 @@ If you don’t see symbolicated crashes while using Proguard, reach out to us on
 
 </Tabs>
 
-## Symbolication with CodePush
+### Symbolication with CodePush
 
 If you use a other service to deploy OTA (over the air) updates, you'll need to upload those source maps to Embrace using the upload script that ships with the iOS SDK.
 
@@ -183,7 +183,7 @@ The Android map is generated with a different name, but the tool to upload is th
 </TabItem>
 </Tabs>
 
-## Pointing the Embrace SDK to the JavaScript Bundle
+### Pointing the Embrace SDK to the JavaScript Bundle
 
 If you distribute changes to the JavaScript code without submitting a new version to the App Store or Google Play Store (i.e. Expo OTA updates),
 you must point the Embrace SDK to where the updated JavaScript bundle will be downloaded on the device.
@@ -216,7 +216,7 @@ Embrace.getInstance().getReactNativeInternalInterface().setJavaScriptBundleUrl(p
 </TabItem>
 </Tabs>
 
-## Expo Apps
+### Expo Apps
 
 If your app is built using Expo and you leverage OTA to distribute updates to your users, you must manually upload source maps using the script distributed with the SDK
 as described in the [Symbolication with CodePush](/react-native/4x/integration/upload-symbol-files#symbolication-with-codepush) section.

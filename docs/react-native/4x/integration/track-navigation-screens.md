@@ -4,21 +4,21 @@ description: Add logging to your React Native application to track screens using
 sidebar_position: 8
 ---
 
-# Track React Native Screens
+## Track React Native Screens
 
-## Adding Context to Sessions
+### Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/4x/integration/crash-reporting) and [Session Reporting](/react-native/4x/integration/session-reporting) sections.
 Embrace can also collect the screens that your app opened and include it as context within your sessions.
 Here's how you add the screen tracker to the session.
 
-## Add React Navigation screen tracker
+### Add React Navigation screen tracker
 
-### Adding the component
+#### Adding the component
 
 Embrace has a separate module for tracking Screens, to use it you will need to add the React Navigation Tracker
 
-#### Install the component
+##### Install the component
 
 ```shell-session
 yarn add @embrace-io/react-navigation
@@ -28,7 +28,7 @@ yarn add @embrace-io/react-navigation
 npm install @embrace-io/react-navigation
 ```
 
-#### Adding the component to your code
+##### Adding the component to your code
 
 Add an useRef for the NavigationContainer and pass it to Embrace's hook
 
@@ -51,13 +51,13 @@ function App() {
 }
 ```
 
-## Add React Native Navigation screen tracker
+### Add React Native Navigation screen tracker
 
-### Adding the component
+#### Adding the component
 
 Embrace has a separate module for tracking Screens, to use it you will need to add the React Native Navigation Tracker
 
-#### Install the component
+##### Install the component
 
 ```shell-session
 yarn add @embrace-io/react-native-navigation
@@ -67,7 +67,7 @@ yarn add @embrace-io/react-native-navigation
 npm install @embrace-io/react-native-navigation
 ```
 
-#### Adding the component to your code
+##### Adding the component to your code
 
 Apply the EmbraceNavigationTracker to your Navigation instance. You should do this in your entry point, usually index.js
 
@@ -105,11 +105,11 @@ Navigation.events().registerAppLaunchedListener(() => {
 Currently we are only supporting 'React Native Navigation SDK' and 'React Navigation SDK', if you are using another library please contact us at [support@embrace.io](mailto:support@embrace.io) or on Slack if you would like to request support.
 :::
 
-### Disable Auto Tracking for Native Screens
+#### Disable Auto Tracking for Native Screens
 
 Embrace automatically collects the native screens, if you do not want to see them in the session you can disable it.
 
-#### Android
+##### Android
 
 Go to your embrace-config.json inside android/app/src/main and add the sdk_config, your file should be like this
 
@@ -127,7 +127,7 @@ Go to your embrace-config.json inside android/app/src/main and add the sdk_confi
 }
 ```
 
-#### iOS
+##### iOS
 
 Go to your `Embrace-info.plist` inside `ios/YOURAPPNAME` and add `ENABLE_AUTOMATIC_VIEW_CAPTURE` as false, your file should be like this
 

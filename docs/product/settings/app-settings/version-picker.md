@@ -3,7 +3,7 @@ title: Version Picker
 sidebar_position: 1
 ---
 
-# Version Picker
+## Version Picker
 
 The Version Picker tab allows developers to manage how app versions are surfaced and filtered throughout the dashboard.
 

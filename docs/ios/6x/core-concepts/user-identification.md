@@ -7,11 +7,11 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# User Identification
+## User Identification
 
 User identification and segmentation are critical for effective app monitoring and troubleshooting. The Embrace SDK provides robust mechanisms to identify users and understand their characteristics.
 
-## Why Identify Users?
+### Why Identify Users?
 
 As your app grows, you'll need to triage issues based on segments of your user base. Proper user identification allows you to:
 
@@ -21,7 +21,7 @@ As your app grows, you'll need to triage issues based on segments of your user b
 - Track user behavior across multiple sessions
 - Analyze patterns in how different user types interact with your app
 
-## Methods for User Context
+### Methods for User Context
 
 The Embrace SDK offers three main approaches for adding user context:
 
@@ -29,11 +29,11 @@ The Embrace SDK offers three main approaches for adding user context:
 - **User Identifier**: A unique ID for tracking specific users
 - **Session Properties**: Data about the device or session context
 
-## User Personas
+### User Personas
 
 User Personas allow you to dynamically segment app users according to their behavior, characteristics, or other criteria. These personas help you analyze user segments and understand variations in user behavior.
 
-### Retrieving Current Personas
+#### Retrieving Current Personas
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -58,7 +58,7 @@ Embrace.client?.metadata.getCurrentPersonas { personas in
 </TabItem>
 </Tabs>
 
-### Adding User Personas
+#### Adding User Personas
 
 The SDK provides both pre-defined tags and the ability to create custom tags:
 
@@ -87,7 +87,7 @@ try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .sess
 </TabItem>
 </Tabs>
 
-### Creating Custom Persona Tags
+#### Creating Custom Persona Tags
 
 It's best practice to extend the `PersonaTag` type to ensure consistent usage:
 
@@ -101,7 +101,7 @@ extension PersonaTag {
 }
 ```
 
-## User Identifier
+### User Identifier
 
 For tracking specific users across sessions, you can assign a unique identifier:
 
@@ -126,7 +126,7 @@ Embrace.client?.metadata.userIdentifier = "user-12345"
 The value set for `userIdentifier` is not validated by the SDK to follow a specific format. Ensure that this value accurately represents the user without directly storing Personally Identifiable Information (PII). Consider using references, aliases, or hashed values to maintain user privacy and comply with data protection regulations.
 :::
 
-## Session Properties
+### Session Properties
 
 Session Properties provide context about the session or device. They're useful for tracking information that's specific to a particular session:
 
@@ -147,7 +147,7 @@ try? Embrace.client?.metadata.addProperty(key: "launch_type", value: "normal", l
 </TabItem>
 </Tabs>
 
-## Metadata Lifespan
+### Metadata Lifespan
 
 Each piece of metadata can have one of three lifespans:
 
@@ -208,7 +208,7 @@ Each piece of metadata can have one of three lifespans:
 </TabItem>
 </Tabs>
 
-## Best Practices for User Identification
+### Best Practices for User Identification
 
 - **Set early in the session**: Add user identity information as early as possible
 - **Be consistent**: Use the same identifiers across app sessions
@@ -218,7 +218,7 @@ Each piece of metadata can have one of three lifespans:
 - **Segment strategically**: Create personas that align with key business and technical metrics
 - **Update when needed**: Change user context when user status changes (e.g., after login/logout)
 
-## Implementation Timing
+### Implementation Timing
 
 Implement user identification:
 
@@ -228,9 +228,9 @@ Implement user identification:
 - At the start of important workflows
 - After significant state changes
 
-## Common Implementation Patterns
+### Common Implementation Patterns
 
-### Authentication Flow User Identification
+#### Authentication Flow User Identification
 
 Implement user identification throughout the authentication lifecycle:
 
@@ -483,7 +483,7 @@ class AuthenticationFlow {
 </TabItem>
 </Tabs>
 
-### Feature Gating and A/B Testing
+#### Feature Gating and A/B Testing
 
 Use user identification for feature access control and testing:
 
@@ -630,7 +630,7 @@ class FeatureGateManager {
 </TabItem>
 </Tabs>
 
-### Progressive User Journey Tracking
+#### Progressive User Journey Tracking
 
 Track user progression through onboarding and feature adoption:
 
@@ -947,7 +947,7 @@ enum UserMilestone: String {
 </TabItem>
 </Tabs>
 
-### Privacy-Safe User Segmentation
+#### Privacy-Safe User Segmentation
 
 Implement user identification while respecting privacy:
 

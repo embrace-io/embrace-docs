@@ -4,11 +4,11 @@ description: Architectural overview of the Embrace iOS SDK 6.x with OpenTelemetr
 sidebar_position: 3
 ---
 
-# Architecture (OpenTelemetry Foundation)
+## Architecture (OpenTelemetry Foundation)
 
 The Embrace 6.x iOS SDK has been architecturally designed from the ground up to support and extend [OpenTelemetry](https://opentelemetry.io) for mobile. This modular approach builds Embrace's event-based observability paradigm directly on OpenTelemetry signals, making it both powerful and flexible.
 
-## OpenTelemetry Integration
+### OpenTelemetry Integration
 
 The SDK is built on OpenTelemetry signals like traces (spans) and logs, which allows for:
 
@@ -17,26 +17,26 @@ The SDK is built on OpenTelemetry signals like traces (spans) and logs, which al
 - Flexible export options to various observability platforms
 - Future-proof design aligned with industry standards
 
-## Architectural Components
+### Architectural Components
 
 The Embrace SDK consists of several core architectural components:
 
-### Tracer Provider
+#### Tracer Provider
 
 The SDK uses OpenTelemetry's tracer provider to create and manage spans, which represent operations or events occurring in your application. This provider is configured when the SDK is initialized and is responsible for generating spans with the correct context and attributes.
 
-### Span Processor
+#### Span Processor
 
 The span processor handles spans as they are created and completed, determining how and when they are exported. The SDK includes optimized span processors designed for mobile environments:
 
 - `SingleSpanProcessor`: Efficiently exports spans to storage for use by the Embrace backend
 - `BatchSpanProcessor`: Used for external OpenTelemetry exporters to optimize the frequency of exports
 
-### Log Processor
+#### Log Processor
 
 Similar to span processing, the log processor manages log records, ensuring they are properly formatted, batched, and exported according to your configuration through the `DefaultEmbraceLoggerProvider`.
 
-### Exporters
+#### Exporters
 
 The SDK supports multiple exporters for sending telemetry data to different destinations:
 
@@ -44,7 +44,7 @@ The SDK supports multiple exporters for sending telemetry data to different dest
 - Custom OpenTelemetry exporters via the `OpenTelemetryExport` configuration
 - Third-party observability platforms
 
-## How Embrace Concepts Map to OpenTelemetry
+### How Embrace Concepts Map to OpenTelemetry
 
 Embrace maps its core observability concepts to OpenTelemetry signals:
 
@@ -59,7 +59,7 @@ Embrace maps its core observability concepts to OpenTelemetry signals:
 | Network request | Span + Span attributes |
 | Low memory warning | Span event |
 
-## Session Implementation Example
+### Session Implementation Example
 
 As an example of how Embrace leverages OpenTelemetry, consider how Sessions are implemented:
 
@@ -81,7 +81,7 @@ static func span(id: SessionIdentifier, startTime: Date, state: SessionState, co
 
 The session span contains all the relevant information about the session and serves as a parent for other spans created during the session lifetime. When the session ends, the span is completed and processed for export.
 
-## Extensibility
+### Extensibility
 
 Because of this architecture, the SDK can be easily extended through:
 

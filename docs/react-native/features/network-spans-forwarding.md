@@ -3,11 +3,11 @@ title: Network spans forwarding
 sidebar_position: 10
 ---
 
-# Network spans forwarding
+## Network spans forwarding
 
 For a full explanation of this feature please refer to the [Network Spans Forwarding Product Overview](/data-forwarding/network-spans-forwarding/).
 
-## Enablement
+### Enablement
 
 Once all requirements described in [Network Spans Forwarding](/data-forwarding/network-spans-forwarding/#enable-network-spans-forwarding) are met (*local configuration*), the feature will be set up by an integrations specialist who will reach out to confirm details (*remote configuration*).
 At this point everything should be working on iOS. For Android one additional configuration is required in `android/app/src/main/embrace-config.json` placed in the Android folder. This feature **is not** enabled by default for this Platform but you can turn this ON by adding the `enable_network_span_forwarding` attribute:
@@ -27,11 +27,11 @@ At this point everything should be working on iOS. For Android one additional co
 
 For more information about this file please refer to the [Android / Configuration File section](/android/configuration/configuration-file/).
 
-## Turning off the feature
+### Turning off the feature
 
 If you want to disable this feature you would need to reach out to us to remove the *remote configuration* turned on previously. As final step you would need to tweak your *local configuration* to completely disable this feature.
 
-### iOS
+#### iOS
 
 You should tweak the SDK Initialization and add a `true` value for the `disableNetworkSpanForwarding` property since the configuration for this platform is done through the code.
 You may then pass the proper object into the `initialize` method for starting the SDK as usual.
@@ -75,7 +75,7 @@ export const App = () => {
 };
 ```
 
-### Android
+#### Android
 
 Remove the parameter that was added or set to `false`.
 

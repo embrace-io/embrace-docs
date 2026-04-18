@@ -4,11 +4,11 @@ description: Explore advanced capabilities of the Embrace iOS SDK
 sidebar_position: 5
 ---
 
-# Advanced Features
+## Advanced Features
 
 The Embrace iOS SDK includes several advanced features that provide additional capabilities for monitoring, debugging, and customizing your app's behavior. These features extend beyond the basic instrumentation and can help you address specific use cases or requirements.
 
-## What are Advanced Features?
+### What are Advanced Features?
 
 Advanced features in the Embrace SDK include specialized capabilities that:
 
@@ -18,7 +18,7 @@ Advanced features in the Embrace SDK include specialized capabilities that:
 - Give insights into app termination states
 - Allow customization of data collection
 
-## Available Advanced Features
+### Available Advanced Features
 
 The Embrace iOS SDK offers the following advanced features:
 
@@ -27,7 +27,7 @@ The Embrace iOS SDK offers the following advanced features:
 - **[Last Run End State](./last-run-end-state.md)** - Determine how the previous app session ended
 - **[Startup Instrumentation](./startup-instrumentation.md)** - Add your own instrumentation around the application startup
 
-## When to Use Advanced Features
+### When to Use Advanced Features
 
 Consider using advanced features when:
 
@@ -37,7 +37,7 @@ Consider using advanced features when:
 - You need to adjust app behavior based on previous crash state
 - You require specialized data collection beyond the automatic instrumentation
 
-## Getting Started with Advanced Features
+### Getting Started with Advanced Features
 
 Each advanced feature has its own configuration and setup requirements. Review the individual feature documentation for detailed integration instructions.
 

@@ -3,23 +3,23 @@ title: Single Sign On (SSO)
 sidebar_position: 5
 ---
 
-# Single Sign On (SSO)
+## Single Sign On (SSO)
 
 Embrace offers SSO support using standard SAML 2.0. Providers such as Okta, OneLogin, Google and Microsoft have been tested.
 
 If you need assistance configuring SSO with other providers please [email us](mailto:support@embrace.io) or [Slack us](https://community.embrace.io/).
 
-## Supported Features
+### Supported Features
 
 - **IdP-initiated flow** - users navigate to your organization's SSO portal and select Embrace app.
 - **SP-initiated login** - users enter their username on Embrace's dashboard and are redirected to your SSO portal for authorization.
 - **JIT provisioning** (optional).
 
-### IdP-initiated SSO
+#### IdP-initiated SSO
 
 Users login into your Identity Provider's SSO page and then click the Embrace icon to automatically login to Embrace's dashboard.
 
-### SP-initiated SSO
+#### SP-initiated SSO
 
 Users can start from Embrace's [dashboard](https://dash.embrace.io) by providing just their username (email) and completing authorization process via your Identity Provider.
 
@@ -28,14 +28,14 @@ Users can start from Embrace's [dashboard](https://dash.embrace.io) by providing
 - Optionally, check **Remember my email** box.
 - Click **Log in using SSO** to be redirected to your SSO provider to complete authentication and be redirected back to Embrace.
 
-## Configuring SAML 2.0 SSO
+### Configuring SAML 2.0 SSO
 
-### Requirements
+#### Requirements
 
 - Enterprise-level Embrace account with SSO feature enabled.
 - Username and password for Embrace user with administrator access.
 
-### Generic Configuration
+#### Generic Configuration
 
 In order to properly configure SAML SSO we'll need two pieces of information which you will need to obtain from SSO provider's portal:
 
@@ -53,16 +53,16 @@ Once you have obtained those two pieces of information, any user with Embrace "a
 
    If necessary, the Embrace logo icon can be downloaded in [svg](https://embrace.io/embrace.svg), [png](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/android-icon-192x192.png) or [ico](https://embrace.io/wp-content/themes/embraceio/library/images/favicon/favicon.ico) format.
 
-### Okta {#okta}
+#### Okta {#okta}
 
 Embrace application is published in Okta's Integration Network, which simplifies the configuration. Instead of using SAML steps above you can do the following:
 
-### Prerequisites
+#### Prerequisites
 
 - Enterprise-level Embrace account with SSO feature enabled.
 - Username and password for Embrace user with administrator access.
 
-### Configuration Steps
+#### Configuration Steps
 
 1. Use **Browse App Catalog** to locate Embrace's application.
 2. Select the **Sign On** tab, go to **Sign on methods > SAML 2.0 > Metadata details**, and copy the SAML **Metadata URL** URL.
@@ -74,14 +74,14 @@ Embrace application is published in Okta's Integration Network, which simplifies
    - Navigate to **Provider Information** tab and copy your **Org ID**.
 4. Within Okta's app configuration's **General Settings**, provide the **Org ID** obtained above; click Save.
 
-### SP-initiated Configuration
+#### SP-initiated Configuration
 
 - Navigate to Embrace dashboard home page at [https://dash.embrace.io](https://dash.embrace.io)
 - Click **Continue with SSO**
 - Enter your email address, and optionally, check **Remember my email** box.
 - Click **Log in using SSO** to be redirected to Okta to complete authentication and be redirected back to Embrace.
 
-### Attributes
+#### Attributes
 
 The following SAML attributes are supported:
 
@@ -91,7 +91,7 @@ The following SAML attributes are supported:
 | LastName  | user.lastName  |
 | Email     | user.email     |
 
-### Optional Attributes
+#### Optional Attributes
 
 Role- and project-based provisioning can be enabled by the Embrace team at the organization level. Please reach out to [support@embrace.io](mailto:support@embrace.io) to turn on this feature and receive guidance on configuring your IdP.
 
@@ -104,7 +104,7 @@ Once support has enabled the feature for your org, you may add the following att
 
 Project external IDs are the short hashes shown in the dashboard URL and the project settings page.
 
-#### Example Payloads Attributes
+##### Example Payloads Attributes
 
 **Admin**
 
@@ -152,10 +152,10 @@ Admins inherit manage access to every project, so the `Projects` attribute is un
 
 In this example the member gains manage access to the project whose external ID is `M84dPR45` (see it in the dashboard URL, e.g. `https://dash.embrace.io/settings/projects-and-apps/M84dPR45/overview`) and view-only access to `AnotherProjectId`.
 
-### OneLogin
+#### OneLogin
 
 Similar to Okta documentation above, you can find [Embrace connector](https://www.onelogin.com/connector/embrace_saml) in OneLogin's application catalog. You will need to provide your **Org ID** that is found on the **Provider Information** tab.
 
-## Troubleshooting
+### Troubleshooting
 
 Please [email us](mailto:support@embrace.io) or [Slack us](https://community.embrace.io/) your dedicated Customer Success Manager if you have any questions.

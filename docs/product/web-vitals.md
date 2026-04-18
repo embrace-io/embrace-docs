@@ -3,7 +3,7 @@ title: Web Vitals
 sidebar_position: 5
 ---
 
-# Web Vitals
+## Web Vitals
 
 Embrace collects and captures [Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals) and other key metrics for each page of your web application. These metrics provide insight into key aspects of your site performance.
 
@@ -19,7 +19,7 @@ The metrics collected are:
 
 The dashboard allows you to quickly identify which Web Vitals need improving and where in the application they need to be improved.
 
-## Using the Web Vitals Dashboard
+### Using the Web Vitals Dashboard
 
 The Web Vitals dashboard is split into six tabs – an overview tab and one for each of the Vitals.
 
@@ -29,7 +29,7 @@ Each tab has an red / amber / green marker allowing you to quickly see the curre
 
 As with other dashboards, it can be filtered to a subset using the filters at the top of the page.
 
-### Overview Tab
+#### Overview Tab
 
 The top panel contains a distribution chart for each Vital showing the proportion Good, Needs Improvement and Poor measurements along with the 75th percentile value for the Vital.
 
@@ -47,7 +47,7 @@ Hovering over a table cell reveals a tooltip. *See Details* will switch to the r
 
 Other tables in the overview tab show how performance varies by Device Type, Browser and Location.
 
-### Individual Vitals Tabs
+#### Individual Vitals Tabs
 
 Each of the Vitals tabs follows a similar pattern and the examples below are taken from the LCP tab.
 
@@ -71,6 +71,6 @@ Web Vitals are available in context with the other technical operations of a use
 
 Web Vitals for pages can also be aggregated and analyzed across all users with [Custom Dashboards](/product/boards/custom-dashboards.md).
 
-## Implementation
+### Implementation
 
 Web Vitals are automatically collected by the [Embrace Web SDK](/web/getting-started/index.md).

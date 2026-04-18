@@ -4,11 +4,11 @@ description: FPS Capture for the Embrace Unity SDK
 sidebar_position: 19
 ---
 
-# Overview
+## Overview
 
 In mobile games and apps, it is crucial to know when or if your app is having frame rate issues. Typically, you want to determine a target minimum frames per second (FPS) for your app. Our automatic FPS capture tool will log periodically how your app is doing, and if you went below that target threshold.
 
-## Getting Started
+### Getting Started
 
 In the Unity editor start by going to **Tools > Embrace > Settings**
 
@@ -19,15 +19,15 @@ Under the **Settings** Tab enable:
 FPS capture is an opt-in feature, meaning it will only work if you enable it using the steps above.
 :::
 
-### Implementation
+#### Implementation
 
 The FPS Capture tool is automatically added to your application as soon as it starts, however you won't start getting any logs until the Embrace SDK is started. If you want to change your target threshold go to Embrace SDK > Resources > EmbraceFrameMeasurer.prefab and modify the `Target Frame Rate` value.
 
-### Start
+#### Start
 
 By default the Frame Measuring tool will automatically generate a report every 60 seconds and post it as a log to the Embrace dashboard. Information viewed in each log is for the last report length. For example if your report interval is 60 seconds you will see the information for the last 60 seconds in each log.
 
-## Viewing The Data
+### Viewing The Data
 
 After you run your application on a device you can then check the Embrace dashboards to see your logs.
 
@@ -46,6 +46,6 @@ One thing to note here is that different devices will behave differently. On one
 **record-average-fps**
 This property describes your average frame rate for the last reporting interval.
 
-### Custom Session Properties
+#### Custom Session Properties
 
 You can also view your average session FPS by looking under the custom session properties for the property `session-average-fps`. This is helpful because you can compare that to report intervals and see how the reported interval compares to the overall session.

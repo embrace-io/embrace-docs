@@ -7,11 +7,11 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Automatic Instrumentation
+## Automatic Instrumentation
 
 The Embrace iOS SDK provides several built-in Capture Services that automatically instrument your application with minimal setup. These services collect valuable telemetry data and convert them into OpenTelemetry signals like spans and events.
 
-## What is Automatic Instrumentation?
+### What is Automatic Instrumentation?
 
 Automatic instrumentation refers to the SDK's ability to monitor and collect data about your application's behavior without requiring you to add manual instrumentation code throughout your app. This provides:
 
@@ -20,7 +20,7 @@ Automatic instrumentation refers to the SDK's ability to monitor and collect dat
 - Consistent data collection
 - Standard metrics across different areas of your app
 
-## Available Capture Services
+### Available Capture Services
 
 The Embrace SDK includes the following automatic instrumentation capabilities:
 
@@ -34,7 +34,7 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 
 Additionally, the SDK monitors system events like low memory warnings and low power mode to help you understand environmental impacts on your app's performance.
 
-## How Capture Services Work
+### How Capture Services Work
 
 Each capture service specializes in monitoring a specific aspect of your application. Depending on the service, it may:
 
@@ -45,7 +45,7 @@ Each capture service specializes in monitoring a specific aspect of your applica
 
 All of this data is collected automatically and integrated with your session data, providing a comprehensive view of your application's behavior.
 
-## Configuring Automatic Instrumentation
+### Configuring Automatic Instrumentation
 
 The capture services are configured when you initialize the Embrace SDK. You can use default settings or customize the behavior of each service:
 
@@ -116,7 +116,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-## Extending Automatic Instrumentation
+### Extending Automatic Instrumentation
 
 While the built-in capture services cover many common scenarios, you can also create your own custom capture services to instrument specific aspects of your application:
 
@@ -133,7 +133,7 @@ let services = CaptureServiceBuilder()
     .build()
 ```
 
-## Best Practices
+### Best Practices
 
 To get the most out of automatic instrumentation:
 
@@ -143,6 +143,6 @@ To get the most out of automatic instrumentation:
 - Combine automatic instrumentation with strategic manual instrumentation for comprehensive coverage
 - Review the data collected regularly to identify optimization opportunities
 
-## Next Steps
+### Next Steps
 
 Explore each capture service in detail to understand its capabilities and configuration options:  

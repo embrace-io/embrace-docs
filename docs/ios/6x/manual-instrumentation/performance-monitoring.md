@@ -7,11 +7,11 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Performance Monitoring
+## Performance Monitoring
 
 Performance monitoring helps you track, measure, and optimize your app's performance. Embrace provides tools to monitor various aspects of your app's performance and identify bottlenecks.
 
-## Performance Metrics
+### Performance Metrics
 
 You can track several types of performance metrics in your iOS app:
 
@@ -20,7 +20,7 @@ You can track several types of performance metrics in your iOS app:
 - **Frequency metrics**: How often operations occur
 - **Custom performance metrics**: Application-specific measurements
 
-## Tracking Operation Duration
+### Tracking Operation Duration
 
 The most common performance metric is operation duration, which you can track using spans:
 
@@ -119,7 +119,7 @@ func renderFeed() {
 </TabItem>
 </Tabs>
 
-## Custom Performance Events
+### Custom Performance Events
 
 Custom events allow you to mark significant points in your code execution:
 
@@ -158,7 +158,7 @@ Embrace.client?.logMessage(
 </TabItem>
 </Tabs>
 
-## Tracking Resource Usage
+### Tracking Resource Usage
 
 You can track resource usage manually at key points:
 
@@ -231,7 +231,7 @@ trackMemoryUsage(operation: "after_data_loaded")
 </TabItem>
 </Tabs>
 
-## Performance Attributes
+### Performance Attributes
 
 Add performance attributes to spans to provide more context:
 
@@ -284,7 +284,7 @@ func loadUserProfile() {
 </TabItem>
 </Tabs>
 
-## Monitoring Critical User Flows
+### Monitoring Critical User Flows
 
 Track performance across user flows by linking spans:
 
@@ -437,7 +437,7 @@ func confirmOrder(completion: @escaping (Bool) -> Void) {
 </TabItem>
 </Tabs>
 
-## Tracking UI Performance
+### Tracking UI Performance
 
 Monitor UI rendering and user interaction performance:
 
@@ -532,7 +532,7 @@ class ProductListViewController: UIViewController {
 </TabItem>
 </Tabs>
 
-## Custom Attributes for Performance Context
+### Custom Attributes for Performance Context
 
 Add custom attributes to provide context for performance analysis:
 
@@ -580,9 +580,9 @@ Embrace.client?.addSessionProperty(name: "animations_enabled", value: appSetting
 </TabItem>
 </Tabs>
 
-## Performance Optimization Best Practices
+### Performance Optimization Best Practices
 
-### Set Performance Budgets
+#### Set Performance Budgets
 
 Define performance thresholds and log when they're exceeded:
 
@@ -662,7 +662,7 @@ While client-side performance budgeting like this can provide immediate feedback
 
 This approach provides more flexibility and allows you to adjust performance budgets without code changes.
 
-### Identify Performance Regressions
+#### Identify Performance Regressions
 
 Use custom events to track performance metrics over time:
 
@@ -709,7 +709,7 @@ func trackStartupPerformance() {
 </TabItem>
 </Tabs>
 
-### Correlate Performance with User Experience
+#### Correlate Performance with User Experience
 
 Track how performance impacts user experience:
 

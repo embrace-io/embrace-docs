@@ -4,7 +4,7 @@ description: Understand if the previous app instance ended in a crash
 sidebar_position: 10
 ---
 
-# Last run end state API
+## Last run end state API
 
 This API enables customers to automatically/programmatically understand if the previous app instance ended in a crash. Depending on your use case, having the ability to query an API to understand if the previous app instance ended in a crash will enable you to adjust the behavior or UI of your app after a crash has occurred.
 
@@ -22,7 +22,7 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 8. App is relaunched
 9. `getLastRunEndState` returns "clean exit"
 
-## Integration steps
+### Integration steps
 
 In order to use this feature, you will need to follow two steps:
 
@@ -42,11 +42,11 @@ val didLastRunCrash = Embrace.lastRunEndState == LastRunEndState.CRASH
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
 :::
 
-### Version
+#### Version
 
 This feature is included in Embrace SDK version 5.21.0 and above.
 
-### Possible values
+#### Possible values
 
 ```kotlin
 /// Used to represent the end state of the last run of the application.

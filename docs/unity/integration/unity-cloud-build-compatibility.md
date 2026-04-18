@@ -4,7 +4,7 @@ description: Use Unity Cloud Build with the Embrace Unity SDK
 sidebar_position: 11
 ---
 
-# Working with Unity Cloud Build
+## Working with Unity Cloud Build
 
 Unity provides a service for automating builds of your project called [Unity Cloud Build](https://unity.com/solutions/ci-cd), which can run tests and create executables. This service can be very useful as a part of your CI process; therefore, we work to ensure that the Embrace SDK is compatible with Unity Cloud Build.  
 

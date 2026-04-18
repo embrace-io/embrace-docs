@@ -4,12 +4,12 @@ description: Learn about the Embrace Metrics API to pull data
 sidebar_position: 10
 ---
 
-# Embrace Metrics API
+## Embrace Metrics API
 
 The Embrace Metrics API allows you to query your metrics from Embrace using PromQL.
 The queryable information includes any standard metrics as well as any [Custom Metrics](/metrics-forwarding/custom-metrics/) you have created.
 
-## Get Started
+### Get Started
 
 1. Navigate to [Settings -> Organization -> API](https://dash.embrace.io/settings/organization/api)
    in the Embrace dashboard.
@@ -18,7 +18,7 @@ The queryable information includes any standard metrics as well as any [Custom M
 <img src={require('@site/static/images/metrics-api/metrics_api_token.png').default} alt="Image showing the
 settings page for API tokens"/>
 
-### How to Consume Metrics?
+#### How to Consume Metrics?
 
 You can consume metrics from the Embrace Metrics API in two ways:
 
@@ -65,11 +65,11 @@ sum(hourly_custom_metric_sessions_total{app_id=~"a1b2C3|Z9Y8x7"})
 sum(hourly_custom_metric_sessions_total{})
 ```
 
-## Supported Metrics
+### Supported Metrics
 
 View all the metrics supported in the [Metrics Forwarding](/metrics-forwarding/#supported-metrics) page.
 
-## Metrics Availability
+### Metrics Availability
 
 This is the time when the metrics will be available to consume in the Embrace Metrics API.
 

@@ -4,7 +4,7 @@ sidebar_position: 7
 description: Trigger alerts for your Android application using logs with the Embrace SDK
 ---
 
-# Adding Logs
+## Adding Logs
 
 Typically the Embrace SDK uploads data at the end of a session. However, some situations
 might require instant feedback, such as hunting an especially difficult bug, troubleshooting
@@ -12,7 +12,7 @@ on behalf of high-value users, or monitoring a new version rollout.
 
 You can leverage the log message API for this.
 
-## Using the Log Message API
+### Using the Log Message API
 
 The Log Message API enables you to log a message instantly.
 
@@ -40,7 +40,7 @@ props["propertyB"] = "valueB"
 Embrace.getInstance().logMessage("Loading not finished in time.", Severity.ERROR, props)
 ```
 
-### Log Handled Exception
+#### Log Handled Exception
 
 If there is a need to log an exception, but the severity level is something other than an error, the **`logException`** method can be used.
 
@@ -74,17 +74,17 @@ import LogLimit from '@site/shared/log-limit.md';
 
 <LogLimit />
 
-## Being Alerted on Logs
+### Being Alerted on Logs
 
 Once you start using our alerting feature you can also configure how these are handled on the backend.
 Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with log events.
 For example, let's say you have a steady rate of 1% for a given log event. You could set that as a threshold and receive an email if the rate rises beyond that in a sustained way.
 
-## Export your telemetry
+### Export your telemetry
 
 A [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) can be easily injected, to directly export your data to any OpenTelemetry Collector.
 
-### Local testing
+#### Local testing
 
 Injecting a [SystemOutLogRecordExporter](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/logging/src/main/java/io/opentelemetry/exporter/logging/SystemOutLogRecordExporter.java) will allow you to see your telemetry in the logcat.
 
@@ -92,7 +92,7 @@ Injecting a [SystemOutLogRecordExporter](https://github.com/open-telemetry/opent
 2024-03-05 14:15:15.342 29672-29756 System.out     io.embrace.mysampleapp          I  1970-01-01T00:00:00Z INFO 'Default log'
 ```
 
-### Adding a LogRecordExporter for a custom OTel Collector
+#### Adding a LogRecordExporter for a custom OTel Collector
 
 You can send your data to a custom [OTel Collector](https://github.com/open-telemetry/opentelemetry-java/blob/main/exporters/otlp/all/src/main/java/io/opentelemetry/exporter/otlp/logs/OtlpGrpcLogRecordExporter.java):
 
@@ -103,7 +103,7 @@ val customDockerLogRecordExporter = OtlpGrpcLogRecordExporter.builder()
     .build()
 ```
 
-### Exporting data to Grafana Cloud
+#### Exporting data to Grafana Cloud
 
 Embrace Logs can be exported to [Grafana Cloud](https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/) using an OTel Collector.
 
@@ -127,12 +127,12 @@ Embrace.getInstance().addLogRecordExporter(grafanaCloudLogRecordExporter)
 Embrace.getInstance().start(this)        
 ```
 
-## Best Practices
+### Best Practices
 
 Logging a message using the Log Message API makes a network request immediately.
 Sending too many logs can easily impact application performance or battery life.
 
-### Log Batching
+#### Log Batching
 
 To reduce the device and network overhead, we batch logs according to the [following criteria](https://github.com/embrace-io/embrace-android-sdk/blob/15f3376641992c52e947869a018364fcfea857f6/embrace-android-sdk/src/main/java/io/embrace/android/embracesdk/internal/logs/LogOrchestrator.kt):
 

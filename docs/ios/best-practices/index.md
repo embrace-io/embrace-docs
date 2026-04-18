@@ -4,7 +4,7 @@ description: Become an Embrace super user on the iOS platform
 sidebar_position: 4
 ---
 
-# iOS/tvOS Best Practices
+## iOS/tvOS Best Practices
 
 Take full advantage of your Embrace SDK by streamlining the integration.
 

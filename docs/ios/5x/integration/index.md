@@ -4,15 +4,15 @@ description: Get started with integrating Embrace into your iOS application
 sidebar_position: 1
 ---
 
-# iOS/tvOS Integration
+## iOS/tvOS Integration
 
-## Getting Started
+### Getting Started
 
 We'll be guiding you through integrating Embrace into your iOS application
 with a series of articles. We recommend going through them in order, although
 you are free to skip around.  
 
-## The XCFramework transition
+### The XCFramework transition
 
 With the introduction of Xcode 12 and the M1 build target, it is no longer possible to build a single binary framework that can run on both the simulator and Apple hardware devices. To resolve this, Apple introduced a new type of framework called the XCFramework.
 
@@ -20,7 +20,7 @@ If your company is already using Xcode 12, make sure that your dependency manage
 
 If your company has not yet started using Xcode 12, then contact us to learn how to use our non-XCFramework releases.
 
-## Decisions You Need To Make
+### Decisions You Need To Make
 
 Before you dive into integrating Embrace there are a few decisions you should
 make to help guide your process:

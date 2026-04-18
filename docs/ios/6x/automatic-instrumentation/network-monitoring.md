@@ -7,11 +7,11 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Network Capture
+## Network Capture
 
 The Embrace SDK automatically monitors network requests made through `URLSession` in your application, providing visibility into network performance, errors, and behavior.
 
-## How Network Monitoring Works
+### How Network Monitoring Works
 
 The `URLSessionCaptureService` captures `URLSession` network requests and generates OpenTelemetry spans that:
 
@@ -21,7 +21,7 @@ The `URLSessionCaptureService` captures `URLSession` network requests and genera
 
 This automatic instrumentation gives you immediate visibility into all network activity without requiring manual code changes.
 
-## Key Benefits
+### Key Benefits
 
 - Track network request timing and performance
 - Identify slow or failing API endpoints
@@ -29,7 +29,7 @@ This automatic instrumentation gives you immediate visibility into all network a
 - Troubleshoot network errors
 - Correlate network activity with user actions and app behavior
 
-## Configuration Options
+### Configuration Options
 
 You can customize network monitoring behavior when initializing the Embrace SDK:
 
@@ -92,7 +92,7 @@ do {
 </TabItem>
 </Tabs>
 
-### Tracing Header Injection
+#### Tracing Header Injection
 
 By enabling `injectTracingHeader`, the SDK will inject a [W3 Traceparent Header](https://www.w3.org/TR/trace-context/#traceparent-header) into network requests:
 
@@ -106,7 +106,7 @@ If you're using the Embrace Dashboard with your app, you might need to contact a
 If you're not using the Embrace Dashboard, you can enable this by passing a custom `EmbraceConfigurable` with `isNetworkSpansForwardingEnabled` set to true when initializing the SDK.
 :::
 
-### Sensitive Data Handling
+#### Sensitive Data Handling
 
 To protect sensitive information in network requests, you can implement the `URLSessionRequestsDataSource` protocol:
 
@@ -136,7 +136,7 @@ class MyDataSource: NSObject, URLSessionRequestsDataSource {
 This only affects the data captured by the Embrace SDK and does not modify the original request sent by your app.
 :::
 
-### Ignoring Specific URLs
+#### Ignoring Specific URLs
 
 You can prevent monitoring of certain URLs by adding them to the `ignoredURLs` list:
 
@@ -152,7 +152,7 @@ URLSessionCaptureService.Options(
 
 Any request URL containing these strings will be completely ignored by the Embrace SDK.
 
-## Data Captured
+### Data Captured
 
 For each network request, the SDK captures:
 
@@ -164,7 +164,7 @@ For each network request, the SDK captures:
 - Response size (when available)
 - Error information (for failed requests)
 
-## Integration with Other Features
+### Integration with Other Features
 
 Network monitoring integrates with other Embrace features:
 
@@ -172,7 +172,7 @@ Network monitoring integrates with other Embrace features:
 - Network errors can trigger log events
 - View loads can be correlated with network activity
 
-## Best Practices
+### Best Practices
 
 - Use the `requestsDataSource` to hide sensitive data like authentication tokens and PII
 - Ignore analytics and other high-volume endpoints that aren't relevant for troubleshooting
@@ -180,4 +180,4 @@ Network monitoring integrates with other Embrace features:
 - Monitor response times to identify slow endpoints
 - Track error rates to find problematic services
 
- <!-- TODO: Add more examples of common network request patterns and how they appear in the Embrace dashboard -->
+  <!-- TODO: Add more examples of common network request patterns and how they appear in the Embrace dashboard -->

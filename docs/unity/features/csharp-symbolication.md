@@ -4,7 +4,7 @@ description: Translate Native Il2cpp Stackframes to C#
 sidebar_position: 7
 ---
 
-# C# Symbolication
+## C# Symbolication
 
 Embrace supports translating Unity il2cpp stack frames from C++ stack traces back to their C# source, including method, assembly name and file name. To enable this feature, the Embrace SDK uploads symbol mapping metadata at build time.  
 

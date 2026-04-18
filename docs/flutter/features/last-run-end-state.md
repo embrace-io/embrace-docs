@@ -4,7 +4,7 @@ description: Understand if the previous app instance ended in a crash
 sidebar_position: 5
 ---
 
-# Last run end state API
+## Last run end state API
 
 This API lets you programmatically determine if the previous app instance ended in a crash. Depending on your use case, querying this API enables you to adjust the behavior or UI of your app after a crash has occurred.
 
@@ -22,7 +22,7 @@ A cold launch. If the app gets backgrounded/resumed so a new session starts, the
 8. App is relaunched
 9. `getLastRunEndState` returns "clean exit"
 
-## Integration steps
+### Integration steps
 
 To use this feature, follow these steps:
 
@@ -40,11 +40,11 @@ final didCrashLastRun = await Embrace.instance.getLastRunEndState() == LastRunEn
 - It returns that a crash occurred if the app crashed any time since the app last came to the foreground, including if the app crashed while running in the background.
 - On iOS, this feature only works when the Embrace crash reporter is enabled. It's **not** compatible with Crashlytics for crash reporting.
 
-### Version
+#### Version
 
 This feature is available in Embrace Flutter SDK version 1.3.0 and later.
 
-### Possible values
+#### Possible values
 
 ```dart
 /// Used to represent the end state of the last run of the application.
@@ -61,6 +61,6 @@ enum LastRunEndState {
 }
 ```
 
-## Support
+### Support
 
 If you have questions or something isn't working as intended, reach out to your Customer Success Manager.

@@ -3,15 +3,15 @@ title: Crash Tagging with Codeowners
 sidebar_position: 2
 ---
 
-# Tagging Automatically Highlights the Most Relevant Person, Team, or Company to Fix a Crash
+## Tagging Automatically Highlights the Most Relevant Person, Team, or Company to Fix a Crash
 
 Embrace tags each stack frame by the most specific matching condition in your CODEOWNERS file. This is then rolled up to the Crash, and Crash Group levels.
 
 <img src={require('@site/static/images/Crash Tag example.png').default} alt="cartoon of crash tags" />
 
-## Create Tag Rules
+### Create Tag Rules
 
-### Directly in the Dashboard
+#### Directly in the Dashboard
 
 On any Crash, you can directly create a rule in the stack frame. Click on the edit icon and fill out the modal with any RE2 regex rule and your desired tag.
 
@@ -29,7 +29,7 @@ You can also see, create, and modify rules in the Settings view.
 
 <img src={require('@site/static/images/tagging-ui-2.png').default} alt="rule-modal" width="500px"/>
 
-### With a CODEOWNERS File
+#### With a CODEOWNERS File
 
 POST your file to `https://dsym-store.emb-api.com/v2/store/tagging/codeowner`. Include your `app`,
 `token` (the symbol upload token used to upload symbols files), `file` and `base_directory`. The `base_directory` is the
@@ -57,7 +57,7 @@ curl https://dsym-store.emb-api.com/v2/store/tagging/codeowner \
   --form base_directory=<base_directory>
 ```
 
-## Consume tagged crashes via Metrics API
+### Consume tagged crashes via Metrics API
 
 New crashes will be automatically tagged as they happen. Tags will show up on the Crash Summary page (as "Owners") and the Crash Details page (as header and in the stack frames).
 

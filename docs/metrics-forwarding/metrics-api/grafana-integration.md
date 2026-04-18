@@ -4,14 +4,14 @@ description: Learn about the Embrace API to pull data
 sidebar_position: 20
 ---
 
-# Grafana Integration
+## Grafana Integration
 
-## Prerequisites
+### Prerequisites
 
 - Grafana ≥ 9.1.0
 - [Embrace Metrics API Token](/metrics-forwarding/metrics-api/#get-started)
 
-## Setting Up Embrace as a Data Source
+### Setting Up Embrace as a Data Source
 
 Follow these steps to add Prometheus as a data source in the Grafana dashboard:
 
@@ -25,11 +25,11 @@ Follow these steps to add Prometheus as a data source in the Grafana dashboard:
 
    <img src={require('@site/static/images/metrics-api/grafana.png').default} alt="Grafana Data Source" />
 
-## Importing Dashboard JSON
+### Importing Dashboard JSON
 
 Use the [provided JSON file](https://github.com/embrace-io/grafana-metric-plugin/blob/main/src/dashboards/overview.json) that is pre-populated with common queries. To add the dashboard to Grafana, click on the Dashboards icon and select `+ Import`. Click on the Upload JSON file button. You may be asked to change the uid of the dashboard if some other dashboard already has that name. You can set it to something like `a-0000000`.
 
-## Creating Time Series
+### Creating Time Series
 
 Add a new panel and set the visualization to "Time series".
 
@@ -62,7 +62,7 @@ You can visualize multiple app versions in the same graph by creating multiple q
 
 <img src={require('@site/static/images/metrics-api/two_timeseries_panel.png').default} alt="Multiple PromQL queries can be visualized on the same panel" />
 
-## Creating Tables
+### Creating Tables
 
 Add a new panel and select the Table visualization.
 

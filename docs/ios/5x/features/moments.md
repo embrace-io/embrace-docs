@@ -4,9 +4,9 @@ description: Measure the performance of your iOS application using Embrace
 sidebar_position: 1
 ---
 
-# Moments
+## Moments
 
-## Overview
+### Overview
 
 Embrace also contains a powerful stopwatch and abandonment tracking feature.
 Embrace uses this mechanism to measure your application launch performance. This is why you must call `endAppStartup` somewhere in your application, as mentioned in the [Session Reporting](/ios/5x/integration/session-reporting) section.
@@ -19,7 +19,7 @@ The performance of the networking calls that moments make are unrelated to the p
 
 Moments are best used for tracking critical user flows that are generally short in nature.
 
-## Starting a Moment
+### Starting a Moment
 
 Here's what a call to start a moment looks like.
 
@@ -58,7 +58,7 @@ import PropertyLimit from '@site/shared/property-limit.md';
 
 <PropertyLimit />
 
-## Ending a Moment
+### Ending a Moment
 
 Here's how to end a moment.
 
@@ -85,7 +85,7 @@ Once you start a moment, a timer is started.
 If you end the moment within a configurable threshold, then the timer ends and the client's measurement is used to report performance.
 You can end the moment from multiple locations in your app, or from multiple threads.  
 
-## Tracking Abandonment
+### Tracking Abandonment
 
 In addition to performance, moments also measure abandonment by default. If the moment never completes, because:
 

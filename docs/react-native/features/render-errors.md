@@ -3,7 +3,7 @@ title: Report render errors
 sidebar_position: 7
 ---
 
-# Report render errors
+## Report render errors
 
 If the Embrace SDK detects a component stack trace in a React Native rendering error it will log it automatically. The
 resulting log will have a stack trace similar to:
@@ -24,7 +24,7 @@ In release builds you may see some "Unknown" entries for view names that could n
  * in AppContainer
 ```
 
-## Preserving screen names
+### Preserving screen names
 
 Making sure components have their `displayName` should help, in addition it is possible to modify your `metro.config.js`
 to include the following:

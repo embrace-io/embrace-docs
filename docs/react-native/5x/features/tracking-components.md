@@ -4,7 +4,7 @@ description: Track the mounting and unmounting of React Components for your Reac
 sidebar_position: 2
 ---
 
-# Tracking Components
+## Tracking Components
 
 By default, Embrace will track native views.
 If you'd like to track when a React component is mounted and unmounted, you can do so with the `startView` and `endView` functions.

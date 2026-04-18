@@ -4,9 +4,9 @@ description: Learn about the advanced ways Embrace can help your application
 sidebar_position: 8
 ---
 
-# Last Run End State API
+## Last Run End State API
 
-## Overview
+### Overview
 
 ---
 
@@ -26,7 +26,7 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 8. App is relaunched
 9. getLastRunEndState returns "clean exit"
 
-## Integration Steps
+### Integration Steps
 
 ---
 
@@ -45,11 +45,11 @@ In order to use this feature, you will need to follow two steps:
 
 </aside>
 
-### Version
+#### Version
 
 **This feature is included in Embrace SDK version 5.21.0 and above.**
 
-### Implementation
+#### Implementation
 
 **Objective C**
 
@@ -82,7 +82,7 @@ switch Embrace.sharedInstance().lastRunEndState {
 }
 ```
 
-### Possible Values
+#### Possible Values
 
 ```objectivec
 /**
@@ -112,7 +112,7 @@ typedef NS_ENUM(NSInteger, EMBLastRunEndState) {
 
 </aside>
 
-## Support
+### Support
 
 ---
 

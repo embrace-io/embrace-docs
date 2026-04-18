@@ -4,11 +4,11 @@ description: Trigger alerts for your Flutter application using logs with the Emb
 sidebar_position: 10
 ---
 
-# Add logs
+## Add logs
 
 Some situations require instant feedback, such as hunting an especially difficult bug, troubleshooting on behalf of high-value users, or monitoring a new version rollout. You can use the log message API for this.
 
-## Use the log message API
+### Use the log message API
 
 Log a message immediately by calling any of the `log` functions, like `logError`:
 
@@ -44,11 +44,11 @@ import LogLimit from '@site/shared/log-limit.md';
 
 <LogLimit />
 
-## Set up alerts on logs
+### Set up alerts on logs
 
 Once you start using the alerting feature, you can configure how these are handled on the backend. Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with log events. For example, if you have a steady rate of 1% for a given log event, you could set that as a threshold and receive an email if the rate rises beyond that in a sustained way.
 
-## Best practices
+### Best practices
 
 Logging a message using the Log Message API makes a network request immediately. Sending too many logs can easily impact application performance or battery life.
 

@@ -4,7 +4,7 @@ description: Integration steps to add Embrace to your React Native application
 sidebar_position: 1
 ---
 
-# Integration Steps
+## Integration Steps
 
 1. [**Login to the Embrace Dashboard.**](/react-native/5x/integration/login-embrace-dashboard) Your data is available in the dashboard. It is important that you have this open while working on the integration to monitor progress.
 2. [**Adding the Embrace SDK.**](/react-native/5x/integration/add-embrace-sdk) We'll be adding the Embrace SDK to your project.

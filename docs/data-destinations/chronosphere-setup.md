@@ -4,15 +4,15 @@ description: Learn about the Embrace <> Chronosphere integration
 sidebar_position: 1
 ---
 
-# Chronosphere Integration
+## Chronosphere Integration
 
-## Prerequisites
+### Prerequisites
 
 - Have an active Chronosphere account.
 
-## Configuration
+### Configuration
 
-### Pulling your Chronosphere Service Account Unrestricted Token's ([Chronosphere documentation](https://docs.chronosphere.io/administer/accounts-teams/service-accounts#create-an-unrestricted-service-account))
+#### Pulling your Chronosphere Service Account Unrestricted Token's ([Chronosphere documentation](https://docs.chronosphere.io/administer/accounts-teams/service-accounts#create-an-unrestricted-service-account))
 
 1. Log into your Chronosphere account.
 2. Navigate to your [service accounts](https://partner-threec.chronosphere.io/service-accounts?column=name&order=asc)
@@ -22,16 +22,16 @@ sidebar_position: 1
 
 <img src={require('@site/static/images/data-destinations/chronosphere_token.png').default} alt="Image showing Chronosphere field needed" />
 
-### Pulling your Tenant ID
+#### Pulling your Tenant ID
 
 1. Navigate to your Chronosphere account.
 2. Share the "tenant ID" that you access on (it is on the URL of the page). For example, in this case it is "embrace-integration".
 
 <img src={require('@site/static/images/data-destinations/chronosphere_tenant_id.png').default} alt="Image showing Chronosphere field needed" />
 
-## Querying your data
+### Querying your data
 
-### Metrics
+#### Metrics
 
 To start analyzing your Embrace metrics open the "Dashboard" panel, and in the "metrics" field start typing "embrace". All Metrics will be prefaced with `embrace_`.
 

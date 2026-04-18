@@ -4,9 +4,9 @@ description: Upload crash reports for both native and JavaScript exceptions from
 sidebar_position: 6
 ---
 
-# Collect your first crash report  
+## Collect your first crash report
 
-## Setting up the Crash Reporter
+### Setting up the Crash Reporter
 
 If you've been following along, you should be setup to collect native crash reports.
 To upload crash reports from unhandled JavaScript exceptions, add the following in the entrypoint of the React app.
@@ -82,7 +82,7 @@ Embrace.getInstance().getReactNativeInternalInterface().setJavaScriptBundleUrl(p
 
 :::
 
-## Triggering a Crash
+### Triggering a Crash
 
 Now we're ready to trigger a crash.
 Either crash the app organically, or add the following code to make it crash.

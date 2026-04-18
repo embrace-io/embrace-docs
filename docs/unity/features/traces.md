@@ -4,13 +4,13 @@ description: Record spans to monitor the production performance and success rate
 sidebar_position: 14
 ---
 
-# Traces
+## Traces
 
-## Overview
+### Overview
 
 Embrace’s Traces solution gives you visibility into any app operation you’d like to track, including duration, success rate, and any contextual metadata collected at runtime that helps debug the root cause of your mobile app's performance issues. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user experience.
 
-## Feature Support
+### Feature Support
 
 :::info Minimum Requirements
 
@@ -30,7 +30,7 @@ There are no limits on the duration of a span as long as the app is running.
 
 There are also no limits to the number of child spans you can have per Root Span, provided the total number of spans does not exceed the per-session maximum.
 
-### Limits
+#### Limits
 
 For limits pertaining to each platform, please see the Android limits [here](/android/features/traces/#limits), and the iOS limits [here](/ios/6x/core-concepts/traces-spans.md).
 
@@ -38,7 +38,7 @@ For limits pertaining to each platform, please see the Android limits [here](/an
 If you exceed the listed limits, the operation with the limit-exceeding call will fail. See the API documentation for details.
 :::
 
-### Naming Conventions
+#### Naming Conventions
 
 - Span Names are **case-sensitive** and are a **max of 50 characters.**
 - Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric ASCII characters**
@@ -47,7 +47,7 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span and attribute names, respectively. You should never create a span or attribute key name with `emb-` and `emb.` prefixes
 :::
 
-## Adding Traces To Your App
+### Adding Traces To Your App
 
 To use this feature:
 
@@ -55,9 +55,9 @@ To use this feature:
 2. Instrument your app using the reference guide in this section to start adding spans to your operations.
 3. See the spans in the [Traces](/product/traces/index.md) section of the Embrace dashboard.
 
-## API Usage Examples
+### API Usage Examples
 
-### Create a Span
+#### Create a Span
 
 ```csharp
 // Create a span with a given name. 
@@ -66,14 +66,14 @@ To use this feature:
 Embrace.Instance.StartSpan("SpanName", startTimeMillisPosix);
 ```
 
-### Add an Attribute to a Span
+#### Add an Attribute to a Span
 
 ```csharp
 var spanId = Embrace.Instance.StartSpan("SpanId", startTimeMillisPosix);
 Embrace.Instance.AddSpanAttribute(spanId, "key", "value");
 ```
 
-### Add an Event to a Span
+#### Add an Event to a Span
 
 ```csharp
 var spanId = Embrace.Instance.StartSpan("spanName", startTime);
@@ -90,25 +90,25 @@ Embrace.Instance.AddSpanEvent(
 );
 ```
 
-### Stop Span For Operation That Ended Earlier
+#### Stop Span For Operation That Ended Earlier
 
 ```csharp
 Embrace.Instance.StopSpan(spanId, endTimeMillisPosix);
 ```
 
-### Stop Span For an Operation That Failed
+#### Stop Span For an Operation That Failed
 
 ```csharp
 Embrace.Instance.StopSpan(spanId, stopTimeMillisPosix, EmbraceSpanErrorCode.FAILURE);
 ```
 
-### Add a Child Span If the Parent Started Properly
+#### Add a Child Span If the Parent Started Properly
 
 ```csharp
 Embrace.Instance.StartSpan("childSpanName", startTimeMillisPosix, parentSpanId)
 ```
 
-### Record a completed span
+#### Record a completed span
 
 ```csharp
 Embrace.Instance.RecordCompletedSpan(
@@ -126,6 +126,6 @@ Embrace.Instance.RecordCompletedSpan(
 - In order for a child span to be recorded, you must stop it before stopping the parent span.
 :::
 
-## Support
+### Support
 
 If you have any questions or if something is not working as intended, please get in touch with your Customer Success Manager.

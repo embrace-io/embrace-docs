@@ -4,9 +4,9 @@ description: Add the Embrace SDK as a dependency to your React Native applicatio
 sidebar_position: 3
 ---
 
-# Adding the React Native Embrace SDK
+## Adding the React Native Embrace SDK
 
-## Add the JavaScript library
+### Add the JavaScript library
 
 Use Yarn or NPM to install the NPM module.
 
@@ -22,9 +22,9 @@ npm install @embrace-io/react-native --save
 If you are using a yarn workspace, you must run the command at the react-native application folder level or modify package.json manually. Do not run this on your yarn workspace root.
 :::
 
-## Adding the SDK
+### Adding the SDK
 
-## Setup Script
+### Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
@@ -58,7 +58,7 @@ git diff
 Compare the changes to the manual setup step to verify the changes were made
 correctly.
 
-## Manually
+### Manually
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
@@ -100,7 +100,7 @@ You'll need to add an `Embrace-Info.plist` file at the root of the iOS project.
 5. Check if the file appears inside YOUR_PROJECT.
    <img src={require('@site/static/images/addEmbraceInfo-4.png').default} />
 
-## React Native Version < 0.60
+### React Native Version < 0.60
 
 If you're on React Native version 0.60 and above, you can use [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
 to set up the native modules.  

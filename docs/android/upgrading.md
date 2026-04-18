@@ -3,11 +3,11 @@ title: Upgrade Guide
 sidebar_position: 6
 ---
 
-# Upgrade guide
+## Upgrade guide
 
-## Upgrading from 7.x to 8.x
+### Upgrading from 7.x to 8.x
 
-### Quick start
+#### Quick start
 
 If you wish to do the upgrade using step-by-step instructions that will work for most apps, follow this `Quick start` guide. Scroll down to the rest of this guide to see all the changes described in greater detail.
 
@@ -56,7 +56,7 @@ If you wish to do the upgrade using step-by-step instructions that will work for
 9. **Build and install your app**
    - Verify the migration was successful by sending a test session and seeing it on the dashboard.
 
-### Minimum supported versions
+#### Minimum supported versions
 
 The Embrace Android SDK supports the following minimum versions of dependent technologies at build and run time:
 
@@ -70,7 +70,7 @@ The Embrace Android SDK supports the following minimum versions of dependent tec
 At runtime, the minimum supported Android version remains 5.0 (i.e. `minSdk` = 21). If your minSdk is less than 26, you will still require
 Gradle 8.4 and AGP 8.3.0 to workaround a desugaring issue.
 
-### Language compatibility target
+#### Language compatibility target
 
 The Embrace Android SDK is compiled using the following language compatibility targets:
 
@@ -79,7 +79,7 @@ The Embrace Android SDK is compiled using the following language compatibility t
 | Java                      | 1.8        | 11         |
 | Kotlin (Language and API) | 1.8        | 2.0        |
 
-### Embrace Gradle plugin renamed
+#### Embrace Gradle plugin renamed
 
 The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 
@@ -91,7 +91,7 @@ The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 Replace references to the old Embrace Gradle Plugin name with the new one. Your configuration files should reference the plugin in one
 of the following ways:
 
-#### Version catalogs
+##### Version catalogs
 
 If you define your plugins in a TOML file (e.g. `gradle/libs.versions.toml`):
 
@@ -122,7 +122,7 @@ buildscript {
 }
 ```
 
-### OpenTelemetry support evolution
+#### OpenTelemetry support evolution
 
 The SDK is moving towards supporting OpenTelemetry via a native Kotlin
 API ([opentelemetry-kotlin](https://github.com/embrace-io/opentelemetry-kotlin)). Currently, the Kotlin API
@@ -146,12 +146,12 @@ to the `Embrace` object:
 
 These methods allow you to use the associated Java OTel API integration points supported by older versions of the Embrace Android SDK.
 
-### Embrace.getInstance() deprecation
+#### Embrace.getInstance() deprecation
 
 `Embrace.getInstance()` is deprecated in favour of `Embrace`. For example, you can now call `Embrace.start(Context)` instead
 of `Embrace.getInstance().start(Context)`.
 
-### Internal modularization
+#### Internal modularization
 
 The Embrace SDK is going through a process of modularization. If you rely on `embrace-android-sdk` then you should notice
 very little change as most alterations are internal. However, you should be aware that:
@@ -163,7 +163,7 @@ very little change as most alterations are internal. However, you should be awar
 `embrace.autoAddEmbraceDependencies` is deprecated and will be removed in a future release. Add the
 `io.embrace:embrace-android-sdk` module to your classpath manually if you reference any Embrace Android SDK API directly in your app.
 
-### Http(s)URLConnection network request instrumentation changes
+#### Http(s)URLConnection network request instrumentation changes
 
 Basic instrumentation for HTTPS network requests made using the `HttpsURLConnection` API is enabled by default and controlled by
 the `sdk_config.networking.enable_huc_lite_instrumentation` configuration flag. It will capture the request duration, status, as well
@@ -179,12 +179,12 @@ module `io.embrace:embrace-android-instrumentation-huc` in your app's classpath.
 
 This DOES NOT affect instrumentation of network requests made using `OkHttp`.
 
-### Altered APIs
+#### Altered APIs
 
 Various deprecated APIs have been removed. Please migrate to the documented new APIs where applicable, or
 get in touch if you do have a use-case that is no longer met.
 
-#### Embrace Android SDK removed APIs
+##### Embrace Android SDK removed APIs
 
 | Old API                                                                 | New API                                                                                                |
 |-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -204,7 +204,7 @@ get in touch if you do have a use-case that is no longer met.
 | `Embrace.getInstance().unregisterComposeActivityListener()`             | Obsolete - no alternative provided.                                                                    |
 | `Embrace.getInstance().logWebView(String)`                              | Obsolete - no alternative provided.                                                                    |
 
-#### New Embrace Gradle plugin DSL
+##### New Embrace Gradle plugin DSL
 
 The Embrace Gradle Plugin previously had a DSL via the `swazzler` extension. This has been replaced with a new DSL via the `embrace`
 extension.
@@ -234,7 +234,7 @@ The following project properties are now ignored and have no effect. You should 
 - `embrace.logLevel`
 - `embrace.instrumentationScope`
 
-#### Embrace Android SDK overload changes
+##### Embrace Android SDK overload changes
 
 The following functions had overloads manually defined. These have been replaced with one function
 that uses Kotlin's default parameter values. Some parameters that used to be null now require non-null arguments.
@@ -255,13 +255,13 @@ that uses Kotlin's default parameter values. Some parameters that used to be nul
 | `EmbraceSpan.start()`                         |
 | `EmbraceSpan.stop()`                          |
 
-## Upgrading from 6.x to 7.x
+### Upgrading from 6.x to 7.x
 
 Version 7 of the Embrace Android SDK introduces several breaking changes and enhancements. You should update your app to accommodate these changes before building with 7.x.
 
 Below is a list of everything that has changed and how to address it in your codebase.
 
-### Breaking changes
+#### Breaking changes
 
 - The **embrace-android-fcm** and **embrace-android-compose** Gradle modules are no longer automatically added by Embrace’s Gradle plugin.
   - **Action**: Add them manually to your `build.gradle` if you need them.
@@ -304,13 +304,13 @@ Below is a list of everything that has changed and how to address it in your cod
 - Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
 :::
 
-## Moments have been superseded by traces
+### Moments have been superseded by traces
 
 [Traces](/android/features/traces.md) serve the same purposes as [Moments](/android/features/moments.md), with greatly enhanced capabilities. Built on [OTel Spans](https://opentelemetry.io/docs/concepts/signals/traces/), Traces capture end-to-end journeys made of multiple spans. Traces can contain many spans as "children", as well as attributes and events that offer flexibility on the client and numerous aggregation options on the backend. This instrumentation allows you trace an entire process by breaking it down into smaller units of work.
 
 A span is simply an operation occurring over a period of time. Using spans, you can track how long operations within the app take, and more. Note that, in building on existing OTel APIs, the Embrace Android SDK does not have instrumentation for an object called a "trace". Instead, a trace is the root span for a given workflow.
 
-### Sample usage
+#### Sample usage
 
 Here is an example of how spans and traces replace and enhance the existing Moment feature:
 
@@ -333,7 +333,7 @@ span?.stop() // stop span
 
 For more detail on the additional things you can do with spans please see the [Traces](/android/features/traces.md) documentation.
 
-## Remove deprecated properties from your build.gradle
+### Remove deprecated properties from your build.gradle
 
 These 5 deprecated properties have been removed from our Gradle plugin. Please remove them from your `app/build.gradle` file.
 
@@ -349,7 +349,7 @@ swazzler {
 }
 ```
 
-## Replace usage of deprecated methods with new ones
+### Replace usage of deprecated methods with new ones
 
 Version 6.0.0 of the Embrace Android SDK removed some methods that had been deprecated in 5.x. The renamed methods were removed to reduce confusion and increase consistency across the Embrace SDKs on various platforms, and their replacements behave the same way as the old ones. The methods removed entirely are for functionality that we no longer support. If you were using them for a specific use-case, please speak to us about how you can use the existing APIs instead.
 
@@ -375,7 +375,7 @@ Version 6.0.0 of the Embrace Android SDK removed some methods that had been depr
 | `Embrace.getInstance().logNetworkRequest()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))` | Renamed function to better describe functionality.                    |
 | `Embrace.getInstance().logNetworkClientError()`       | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromIncompleteRequest(...))` | Renamed function to better describe functionality.                    |
 
-### Previously deprecated APIs that have been removed
+#### Previously deprecated APIs that have been removed
 
 | Old API                                     | Comments                                                 |
 |---------------------------------------------|----------------------------------------------------------|
@@ -404,7 +404,7 @@ Version 6.0.0 of the Embrace Android SDK removed some methods that had been depr
 | `EmbraceNetworkRequestV2.withByteIn()`      | Use `withBytesIn()` instead                              |
 | `EmbraceNetworkRequestV2.withByteOut()`     | Use `withBytesOut()` instead                             |
 
-## Hidden symbols
+### Hidden symbols
 
 The following internal symbols have been hidden. These were unintentionally exposed in 5.x. Please get in touch if you had a use-case for these symbols that isn't
 supported with the new API.
@@ -450,6 +450,6 @@ supported with the new API.
 - `Unchecked`
 - `Uuid`
 
-## Only use OkHttp versions that are at least 4.0.0
+### Only use OkHttp versions that are at least 4.0.0
 
 With the minimum API version being 21 (Android 5.0), version 4.0.0 of OkHttp is now the recommended minimum for use at runtime. While support for OkHttp 3.13.0+ was added in SDK version 6.3.2, it is not recommended, as newer versions are more performant. See the [changelog for 6.0.0](/android/changelog/#600) for details about the other new minimum requirements.

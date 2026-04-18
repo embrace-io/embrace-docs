@@ -4,9 +4,9 @@ description: Add logging to your React Native application using Breadcrumbs with
 sidebar_position: 7
 ---
 
-# Add a breadcrumb
+## Add a breadcrumb
 
-## Adding context to sessions
+### Adding context to sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting/) and [Session Reporting](/react-native/integration/session-reporting/) sections.
 Embrace can also collect your logging data and include it as context within your sessions.

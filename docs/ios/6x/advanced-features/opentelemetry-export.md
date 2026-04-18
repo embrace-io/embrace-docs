@@ -7,7 +7,7 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# OpenTelemetry Export
+## OpenTelemetry Export
 
 Because the 6.x iOS SDK is built on OpenTelemetry, it has the ability to export OpenTelemetry signals directly from the mobile code level, without any of the telemetry hitting our backend.
 
@@ -52,7 +52,7 @@ try? Embrace
 
 In this scenario, an App ID isn't even needed which means you don't even need to register to Embrace in order to use the SDK. All Embrace SDK features are available, the only difference is you'll need to handle the data yourself.
 
-## Direct Exporters
+### Direct Exporters
 
 You can also opt to use Embrace as normal, sending the data to your Embrace dashboard, and also provide your own custom exporter for us to forward in parallel all the events being exported so you can handle them as you please.
 
@@ -103,7 +103,7 @@ try? Embrace
 </TabItem>
 </Tabs>
 
-## OTLP Export through HTTP or gRPC
+### OTLP Export through HTTP or gRPC
 
 The OpenTelemetry-Swift list also has OTLP HTTP and gRPC exporters for logs and spans. These can be used more flexibly than the single-service exporters like Jaeger, because vendors can provide some important keys or headers that allow you to use the protocol to export to an HTTP or gRPC address.
 
@@ -172,9 +172,9 @@ try? Embrace
 </TabItem>
 </Tabs>
 
-## Common Use Cases
+### Common Use Cases
 
-### Integrating with Existing Observability Stacks
+#### Integrating with Existing Observability Stacks
 
 If your organization already uses an observability platform that supports OpenTelemetry, you can integrate Embrace data directly into that platform:
 
@@ -182,7 +182,7 @@ If your organization already uses an observability platform that supports OpenTe
 - Create unified dashboards that show full-stack performance
 - Correlate mobile issues with backend problems
 
-### Custom Exporters
+#### Custom Exporters
 
 For specialized environments, you can implement custom exporters that:
 
@@ -190,11 +190,11 @@ For specialized environments, you can implement custom exporters that:
 - Apply custom filtering or processing before export
 - Implement company-specific security or compliance requirements
 
-#### Implementing a Custom Log Exporter
+##### Implementing a Custom Log Exporter
 
 The Embrace iOS SDK supports custom log exporters through OpenTelemetry's [`LogRecordExporter`](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) protocol. Your custom exporter will run alongside Embrace's default storage exporter, giving you access to all log data while maintaining Embrace's core functionality.
 
-##### Basic Implementation
+###### Basic Implementation
 
 ```swift
 import Foundation
@@ -237,7 +237,7 @@ class CustomLogExporter: LogRecordExporter {
 }
 ```
 
-##### Configuration
+###### Configuration
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -287,7 +287,7 @@ Embrace.setup(options: options)
 </TabItem>
 </Tabs>
 
-##### Background Processing for Heavy Operations
+###### Background Processing for Heavy Operations
 
 For exporters that need to perform heavy processing (file I/O, network calls, data transformation), use a dedicated dispatch queue to avoid blocking the logging pipeline:
 
@@ -351,7 +351,7 @@ class CustomLogExporter: LogRecordExporter {
 }
 ```
 
-##### Available Log Data
+###### Available Log Data
 
 Each `ReadableLogRecord` provides:
 
@@ -363,7 +363,7 @@ Each `ReadableLogRecord` provides:
 - `instrumentationScopeInfo` - Information about the logging source
 - `spanContext` - Associated trace/span context if available
 
-##### Example Use Cases
+###### Example Use Cases
 
 **Send to Remote API:**
 
@@ -400,7 +400,7 @@ func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: T
 }
 ```
 
-##### Important Considerations
+###### Important Considerations
 
 1. **Dual Export**: Your exporter runs alongside Embrace's default exporter - both receive the same log data
 2. **Performance**: Implement efficient processing to avoid blocking the logging pipeline

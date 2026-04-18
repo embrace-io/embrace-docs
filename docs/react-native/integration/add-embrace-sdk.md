@@ -4,9 +4,9 @@ description: Add the Embrace SDK as a dependency to your React Native applicatio
 sidebar_position: 3
 ---
 
-# Adding the React Native Embrace SDK
+## Adding the React Native Embrace SDK
 
-## Add the JavaScript library
+### Add the JavaScript library
 
 To add the JavaScript library to your React Native project, use one of the following commands.
 
@@ -35,11 +35,11 @@ package as a dependency, additional packages can then be included later as you i
 described in our [Feature Reference](/react-native/features/).
 :::
 
-## Native setup
+### Native setup
 
 Choose from one of the following three methodologies for applying native changes to your application:
 
-### Expo Config Plugin
+#### Expo Config Plugin
 
 If you are using Expo's `prebuild` system to manage your native files you can make use of our config plugin. In your
 `app.json` configure the plugin with your Embrace application IDs and symbol upload API token:
@@ -69,7 +69,7 @@ by the Embrace SDK. Note that there are other customizations and advanced featur
 which will still require manual editing of native files, at the moment the config plugin only covers this initial SDK
 setup.
 
-### Setup script
+#### Setup script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
@@ -103,7 +103,7 @@ git diff
 Compare the changes to the manual setup step to verify the changes were made
 correctly.
 
-### Manual Setup - iOS
+#### Manual Setup - iOS
 
 Configuration for iOS is handled in code when initializing the SDK which we will cover in the next step. The native module
 should be setup using [Autolinking](https://github.com/react-native-community/cli/blob/dec33cb945be548a0d30c2ea073493e253239850/docs/autolinking.md#platform-ios)
@@ -111,7 +111,7 @@ so you're good to go!
 
 Since [6.3.0](/react-native/changelog/#630) there are a few changes required in the Podfile of the application described below.
 
-#### Embrace Apple SDK depends on KSCrash
+##### Embrace Apple SDK depends on KSCrash
 
 KSCrash needs modular headers enabled to be able to build. In order to support this Pod, the Podfile in the iOS project needs to add the following line before the target is declared:
 
@@ -140,7 +140,7 @@ module.exports = {
 }
 ```
 
-### Manual Setup - Android
+#### Manual Setup - Android
 
 Update the `build.gradle` file (usually located at `<root>/android/build.gradle`) to include the Embrace Gradle Plugin.
 
@@ -195,9 +195,9 @@ You'll need to set the following permissions so the Embrace SDK can send events 
 
 There's a little more configuration we have to do to set up the uploading of symbol files. You'll be learning about that next.
 
-## Troubleshooting
+### Troubleshooting
 
-### Expo - Cannot find interface declaration for 'ModulesProvider'
+#### Expo - Cannot find interface declaration for 'ModulesProvider'
 
 If you encounter the following build error on iOS after running through our setup using an expo app:
 
@@ -212,7 +212,7 @@ Update your `AppDelegate.m|mm` file to include the following import, making sure
 
 See [this GitHub issue](https://github.com/expo/expo/issues/17705) for more details.
 
-### Android build error on React Native 0.71
+#### Android build error on React Native 0.71
 
 In your `android/app/build.gradle` if you have
 
@@ -228,7 +228,7 @@ apply plugin: "com.facebook.react"
 
 See [this commit](https://github.com/facebook/react-native/commit/af6aafff90c4d40abfe160c4cfc8e1ae8fa0d956) for more details.
 
-### Package does not contain a valid config plugin
+#### Package does not contain a valid config plugin
 
 Expo's plugin resolution method changed in version 52, the simplest way to guarantee our plugin is found across
 different Expo versions is to specify the full "@embrace-io/react-native/lib/app.plugin.js" path for the plugin in

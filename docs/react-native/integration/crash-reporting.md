@@ -4,12 +4,12 @@ description: Upload crash reports for both native and JavaScript exceptions from
 sidebar_position: 6
 ---
 
-# Collect your first crash report
+## Collect your first crash report
 
 If you've been following along, you should be setup to collect crashes, otherwise take a look at the previous pages
 for [Uploading Symbol Files](/react-native/integration/upload-symbol-files) and [Session Reporting](/react-native/integration/session-reporting).
 
-## Triggering a crash
+### Triggering a crash
 
 Now you're ready to trigger a crash.
 Either crash the app organically, or add the following code to make it crash.
@@ -28,7 +28,7 @@ to upload to the Embrace servers.
 Once uploaded you should notice that your session is marked with the "crashed" icon.
 Your crash is also visible in the crashes section of the dashboard.
 
-### Disabling the crash reporter on iOS
+#### Disabling the crash reporter on iOS
 
 For iOS Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't
 want to interfere with you can disable this. If you used the automated installation script or followed the manual steps
@@ -61,7 +61,7 @@ initialize({
 })
 ```
 
-### Disabling the crash reporter on Android
+#### Disabling the crash reporter on Android
 
 For Android Embrace's internal crash reporter will be used by default. If you are using another crash reporter that you don't want to interfere with you can disable this. After setting up the SDK find your `embrace-config.json` file, and add the `crash_handler` block to the `sdk_config` block. If there is no such block, make sure to create the `sdk_config` block:
 

@@ -7,13 +7,13 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Common Implementation Patterns
+## Common Implementation Patterns
 
 This guide presents several common implementation patterns for the Embrace iOS SDK 6.x that can help you get the most value from mobile observability in your app.
 
-## Structuring View Names for Better Analytics
+### Structuring View Names for Better Analytics
 
-### Hierarchical View Naming
+#### Hierarchical View Naming
 
 For better organization in dashboards, use hierarchical names for your views by implementing the `EmbraceViewControllerCustomization` protocol:
 
@@ -37,9 +37,9 @@ class InternalViewController: UIViewController, EmbraceViewControllerCustomizati
 }
 ```
 
-## Tracking User Flows
+### Tracking User Flows
 
-### Tracing Multi-Step Processes
+#### Tracing Multi-Step Processes
 
 For complex user flows like checkout or onboarding:
 
@@ -192,9 +192,9 @@ class CheckoutCoordinator {
 </TabItem>
 </Tabs>
 
-## Handling Network Requests
+### Handling Network Requests
 
-### Tracking API Performance by Endpoint
+#### Tracking API Performance by Endpoint
 
 To analyze API performance by endpoint category, create a custom request data source:
 
@@ -233,9 +233,9 @@ let networkOptions = URLSessionCaptureService.Options(
 )
 ```
 
-## Error Tracking and Categorization
+### Error Tracking and Categorization
 
-### Consistent Error Logging
+#### Consistent Error Logging
 
 Establish a consistent error logging pattern:
 
@@ -352,9 +352,9 @@ func fetchData() {
 </TabItem>
 </Tabs>
 
-## Feature Flagging Integration
+### Feature Flagging Integration
 
-### Tracking Feature Flag Impact
+#### Tracking Feature Flag Impact
 
 If your app uses feature flags, track their effect on performance:
 
@@ -409,9 +409,9 @@ func initializeFeatureFlags() {
 </TabItem>
 </Tabs>
 
-## Dependency Injection Pattern
+### Dependency Injection Pattern
 
-### SDK Abstraction for Testing
+#### SDK Abstraction for Testing
 
 Create an abstraction for the Embrace SDK to facilitate testing:
 
@@ -548,9 +548,9 @@ class AppFeature {
 </TabItem>
 </Tabs>
 
-## Handling Asynchronous Operations
+### Handling Asynchronous Operations
 
-### Tracing Asynchronous Tasks
+#### Tracing Asynchronous Tasks
 
 For long-running asynchronous operations:
 
@@ -629,9 +629,9 @@ func performAsyncTask() async throws -> Result {
 </TabItem>
 </Tabs>
 
-## Handling Background Tasks
+### Handling Background Tasks
 
-### Background Session Management
+#### Background Session Management
 
 For monitoring background tasks:
 
@@ -724,7 +724,7 @@ class BackgroundTaskManager {
 </TabItem>
 </Tabs>
 
-## SwiftUI-Specific Patterns
+### SwiftUI-Specific Patterns
 
 SwiftUI's reactive view system can present unique challenges for instrumentation. Views can re-render frequently due to state changes, and lifecycle methods may be called multiple times. These patterns help you avoid duplicate telemetry and create accurate user journey tracking.
 
@@ -740,11 +740,11 @@ For SwiftUI apps, **we strongly recommend using Embrace's view modifiers and mac
 This approach provides cleaner code, reduces instrumentation errors, and ensures consistent tracking across your app. The patterns shown below are for cases where manual instrumentation is necessary.
 :::
 
-### Avoiding Duplicate Breadcrumbs in View Lifecycle
+#### Avoiding Duplicate Breadcrumbs in View Lifecycle
 
 SwiftUI views re-render when their state changes, which can cause `onAppear` to be called multiple times. This leads to duplicate breadcrumbs that inflate user flow metrics and incorrectly show high abandonment rates.
 
-#### Problem: Duplicate Breadcrumbs
+##### Problem: Duplicate Breadcrumbs
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -785,7 +785,7 @@ struct CartView: View {
 </TabItem>
 </Tabs>
 
-#### Solution 1: State-Based Tracking
+##### Solution 1: State-Based Tracking
 
 Use `@State` to track whether the breadcrumb has been logged:
 
@@ -834,7 +834,7 @@ struct CartView: View {
 </TabItem>
 </Tabs>
 
-#### Solution 2: ViewModel-Based Tracking
+##### Solution 2: ViewModel-Based Tracking
 
 Move breadcrumb logic to a ViewModel with built-in duplicate protection:
 
@@ -899,7 +899,7 @@ struct CartView: View {
 </TabItem>
 </Tabs>
 
-#### Solution 3: Task-Based Approach
+##### Solution 3: Task-Based Approach
 
 For iOS 15+, use the `.task` modifier which provides better lifecycle management:
 
@@ -942,7 +942,7 @@ struct CheckoutView: View {
 </TabItem>
 </Tabs>
 
-### Navigation-Based Breadcrumb Tracking
+#### Navigation-Based Breadcrumb Tracking
 
 For simple navigation flows, track breadcrumbs in navigation events rather than view lifecycle:
 
@@ -1011,7 +1011,7 @@ struct ProductListView: View {
 For more complex navigation flows with multiple steps or when you need centralized navigation tracking, consider using a coordinator pattern as shown in the [Multi-Step Form Tracking](#multi-step-form-tracking) section below.
 :::
 
-### User Action Tracking in SwiftUI
+#### User Action Tracking in SwiftUI
 
 Track user actions in event handlers rather than view rendering methods:
 
@@ -1070,7 +1070,7 @@ struct AddToCartButton: View {
 </TabItem>
 </Tabs>
 
-### Multi-Step Form Tracking
+#### Multi-Step Form Tracking
 
 Track form progression without duplicates using a coordinator:
 
@@ -1169,7 +1169,7 @@ struct CheckoutFlow: View {
 </TabItem>
 </Tabs>
 
-### Observable Macro Pattern (iOS 17+)
+#### Observable Macro Pattern (iOS 17+)
 
 For apps using the `@Observable` macro, use a similar pattern:
 
@@ -1218,7 +1218,7 @@ class ProductViewModel {
 </TabItem>
 </Tabs>
 
-### Best Practices Summary for SwiftUI
+#### Best Practices Summary for SwiftUI
 
 **Avoid placing breadcrumbs in:**
 
@@ -1237,7 +1237,7 @@ class ProductViewModel {
 
 SwiftUI's reactive rendering requires explicit duplicate prevention. Use state-based guards or move tracking logic to ViewModels with built-in protection to ensure accurate telemetry.
 
-## Summary
+### Summary
 
 These implementation patterns showcase best practices for:
 

@@ -4,9 +4,9 @@ description: Add attachments to your log messages to monitor production performa
 sidebar_position: 15
 ---
 
-# Log Attachments
+## Log Attachments
 
-## Overview
+### Overview
 
 A new addition to the Embrace Unity SDK, the Log Attachments API allows binary attachments to be added to log messages. This can be useful if you wish to add arbitrary binary blobs that describe your application's state (such as game state) at a given point in time.
 
@@ -15,7 +15,7 @@ There are two ways to add attachments to the log message:
 - by uploading the attachment to Embrace
 - by uploading the attachment to a 3rd party file host and appending the URL for that attachment to your call to the Log Attachments API.
 
-### Uploading attachments to Embrace
+#### Uploading attachments to Embrace
 
 To upload a binary attachment, provide a byte array (`sbyte` on Android, `byte` on iOS) to the `attachment` argument when calling `Embrace.LogMessage` as below:
 
@@ -40,7 +40,7 @@ Embrace.Instance.LogMessage(
 )
 ```
 
-## Attachment limits
+### Attachment limits
 
 A maximum of 5 attachments per session can be uploaded. The maximum size per attachment is 1Mib.
 

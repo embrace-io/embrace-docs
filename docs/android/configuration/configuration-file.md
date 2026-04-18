@@ -4,7 +4,7 @@ description: Configuration file for the Android Embrace SDK
 sidebar_position: 11
 ---
 
-# Android configuration file
+## Android configuration file
 
 Certain SDK configs are only settable in a custom `embrace-config.json` file.
 This file should be located in `app/src/main`.
@@ -82,83 +82,83 @@ Explanations for each of the fields follow below.
 }
 ```
 
-## app_id *string, required*
+### app_id *string, required*
 
 Your 5 character app ID.
 
-### api_token *string, required*
+#### api_token *string, required*
 
 Your API 32-hexdigit token.
 
-#### ndk_enabled *bool*
+##### ndk_enabled *bool*
 
 Enables NDK crash capture. Defaults to `true`.
 
-#### automatic_data_capture - power_save_mode_info *bool*
+##### automatic_data_capture - power_save_mode_info *bool*
 
 Enables power save mode capture. Defaults to `true`.
 
-#### automatic_data_capture - network_connectivity_info *bool*
+##### automatic_data_capture - network_connectivity_info *bool*
 
 Enables network connectivity capture. Defaults to `true`.
 
-#### automatic_data_capture - anr_info *bool*
+##### automatic_data_capture - anr_info *bool*
 
 Enables ANR capture. Defaults to `true`.
 
-#### automatic_data_capture - ui_load_tracing_disabled *bool*
+##### automatic_data_capture - ui_load_tracing_disabled *bool*
 
 Disables all Activity load instrumentation. Defaults to `false`.
 
-#### automatic_data_capture - ui_load_tracing_selected_only *bool*
+##### automatic_data_capture - ui_load_tracing_selected_only *bool*
 
 Disables Activity load instrumentation for Activities that are not explicitly annotated with @`LoadTracedActivity` or `@CustomLoadTracedActivity`. Defaults to `false`.
 
-#### taps - capture_coordinates *bool*
+##### taps - capture_coordinates *bool*
 
 Set to true to enable capturing tap coordinates. Defaults to `false`.
 
-#### view_config - enable_automatic_activity_capture *bool*
+##### view_config - enable_automatic_activity_capture *bool*
 
 Enables capturing activity lifecycle changes in breadcrumbs. Defaults to `true`.
 
-#### webview - capture_query_params *bool*
+##### webview - capture_query_params *bool*
 
 Set to false to disable capturing of web view query parameters. Defaults to `true`.
 
-#### webview - enable *bool*
+##### webview - enable *bool*
 
 Set to false to disable capturing of web views. Defaults to `true`.
 
-#### crash_handler - enabled *bool*
+##### crash_handler - enabled *bool*
 
 Set to false to prevent the SDK from connecting to the uncaught exception handler. Defaults to `true`.
 
-#### compose - capture_compose_onclick *bool*
+##### compose - capture_compose_onclick *bool*
 
 Enables capture of Jetpack Compose click events. Defaults to `false`.
 
-#### capture_fcm_pii_data *bool*
+##### capture_fcm_pii_data *bool*
 
 Enables PII data within FCM capture. Defaults to `false`.
 
-#### networking - default_capture_limit *integer*
+##### networking - default_capture_limit *integer*
 
 Default capture limit for specified domains. Defaults to `1000`.
 
-#### networking - domains *object array*
+##### networking - domains *object array*
 
 List of domain names and their respective limits.
 
-#### networking - domain_name *string*
+##### networking - domain_name *string*
 
 Domain URL.
 
-#### networking - domain_limit *integer*
+##### networking - domain_limit *integer*
 
 Limit for the number of requests to be tracked.
 
-#### networking - disabled_url_patterns *string array*
+##### networking - disabled_url_patterns *string array*
 
 Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
 
@@ -168,27 +168,27 @@ Example:
 "disabled_url_patterns": [".*"], // Will disable network calls for all URLs
 ```
 
-#### networking - enable_huc_lite_instrumentation *bool*
+##### networking - enable_huc_lite_instrumentation *bool*
 
 Enable basic instrumentation of HTTPS network requests made using the `HttpsURLConnection` API. Defaults to `true`.
 
-#### networking - enable_native_monitoring *bool*
+##### networking - enable_native_monitoring *bool*
 
 Enable detailed instrumentation of HTTP and HTTPS network requests made using the `HttpURLConnection` and `HttpsURLConnection` APIs. The module `embrace-android-instrumentation-huc` must be included in your app for this to work. Defaults to `false`.
 
-#### networking - capture_request_content_length *bool*
+##### networking - capture_request_content_length *bool*
 
 Enable capture of network request body size for the instrumentation enabled by `enable_native_monitoring`, which may interfere with certain streaming network requests. Defaults to `false`.
 
-#### networking - enable_network_span_forwarding *bool*
+##### networking - enable_network_span_forwarding *bool*
 
 Enables network span forwarding. Defaults to `false`.
 
-#### capture_public_key *string*
+##### capture_public_key *string*
 
 Declares the key that should be used to capture network request bodies, if any.
 
-#### sensitive_keys_denylist *string array*
+##### sensitive_keys_denylist *string array*
 
 List of keys that will be redacted from any key-value pair sent by the SDK, such as event attributes, span attributes, log attributes, and session properties. Values for keys present in this list will be replaced by a `<redacted>` string
 
@@ -197,43 +197,43 @@ Example:
 "sensitive_keys_denylist": ["secret"] // Will change to <redacted> any value tied to a "secret" key
 ```
 
-#### anr - capture_unity_thread *bool*
+##### anr - capture_unity_thread *bool*
 
 Enables Unity ANR capture. Defaults to `false`.
 
-#### app - report_disk_usage *bool*
+##### app - report_disk_usage *bool*
 
 The SDK collects the disk usage for the app. Defaults to `true`.
 
-#### capture_enabled *bool*
+##### capture_enabled *bool*
 
 This value is a failsafe to enable or disable background activity capture. If the remote configuration is not set by Embrace's backend, this value will determine whether or not to enable background capture. Defaults to `false`.
 
-#### base_urls - config *string*
+##### base_urls - config *string*
 
 Base config URL for the SDK.
 
-#### base_urls - data *string*
+##### base_urls - data *string*
 
 Base data URL for the SDK.
 
-#### sig_handler_detection *bool*
+##### sig_handler_detection *bool*
 
 Enables 3rd party signal handler detection. When enabled, the SDK checks if its NDK signal handlers have been overwritten by other libraries and reinstalls them if needed. Defaults to `false`.
 
-#### app_exit_info - aei_enabled *bool*
+##### app_exit_info - aei_enabled *bool*
 
 Enables Application Exit Info capture. Defaults to `true`.
 
-#### app_framework *string*
+##### app_framework *string*
 
 Project's app framework, one of react\_native, unity, flutter or native.
 
-#### unity - symbols_archive_name *string*
+##### unity - symbols_archive_name *string*
 
 Custom file name for unity symbols.
 
-## Custom settings for build types, flavors, and variants
+### Custom settings for build types, flavors, and variants
 
 It is possible to specify build type-, flavor-, and [variant](https://developer.android.com/build/build-variants) specific configurations that take precedence over the default configuration located at `app/src/main/embrace-config.json`. No merging of configuration is done between, say, a build-type configuration and the default configuration. The entire configuration must be specified in each configuration file.
 

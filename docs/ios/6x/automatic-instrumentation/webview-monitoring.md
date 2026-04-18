@@ -7,11 +7,11 @@ sidebar_position: 7
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# WebView Monitoring
+## WebView Monitoring
 
 The Embrace SDK's `WebViewCaptureService` automatically instruments `WKWebView` instances in your app, providing visibility into web content loading, performance, and error states.
 
-## How WebView Monitoring Works
+### How WebView Monitoring Works
 
 The WebView capture service monitors the lifecycle of `WKWebView` instances by swizzling key methods in the `WKWebView` and `WKNavigationDelegate` classes. This allows Embrace to create OpenTelemetry spans that track:
 
@@ -23,7 +23,7 @@ The WebView capture service monitors the lifecycle of `WKWebView` instances by s
 
 This data helps you identify slow-loading web content, troubleshoot web errors, and optimize hybrid app experiences.
 
-## Configuration
+### Configuration
 
 You can customize WebView monitoring behavior when initializing the Embrace SDK:
 
@@ -76,9 +76,9 @@ try Embrace
 </TabItem>
 </Tabs>
 
-## Customization Options
+### Customization Options
 
-### Resource Load Tracking
+#### Resource Load Tracking
 
 Enable tracking of individual resources loaded by your WebViews:
 
@@ -90,7 +90,7 @@ WebViewCaptureService.Options(
 
 When enabled, the service will capture data about images, scripts, stylesheets, and other resources loaded by your web content, helping you identify performance bottlenecks.
 
-### JavaScript Error Capture
+#### JavaScript Error Capture
 
 Capture JavaScript errors that occur in your WebView content:
 
@@ -102,7 +102,7 @@ WebViewCaptureService.Options(
 
 This provides visibility into client-side errors in your web content, helping you detect and fix issues that might otherwise be difficult to reproduce.
 
-### URL Filtering
+#### URL Filtering
 
 You can ignore specific URL patterns to prevent sensitive content or high-volume endpoints from being captured:
 
@@ -118,11 +118,11 @@ WebViewCaptureService.Options(
 
 The patterns support regular expressions for flexible matching.
 
-## Navigation Events Captured
+### Navigation Events Captured
 
 The WebView monitoring service tracks the following key events:
 
-### Page Navigation Start
+#### Page Navigation Start
 
 A span is created when navigation to a URL begins:
 
@@ -131,7 +131,7 @@ A span is created when navigation to a URL begins:
 webView(_:didStartProvisionalNavigation:)
 ```
 
-### Page Navigation Complete
+#### Page Navigation Complete
 
 The span is ended when the page finishes loading successfully:
 
@@ -140,7 +140,7 @@ The span is ended when the page finishes loading successfully:
 webView(_:didFinish:)
 ```
 
-### Navigation Errors
+#### Navigation Errors
 
 If navigation fails, the span is ended with error information:
 
@@ -150,7 +150,7 @@ webView(_:didFailProvisionalNavigation:withError:)
 webView(_:didFail:withError:)
 ```
 
-## Integrating with WKNavigationDelegate
+### Integrating with WKNavigationDelegate
 
 The WebView capture service works automatically when using standard WKWebView instances. If you implement your own `WKNavigationDelegate`, Embrace will still capture the navigation events through method swizzling.
 
@@ -198,7 +198,7 @@ WebViewCaptureService.Options(
 )
 ```
 
-## Understanding WebView Data
+### Understanding WebView Data
 
 WebView navigation is captured as OpenTelemetry spans with the following attributes:
 
@@ -216,25 +216,25 @@ For resource loads (when enabled), child spans are created with:
 - `emb.webview.resource_size`: Size of the resource in bytes
 - `emb.webview.resource_error`: Error information (if the resource failed to load)
 
-## Example Use Cases
+### Example Use Cases
 
-### Hybrid App Performance Monitoring
+#### Hybrid App Performance Monitoring
 
 Track the performance of web content within your native app to ensure consistent user experience.
 
-### Web Content Error Detection
+#### Web Content Error Detection
 
 Identify when web content fails to load and understand the root causes.
 
-### Third-Party Content Analysis
+#### Third-Party Content Analysis
 
 Monitor the performance impact of third-party scripts and resources embedded in your web content.
 
-### Progressive Web App (PWA) Integration
+#### Progressive Web App (PWA) Integration
 
 Ensure smooth performance when transitioning between native views and PWA components.
 
-## Best Practices
+### Best Practices
 
 - Be selective about enabling resource tracking to avoid excessive data collection
 - Use URL filtering to exclude analytics and tracking scripts that generate high volumes of data
@@ -242,7 +242,7 @@ Ensure smooth performance when transitioning between native views and PWA compon
 - Consider implementing a content preloading strategy for critical web content
 - Use the JavaScript error capture to detect and fix client-side issues
 
-## Manual Instrumentation
+### Manual Instrumentation
 
 For advanced use cases, you can manually instrument specific WebView operations:
 

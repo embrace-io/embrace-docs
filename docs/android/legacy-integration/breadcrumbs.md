@@ -4,9 +4,9 @@ sidebar_position: 6
 description: Add logging to your Android application using Breadcrumbs with the Embrace SDK
 ---
 
-# Enrich your sessions with Breadcrumb
+## Enrich your sessions with Breadcrumb
 
-## Adding Relevant Information to Sessions
+### Adding Relevant Information to Sessions
 
 Embrace can collect your logging data as 'breadcrumbs' and include it as relevant information and details to enrich your sessions.
 

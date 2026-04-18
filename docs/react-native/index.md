@@ -4,9 +4,9 @@ sidebar_position: 0
 description: Learn about Embrace for the React Native platform
 ---
 
-# React Native platform documentation
+## React Native platform documentation
 
-## Get started
+### Get started
 
 This documentation is split into two sections:
 
@@ -26,7 +26,7 @@ We do not provide an API docs reference through this website. To check our API d
 are using [here](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages).
 :::
 
-## Built on OpenTelemetry
+### Built on OpenTelemetry
 
 The React Native SDK has been built to support and extend [OpenTelemetry](https://opentelemetry.io) for mobile. All the
 telemetry we track maps to OTel signals, namely [Traces](https://opentelemetry.io/docs/concepts/signals/traces/) and
@@ -35,7 +35,7 @@ that can be hooked up to instrumentation libraries not written by Embrace to col
 exporters](/react-native/features/otlp) can be setup to send data to any OTLP-HTTP compatible endpoint, either in addition
 to sending to Embrace or optionally bypassing us entirely.
 
-### Events mapped to OTel signals
+#### Events mapped to OTel signals
 
 | Embrace tracking   | OTel Representation    |
 |--------------------|------------------------|
