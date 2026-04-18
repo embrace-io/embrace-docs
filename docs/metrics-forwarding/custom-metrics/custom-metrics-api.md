@@ -55,7 +55,7 @@ Body Params:
 - `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
   is turned on. i.e.: `["five_minute", "hourly", "daily"]`
 - `data_destination`: list of data destination to which we are going to send this metric. If it is empty, by default metrics_api
-    is turned on. i.e.: `["metrics_api", "newrelic", "datadog", "grafana_cloud"]`
+  is turned on. i.e.: `["metrics_api", "newrelic", "datadog", "grafana_cloud"]`
 
 #### Response
 

@@ -116,8 +116,8 @@ Unsupported options:
 1. Go to the Grafana Dashboard where you visualize your Embrace metrics.
 2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink.
    - Ensure that all Embrace metrics are aggregated by `app_id` and `embrace_metric_name`. Embrace uses those aggregations to generate
-    the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this
-    (`sum by (os_version, app_id, embrace_metric_name) (embrace_session_hourly_total)`) works.
+   the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this
+   (`sum by (os_version, app_id, embrace_metric_name) (embrace_session_hourly_total)`) works.
 3. Hover over the Grafana Visualization to reveal the three dot menu in the top-right and select "edit".
 4. In the right sidebar menu, scroll down to the "Data Links" section. Click the "+ Add link" button, and enter the following details:
    - **Title**: Embrace.

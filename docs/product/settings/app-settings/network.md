@@ -13,7 +13,7 @@ Once First Party calls are identified, you will be able to filter by "First Part
 2. Expand the Apps list if it is not open
 3. Click on the "Network" tab
 4. Click "Add Domain" and enter a domain\
-    a. The domain field also accepts wildcarding, such as `«wildcard».nps.gov`
+   a. The domain field also accepts wildcarding, such as `«wildcard».nps.gov`
 
 :::info Domain Matching
 Domains must match exactly. Subdomains are **not** included automatically.

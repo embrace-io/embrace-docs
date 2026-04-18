@@ -43,16 +43,16 @@ You can also create combined graphs in Line visualizations. With combined graphs
 For example, you want to get a rate over the last 24 hours of the sum of crashes and ANR's with a duration of 3.5 to 10 second relative to your total sessions, grouped by App Version. To do this:
 
 1. For the initial query A, select Crashes as the source, Crash Count as the metric, and App Version in the group by field.\
-    a. You can also add a group by here. For this example, we group by App Version. See more on grouping functionality below.\
-    b. Formulas and multiple queries are only supported on line charts currently.
+   a. You can also add a group by here. For this example, we group by App Version. See more on grouping functionality below.\
+   b. Formulas and multiple queries are only supported on line charts currently.
 2. On query A, click the Filter By button below the query details and filter for State = foreground.
 3. Create a second query (B) by clicking the "Add query" button. Select ANR's as the source, ANR count as the metric, and again group by App Version.\
-    a. On query B, filter for Duration Bucket (milliseconds) = 3500 - 10000.
+   a. On query B, filter for Duration Bucket (milliseconds) = 3500 - 10000.
 4. Create a third query (C) for your Session Count grouped by App Version and filter for foreground sessions using the same process as in query A.
 5. Hide queries A, B, and C by clicking the eye symbols at the right side of each query row.
 6. In the Formula field at the bottom, enter `(A+B) / C`. You can optionally multiply this by 100 to get a y-axis as a percentage (`((A+B) / C) * 100`).\
-    a. The Formula field accepts the operators: `+, -, *, /`.\
-    b. Order of operations follows standard PEMDAS.
+   a. The Formula field accepts the operators: `+, -, *, /`.\
+   b. Order of operations follows standard PEMDAS.
 
    <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
 
