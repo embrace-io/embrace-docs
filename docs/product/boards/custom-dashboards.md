@@ -141,6 +141,39 @@ Our Issues Widget, lets you specify how to list a table of [Issues](/product/iss
 
    <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
 
+## Copying widgets to other dashboards
+
+You can reuse a widget you've already built by copying it to one or more other dashboards in the same app. You can copy to existing dashboards or create a new one in the process.
+
+1. On the dashboard that has the widgets you want to copy, click the three dots icon on a widget to open its action menu, then choose **Copy to dashboard**.
+2. The dashboard enters multi-select mode. Use the checkbox on each widget tile to select every widget you want to copy.
+3. Click the **Copy to dashboard** button in the top right of the screen.
+4. In the modal that appears, choose one or more existing dashboards from the list, or click **Create New Dashboard** to copy the widgets into a new one.
+5. After you confirm, you can navigate to the destination dashboard or stay on the current page to keep editing.
+
+<img src={require('@site/static/images/custom_dashboards/Copy_Widget_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="Widget action menu showing Copy to dashboard" />
+
+Copied widgets are fully independent. They contain no back-reference to the source dashboard or original widget, so edits to a copy do not affect the original or any other dashboard.
+
+## Copying dashboards across apps
+
+If you manage multiple apps in Embrace, you can copy a dashboard from one app to another instead of rebuilding it. This is useful for teams that want to maintain a consistent monitoring setup across apps.
+
+You can start the copy from two places:
+
+- **From the All Dashboards page**: click the three dots next to any dashboard in the list, then select **Copy to app**.
+- **From an individual dashboard**: click the three dots in the menu next to the dashboard name, then select **Copy to app**.
+
+<img src={require('@site/static/images/custom_dashboards/Copy_Dashboard_To_App_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="Dashboard action menu showing Copy to app" />
+
+In the **Copy dashboard to app** modal, select one or more apps in your organization to copy the dashboard to. All copy actions respect app-level access permissions, so only apps you have access to appear in the list. Once you confirm, you can open the new dashboard in the destination app or stay on the current page.
+
+### Error states in copied dashboards
+
+A widget copied across apps may not render correctly if something it depends on, such as a filter key, metric, or dimension, is not available in the destination app. When this happens, the dashboard shows an inline warning, and affected widgets display an error indicator. Hover over the indicator to see a tooltip that explains the specific cause so you can adjust the widget.
+
+<img src={require('@site/static/images/custom_dashboards/Copied_Dashboard_Error_States.png').default} style={{ width: '75%', height: '75%' }} alt="Copied dashboard showing warning banner and per-widget error indicators" />
+
 ## Emailing Custom Dashboards
 
 You can also email your Custom Dashboards to yourself or your team.
