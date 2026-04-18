@@ -44,9 +44,6 @@ jobs:
 
             echo 'RUMDL_LINT_ANY_FINDINGS=true' | tee -a $GITHUB_ENV
           else
-            grep '^Success:' output.md >> rumdl.md
-            echo '```' >> rumdl.md
-
             echo 'RUMDL_LINT_ANY_FINDINGS=false' | tee -a $GITHUB_ENV
           fi
 
@@ -65,5 +62,6 @@ jobs:
           mode: delete
 
       - name: Fail on lint violations
+        if: ${{ env.RUMDL_LINT_ANY_FINDINGS == 'true' }}
         run: |
-          grep '^Success:' output.md
+          exit 1
