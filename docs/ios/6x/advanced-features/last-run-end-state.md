@@ -7,11 +7,11 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Last Run End State
+## Last Run End State
 
 The Last Run End State API enables you to programmatically determine if the previous app instance ended in a crash. This powerful feature allows you to adjust your app's behavior or UI based on how the previous session terminated.
 
-## Overview
+### Overview
 
 With the Last Run End State API, you can build more user-friendly experiences by:
 
@@ -34,7 +34,7 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 8. App is relaunched
 9. `lastRunEndState` returns "cleanExit"
 
-## Integration Steps
+### Integration Steps
 
 In order to use this feature, you will need to follow two steps:
 
@@ -45,7 +45,7 @@ In order to use this feature, you will need to follow two steps:
 This feature only works with the Embrace crash reporter. It is **NOT** compatible if you use Crashlytics for crash reporting.
 :::
 
-## Implementation
+### Implementation
 
 The API will return a value noting the last run end state of the application. Note that:
 
@@ -69,7 +69,7 @@ let lastRunEndState = Embrace.client?.lastRunEndState()
 </TabItem>
 </Tabs>
 
-### Possible Values
+#### Possible Values
 
 The current [possible values](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/LastRunEndState.swift) for end state are:
 
@@ -84,9 +84,9 @@ case crash
 case cleanExit
 ```
 
-## Common Use Cases
+### Common Use Cases
 
-### Crash Recovery
+#### Crash Recovery
 
 Implement crash recovery logic to restore user state after a crash:
 
@@ -169,7 +169,7 @@ func showCrashRecoveryMessage() {
 </TabItem>
 </Tabs>
 
-### Special Handling for Repeated Crashes
+#### Special Handling for Repeated Crashes
 
 Detect and handle situations where the app crashes repeatedly in the same area:
 
@@ -230,7 +230,7 @@ func handleFeatureEntry(featureId: String) {
 </TabItem>
 </Tabs>
 
-### Diagnostic Information Collection
+#### Diagnostic Information Collection
 
 Gather additional diagnostic information after a crash to help with debugging:
 

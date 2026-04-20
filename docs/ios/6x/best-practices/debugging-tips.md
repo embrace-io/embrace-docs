@@ -7,11 +7,11 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Debugging Tips
+## Debugging Tips
 
 The Embrace iOS SDK provides several tools and techniques to help you diagnose issues. This guide outlines best practices for debugging and troubleshooting when integrating or using the SDK.
 
-## Enabling Verbose Logging
+### Enabling Verbose Logging
 
 For debugging purposes, increase the log level during development to see detailed SDK operations:
 
@@ -47,7 +47,7 @@ The available log levels are:
 - `.debug`: Includes more detailed debugging information
 - `.verbose`: Most verbose output, includes all logging
 
-## Identifying SDK Initialization Issues
+### Identifying SDK Initialization Issues
 
 If you're experiencing issues with SDK initialization:
 
@@ -90,11 +90,11 @@ do {
 
 3. Check the console for any warnings or errors from the Embrace SDK
 
-## Troubleshooting Network Issues
+### Troubleshooting Network Issues
 
 If you're not seeing network requests in your Embrace dashboard:
 
-### Verify Network Capture Service Configuration
+#### Verify Network Capture Service Configuration
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -145,7 +145,7 @@ let networkOptions = NetworkCaptureServiceOptions(
 </TabItem>
 </Tabs>
 
-### Test with Curl or Network Debug Tools
+#### Test with Curl or Network Debug Tools
 
 Send a test network request that's easy to identify:
 
@@ -160,7 +160,7 @@ task.resume()
 
 Then check if this appears in your Embrace dashboard or logs.
 
-## Verifying Session Tracking
+### Verifying Session Tracking
 
 If sessions aren't being tracked properly:
 
@@ -214,7 +214,7 @@ Embrace.client.startSession()
 </TabItem>
 </Tabs>
 
-## Debugging Custom Traces
+### Debugging Custom Traces
 
 If your custom traces aren't appearing:
 
@@ -278,7 +278,7 @@ parentSpan.end()
 </TabItem>
 </Tabs>
 
-## Testing Crash Reporting
+### Testing Crash Reporting
 
 To verify crash reporting is working correctly:
 
@@ -323,7 +323,7 @@ func triggerTestCrash() {
 
 3. Verify dSYM files are properly uploaded to symbolicate crashes
 
-## Debugging View Tracking
+### Debugging View Tracking
 
 If view controller tracking isn't working as expected:
 
@@ -370,7 +370,7 @@ class DebugViewController: UIViewController {
 </TabItem>
 </Tabs>
 
-## Checking OpenTelemetry Export
+### Checking OpenTelemetry Export
 
 If you're using OpenTelemetry export and not seeing data:
 
@@ -411,7 +411,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-## Using Xcode Debugger
+### Using Xcode Debugger
 
 Set breakpoints in your integration code to inspect the SDK's state:
 
@@ -441,7 +441,7 @@ po Embrace.client.currentSessionId
 </TabItem>
 </Tabs>
 
-## Investigating Memory Issues
+### Investigating Memory Issues
 
 If you suspect memory issues related to the SDK:
 
@@ -476,7 +476,7 @@ Embrace.client.addSessionAttribute(key: "data_id", value: largeObject.id)
 </TabItem>
 </Tabs>
 
-## Getting SDK Version and Status
+### Getting SDK Version and Status
 
 You can check the SDK version and status programmatically:
 
@@ -511,7 +511,7 @@ print("Embrace SDK started: \(isStarted)")
 </TabItem>
 </Tabs>
 
-## Summary
+### Summary
 
 - Use verbose logging during development
 - Implement proper error handling for setup and start

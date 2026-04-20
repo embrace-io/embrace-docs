@@ -4,21 +4,21 @@ description: Frequently asked questions about the Embrace Android SDK
 sidebar_position: 5
 ---
 
-# Embrace Android SDK FAQ
+## Embrace Android SDK FAQ
 
 Here are some commonly asked questions along with their answers.
 If you don't see your question or need more clarification, contact us on the [community Slack](https://community.embrace.io)
 or email us at [support@embrace.io](mailto:support@embrace.io).
 
-## Integration
+### Integration
 
-### **The SDK should support API level 21, but I get an error saying I need to set android.useFullClasspathForDexingTransformAPI**
+#### **The SDK should support API level 21, but I get an error saying I need to set android.useFullClasspathForDexingTransformAPI**
 
 A [desugaring bug](https://issuetracker.google.com/issues/230454566#comment18) in old AGP versions results in runtime crashes on old devices when using Embrace.
 Therefore if your minSdk is below 26 you must use AGP 8.3+ and add `android.useFullClasspathForDexingTransform=true` to your `gradle.properties`.
 Alternatively you can set your `minSdk` to 26 to avoid the problem.
 
-### **The SDK should support API level 21, but I get an error saying some other API level is needed. What's wrong?**
+#### **The SDK should support API level 21, but I get an error saying some other API level is needed. What's wrong?**
 
 Verify that the following Gradle options are set:
 
@@ -29,31 +29,31 @@ compileOptions {
 }
 ```
 
-### **How do I use Embrace functions in modules or libraries?**
+#### **How do I use Embrace functions in modules or libraries?**
 
 If you wish to call Embrace functions in a module that doesn't produce an APK, you can add the Embrace SDK dependency directly:
 
 `implementation "io.embrace:embrace-android-sdk:<version>"`
 
-### **Is there a way that I can speed up build times?**
+#### **Is there a way that I can speed up build times?**
 
 If your version is less than 7.0.0 update to a newer version as it uses a substantially more performant API for bytecode instrumentation amongst various other improvements.
 Generally speaking, newer versions will improve build times due to improvements in AGP/Gradle APIs.
 
-### **Does adding the Embrace SDK impact launch performance?**
+#### **Does adding the Embrace SDK impact launch performance?**
 
 How long the SDK takes to initialize depends on the features that are enabled and the quality of the device on which the app is running. For the vast majority of production usage, Embrace takes less than 50 milliseconds to initialize. In practice, this is between 1-3% of typical app cold launch time.
 
-### **Do I need to start Embrace's SDK on the main thread?**
+#### **Do I need to start Embrace's SDK on the main thread?**
 
 It is strongly recommended to start the Embrace SDK on the main thread in `Application.onCreate()`. The SDK relies on application lifecycle callbacks
 to capture some telemetry correctly. If it's not started on the main thread at the correct time, the data captured (such as startup performance) may not be as accurate as it can be.
 
-### **How does Embrace deliver session data if there is no network connection or if the device is behind a firewall?**
+#### **How does Embrace deliver session data if there is no network connection or if the device is behind a firewall?**
 
 Embrace caches all data before sending it to Embrace. If it fails to send, it tries again later and continues trying until the disk space is full. At that point, the oldest message or data is deleted first.
 
-### **What is the impact of adding Embrace Android SDK regarding app performance, device battery/data usage/disk space?**
+#### **What is the impact of adding Embrace Android SDK regarding app performance, device battery/data usage/disk space?**
 
 TL;DR _The impact depends on how you use the API._
 
@@ -67,26 +67,26 @@ Regarding payload size, the backend rejects any payloads greater than 3mb, so in
 
 Embrace proactively profiles the impact of instrumentation on the app. Spans generally take less than 1 ms to start and stop, so the overhead to measurement shouldn't impact user experience, even if you do it directly on the main thread.
 
-### **What determines if a session is classified as prod or dev?**
+#### **What determines if a session is classified as prod or dev?**
 
 A session is classified as dev if all of the following are true:
 
 - The `buildType` has the `debuggable` flag set to `true` in the `app/build.gradle` file.
 - The debugger is attached (meaning you're running the app on a device or simulator with the Android Studio debugger attached).
 
-### **How can I define custom app IDs for different build types?**
+#### **How can I define custom app IDs for different build types?**
 
 See [this section](/android/configuration/configuration-file/#custom-settings-for-build-types-flavors-and-variants) on how to configure different app IDs.
 
-### **Does Embrace work with Buck / OKBuck?**
+#### **Does Embrace work with Buck / OKBuck?**
 
 Not currently. Contact us at [support@embrace.io](mailto:support@embrace.io) or on Slack if you would like to request support.
 
-### **Does Embrace support Hermes for React Native?**
+#### **Does Embrace support Hermes for React Native?**
 
 Yes, Embrace supports Hermes in Embrace Android SDK versions 5.5.0 and above. Ensure that you are using at least version 0.71 of React Native when utilizing Hermes.
 
-### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
+#### **I can see that the Embrace SDK has initiated, but there is no session data in the dashboard.**
 
 A core aspect of the Embrace SDK is the ability to register as a listener to application lifecycle events. The SDK will not record sessions if it is not alerted of lifecycle events.
 
@@ -140,15 +140,15 @@ In other instances, a library may disable the initializer. In such a scenario, t
 Since this issue only occurs with appcompat >= 1.4.1, the provider block may previously exist in prior versions of the application that report sessions without difficulty, and this issue is caused by an appCompat version change.
 :::
 
-### **How do I override the version of OkHttp to be lower than the one Embrace specifies?**
+#### **How do I override the version of OkHttp to be lower than the one Embrace specifies?**
 
 By default, your app will choose the latest version of a particular dependency if multiple versions are transitively specified due to your app's explicit dependencies. If you wish to use a version of a dependency like OkHttp that is lower than what Embrace uses, you can follow the instructions [here](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:enforcing_dependency_version).
 
 Note that Embrace does not support versions of dependencies lower than what has been specified, so doing this kind of override may lead to unspecified behaviors. Only do this if it cannot be avoided and thoroughly test that it does not conflict with Embrace or any other SDKs that depend on it.
 
-## Crashes and ANRs
+### Crashes and ANRs
 
-### **Can I use other crash reporters in addition to the Embrace one?**
+#### **Can I use other crash reporters in addition to the Embrace one?**
 
 Yes. Embrace adds itself as a listener for uncaught JVM exceptions, but passes on exceptions to any previously installed handler so that both listeners receive the uncaught exceptions.
 
@@ -156,17 +156,17 @@ For NDK exceptions, Embrace replaces any existing signal handlers (which are use
 Similarly, other NDK crash capture tools would be likely to replace Embrace signal handlers if they are initialized after
 the SDK. It is therefore not recommended to enable more than one NDK crash reporting solution in your app as it will interfere with crash report quality.
 
-### **What does it mean if I see Embrace in my ANR reports?**
+#### **What does it mean if I see Embrace in my ANR reports?**
 
 The call stack that is reported for an ANR includes all processes running on the main thread at the time of an ANR. This way of classifying an ANR often misattributes the real culprit, as it tells you what is happening on the main thread at that moment, but doesn't point to the cause prior to the ANR. Embrace takes lightweight samples of the main thread up to 5 seconds before the occurrence of an ANR to show you what the thread was doing in that time. So, if you see Embrace in your ANR call stack, it's very likely the noise of the ANR reporter landing on the Embrace sampling methods.
 
-### **How can I resolve an Android OkHttp crash?**
+#### **How can I resolve an Android OkHttp crash?**
 
 The Embrace SDK often appears in the stack trace of an OkHttp crash due to the nature of how OkHttp interceptors work, by chaining the calls one after another. You will often see multiple `intercept()` calls in the stack.
 
 To resolve this type of crash, look at where exactly the crash occurred. For example, if the crash happened in `okhttp3.internal.http2.Http2Stream.takeHeaders`, this suggests that the way the headers were sent could have contributed to the crash.
 
-### **Why does Embrace's crash data look different compared to another crash reporting solution I use?**
+#### **Why does Embrace's crash data look different compared to another crash reporting solution I use?**
 
 All crash reporting solutions capture crashes in subtly different ways. One of the main differences is in how individual stacktraces are grouped into a distinct report. Different vendors will take different views on how best to do this grouping. When comparing the dashboards of two different vendors side-by-side, this can give the appearance that one vendor is 'missing' a specific crash report, or the crash count is lower/higher than expected. In reality, the vendors have chosen different approaches to aggregate individual events, and missing crash events have simply been aggregated in a different location.
 
@@ -174,13 +174,13 @@ Crash rate calculations also tend to differ between vendors, along with the defi
 
 Finally, SDKs use different approaches to capture and process crash data. For JVM exceptions, captured stacktraces will usually be the same for all SDKs that have registered for a callback. That isn't necessarily the case for NDK crashes due to limitations of how signal handlers work. This can lead to the scenario where different stacktraces are captured for the same event by different vendors.
 
-### **Why does Embrace's ANR data look different compared to another ANR reporting solution I use?**
+#### **Why does Embrace's ANR data look different compared to another ANR reporting solution I use?**
 
 All the reasons in this [crashes FAQ](#why-does-embraces-crash-data-look-different-compared-to-another-crash-reporting-solution-i-use) also applies to ANR data.
 
-## Users
+### Users
 
-### **How does Embrace identify users?**
+#### **How does Embrace identify users?**
 
 Embrace automatically generates an Embrace ID determined based on the device.
 
@@ -192,26 +192,26 @@ Remember that this data will be uploaded to Embrace, so think about the privacy 
 
 If no user identifier is set, Embrace sets a random string as the identifier, which is available for that user as long as the app remains installed. For more methods on setting user values, see the [API docs](/android/features/identify-users.md).
 
-### **If a user registered in a later session, are previous sessions still linked to that user?**
+#### **If a user registered in a later session, are previous sessions still linked to that user?**
 
 Yes. Embrace links all sessions to that user from the past and in the future. Search by the Embrace ID for all of that user's sessions.
 
-### **Do I have access to the Embrace ID at runtime?**
+#### **Do I have access to the Embrace ID at runtime?**
 
 Yes, Embrace makes the Embrace ID available to you via the SDK. See the [API docs](/api/android/).
 
-## Network requests
+### Network requests
 
-### **Why are my API calls not displaying in the dashboard?**
+#### **Why are my API calls not displaying in the dashboard?**
 
 Make sure that Embrace is initialized after any 3rd party networking libraries and that your API call is from OkHttp or HttpUrlConnection.
 Also confirm that you haven't disabled OkHttp/HttpUrlConnection instrumentation in your configuration file.
 
-### **Do you support GraphQL?**
+#### **Do you support GraphQL?**
 
 Yes, Embrace has multiple customers that use GraphQL. See the [GraphQL guide](/best-practices/graphql) in [Best Practices](/best-practices).
 
-### **Which network libraries do you support?**
+#### **Which network libraries do you support?**
 
 All network calls are automatically tracked without any code changes. Network calls are tracked if you use one or more of the following network libraries:
 
@@ -220,13 +220,13 @@ All network calls are automatically tracked without any code changes. Network ca
 
 If you use a library not listed or do not see expected network calls, contact us at [support@embrace.io](mailto:support@embrace.io) or via Slack.
 
-### **Compatibility with Akamai, Cloudflare, PacketZoom and other networking services**
+#### **Compatibility with Akamai, Cloudflare, PacketZoom and other networking services**
 
 Embrace is compatible with SDKs that optimize networking, such as those from Akamai, Cloudflare, and PacketZoom.
 However, it is important that the Embrace SDK is initialized _after_ any of these types of SDKs are initialized to ensure
 that our SDK captures network requests.
 
-### **My network calls are not being captured. What could be going wrong?**
+#### **My network calls are not being captured. What could be going wrong?**
 
 This could be due to one of the following reasons:
 
@@ -250,32 +250,32 @@ This could be due to one of the following reasons:
 
     The SDK instruments the `build()` method, so it will only track network requests with the first approach.
 
-### **What does Embrace use to hook into network calls on Android apps?**
+#### **What does Embrace use to hook into network calls on Android apps?**
 
 For Android, Embrace captures information from native UrlConnections and OkHttp3
 
-### **What permissions does Embrace add to my AndroidManifest?**
+#### **What permissions does Embrace add to my AndroidManifest?**
 
 Embrace automatically adds the following permissions so that it can make HTTP requests to deliver captured data.
 
 - `android.permission.INTERNET`
 - `android.permission.ACCESS_NETWORK_STATE`
 
-## Monitoring performance
+### Monitoring performance
 
-### **How do I measure operations running in parallel?**
+#### **How do I measure operations running in parallel?**
 
 Refer to the [Traces feature guide](/android/features/traces) for a reference on how to measure custom app operations using Embrace, including ones running in parallel.
 
-## Tap coordinates
+### Tap coordinates
 
-### **Can I disable the capture of tap coordinates?**
+#### **Can I disable the capture of tap coordinates?**
 
 Tap coordinates are disabled by default in 7.X and above. You can confirm this by checking the [`taps[capture_coordinates]` setting](/android/configuration/configuration-file/#taps---capture_coordinates-bool) in the `embrace-config.json` file.
 
-## Trace IDs
+### Trace IDs
 
-### **I have a custom ID to represent each network request made to my server. Can I capture that in the network logging?**
+#### **I have a custom ID to represent each network request made to my server. Can I capture that in the network logging?**
 
 Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in the request.
 
@@ -283,49 +283,49 @@ Yes, you can capture custom IDs by adding them to the `x-emb-trace-id` header in
 The SDK will truncate trace IDs longer than 64 characters.
 :::
 
-## Unity
+### Unity
 
-### Why am I seeing a `Semaphore.tryAcquire` ANR in `UnityPlayerActivity.onPause`?
+#### Why am I seeing a `Semaphore.tryAcquire` ANR in `UnityPlayerActivity.onPause`?
 
 This ANR (Application Not Responding) happens because a long-running operation in your game is blocking Unity’s ability to pause in a timely manner — it’s not caused by `OnApplicationPause` itself.
 
-### What’s happening behind the scenes?
+#### What’s happening behind the scenes?
 
-#### Unity’s Android architecture
+##### Unity’s Android architecture
 
 Every Unity Android app includes `UnityPlayerActivity`, a Java class that runs on the Android UI thread. It manages the app’s lifecycle and acts as a bridge between the OS and the Unity runtime, which runs on a separate thread.
 
-#### How pausing works
+##### How pausing works
 
 When the OS tells your app to pause (e.g., the user switches apps), that request goes to `UnityPlayerActivity.onPause` on the UI thread. To complete the pause process, the activity needs to notify the Unity engine (running on another thread) to trigger `OnApplicationPause` and suspend the game loop.
 
 Since this requires coordination between threads, `onPause` must **wait** for a synchronization point at the end of Unity’s frame loop. This wait happens via `java.util.concurrent.Semaphore.tryAcquire`, which is what you see in the ANR stack trace.
 
-#### Why does this cause an ANR?
+##### Why does this cause an ANR?
 
 Normally, this wait lasts just a few milliseconds. However, if the Unity thread is already **blocked** by a long-running operation (such as synchronous asset loading or heavy computation), the pause request gets stuck waiting—leading to an ANR.
 
-### Example scenario
+#### Example scenario
 
 Let’s say your game loads a large 3D environment when the user taps a button in the main menu. If the scene loads **synchronously** and takes several seconds (especially on a low-end device), the user usually just waits for it to complete. But if the OS happens to pause the app during this process (e.g., the user switches apps), the ongoing load delays the pause process, and boom—ANR.
 
-### How to prevent this?
+#### How to prevent this?
 
-#### Identify long-running synchronous operations
+##### Identify long-running synchronous operations
 
 Use [Traces](/android/features/traces) to monitor scene and asset loads, SDK initializations, and queued async tasks that might be running on the Unity thread.
 
-#### Optimize your game loop
+##### Optimize your game loop
 
 Where possible, move heavy operations **off the main Unity thread** or make them **asynchronous** to avoid blocking the pause request.
 
-### Key takeaway
+#### Key takeaway
 
 The `Semaphore.tryAcquire` ANR isn’t caused by `OnApplicationPause`—it’s caused by other long-running tasks in your game that prevent Unity from handling the pause in time. By reducing these blocking operations, you can avoid this issue and improve your app’s responsiveness.
 
-## Android TV / Amazon Fire TV
+### Android TV / Amazon Fire TV
 
-### Do you support Android TV and Amazon Fire TV?
+#### Do you support Android TV and Amazon Fire TV?
 
 Yes. Currently, Amazon Fire TV apps are Android TV apps built on FireOS under the hood. The Embrace SDK supports Android TV out of the box, so you can integrate the SDK like you would with any other Android mobile app.
 

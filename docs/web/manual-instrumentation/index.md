@@ -4,13 +4,13 @@ description: Add custom telemetry to your web app with Embrace's manual instrume
 sidebar_position: 4
 ---
 
-# Manual Instrumentation
+## Manual Instrumentation
 
 While Embrace's [automatic instrumentation](../automatic-instrumentation/index.md) captures many important metrics and
 events out of the box, manual instrumentation allows you to add custom telemetry data that's specific to your
 application's unique workflows and business logic.
 
-## What is Manual Instrumentation?
+### What is Manual Instrumentation?
 
 Manual instrumentation refers to the explicit addition of code in your application to create traces, logs, handle errors,
 and monitor performance. This gives you the ability to:
@@ -21,7 +21,7 @@ and monitor performance. This gives you the ability to:
 - Capture application-specific events
 - Create custom user journeys
 
-## Manual Instrumentation APIs
+### Manual Instrumentation APIs
 
 Embrace provides several APIs for manual instrumentation:
 
@@ -30,7 +30,7 @@ Embrace provides several APIs for manual instrumentation:
 3. **[Breadcrumbs](./breadcrumbs.md)** - Provide context to user activity in sessions
 4. **[Navigation](./navigation.md)** - Annotate sessions as users navigate through your app
 
-## When to Use Manual Instrumentation
+### When to Use Manual Instrumentation
 
 Consider adding manual instrumentation when:
 
@@ -41,7 +41,7 @@ Consider adding manual instrumentation when:
 - You need to capture application-specific events
 - You want to track third-party SDK interactions
 
-## Basic Principles
+### Basic Principles
 
 Effective manual instrumentation follows these principles:
 
@@ -51,7 +51,7 @@ Effective manual instrumentation follows these principles:
 4. **Error capturing** - Record errors within the proper context
 5. **Proper span hierarchy** - Create logical parent-child relationships
 
-## Getting Started
+### Getting Started
 
 The most common way to start with manual instrumentation is by creating custom spans:
 
@@ -77,7 +77,7 @@ if (success) {
 
 Explore the sections in this documentation to learn about all the available manual instrumentation capabilities.
 
-## Best Practices
+### Best Practices
 
 - Start with automatic instrumentation and add manual instrumentation for business-critical paths
 - Use descriptive names for spans and events that clearly indicate what they represent

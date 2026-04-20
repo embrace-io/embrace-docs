@@ -4,9 +4,9 @@ description: Upload session reports from your iOS application using the Embrace 
 sidebar_position: 4
 ---
 
-# Session Reporting
+## Session Reporting
 
-## Create your first session
+### Create your first session
 
 Now that you've got Embrace linked and know how to login to the Embrace Dashboard, it's time to collect your first session.
 
@@ -22,7 +22,7 @@ Embrace always uploads sessions on subsequent launches. This means the general p
    2. Launch the application to the foreground
    3. Verify that our first session was uploaded to Embrace by checking the Dashboard
 
-## Import Embrace
+### Import Embrace
 
 Let's start by importing the Embrace module. Open your program's
 `AppDelegate.swift` class or equivalent.
@@ -71,7 +71,7 @@ For now, you can just add one entry to this file: `"API_KEY"`. Be sure to fill i
 Make sure the target membership is checked for the Embrace-Info.plist file.
 :::
 
-## Add a start call
+### Add a start call
 
 Next, inside your main startup function (usually `ApplicationDidFinishLaunching`) add the following code to start Embrace. Embrace does not perform any tracking or other actions until this call is made.
 
@@ -172,7 +172,7 @@ Embrace.sharedInstance().setCleanLogsEnabled(true);
 This will tell Embrace to use Swift-style logging that will better match your existing logging.
 :::
 
-## End the Startup Moment
+### End the Startup Moment
 
 Finally, make sure to end the special "startup" moment that Embrace uses to track
 app launch performance. You can end this moment anywhere you choose. We
@@ -209,7 +209,7 @@ may see false abandonment data.
 You can learn more about moments and measuring performance yourself in the
 [Moments](/ios/5x/features/moments) section.
 
-## Build and Run Your Application
+### Build and Run Your Application
 
 Alright, you're ready to build and run your application. Assuming the app launches
 correctly, pay attention to the system logging and look for Embrace to print out
@@ -227,7 +227,7 @@ If you see a log line like this, you've succeeded in integrating Embrace with
 your application. Let's trigger a session upload and verify this in the
 Dashboard.
 
-## Trigger a session upload
+### Trigger a session upload
 
 To trigger a session upload, simply send the application to the background by pressing
 the simulators 'home' button or swipe up, depending on the simulator you're running, or press Cmd+Shift+H on your keyboard.

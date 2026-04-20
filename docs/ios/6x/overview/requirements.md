@@ -4,11 +4,11 @@ description: System requirements for the Embrace iOS SDK 6.x
 sidebar_position: 2
 ---
 
-# Requirements
+## Requirements
 
 Before you integrate the Embrace iOS SDK 6.x into your application, ensure that your development environment and target platforms meet the following requirements.
 
-## Platform Requirements
+### Platform Requirements
 
 EmbraceIO, the recommended package from Embrace Apple SDK, has the following minimum deployment requirements:
 
@@ -18,12 +18,12 @@ EmbraceIO, the recommended package from Embrace Apple SDK, has the following min
 - macOS 13+
 - watchOS 6+
 
-## Development Requirements
+### Development Requirements
 
 - Xcode 14.0 or later
 - Swift 5.7 or later
 
-## Package Manager Support
+### Package Manager Support
 
 The Embrace SDK can be integrated using:
 
@@ -31,14 +31,14 @@ The Embrace SDK can be integrated using:
 - CocoaPods
 - Manual installation (via XCFrameworks)
 
-## Dependencies
+### Dependencies
 
 The Embrace SDK has minimal external dependencies, which include:
 
 - OpenTelemetry Swift libraries (included with the SDK)
 - KSCrash for crash reporting (included with the SDK)
 
-## Network Connectivity
+### Network Connectivity
 
 For data upload and full functionality, the SDK requires:
 
@@ -46,7 +46,7 @@ For data upload and full functionality, the SDK requires:
 - A privacy-compliant NSPrivacyInfo.xcprivacy file is included with the SDK
 - The SDK monitors network connectivity and will queue data when offline
 
-## Size Impact
+### Size Impact
 
 The Embrace SDK is designed to have minimal impact on your app's size:
 
@@ -54,7 +54,7 @@ The Embrace SDK is designed to have minimal impact on your app's size:
 - Approximately 2-3 MB increase in installed app size
 - Memory usage is optimized and scales with your app's activity levels
 
-## App Store Compliance
+### App Store Compliance
 
 The Embrace SDK is fully compliant with App Store requirements:
 

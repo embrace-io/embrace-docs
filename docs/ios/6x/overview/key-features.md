@@ -4,15 +4,15 @@ description: Key features of the Embrace iOS SDK 6.x
 sidebar_position: 1
 ---
 
-# Key Features
+## Key Features
 
 The Embrace iOS SDK 6.x provides a comprehensive suite of features to help you monitor, debug, and improve your iOS application. Here are the key features:
 
-## Session Monitoring
+### Session Monitoring
 
 Embrace captures detailed session data to help you understand how users are interacting with your application. Sessions capture everything that your app is doing while foregrounded or backgrounded, until the user starts or stops using the app. As a core part of Embrace's reproduce-and-fix approach to insights, sessions are modeled as OpenTelemetry traces.
 
-## Automatic Instrumentation
+### Automatic Instrumentation
 
 The SDK automatically instruments several aspects of your app with minimal configuration through Capture Services:
 
@@ -23,7 +23,7 @@ The SDK automatically instruments several aspects of your app with minimal confi
 - **WebView Monitoring**: Monitors WKWebView URL loading and error events
 - **Hang Detection**: Monitors main thread hangs and UI freezes to identify unresponsive behavior
 
-## Error and Crash Reporting
+### Error and Crash Reporting
 
 Embrace captures detailed crash reports and errors, providing you with the context needed to reproduce and fix issues:
 
@@ -32,7 +32,7 @@ Embrace captures detailed crash reports and errors, providing you with the conte
 - Low memory warnings and low power mode detection
 - Custom error logging through OpenTelemetry spans
 
-## Performance Monitoring
+### Performance Monitoring
 
 Track key performance metrics throughout your app:
 
@@ -42,7 +42,7 @@ Track key performance metrics throughout your app:
 - Custom performance tracing with spans
 - First render instrumentation for UI components
 
-## Logs and Traces
+### Logs and Traces
 
 Embrace provides powerful logging and tracing capabilities to help you track events and troubleshoot issues:
 
@@ -51,7 +51,7 @@ Embrace provides powerful logging and tracing capabilities to help you track eve
 - Automatic system event logging
 - Span events for marking checkpoints
 
-## User and Session Context
+### User and Session Context
 
 Gain insights into user behavior and session information:
 
@@ -60,7 +60,7 @@ Gain insights into user behavior and session information:
 - Session properties for contextual metadata
 - Custom attributes on spans and logs
 
-## OpenTelemetry Foundation
+### OpenTelemetry Foundation
 
 Built on OpenTelemetry standards, allowing you to:
 

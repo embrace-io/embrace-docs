@@ -4,13 +4,13 @@ sidebar_position: 9
 description: Get the Device ID.
 ---
 
-# Current Device ID API
+## Current Device ID API
 
 import GetSessionId from '@site/shared/get-session-id.md';
 
 <GetSessionId />
 
-## Integration Steps
+### Integration Steps
 
 In order to use this feature, you will need to follow two steps:
 

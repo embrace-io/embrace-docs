@@ -3,15 +3,15 @@ title: Traces
 sidebar_position: 4
 ---
 
-# Getting Started
+## Getting Started
 
-## Improve performance with Traces
+### Improve performance with Traces
 
 Embrace’s Traces give you visibility into any key user flow or app operation that you’d like to track.  
 
 This rich [OpenTelemetry signal](https://opentelemetry.io/docs/concepts/signals/traces/) lets you include duration, success rate, and any contextual metadata from the app's runtime to debug the root cause of your app's performance issues. With Traces, you can quickly spot any bottlenecks in your app’s architecture, pinpoint with high precision the areas you need to troubleshoot, and ultimately deliver a truly optimized user experience.
 
-## How Traces work
+### How Traces work
 
 Traces are added to key flows in your app using the Embrace SDKs. Once you've begun to trace user activity, you can make sense of the results using these resources:
 
@@ -27,7 +27,7 @@ To add Traces to your application, use the detailed instrumentation instructions
 - [Unity](/unity/features/traces.md)
 - [Flutter](/flutter/features/traces.md)
 
-## Learn more
+### Learn more
 
 Read about these tracing topics:
 

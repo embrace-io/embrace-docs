@@ -4,7 +4,7 @@ description: Embrace's Mobile SDKs are all open source
 sidebar_position: 2
 ---
 
-# Embrace Mobile SDKs
+## Embrace Mobile SDKs
 
 At Embrace, we are leading the way on mobile for OpenTelemetry. As part of this commitment, we have fully open-sourced our mobile software developer kits for developers to instrument in their apps.
 
@@ -12,7 +12,7 @@ We would love your contributions and thoughts on how to grow the SDKs. Open an i
 
 Note that all SDKs are licensed under the [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
 
-## GitHub locations
+### GitHub locations
 
 Embrace's SDKs are all available on GitHub. You can find them here:
 

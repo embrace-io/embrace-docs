@@ -7,11 +7,11 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Capture Services
+## Capture Services
 
 Capture Services are core components of the Embrace SDK that provide automatic instrumentation of your application. Each service focuses on capturing specific types of data and events.
 
-## Available Capture Services
+### Available Capture Services
 
 The SDK includes the following built-in capture services:
 
@@ -24,11 +24,11 @@ The SDK includes the following built-in capture services:
 - **PushNotificationCaptureService** - Captures push notification events
 - **HangCaptureService** - Captures app hangs
 
-## NetworkCaptureService
+### NetworkCaptureService
 
 Captures network requests and responses to provide visibility into API performance, error rates, and data transfer volumes.
 
-### Options
+#### Options
 
 ```swift
 struct NetworkCaptureServiceOptions {
@@ -58,7 +58,7 @@ struct NetworkCaptureServiceOptions {
 - `requestBodyCapturePredicate`: Custom predicate for determining when to capture request bodies.
 - `responseBodyCapturePredicate`: Custom predicate for determining when to capture response bodies.
 
-### NetworkBodyCaptureOptions
+#### NetworkBodyCaptureOptions
 
 ```swift
 enum NetworkBodyCaptureOptions {
@@ -71,11 +71,11 @@ enum NetworkBodyCaptureOptions {
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
-## ViewCaptureService
+### ViewCaptureService
 
 Captures UIViewController lifecycle events to measure screen load times, rendering performance, and navigation patterns.
 
-### Options
+#### Options
 
 ```swift
 struct ViewCaptureServiceOptions {
@@ -97,11 +97,11 @@ struct ViewCaptureServiceOptions {
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
-## TapCaptureService
+### TapCaptureService
 
 Captures user tap interactions to provide insights into user engagement and interaction patterns.
 
-### Options
+#### Options
 
 ```swift
 struct TapCaptureServiceOptions {
@@ -121,11 +121,11 @@ struct TapCaptureServiceOptions {
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
-## WebViewCaptureService
+### WebViewCaptureService
 
 Captures WKWebView loading performance and JavaScript errors.
 
-### Options
+#### Options
 
 ```swift
 struct WebViewCaptureServiceOptions {
@@ -143,11 +143,11 @@ struct WebViewCaptureServiceOptions {
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
-## PushNotificationCaptureService
+### PushNotificationCaptureService
 
 Captures push notification events including arrivals and user interactions.
 
-### Options
+#### Options
 
 ```swift
 struct PushNotificationCaptureServiceOptions {
@@ -165,7 +165,7 @@ struct PushNotificationCaptureServiceOptions {
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
-## LowMemoryWarningCaptureService
+### LowMemoryWarningCaptureService
 
 Captures low memory warning events from iOS.
 
@@ -173,7 +173,7 @@ This service doesn't have configurable options.
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
-## LowPowerModeCaptureService
+### LowPowerModeCaptureService
 
 Captures device low power mode state changes.
 
@@ -181,7 +181,7 @@ This service doesn't have configurable options.
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCaptureService/CaptureService.swift)
 
-## HangCaptureService
+### HangCaptureService
 
 Captures app hangs.
 
@@ -189,11 +189,11 @@ This service is turned off when attached to a debugger (ie: while debugging in X
 
 **GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/Hang/HangCaptureService.swift)
 
-## Custom Capture Services
+### Custom Capture Services
 
 You can also extend the SDK by creating your own custom capture services.
 
-### Implementing a Custom Capture Service
+#### Implementing a Custom Capture Service
 
 Custom capture services must conform to the `CaptureService` protocol:
 
@@ -207,9 +207,9 @@ protocol CaptureService {
 
 <!-- TODO Link See [Extending CaptureServices to Add Your Own Instrumentation] for more details. -->
 
-## Code Examples
+### Code Examples
 
-### Configuring Network Capture
+#### Configuring Network Capture
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -268,7 +268,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-### Configuring View Capture
+#### Configuring View Capture
 
 ```swift
 let viewOptions = ViewCaptureServiceOptions(
@@ -302,7 +302,7 @@ let services = CaptureServiceBuilder()
     .build()
 ```
 
-### Configuring Tap Capture
+#### Configuring Tap Capture
 
 ```swift
 let tapOptions = TapCaptureServiceOptions(
@@ -328,7 +328,7 @@ let services = CaptureServiceBuilder()
     .build()
 ```
 
-### Configuring All Capture Services
+#### Configuring All Capture Services
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>

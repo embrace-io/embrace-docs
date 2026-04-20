@@ -3,7 +3,7 @@ title: Settings
 sidebar_position: 13
 ---
 
-# Settings
+## Settings
 
 The settings page in the Embrace dashboard centralizes configuration and management for your organization and apps. It enables developers to control integrations, notification preferences, API access, and other operational parameters.
 

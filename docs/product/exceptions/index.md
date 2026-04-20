@@ -3,11 +3,11 @@ title: Exceptions
 sidebar_position: 9
 ---
 
-# Exceptions
+## Exceptions
 
 You can use Embrace to capture exceptions and prioritize issues affecting your users' experiences.
 
-## Exceptions vs. Crashes
+### Exceptions vs. Crashes
 
 While crashes and exceptions may seem similar, they represent fundamentally different events:
 
@@ -20,7 +20,7 @@ Because exceptions don't always indicate severe problems (unlike crashes, which 
 a [**severity score**](./severity-score.md) to help you prioritize which exceptions require immediate attention and
 which are less impactful to the user experience.
 
-## Types of Exceptions
+### Types of Exceptions
 
 Embrace collects two types of exceptions:
 
@@ -31,7 +31,7 @@ Embrace collects two types of exceptions:
 Both types provide valuable insights into application health, though unhandled exceptions are typically more severe
 as they represent unexpected failure cases.
 
-## Platform Support
+### Platform Support
 
 Embrace currently collects exceptions for the following platforms and frameworks:
 
@@ -42,7 +42,7 @@ Embrace currently collects exceptions for the following platforms and frameworks
 Each platform's SDK automatically instruments exception capture while also providing APIs to manually report handled
 exceptions when needed.
 
-## Learn more
+### Learn more
 
 This walkthrough video will show you how developers dig into JavaScript exceptions in Embrace's dashboard.
 

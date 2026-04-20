@@ -5,11 +5,11 @@ slug: /product/filters
 sidebar_position: 12.5
 ---
 
-# Filter Definitions
+## Filter Definitions
 
 Filters allow you to query and segment your data in the Embrace dashboard. Use filters to narrow down sessions, crashes, and other telemetry data based on specific criteria.
 
-## Understanding Filter Table Columns
+### Understanding Filter Table Columns
 
 Each filter table in this page uses the same columns:
 
@@ -20,7 +20,7 @@ Each filter table in this page uses the same columns:
 
 ---
 
-## ANR Filters
+### ANR Filters
 
 <div class="filters-table">
 
@@ -33,7 +33,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## App Filters
+### App Filters
 
 <div class="filters-table">
 
@@ -48,7 +48,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Browser Filters
+### Browser Filters
 
 <div class="filters-table">
 
@@ -61,7 +61,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Child Span Filters
+### Child Span Filters
 
 <div class="filters-table">
 
@@ -75,7 +75,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Child Span Attribute Filters
+### Child Span Attribute Filters
 
 <div class="filters-table">
 
@@ -85,7 +85,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Crash Filters
+### Crash Filters
 
 <div class="filters-table">
 
@@ -101,7 +101,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Device Filters
+### Device Filters
 
 <div class="filters-table">
 
@@ -119,7 +119,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Exception Filters
+### Exception Filters
 
 <div class="filters-table">
 
@@ -131,7 +131,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## LoAF Script Filters
+### LoAF Script Filters
 
 <div class="filters-table">
 
@@ -143,7 +143,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Log Filters
+### Log Filters
 
 <div class="filters-table">
 
@@ -160,7 +160,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Log Property Filters
+### Log Property Filters
 
 <div class="filters-table">
 
@@ -170,7 +170,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Network Filters
+### Network Filters
 
 <div class="filters-table">
 
@@ -187,7 +187,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## OS Filters
+### OS Filters
 
 <div class="filters-table">
 
@@ -199,7 +199,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Root Span Filters
+### Root Span Filters
 
 <div class="filters-table">
 
@@ -214,7 +214,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Root Span Attribute Filters
+### Root Span Attribute Filters
 
 <div class="filters-table">
 
@@ -224,7 +224,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Session Filters
+### Session Filters
 
 <div class="filters-table">
 
@@ -246,7 +246,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Span Filters
+### Span Filters
 
 <div class="filters-table">
 
@@ -263,7 +263,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Span Attribute Filters
+### Span Attribute Filters
 
 <div class="filters-table">
 
@@ -273,7 +273,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Surface Filters
+### Surface Filters
 
 <div class="filters-table">
 
@@ -284,7 +284,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## User Filters
+### User Filters
 
 <div class="filters-table">
 
@@ -298,7 +298,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## User Flow Filters
+### User Flow Filters
 
 <div class="filters-table">
 
@@ -315,7 +315,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## User Flow Attribute Filters
+### User Flow Attribute Filters
 
 <div class="filters-table">
 
@@ -325,7 +325,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Web Resource Filters
+### Web Resource Filters
 
 <div class="filters-table">
 
@@ -336,7 +336,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Web Vital Filters
+### Web Vital Filters
 
 <div class="filters-table">
 
@@ -352,21 +352,21 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-## Common Filter Combinations
+### Common Filter Combinations
 
 Here are some examples of commonly used filter combinations:
 
-### Debug a Specific Version
+#### Debug a Specific Version
 
 - **App Version** equals `2.1.0`
 - Combine with other filters to narrow down issues
 
-### Find Users in a Specific Country
+#### Find Users in a Specific Country
 
 - **Country ISO** equals `US` (or any two-letter country code)
 - Use with **App Version** to see regional adoption
 
-### Analyze Latest Version Performance
+#### Analyze Latest Version Performance
 
 - **App Version Set** equals `latest`
 - Compare metrics against previous versions

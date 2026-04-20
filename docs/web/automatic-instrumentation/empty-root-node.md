@@ -4,12 +4,12 @@ description: Automatically monitor rendering failures on your web app's root ele
 sidebar_position: 7
 ---
 
-# Empty Root Node
+## Empty Root Node
 
 The Embrace SDK can be configured to monitor the root node of your application, providing visibility into when a user's
 experience is interrupted by a visually blank page.
 
-## How Empty Root Node Instrumentation Works
+### How Empty Root Node Instrumentation Works
 
 When using a framework such as React there is normally a DOM element on the page that is designated as the root element
 within which the framework will take over the management and rendering of components. If an error is raised and propagates

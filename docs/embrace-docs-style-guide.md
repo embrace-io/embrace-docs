@@ -4,9 +4,9 @@ sidebar_position: 12
 description: Style Guide for Public Documentation
 ---
 
-# Embrace docs style guide
+## Embrace docs style guide
 
-## Key takeaways
+### Key takeaways
 
 - Write in **second person** and **active voice** to ensure clarity.
   - Be declarative about what a developer can **DO** with Embrace
@@ -15,13 +15,13 @@ description: Style Guide for Public Documentation
 
 ---
 
-## Audience
+### Audience
 
 - **Primary audience**: Mid-level mobile developers integrating our SDK.
 - **Reader's background**: Technical knowledge of mobile development, but not necessarily experts in advanced concepts.
 - **Implication**: Write with moderate technical depth while maintaining clarity and approachability.
 
-## Tone & voice
+### Tone & voice
 
 - **Conversational, friendly, and respectful**
   - Use a clear, approachable tone that feels human and helpful.
@@ -33,14 +33,14 @@ description: Style Guide for Public Documentation
   - When asking users to do something, be polite but avoid repetitive use of "please."
   - Example: "Add this line to your `Podfile`" instead of "Please add this line to your `Podfile`, thank you."
 
-## Person & voice
+### Person & voice
 
 - **Use second-person pronouns**
   - Address the reader directly (e.g., "You can initialize the SDK," instead of "We can initialize…").
 - **Active voice**
   - Clearly identify the actor: "You need to configure your app," rather than "The app must be configured."
 
-## Grammar, mechanics & terminology
+### Grammar, mechanics & terminology
 
 - **Conditions before instructions**
   - "If you have not initialized the client, do that first" instead of "Initialize the client if you have not done so."
@@ -53,29 +53,29 @@ description: Style Guide for Public Documentation
 - **Standard American spelling and punctuation**
   - Favor American English (e.g., "color" not "colour").
 
-## Formatting & structure
+### Formatting & structure
 
-### Headings
+#### Headings
 
 - Use **sentence case** for all headings
   - Only capitalize the first letter and any proper nouns.
   - Example: **"Setting up the SDK"** or **"Overview of the Embrace platform."**
 
-### Lists
+#### Lists
 
 - **Numbered lists**: Use for sequences or step-by-step instructions.
 - **Bulleted lists**: Use for non-sequential information (e.g., features, best practices).
 - **Description lists**: Use when pairing terms with definitions or explanations.
 
-### UI elements
+#### UI elements
 
 - Place UI elements in **bold** to distinguish them from other text (e.g., "Click **Start** on the toolbar").
 
-### Code-related text
+#### Code-related text
 
 - Place code elements, file names, and commands in `code font` (inline backticks) and code blocks for multi-line examples.
 
-### Example heading structure
+#### Example heading structure
 
 ```markdown
 # Setting up the SDK
@@ -97,13 +97,13 @@ More step-by-step instructions for installing required dependencies.
 Tips for resolving typical errors.
 ```
 
-## Code snippets
+### Code snippets
 
 - **Use code blocks** for multi-line code, with syntax highlighting if available.
 - **Comment thoroughly** and ensure the snippet compiles or runs successfully.
 - **Explain context** around the snippet, explaining what the code does and how it solves a problem.
 
-### Example code snippet
+#### Example code snippet
 
 ```swift
 import EmbraceIO
@@ -129,11 +129,11 @@ struct NewEmbraceApp: App {
 
 - _Explanation_: This snippet sets up the Embrace SDK, initializes it with your App ID, and handles potential errors.
 
-## Miscellaneous
+### Miscellaneous
 
 - Use "OTel" and OpenTelemetry (no spaces)
 
-## Example document flow
+### Example document flow
 
 1. **Introduction**
    - Brief overview of the topic (e.g., "In this guide, you learn…").

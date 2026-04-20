@@ -3,13 +3,13 @@ title: Release Health
 sidebar_position: 2
 ---
 
-# Release Health
+## Release Health
 
 The Release Health section is designed to help teams monitor and compare the quality of two different app versions over customizable time windows. It enables data-driven decisions during rollouts and helps you catch regressions early by surfacing critical metrics related to app stability and user experience.
 
 Whether you're preparing a new release, analyzing a canary rollout, or comparing production versions, Release Health gives you both high-level indicators and granular breakdowns of app issues.
 
-## What You Can Track
+### What You Can Track
 
 Release Health currently supports insights into the following issue types:
 
@@ -33,9 +33,9 @@ All metrics are computed as a comparison between two groups:
 - Group A (New Release) – the app version you're evaluating
 - Group B (Baseline) – the reference version you're comparing against
 
-## How to use
+### How to use
 
-### Set Filters
+#### Set Filters
 
 Select the app version and evaluation period for both **Group A** and **Group B**.  
 A preview panel will display:
@@ -51,19 +51,19 @@ Once you're satisfied with your selection, click **Apply** to load the metrics.
 
 <img src={require('@site/static/images/release-health-filters.png').default} alt="Release Health filters"/>
 
-### Visualize Overall Metrics
+#### Visualize Overall Metrics
 
 - **Total Affected Users** – percentage of users affected by any issue type, with comparison against Group B  
 - **Total Affected Sessions** – percentage of sessions affected by any issue type, with comparison against Group B
 
 <img src={require('@site/static/images/release-health-overall.png').default} alt="Release Health Overall"/>
 
-### Visualize Issue-Specific Metrics
+#### Visualize Issue-Specific Metrics
 
 - **Affected Users per Issue** – percentage of users impacted by a specific issue type (Crashes, ANRs, etc.), compared to Group B  
 - **Affected Sessions per Issue** – percentage of sessions impacted by a specific issue type, compared to Group B
 
-### Detailed Comparison
+#### Detailed Comparison
 
 A detailed table listing each individual issue (e.g., specific crash or exception), with impact metrics across both groups. This helps you:
 

@@ -4,7 +4,7 @@ description: Learn about the advanced ways Embrace can help your application
 sidebar_position: 2
 ---
 
-# Flutter feature reference
+## Flutter feature reference
 
 The Embrace SDK includes many advanced features that help you understand how your application performs in production.
 

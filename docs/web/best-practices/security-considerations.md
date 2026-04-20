@@ -4,14 +4,14 @@ description: Security best practices for using the Embrace Web SDK
 sidebar_position: 2
 ---
 
-# Security Considerations
+## Security Considerations
 
 When implementing the Embrace Web SDK, it's essential to consider security and privacy implications. Following these
 best practices will help you protect sensitive data and comply with privacy regulations.
 
-## Data Privacy
+### Data Privacy
 
-### Configure Attribute Scrubbers
+#### Configure Attribute Scrubbers
 
 The Spans and Logs emitted by the Embrace Web SDK contain attributes to provide additional context. Any sensitive data
 contained in these attributes should be scrubbed before being exported. By default, the SDK contains scrubbers which
@@ -54,7 +54,7 @@ The default attribute scrubbing performed by the SDK can also be turned off by s
 to false, though this is not recommended unless supplying your own attribute scrubbers to perform the redactions in
 their place.
 
-### Configure the Network Monitoring Auto-instrumentation
+#### Configure the Network Monitoring Auto-instrumentation
 
 The [Network Monitoring](/web/automatic-instrumentation/network-monitoring.md) auto-instrumentation records spans
 for network requests triggered by your application which include attributes for the URLs being requested. By default,
@@ -77,7 +77,7 @@ initSDK({
 });
 ```
 
-### Configure the User Interaction Auto-instrumentation {#configure-the-user-interaction-auto-instrumentation}
+#### Configure the User Interaction Auto-instrumentation {#configure-the-user-interaction-auto-instrumentation}
 
 The [User Interactions](/web/automatic-instrumentation/user-interactions.md) auto-instrumentation records a span
 event whenever a user clicks on an element in your application. This event contains the pixel coordinates of the
@@ -122,7 +122,7 @@ initSDK({
 });
 ```
 
-### Avoid Sensitive Data in Manual Instrumentation
+#### Avoid Sensitive Data in Manual Instrumentation
 
 Be careful not to log sensitive user information:
 
@@ -138,7 +138,7 @@ session.addBreadcrumb('Payment method verified');
 
 Be mindful that exceptions and stack traces may contain sensitive information as well.
 
-### Personally Identifiable Information (PII) in User IDs
+#### Personally Identifiable Information (PII) in User IDs
 
 When setting user identifiers, avoid using direct PII:
 
@@ -151,9 +151,9 @@ const hashedEmail = hashFunction(userEmail);
 user.setUserId(hashedEmail);
 ```
 
-## User Consent and Compliance
+### User Consent and Compliance
 
-### GDPR, CCPA, and Other Privacy Regulations
+#### GDPR, CCPA, and Other Privacy Regulations
 
 Consider implementing mechanisms to respect user privacy choices:
 
@@ -172,17 +172,17 @@ function updatePrivacyConsent(userConsented: boolean) {
 }
 ```
 
-### Data Retention
+#### Data Retention
 
 Be aware of Embrace's data retention policies and how they align with your privacy obligations. Configure your Embrace
 Dashboard settings appropriately.
 
-## Regular Security Reviews
+### Regular Security Reviews
 
 Regularly review the data being collected by Embrace to ensure it aligns with your privacy policy and security
 requirements. Use the Embrace dashboard to audit what data is being captured.
 
-## Summary
+### Summary
 
 - Configure the SDK to avoid collecting sensitive data from your application
 - Avoid logging sensitive user information

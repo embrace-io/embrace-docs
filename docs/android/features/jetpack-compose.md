@@ -4,11 +4,11 @@ description: Enable our Jetpack Compose
 sidebar_position: 13
 ---
 
-# Jetpack Compose
+## Jetpack Compose
 
 The Embrace SDK injects code into your APK using bytecode instrumentation to automatically capture taps on composables.
 
-## Enabling Jetpack Compose instrumentation
+### Enabling Jetpack Compose instrumentation
 
 :::info
 Requires Jetpack Compose dependency at build time and run time
@@ -18,7 +18,7 @@ Requires Jetpack Compose dependency at build time and run time
 Instrumenting Jetpack Compose click events incurs a small performance penalty on a tap as it requires searching Compose's UI tree. On lower-end devices this may manifest as dropped frames.
 :::
 
-### Set local config and Gradle plugin block
+#### Set local config and Gradle plugin block
 
 To enable onClick instrumentation, you will need to modify your `embrace-config.json` [file](/android/configuration/configuration-file.md)
 
@@ -60,7 +60,7 @@ dependencies {
 </TabItem>
 </Tabs>
 
-### Set ProGuard rule
+#### Set ProGuard rule
 
 In order to prevent code obfuscation, the following rule must be added into your R8/ProGuard rules:
 
@@ -71,11 +71,11 @@ In order to prevent code obfuscation, the following rule must be added into your
 }
 ```
 
-### Identify clickable elements
+#### Identify clickable elements
 
 `onClickLabel` or `contentDescription` must be added to have a proper way to identify a clicked element. Remember that `onClickLabel` will have more priority if both properties are set.
 
-#### onClickLabel
+##### onClickLabel
 
 Clickable modifier to define a label and the onClick callback:
 
@@ -100,7 +100,7 @@ IconToggleButton(
 ){ ... }
 ```
 
-#### contentDescription
+##### contentDescription
 
 Content description will be considered only if the element contains an OnClick modifier.
 

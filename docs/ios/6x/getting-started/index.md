@@ -4,11 +4,11 @@ description: Get started with the Embrace iOS SDK 6.x
 sidebar_position: 1
 ---
 
-# Get Started with Embrace iOS SDK 6.x
+## Get Started with Embrace iOS SDK 6.x
 
 This section will guide you through the process of adding the Embrace SDK to your iOS application and configuring it for optimal performance monitoring.
 
-## Installation and Setup
+### Installation and Setup
 
 Follow these steps to integrate the Embrace SDK into your app:
 
@@ -18,7 +18,7 @@ Follow these steps to integrate the Embrace SDK into your app:
 - [dSYM Upload](/ios/6x/getting-started/dsym-upload.md) - Configure automatic symbolication for crash reports
 - [Migration Guide](/ios/6x/getting-started/migration-guide.md) - If you're upgrading from 5.x, follow this guide
 
-## What You'll Get
+### What You'll Get
 
 Once the Embrace Apple SDK is integrated into your mobile app, you can begin to send mobile signals to the Embrace backend for analysis. With Embrace, you'll be able to:
 
@@ -29,7 +29,7 @@ Once the Embrace Apple SDK is integrated into your mobile app, you can begin to 
 - Add custom logs and traces for specific events
 - Identify and fix issues faster
 
-## Next Steps
+### Next Steps
 
 After you've set up the SDK, explore these additional capabilities:
 
@@ -38,6 +38,6 @@ After you've set up the SDK, explore these additional capabilities:
 - Logs - Add context with custom logging
 - Automatic Instrumentation - Discover built-in monitoring capabilities
 
-## Prerequisites
+### Prerequisites
 
 To link the SDK to your Embrace dashboard, you will need an App ID. Register your app to get an App ID by logging in to your Embrace Dashboard.

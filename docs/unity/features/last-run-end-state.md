@@ -4,7 +4,7 @@ description: Understand if the previous app instance ended in a crash
 sidebar_position: 6
 ---
 
-# Last Run End State API
+## Last Run End State API
 
 This API enables customers to automatically/programmatically understand if the previous app instance ended in a crash. Depending on your use case, having the ability to query an API to understand if the previous app instance ended in a crash will enable you to adjust the behavior or UI of your app after a crash has occurred.
 
@@ -22,7 +22,7 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 8. App is relaunched
 9. `GetLastRunEndState` returns "clean exit"
 
-## Integration Steps
+### Integration Steps
 
 In order to use this feature, you will need to follow two steps:
 
@@ -41,11 +41,11 @@ bool didCrashLastRun = Embrace.Instance.GetLastRunEndState() == LastRunEndState.
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
 - This feature only works with the Embrace crash reporter on iOS. It is **not** compatible if you use Crashlytics for crash reporting.
 
-### Version
+#### Version
 
 This feature is available in Embrace Unity SDK version 1.15.0 and later.
 
-### Possible Values
+#### Possible Values
 
 ```csharp
 /// <summary>
@@ -70,7 +70,7 @@ public enum LastRunEndState
 }
 ```
 
-## Support
+### Support
 
 ---
 

@@ -7,11 +7,11 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Network instrumentation
+## Network instrumentation
 
 While Embrace's [automatic instrumentation](../automatic-instrumentation/network-monitoring.md) captures [`URLSession`](https://developer.apple.com/documentation/foundation/urlsession) requests out of the box, manual network instrumentation allows you to track requests made by third-party libraries like gRPC that don't use URLSession.
 
-## When to use manual network instrumentation
+### When to use manual network instrumentation
 
 Consider manual network instrumentation when:
 
@@ -21,18 +21,18 @@ Consider manual network instrumentation when:
 - Adding business-specific context to network requests
 - Tracking network operations that bypass URLSession
 
-## Required imports
+### Required imports
 
 ```swift
 import Foundation
 import EmbraceIO
 ```
 
-## gRPC instrumentation
+### gRPC instrumentation
 
 Since gRPC libraries like [`grpc-swift`](https://github.com/grpc/grpc-swift) don't use `URLSession`, their network requests aren't automatically captured. You can manually create spans that appear as HTTP requests in the [networking section](/product/network/index.md) of the Embrace dashboard.
 
-### Basic gRPC span creation
+#### Basic gRPC span creation
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -159,7 +159,7 @@ class GRPCInstrumentation {
 </TabItem>
 </Tabs>
 
-### Real-time gRPC span creation
+#### Real-time gRPC span creation
 
 For ongoing gRPC requests, create spans that you can update during the call:
 
@@ -224,7 +224,7 @@ span?.end()
 </TabItem>
 </Tabs>
 
-### Integration with grpc-swift
+#### Integration with grpc-swift
 
 Here's how to integrate with the `grpc-swift` library:
 
@@ -268,9 +268,9 @@ extension GRPCClient {
 }
 ```
 
-## Third-party library instrumentation
+### Third-party library instrumentation
 
-### Alamofire integration
+#### Alamofire integration
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -365,15 +365,15 @@ extension Session {
 </TabItem>
 </Tabs>
 
-## Required information for manual networking
+### Required information for manual networking
 
 To ensure your network spans appear as network requests in the Embrace dashboard, you should add all required information listed below. Additionally, you can include some optional attributes to the network spans to enrich the telemetry you gather.
 
-### Required information
+#### Required information
 
 Span type must be **`.networkRequest`** for these spans to show as network requests. This is required for proper categorization on Embrace's backend.
 
-#### Required attributes
+##### Required attributes
 
 Additionally, the following attributes are required on the span for your network request:
 
@@ -381,7 +381,7 @@ Additionally, the following attributes are required on the span for your network
 - **`http.request.method`** - HTTP method (`GET`, `POST`, etc.)
 - **`http.response.status_code`** - Response status code (200, 403, etc.)
 
-### Optional attributes
+#### Optional attributes
 
 - **`http.request.body.size`** - Request payload size
 - **`http.response.body.size`** - Response payload size
@@ -389,13 +389,13 @@ Additionally, the following attributes are required on the span for your network
 - **`error.code`** - Error code
 - **`error.message`** - Error description
 
-### Naming convention
+#### Naming convention
 
 For the span's name, use the format: `"{METHOD} {path}"` (e.g., `GET /api/users`, `POST /UserService/GetUser`)
 
-## Best practices
+### Best practices
 
-### 1. Consistent naming
+#### 1. Consistent naming
 
 Use the same service and method names as your API definitions:
 
@@ -407,7 +407,7 @@ span?.name = "POST /UserService/GetUser"
 span?.name = "user_fetch_operation"
 ```
 
-### 2. Include timing
+#### 2. Include timing
 
 Always record accurate start and end times:
 
@@ -428,7 +428,7 @@ embrace.recordCompletedSpan(
 )
 ```
 
-### 3. Error handling
+#### 3. Error handling
 
 Capture both network errors and business logic errors:
 
@@ -447,7 +447,7 @@ if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 4
 }
 ```
 
-### 4. Request/response sizes
+#### 4. Request/response sizes
 
 Include payload sizes for performance analysis:
 
@@ -459,7 +459,7 @@ attributes["http.request.body.size"] = String(requestData.count)
 attributes["http.response.body.size"] = String(responseData.count)
 ```
 
-### 5. Parent spans
+#### 5. Parent spans
 
 Create parent spans for complex operations with multiple network calls:
 
@@ -482,9 +482,9 @@ let preferencesSpan = embrace.buildSpan(
 ).setParent(parentSpan).startSpan()
 ```
 
-## Common patterns
+### Common patterns
 
-### Request wrapper function
+#### Request wrapper function
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -571,7 +571,7 @@ let userData = try await trackNetworkRequest(
 </TabItem>
 </Tabs>
 
-### Custom protocol instrumentation
+#### Custom protocol instrumentation
 
 For WebSocket or other custom protocols:
 
@@ -656,6 +656,6 @@ class WebSocketInstrumentation {
 </TabItem>
 </Tabs>
 
-## Summary
+### Summary
 
 By following these patterns and examples, you can instrument network requests from any third-party library to appear alongside your automatically-captured `URLSession` requests in the Embrace dashboard.

@@ -7,15 +7,15 @@ sidebar_position: 5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Crash Reporting
+## Crash Reporting
 
 Embrace is so much more than just a crash reporting service. Still, knowing when and how your application crashed is important. Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
 
-## Setting up the Crash Reporter
+### Setting up the Crash Reporter
 
 The first step in initializing crash reporting is configuring which mode you want Embrace to operate in. Embrace can be your primary crash reporter, or you can add Firebase Crashlytics as the crash reporter to send crashes to both Embrace and Firebase.
 
-### Default Crash Reporting
+#### Default Crash Reporting
 
 By default, Embrace includes its own crash reporter. No additional configuration is needed:
 
@@ -47,7 +47,7 @@ try Embrace
 </TabItem>
 </Tabs>
 
-### Using Crashlytics with Embrace
+#### Using Crashlytics with Embrace
 
 If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytics so you will still have that data available in the Embrace dashboard.
 
@@ -65,11 +65,11 @@ CrashlyticsReporter intercepts Firebase Crashlytics network requests and capture
 
 First, add the Crashlytics support module:
 
-#### Swift Package Manager
+##### Swift Package Manager
 
 Import `EmbraceCrashlyticsSupport` when using Swift Package Manager
 
-#### CocoaPods
+##### CocoaPods
 
 Add `pod 'EmbraceIO/EmbraceCrashlyticsSupport'` to your Podfile
 
@@ -110,11 +110,11 @@ try Embrace
 </TabItem>
 </Tabs>
 
-## Choosing the Right Crash Reporter
+### Choosing the Right Crash Reporter
 
 Embrace offers two crash reporting options with different capabilities and data collection:
 
-### EmbraceCrashReporter (Recommended)
+#### EmbraceCrashReporter (Recommended)
 
 **Features:**
 
@@ -132,7 +132,7 @@ Embrace offers two crash reporting options with different capabilities and data 
 - Applications requiring complete session context in crash reports
 - Offline-capable crash reporting
 
-### CrashlyticsReporter (Migration Tool)
+#### CrashlyticsReporter (Migration Tool)
 
 **Features:**
 
@@ -154,7 +154,7 @@ Embrace offers two crash reporting options with different capabilities and data 
 - Gradual migration from Firebase Crashlytics
 - Teams that must maintain Firebase Crashlytics for other purposes
 
-### Data Comparison
+#### Data Comparison
 
 | Feature | EmbraceCrashReporter | CrashlyticsReporter |
 |---------|---------------------|-------------------|
@@ -166,7 +166,7 @@ Embrace offers two crash reporting options with different capabilities and data 
 | **Offline Support** | ✅ Local crash capture | ❌ Requires network |
 | **MetricKit Integration** | ✅ Configurable | ❌ Disabled |
 
-### Disabling Crash Reporting
+#### Disabling Crash Reporting
 
 If you wish not to use the KSCrash-based crash reporter, you can disable it by passing `nil`:
 
@@ -203,7 +203,7 @@ try Embrace
 </TabItem>
 </Tabs>
 
-## Testing Crash Reporting
+### Testing Crash Reporting
 
 You can trigger a crash in your app organically, or Embrace provides a test crash function you can call from anywhere in your application.
 
@@ -211,7 +211,7 @@ You can trigger a crash in your app organically, or Embrace provides a test cras
 Obviously, this function will crash your app. Use it for testing purposes and be sure **not to include it in production code.**
 :::
 
-### Swift
+#### Swift
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -232,13 +232,13 @@ Embrace.client?.crash()
 </TabItem>
 </Tabs>
 
-### Objective-C
+#### Objective-C
 
 ```objc
 [[Embrace client] crash];
 ```
 
-## Testing Best Practices
+### Testing Best Practices
 
 :::info Note on Debugging
 It is important when testing crashes to not be connected to any debugger. Xcode is itself a debugger, as it can attach itself to a program and stop/start/pause/modify that program. This includes stepping through and around exceptions and signals.
@@ -246,13 +246,13 @@ It is important when testing crashes to not be connected to any debugger. Xcode 
 When trying to test crashes, this functionality is always in the way. If you can, test on a device that is no longer plugged into your Mac, and launch the app by tapping the icon directly. On the Simulator, run the app once with Xcode, press stop, then tap the app icon in the Simulator directly to launch it without Xcode.
 :::
 
-### Upload Process
+#### Upload Process
 
 Embrace sessions only upload on subsequent launches after crashes have occurred. This means that after seeing the application crash, you must now launch the application again for that crashed session to upload to the Embrace servers.
 
 Once uploaded you should notice that your session is marked with the "crashed" icon. Additionally your crash is visible in the crashes section of the dashboard.
 
-## Understanding Crash Data
+### Understanding Crash Data
 
 When a crash occurs, Embrace captures:
 
@@ -262,13 +262,13 @@ When a crash occurs, Embrace captures:
 - **Session context** - User actions leading up to the crash
 - **Custom attributes** - Any custom data you've added to the session
 
-## Advanced Configuration
+### Advanced Configuration
 
-### Custom Crash Attributes
+#### Custom Crash Attributes
 
 You can add custom data that will be included with crash reports using two different approaches:
 
-#### Session Properties (EmbraceCrashReporter only)
+##### Session Properties (EmbraceCrashReporter only)
 
 Session properties are automatically included in crash reports when using EmbraceCrashReporter:
 
@@ -297,7 +297,7 @@ try Embrace.client?.metadata.addProperty(key: "experiment_group", value: "contro
 
 **Note:** Session properties are only included when using `EmbraceCrashReporter`. They are not available with `CrashlyticsReporter`.
 
-#### Custom Crash Info (Both crash reporters)
+##### Custom Crash Info (Both crash reporters)
 
 Both crash reporters support adding custom key-value pairs directly to crash reports:
 
@@ -327,7 +327,7 @@ try Embrace.client?.appendCrashInfo(key: "screen_name", value: "payment_form")
 
 This method works with both `EmbraceCrashReporter` and `CrashlyticsReporter`.
 
-### Crash Callbacks
+#### Crash Callbacks
 
 You can register callbacks to be notified when crashes occur:
 
@@ -336,7 +336,7 @@ You can register callbacks to be notified when crashes occur:
 // Note: Callbacks should be lightweight as they run during crash handling
 ```
 
-## Best Practices
+### Best Practices
 
 - **Always upload dSYMs** - Ensure your crash reports are symbolicated by [uploading dSYM files](/ios/6x/getting-started/dsym-upload.md)
 - **Add context** - Use [breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs.md) and custom attributes to provide context around crashes
@@ -344,9 +344,9 @@ You can register callbacks to be notified when crashes occur:
 - **Monitor regularly** - Set up [alerts](/product/alerting.md) for new crash types or increased crash rates
 - **Prioritize fixes** - Focus on crashes that affect the most users or critical user flows
 
-## Troubleshooting
+### Troubleshooting
 
-### Crashes Not Appearing
+#### Crashes Not Appearing
 
 If crashes aren't appearing in the dashboard:
 
@@ -361,14 +361,14 @@ For CrashlyticsReporter specifically:
 2. Verify Firebase Crashlytics network requests are being made
 3. Check that Firebase Crashlytics is capturing the crash in Firebase Console
 
-### Session Properties Not Appearing
+#### Session Properties Not Appearing
 
 If session properties are missing from crash reports:
 
 1. **Using CrashlyticsReporter**: Session properties are not supported. Use `appendCrashInfo()` instead or switch to `EmbraceCrashReporter`
 2. **Using EmbraceCrashReporter**: Verify properties were added with `.session` lifespan before the crash occurred
 
-### CrashlyticsReporter Specific Issues
+#### CrashlyticsReporter Specific Issues
 
 If using CrashlyticsReporter and experiencing issues:
 
@@ -381,7 +381,7 @@ If using CrashlyticsReporter and experiencing issues:
    CrashlyticsReporter relies on Firebase Crashlytics SDK functionality. If Firebase has issues, bugs, or breaking changes, it may affect crash capture. For complete control over crash reporting, we recommend using EmbraceCrashReporter.
    :::
 
-### Symbolication Issues
+#### Symbolication Issues
 
 If crash reports show unsymbolicated addresses:
 
@@ -389,7 +389,7 @@ If crash reports show unsymbolicated addresses:
 2. Verify the dSYM files match the crashed build
 3. Check that the build UUID matches between the crash and dSYM
 
-## Next Steps
+### Next Steps
 
 - Learn about [Error Handling](/ios/6x/manual-instrumentation/error-handling.md) for non-fatal errors
 - Set up [Breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs.md) to add context to crash reports

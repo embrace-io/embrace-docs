@@ -4,13 +4,13 @@ description: Capture log messages with different severity levels in your web app
 sidebar_position: 2
 ---
 
-# Logging
+## Logging
 
 Embrace's logging capabilities allow you to capture log messages with different severity levels, providing valuable
 context for troubleshooting and debugging issues in your app. See our
 [Core Concepts section on Logs](/web/core-concepts/logs.md) for a more detailed overview.
 
-## Basic Logging
+### Basic Logging
 
 You can log a message through the `message` method:
 
@@ -34,7 +34,7 @@ Stack traces are automatically captured for warning and error level logs. This c
 `includeStacktrace` property on the method's optional third argument.
 :::
 
-## Adding Attributes to Logs
+### Adding Attributes to Logs
 
 ```typescript
 import { log } from '@embrace-io/web-sdk';
@@ -50,7 +50,7 @@ log.message('Purchase attempt failed', 'error', {
 
 Properties help you filter and search logs more effectively.
 
-## Logging Handled Exceptions
+### Logging Handled Exceptions
 
 The SDK automatically captures unhandled exceptions. For exceptions that are caught and handled by your code you can
 log these manually using the `logException` method:
@@ -69,9 +69,9 @@ try {
 }
 ```
 
-## Best Practices for Logging
+### Best Practices for Logging
 
-### Contextual Information
+#### Contextual Information
 
 Include relevant context in logs:
 
@@ -80,7 +80,7 @@ Include relevant context in logs:
 - State information that helps understand the context
 - Error codes and descriptions
 
-### Performance Considerations
+#### Performance Considerations
 
 Embrace will batch emitted logs together however unlike Spans they can trigger additional network requests within a
 session so be mindful of excessive logging in performance-critical paths as it can impact app performance and increase
@@ -90,7 +90,7 @@ If you simply want to note that an event occurred within a user's session and do
 querying capabilities provided by logs then [Breadcrumbs](/web/manual-instrumentation/breadcrumbs.md) may be a
 better lightweight option.
 
-### Sensitive Information
+#### Sensitive Information
 
 Never log sensitive data:
 
@@ -99,7 +99,7 @@ Never log sensitive data:
 - Payment information
 - Access tokens
 
-### Structured Logging
+#### Structured Logging
 
 Use a consistent structure for log messages:
 

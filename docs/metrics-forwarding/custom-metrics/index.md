@@ -4,7 +4,7 @@ description: Learn about the Embrace Metrics API to pull data
 sidebar_position: 100
 ---
 
-# Custom Metrics
+## Custom Metrics
 
 Embrace captures your mobile data, and aggregates it into time series data. This data is useful for monitoring the
 health
@@ -14,7 +14,7 @@ of your system. By default, Embrace provides standard, out-of-the-box metrics by
 Custom metrics allow you to define your own time series metrics with custom labels. This feature enables you to create
 specific metrics that suit your unique needs, beyond the default metrics provided.
 
-## Data Timing and Discrepancies
+### Data Timing and Discrepancies
 
 :::note
 Custom metrics data may differ from dashboard data. Custom metrics are computed at the end of each time window and do not include late-arriving data.
@@ -28,9 +28,9 @@ In contrast, dashboards in the Embrace platform continuously incorporate late-ar
 
 This difference enables you to understand both the real-time state of your metrics and the fuller picture that becomes available as delayed data arrives. When comparing custom metrics with dashboard data, differences are expected for recent time windows, especially within the last 7 days.
 
-## Get Started
+### Get Started
 
-### via Boards
+#### via Boards
 
 Some Widgets on [custom Boards](/product/boards/custom-dashboards.md) can be directly converted to Custom Metrics.
 
@@ -42,7 +42,7 @@ Open the menu on a Widget, and click "Create Custom Metric". This will open up a
 
 From there, follow the rest of the Custom Metric create flow by selecting a (optional) Data Destination and measurement time interval.
 
-### via Settings
+#### via Settings
 
 Go to the [Settings page](https://dash.embrace.io/settings/organization/custom_metrics) in the Embrace Dashboard and click on the Custom Metrics tab. Here you can create, view, and
 delete custom metrics. When you define a custom metric, you can specify:
@@ -59,11 +59,11 @@ you can select the Embrace Metrics API and query the data from there.
 
 <img src={require('@site/static/images/custom-metrics-output.png').default} alt="Screenshot of custom metrics output tab" />
 
-### via API
+#### via API
 
 Refer to [this](/metrics-forwarding/custom-metrics/custom-metrics-api) to understand how to use the public API.
 
-## Supported Metrics
+### Supported Metrics
 
 Global filters and global group bys are available to use on all the metrics.
 

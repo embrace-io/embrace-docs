@@ -4,7 +4,7 @@ description: Trigger alerts for your iOS application using logs with the Embrace
 sidebar_position: 8
 ---
 
-# Adding Logs
+## Adding Logs
 
 As we've discussed in the [Session Reporting section](/ios/5x/integration/session-reporting), Embrace will end and attempt to upload the current session when the app is sent to the background.
 
@@ -12,7 +12,7 @@ However, some situations might require immediate feedback, such as hunting an es
 
 You can leverage the log message API for this.
 
-## Using the Log Message API
+### Using the Log Message API
 
 You can log a message immediately by calling the `logMessage` method.
 
@@ -51,13 +51,13 @@ import LogLimit from '@site/shared/log-limit.md';
 
 <LogLimit />
 
-## Being Alerted on Logs
+### Being Alerted on Logs
 
 Once you start using our alerting feature you can also configure how these are handled on the backend.
 Using the Embrace Dashboard, you can configure email alerts to be sent to your team when certain thresholds are met with logEvents.
 For example, if you have a steady rate of 1% for a given logEvent, then you can set a threshold so that if it rises in a sustained way you get an email sent directly to you.
 
-## Best Practices
+### Best Practices
 
 Embrace's logMessage API is immediate mode.
 A call to this API results in a networking call between your app and Embrace's servers immediately.

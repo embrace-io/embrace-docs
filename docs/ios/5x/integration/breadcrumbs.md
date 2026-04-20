@@ -4,9 +4,9 @@ description: Add logging to your iOS application using Breadcrumbs with the Embr
 sidebar_position: 7
 ---
 
-# Add a Breadcrumb
+## Add a Breadcrumb
 
-## Adding Context to Sessions
+### Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/ios/5x/integration/crash-report/) and [Session Reporting](/ios/5x/integration/session-reporting/) sections.
 Embrace can also collect your logging data and include it as context within your sessions.  

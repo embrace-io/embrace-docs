@@ -4,18 +4,18 @@ description: Get started with the Embrace Web SDK
 sidebar_position: 1
 ---
 
-# Get Started with the Embrace Web SDK
+## Get Started with the Embrace Web SDK
 
 This section will guide you through the process of adding the Embrace SDK to your web application and configuring it for
 optimal performance monitoring.
 
-## Repository
+### Repository
 
 The Embrace Web SDK is available open-source on [GitHub at this link](https://github.com/embrace-io/embrace-web-sdk).
 
 Continue reading for information on adding the SDK to your web applications.
 
-## What You'll Get
+### What You'll Get
 
 Once the Embrace Web SDK is integrated into your application, you can begin to send signals to the Embrace backend for
 analysis. With Embrace, you'll be able to:
@@ -27,7 +27,7 @@ analysis. With Embrace, you'll be able to:
 - Add custom logs and traces for specific events
 - Identify and fix issues faster
 
-## Next Steps
+### Next Steps
 
 After you've set up the SDK, explore these additional capabilities:
 
@@ -36,7 +36,7 @@ After you've set up the SDK, explore these additional capabilities:
 - Logs - Add context with custom logging
 - Automatic Instrumentation - Discover built-in monitoring capabilities
 
-## Prerequisites
+### Prerequisites
 
 To link the SDK to your Embrace dashboard, you will need an App ID. Register your app to get an App ID by logging in to
 your Embrace Dashboard.

@@ -5,7 +5,7 @@ sidebar_position: 5
 
 ---
 
-# Network Body Capture
+## Network Body Capture
 
 Embrace's SDK uploads basic information about network requests into your sessions to help you understand and troubleshoot networking problems. Embrace can also capture the network body, including the request, response and any headers.
 
@@ -13,7 +13,7 @@ This feature can only be enabled by your Embrace CS representative, so reach out
 
 Since this data can be sensitive, the Embrace SDK will encrypt the data before uploading it to our servers. You'll have to provide to your Embrace CS representative a public key that will be used to encrypt the captured data before being stored.
 
-## Generating a Public Key
+### Generating a Public Key
 
 RSA encryption uses two keys: a private and a public key. You may already be familiar with this protocol and the security team in your organization may already have public keys available for you to use. Before generating new keys, check with your organization.
 
@@ -49,7 +49,7 @@ sxX6/KOMRMFzrf0xSfmQH8jsSpE8dAZnUCRDmiFCN63GEoevbGA1rkWIjj65YYXv
 
 Above is an example of a valid, public RSA key in text form. Each aspect of that form is important: including the dashes at the beginning and end, and the placement of the return characters after each line. It is important to leave the key in this format and leave the formatting in place.
 
-### OpenTelemetry Format
+#### OpenTelemetry Format
 
 After the Embrace SDK encrypts the network data, it sends it as an OpenTelemetry log containing the following attributes:
 
@@ -90,7 +90,7 @@ After the Embrace SDK encrypts the network data, it sends it as an OpenTelemetry
 
 You'll need the `encrypted-key`, `aes-iv` and `encrypted-payload` values to decrypt the network data.
 
-### Decryption
+#### Decryption
 
 The Embrace SDK uses hybrid encryption to secure the data. This means there are actually 2 steps of encryption.
 
@@ -176,7 +176,7 @@ Note that this script expects the `encrypted-key`, `aes-iv` and `encrypted-paylo
 
 Example usage: `sh decrypt.sh -in encrypted_payload.txt -k encrypted_key.txt -iv iv.txt -pk private.pem -out decrypted.txt`
 
-### Payload format
+#### Payload format
 
 Once decrypted, the payload will be a json containing the following keys:
 

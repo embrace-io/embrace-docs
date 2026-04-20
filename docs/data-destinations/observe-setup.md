@@ -4,15 +4,15 @@ description: Learn about the Embrace <> Observe integration
 sidebar_position: 6
 ---
 
-# Observe Integration
+## Observe Integration
 
-## Prerequisites
+### Prerequisites
 
 - Have an active Observe account.
 
-## Configuration
+### Configuration
 
-### Pulling your Observe Datastream Token ([Observe documentation](https://docs.observeinc.com/docs/datastreams#/))
+#### Pulling your Observe Datastream Token ([Observe documentation](https://docs.observeinc.com/docs/datastreams#/))
 
 1. Log into your Observe account.
 2. Navigate to your "Data & Integrations -> Datastreams" settings in the left-side navigation menu.
@@ -28,7 +28,7 @@ sidebar_position: 6
 7. Copy the token value because you will not be able to get it again later. You will have to use it on the Embrace dashboard.
    <img src={require('@site/static/images/data-destinations/observe_create_token2.png').default} alt="Observe Create Token" />
 
-### Pulling your Observe Customer ID ([Observe Documentation](https://docs.observeinc.com/docs/where-do-i-find-my-customer-id))
+#### Pulling your Observe Customer ID ([Observe Documentation](https://docs.observeinc.com/docs/where-do-i-find-my-customer-id))
 
 1. Log into your Observe account.
 2. Get the "Customer ID" from your URL. If the URL is: `https://123456789012.observeinc.com`, customer id is: `123456789012`. You will have to use it on the Embrace dashboard.

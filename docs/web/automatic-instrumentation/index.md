@@ -4,13 +4,13 @@ description: Overview of automatic instrumentation capabilities in the Embrace W
 sidebar_position: 3
 ---
 
-# Automatic Instrumentation
+## Automatic Instrumentation
 
 The Embrace Web SDK provides several instrumentations that automatically collect data from your application with minimal
 setup. These instrumentations gather valuable telemetry data and convert them into OpenTelemetry signals like spans and
 logs.
 
-## What is Automatic Instrumentation?
+### What is Automatic Instrumentation?
 
 Automatic instrumentation refers to the SDK's ability to monitor and collect data about your application's behavior
 without requiring you to add manual instrumentation code throughout your app. This provides:
@@ -20,7 +20,7 @@ without requiring you to add manual instrumentation code throughout your app. Th
 - Consistent data collection
 - Standard telemetry across different areas of your app
 
-## Available Automatic Instrumentation
+### Available Automatic Instrumentation
 
 The Embrace SDK includes the following automatic instrumentation capabilities:
 
@@ -33,7 +33,7 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 framework
 - **[Empty Root Node](./empty-root-node.md)** - Records when content fails to render on the page's root element
 
-## Configuring Automatic Instrumentation
+### Configuring Automatic Instrumentation
 
 The instrumentations are configured when you initialize the Embrace SDK. You can use default settings or customize their
 behavior by passing a `defaultInstrumentationConfig` object when initializing the SDK:
@@ -56,7 +56,7 @@ initSDK({
 View the type definition for [defaultInstrumentationConfig](https://github.com/embrace-io/embrace-web-sdk/blob/main/packages/web-sdk/src/sdk/types.ts)
 to see the full set of configuration options.
 
-## Extending Automatic Instrumentations
+### Extending Automatic Instrumentations
 
 While the built-in instrumentations cover many common scenarios, you can also create your own or use ones defined in
 other packages to instrument specific aspects of your application:
@@ -74,7 +74,7 @@ initSDK({
 These custom instrumentations must conform to the same OpenTelemetry `Instrumentation` interface used by the [SDK's
 built-in instrumentations](https://github.com/embrace-io/embrace-web-sdk/blob/main/packages/web-sdk/src/instrumentations/InstrumentationAbstract/InstrumentationAbstract.ts).
 
-## Best Practices
+### Best Practices
 
 To get the most out of automatic instrumentation:
 

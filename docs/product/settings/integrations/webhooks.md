@@ -8,7 +8,7 @@ The Embrace Webhooks feature is an outgoing webhook sent by Embrace when an aler
 
 <img src={require('@site/static/images/webhooks/image1.png').default} />
 
-# Generic Webhook
+## Generic Webhook
 
 In order to see a sample of the payload sent by the Embrace dash, you can set up a test webhook with [webhook.site](https://webhook.site/):
 
@@ -30,7 +30,7 @@ In this example, the Nickname is “webhook.site” and the Webhook URL is the r
 
 Click on TEST to see the webhook show up on webhook.site.
 
-## Jira Integration
+### Jira Integration
 
 In your Project, click on Project settings
 
@@ -54,7 +54,7 @@ Choose Create issue
 
 Complete the rest of the Jira automation per your organization’s needs.
 
-## PagerDuty Integration
+### PagerDuty Integration
 
 You will need to set up a Custom Event Transformer integration (CET).
 
@@ -87,7 +87,7 @@ PD.emitGenericEvents([normalized_event]);
 
 Finally, copy the Integration URL generated in the CET Integration Configuration step into the Embrace dash.
 
-## Troubleshooting Webhooks
+### Troubleshooting Webhooks
 
 Your webhook will be disabled if the alerts fail to deliver 3 times in a row.
 

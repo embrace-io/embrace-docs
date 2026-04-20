@@ -4,11 +4,11 @@ description: Build Options for the Embrace Unity SDK
 sidebar_position: 7
 ---
 
-# Build Options
+## Build Options
 
 *If you're upgrading from `v1.5.10` or earlier, please note that configuration data will no longer be embedded in our SDK package directory, and instead relocated to your project's Assets folder under `Assets/Embrace`. Any previously defined configurations will be automatically converted at installation time to the updated format described in this document.*
 
-## SDK Configuration Options
+### SDK Configuration Options
 
 The behavior of the Embrace Unity SDK can be customized through the same list of configuration options as the Android and iOS SDKs.
 
@@ -16,7 +16,7 @@ Configuration options can be accessed in the **Configurations** tab of the **Set
 
 <img src={require('@site/static/images/unity-config-windows.png').default} />
 
-## Creating and Editing Configurations
+### Creating and Editing Configurations
 
 Some applications have complex build pipelines. For example, it's common practice for a development team to work in a "Dev" environment, then push their changes to a "Staging" when features are complete and ready to be tested, and finally released to a "Production" upon final approval. In such cases it may be beneficial to define different configuration options for each environment. The Embrace SDK supports this this type of workflow through the **Configurations** list available in the **Settings** window.
 
@@ -30,7 +30,7 @@ You can select and edit each configuration by clicking on the toggle to the left
 
 *NOTE: Most of the time users will not see the creation of configuration data when the **Configurations** list is edited. However, if you happen to peek in the **Configurations** folder, you'll notice that upon defining a configuration objects are created with a GUID-based name. They will get automatically renamed to match user input once the **Update Configurations** button is pressed, or if the **Settings** window loses focus. See the reference images above for an example.*
 
-## Specifying Configurations At Build Time
+### Specifying Configurations At Build Time
 
 The Embrace SDK also supports specifying a configuration at build-time through the use of environment variables defined at the OS level. This feature can enable a CI/CD pipeline to define which configuration to build with. We support the following definitions:
 
@@ -82,7 +82,7 @@ export EMBRACE_ENVIRONMENTS_NAME=Staging
 SET EMBRACE_ENVIRONMENTS_NAME=Staging
 ```
 
-## Configuration Output
+### Configuration Output
 
 Users will notice that both default and custom configurations already have some fields defined upon creation. These fields correspond to the defaults specified for [Android](/android/configuration/configuration-file/) and [iOS](/ios/5x/features/configuration-file/). At build time, configuration files are loaded and scanned for **non-default** settings, which are then output to an override configuration file for their specific platforms.
 
@@ -94,7 +94,7 @@ For example, in the `sdk_config.session` sub-element of the Android configuratio
 
 <img src={require('@site/static/images/unity-config-overrides.png').default} />
 
-## Data Directory
+### Data Directory
 
 The Unity Embrace SDK will store configuration data in the `Assets/Embrace` directory of your project. This directory can be customized in the **Settings** window under the **General** tab. Specify a new directory in the **Embrace Data Directory** field. Note that this path will remain relative to your project's `Assets` folder. This is a necessary constraint since we depend on the Unity's `AssetDatabase` utility to manage user-generated configuration files.
 

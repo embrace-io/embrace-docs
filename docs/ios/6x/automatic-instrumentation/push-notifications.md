@@ -7,11 +7,11 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Push Notifications
+## Push Notifications
 
 The Embrace SDK's `PushNotificationCaptureService` automatically captures push notification events in your app, providing visibility into notification delivery, user interaction, and impact on app engagement.
 
-## How Push Notification Tracking Works
+### How Push Notification Tracking Works
 
 The push notification capture service monitors push notification events by swizzling key methods in the `UNUserNotificationCenter` and related classes. This allows Embrace to create OpenTelemetry spans and events that capture:
 
@@ -21,7 +21,7 @@ The push notification capture service monitors push notification events by swizz
 
 This data helps you understand how push notifications impact user behavior and app engagement.
 
-## Configuration
+### Configuration
 
 You can customize push notification tracking when initializing the Embrace SDK:
 
@@ -76,9 +76,9 @@ try Embrace
 </TabItem>
 </Tabs>
 
-## Customization Options
+### Customization Options
 
-### Capturing Notification Content
+#### Capturing Notification Content
 
 You can control whether notification content is captured:
 
@@ -90,7 +90,7 @@ PushNotificationCaptureService.Options(
 
 When enabled, the service will capture the notification title, body, and other user-facing content, giving you visibility into what messages drove user engagement.
 
-### Filtering Payload Attributes
+#### Filtering Payload Attributes
 
 To control which payload data is captured while protecting sensitive information, you can use a filter:
 
@@ -105,11 +105,11 @@ PushNotificationCaptureService.Options(
 
 By default, the service captures all payload data, so it's recommended to use a filter to limit capture to necessary business information.
 
-## Events Captured
+### Events Captured
 
 The push notification service captures the following events:
 
-### Notification Received
+#### Notification Received
 
 A span is created when your app receives a notification, either in the foreground or when the app is launched in response to a notification:
 
@@ -120,7 +120,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
                            withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
 ```
 
-### Notification Response
+#### Notification Response
 
 A span is created when a user taps on a notification to open your app:
 
@@ -131,7 +131,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
                            withCompletionHandler completionHandler: @escaping () -> Void)
 ```
 
-## Understanding Push Notification Data
+### Understanding Push Notification Data
 
 Push notification events are captured as OpenTelemetry spans with the following attributes:
 
@@ -142,25 +142,25 @@ Push notification events are captured as OpenTelemetry spans with the following 
 - `emb.push.foreground`: Whether the notification was received while the app was in the foreground
 - Additional custom attributes from the notification payload (based on your filter)
 
-## Example Use Cases
+### Example Use Cases
 
-### Campaign Effectiveness
+#### Campaign Effectiveness
 
 Track which notification campaigns drive the most app opens and engagement, helping optimize your messaging strategy.
 
-### User Engagement Patterns
+#### User Engagement Patterns
 
 Understand how different notification types affect user behavior and session duration.
 
-### Conversion Tracking
+#### Conversion Tracking
 
 Monitor whether users complete key actions after engaging with specific notifications.
 
-### Time-of-Day Optimization
+#### Time-of-Day Optimization
 
 Analyze which times of day result in the highest engagement with your notifications.
 
-## Adding Custom Attributes
+### Adding Custom Attributes
 
 You can add custom attributes to notification spans by implementing a custom delegate:
 
@@ -196,7 +196,7 @@ PushNotificationCaptureService.Options(
 )
 ```
 
-## Best Practices
+### Best Practices
 
 - Use a payload attributes filter to only capture relevant notification data
 - Consider privacy implications when capturing notification content
@@ -204,4 +204,4 @@ PushNotificationCaptureService.Options(
 - Use custom attributes to add business context to notification events
 - Correlate notification interactions with subsequent user actions to measure effectiveness
 
- <!-- TODO: Add examples of how push notification data appears in the Embrace dashboard, including visualizations for campaign analysis and engagement metrics -->
+  <!-- TODO: Add examples of how push notification data appears in the Embrace dashboard, including visualizations for campaign analysis and engagement metrics -->

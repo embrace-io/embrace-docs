@@ -3,11 +3,11 @@ title: User Journeys
 sidebar_position: 6
 ---
 
-# User Journeys
+## User Journeys
 
 With Embrace’s User Journeys feature, you can move beyond simple funnel analysis and gain deeper insights into how users experience your application. User Journeys allow engineering teams to track and analyze all the events in a journey that a user takes, providing valuable data on performance impacts and behavioral trends.
 
-## User Flows
+### User Flows
 
 User Flows are a powerful way to understand the sequence of events that users experience within your app. They’re created by defining the connection between two specific telemetry events, allowing you to track key performance elements between actions. Think about User Flows as the first order logical grouping of all the base telemetry events you can emit into a contextualized view of a user's experience.
 
@@ -17,7 +17,7 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/_2yXGHfpW70" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-### Important Considerations
+#### Important Considerations
 
 1. **No concurrent User Flows on the same device**: On a single device, only one User Flow can be active at any given time.
    If a new User Flow starts while another is still in progress, the previous one is automatically terminated.
@@ -29,19 +29,19 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
 
    Event timeline:
 
-- 10:00 — "Span A" occurs.
-- 10:01 — "Span B" occurs.
-- 10:02 — "Breadcrumb A" occurs.
-- 10:03 — "Breadcrumb B" occurs.
+   - 10:00 — "Span A" occurs.
+   - 10:01 — "Span B" occurs.
+   - 10:02 — "Breadcrumb A" occurs.
+   - 10:03 — "Breadcrumb B" occurs.
 
-  **Result**
+   **Result**
 
-- "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
-- "User Flow B" ends with the outcome **Complete**.
+   - "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
+   - "User Flow B" ends with the outcome **Complete**.
 
 2. **User Flows may span multiple sessions**: A User Flow is not constrained to a single session. It may start in one session and complete in a later session (e.g., start in Session 1 and finish in Session 3).
 
-### Outcomes
+#### Outcomes
 
 There are different possible outcomes for a User Flow:
 
@@ -56,7 +56,7 @@ There are different possible outcomes for a User Flow:
     - **Web**: Not applicable.
   - **Timeout**: The User Flow exceeded the configured timeout.
 
-### Start and End Events
+#### Start and End Events
 
 User Flows are built using various telemetry events:
 
@@ -71,7 +71,7 @@ User Flows are built using various telemetry events:
 
 While instrumenting Traces can be useful in situations like this, they involve more rigid instrumentation and are more duration-focused than outcome and contributing event-focused. User Flows allow you to quickly explore, modify, and view analytics that give you insights into user behaviors based on all of the events between two points.
 
-## Creating a User Flow
+### Creating a User Flow
 
 To create a User Flow, you will click on the "Create User Flow" button in the top right of the page. This will take you to the User Flow creation page where you can set them up.
 
@@ -97,7 +97,7 @@ For high cardinality fields such as Breadcrumbs, Logs, Networks, and Web Views e
 
 **Note:** Newly-created User Flows collect data on a going-forward basis. This means that immediately after you create a new User Flow, you may not see any data. As new sessions come in, you'll see data start to populate. Additionally, User Flows cannot be modified after being created. If you need to change them, you'll need to delete the existing User Flow and create a new one.
 
-## User Flows Summary page
+### User Flows Summary page
 
 On the User Flows Summary page, you'll see a list of all of your currently-configured User Flows with some useful information.
 
@@ -108,11 +108,11 @@ On the User Flows Summary page, you'll see a list of all of your currently-confi
 
 <img src={require('@site/static/images/user-journeys/User-Flows-Summary.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
-## User Flow Details page
+### User Flow Details page
 
 When you click on any of the User Flows you've created, you'll be taken to that User Flow's details page. Here, you'll find some helpful tools to analyze your User Flows. You can see Completion Percentage and Session Volume broken down by app version, as well as Issue Rates and Abandon Percentage which are covered in detail below.
 
-### Issue Rate
+#### Issue Rate
 
 The "Issue Rate" tab contains two sub-tabs. The first is "Issue Distribution", which gives you an idea of the makeup of all Issues that are being seen during the selected User Flows in aggregate.
 
@@ -129,12 +129,12 @@ Hovering your mouse over the treemap, you'll see a tooltip that breaks down the 
 
 <img src={require('@site/static/images/user-journeys/User-Flows-Details-Treemap.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
-### Instance List
+#### Instance List
 
 You can find a filterable list of all instances of the User Flow at the bottom of the page. Clicking any of these instances will take you to the [User Timeline](/product/sessions/user-timeline.md) for further investigation as you need it.
 
-## User Flows in Boards, Alerts, and Custom Metrics
+### User Flows in Boards, Alerts, and Custom Metrics
 
-### Alerts and Custom Metrics
+#### Alerts and Custom Metrics
 
 **NOTE**: User Flows are processed using data that comes in multiple payloads from the client. As such, there can be a time delay of up to 10 minutes. Due to this potential delay, we don't allow 5 minute aggregations.

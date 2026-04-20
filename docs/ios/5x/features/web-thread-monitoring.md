@@ -5,7 +5,7 @@ sidebar_position: 3
 
 ---
 
-# Web Thread Monitoring
+## Web Thread Monitoring
 
 WKWebView allows your application to display HTML and JavaScript content using the full power of the Safari browser engine. To make this work, Apple uses out-of-process threads to optimize the performance of these views and protect your application from crashes. You can read more about how this works on our [our blog](https://embrace.io/blog/webview-thread-terminations/).
 

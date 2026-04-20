@@ -4,11 +4,11 @@ description: Identifying and segmenting users in the Embrace Web SDK
 sidebar_position: 4
 ---
 
-# User Identification
+## User Identification
 
 User identification is critical for effective app monitoring and troubleshooting. The Embrace SDK provides robust mechanisms to identify users.
 
-## Why Identify Users?
+### Why Identify Users?
 
 Proper user identification allows you to:
 
@@ -16,7 +16,7 @@ Proper user identification allows you to:
 - Provide personalized support to high-value users
 - Track user behavior across multiple sessions
 
-## User Identifier
+### User Identifier
 
 For tracking specific users across sessions, you can assign a unique identifier:
 
@@ -32,7 +32,7 @@ The value set in `setUserId` is not validated by the SDK to follow a specific fo
 
 After setting the user ID, all subsequent sessions will be associated with this user. Every span and log created after this call will also include the user ID as an attribute following the OpenTelemetry semantic conventions.
 
-### Clearing the User Identifier
+#### Clearing the User Identifier
 
 To remove the user identifier, you can call:
 
@@ -42,7 +42,7 @@ import { user } from '@embrace-io/web-sdk';
 user.clearUserId();
 ```
 
-## Best Practices for User Identification
+### Best Practices for User Identification
 
 - **Set early in the session**: Add user identity information as early as possible
 - **Be consistent**: Use the same identifiers across app sessions

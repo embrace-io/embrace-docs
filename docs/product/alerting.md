@@ -4,7 +4,7 @@ description: Alerting
 sidebar_position: 12
 ---
 
-# Alerting
+## Alerting
 
 You can set up alerts for various types of issues, including crashes, ANRs, error logs, networking problems, and more.
 
@@ -14,23 +14,23 @@ Here is a brief walkthrough video of alerting in Embrace. Continue reading below
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ev7Xws7sOgQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-## Alert Creation
+### Alert Creation
 
 You can create a new alert by navigating to the Alerts page and clicking on the "Add Alert" button or by using the shortcut from an existing Widget or Custom Metric.
 
-### Alert Creation from Existing Widget
+#### Alert Creation from Existing Widget
 
 To create an alert using the same conditions in a widget, go to the specific widget and click on the "more" icon in the top right of the widget. If an alert is able to be created from the conditions being used, you can select Create Alert. This will take you to the Alerts creation page to specify the rest of the details below.
 
 <img src={require('@site/static/images/features/shortcuts/shortcut-from-widget.png').default} alt="Create an Alert from Existing Widget" />
 
-### Alert Creation from Existing Custom Metric
+#### Alert Creation from Existing Custom Metric
 
 To create an alert using the conditions set in a Custom Metric, go to the Custom Metric of interest in App Settings > Custom Metrics and click the "more" icon (three dots) on the Custom Metric you want to use.
 
 <img src={require('@site/static/images/features/shortcuts/shortcut-from-custom-metric.png').default} alt="Create an Alert from Existing Custom Metric" />
 
-### Alert Type
+#### Alert Type
 
 Begin by selecting the metric you wish to be alerted on. For example, you may want to receive notifications when the percentage of users experiencing a crash exceeds 50%.
 
@@ -38,29 +38,29 @@ Begin by selecting the metric you wish to be alerted on. For example, you may wa
 
 After selecting a metric, you'll see a preview of historical data over time for the chosen metric. Additionally, you can apply filters such as app version, build, country, etc.
 
-### Trigger Thresholds
+#### Trigger Thresholds
 
 Specify the evaluation time period and the number of affected users required to trigger the alert. You can also set error and warning thresholds, which will be visible in the preview for further adjustment.
 
 <img src={require('@site/static/images/features/alerting/alerting-2.png').default} alt="Set Trigger Thresholds" />
 
-### Notification Recipients
+#### Notification Recipients
 
 Choose which team members should receive notifications when the alert is triggered. Notifications can be sent via email, Slack, or webhook.
 
 Finally, name the alert for easy identification, knowing you can always change it later.
 
-### Alert Ownership
+#### Alert Ownership
 
 Assign an owner to each alert to provide clear visibility on who is responsible. While ownership doesn’t grant special permissions, it helps teams quickly identify the point of contact for an alert. Each alert can have only one owner, who must be part of the organization.
 
-## Monitoring
+### Monitoring
 
 Once your alert is set up, you'll find it listed under "Manage Alerts". Here, you can also view currently triggered alerts under "Triggered Alerts" and access the history of previously triggered alerts.
 
 <img src={require('@site/static/images/features/alerting/alerting-3.png').default} alt="Triggered Alerts" />
 
-### Statuses
+#### Statuses
 
 - Normal: No issues; alert has recovered or conditions are within thresholds.
 - Warning: Alert has hit warning thresholds; no critical issues in progress.
@@ -68,7 +68,7 @@ Once your alert is set up, you'll find it listed under "Manage Alerts". Here, yo
 - Inactive: Alert is disabled or misconfigured; no thresholds set or notifications enabled.
 - Muted: Alerts is silenced; no notifications sent.
 
-### Alert Data vs Latest Data
+#### Alert Data vs Latest Data
 
 Mobile data presents a unique challenge: it can be delayed due to factors such as offline devices, intermittent internet connectivity, or other disruptions.
 
@@ -83,7 +83,7 @@ To provide a clear understanding of the data over time, our system visualizes tw
 
 This approach enables users to compare the state of the data during alert processing with the fuller picture that becomes available later. These comparisons help illustrate the impact of delayed data on analytics and ensure transparency in alerting decisions.
 
-### Why is my alert inactive?
+#### Why is my alert inactive?
 
 Your alert is inactive because one or more of the following conditions are met:
 
@@ -92,19 +92,19 @@ Your alert is inactive because one or more of the following conditions are met:
 
 To activate the alert, ensure notification methods are enabled and thresholds/percentages are properly configured for monitoring.
 
-### Email
+#### Email
 
 Here's how an alert email looks:
 
 <img src={require('@site/static/images/features/alerting/alerting-4.png').default} alt="Triggered Alerts" />
 
-### Slack Message
+#### Slack Message
 
 This is the format of a Slack message for an alert:
 
 <img src={require('@site/static/images/features/alerting/alerting-5.png').default} alt="Triggered Alerts" />
 
-### Webhook
+#### Webhook
 
 Here's a sample webhook data for an alert:
 
@@ -155,7 +155,7 @@ Here's a sample webhook data for an alert:
 }
 ```
 
-## Alert Rate Limiting
+### Alert Rate Limiting
 
   To ensure reliable alert delivery and prevent notification fatigue, Embrace applies rate limits to alert notifications. This means there's a maximum number of notifications that can be sent within a specific time
   period.
@@ -165,7 +165,7 @@ Here's a sample webhook data for an alert:
   **Important**: Even if a notification is suppressed, all triggered alerts are still recorded and visible in your Alert History
    in the dashboard.
 
-### Rate Limits by Channel
+#### Rate Limits by Channel
 
 **Slack Notifications**
 
@@ -182,7 +182,7 @@ Here's a sample webhook data for an alert:
 - **20 messages per hour** per app
 - **200 messages per day** per app
 
-### How It Works
+#### How It Works
 
 Rate limits are applied independently for each channel and reset automatically:
 

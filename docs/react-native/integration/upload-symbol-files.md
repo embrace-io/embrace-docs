@@ -4,13 +4,13 @@ description: Learn how to upload source maps to Embrace to translate JavaScript 
 sidebar_position: 4
 ---
 
-# Uploading symbol files
+## Uploading symbol files
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
 For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.  
 
-## Uploading native and JavaScript symbol files
+### Uploading native and JavaScript symbol files
 
 :::info
 If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk) page these changes have already been made for you.
@@ -94,7 +94,7 @@ us and we’ll work with you directly.
 </TabItem>
 </Tabs>
 
-## Symbolication with OTA updates
+### Symbolication with OTA updates
 
 If you perform over-the-air (OTA) updates to your JavaScript code without submitting a new version to the App Store or
 Google Play Store you will need to perform a couple more steps to allow Embrace to symbolicate the stack traces on the

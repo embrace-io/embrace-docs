@@ -4,7 +4,7 @@ description: Best practices for monitoring GraphQL network requests with the Emb
 sidebar_position: 4
 ---
 
-# Monitoring GraphQL Requests
+## Monitoring GraphQL Requests
 
 Generally, network requests made to a REST API each hit its own unique endpoint.
 From a monitoring perspective, this is helpful because developers can clearly
@@ -17,7 +17,7 @@ actions.
 Here we will show you how to configure your integration so you see different
 GraphQL requests broken out by "path" in the Dashboard.
 
-## Override Paths of Requests
+### Override Paths of Requests
 
 It's possible to override the path of a network request that the Embrace SDK captures. iOS 5.X and Android
 allows this override by setting the `x-emb-path` header on the request. For example, if your network request is made
@@ -147,7 +147,7 @@ httpClient.addInterceptor(chain -> {
 </TabItem>
 </Tabs>
 
-## Configuring Network Grouping Rules
+### Configuring Network Grouping Rules
 
 After setting up the path override, you may find that your GraphQL operations appear correctly
 in the session timeline but are missing or inconsistent in the **Network** section of the dashboard.

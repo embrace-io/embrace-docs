@@ -7,13 +7,13 @@ sidebar_position: 5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Utility Classes
+## Utility Classes
 
 The Embrace SDK provides various utility classes to help with common tasks in your application. These utilities make it easier to work with the SDK's core functionality.
 
-## Span Management
+### Span Management
 
-### SpanBuilder
+#### SpanBuilder
 
 The `SpanBuilder` class provides a fluent interface for creating and customizing spans.
 
@@ -33,7 +33,7 @@ class SpanBuilder {
 
 **GitHub Source**: [Embrace Apple SDK Repository](https://github.com/embrace-io/embrace-apple-sdk)
 
-### Span
+#### Span
 
 The `Span` protocol defines the interface for working with spans.
 
@@ -58,7 +58,7 @@ protocol Span {
 - `end(at:)`: Ends the span, optionally at a specific time.
 - `addEvent(_:attributes:)`: Adds an event to the span with optional attributes.
 
-### SpanType
+#### SpanType
 
 Enum defining different types of spans.
 
@@ -74,9 +74,9 @@ enum SpanType {
 }
 ```
 
-## Logging
+### Logging
 
-### LogSeverity
+#### LogSeverity
 
 Enum defining severity levels for logs.
 
@@ -88,7 +88,7 @@ enum LogSeverity: String {
 }
 ```
 
-### EmbraceLog
+#### EmbraceLog
 
 Interface for working with logs created by the SDK.
 
@@ -101,9 +101,9 @@ protocol EmbraceLog {
 }
 ```
 
-## Session Utilities
+### Session Utilities
 
-### SessionSpanUtils
+#### SessionSpanUtils
 
 Utility for working with session spans.
 
@@ -121,9 +121,9 @@ class SessionSpanUtils {
 - `setSessionId(_:on:)`: Sets the session ID on a span.
 - `getSessionProperties(from:)`: Gets the session properties from a span.
 
-## Network Utilities
+### Network Utilities
 
-### HeaderFilterKeys
+#### HeaderFilterKeys
 
 Configuration for filtering HTTP headers.
 
@@ -141,9 +141,9 @@ struct HeaderFilterKeys {
 - `requestHeadersBlocklist`: List of request header keys to block from capture.
 - `responseHeadersBlocklist`: List of response header keys to block from capture.
 
-## OpenTelemetry Integration
+### OpenTelemetry Integration
 
-### OpenTelemetryExport
+#### OpenTelemetryExport
 
 Configuration for exporting OpenTelemetry data.
 
@@ -161,9 +161,9 @@ struct OpenTelemetryExport {
 - `spanExporter`: Exporter for OpenTelemetry spans.
 - `logExporter`: Exporter for OpenTelemetry logs.
 
-## Crash Reporting
+### Crash Reporting
 
-### CrashReporter
+#### CrashReporter
 
 Protocol for crash reporters.
 
@@ -181,7 +181,7 @@ protocol CrashReporter {
 - `updateAppState(_:)`: Updates the app state in the crash reporter.
 - `updateAttributes(_:)`: Updates custom attributes in the crash reporter.
 
-### EmbraceCrashReporter
+#### EmbraceCrashReporter
 
 Default implementation of the CrashReporter protocol.
 
@@ -194,11 +194,11 @@ class EmbraceCrashReporter: CrashReporter {
 }
 ```
 
-## Symbolic Upload Utilities
+### Symbolic Upload Utilities
 
 Utilities for working with debug symbols.
 
-### SymbolUpload
+#### SymbolUpload
 
 ```swift
 struct SymbolUpload {
@@ -216,9 +216,9 @@ struct SymbolUpload {
 
 - `uploadSymbols(appId:token:dsymURLs:baseURL:completion:)`: Uploads debug symbols to the Embrace backend.
 
-## Code Examples
+### Code Examples
 
-### Working with Spans
+#### Working with Spans
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -263,7 +263,7 @@ span?.end()
 </TabItem>
 </Tabs>
 
-### Creating and Managing Logs
+#### Creating and Managing Logs
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -326,7 +326,7 @@ do {
 </TabItem>
 </Tabs>
 
-### Custom Network Header Filtering
+#### Custom Network Header Filtering
 
 ```swift
 let networkOptions = NetworkCaptureServiceOptions(
@@ -352,7 +352,7 @@ let networkOptions = NetworkCaptureServiceOptions(
 )
 ```
 
-### Uploading Debug Symbols
+#### Uploading Debug Symbols
 
 ```swift
 // Find dSYM files

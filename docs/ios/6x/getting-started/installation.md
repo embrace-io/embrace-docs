@@ -4,11 +4,11 @@ description: Installing the Embrace iOS SDK 6.x in your project
 sidebar_position: 1
 ---
 
-# Installation
+## Installation
 
 Integrating the Embrace Apple SDK can be accomplished using either the Swift Package Manager or CocoaPods. The information below outlines the steps for both methods. Additionally, you can pull down the [open-source](https://github.com/embrace-io/embrace-apple-sdk) repository and integrate it manually if your app requires a custom setup.
 
-## Swift Package Manager
+### Swift Package Manager
 
 For your project, you'll want to add a package dependency in Xcode. Select `File > Add Package Dependencies...`
 and enter the repository URL `https://github.com/embrace-io/embrace-apple-sdk.git` into the search bar.
@@ -27,7 +27,7 @@ Here's a quick summary of the products this package contains:
 - **EmbraceCrashlyticsSupport** - This product enables Crashlytics/Firebase as your primary crash reporter. Embrace will continue to mirror reports sent to Crashlytics, ensuring that data is still available in the Embrace Dashboard. This is an optional product for those who specifically need Crashlytics as their crash reporter but also want to leverage the Embrace Dashboard.
 - **EmbraceSemantics** - This module contains constants and attributes used internally to extend OTel Semantic Conventions.
 
-### Using SPM with Tuist
+#### Using SPM with Tuist
 
 If you are consuming the Embrace SDK via Swift Package Manager and using [Tuist](https://tuist.dev/) to manage your Xcode project, there's one additional step required to ensure correct linking.
 
@@ -79,7 +79,7 @@ And checking that `OTHER_LDFLAGS` includes `-ObjC`.
 If this setup is missing, it may lead to runtime crashes due to missing Objective-C symbols.
 :::
 
-## CocoaPods
+### CocoaPods
 
 Installing through CocoaPods is straightforward. Add the main pod to your Podfile:
 
@@ -100,7 +100,7 @@ pod 'EmbraceIO/EmbraceCrashlyticsSupport'
 
 :::
 
-## Known Issues
+### Known Issues
 
 - **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/).  
 
@@ -108,6 +108,6 @@ We have forked the Datadog SDK and created a version that can integrate better w
 
 - **SwiftUI Hosting Controllers**: Some very short-lived view controllers, particularly in hosting controllers acting as internal bridges in SwiftUI, may experience issues. These have been addressed in recent versions.
 
-## Next Steps
+### Next Steps
 
 After installing the Embrace SDK, you need to [set up and configure](/ios/6x/getting-started/basic-setup.md) it in your application code.

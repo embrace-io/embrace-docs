@@ -7,11 +7,11 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# User Personas
+## User Personas
 
 User Personas allow you to dynamically segment app users according to their behavior, characteristics, or other criteria. These personas help you analyze user segments, understand variations in use patterns, and tailor the application experience to meet the diverse ways that users interact with your app.
 
-## Understanding User Personas
+### Understanding User Personas
 
 User Personas are tags or attributes that you assign to users to categorize them based on:
 
@@ -28,11 +28,11 @@ By applying these personas, you can:
 - Compare performance and experience across different user groups
 - Make data-driven decisions about feature development
 
-## Using User Personas
+### Using User Personas
 
 The `MetadataHandler` provides an [extension](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/MetadataHandler%2BPersonas.swift) for managing User Personas.
 
-### Retrieving Current User Personas
+#### Retrieving Current User Personas
 
 To retrieve the current set of persona tags, use the `currentPersonas` property. This property fetches persona tags from the storage that apply to the user at the current point in time.
 
@@ -53,7 +53,7 @@ let personas = Embrace.client?.metadata.currentPersonas
 </TabItem>
 </Tabs>
 
-### Adding User Personas
+#### Adding User Personas
 
 There are [pre-defined tags](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/PersonaTag.swift#L8-L17) that we think are useful, and you can feel free to add your own. Here are some examples on how to add user personas:
 
@@ -90,7 +90,7 @@ extension PersonaTag {
 }
 ```
 
-## Understanding Metadata Lifespan
+### Understanding Metadata Lifespan
 
 When you add Embrace metadata, you can apply a [lifespan](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Public/Metadata/MetadataHandler.swift#L9-L17) to that value. This lifespan determines how long the persona will remain associated with the user.
 
@@ -102,9 +102,9 @@ There are three metadata lifespans:
 
 - **Permanent**: Metadata marked as `permanent` remains associated with the user across multiple sessions until explicitly removed. This is useful for long-term attributes, such as user roles or subscription statuses, that affect the user experience over time. You may want to use a "`vip`" persona to mark users that you'd like to make sure have a seamless experience. This could be your company's CEO so that you recognize the issues that somehow only ever seems to occur to them. Maybe you'll have a fix **before** you get that pesky email...
 
-## Common Use Cases
+### Common Use Cases
 
-### User Segmentation for Analysis
+#### User Segmentation for Analysis
 
 Adding personas allows you to segment users in the Embrace dashboard:
 
@@ -141,7 +141,7 @@ if user.hasCompletedOnboarding {
 </TabItem>
 </Tabs>
 
-### Feature Adoption Tracking
+#### Feature Adoption Tracking
 
 Track which users are using specific features:
 
@@ -178,7 +178,7 @@ func didOptIntoBeta(featureName: String) {
 </TabItem>
 </Tabs>
 
-### User Journey Analysis
+#### User Journey Analysis
 
 Add personas at key points in the user journey:
 
@@ -221,7 +221,7 @@ func didAbandonCart() {
 </TabItem>
 </Tabs>
 
-## Difference from Session Properties
+### Difference from Session Properties
 
 Session Properties are another way to annotate the session. The difference between session properties and user personas is that the former are for items relating to the session or the device, and not necessarily to the user. Although, you are free to use both mechanisms interchangeably.
 

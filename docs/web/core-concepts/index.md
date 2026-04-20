@@ -4,12 +4,12 @@ description: Fundamental concepts of the Embrace Web SDK
 sidebar_position: 2
 ---
 
-# Core Concepts
+## Core Concepts
 
 This section explains the fundamental concepts and components that make up the Embrace Web SDK. Understanding these core
 concepts will help you better utilize the SDK's capabilities and interpret the data it provides.
 
-## Key Concepts
+### Key Concepts
 
 The Embrace SDK is built on several key concepts:
 
@@ -18,7 +18,7 @@ The Embrace SDK is built on several key concepts:
 3. **[Logs](./logs.md)** - Messages and events that provide contextual information about application state
 4. **[User Identification](./user-identification.md)** - Methods to identify users
 
-## How These Concepts Work Together
+### How These Concepts Work Together
 
 - **Sessions** provide the overall container for user interactions with your app
 - **Traces & Spans** capture specific operations and their performance within sessions
@@ -27,7 +27,7 @@ The Embrace SDK is built on several key concepts:
 Together, these concepts form a comprehensive observability solution for your web application, enabling you to monitor
 performance, track user behavior, and identify issues quickly.
 
-## Relationship to OpenTelemetry
+### Relationship to OpenTelemetry
 
 The Embrace web SDK is built on the OpenTelemetry framework, an industry-standard approach to observability. This means:
 

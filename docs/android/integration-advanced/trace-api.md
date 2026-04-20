@@ -4,7 +4,7 @@ sidebar_position: 3
 description: Trigger alerts for your Android application using traces with the Embrace SDK
 ---
 
-# Record traces
+## Record traces
 
 You can use Embrace's tracing API to measure the performance of an operation with a defined start and end (spans).
 A simple example is shown below:

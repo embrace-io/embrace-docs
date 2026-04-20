@@ -7,17 +7,17 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configuration
+## Configuration
 
 The Embrace SDK is configured using the `Embrace.Options` class. This reference document covers the available configuration options and how to use them.
 
-## Embrace.Options
+### Embrace.Options
 
 The main configuration class for the Embrace SDK.
 
-### Initializers
+#### Initializers
 
-#### Standard Initializer
+##### Standard Initializer
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -67,7 +67,7 @@ Embrace.Options(
 
 **GitHub Source**: [EmbraceCore/Options/Embrace+Options.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BOptions.swift)
 
-#### Export-Only Initializer (Without Embrace Backend)
+##### Export-Only Initializer (Without Embrace Backend)
 
 For developers who want to use the SDK without connecting to the Embrace backend:
 
@@ -105,7 +105,7 @@ Embrace.Options(
 - `crashReporter`: The crash reporter to use for crash reporting.
 - `runtimeConfiguration`: A custom configuration provider to replace the Embrace backend configuration.
 
-## Embrace.Platform
+### Embrace.Platform
 
 Enum that specifies the platform the SDK is running on.
 
@@ -123,7 +123,7 @@ enum Platform {
 - `.default`: Maps to iOS.
 - Use the appropriate platform value for your application type.
 
-## Embrace.Endpoints
+### Embrace.Endpoints
 
 Configuration for the backend endpoints used by the SDK.
 
@@ -143,7 +143,7 @@ struct Endpoints {
 - `developmentBaseURL`: The base URL for development environments.
 - `configBaseURL`: The base URL for fetching configuration.
 
-## LogLevel
+### LogLevel
 
 Enum that controls the level of logging output from the SDK.
 
@@ -165,7 +165,7 @@ enum LogLevel {
 - `.debug`: Log all messages, including debug information.
 - `.default`: Maps to `.info` in debug builds and `.error` in release builds.
 
-## CaptureServices
+### CaptureServices
 
 Defines which automatic data capture services are enabled.
 
@@ -180,7 +180,7 @@ struct CaptureServices {
 }
 ```
 
-### Available Capture Services
+#### Available Capture Services
 
 The SDK includes the following capture services:
 
@@ -192,7 +192,7 @@ The SDK includes the following capture services:
 - `.lowPowerModeCaptureService`: Tracks low power mode.
 - `.pushNotificationCaptureService`: Captures push notification events.
 
-## OpenTelemetryExport
+### OpenTelemetryExport
 
 Configuration for exporting OpenTelemetry data.
 
@@ -210,7 +210,7 @@ struct OpenTelemetryExport {
 - `spanExporter`: The exporter for OpenTelemetry spans.
 - `logExporter`: The exporter for OpenTelemetry logs.
 
-## EmbraceConfigurable
+### EmbraceConfigurable
 
 Interface for providing runtime configuration when not using the Embrace backend.
 
@@ -223,9 +223,9 @@ protocol EmbraceConfigurable {
 }
 ```
 
-## Code Examples
+### Code Examples
 
-### Basic Configuration
+#### Basic Configuration
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -248,7 +248,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-### Configuration with Custom Endpoints
+#### Configuration with Custom Endpoints
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -279,7 +279,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-### Debug vs. Release Configuration
+#### Debug vs. Release Configuration
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -318,7 +318,7 @@ var embraceOptions = Embrace.Options(
 </TabItem>
 </Tabs>
 
-### Custom Capture Services Configuration
+#### Custom Capture Services Configuration
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -395,7 +395,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-### OpenTelemetry Export Configuration
+#### OpenTelemetry Export Configuration
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>

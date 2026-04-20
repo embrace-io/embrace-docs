@@ -4,9 +4,9 @@ description: A reference guide to configuration options available in the iOS SDK
 sidebar_position: 7
 ---
 
-# Configuration File
+## Configuration File
 
-## Embrace-Info.plist
+### Embrace-Info.plist
 
 Embrace is configured via an `Embrace-Info.plist` file placed at the root of the IPA, alongside the main application binary. An example of this file is included below as a reference:
 
@@ -35,7 +35,7 @@ Embrace is configured via an `Embrace-Info.plist` file placed at the root of the
 
 As you can see there are many properties available. Even so most apps that use Embrace do not include this file at the start. The common setup options are all available via API. You will only require this file if you intend to use one of our more advanced configuration options.
 
-### CRASH_REPORT_PROVIDER *string, optional*
+#### CRASH_REPORT_PROVIDER *string, optional*
 
 Determines which type of crash reporting Embrace uses. It accepts three values
 
@@ -45,90 +45,90 @@ Determines which type of crash reporting Embrace uses. It accepts three values
 
 If omitted, Embrace attempts to guess the right configuration by looking at the runtime classes.
 
-#### CAPTURE_COORDINATES *boolean, optional*
+##### CAPTURE_COORDINATES *boolean, optional*
 
 Controls Embrace's capture of tap coordinates within the app. When disabled, Embrace still captures taps but not the exact coordinates of the tap. The default is on.
 
-#### CAPTURE_TAPPED_ELEMENTS *boolean, optional*
+##### CAPTURE_TAPPED_ELEMENTS *boolean, optional*
 
 Controls Embrace's capture of tap element names within the app. When disabled, Embrace still captures taps but not the name of the tapped element. The default is on.
 
-#### COLLECT_NETWORK_REQUEST_METRICS *boolean, optional*
+##### COLLECT_NETWORK_REQUEST_METRICS *boolean, optional*
 
 If enabled, Embrace will capture detailed performance statistics about network requests. The default is on.
 
-#### ENABLE_AUTOMATIC_VIEW_CAPTURE *boolean, optional*
+##### ENABLE_AUTOMATIC_VIEW_CAPTURE *boolean, optional*
 
 Controls Embrace's automatic view capture service. When enabled Embrace will automatically capture all displayed view controllers. This can help give you useful timeline data for your sessions. Some apps have a single-view UI, such as media or gaming applications. In those cases it makes sense to disable this feature and record the data manually instead. Default is on.
 
-#### ENABLE_WK_AUTO_RELOAD *boolean, optional*
+##### ENABLE_WK_AUTO_RELOAD *boolean, optional*
 
 Embrace can perform some automatic webkit management for you. This is off by default as not all apps can safely use it. You can read more about this feature here: [**Web Thread Monitoring**](/ios/5x/features/web-thread-monitoring)
 
-#### DISABLED_URL_PATTERNS *array\[string\], optional*
+##### DISABLED_URL_PATTERNS *array\[string\], optional*
 
 Use this field to specify an array of regex strings that prevent network requests with matching URLs from being captured. Whenever a URL is captured by Embrace, we check it against all the regexes in this array. If any match, we will not record that request in the session. Use this to filter noisy URLs from your sessions or protect PII from being uploaded to Embrace's servers.
 
-#### URLSESSION_CAPTURE_FILTERS *array\[string\], optional*
+##### URLSESSION_CAPTURE_FILTERS *array\[string\], optional*
 
 This field can be used to make Embrace ignore certain URLSessions entirely. Classes whose names match the regex strings in this array are not swizzled.
 
-#### STARTUP_AUTOEND_SECONDS *int, optional*
+##### STARTUP_AUTOEND_SECONDS *int, optional*
 
 When set, the SDK will attempt to automatically end the startup moment when the application settles. This method will never be as accurate as placing endMoment yourself in your code.
 
-#### WEBVIEW_STRIP_QUERYPARAMS *boolean, optional*
+##### WEBVIEW_STRIP_QUERYPARAMS *boolean, optional*
 
 Disables the capture of query parameters for webview URLs in the session. This can help if your query parameters contain private information that should not be uploaded to Embrace. This property is off by default.
 
-#### WEBVIEW_ENABLE *boolean, optional*
+##### WEBVIEW_ENABLE *boolean, optional*
 
 Enables or disables the WKWebview capture feature entirely. When disabled no WKWebview's will be swizzled or recorded in your session data. Default is on.
 
-#### NETWORK *dictionary, optional*
+##### NETWORK *dictionary, optional*
 
 The `NETWORK` dictionary can be added to the plist to allow more fine grained control of each URL used by the application.
 
-##### NETWORK:DEFAULT_CAPTURE_LIMIT *int, optional*
+###### NETWORK:DEFAULT_CAPTURE_LIMIT *int, optional*
 
 Sets a default limit for how many instances of any given domain to capture in a single session. The value can then be overridden on a domain-by-domain basis below.
 
-##### NETWORK:DOMAINS *dictionary\[string, int\], optional*
+###### NETWORK:DOMAINS *dictionary\[string, int\], optional*
 
 This dictionary maps domains to capture limits. It should consist of string keys for domains we might capture. The value for each domain entry should be the corresponding capture limit. Any domain not in this list will use the DEFAULT_CAPTURE_LIMIT.
 
-##### NETWORK:CAPTURE_PUBLIC_KEY *string, optional*
+###### NETWORK:CAPTURE_PUBLIC_KEY *string, optional*
 
 When present, the value in this field is used as a public RSA key to encrypt any captured network data to protect PII. You can read more about this feature here: [**Network Body Capture**](/ios/5x/features/network-body-capture)
 
-##### NETWORK_CAPTURE_ENABLED *bool, optional*
+###### NETWORK_CAPTURE_ENABLED *bool, optional*
 
 If set to false, Embrace will not capture any network requests. By default this is enabled.
 
-#### NSURLCONNECTION_PROXY_ENABLE *boolean, optional*
+##### NSURLCONNECTION_PROXY_ENABLE *boolean, optional*
 
 Enables or disables the capture of URLConnection requests entirely within the SDK. When disabled no URLConnection objects are swizzled or recorded. Default is enabled.
 
-#### MAX_SESSION_SECONDS *boolean, optional*
+##### MAX_SESSION_SECONDS *boolean, optional*
 
 Controls the automatic ending of sessions after a certain time has passed. This setting is normally used in point-of-sale applications to ensure that data is uploaded periodically despite the device being always in use. Please consult with your support representative before using this setting as it can affect the data representation in your dashboards.
 
-#### TRACE_ID_HEADER_NAME *string, optional*
+##### TRACE_ID_HEADER_NAME *string, optional*
 
 Embrace adds a header to all network requests to allow us to track that request and match it with the response. For certain server configurations it is necessary to customize that header: this can be done using this plist setting.
 
-#### PUSH_NOTIFICATIONS_CAPTURE_MODE *string, optional*
+##### PUSH_NOTIFICATIONS_CAPTURE_MODE *string, optional*
 
 Defines the capture mode for push notifications. Possible values:
 
 - `manual` (default) - to use the manual mode you'll have to make some calls to the Embrace class. For more information about this feature read here: [**Push Notifications**](/ios/5x/features/push-notifications)
 - `automatic` - no extra steps needed with this mode.
 
-#### ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE *boolean, optional*
+##### ENABLE_PUSH_NOTIFICATIONS_DATA_CAPTURE *boolean, optional*
 
 Enables or disables the ability to capture the data inside push notifications. We recommend you disable this functionality if your push notifications contain sensitive information. The default is enabled.
 
-#### CUSTOM_PATH_HEADER_INFO *dictionary, optional*
+##### CUSTOM_PATH_HEADER_INFO *dictionary, optional*
 
 This is for auto generating relative paths for network requests similar to how x-emb-path works.
 

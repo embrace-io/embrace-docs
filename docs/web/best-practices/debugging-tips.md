@@ -4,12 +4,12 @@ description: Strategies for debugging and troubleshooting the Embrace Web SDK
 sidebar_position: 3
 ---
 
-# Debugging Tips
+## Debugging Tips
 
 The Embrace Web SDK provides several tools and techniques to help you diagnose issues. This guide outlines best
 practices for debugging and troubleshooting when integrating or using the SDK.
 
-## Enabling Verbose Logging
+### Enabling Verbose Logging
 
 For debugging purposes, increase the log level during development to see detailed SDK operations:
 
@@ -23,7 +23,7 @@ initSDK({
 });
 ```
 
-## Identifying SDK Initialization Issues
+### Identifying SDK Initialization Issues
 
 If you're experiencing issues with SDK initialization:
 
@@ -47,7 +47,7 @@ If you're experiencing issues with SDK initialization:
 2. Verify your App ID is correct and that it matches your environment (development/production)
 3. Check the dev console for any warnings or errors logged from the Embrace SDK
 
-## Verifying Session Tracking
+### Verifying Session Tracking
 
 If sessions aren't being tracked properly try forcing a new session for testing:
 
@@ -63,7 +63,7 @@ session.endSessionSpan();
 
 Verify that the developer console's network tab contains requests to Embrace's `/spans` and `/logs` endpoints.
 
-## Debugging Custom Traces
+### Debugging Custom Traces
 
 If your custom traces aren't appearing:
 
@@ -106,7 +106,7 @@ If your custom traces aren't appearing:
    // span.end() never called, the span will not be reported
    ```
 
-## Summary
+### Summary
 
 - Use verbose logging during development
 - Implement proper error handling for setup and start

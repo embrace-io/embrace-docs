@@ -27,7 +27,7 @@ All the information these metrics provided is available through the current metr
 
 ## Replacements
 
-### daily_crash_free_session_rate
+#### daily_crash_free_session_rate
 
 "Rates" are not supported because they are by definition not compatible with other metrics or themselves.
 
@@ -37,7 +37,7 @@ To build this rate, update your query:
 
 `daily_crash_free_session_rate` => `1 - daily_crashes_total / daily_sessions_total`
 
-### sessions_by_device_model_total
+#### sessions_by_device_model_total
 
 "_by_device_" is now supported by _ALL_ Metrics.
 

@@ -4,7 +4,7 @@ description: Export your Embrace telemetry to OpenTelemetry-compatible backends
 sidebar_position: 1
 ---
 
-# OpenTelemetry Export
+## OpenTelemetry Export
 
 Because the Web SDK is built on OpenTelemetry, it has the ability to export OpenTelemetry signals directly from the
 client-side, without any of the telemetry hitting our backend.
@@ -12,7 +12,7 @@ client-side, without any of the telemetry hitting our backend.
 To send traces and logs from the SDK to your collector or vendor of choice, you will need to configure the SDK with an
 exporter capable of sending OTel signals to that destination.
 
-## Setup custom exporters
+### Setup custom exporters
 
 You can set up your own custom log and trace exporters and pass them in when initializing the SDK. The exporters should
 be configured to point to an OTLP compatible endpoint and include any headers required for that endpoint, such as
@@ -60,9 +60,9 @@ To avoid this you can configure the network instrumentation to ignore the URLs t
 the above snippet.
 :::
 
-## Common Use Cases
+### Common Use Cases
 
-### Integrating with Existing Observability Stacks
+#### Integrating with Existing Observability Stacks
 
 If your organization already uses an observability platform that supports OpenTelemetry, you can integrate Embrace data
 directly into that platform:
@@ -71,7 +71,7 @@ directly into that platform:
 - Create unified dashboards that show full-stack performance
 - Correlate frontend issues with backend problems
 
-### Custom Exporters
+#### Custom Exporters
 
 For specialized environments, you can implement custom exporters that:
 

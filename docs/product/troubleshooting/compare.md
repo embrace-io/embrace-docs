@@ -3,13 +3,13 @@ title: Compare Issues
 sidebar_position: 3
 ---
 
-# Compare issues
+## Compare issues
 
 The Compare page in the Embrace dashboard is a critical tool for release monitoring, regression detection, and prioritizing engineering work based on real-world impact.
 
 The Compare page enables developers to select and compare up to three app versions side-by-side to analyze stability, performance, and adoption trends across releases.
 
-## Important information on Compare
+### Important information on Compare
 
 Some key information on the Compare page:
 

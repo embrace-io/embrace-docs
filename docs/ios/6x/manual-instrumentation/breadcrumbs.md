@@ -7,15 +7,15 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Breadcrumbs
+## Breadcrumbs
 
 Breadcrumbs are a lightweight way to add logging to your session. They provide context to user activity in sessions, while adding little CPU or memory overhead.
 
-## Adding Context to Sessions
+### Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/ios/6x/manual-instrumentation/crash-reporting) and [Sessions](/ios/6x/core-concepts/sessions) sections. Embrace can also collect your logging data and include it as context within your sessions.
 
-### Basic Breadcrumb Usage
+#### Basic Breadcrumb Usage
 
 Here's how you add a breadcrumb to the session:
 
@@ -40,15 +40,15 @@ Embrace.client?.add(event: .breadcrumb("User tapped checkout button"))
 Breadcrumb messages must be 256 characters or less.
 :::
 
-### OpenTelemetry Foundation
+#### OpenTelemetry Foundation
 
 Note that the `.add(event:)` method adds a SpanEvent to the session span. Embrace's Breadcrumbs are an OpenTelemetry-compliant subclass of SpanEvents, and are added in-context in the User Timeline.
 
-## Advanced Breadcrumb Usage
+### Advanced Breadcrumb Usage
 
-### Breadcrumbs in Different Contexts
+#### Breadcrumbs in Different Contexts
 
-#### User Actions
+##### User Actions
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -73,7 +73,7 @@ Embrace.client?.add(event: .breadcrumb("User logged out"))
 </TabItem>
 </Tabs>
 
-#### Application State Changes
+##### Application State Changes
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -98,7 +98,7 @@ Embrace.client?.add(event: .breadcrumb("Memory warning received"))
 </TabItem>
 </Tabs>
 
-#### Business Logic Events
+##### Business Logic Events
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -123,9 +123,9 @@ Embrace.client?.add(event: .breadcrumb("Filter applied"))
 </TabItem>
 </Tabs>
 
-## Best Practices
+### Best Practices
 
-### What to Log as Breadcrumbs
+#### What to Log as Breadcrumbs
 
 **Good candidates for breadcrumbs:**
 
@@ -142,7 +142,7 @@ Embrace.client?.add(event: .breadcrumb("Filter applied"))
 - Large data payloads
 - Detailed network responses
 
-### Breadcrumb Naming Conventions
+#### Breadcrumb Naming Conventions
 
 Use clear, consistent naming for your breadcrumbs:
 
@@ -177,7 +177,7 @@ Embrace.client?.add(event: .breadcrumb("Error"))
 </TabItem>
 </Tabs>
 
-### Performance Considerations
+#### Performance Considerations
 
 Breadcrumbs are designed to be lightweight, but consider:
 
@@ -185,7 +185,7 @@ Breadcrumbs are designed to be lightweight, but consider:
 - **Content**: Keep messages concise
 - **Timing**: Add breadcrumbs at meaningful moments, not every minor state change
 
-### SwiftUI View Lifecycle Considerations
+#### SwiftUI View Lifecycle Considerations
 
 When using breadcrumbs in SwiftUI views, be aware that view lifecycle methods like `onAppear` can be called multiple times due to SwiftUI's reactive rendering. This can result in duplicate breadcrumbs that inflate metrics and show incorrect abandonment rates in user flow tracking.
 
@@ -304,9 +304,9 @@ class ProductViewModel: ObservableObject {
 
 For comprehensive SwiftUI instrumentation patterns, including navigation tracking, multi-step forms, and action handlers, see the [SwiftUI-Specific Patterns](/ios/6x/best-practices/common-patterns#swiftui-specific-patterns) guide.
 
-## Integration with Other Features
+### Integration with Other Features
 
-### Breadcrumbs and Crash Reports
+#### Breadcrumbs and Crash Reports
 
 Breadcrumbs provide valuable context when analyzing crash reports. They show the sequence of user actions leading up to a crash:
 
@@ -335,7 +335,7 @@ Embrace.client?.add(event: .breadcrumb("Attempting to recover playback"))
 </TabItem>
 </Tabs>
 
-### Breadcrumbs and Custom Traces
+#### Breadcrumbs and Custom Traces
 
 Breadcrumbs can complement [custom traces](/ios/6x/manual-instrumentation/custom-traces) by providing additional context:
 
@@ -374,7 +374,7 @@ trace?.end()
 </TabItem>
 </Tabs>
 
-## Viewing Breadcrumbs in the Dashboard
+### Viewing Breadcrumbs in the Dashboard
 
 Breadcrumbs appear in several places in the Embrace dashboard:
 
@@ -382,9 +382,9 @@ Breadcrumbs appear in several places in the Embrace dashboard:
 - **Crash Reports** - Displays breadcrumbs leading up to crashes
 - **User Journey** - Provides context for understanding user behavior patterns
 
-## Common Use Cases
+### Common Use Cases
 
-### E-commerce App
+#### E-commerce App
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -411,7 +411,7 @@ Embrace.client?.add(event: .breadcrumb("Payment completed"))
 </TabItem>
 </Tabs>
 
-### Media App
+#### Media App
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -436,7 +436,7 @@ Embrace.client?.add(event: .breadcrumb("Playback paused"))
 </TabItem>
 </Tabs>
 
-### Social App
+#### Social App
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -461,7 +461,7 @@ Embrace.client?.add(event: .breadcrumb("Profile viewed"))
 </TabItem>
 </Tabs>
 
-## Next Steps
+### Next Steps
 
 - Learn about [Custom Logging](/ios/6x/manual-instrumentation/custom-logging) for more detailed logging
 - Explore [Custom Traces](/ios/6x/manual-instrumentation/custom-traces) for performance monitoring

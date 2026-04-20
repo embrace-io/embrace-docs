@@ -4,9 +4,9 @@ sidebar_position: 0
 description: Learn about Embrace for the Flutter platform
 ---
 
-# Flutter platform documentation
+## Flutter platform documentation
 
-## Get started
+### Get started
 
 If you're just getting started with Embrace, follow the [**Integration Guide**](/flutter/integration/) to integrate the Embrace Flutter SDK into your app.
 

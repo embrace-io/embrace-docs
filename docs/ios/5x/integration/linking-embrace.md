@@ -4,7 +4,7 @@ sidebar_position: 3
 description: Linking Embrace with your application is quick and easy.
 ---
 
-# Linking Embrace with your Application
+## Linking Embrace with your Application
 
 Embrace is distributed as a framework.
 You will be dynamically linking that framework with your application.
@@ -30,7 +30,7 @@ Additionally we will be referencing our publicly available sample application
 and project throughout. You can find that project on [GitHub](https://github.com/embrace-io/embrace-demo-apps/tree/master/ios/sample_integration).
 :::
 
-## CocoaPods
+### CocoaPods
 
 CocoaPods is a dependency management system for iOS; you can learn more about it
 [here](https://cocoapods.org/). You'll work with CocoaPods from the command line via
@@ -57,7 +57,7 @@ following steps:
 
    <img src={require('@site/static/images/pod-update-workspace.png').default} />
 
-## Carthage
+### Carthage
 
 Carthage is a dependency manager for iOS applications; you can learn more about
 it [here](https://github.com/Carthage/Carthage). Carthage handles less of the
@@ -108,7 +108,7 @@ module in your project. If you encounter any issues it might help to read
 through the manual integration steps below as they go over a lot of the same
 concepts as used by Carthage.
 
-## Swift Package Manager
+### Swift Package Manager
 
 With Xcode 12 Apple is adding the ability to manage binary framework dependencies, like Embrace, via the Swift Package Manager. If your team is already managing source-built dependencies this way, adding Embrace will be simple and not require any third party tools.
 
@@ -136,7 +136,7 @@ Finally you should now see the Embrace package has been added to your project an
 
 <img src={require('@site/static/images/ios-spm-step-5.png').default} alt="Verifying the installation" title="Swift Package Manager Step 5" caption="Verify that Embrace has been correctly added to your project" />
 
-## Manual
+### Manual
 
 Although adding a new framework to your project manually may seem difficult, the process
 is actually pretty straightforward in recent Xcode releases. Just follow along

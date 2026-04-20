@@ -3,7 +3,7 @@ title: Introduction
 sidebar_position: 0
 ---
 
-# Metrics Forwarding
+## Metrics Forwarding
 
 Metrics Forwarding enables you to send aggregated performance metrics from Embrace to your observability platform.
 Instead of viewing metrics only in the Embrace dashboard, you can forward them to tools like Grafana Cloud, Datadog, New
@@ -16,7 +16,7 @@ This allows you to:
 - **Build custom visualizations** with your preferred tools
 - **Correlate mobile metrics** with infrastructure and backend metrics
 
-## Standard Metrics vs Custom Metrics
+### Standard Metrics vs Custom Metrics
 
 Embrace captures mobile data with many dimensions. In order for this data to be useful as time series data, it must be aggregated. We automatically aggregate your metrics into [Prometheus style metrics](https://prometheus.io/docs/concepts/data_model/) by default using some standard, common sense labels combinations. These are useful for common golden signals like app adoption over several app versions.
 
@@ -24,7 +24,7 @@ If a standard metric doesn’t suit your needs you can define a custom metric. F
 property to identify sessions associated with paying customers and filter for that session property to get app adoption
 amongst paying customers. You can then consume this metric in your data destination of choice.
 
-## Get Started
+### Get Started
 
 1. Navigate
    to [Settings -> Integrations -> Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations)
@@ -37,15 +37,15 @@ settings page for data destinations" />
 1. Click "Forward all my Standard metrics to this new data destination." to receive the Standard Metrics.
 1. Click "Allow forwarding all of my Custom metrics to this new data destination." to receive the Custom Metrics.
 
-## Supported Data Destinations
+### Supported Data Destinations
 
 View all the observability platforms supported in the [Data Destinations](/data-destinations/#supported-platforms) page.
 
-## Supported Metrics
+### Supported Metrics
 
 Embrace forwards standard and custom metrics at different time granularities to help you monitor your app's health:
 
-### Standard Metrics
+#### Standard Metrics
 
 | Metric name           | Embrace Metrics API Name | Description                            | Dimensions                            | Time granularity           |
 |-----------------------|--------------------------|----------------------------------------|---------------------------------------|----------------------------|
@@ -70,12 +70,12 @@ Nevertheless, summing the users metric across dimensions can still provide an es
 The same logic applies with the `crash_free_user_total`/`crashed_free_users` metric.
 :::
 
-### Custom Metrics
+#### Custom Metrics
 
 Refer to this [documentation](/metrics-forwarding/custom-metrics/#supported-metrics) to know the supported custom
 metrics.
 
-## Metric Naming
+### Metric Naming
 
 Metric names follow different formats depending on the data destination. The table below shows the three naming
 conventions used:
@@ -86,12 +86,12 @@ conventions used:
 | Chronosphere and Grafana Cloud                             | `embrace_<metric_name>_<time_granularity>` | `embrace_crashes_total_daily` |
 | Embrace Metrics API                                        | `<time_granularity>_<metric_name>`         | `daily_crashes_total`         |
 
-## Dimension reduction - "Other"
+### Dimension reduction - "Other"
 
 To reduce storage costs with various observability platforms (eg Datadog), Embrace Metrics examine high cardinality
 dimensions for consolidation.
 
-### Device Models
+#### Device Models
 
 There are over 40,000 unique device models on the Android operating system. The bottom 39,000 models account for ~30% of data typically. Aside from being expensive to store this many unique values, it is also unwieldy to visualize or review!
 

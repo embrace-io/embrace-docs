@@ -7,11 +7,11 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Sessions
+## Sessions
 
 Sessions are a fundamental concept in the Embrace iOS SDK that help you understand how users interact with your application over time.
 
-## What is a Session?
+### What is a Session?
 
 A session is a comprehensive record of user interaction that occurs while your app is in either the foreground or background state. Embrace automatically captures sessions when your app is initialized and started.
 
@@ -21,7 +21,7 @@ Key points about sessions:
 - Background sessions capture processes that occur while the app is in the background
 - Sessions transition when the app changes state (foreground to background or vice versa)
 
-## How Sessions Work
+### How Sessions Work
 
 When you initialize the Embrace SDK in your app, it automatically begins capturing session data. Sessions are recorded as OpenTelemetry spans with attributes and span events for various app lifecycle events, user experiences, and device information.
 
@@ -34,7 +34,7 @@ Sessions contain important information such as:
 - User actions and interactions
 - Custom events and logs you add
 
-## Session Lifecycle
+### Session Lifecycle
 
 A typical session lifecycle looks like this:
 
@@ -45,7 +45,7 @@ A typical session lifecycle looks like this:
 
 Embrace automatically uploads sessions on subsequent launches or when the app transitions between foreground and background states.
 
-## Triggering Session Uploads
+### Triggering Session Uploads
 
 To manually trigger a session upload during development, you can:
 
@@ -54,7 +54,7 @@ To manually trigger a session upload during development, you can:
 
 Sometimes the app might not have sufficient time to complete the upload while in the background. Relaunching the app ensures the session data is properly transmitted.
 
-## Sessions vs Other Concepts
+### Sessions vs Other Concepts
 
 It's important to understand how sessions relate to other core concepts in the SDK:
 
@@ -62,7 +62,7 @@ It's important to understand how sessions relate to other core concepts in the S
 - **Sessions and Logs**: Logs provide additional context within a session, helping you understand what happened during user interaction.
 - **Sessions and User Identification**: User identification helps you attribute sessions to specific users or user segments.
 
-## Implementation Details
+### Implementation Details
 
 In the Embrace SDK 6.x, sessions are implemented as OpenTelemetry spans. When a session starts, a span begins that will continue until the session ends:
 
@@ -78,7 +78,7 @@ static func span(id: SessionIdentifier, startTime: Date) -> Span {
 
 The session span contains all relevant session information and serves as a parent for other spans created during the session lifetime.
 
-## Best Practices
+### Best Practices
 
 - Let the SDK manage session lifecycle automatically
 - Add relevant user identification early in the session to ensure proper attribution
@@ -86,9 +86,9 @@ The session span contains all relevant session information and serves as a paren
 - Consider how background sessions impact your analytics
 - Review session data regularly to identify patterns and issues
 
-## Working with Session Data
+### Working with Session Data
 
-### Accessing Current Session Information
+#### Accessing Current Session Information
 
 Get information about the current session:
 
@@ -136,7 +136,7 @@ if let deviceId = Embrace.client?.currentDeviceId() {
 </TabItem>
 </Tabs>
 
-### Managing Session Lifecycle
+#### Managing Session Lifecycle
 
 Control session lifecycle manually when needed:
 
@@ -251,7 +251,7 @@ class SessionManager {
 </TabItem>
 </Tabs>
 
-### Adding Custom Properties to Sessions
+#### Adding Custom Properties to Sessions
 
 Enrich sessions with custom properties and metadata:
 
@@ -414,7 +414,7 @@ class SessionEnrichment {
 </TabItem>
 </Tabs>
 
-### Session Event Tracking
+#### Session Event Tracking
 
 Track important events within sessions:
 
@@ -597,7 +597,7 @@ class SessionEventTracker {
 </TabItem>
 </Tabs>
 
-### Session Performance Monitoring
+#### Session Performance Monitoring
 
 Monitor session health and performance:
 

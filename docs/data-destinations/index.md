@@ -4,25 +4,25 @@ description: Learn about the Embrace integrations for viewing your data
 sidebar_position: 0
 ---
 
-# Data Destinations
+## Data Destinations
 
 Embrace Data Destinations allow you to forward your telemetry data to your observability platform of choice. Whether you
 need metrics, traces, or logs, you can integrate Embrace with the tools your team already uses.
 
-## Types of Data Forwarding
+### Types of Data Forwarding
 
 Embrace supports forwarding different types of telemetry data:
 
-### [Metrics Forwarding](/metrics-forwarding/)
+#### [Metrics Forwarding](/metrics-forwarding/)
 
 Export aggregated metrics (crashes, sessions, user engagement, etc).
 
-### [Network Spans Forwarding](/data-forwarding/network-spans-forwarding.md)
+#### [Network Spans Forwarding](/data-forwarding/network-spans-forwarding.md)
 
 Export network request as spans with w3c traceparent headers, enabling distributed tracing between your mobile app and
 backend services.
 
-## Supported Platforms
+### Supported Platforms
 
 Embrace integrates with the following observability platforms. Each platform supports different types of data
 forwarding:
@@ -38,7 +38,7 @@ forwarding:
 | [Observe](/data-destinations/observe-setup.md)             | ✓                               | -                                                     | [Setup Guide](/data-destinations/observe-setup.md)       |
 | [Splunk](/data-destinations/splunk.md)                     | ✓                               | -                                                     | [Setup Guide](/data-destinations/splunk.md)              |
 
-## Get Started
+### Get Started
 
 Head
 to [Settings -> Integrations -> Data Destinations](https://dash.embrace.io/settings/organization/integrations/data_destinations)

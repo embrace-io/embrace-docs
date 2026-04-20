@@ -9,9 +9,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-# Adding the React Native Embrace SDK
+## Adding the React Native Embrace SDK
 
-## Add the JavaScript library
+### Add the JavaScript library
 
 Use Yarn or NPM to install the NPM module.
 
@@ -33,9 +33,9 @@ For iOS you will also need to install the pod:
 cd ios && pod install --repo-update
 ```
 
-## Adding the SDK
+### Adding the SDK
 
-## Setup Script
+### Setup Script
 
 The JavaScript Embrace SDK ships with a setup script to modify the files in your
 project to add the native dependencies. The setup scripts can be found in your
@@ -69,7 +69,7 @@ git diff
 Compare the changes to the manual setup step to verify the changes were made
 correctly.
 
-## Manually
+### Manually
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
@@ -151,9 +151,9 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 
 There's a little more configuration we have to do to set up the uploading of symbol files. You'll be learning about that next.
 
-## Troubleshooting
+### Troubleshooting
 
-### ExpoModulesProvider error
+#### ExpoModulesProvider error
 
 If you encounter the following build error on iOS after running through our setup using an expo app:
 

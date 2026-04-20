@@ -7,11 +7,11 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Traces & Spans
+## Traces & Spans
 
 Traces are a powerful feature in the Embrace iOS SDK that give you complete visibility into any operation you'd like to track in your application.
 
-## What are Traces and Spans?
+### What are Traces and Spans?
 
 In the Embrace SDK (built on OpenTelemetry):
 
@@ -21,7 +21,7 @@ In the Embrace SDK (built on OpenTelemetry):
 
 Traces help you identify, prioritize, and resolve performance issues by providing detailed information about operations in your app.
 
-## Key Capabilities
+### Key Capabilities
 
 With the Embrace Traces API, you can:
 
@@ -30,7 +30,7 @@ With the Embrace Traces API, you can:
 - Add attributes and events to each span for context
 - Track success/failure states of operations
 
-## Trace Limits
+### Trace Limits
 
 | Type                                  | Limit          |
 | ------------------------------------- | -------------- |
@@ -43,7 +43,7 @@ With the Embrace Traces API, you can:
 
 Custom spans exceeding the per-session limit will be dropped by the backend. If you exceed the other limits, the operation with the limit-exceeding call will fail.
 
-## Naming Conventions
+### Naming Conventions
 
 - Span Names are **case-sensitive** and are a **max of 128 characters**
 - Key Names are **case-sensitive**, have a **max of 128 characters**, and are **alphanumeric**
@@ -52,9 +52,9 @@ Custom spans exceeding the per-session limit will be dropped by the backend. If 
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with these prefixes.
 :::
 
-## Creating and Using Spans
+### Creating and Using Spans
 
-### Creating a Span Builder
+#### Creating a Span Builder
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -87,7 +87,7 @@ let spanBuilder = Embrace
 
 The `type` argument indicates the purpose of the span, and the `attributes` argument adds custom attributes.
 
-### Starting a Span
+#### Starting a Span
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -128,7 +128,7 @@ let span = Embrace
 </TabItem>
 </Tabs>
 
-### Setting a Custom Start Time
+#### Setting a Custom Start Time
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -155,7 +155,7 @@ let span = Embrace
 </TabItem>
 </Tabs>
 
-### Creating Parent-Child Relationships
+#### Creating Parent-Child Relationships
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -196,7 +196,7 @@ let childSpan = Embrace
 </TabItem>
 </Tabs>
 
-### Adding Events and Attributes
+#### Adding Events and Attributes
 
 ```swift
 // Add span events to mark points in time
@@ -210,7 +210,7 @@ span.addEvent(
 span.setAttribute(key: "product.id", value: "ABC123")
 ```
 
-### Ending Spans
+#### Ending Spans
 
 ```swift
 // Stop span at current time, considered successful
@@ -223,7 +223,7 @@ span2.end(time: time.advanced(by: 3.0))
 span3.end(errorCode: .userAbandon)
 ```
 
-### Recording a Completed Span
+#### Recording a Completed Span
 
 Sometimes you need to create a span for an operation that has already completed:
 
@@ -274,7 +274,7 @@ Embrace
 </TabItem>
 </Tabs>
 
-### Using Spans as Object Properties
+#### Using Spans as Object Properties
 
 To store a Span in object scope, you'll need to import the OpenTelemetry API:
 
@@ -363,7 +363,7 @@ class MyClass {
 </TabItem>
 </Tabs>
 
-### Span Auto Termination
+#### Span Auto Termination
 
 You can flag a span to be automatically terminated if it's still open when the Embrace session ends:
 
@@ -392,11 +392,11 @@ let span = Embrace
 
 Child spans of a span flagged for auto termination will also be terminated when their parent is terminated.
 
-## Traces vs Moments
+### Traces vs Moments
 
 If you're migrating from Embrace 5.x, note that Traces replace the Moments functionality with enhanced capabilities. They serve the same purpose of tracking operations, but with the added power of OpenTelemetry's tracing model.
 
-## Best Practices
+### Best Practices
 
 - Use meaningful names for spans that reflect the operation being performed
 - Create parent-child relationships to represent operation hierarchies
@@ -405,4 +405,4 @@ If you're migrating from Embrace 5.x, note that Traces replace the Moments funct
 - Consider how spans relate to sessions in your application architecture
 - End spans properly to ensure they're recorded correctly
 
- <!-- TODO: Add examples of common use cases for traces like tracking API calls, user workflows, and performance bottlenecks -->
+  <!-- TODO: Add examples of common use cases for traces like tracking API calls, user workflows, and performance bottlenecks -->

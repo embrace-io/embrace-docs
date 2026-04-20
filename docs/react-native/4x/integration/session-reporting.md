@@ -4,7 +4,7 @@ description: Upload session reports from your React Native application using the
 sidebar_position: 5
 ---
 
-# Session Reporting
+## Session Reporting
 
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 Here are the steps you’ll be taking to create your first session.
@@ -15,7 +15,7 @@ Here are the steps you’ll be taking to create your first session.
 4. [Build and run the application](/react-native/4x/integration/session-reporting#build-and-run-the-application)
 5. [Trigger a session upload](/react-native/4x/integration/session-reporting#trigger-a-session-upload)
 
-## Initialize Embrace SDK
+### Initialize Embrace SDK
 
 Initialize method applies the necessary listener to your application. This allows Embrace to track JavaScript errors, check js bundle changes (if you use OTA), track js patch and react native versions.
 
@@ -74,7 +74,7 @@ export default App
 The initialize method will apply the interceptors that we need to get information from your app. Since it's a Promise, you might want to "await" or "then" it before doing something else.
 :::
 
-## Starting Embrace SDK from Android / iOS
+### Starting Embrace SDK from Android / iOS
 
 :::info
 Initializing the Embrace SDK from React Native (JavaScript) will initialize the native Embrace SDKs (Android / iOS). This means that the network, crash, and metrics interceptors will be initialized once JavaScript is loaded and has called initialize method mentioned in the previous step. This is useful only if you perform some function/have custom code before initializing the application. If you want to start applying the interceptors as soon as Android / iOS has started, you can proceed with the Native integration.
@@ -109,7 +109,7 @@ import io.embrace.android.embracesdk.Embrace;
 If you used the setup script mentioned on the [Adding the Embrace SDK](/react-native/4x/integration/add-embrace-sdk) page, this change has already been made for you.
 :::
 
-## Add the Start Call
+### Add the Start Call
 
 After importing Embrace, update the same files that you edited in the previous step to make a call to the Embrace SDK to start capturing data.
 
@@ -149,7 +149,7 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 </Tabs>
 
-## End the Startup Moment
+### End the Startup Moment
 
 Embrace automatically starts the **startup** moment when your application launches.
 For now, you can think of the startup moment as a timer that measures how long it took your application to launch.
@@ -202,7 +202,7 @@ As useEffect does not block the render thread, unlike componentDidMount, it migh
 
 End the startup moment as soon as your users are able to interact with the application.
 
-## Build and Run the Application
+### Build and Run the Application
 
 Now you're ready to build and run the application.
 Launch the application how you usually would during development.
@@ -211,7 +211,7 @@ Launch the application how you usually would during development.
 If you encounter any errors, please get in touch on Slack and we can assist you.
 :::
 
-## Trigger a Session Upload
+### Trigger a Session Upload
 
 To trigger a session upload, simply stop the application by either force killing
 it or using the stop button in either Xcode for iOS or Android Studio for Android.

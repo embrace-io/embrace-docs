@@ -3,7 +3,7 @@ title: Network spans forwarding
 sidebar_position: 100
 ---
 
-# Network spans forwarding
+## Network spans forwarding
 
 Diagnosing network errors doesn't need to be an opaque process with finger-pointing between teams. Network spans forwarding sends your network telemetry data to third-party observability platforms, letting you trace every network call from your mobile or web app to your backend systems for complete end-to-end visibility.
 
@@ -11,7 +11,7 @@ Diagnosing network errors doesn't need to be an opaque process with finger-point
     <iframe width="560" height="315" src="https://www.youtube.com/embed/jJVlc8F89Qo?si=-udHrlujEMiTsOuV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-## How it works
+### How it works
 
 Embrace automatically adds a unique identifier to **every** network request your app makes using [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header). This makes it possible to trace the same request in the Embrace User Timeline *and* in your backend monitoring service.
 
@@ -21,7 +21,7 @@ These traceparent identifiers automatically propagate through the traces product
 
 You can configure network spans forwarding yourself through the Embrace dashboard. The configuration is managed at the organization level for the apps with NSF enabled, so domain patterns and settings are shared across all your data destinations. Once enabled, the configuration is applied remotely in the Embrace SDKs, so you don't need to add any client-side instrumentation.
 
-### Forwarding conditions
+#### Forwarding conditions
 
 Network spans are forwarded to your observability platforms when **all three** conditions are met:
 
@@ -29,9 +29,9 @@ Network spans are forwarded to your observability platforms when **all three** c
 2. **Your app has network spans forwarding enabled** - You enable NSF for the apps you want to monitor
 3. **The request domain matches your configured patterns** - You specify which API domains to forward (for example, `api.example.com` or `.*\.stripe\.com`)
 
-## Before you begin
+### Before you begin
 
-### Plan requirements
+#### Plan requirements
 
 Network spans forwarding is available for:
 
@@ -40,7 +40,7 @@ Network spans forwarding is available for:
 
 If you're on a Pro or Free plan, please contact support at [support@embrace.io](mailto:support@embrace.io) to upgrade to Enterprise.
 
-### SDK version requirements
+#### SDK version requirements
 
 Your app must be running a minimum SDK version to use network spans forwarding:
 
@@ -53,7 +53,7 @@ Your app must be running a minimum SDK version to use network spans forwarding:
 | Flutter | iOS/Android versions | Supported |
 | Unity | - | Not yet supported |
 
-### Data destination requirements
+#### Data destination requirements
 
 You must have at least one [data destination](/data-destinations/) configured before enabling network spans forwarding. Embrace supports forwarding to:
 
@@ -66,11 +66,11 @@ You must have at least one [data destination](/data-destinations/) configured be
 - Observe
 - Splunk
 
-## Enable network spans forwarding
+### Enable network spans forwarding
 
 You can enable network spans forwarding from the settings page or directly from a network call detail page.
 
-### From the settings page
+#### From the settings page
 
 The Network Spans Forwarding settings page provides organization-level configuration that applies across all your data destinations. This means you define your domain patterns once, and they're shared across all enabled destinations.
 
@@ -89,7 +89,7 @@ Your network spans will start forwarding to your selected destinations within a 
 All configuration is managed at the organization level. Domain patterns, app selections, and destination settings are shared across your entire organization, making it easy to maintain consistent forwarding rules.
 :::
 
-### From a network call detail page
+#### From a network call detail page
 
 You can quickly enable network spans forwarding for a specific domain while viewing network call details:
 
@@ -114,17 +114,17 @@ The banner disappears once the domain is configured and actively forwarding span
 If this is your first time enabling network spans forwarding, the onboarding modal will walk you through all necessary steps.
 :::
 
-## Configure domain patterns
+### Configure domain patterns
 
 You control which API endpoints forward network spans by configuring domain patterns. Embrace supports two types of domain matching:
 
-### Exact match
+#### Exact match
 
 Use exact matching when you want to forward spans for a specific domain only. The domain must match exactly (case-sensitive).
 
 **Example**: `api.example.com` only matches `api.example.com`
 
-### Regex match
+#### Regex match
 
 Use regex patterns when you need flexible matching across multiple subdomains or dynamic URLs.
 
@@ -135,7 +135,7 @@ Use regex patterns when you need flexible matching across multiple subdomains or
 
 Embrace automatically detects regex patterns when you use regex metacharacters like `.*`, `^`, `$`, or `[]`.
 
-## Manage span sampling
+### Manage span sampling
 
 To control costs and data volume, Embrace samples the network spans sent to your observability platforms:
 
@@ -144,11 +144,11 @@ To control costs and data volume, Embrace samples the network spans sent to your
 
 These sampling rates apply to all network spans from your app. If you need to adjust sampling rates, contact your customer success team.
 
-## Validate your configuration
+### Validate your configuration
 
 After enabling network spans forwarding, you can verify that Embrace is successfully sending data to your observability platform.
 
-### Test your data destination connection
+#### Test your data destination connection
 
 1. Navigate to **Settings** → **Data Destinations**
 2. Find your configured destination
@@ -161,7 +161,7 @@ A successful test confirms that:
 - The destination endpoint is reachable
 - Data is flowing to your observability platform
 
-### Check your observability platform
+#### Check your observability platform
 
 After configuration, network spans should appear in your observability platform within a few minutes. Look for:
 
@@ -171,9 +171,9 @@ After configuration, network spans should appear in your observability platform 
 
 If you don't see data after 10-15 minutes, check the troubleshooting section below.
 
-## Troubleshooting
+### Troubleshooting
 
-### Network spans aren't forwarding
+#### Network spans aren't forwarding
 
 If your network spans aren't appearing in your observability platform, check these conditions in order:
 
@@ -197,7 +197,7 @@ If your network spans aren't appearing in your observability platform, check the
 If you configured `api.example.com` as an exact match, requests to `API.example.com` or `api.example.com:8080` won't match. Use regex patterns for more flexible matching.
 :::
 
-### Enable button isn't showing
+#### Enable button isn't showing
 
 The enable button appears only when all prerequisites are met:
 
@@ -214,7 +214,7 @@ The enable button is hidden for requests that don't need network spans forwardin
 
 These addresses are used for local development and internal networks, so they don't require forwarding to external observability platforms.
 
-### Domain pattern isn't matching
+#### Domain pattern isn't matching
 
 **For exact matches:**
 
@@ -227,11 +227,11 @@ These addresses are used for local development and internal networks, so they do
 - Test your pattern includes the necessary regex metacharacters (`\`, `^`, `$`, `.`, `*`, `+`, `?`, `()`, `[]`, `{}`, `|`)
 - Remember to escape special characters (for example, `\.` to match a literal period)
 
-## Analyze metadata
+### Analyze metadata
 
 Embrace forwards metadata associated with each network call, letting your backend team use their observability tools to set up analyses and monitoring. Here are all the attributes and resource attributes that a span will include with examples.
 
-### Span attributes
+#### Span attributes
 
 - `emb.app_id`: "abcde"
 - `emb.app_version`: "2.2.0"
@@ -253,7 +253,7 @@ Embrace forwards metadata associated with each network call, letting your backen
 - `device.manufacturer`: "Apple"
 - `device.model.name`: "arm64"
 
-### Resource attributes
+#### Resource attributes
 
 - `deployment.environment.name`: "prod"
 - `emb.app_id`: "abcde"
@@ -266,7 +266,7 @@ Embrace forwards metadata associated with each network call, letting your backen
 
 <img src={require('@site/static/images/NSF > Honeycomb example.png').default} alt="NSF in Honeycomb" />
 
-## FAQ
+### FAQ
 
 **Can I forward network spans for all my API calls?**
 

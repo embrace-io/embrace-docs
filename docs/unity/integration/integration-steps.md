@@ -3,7 +3,7 @@ title: Unity Integration Steps
 sidebar_position: 1
 ---
 
-# Integration Steps
+## Integration Steps
 
 Integrating any new SDK with your application may feel like a daunting task. We’ve designed our documentation to guide you through the process as painlessly as possible. Following these steps will ensure you have a solid foundation for monitoring your application in production.
 

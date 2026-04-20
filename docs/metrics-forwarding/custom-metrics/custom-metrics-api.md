@@ -4,17 +4,17 @@ description: Learn about the Embrace Custom Metrics API to manage custom metrics
 sidebar_position: 110
 ---
 
-# Embrace Custom Metrics API
+## Embrace Custom Metrics API
 
 The Embrace Custom Metrics API allows you to manage (create, get and delete) the custom metrics of your organization.
 
 Any Custom Metrics you create are available via the [Embrace Metrics API](/metrics-forwarding/metrics-api), which is a separate interface. These metrics can also be forwarded to your organization's [observability platform of choice](/data-destinations). You can follow [this guide](/metrics-forwarding/metrics-api/code-samples) to see how to query custom metrics in the Metrics API.
 
-## Prerequisites
+### Prerequisites
 
 - Embrace Custom Metrics API Token. This is a different token than the Metrics API token. Contact an Embrace onboarding specialist to get this token for your organization. Once you receive the token, you can proceed independently with creating custom metrics.
 
-## API Endpoints
+### API Endpoints
 
 All the endpoints have the same authentication, authorization method, url and parameters. Use the Custom Metrics API token provided by an Embrace onboarding specialist to create custom metrics.
 
@@ -25,7 +25,7 @@ If you account is using Embrace's [regional data residency](/region/) feature, t
 - United States: `https://api-us1.embrace.io/custom-metrics`
 - European Union: `https://api-eu1.embrace.io/custom-metrics`
 
-### Request
+#### Request
 
 Headers:
 
@@ -55,9 +55,9 @@ Body Params:
 - `time_granularity`: list of granularity that we are going to support on this metric. If it is empty, by default hourly
   is turned on. i.e.: `["five_minute", "hourly", "daily"]`
 - `data_destination`: list of data destination to which we are going to send this metric. If it is empty, by default metrics_api
-    is turned on. i.e.: `["metrics_api", "newrelic", "datadog", "grafana_cloud"]`
+  is turned on. i.e.: `["metrics_api", "newrelic", "datadog", "grafana_cloud"]`
 
-### Response
+#### Response
 
 Body Params:
 
@@ -73,9 +73,9 @@ Status codes:
 - `409`: metric that you are trying to create already exists.
 - `500`: there was an internal error and you should retry later.
 
-### Create custom metric
+#### Create custom metric
 
-#### Request
+##### Request
 
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics' \
@@ -91,11 +91,11 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 }'
 ```
 
-#### Response
+##### Response
 
 Status codes: `200`, `400`, `403`, `409` and `500`.
 
-#### OK
+##### OK
 
 ```json 
 {
@@ -113,13 +113,13 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
 }
 ```
 
-#### Error (500)
+##### Error (500)
 
 ```json
 {"message": "we had an internal error, please try again later"}
 ```
 
-#### Filters Examples
+##### Filters Examples
 
 | Type     | Example                                                                                             |
 |----------|-----------------------------------------------------------------------------------------------------|
@@ -129,7 +129,7 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
 | range    | `{"key": "status_code", "field_op": "eq", "val": {"start": 400", "end": 499}}`                      |
 | property | `{"key": "type", "field_op": "eq", "val": {"property_key": "k1", "property_values": ["v1", "v2"]}}` |
 
-#### Filters using `duration_bucket`
+##### Filters using `duration_bucket`
 
 For some custom metrics the API allows you to filter data based on the `duration_bucket` parameter, which categorizes data according to specific `duration` ranges. Each `duration_bucket` value corresponds to a specific range of `duration` values. Here's how it works:
 
@@ -165,7 +165,7 @@ If you want to filter all durations less or equal than 999 you should create thi
 }
 ```
 
-#### Group by using `session_property`, `log_property` or `root_span_attribute`
+##### Group by using `session_property`, `log_property` or `root_span_attribute`
 
 For some custom metrics the API allows you to group by data based on the `session_property`, `log_property` or `root_span_attribute` parameters.
 
@@ -177,20 +177,20 @@ If you want to group by on the property "city" and "state" for `session_property
 }
 ```
 
-### Get custom metrics
+#### Get custom metrics
 
-#### Request
+##### Request
 
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
 ```
 
-#### Response
+##### Response
 
 Status codes: `200`, `400`, `409` and `500`.
 
-#### OK (200)
+##### OK (200)
 
 ```json
 {
@@ -209,38 +209,38 @@ Status codes: `200`, `400`, `409` and `500`.
 }
 ```
 
-#### Error (400)
+##### Error (400)
 
 ```json
 {"message": "app id can't be empty"}
 ```
 
-### Delete custom metrics
+#### Delete custom metrics
 
-#### Request
+##### Request
 
 ```bash
 curl -X DELETE --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/sessions_total_v1' \
 --header 'Authorization: Bearer 1b6be81cd01c4b08833295efadccafdc'
 ```
 
-#### Response
+##### Response
 
 Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 
-#### OK (204), body is empty
+##### OK (204), body is empty
 
-#### Error (404)
+##### Error (404)
 
 ```json
 {"message": "metric sessions_total_v1 doesn't exist"}
 ```
 
-### Get metrics and parameters supported
+#### Get metrics and parameters supported
 
 To determine which metrics and parameters are supported for creation using the API, you can utilize the following request:
 
-#### Request
+##### Request
 
 ```bash
 curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameters' \
@@ -251,7 +251,7 @@ curl --location 'https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-
 Refer to this [page](/metrics-forwarding/custom-metrics/#supported-metrics) if you want to see supported metrics without using the API.
 :::
 
-#### Query Parameter
+##### Query Parameter
 
 `name`: metric name you want to see the parameters supported. i.e.: `sessions_total`
 
@@ -263,11 +263,11 @@ https://api.embrace.io/custom-metrics/api/v1/app/appID1/custom-metrics/parameter
 
 If the name is not provided or the metric is not supported, the endpoint will return all the supported metrics and parameters.
 
-#### Response
+##### Response
 
 Status codes: `200` and `500`.
 
-#### OK (200)
+##### OK (200)
 
 ```json
 [
@@ -281,15 +281,15 @@ Status codes: `200` and `500`.
 ]
 ```
 
-#### Error (500)
+##### Error (500)
 
 ```json
 {"message": "we had an internal error, please try again later"}
 ```
 
-## Code samples
+### Code samples
 
-### Python Example
+#### Python Example
 
 This example shows how to create custom metrics using the API across multiple applications.
 

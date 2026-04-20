@@ -4,7 +4,7 @@ description: Data Processing Addendum
 sidebar_position: 3
 ---
 
-# Data Processing Addendum
+## Data Processing Addendum
 
 _Last Updated: May 16, 2023_
 
@@ -16,7 +16,7 @@ This DPA shall not replace or supersede any agreement or addendum relating to pr
 
 In the course of providing the Application Services to Customer pursuant to the Agreement, Embrace may process personal data on behalf of Customer. The parties agree to comply with the following provisions with respect to any personal data submitted by or for Customer to the Application Services or collected and processed by or for Customer through the Application Services. Any capitalized but undefined terms herein shall have the meaning set forth in the Agreement.
 
-## Data Processing Terms
+### Data Processing Terms
 
 In this DPA,
 
@@ -66,11 +66,11 @@ In the event of a restricted transfer of Personal Data via the Application Servi
 
 This DPA is effective upon the Effective Date of the Agreement and will continue in effect for as long as Embrace's processes Personal Data. No one other than a party to this DPA, their successors and permitted assignees shall have any right to enforce any of its terms. This DPA will be governed by and construed in accordance with governing law and jurisdiction provisions in the Agreement, unless required otherwise by Data Protection Legislation. Any limitations of liability set forth under the Agreement shall also apply to this DPA. Embrace may modify this DPA from time-to-time upon written notice to Customer; provided that such modifications will not diminish the overall level of Embrace's data protection and privacy compliance during the then current term of the Agreement.
 
-## Annex 1
+### Annex 1
 
-## Details of the Data Processing
+### Details of the Data Processing
 
-### Part A
+#### Part A
 
 _Data exporter:_
 
@@ -82,7 +82,7 @@ Contact details: support@embrace.io, 1901 Avenue of the Stars, Suite 200, Los An
 
 Signature and date: The signature and date shall be the date of the Agreement incorporating this DPA.
 
-### Part B
+#### Part B
 
 Categories of Data Subjects whose Personal Data is processed: Customer and Authorized Users, End Users of Customer's websites and apps
 
@@ -111,11 +111,11 @@ Purpose(s) for which the Personal Data is Processed on behalf of the Data Contro
 
 Duration of the Processing: For the duration of the Agreement and until Customer requests deletion of Personal Data.
 
-### Part C
+#### Part C
 
-## Annex 2
+### Annex 2
 
-### Security Measures
+#### Security Measures
 
 Embrace maintains a security program that includes the following security measures:
 

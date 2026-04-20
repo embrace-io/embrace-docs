@@ -4,7 +4,7 @@ description: Understanding how Embrace calculates severity scores for exceptions
 sidebar_position: 2
 ---
 
-# Exception Severity Score
+## Exception Severity Score
 
 :::info Web Only
 Severity scoring is currently available for **Web** exceptions only.
@@ -14,7 +14,7 @@ Embrace automatically calculates a severity score for every exception to help yo
 affecting your users. The severity score is a value between 0 and 1, where higher scores indicate more severe exceptions
 that require immediate attention.
 
-## Viewing Severity Scores in the Dashboard
+### Viewing Severity Scores in the Dashboard
 
 In the Embrace dashboard, exceptions are grouped by their stack trace line and displayed as a list. Each row represents
 a group of exception events that share the same location in your code.
@@ -38,12 +38,12 @@ addressed before a similarly severe exception affecting only a few devices.
 Hovering over a severity score reveals a tooltip showing the confidence level (based on standard deviation) for the
 average value calculated for that group, to give more insight into the distribution of scores within the group.
 
-## How it works
+### How it works
 
 The severity score algorithm combines a **base severity** with multiple **contextual multipliers** to produce a final
 score that reflects both the nature of the exception and the circumstances under which it occurred.
 
-### Base Severity
+#### Base Severity
 
 The base severity depends on whether the exception was handled:
 
@@ -53,13 +53,13 @@ The base severity depends on whether the exception was handled:
 Unhandled exceptions receive a higher base score because they typically indicate more serious problems that could cause
 the application to stop functioning or lead to degraded user experience.
 
-### Contextual Multipliers
+#### Contextual Multipliers
 
 After calculating the base severity, the algorithm applies several contextual multipliers based on factors surrounding
 the exception. Each multiplier is applied multiplicatively to the score, and the final result is clamped to a maximum of
 1.0.
 
-#### 1. Node Modules Multiplier
+##### 1. Node Modules Multiplier
 
 **Range**: 0.5x - 1.0x
 
@@ -69,7 +69,7 @@ application code.
 - **In node_modules**: 0.5x (reduces severity)
 - **In application code**: 1.0x (no change)
 
-#### 2. Time to Session End Multiplier
+##### 2. Time to Session End Multiplier
 
 **Range**: 0.8x - 1.2x
 
@@ -84,7 +84,7 @@ exception prevented the user from using the application.
 | 5-10 seconds        | 1.0x       | Neutral                                       |
 | > 10 seconds        | 0.8x       | Session continued normally                    |
 
-#### 3. Failed Span Multiplier
+##### 3. Failed Span Multiplier
 
 **Range**: 1.0x - 1.3x
 
@@ -99,7 +99,7 @@ The multiplier is based on temporal proximity:
 - **5-10 seconds**: 1.12x
 - **> 10 seconds**: 1.0x
 
-#### 4. Failed Network Request Multiplier
+##### 4. Failed Network Request Multiplier
 
 **Range**: 0.8x - 1.4x
 
@@ -123,7 +123,7 @@ and temporal proximity.
 - **5-10 seconds**: 40% of range
 - **> 10 seconds**: 1.0x (neutral)
 
-#### 5. User click multiplier
+##### 5. User click multiplier
 
 **Range**: 1.0x - 1.15x
 
@@ -138,7 +138,7 @@ The multiplier is based on how recently the click occurred before the exception:
 - **5-10 seconds**: 1.06x
 - **> 10 seconds or no click**: 1.0x
 
-#### 6. Empty Root Node Multiplier
+##### 6. Empty Root Node Multiplier
 
 **Range**: 1.0x - 2.0x
 
@@ -155,7 +155,7 @@ The multiplier is based on how soon the empty root node was rendered after the e
 - **5-10 seconds**: 1.4x
 - **> 10 seconds or no empty root node**: 1.0x
 
-## Example Calculation
+### Example Calculation
 
 Here's an example of how the severity score is calculated:
 

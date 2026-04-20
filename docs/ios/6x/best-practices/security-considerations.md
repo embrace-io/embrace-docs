@@ -7,13 +7,13 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Security Considerations
+## Security Considerations
 
 When implementing the Embrace iOS SDK, it's essential to consider security and privacy implications. Following these best practices will help you protect sensitive data and comply with privacy regulations.
 
-## Data Privacy
+### Data Privacy
 
-### Sensitive Data Protection
+#### Sensitive Data Protection
 
 Be careful not to log sensitive user information:
 
@@ -46,7 +46,7 @@ Embrace.client.logMessage("Payment method verified")
 </TabItem>
 </Tabs>
 
-### Personally Identifiable Information (PII)
+#### Personally Identifiable Information (PII)
 
 When setting user identifiers, avoid using direct PII:
 
@@ -77,9 +77,9 @@ Embrace.client.setUserIdentifier(hashedEmail)
 </TabItem>
 </Tabs>
 
-## Network Security
+### Network Security
 
-### Sanitizing URLs and Headers
+#### Sanitizing URLs and Headers
 
 Configure the NetworkCaptureService to sanitize sensitive information from URLs and headers:
 
@@ -111,7 +111,7 @@ let networkOptions = NetworkCaptureServiceOptions(
 )
 ```
 
-### Body Capture Considerations
+#### Body Capture Considerations
 
 Be extremely cautious with request and response body capture:
 
@@ -135,9 +135,9 @@ let networkOptions = NetworkCaptureServiceOptions(
 )
 ```
 
-## User Consent and Compliance
+### User Consent and Compliance
 
-### GDPR, CCPA, and Other Privacy Regulations
+#### GDPR, CCPA, and Other Privacy Regulations
 
 Consider implementing mechanisms to respect user privacy choices:
 
@@ -178,13 +178,13 @@ func updatePrivacyConsent(userConsented: Bool) {
 </TabItem>
 </Tabs>
 
-### Data Retention
+#### Data Retention
 
 Be aware of Embrace's data retention policies and how they align with your privacy obligations. Configure your Embrace dashboard settings appropriately.
 
-## Secure Storage
+### Secure Storage
 
-### Local Storage
+#### Local Storage
 
 The Embrace SDK stores data locally before uploading it. Ensure your app implements appropriate file-level encryption:
 
@@ -196,7 +196,7 @@ func secureData(_ data: Data) -> Data {
 }
 ```
 
-## App Transport Security
+### App Transport Security
 
 Ensure your app and the Embrace SDK adhere to App Transport Security (ATS) requirements:
 
@@ -210,9 +210,9 @@ Ensure your app and the Embrace SDK adhere to App Transport Security (ATS) requi
 </dict>
 ```
 
-## Security in Development Environments
+### Security in Development Environments
 
-### Debug vs. Release Configurations
+#### Debug vs. Release Configurations
 
 Consider using different Embrace configurations for development and production:
 
@@ -253,7 +253,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-## Crash Reports and Stack Traces
+### Crash Reports and Stack Traces
 
 Be mindful that crash reports may contain sensitive information:
 
@@ -267,11 +267,11 @@ let crashReporterOptions = CrashReporterOptions(
 )
 ```
 
-## Regular Security Reviews
+### Regular Security Reviews
 
 Regularly review the data being collected by Embrace to ensure it aligns with your privacy policy and security requirements. Use the Embrace dashboard to audit what data is being captured.
 
-## Summary
+### Summary
 
 - Avoid logging sensitive user information
 - Properly sanitize network data, especially URLs, headers, and bodies

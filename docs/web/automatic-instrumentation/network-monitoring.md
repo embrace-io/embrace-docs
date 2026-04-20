@@ -4,12 +4,12 @@ description: Automatically track network requests in your web app with Embrace
 sidebar_position: 1
 ---
 
-# Network Monitoring
+## Network Monitoring
 
 The Embrace SDK automatically monitors network requests made through `fetch` or `XMLHttpRequest` in your application,
 providing visibility into network performance, errors, and behavior.
 
-## How Network Monitoring Works
+### How Network Monitoring Works
 
 The SDK leverages the [@opentelemetry/instrumentation-fetch](https://www.npmjs.com/package/@opentelemetry/instrumentation-fetch)
 and [@opentelemetry/instrumentation-xml-http-request](https://www.npmjs.com/package/@opentelemetry/instrumentation-xml-http-request)
@@ -18,7 +18,7 @@ instrumentation packages from OpenTelemetry to intercept network requests and ca
 This automatic instrumentation gives you immediate visibility into all network activity without requiring manual code
 changes.
 
-## Key Benefits
+### Key Benefits
 
 - Track network request timing and performance
 - Identify slow or failing API endpoints
@@ -26,7 +26,7 @@ changes.
 - Troubleshoot network errors
 - Correlate network activity with user actions and app behavior
 
-## Configuration Options
+### Configuration Options
 
 Network monitoring behavior can be customized through the process described in [Configuring Automatic Instrumentation](/web/automatic-instrumentation/index.md#configuring-automatic-instrumentation).
 Specific configuration options can be found in the [@opentelemetry/instrumentation-fetch](https://github.com/open-telemetry/opentelemetry-js/blob/main/experimental/packages/opentelemetry-instrumentation-fetch/src/fetch.ts)
@@ -36,7 +36,7 @@ package documentations.
 In addition, to avoid having to set `ignoreUrls` twice the 'network' key can be used to configure both packages at the
 same time as described in [Security Considerations](/web/best-practices/security-considerations.md#configure-the-network-monitoring-auto-instrumentation).
 
-## Data Captured
+### Data Captured
 
 For each network request, the SDK captures:
 
@@ -47,7 +47,7 @@ For each network request, the SDK captures:
 - Duration
 - Error information (for failed requests)
 
-## Integration with Other Features
+### Integration with Other Features
 
 Network monitoring integrates with other Embrace features:
 
