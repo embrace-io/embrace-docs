@@ -10,6 +10,12 @@ sidebar_position: 6
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
+## 8.2.1
+
+*April 17, 2026*
+
+- Fix the start time of cold app start root spans
+
 ## 8.2.0
 
 *March 13, 2026*
