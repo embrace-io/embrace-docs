@@ -1,41 +1,16 @@
 ---
-title: Metrics migration (2023-10)
-description: How-to update your queries to the latest Metrics
+title: Removed metrics
+description: Migration guide for metrics removed from the Embrace Metrics API
 sidebar_position: 40
 ---
 
-# Metrics migration (2023-10-23)
+# Removed metrics
 
-Embrace is updating its beta Metrics API to support interoperability. This means all metrics, both the pre-built Standard Metrics and your Custom Metrics, can be combined in any analyses you plan on doing. Sum across time-ranges and other dimensions, compare one Metric with another, or use multiple metrics to compute relevant rates.
+The following metrics were deprecated in October 2023 and fully removed on April 2026. They are no longer available for querying.
 
-Unfortunately this means some metrics will no longer be supported, and others will be brought into our standardized data environment and naming conventions.
+All the information these metrics provided is available through the current metrics (refer to the [Supported Metrics](/metrics-forwarding/#supported-metrics) page). See the [Replacements](#replacements) section below for migration guidance.
 
-## Metrics being deprecated
-
-### daily_crash_free_session_rate
-
-"Rates" are no longer being supported in the Embrace Metrics API, because they are by definition not compatible with other metrics or themselves.
-
-**You can still calculate rates on your end!**
-
-To build this rate, you can update your query:
-
-`daily_crash_free_session_rate` => `1 - daily_crashes_total / daily_sessions_total`
-
-### sessions_by_device_model_total
-
-"_by_device_" is now supported by _ALL_ Metrics.
-
-To build this cut, you can update your query:
-
-`sessions_by_device_model_total` => `daily_sessions_total`
-
-## Deprecated metrics after 2023-10-17
-
-We have deprecated the following metrics in favor of the new metrics mentioned above.
-All the information provided by these metrics can now be obtained using the new metrics (refer to the [Supported Metrics](/metrics-forwarding/#supported-metrics) page).
-These deprecated metrics will remain available for retrieving historical data prior to October 30, 2023.
-However, we strongly recommend transitioning to the new metrics to ensure a consistent experience.
+## Removed metrics
 
 | Metric                                       | Description                                               | Filters                               | Time granularity           |
 |----------------------------------------------|-----------------------------------------------------------|---------------------------------------|----------------------------|
@@ -44,6 +19,32 @@ However, we strongly recommend transitioning to the new metrics to ensure a cons
 | crash_free_session_rate_deprecated           | Percentage of crash free sessions                         | app_version, os_version               | hourly, daily              |
 | crashed_users_deprecated                     | Number of unique users with crashes                       | app_version, os_version               | hourly, daily              |
 | crashes_total_deprecated                     | Number of crashes                                         | app_version, os_version               | five_minute, hourly, daily |
+| daily_crash_free_session_rate                | Crash free session rate                                   | app_version, os_version               | daily                      |
+| sessions_by_device_model_total               | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
 | sessions_by_device_total_deprecated          | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
 | sessions_total_deprecated                    | Number of sessions                                        | app_version, os_version               | five_minute, hourly, daily |
 | users_deprecated                             | Number of unique users                                    | app_version, os_version               | hourly, daily              |
+
+## Replacements
+
+### daily_crash_free_session_rate
+
+"Rates" are not supported because they are by definition not compatible with other metrics or themselves.
+
+**You can still calculate rates on your end!**
+
+To build this rate, update your query:
+
+`daily_crash_free_session_rate` => `1 - daily_crashes_total / daily_sessions_total`
+
+### sessions_by_device_model_total
+
+"_by_device_" is now supported by _ALL_ Metrics.
+
+To build this cut, update your query:
+
+`sessions_by_device_model_total` => `daily_sessions_total`
+
+### All other deprecated metrics
+
+The remaining `_deprecated` suffixed metrics have direct replacements in the current standard metrics. Refer to the [Supported Metrics](/metrics-forwarding/#supported-metrics) page for the full list of available metrics.
