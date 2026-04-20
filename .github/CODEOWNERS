@@ -1,21 +1,24 @@
+# Default
+* @embrace-io/opensource-docs
+
 # JavaScript
-package*.json @embrace-io/opensource-frontend
-**/*.js @embrace-io/opensource-frontend
-**/*.ts @embrace-io/opensource-frontend
-*.config.ts @embrace-io/opensource-frontend @embrace-io/opensource-devops
+package*.json @embrace-io/opensource-frontend @embrace-io/embrace-docs
+**/*.js @embrace-io/opensource-frontend @embrace-io/embrace-docs
+**/*.ts @embrace-io/opensource-frontend @embrace-io/embrace-docs
+*.config.ts @embrace-io/opensource-frontend @embrace-io/opensource-devops @embrace-io/embrace-docs
 
 # DevOps
 .github @embrace-io/opensource-devops
 scripts @embrace-io/opensource-devops
 
 # SDK Teams
-docs/android @embrace-io/opensource-android
-docs/flutter @embrace-io/opensource-flutter
-docs/ios @embrace-io/opensource-apple
-docs/react-native @embrace-io/opensource-react-native
-docs/unity @embrace-io/opensource-unity
-docs/web @embrace-io/opensource-web
+docs/android @embrace-io/opensource-android @embrace-io/embrace-docs
+docs/flutter @embrace-io/opensource-flutter @embrace-io/embrace-docs
+docs/ios @embrace-io/opensource-apple @embrace-io/embrace-docs
+docs/react-native @embrace-io/opensource-react-native @embrace-io/embrace-docs
+docs/unity @embrace-io/opensource-unity @embrace-io/embrace-docs
+docs/web @embrace-io/opensource-web @embrace-io/embrace-docs
 
-# docs/best-practices
-docs/data-destinations @embrace-io/opensource-backend
-docs/metrics-forwarding @embrace-io/opensource-backend
+# Best Practies
+docs/data-destinations @embrace-io/opensource-backend @embrace-io/embrace-docs
+docs/metrics-forwarding @embrace-io/opensource-backend @embrace-io/embrace-docs
