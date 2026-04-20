@@ -325,6 +325,18 @@ Each filter table in this page uses the same columns:
 
 </div>
 
+## User Timing Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Detail Attribute Key/Value<br /><code class="filters-table__key">detail</code> | Key/value pair from the user timing detail object. | property | — |
+| Name<br /><code class="filters-table__key">name</code> | Name of the performance mark or measure. | String | — |
+| Start Time<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float | — |
+
+</div>
+
 ## Web Resource Filters
 
 <div class="filters-table">
@@ -347,7 +359,6 @@ Each filter table in this page uses the same columns:
 | LCP Target<br /><code class="filters-table__key">lcp_target</code> | CSS selector of the LCP element. | String | — |
 | Largest Shift Target<br /><code class="filters-table__key">largest_shift_target</code> | CSS selector of the largest shift target. | String | — |
 | Value<br /><code class="filters-table__key">value</code> | Value of the web vital. | float | — |
-| Web Vital Name<br /><code class="filters-table__key">name</code> | Name of the web vital. | String | — |
 | Web Vital Rating<br /><code class="filters-table__key">rating</code> | Rating of the web vital (e.g., good, poor). | Choice (String) | Choices: `poor`, `needs_improvement`, `good` |
 
 </div>
