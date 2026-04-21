@@ -6,6 +6,15 @@ sidebar_position: 6
 
 ## Changelog
 
+### 6.18.0
+
+*April 21, 2026*
+
+- Features
+  - Revamped the upload module improving cache and data integrity.
+- Fixes
+  - Fixed a potential crash on URLSession during a race condition when a thread is accessing the delegate while another is invalidating it.
+
 ### 6.17.1
 
 *March 27, 2026*
