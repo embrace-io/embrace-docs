@@ -1,25 +1,43 @@
 ---
-title: Session properties
+title: User session properties
 sidebar_position: 5
-description: Get to know the users of your Android application with the Embrace SDK
+description: Annotate user sessions with key-value properties using the Embrace SDK
 ---
 
-# Session properties
+# User session properties
 
-Session Properties are another way to annotate the session.
-The difference between session properties and [user personas](/android/features/identify-users#user-personas) is that the former are for items relating to the session or the device and not necessarily to the user.
+User session properties are another way to annotate a user session.
+The difference between user session properties and [user personas](/android/features/identify-users#user-personas) is that the former are for items relating to the session or the device and not necessarily to the user.
 However, you are free to use both mechanisms interchangeably.
 
-Here is an example of setting a session property:
+## Property scopes
+
+The `PropertyScope` parameter controls how long a property is retained:
+
+| Scope | Description |
+|---|---|
+| `PropertyScope.USER_SESSION` | Property is attached to the current user session only and is cleared when that user session ends. |
+| `PropertyScope.PROCESS` | Property persists for the lifetime of the process, surviving user session boundaries, but is cleared when the process exits. |
+| `PropertyScope.PERMANENT` | Property persists across all user sessions and process restarts until explicitly removed. |
+
+## Setting properties
+
+Here is an example of setting a user session property scoped to the current user session:
 
 ```kotlin
-Embrace.addSessionProperty("launch type", "normal", permanent: false)
+Embrace.addUserSessionProperty("launch type", "normal", PropertyScope.USER_SESSION)
 ```
 
-You can also remove session properties that have been previously set:
+To retain a property across all user sessions:
 
 ```kotlin
-Embrace.removeSessionProperty("launch type")
+Embrace.addUserSessionProperty("launch type", "normal", PropertyScope.PERMANENT)
+```
+
+To remove a property that has been previously set:
+
+```kotlin
+Embrace.removeUserSessionProperty("launch type")
 ```
 
 import PropertyLimit from '@site/shared/property-limit.md';
