@@ -47,6 +47,12 @@ dio.interceptors.add(EmbraceInterceptor());
 
 You need to add the `embrace_dio` package to your `pubspec.yaml` to use `EmbraceInterceptor`.
 
+### W3C traceparent propagation
+
+`EmbraceHttpClient` and `EmbraceInterceptor` automatically inject a [`traceparent`](https://www.w3.org/TR/trace-context/) header into outgoing requests when there is an active trace context. This links the network request to the current trace, allowing backends to correlate it with app-side spans.
+
+No configuration is required — the header is added automatically whenever a span is active at the time of the request.
+
 ### Manually log network requests
 
 You can also log any network request using this method from the Embrace SDK:
