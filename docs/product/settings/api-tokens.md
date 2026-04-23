@@ -3,6 +3,10 @@ title: API Tokens
 sidebar_position: 3
 ---
 
+:::note Looking to create an token for use with our MCP server?
+MCP access is managed through [Service Accounts](./service-accounts.md).
+:::
+
 The API Tokens tab displays all API tokens associated with your organization. It provides a table listing each token’s name and value, with special handling for default tokens.
 
 Developers use this tab to:
