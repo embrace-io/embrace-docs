@@ -10,6 +10,15 @@ sidebar_position: 6
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
+### 8.3.0
+
+*April 23, 2026*
+
+- Fix the start time of cold app start root spans
+- Delete unsent session data that is older than 7 days
+- Update OpenTelemetry Java API and SDK to `1.61.0`
+- Update OpenTelemetry Kotlin API to `0.3.0`
+
 ### 8.2.1
 
 *April 17, 2026*
