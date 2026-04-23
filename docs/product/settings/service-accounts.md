@@ -3,14 +3,11 @@ title: Service Accounts
 sidebar_position: 4
 ---
 
-Service accounts let you give automated systems — AI assistants, CI pipelines, scripts — access to Embrace without tying
-that access to a specific person's account. Today they are used to authenticate with the [Embrace MCP server](../../mcp/mcp.md).
+Service accounts let you give automated systems — AI assistants, CI pipelines, scripts — access to Embrace without tying that access to a specific person's account. Today they are used to authenticate with the [Embrace MCP server](../../mcp/mcp.md).
 
 ## What is a service account?
 
-A service account is a non-human identity owned by your organization. It isn't tied to any individual user, so
-is not dependent on any standard user account. Each service account holds one or more bearer tokens that
-clients use to authenticate.
+A service account is a non-human identity owned by your organization. It isn't tied to any individual user, so is not dependent on any standard user account. Each service account holds one or more bearer tokens that clients use to authenticate.
 
 ## What is a bearer token?
 
@@ -20,14 +17,11 @@ A bearer token is an opaque credential that a client sends in the `Authorization
 Authorization: Bearer emb_sa_AbCdEf0123456789-_XyZ9876543210abcdef1234567
 ```
 
-Embrace bearer tokens start with the prefix `emb_sa_` followed by 43 characters (50 total). Tokens are shown once at
-creation. If you lose a token, revoke it and create a new one.
+Embrace bearer tokens start with the prefix `emb_sa_` followed by 43 characters (50 total). Tokens are shown once at creation. If you lose a token, revoke it and create a new one.
 
 ## Service accounts vs. API tokens
 
-Service account tokens are a separate concept from the org-wide [API Tokens](./api-tokens.md) used for symbol upload,
-metrics ingestion, and similar integrations. Both coexist; existing API tokens continue to work and do not need to be
-rotated.
+Service account tokens are a separate concept from the org-wide [API Tokens](./api-tokens.md) used for symbol upload, metrics ingestion, and similar integrations. Both coexist; existing API tokens continue to work and do not need to be rotated.
 
 |                      | API Tokens                                        | Service Account Tokens                                |
 |----------------------|---------------------------------------------------|-------------------------------------------------------|
@@ -39,29 +33,24 @@ rotated.
 
 ## What you can do with them today
 
-The initial release is MCP-only: service account tokens authenticate requests to the Embrace MCP server. Available
-scopes:
+The initial release is MCP-only: service account tokens authenticate requests to the Embrace MCP server. Available scopes:
 
+- `mcp:tools:call` — invoke MCP tools (required for any MCP access)
 - `mcp:read` — read data through the MCP server
 - `mcp:write` — write data through the MCP server
-- `mcp:tools:call` — invoke MCP tools (required for any MCP access)
 
 ## Creating a service account
 
-Service accounts are created from **Settings → Organization → API → Service Accounts**. Only org admins can create,
-edit, or delete service accounts.
+Service accounts are created from **Settings → Organization → API → Service Accounts**. Only org admins can create, edit, or delete service accounts.
 
 1. Click **Create Service Account**.
 2. Give it a descriptive name and an optional description.
 3. Choose whether it has access to all apps in the org or a specific set of apps.
-4. Create a token on the service account, select the scopes it needs, and **copy the token immediately** — it will not
-   be shown again.
+4. Create a token on the service account, select the scopes it needs, and **copy the token immediately** — it will not be shown again.
 
 ## Managing app access
 
-Each service account is either granted access to **all apps** in the org (including apps added in the future) or to an *
-*explicit list** of apps. You can add or remove app grants at any time from the service account's detail page; changes
-take effect immediately.
+Each service account is either granted access to **all apps** in the org (including apps added in the future) or to an **explicit list** of apps. You can add or remove app grants at any time from the service account's detail page; changes take effect immediately.
 
 ## Rotating tokens
 
@@ -80,14 +69,12 @@ Revoking a token stops it from authenticating immediately. Deleting a service ac
 
 - Treat bearer tokens like passwords — store them in a secret manager, not in source control.
 - If a token is lost or exposed, revoke it and create a new one. We cannot recover a token once it has been created.
-- Use separate service accounts for separate use cases so you can revoke narrowly without disrupting unrelated
-  automations.
+- Use separate service accounts for separate use cases so you can revoke narrowly without disrupting unrelated automations.
 
 ## FAQ
 
 **Do I have to change anything?**
-No. Existing API tokens continue to work. Create a service account only when you need the new capabilities — primarily
-MCP access today.
+No. Existing API tokens continue to work. Create a service account only when you need the new capabilities — primarily MCP access today.
 
 **Who can create service accounts?**
 Only org admins.
