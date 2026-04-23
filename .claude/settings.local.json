@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix typos and spelling errors across documentation\n\n- iOS: functionallty, similiar, begining, Manger, opensll, it''s\n- React Native: uplad, others libraries that supports, this sections, prevent we loggin, Androd\n- Android: instrumention, getInstace, ocassionally, While than one, developement, Performacing\n- Flutter: Int? \\(Dart type\\), //// \\(doc comment\\)\n- Unity: capture, matter, follwing, it''s, innacurate, configurtations, occured, depedency, heading\n- Product: alertings, alognside, alonside, bog, base_direcory, OpenTelemetery, Sythetic, insurance, transimitting\n- Misc: incomplete sentences in graphql.md and traces/index.md\nEOF\n\\)\")",
+      "Bash(gh pr create:*)",
+      "Bash(npm run build:*)",
+      "Bash(git -C /Users/sleira/embrace/embrace-docs commit -m \"$\\(cat <<''EOF''\nAdd list_root_spans MCP tool documentation\nEOF\n\\)\")",
+      "Bash(npm start)",
+      "Bash(claude mcp add:*)",
+      "Bash(rumdl check:*)",
+      "Bash(npm start:*)"
+    ]
+  }
+}
