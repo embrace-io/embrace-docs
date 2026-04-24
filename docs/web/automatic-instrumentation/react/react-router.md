@@ -47,7 +47,7 @@ const App = () => {
 }
 ```
 
-#### React Router V6+ in declarative mode
+### React Router V6+ in declarative mode
 
 If you're using React Router V6 or later, you can use the `withEmbraceRouting` higher-order component (HOC) to wrap your `Routes` components. This will automatically track route changes.
 
@@ -70,7 +70,7 @@ const App = () => {
 }
 ```
 
-#### React Router V6+ in data mode
+### React Router V6+ in data mode
 
 When using data mode in React Router, you can listen to browser changes using `listenToRouterChanges` to automatically track route changes.
 
@@ -117,7 +117,7 @@ const App = () => {
 }
 ```
 
-#### Custom instrumentation
+### Custom instrumentation
 
 If you are using a navigation method that we do not currently provide a helper for you can still instrument manually by
 letting us know when a route changes through the `setCurrentRoute` method:
@@ -145,7 +145,7 @@ const customNavigationHandler = () => {
 }
 ```
 
-#### Configuration
+## Configuration
 
 You can configure the React Router instrumentation by passing options to the `createReactRouterNavigationInstrumentation` function.  
 For now, the only option available is `shouldCleanupPathOptionsFromRouteName`.
