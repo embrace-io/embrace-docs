@@ -10,6 +10,12 @@ sidebar_position: 6
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
+### 8.3.1
+
+*April 24, 2026*
+
+- Fix errors when invoking SDK API after the SDK is programmatically disabled
+
 ### 8.3.0
 
 *April 23, 2026*
