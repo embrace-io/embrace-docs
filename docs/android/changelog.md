@@ -14,7 +14,7 @@ Please review the [Upgrade Guide](/android/upgrading/) when moving from one majo
 
 *April 24, 2026*
 
-- Fix errors when invoking SDK API after the SDK is programmatically disabled
+- Fix crash that occurs when calling a subset of API methods after disabling the SDK with the `disable()` method
 
 ### 8.3.0
 
