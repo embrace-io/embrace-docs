@@ -5,11 +5,11 @@ slug: /product/filters
 sidebar_position: 12.5
 ---
 
-## Filter Definitions
+# Filter Definitions
 
 Filters allow you to query and segment your data in the Embrace dashboard. Use filters to narrow down sessions, crashes, and other telemetry data based on specific criteria.
 
-### Understanding Filter Table Columns
+## Understanding Filter Table Columns
 
 Each filter table in this page uses the same columns:
 
@@ -20,7 +20,7 @@ Each filter table in this page uses the same columns:
 
 ---
 
-### ANR Filters
+## ANR Filters
 
 <div class="filters-table">
 
@@ -33,7 +33,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### App Filters
+## App Filters
 
 <div class="filters-table">
 
@@ -48,7 +48,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Browser Filters
+## Browser Filters
 
 <div class="filters-table">
 
@@ -61,7 +61,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Child Span Filters
+## Child Span Filters
 
 <div class="filters-table">
 
@@ -75,7 +75,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Child Span Attribute Filters
+## Child Span Attribute Filters
 
 <div class="filters-table">
 
@@ -85,7 +85,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Crash Filters
+## Crash Filters
 
 <div class="filters-table">
 
@@ -101,7 +101,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Device Filters
+## Device Filters
 
 <div class="filters-table">
 
@@ -119,7 +119,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Exception Filters
+## Exception Filters
 
 <div class="filters-table">
 
@@ -131,7 +131,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### LoAF Script Filters
+## LoAF Script Filters
 
 <div class="filters-table">
 
@@ -139,11 +139,12 @@ Each filter table in this page uses the same columns:
 | --- | --- | --- | --- |
 | Script Domain<br /><code class="filters-table__key">script_domain</code> | Domain of the long animation frame script. | String | — |
 | Script Path<br /><code class="filters-table__key">script_path</code> | Path of the long animation frame script. | String | — |
+| Script URL<br /><code class="filters-table__key">script_url</code> | Full URL of the long animation frame script. | String | — |
 | Was From INP<br /><code class="filters-table__key">was_from_inp</code> | Whether the script contributed to an INP interaction. | Boolean | — |
 
 </div>
 
-### Log Filters
+## Log Filters
 
 <div class="filters-table">
 
@@ -160,7 +161,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Log Property Filters
+## Log Property Filters
 
 <div class="filters-table">
 
@@ -170,7 +171,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Network Filters
+## Network Filters
 
 <div class="filters-table">
 
@@ -187,7 +188,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### OS Filters
+## OS Filters
 
 <div class="filters-table">
 
@@ -199,7 +200,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Root Span Filters
+## Root Span Filters
 
 <div class="filters-table">
 
@@ -214,7 +215,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Root Span Attribute Filters
+## Root Span Attribute Filters
 
 <div class="filters-table">
 
@@ -224,7 +225,18 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Session Filters
+## Server Timing Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Server Timing Description<br /><code class="filters-table__key">description</code> | Description of the server timing entry. | String | — |
+| Server Timing Name<br /><code class="filters-table__key">name</code> | Name of the server timing entry. | String | — |
+
+</div>
+
+## Session Filters
 
 <div class="filters-table">
 
@@ -246,7 +258,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Span Filters
+## Span Filters
 
 <div class="filters-table">
 
@@ -263,7 +275,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Span Attribute Filters
+## Span Attribute Filters
 
 <div class="filters-table">
 
@@ -273,7 +285,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Surface Filters
+## Surface Filters
 
 <div class="filters-table">
 
@@ -284,7 +296,19 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### User Filters
+## Synthetic Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Browser<br /><code class="filters-table__key">test_profile_name</code> | Browser/device profile used for testing. | Choice (String) | Choices: `Desktop Fast`, `Desktop Slow`, `Mobile Fast`, `Mobile Medium`, `Mobile Slow` |
+| Page Label<br /><code class="filters-table__key">label</code> | Label assigned to the tested URL. | String | — |
+| Site<br /><code class="filters-table__key">site_name</code> | Customer-facing site name. | String | — |
+
+</div>
+
+## User Filters
 
 <div class="filters-table">
 
@@ -298,7 +322,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### User Flow Filters
+## User Flow Filters
 
 <div class="filters-table">
 
@@ -315,7 +339,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### User Flow Attribute Filters
+## User Flow Attribute Filters
 
 <div class="filters-table">
 
@@ -325,7 +349,18 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Web Resource Filters
+## User Timing Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Detail Attribute Key/Value<br /><code class="filters-table__key">detail</code> | Key/value pair from the user timing detail object. | property | — |
+| User Timing Start Time<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float | — |
+
+</div>
+
+## Web Resource Filters
 
 <div class="filters-table">
 
@@ -336,7 +371,7 @@ Each filter table in this page uses the same columns:
 
 </div>
 
-### Web Vital Filters
+## Web Vital Filters
 
 <div class="filters-table">
 
@@ -347,26 +382,25 @@ Each filter table in this page uses the same columns:
 | LCP Target<br /><code class="filters-table__key">lcp_target</code> | CSS selector of the LCP element. | String | — |
 | Largest Shift Target<br /><code class="filters-table__key">largest_shift_target</code> | CSS selector of the largest shift target. | String | — |
 | Value<br /><code class="filters-table__key">value</code> | Value of the web vital. | float | — |
-| Web Vital Name<br /><code class="filters-table__key">name</code> | Name of the web vital. | String | — |
 | Web Vital Rating<br /><code class="filters-table__key">rating</code> | Rating of the web vital (e.g., good, poor). | Choice (String) | Choices: `poor`, `needs_improvement`, `good` |
 
 </div>
 
-### Common Filter Combinations
+## Common Filter Combinations
 
 Here are some examples of commonly used filter combinations:
 
-#### Debug a Specific Version
+### Debug a Specific Version
 
 - **App Version** equals `2.1.0`
 - Combine with other filters to narrow down issues
 
-#### Find Users in a Specific Country
+### Find Users in a Specific Country
 
 - **Country ISO** equals `US` (or any two-letter country code)
 - Use with **App Version** to see regional adoption
 
-#### Analyze Latest Version Performance
+### Analyze Latest Version Performance
 
 - **App Version Set** equals `latest`
 - Compare metrics against previous versions
