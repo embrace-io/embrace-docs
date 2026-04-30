@@ -14,7 +14,7 @@ contributors — database queries, cache lookups, CDN processing — alongside y
 ### How Server Timing Instrumentation Works
 
 When the page finishes loading, the SDK reads `performance.getEntriesByType('navigation')[0].serverTiming`
-and emits one log per `PerformanceServerTiming` entry. If the navigation entry has no server timing
+and emits one log per [`PerformanceServerTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming) entry. If the navigation entry has no server timing
 data, the SDK no-ops silently.
 
 No changes to your frontend code are required. Visibility depends on your server emitting the header:

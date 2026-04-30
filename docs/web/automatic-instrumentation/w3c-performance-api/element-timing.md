@@ -7,12 +7,14 @@ sidebar_position: 2
 ## Element Timing
 
 The Embrace SDK automatically captures render and load timing for elements you explicitly opt into
-tracking by adding the `elementtiming` HTML attribute. This gives you fine-grained visibility into
-when key elements — images, hero text, call-to-action blocks — become visible on screen.
+tracking by adding the [`elementtiming`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/elementtiming)
+HTML attribute. This gives you fine-grained visibility into when key elements — images, hero text,
+call-to-action blocks — become visible on screen.
 
 ### How Element Timing Instrumentation Works
 
-The SDK observes `PerformanceElementTiming` entries via a `PerformanceObserver`. Each observed entry
+The SDK observes [`PerformanceElementTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceElementTiming)
+entries via a `PerformanceObserver`. Each observed entry
 is emitted as a span, using the element's `identifier` (the `elementtiming` attribute value) as the
 span name, and the `renderTime` or `loadTime` as the span boundaries.
 

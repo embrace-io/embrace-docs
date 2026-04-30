@@ -7,12 +7,15 @@ sidebar_position: 1
 ## User Timing
 
 The Embrace SDK automatically captures custom performance marks and measures created by your application
-via `performance.mark()` and `performance.measure()`, giving you visibility into your own timing
-instrumentation without any extra backend work.
+via [`performance.mark()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) and
+[`performance.measure()`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/measure),
+giving you visibility into your own timing instrumentation without any extra backend work.
 
 ### How User Timing Instrumentation Works
 
-The SDK observes `PerformanceMark` and `PerformanceMeasure` entries via a `PerformanceObserver`.
+The SDK observes [`PerformanceMark`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMark)
+and [`PerformanceMeasure`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMeasure)
+entries via a `PerformanceObserver`.
 Marks are emitted as logs and measures are emitted as spans, reflecting their different shapes: a mark
 is a discrete point in time, while a measure has a defined start and duration.
 
