@@ -21,6 +21,7 @@ Embrace's SDKs are all available on GitHub. You can find them here:
 - [React Native SDK](https://github.com/embrace-io/embrace-react-native-sdk)
 - [Flutter SDK](https://github.com/embrace-io/embrace-flutter-sdk)
 - [Unity SDK](https://github.com/embrace-io/embrace-unity-sdk)
+- [Web SDK](https://github.com/embrace-io/embrace-web-sdk)
 
 :::info Note
 Embrace's SDKs can also be found via platform-specific distributions. You can browse the pages for each platform in the left-side navigation to find out more.
