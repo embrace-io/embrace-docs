@@ -19,6 +19,6 @@ docs/react-native @embrace-io/opensource-react-native @embrace-io/embrace-docs
 docs/unity @embrace-io/opensource-unity @embrace-io/embrace-docs
 docs/web @embrace-io/opensource-web @embrace-io/embrace-docs
 
-# Best Practies
+# Best Practices
 docs/data-destinations @embrace-io/opensource-backend @embrace-io/embrace-docs
 docs/metrics-forwarding @embrace-io/opensource-backend @embrace-io/embrace-docs
