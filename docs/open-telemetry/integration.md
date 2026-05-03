@@ -152,11 +152,41 @@ const { isPending, isStarted } = useEmbrace({
 });
 ```
 
+#### Flutter
+
+The Embrace Flutter SDK can configure OTLP exporters directly from Dart using `addSpanExporter` and `addLogRecordExporter` after `Embrace.start()` is called. No native code changes are required.
+
+```dart
+await Embrace.instance.start();
+
+Embrace.instance.addSpanExporter(
+  endpoint: 'https://otlp.example.com/v1/traces',
+  headers: [
+    {'x-api-key': 'YOUR_API_KEY'},
+  ],
+  timeoutSeconds: 30,
+);
+
+Embrace.instance.addLogRecordExporter(
+  endpoint: 'https://otlp.example.com/v1/logs',
+  headers: [
+    {'x-api-key': 'YOUR_API_KEY'},
+  ],
+  timeoutSeconds: 30,
+);
+```
+
+See [OpenTelemetry](/flutter/features/opentelemetry/) in the Flutter feature reference for the full details.
+
 ### Use the OpenTelemetry Tracing API
 
 An Embrace-enhanced implementation of the [OTel Tracing API](https://opentelemetry.io/docs/specs/otel/trace/api/) can be obtained through the SDK. The resulting `OpenTelemetry` object will provide working implementations of interfaces and methods of said API, with proper attribution included in the resource of the exported spans. All other methods will be no-ops for the time being, as the other APIs have not been implemented.
 
-The enhanced Tracing API is currently available in the Embrace Android SDK.
+The enhanced Tracing API is currently available in the Embrace Android and Flutter SDKs.
+
+#### Flutter
+
+When `Embrace.start()` is called, the Flutter SDK automatically registers itself as an OpenTelemetry API provider. Third-party libraries instrumented with the OTel API will have their spans and logs captured by Embrace with no additional configuration. See [OpenTelemetry](/flutter/features/opentelemetry/) in the Flutter feature reference for more details.
 
 #### Limitations
 

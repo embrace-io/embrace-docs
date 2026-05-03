@@ -82,23 +82,43 @@ if (span != null) {
 }
 ```
 
+### OpenTelemetry API compliance
+
+When `Embrace.start()` is called, the SDK registers itself as an OpenTelemetry API provider. Third-party libraries that are instrumented with the OTel API will have their spans and logs automatically captured by Embrace with no additional configuration.
+
 ### Export to OpenTelemetry collectors
 
-To send telemetry to any [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) directly from your app, you can set up a [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter). When configured, telemetry is sent to these exporters as soon as it's recorded. You can configure more than one exporter of each signal, but be aware of the performance impact of sending too many network requests if that applies.
+To forward telemetry to an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) or any OTLP-compatible backend, use `addSpanExporter` and `addLogRecordExporter` after calling `Embrace.start()`:
 
-:::info
-All telemetry in the Embrace Flutter SDK is routed through Embrace's Android/iOS SDKs. Configure Android/iOS exporters before initializing the SDK to send Dart telemetry to your desired destination.
-:::
+```dart
+await Embrace.instance.start();
 
-#### Android OTel export
+Embrace.instance.addSpanExporter(
+  endpoint: 'https://otlp.example.com/v1/traces',
+  headers: [
+    {'x-api-key': 'YOUR_API_KEY'},
+  ],
+  timeoutSeconds: 30,
+);
 
-Follow [this guide](/android/features/traces/#export-to-opentelemetry-collectors) to set up OpenTelemetry exporters on Android.
+Embrace.instance.addLogRecordExporter(
+  endpoint: 'https://otlp.example.com/v1/logs',
+  headers: [
+    {'x-api-key': 'YOUR_API_KEY'},
+  ],
+  timeoutSeconds: 30,
+);
+```
 
-#### iOS OTel export
+You can call each method more than once to add multiple export destinations. Be aware of the performance impact of sending many concurrent network requests.
 
-Follow [this guide](/ios/6x/advanced-features/opentelemetry-export.md) for details on setting up OpenTelemetry exporters on iOS.
+#### Native OTel export (Android / iOS)
 
-Exporters are set when the SDK is [configured](/flutter/integration/#ios-setup). A sample implementation looks like:
+For lower-level control or when configuring exporters in native code, you can also set up exporters directly on the Android and iOS SDKs.
+
+Follow [this guide](/android/features/traces/#export-to-opentelemetry-collectors) for Android.
+
+Follow [this guide](/ios/6x/advanced-features/opentelemetry-export.md) for iOS. A sample iOS implementation:
 
 ```swift
 try Embrace
