@@ -6,6 +6,17 @@ sidebar_position: 6
 
 ## Changelog
 
+### 6.19.0
+
+*May 11, 2026*
+
+- Features
+  - New implementation of the HangCaptureService.
+  - Enabled MetricKit crash capture by default.
+- Fixes
+  - Fixed crash related to the EmbraceUpload operation queues.
+  - Fixed issues with the internal critical logs.
+
 ### 6.18.0
 
 *April 21, 2026*
