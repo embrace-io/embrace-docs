@@ -14,3 +14,4 @@ The Embrace SDK includes many advanced features that help you understand how you
 - [**Push notifications.**](/flutter/features/push-notifications) Embrace can automatically capture push notifications received. Learn how to configure this feature.
 - [**Last run end state.**](/flutter/features/last-run-end-state/) Understand if your last app instance ended in a crash.
 - [**Current session ID API.**](/flutter/features/current-session-id-api.md) This API lets you know the current session ID in case you need to track it separately.
+- [**OpenTelemetry.**](/flutter/features/opentelemetry/) Learn how Embrace's OTel compliance enables OTLP export, distributed tracing, and third-party library compatibility.
