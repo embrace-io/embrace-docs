@@ -32,6 +32,7 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 - **[React](./react/index.md)** - Various instrumentations that emit React specific telemetry if your app is built on that
 framework
 - **[Empty Root Node](./empty-root-node.md)** - Records when content fails to render on the page's root element
+- **[W3C Performance API](./w3c-performance-api/index.md)** - Captures user timing marks and measures, element render timings, and server-side timing hints from the browser Performance API
 
 ### Configuring Automatic Instrumentation
 

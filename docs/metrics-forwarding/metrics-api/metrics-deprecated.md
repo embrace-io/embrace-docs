@@ -19,8 +19,8 @@ All the information these metrics provided is available through the current metr
 | crash_free_session_rate_deprecated           | Percentage of crash free sessions                         | app_version, os_version               | hourly, daily              |
 | crashed_users_deprecated                     | Number of unique users with crashes                       | app_version, os_version               | hourly, daily              |
 | crashes_total_deprecated                     | Number of crashes                                         | app_version, os_version               | five_minute, hourly, daily |
-| daily_crash_free_session_rate                | Crash free session rate                                   | app_version, os_version               | daily                      |
-| sessions_by_device_model_total               | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
+| crash_free_session_rate_deprecated           | Crash free session rate                                   | app_version, os_version               | daily                      |
+| sessions_by_device_model_total_deprecated    | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
 | sessions_by_device_total_deprecated          | Number of sessions grouped by device model                | app_version, device_model, os_version | hourly, daily              |
 | sessions_total_deprecated                    | Number of sessions                                        | app_version, os_version               | five_minute, hourly, daily |
 | users_deprecated                             | Number of unique users                                    | app_version, os_version               | hourly, daily              |

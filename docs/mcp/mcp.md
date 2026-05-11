@@ -75,6 +75,15 @@ Before you can use the Embrace MCP server, you need:
 - An active Embrace account with access to at least one application
 - An MCP-compatible AI assistant
 
+### Authentication
+
+The MCP server supports two authentication methods:
+
+- **OAuth** — Interactive browser flow. Best for local developer use in tools like Cursor, Claude Code, and Opencode. The token is tied to your Embrace user and carries your existing app permissions.
+- **Bearer token** — Static token attached to a service account. Best for agent workflows, CI jobs, and shared team tooling — anywhere the client runs without a browser or where access shouldn't be tied to an individual's account.
+
+To create a bearer token, see [Service Accounts](../product/settings/service-accounts.md). A bearer token used with MCP needs the `mcp:tools:call` scope plus `mcp:read` and/or `mcp:write`.
+
 ### Setup examples
 
 #### Cursor
@@ -93,6 +102,21 @@ For example, add to your `mcp.json` file:
 }
 ```
 
+To authenticate with a service account bearer token instead of OAuth, add an `Authorization` header. Set the `EMBRACE_API_TOKEN` environment variable in the shell where your MCP client runs to a token created in **Settings → Organization → API → Service Accounts**:
+
+```json
+{
+  "mcpServers": {
+    "embrace-mcp": {
+      "url": "https://mcp.embrace.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${EMBRACE_API_TOKEN}"
+      }
+    }
+  }
+}
+```
+
 #### Claude Code
 
 Run:
@@ -101,7 +125,30 @@ Run:
 claude mcp add --transport http embrace https://mcp.embrace.io/mcp
 ```
 
-Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: Bearer Token authentication is not currently supported.
+Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info.
+
+To authenticate with a service account bearer token instead of OAuth, pass the `Authorization` header on the `claude mcp add` command. Set the `EMBRACE_API_TOKEN` environment variable in the shell where your MCP client runs to a token created in **Settings → Organization → API → Service Accounts**:
+
+```bash
+claude mcp add --transport http embrace https://mcp.embrace.io/mcp \
+  --header "Authorization: Bearer ${EMBRACE_API_TOKEN}"
+```
+
+Or add the server directly to a `.mcp.json` file:
+
+```json
+{
+  "mcpServers": {
+    "embrace": {
+      "type": "http",
+      "url": "https://mcp.embrace.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${EMBRACE_API_TOKEN}"
+      }
+    }
+  }
+}
+```
 
 #### Opencode
 
@@ -127,11 +174,28 @@ Then authenticate using:
 opencode mcp auth embrace
 ```
 
+To authenticate with a service account bearer token instead of OAuth, add an `Authorization` header to the server entry. Set the `EMBRACE_API_TOKEN` environment variable in the shell where your MCP client runs to a token created in **Settings → Organization → API → Service Accounts**:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "embrace": {
+      "type": "remote",
+      "url": "https://mcp.embrace.io/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:EMBRACE_API_TOKEN}"
+      }
+    }
+  }
+}
+```
+
 #### All others
 
 For other AI Assistants supporting MCP, please reference your relevant docs. Official support will come in the near future for these as we continue to improve and add functionality.
 
-The Embrace MCP Server uses a Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
+The Embrace MCP Server uses a Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`. Clients that support custom headers on HTTP MCP transport can authenticate with a service account bearer token by sending `Authorization: Bearer <token>`.
 
 ### Common use cases
 
