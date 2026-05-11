@@ -17,7 +17,6 @@ sidebar_position: 6
   - Fixed crash related to the EmbraceUpload operation queues.
   - Fixed issues with the internal critical logs.
 
-
 ### 6.18.0
 
 *April 21, 2026*
