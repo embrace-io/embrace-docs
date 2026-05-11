@@ -552,9 +552,9 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20260414", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: "announcement-20260511", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://get.embrace.io/ai-powered-observability?utm_source=website&utm_medium=website&utm_campaign=docs-banner">LIVE SESSION on April 29: Less toil, faster fixes: AI-powered observability with Embrace</a>',
+        '<a target="_blank" href="https://get.embrace.io/ai-powered-observability?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Watch on-demand: Less toil, faster fixes: AI-powered observability with Embrace</a>',
       backgroundColor: "#EEFF04",
       isCloseable: true,
     },
