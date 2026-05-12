@@ -47,12 +47,17 @@ Embrace forwards standard and custom metrics at different time granularities to 
 
 #### Standard Metrics
 
-| Metric name           | Embrace Metrics API Name | Description                            | Dimensions                            | Time granularity           |
-|-----------------------|--------------------------|----------------------------------------|---------------------------------------|----------------------------|
-| crash_total           | crashes_total            | Number of crashes                      | app_version, os_version, device_model | five_minute, hourly, daily |
-| session_total         | sessions_total           | Number of sessions                     | app_version, os_version, device_model | five_minute, hourly, daily |
-| crash_free_user_total | crashed_free_users       | Number of unique users without crashes | app_version, os_version, device_model | five_minute, hourly, daily |
-| users_total           | users_total              | Number of unique users                 | app_version, os_version, device_model | daily                      |
+| Metric name           | Embrace Metrics API Name | Description                                    | Dimensions                            | Time granularity           | Platforms         |
+|-----------------------|--------------------------|------------------------------------------------|---------------------------------------|----------------------------|-------------------|
+| session_total         | sessions_total           | Number of sessions                             | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
+| users_total           | users_total              | Number of unique users                         | app_version, os_version, device_model | daily                      | Android, iOS, Web |
+| network4xx_total      | network4xx_total         | Number of 4xx network errors                   | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
+| network5xx_total      | network5xx_total         | Number of 5xx network errors                   | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
+| crash_total           | crashes_total            | Number of crashes                              | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
+| crash_free_user_total | crashed_free_users       | Number of unique users without crashes         | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
+| exception_total       | exception_total          | Number of exceptions                           |                                       | five_minute, hourly, daily | Web               |
+| web_vital_total       | web_vital_total          | Number of Core Web Vital measurements          | rating                                | five_minute, hourly, daily | Web               |
+| web_vital_p75         | web_vital_p75            | 75th percentile value of a Core Web Vital      | name                                  | five_minute, hourly, daily | Web               |
 
 :::info
 The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a
