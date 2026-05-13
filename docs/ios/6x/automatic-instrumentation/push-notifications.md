@@ -92,8 +92,6 @@ When `captureData: true`, the service additionally reads the `aps` dictionary an
 | `notification.category` | `category` |
 | `notification.badge` | `badge` (integer) |
 
-A notification is dropped (no event emitted) if the payload does not contain an `aps` object — that is the only validation the service performs.
-
 ### Manual Capture
 
 For notifications that don't pass through `UNUserNotificationCenter` (for example, background pushes handled in `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`), record them yourself using the same event type:
@@ -112,11 +110,20 @@ func application(
 }
 ```
 
-You can also build an event from a `UNNotification` directly:
+You can also build an event from a `UNNotification` directly inside a `UNUserNotificationCenterDelegate` callback:
 
 ```swift
-if let event = try? PushNotificationEvent.push(notification: notification) {
-    Embrace.client?.add(event: event)
+func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    didReceive response: UNNotificationResponse,
+    withCompletionHandler completionHandler: @escaping () -> Void
+) {
+    let notification = response.notification
+    if let event = try? PushNotificationEvent.push(notification: notification) {
+        Embrace.client?.add(event: event)
+    }
+    // ...your handling
+    completionHandler()
 }
 ```
 
