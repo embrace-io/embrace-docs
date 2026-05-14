@@ -110,6 +110,21 @@ func application(
 }
 ```
 
+The `userInfo` dictionary must be APNS-shaped — a top-level `aps` key is required, otherwise the event is dropped. Minimal payload:
+
+```json
+{
+    "aps": {
+        "alert": {
+            "title": "Notification Title",
+            "body": "Notification Body"
+        }
+    }
+}
+```
+
+The parser additionally recognizes `alert.subtitle`, `aps.category`, `aps.badge`, and `aps.content-available` (`1` marks the event as `silent`).
+
 You can also build an event from a `UNNotification` directly inside a `UNUserNotificationCenterDelegate` callback:
 
 ```swift
