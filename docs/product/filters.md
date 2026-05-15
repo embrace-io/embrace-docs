@@ -390,6 +390,7 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| Delivery Type<br /><code class="filters-table__key">delivery_type</code> | — | String | — |
 | Render Blocking Status<br /><code class="filters-table__key">render_blocking_status</code> | Render blocking status of the resource. | Choice (String) | Choices: `blocking`, `non-blocking` |
 | Resource Type<br /><code class="filters-table__key">resource_type</code> | Type of web resource. | Choice (String) | Choices: `script`, `stylesheet`, `image`, `font`, `video`, `audio`, `document`, `other` |
 
