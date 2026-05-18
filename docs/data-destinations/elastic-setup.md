@@ -8,31 +8,20 @@ sidebar_position: 3
 
 ### Prerequisites
 
-- Have an active Elastic account
-- Have an [APM server setup](https://www.elastic.co/guide/en/fleet/7.15/fleet-quick-start-traces.html) (You may have a
-default APM integration setup already).
+- Have an active Elastic account with hosted OTLP ingest available (serverless projects, or hosted cloud on AWS 9.2.x+).
 
 ### Configuration
 
-#### Get Secret Token for APM
+#### Pulling your Elastic API Key ([Elastic documentation](https://www.elastic.co/docs/api/doc/elasticsearch/authentication))
 
-If you have set a [secret token already](https://www.elastic.co/guide/server/current/secret-token.html) you can use that
-token. Otherwise, you can use the default token in your integration. The instructions below are for the default token.
+1. Log into your Elastic account.
+2. Create an API key with permission to ingest OTel data into your deployment.
+3. Elastic provides the API key in encoded form (a base64 string of `<id>:<key>`). Copy this encoded value to use it on the Embrace dashboard.
 
-1. Click the hamburger menu to open the menu and select "Management".
-2. Select "Fleet", then "Agent policies". You should see a default policy.
-3. Click into the default policy, and select the "Elastic APM integration policy".
-4. Scroll down to the Agent authorization section and select the secret token.
+#### Pulling your Elastic Server URL
 
-#### Find Server URL
-
-If you have an APM server URL already configured you can use that. Otherwise, you can use the default server URL in your
-integration. The instructions below are for the default server URLs.
-
-1. Click the hamburger menu to open the menu and select Management.
-2. Select Fleet, then Agent policies. You should see a default policy.
-3. Click into the default policy, and select the Elastic APM integration policy.
-4. Select the APM Agents tab, and scroll down to the OpenTelemetry section. Use the value for the `OTEL_EXPORTER_OTLP_ENDPOINT`.
+1. In Elastic, onboard OTel app data for your deployment. Elastic surfaces the hostname of the hosted OTLP ingest endpoint alongside the API key.
+2. The hostname follows the pattern `https://<deployment_id>.ingest.<region>.<cloud>.elastic.cloud:443`. Use this value (including the `:443` port) as the Server URL on the Embrace dashboard.
 
 ### Querying your data
 
