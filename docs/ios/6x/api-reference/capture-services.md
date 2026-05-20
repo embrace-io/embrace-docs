@@ -22,7 +22,7 @@ The SDK includes the following built-in capture services:
 - **LowMemoryWarningCaptureService** - Detects low memory warnings
 - **LowPowerModeCaptureService** - Tracks low power mode
 - **PushNotificationCaptureService** - Captures push notification events
-- **HangCaptureService** - Captures app hangs
+- **HangCaptureService** - Captures app hangs (**opt-in** — not included in the defaults)
 
 ### NetworkCaptureService
 
@@ -185,9 +185,16 @@ This service doesn't have configurable options.
 
 Captures app hangs.
 
+**This service is opt-in.** It is not added by `EmbraceIO.CaptureServicesOptions.default()` nor by `CaptureServiceBuilder.addDefaults()` — you must register it explicitly:
+
+- With `EmbraceIO`: `CaptureServicesOptionsBuilder().addDefaults().addHangCaptureService().build()`
+- With `Embrace`: `CaptureServiceBuilder().addDefaults().add(HangCaptureService()).build()`
+
 This service is turned off when attached to a debugger (ie: while debugging in Xcode). You can enable it when connected to a debugger by setting the `EMBAllowWatchdogInDebugger` environment var to `1`.
 
-**GitHub Source**: [EmbraceCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/Hang/HangCaptureService.swift)
+For full configuration details (including `HangLimits`), see [Hang Detection](../automatic-instrumentation/hang-detection.md).
+
+**GitHub Source**: [HangCaptureService](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Capture/Hang/HangCaptureService.swift)
 
 ### Custom Capture Services
 
@@ -342,7 +349,7 @@ let services = CaptureServiceBuilder()
     .add(.pushNotification(options: pushOptions))
     .add(.lowMemoryWarning)
     .add(.lowPowerMode)
-    .add(.hangWatchdog)
+    .add(HangCaptureService()) // opt-in
     .build()
 
 let options = EmbraceIO.Options.withAppId(
@@ -363,7 +370,7 @@ let services = CaptureServiceBuilder()
     .add(.pushNotification(options: pushOptions))
     .add(.lowMemoryWarning)
     .add(.lowPowerMode)
-    .add(.hangWatchdog)
+    .add(HangCaptureService()) // opt-in
     .build()
 
 let options = Embrace.Options(

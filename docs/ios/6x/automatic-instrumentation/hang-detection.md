@@ -41,14 +41,69 @@ The SDK automatically monitors the main thread using a dedicated watchdog thread
 
 ### Key Benefits
 
-- Automatically detect UI freezes and unresponsive behavior
+- Detect UI freezes and unresponsive behavior
 - Identify code causing main thread blockages
 - Track hang frequency and duration
-- No code changes required
 
-### Configuration
+### Enabling Hang Detection
 
-Hang detection is enabled by default. You can customize settings during development or testing by implementing a custom `EmbraceConfigurable`:
+Starting with the framerate-based hang detector introduced in 6.x, **hang detection is opt-in**. It is not installed by `EmbraceIO.CaptureServicesOptions.default()` and is not added by `CaptureServiceBuilder.addDefaults()`. You must register the service explicitly when you set up the SDK.
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+import EmbraceIO
+
+let captureServices = CaptureServicesOptionsBuilder()
+    .addDefaults()
+    .addHangCaptureService()
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    captureServices: captureServices
+)
+
+do {
+    try EmbraceIO.setup(options: options)
+    try EmbraceIO.shared.start()
+} catch {
+    print("Failed to set up Embrace: \(error)")
+}
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+import EmbraceIO
+import EmbraceCore
+
+let services = CaptureServiceBuilder()
+    .addDefaults()
+    .add(HangCaptureService())
+    .build()
+
+let options = Embrace.Options(
+    appId: "YOUR_APP_ID",
+    captureServices: services
+)
+
+do {
+    try Embrace.setup(options: options)
+    try Embrace.client?.start()
+} catch {
+    print("Failed to set up Embrace: \(error)")
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Tuning HangLimits
+
+You can customize how many hangs are captured per session and how many stack-trace samples are taken during each hang by implementing a custom `EmbraceConfigurable`:
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -223,12 +278,13 @@ context.perform {
 
 ### Disabling Hang Detection
 
-Set `hangPerSession: 0` in your configuration to disable hang detection.
+Hang detection is off by default. To turn it off after enabling it, either remove the `addHangCaptureService()` / `add(HangCaptureService())` call from your setup, or set `hangPerSession: 0` in your configuration.
 
 ### Troubleshooting
 
 #### Not Seeing Hang Data
 
+- Confirm the `HangCaptureService` was registered at setup (`addHangCaptureService()` or `add(HangCaptureService())`) — it is not part of the defaults
 - Verify `hangPerSession > 0`
 - Confirm SDK is properly initialized
 - Test with `Thread.sleep(forTimeInterval: 0.5)` on the main thread
