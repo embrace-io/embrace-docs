@@ -56,8 +56,8 @@ Embrace forwards standard and custom metrics at different time granularities to 
 | crash_total           | crashes_total            | Number of crashes                              | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
 | crash_free_user_total | crashed_free_users       | Number of unique users without crashes         | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
 | exception_total       | exception_total          | Number of exceptions                           |                                       | five_minute, hourly, daily | Web               |
-| web_vital_total       | web_vital_total          | Number of Core Web Vital measurements          | rating                                | five_minute, hourly, daily | Web               |
-| web_vital_p75         | web_vital_p75            | 75th percentile value of a Core Web Vital      | name                                  | five_minute, hourly, daily | Web               |
+| web_vital_total       | web_vital_total          | Number of Web Vital measurements               | rating                                | five_minute, hourly, daily | Web               |
+| web_vital_p75         | web_vital_p75            | 75th percentile value of a Web Vital           | name                                  | five_minute, hourly, daily | Web               |
 
 :::info
 The `users_total` metric is of type gauge and represents the count of distinct devices utilizing the app within a
