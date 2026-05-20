@@ -30,9 +30,13 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 - **[Tap Capture](./tap-capture.md)** - Records user interactions with your app's interface
 - **[Push Notifications](./push-notifications.md)** - Captures push notification events received by your app
 - **[WebView Monitoring](./webview-monitoring.md)** - Tracks URL loads and errors in `WKWebView` components
-- **[Hang Detection](./hang-detection.md)** - Monitors main thread hangs and UI freezes with stack trace sampling
+- **[Hang Detection](./hang-detection.md)** - Monitors main thread hangs and UI freezes with stack trace sampling (**opt-in**)
 
 Additionally, the SDK monitors system events like low memory warnings and low power mode to help you understand environmental impacts on your app's performance.
+
+:::info
+Hang Detection is the one built-in service that is **not** included in `addDefaults()` or `EmbraceIO.CaptureServicesOptions.default()`. You must register it explicitly. See [Hang Detection](./hang-detection.md) for setup.
+:::
 
 ### How Capture Services Work
 
