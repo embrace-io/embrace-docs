@@ -8,7 +8,7 @@ sidebar_position: 3
 
 ### Prerequisites
 
-- Have an active Elastic account with hosted OTLP ingest available (serverless projects, or hosted cloud on AWS 9.2.x+).
+- Have an active Elastic account with hosted OTLP ingest available (serverless projects, or hosted cloud on AWS 9.2.x+). The integration uses Elastic's OTLP collector setup; the APM server setup is not supported.
 
 ### Configuration
 
