@@ -16,7 +16,7 @@ sidebar_position: 3
 
 1. Log into your Elastic account.
 2. Create an API key with permission to ingest OTel data into your deployment.
-3. Elastic provides the API key in encoded form (a base64 string of `<id>:<key>`). Copy this encoded value to use it on the Embrace dashboard.
+3. Elastic provides the API key in base64 encoded form. Copy this encoded value to use it on the Embrace dashboard.
 
 #### Pulling your Elastic Server URL
 
