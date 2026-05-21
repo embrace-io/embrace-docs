@@ -28,6 +28,8 @@ Each filter table in this page uses the same columns:
 | --- | --- | --- | --- |
 | Completion<br /><code class="filters-table__key">completion</code> | State of the ANR at the time of session exit. | Choice (String) | Choices: `all`, `completed`, `exit` |
 | Duration Bucket (Milliseconds)<br /><code class="filters-table__key">duration</code> | Duration of the ANR, bucketed by milliseconds. | intrange | — |
+| Google Capture Supported<br /><code class="filters-table__key">support_google_capture</code> | Whether Google Capture is supported. | Boolean | — |
+| Has ANR Interval<br /><code class="filters-table__key">has_anr_interval</code> | Whether the session had any ANR interval, regardless of whether it caused the app to exit. Unlike Has ANR Exit, which only captures ANRs that terminated the app, this includes all ANR occurrences. | Boolean | — |
 | Method<br /><code class="filters-table__key">method</code> | Grouped method for the ANR. | String | — |
 | Sample Type<br /><code class="filters-table__key">sample_type</code> | Type of sample (e.g., first, best). | Choice (String) | Choices: `first`, `best`, `ad` |
 
@@ -167,6 +169,7 @@ Each filter table in this page uses the same columns:
 | Aggregated Message<br /><code class="filters-table__key">log_msg</code> | An aggregated form of the log message, with common patterns or high cardinality parts replaced. | String | — |
 | File Attachment Error<br /><code class="filters-table__key">attachment_error</code> | Error encountered when attempting to attach a file. | Choice (String) | Choices: `ATTACHMENT_TOO_LARGE`, `OVER_MAX_ATTACHMENTS`, `UNKNOWN` |
 | Group ID<br /><code class="filters-table__key">log_group_id</code> | Group identifier for the log. | String | — |
+| Has Error Log<br /><code class="filters-table__key">has_error_log</code> | Whether the session contains error logs. | Boolean | — |
 | Has File Attachment<br /><code class="filters-table__key">has_attachment</code> | Whether the log has a file attachment. | Boolean | — |
 | Has Logs<br /><code class="filters-table__key">has_log</code> | Whether the session contains logs. | Choice (String) | Choices: `true` |
 | Log Property Key<br /><code class="filters-table__key">log_property_key</code> | Key of a log property. | String | — |
@@ -262,6 +265,7 @@ Each filter table in this page uses the same columns:
 | Has ANR Exit<br /><code class="filters-table__key">has_anr_exit</code> | True if the app exited while an ANR was occurring. | Boolean | — |
 | Has Cold Start<br /><code class="filters-table__key">is_cold</code> | True if this session is a cold start of the app. | Boolean | — |
 | Has Crash<br /><code class="filters-table__key">has_crash</code> | True if the session had a crash. | Boolean | — |
+| Has Exception<br /><code class="filters-table__key">has_exception</code> | Whether the session contains unhandled exceptions. | Boolean | — |
 | Has Low Memory Warning<br /><code class="filters-table__key">has_low_memory</code> | Whether the session had a low memory warning. | Boolean | — |
 | Has OOM<br /><code class="filters-table__key">has_oom</code> | True if the session had an out-of-memory event. | Boolean | — |
 | Inactive Interval Count<br /><code class="filters-table__key">inactive_interval_count</code> | Number of inactive intervals in the session. | int | — |
