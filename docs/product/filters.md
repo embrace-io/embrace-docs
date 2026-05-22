@@ -28,6 +28,7 @@ Each filter table in this page uses the same columns:
 | --- | --- | --- | --- |
 | Completion<br /><code class="filters-table__key">completion</code> | State of the ANR at the time of session exit. | Choice (String) | Choices: `all`, `completed`, `exit` |
 | Duration Bucket (Milliseconds)<br /><code class="filters-table__key">duration</code> | Duration of the ANR, bucketed by milliseconds. | intrange | — |
+| Google Capture Supported<br /><code class="filters-table__key">support_google_capture</code> | Whether Google Capture is supported. | Boolean | — |
 | Method<br /><code class="filters-table__key">method</code> | Grouped method for the ANR. | String | — |
 | Sample Type<br /><code class="filters-table__key">sample_type</code> | Type of sample (e.g., first, best). | Choice (String) | Choices: `first`, `best`, `ad` |
 
@@ -260,8 +261,11 @@ Each filter table in this page uses the same columns:
 | Breadcrumb Message<br /><code class="filters-table__key">breadcrumb_message</code> | Message content of a breadcrumb. | String | — |
 | Has ANR Exit<br /><code class="filters-table__key">has_anr</code> | True if the app exited while an ANR was occurring. | Boolean | — |
 | Has ANR Exit<br /><code class="filters-table__key">has_anr_exit</code> | True if the app exited while an ANR was occurring. | Boolean | — |
+| Has ANR Intervals<br /><code class="filters-table__key">has_anr_interval</code> | Whether the session had any ANR interval, regardless of whether it caused the app to exit. Unlike Has ANR Exit, which only captures ANRs that terminated the app, this includes all ANR occurrences. | Boolean | — |
 | Has Cold Start<br /><code class="filters-table__key">is_cold</code> | True if this session is a cold start of the app. | Boolean | — |
 | Has Crash<br /><code class="filters-table__key">has_crash</code> | True if the session had a crash. | Boolean | — |
+| Has Error Logs<br /><code class="filters-table__key">has_error_log</code> | Whether the session contains error logs. | Boolean | — |
+| Has Exception<br /><code class="filters-table__key">has_exception</code> | Whether the session contains unhandled exceptions. | Boolean | — |
 | Has Low Memory Warning<br /><code class="filters-table__key">has_low_memory</code> | Whether the session had a low memory warning. | Boolean | — |
 | Has OOM<br /><code class="filters-table__key">has_oom</code> | True if the session had an out-of-memory event. | Boolean | — |
 | Inactive Interval Count<br /><code class="filters-table__key">inactive_interval_count</code> | Number of inactive intervals in the session. | int | — |
