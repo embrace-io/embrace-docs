@@ -7,7 +7,7 @@ sidebar_position: 3
 ## Server Timing
 
 The Embrace SDK automatically reads backend performance metrics sent by your server via the
-[`Server-Timing`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing) HTTP
+[`Server-Timing`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Server-Timing) HTTP
 response header on the navigation request. This gives you visibility into server-side latency
 contributors — database queries, cache lookups, CDN processing — alongside your frontend telemetry.
 
