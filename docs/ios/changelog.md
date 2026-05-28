@@ -6,6 +6,17 @@ sidebar_position: 6
 
 ## Changelog
 
+### 6.20.0
+
+*May 28, 2026*
+
+- Features
+  - Implemented a new way to handle Traceparent injection with more granular control.
+- Fixes
+  - Addressed an issue where the main thread might get unnecessarily blocked during session deletion.
+  - Fixed WatchOS compile errors related to the new HangCaptureService.
+  - Fixed a potential race condition during upload operations being cancelled and completed at the same time.
+
 ### 6.19.0
 
 *May 11, 2026*
