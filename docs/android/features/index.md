@@ -15,6 +15,7 @@ how your application is performing in production.
 - [**Know your users.**](/android/features/identify-users.md) Add your own custom identifiers to users and sessions to make sure you can aggregate and find sessions correctly.
 - [**Session properties.**](/android/features/session-properties.md) Session properties provide a way to annotate the session with additional information.
 - [**Background sessions.**](/android/features/background-sessions.md) Embrace can track sessions that occur in the background.
+- [**Navigation.**](/android/features/navigation.md) Track user navigation in the app automatically and manually.
 - [**Push notifications.**](/android/features/push-notifications.md) Embrace automatically captures push notifications received. Learn how to configure this feature.
 - [**Current session ID API.**](/android/features/current-session-id-api.md) This API lets you know what the current session ID is in case you need to track it separately.
 - [**Last run end state.**](/android/features/last-run-end-state.md) Understand if your last app instance ended in a crash.
