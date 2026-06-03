@@ -149,4 +149,4 @@ To get the most out of automatic instrumentation:
 
 ### Next Steps
 
-Explore each capture service in detail to understand its capabilities and configuration options:  
+Explore each capture service in detail to understand its capabilities and configuration options:

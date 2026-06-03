@@ -446,7 +446,7 @@ span.end()
 
 Available span types include:
 
-- `.performance` - For performance monitoring *(default if not specified)*
+- `.performance` - For performance monitoring _(default if not specified)_
 - `.ux` - For user experience tracking
 - `.system` - For system-level operations
 

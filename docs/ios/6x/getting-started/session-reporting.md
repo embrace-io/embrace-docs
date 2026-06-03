@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Understanding Sessions
 
-Once Embrace is configured and started in your app, it automatically starts capturing user sessions.  
+Once Embrace is configured and started in your app, it automatically starts capturing user sessions.
 
 A session is any length of user experience that occurs while the app is in the foreground or background. Note that foreground sessions and background sessions behave differently, and are recorded separately. This means that, for example, opening a push notification from your app will end a foreground session and start a background session.
 

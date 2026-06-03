@@ -85,7 +85,7 @@ Installing through CocoaPods is straightforward. Add the main pod to your Podfil
 
 ```ruby
 pod 'EmbraceIO', '~> 6.9.1'
-``` 
+```
 
 By default, this command installs all the necessary components to use the SDK.
 
@@ -102,7 +102,7 @@ pod 'EmbraceIO/EmbraceCrashlyticsSupport'
 
 ### Known Issues
 
-- **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/).  
+- **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/).
 
 We have forked the Datadog SDK and created a version that can integrate better with other frameworks. It can be found in [our public repository](https://github.com/embrace-io/dd-sdk-ios).
 

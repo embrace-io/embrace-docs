@@ -48,16 +48,16 @@ The SDK supports multiple exporters for sending telemetry data to different dest
 
 Embrace maps its core observability concepts to OpenTelemetry signals:
 
-| Embrace concept | OTel Representation |
-| ------------ | ---------- |
-| Session | Span |
-| Embrace logs | Log |
-| View Breadcrumb | Span |
-| Custom Breadcrumb | Span event |
-| Crash | Log |
-| Exception | Log |
-| Network request | Span + Span attributes |
-| Low memory warning | Span event |
+| Embrace concept    | OTel Representation    |
+| ------------------ | ---------------------- |
+| Session            | Span                   |
+| Embrace logs       | Log                    |
+| View Breadcrumb    | Span                   |
+| Custom Breadcrumb  | Span event             |
+| Crash              | Log                    |
+| Exception          | Log                    |
+| Network request    | Span + Span attributes |
+| Low memory warning | Span event             |
 
 ### Session Implementation Example
 

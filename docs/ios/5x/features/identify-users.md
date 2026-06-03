@@ -14,7 +14,7 @@ You will also want to be able to answer questions about a session to help you un
 Embrace offers two mechanisms for annotating sessions in a searchable way:
 
 - [**User Personas**](/ios/5x/features/identify-users#user-personas). This is data you can set and update about the user of a session.
-- [**Session Properties**](/ios/5x/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.  
+- [**Session Properties**](/ios/5x/features/identify-users#session-properties). This is data you use to track information about the device or the session itself.
 
 These mechanisms annotate the session so that you can subsequently filter and sort on this data.
 

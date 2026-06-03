@@ -91,7 +91,7 @@ Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions)
 :::info
 If you have a **React Native project** you have to add the framework
 
-``` React Native
+```React Native
 Embrace.sharedInstance().start(withKey: "API_KEY", launchOptions: launchOptions, framework:.reactNative);
 ```
 
@@ -114,7 +114,7 @@ Alternatively, if you do not want to keep your API_KEY in the plist file you can
 :::info
 If you have a **React Native project** you have to add the framework
 
-``` React Native
+```React Native
 [[Embrace sharedInstance] startWithKey:@"API_KEY" launchOptions:launchOptions framework:EMBAppFrameworkReactNative];
 ```
 
