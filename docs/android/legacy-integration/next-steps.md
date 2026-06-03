@@ -8,7 +8,7 @@ sidebar_position: 8
 
 ### Wrapping Up
 
-Congratulations on completing the Android integration guide!  
+Congratulations on completing the Android integration guide!
 
 If you found anything confusing or have suggestions on improving the docs,
 please don't hesitate to reach out to us at [support@embrace.io](mailto:support@embrace.io) or on Slack.

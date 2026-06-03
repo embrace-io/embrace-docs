@@ -46,7 +46,7 @@ Note: Be mindful of when these customization methods are invoked. They will only
 
 If you want something other than an Activity rendering to end a startup trace, you can configure the SDK so that it waits for the app to manually end it.
 
-To do that, first set the configuration property `end_startup_with_app_ready` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`. Then, in your app code, call the method `appReady()` when you wish to signal that app startup has ended successfully.  
+To do that, first set the configuration property `end_startup_with_app_ready` in `embrace-config.json` in the section `sdk_config.automatic_data_capture` to `true`. Then, in your app code, call the method `appReady()` when you wish to signal that app startup has ended successfully.
 
 :::tip Synchronize with Android metrics
 If you want to synchronize the app startup traces with the `Time to Full Display` metric provided by Android, see [this section](#mapping-to-android-startup-metrics).
@@ -160,7 +160,7 @@ class SampleApplication(private val nativeLibName: String) : Application() {
                 events = listOf(),
                 errorCode = ErrorCode.FAILURE
             )
-        }    
+        }
         Embrace.applicationInitEnd()
     }
 }

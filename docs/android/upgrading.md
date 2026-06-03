@@ -61,7 +61,7 @@ If you wish to do the upgrade using step-by-step instructions that will work for
 The Embrace Android SDK supports the following minimum versions of dependent technologies at build and run time:
 
 | Technology                       | Old minimum version | New minimum version |
-|----------------------------------|---------------------|---------------------|
+| -------------------------------- | ------------------- | ------------------- |
 | JDK (Build-time)                 | 11                  | 17                  |
 | Kotlin (Run-time and build-time) | 1.8.22              | 2.0.21              |
 | Gradle (minSdk 26+)              | 7.5.1               | 8.0.2               |
@@ -75,7 +75,7 @@ Gradle 8.4 and AGP 8.3.0 to workaround a desugaring issue.
 The Embrace Android SDK is compiled using the following language compatibility targets:
 
 | Technology                | Old target | New target |
-|---------------------------|------------|------------|
+| ------------------------- | ---------- | ---------- |
 | Java                      | 1.8        | 11         |
 | Kotlin (Language and API) | 1.8        | 2.0        |
 
@@ -84,7 +84,7 @@ The Embrace Android SDK is compiled using the following language compatibility t
 The Embrace Gradle Plugin artifact and plugin ID have been renamed:
 
 | Type        | Old name                      | New name                           |
-|-------------|-------------------------------|------------------------------------|
+| ----------- | ----------------------------- | ---------------------------------- |
 | Artifact ID | `io.embrace:embrace-swazzler` | `io.embrace:embrace-gradle-plugin` |
 | Plugin ID   | `io.embrace.swazzler`         | `io.embrace.gradle`                |
 
@@ -186,23 +186,23 @@ get in touch if you do have a use-case that is no longer met.
 
 ##### Embrace Android SDK removed APIs
 
-| Old API                                                                 | New API                                                                                                |
-|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)` and supply `sdk_config.app_framework` with 'flutter', 'react_native', or 'unity'                                                                               |
-| `Embrace.getInstance().addLogRecordExporter(LogRecordExporter)`         | Type changed to `opentelemetry-kotlin` API. Alternative available in `embrace-android-otel-java` module. |
-| `Embrace.getInstance().addSpanExporter(SpanExporter)`                   | Type changed to `opentelemetry-kotlin` API. Alternative available in `embrace-android-otel-java` module. |
-| `Embrace.getInstance().getOpenTelemetry()`                              | `Embrace.getOpenTelemetryKotlin()` or `Embrace.getJavaOpenTelemetry()`                                 |
-| `Embrace.getInstance().setResourceAttribute(AttributeKey, String)`      | `Embrace.setResourceAttribute(String, String)`                                                         |
-| `EmbraceSpan.addLink(SpanContext)`                                      | Type changed to symbol declared in embrace-android-sdk.                                                |
-| `EmbraceSpan.addLink(SpanContext, Map)`                                 | Type changed to symbol declared in embrace-android-sdk.                                                |
-| `EmbraceSpan.getSpanContext()`                                          | Type changed to symbol declared in embrace-android-sdk.                                                |
-| `Embrace.getInstance().trackWebViewPerformance(String, ConsoleMessage)` | Obsolete - no alternative provided.                                                                    |
-| `Embrace.getInstance().trackWebViewPerformance(String, String)`         | Obsolete - no alternative provided.                                                                    |
-| `AppFramework`                                                          | Obsolete - no alternative provided.                                                                    |
-| `StartupActivity`                                                       | Obsolete - no alternative provided.                                                                    |
-| `Embrace.getInstance().registerComposeActivityListener()`               | Obsolete - no alternative provided.                                                                    |
-| `Embrace.getInstance().unregisterComposeActivityListener()`             | Obsolete - no alternative provided.                                                                    |
-| `Embrace.getInstance().logWebView(String)`                              | Obsolete - no alternative provided.                                                                    |
+| Old API                                                                 | New API                                                                                                   |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `Embrace.getInstance().start(Context, AppFramework)`                    | `Embrace.start(Context)` and supply `sdk_config.app_framework` with 'flutter', 'react_native', or 'unity' |
+| `Embrace.getInstance().addLogRecordExporter(LogRecordExporter)`         | Type changed to `opentelemetry-kotlin` API. Alternative available in `embrace-android-otel-java` module.  |
+| `Embrace.getInstance().addSpanExporter(SpanExporter)`                   | Type changed to `opentelemetry-kotlin` API. Alternative available in `embrace-android-otel-java` module.  |
+| `Embrace.getInstance().getOpenTelemetry()`                              | `Embrace.getOpenTelemetryKotlin()` or `Embrace.getJavaOpenTelemetry()`                                    |
+| `Embrace.getInstance().setResourceAttribute(AttributeKey, String)`      | `Embrace.setResourceAttribute(String, String)`                                                            |
+| `EmbraceSpan.addLink(SpanContext)`                                      | Type changed to symbol declared in embrace-android-sdk.                                                   |
+| `EmbraceSpan.addLink(SpanContext, Map)`                                 | Type changed to symbol declared in embrace-android-sdk.                                                   |
+| `EmbraceSpan.getSpanContext()`                                          | Type changed to symbol declared in embrace-android-sdk.                                                   |
+| `Embrace.getInstance().trackWebViewPerformance(String, ConsoleMessage)` | Obsolete - no alternative provided.                                                                       |
+| `Embrace.getInstance().trackWebViewPerformance(String, String)`         | Obsolete - no alternative provided.                                                                       |
+| `AppFramework`                                                          | Obsolete - no alternative provided.                                                                       |
+| `StartupActivity`                                                       | Obsolete - no alternative provided.                                                                       |
+| `Embrace.getInstance().registerComposeActivityListener()`               | Obsolete - no alternative provided.                                                                       |
+| `Embrace.getInstance().unregisterComposeActivityListener()`             | Obsolete - no alternative provided.                                                                       |
+| `Embrace.getInstance().logWebView(String)`                              | Obsolete - no alternative provided.                                                                       |
 
 ##### New Embrace Gradle plugin DSL
 
@@ -210,7 +210,7 @@ The Embrace Gradle Plugin previously had a DSL via the `swazzler` extension. Thi
 extension.
 
 | Old API                                               | New API                                                                 |
-|-------------------------------------------------------|-------------------------------------------------------------------------|
+| ----------------------------------------------------- | ----------------------------------------------------------------------- |
 | `swazzler.disableDependencyInjection`                 | `embrace.autoAddEmbraceDependencies`                                    |
 | `swazzler.disableComposeDependencyInjection`          | `embrace.autoAddEmbraceComposeClickDependency`                          |
 | `swazzler.instrumentOkHttp`                           | `embrace.bytecodeInstrumentation.okhttpEnabled`                         |
@@ -240,7 +240,7 @@ The following functions had overloads manually defined. These have been replaced
 that uses Kotlin's default parameter values. Some parameters that used to be null now require non-null arguments.
 
 | Altered APIs                                  |
-|-----------------------------------------------|
+| --------------------------------------------- |
 | `Embrace.getInstance().logCustomStacktrace()` |
 | `Embrace.getInstance().logException()`        |
 | `Embrace.getInstance().logMessage()`          |
@@ -302,6 +302,7 @@ Below is a list of everything that has changed and how to address it in your cod
 - Replace usage of any deprecated methods (see table below).
 - Remove references to internal symbols that were previously exposed.
 - Use **OkHttp 4.0.0** or later (though 3.13.0+ is supported, it’s not recommended).
+
 :::
 
 ### Moments have been superseded by traces
@@ -353,32 +354,32 @@ swazzler {
 
 Version 6.0.0 of the Embrace Android SDK removed some methods that had been deprecated in 5.x. The renamed methods were removed to reduce confusion and increase consistency across the Embrace SDKs on various platforms, and their replacements behave the same way as the old ones. The methods removed entirely are for functionality that we no longer support. If you were using them for a specific use-case, please speak to us about how you can use the existing APIs instead.
 
-| Old API                                               | New API                                                             | Comments                                                              |
-|-------------------------------------------------------|---------------------------------------------------------------------|:----------------------------------------------------------------------|
-| `Embrace.getInstance().startFragment(String)`         | `Embrace.getInstance().startView(String)`                           | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().endFragment(String)`           | `Embrace.getInstance().endView(String)`                             | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().setUserPersona(String)`        | `Embrace.getInstance().addUserPersona(String)`                      | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().logBreadcrumb(String)`         | `Embrace.getInstance().addBreadcrumb(String)`                       | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().startEvent()`                  | `Embrace.getInstance().startMoment(String)`                         | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().endEvent()`                    | `Embrace.getInstance().endMoment(String)`                           | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().logInfo(String, ...)`          | `Embrace.getInstance().logMessage(...)`                             | Altered function signature to standardise behavior. logInfo(String) without extra parameters is still a valid API.                   |
-| `Embrace.getInstance().logWarning(String, ...)`       | `Embrace.getInstance().logMessage(...)`                             | Altered function signature to standardise behavior. logWarning(String) without extra parameters is still a valid API.                  |
-| `Embrace.getInstance().logError(String, ...)`         | `Embrace.getInstance().logMessage(...)`                             | Altered function signature to standardise behavior. logError(String) without extra parameters is still a valid API.                  |
-| `Embrace.getInstance().logError(Throwable)`           | `Embrace.getInstance().logException()`                              | Altered function signature to standardise behavior.                   |
-| `Embrace.getInstance().logError(StacktraceElement[])` | `Embrace.getInstance().logCustomStacktrace()`                       | Altered function signature to standardise behavior.                   |
-| `EmbraceLogger`                                       | `Embrace.getInstance().logMessage()`                                | Moved function calls to main Embrace interface.                       |
-| `LogType`                                             | `Severity`                                                          | Use Severity enum rather than LogType.                                |
-| `PurchaseFlow`                                        | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
-| `RegistrationFlow`                                    | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
-| `SubscriptionFlow`                                    | None                                                                | Please contact Embrace if you have a use-case for this functionality. |
-| `Embrace.getInstance().logNetworkCall()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))` | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().logNetworkRequest()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))` | Renamed function to better describe functionality.                    |
-| `Embrace.getInstance().logNetworkClientError()`       | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromIncompleteRequest(...))` | Renamed function to better describe functionality.                    |
+| Old API                                               | New API                                                                                        | Comments                                                                                                              |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+| `Embrace.getInstance().startFragment(String)`         | `Embrace.getInstance().startView(String)`                                                      | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().endFragment(String)`           | `Embrace.getInstance().endView(String)`                                                        | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().setUserPersona(String)`        | `Embrace.getInstance().addUserPersona(String)`                                                 | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().logBreadcrumb(String)`         | `Embrace.getInstance().addBreadcrumb(String)`                                                  | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().startEvent()`                  | `Embrace.getInstance().startMoment(String)`                                                    | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().endEvent()`                    | `Embrace.getInstance().endMoment(String)`                                                      | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().logInfo(String, ...)`          | `Embrace.getInstance().logMessage(...)`                                                        | Altered function signature to standardise behavior. logInfo(String) without extra parameters is still a valid API.    |
+| `Embrace.getInstance().logWarning(String, ...)`       | `Embrace.getInstance().logMessage(...)`                                                        | Altered function signature to standardise behavior. logWarning(String) without extra parameters is still a valid API. |
+| `Embrace.getInstance().logError(String, ...)`         | `Embrace.getInstance().logMessage(...)`                                                        | Altered function signature to standardise behavior. logError(String) without extra parameters is still a valid API.   |
+| `Embrace.getInstance().logError(Throwable)`           | `Embrace.getInstance().logException()`                                                         | Altered function signature to standardise behavior.                                                                   |
+| `Embrace.getInstance().logError(StacktraceElement[])` | `Embrace.getInstance().logCustomStacktrace()`                                                  | Altered function signature to standardise behavior.                                                                   |
+| `EmbraceLogger`                                       | `Embrace.getInstance().logMessage()`                                                           | Moved function calls to main Embrace interface.                                                                       |
+| `LogType`                                             | `Severity`                                                                                     | Use Severity enum rather than LogType.                                                                                |
+| `PurchaseFlow`                                        | None                                                                                           | Please contact Embrace if you have a use-case for this functionality.                                                 |
+| `RegistrationFlow`                                    | None                                                                                           | Please contact Embrace if you have a use-case for this functionality.                                                 |
+| `SubscriptionFlow`                                    | None                                                                                           | Please contact Embrace if you have a use-case for this functionality.                                                 |
+| `Embrace.getInstance().logNetworkCall()`              | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))`  | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().logNetworkRequest()`           | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromCompletedRequest(...))`  | Renamed function to better describe functionality.                                                                    |
+| `Embrace.getInstance().logNetworkClientError()`       | `Embrace.getInstance().recordNetworkRequest(EmbraceNetworkRequest.fromIncompleteRequest(...))` | Renamed function to better describe functionality.                                                                    |
 
 #### Previously deprecated APIs that have been removed
 
 | Old API                                     | Comments                                                 |
-|---------------------------------------------|----------------------------------------------------------|
+| ------------------------------------------- | -------------------------------------------------------- |
 | `ConnectionQuality`                         | Deprecated API that is no longer supported.              |
 | `ConnectionQualityListener`                 | Deprecated API that is no longer supported.              |
 | `Embrace.enableStartupTracing()`            | Deprecated API that is no longer supported.              |

@@ -14,11 +14,11 @@ The Embrace Android SDK is built to evolve with the Android ecosystem while main
 For versions **8.0.0 and newer**, the Embrace Android SDK requires the following minimum tool and platform versions:
 
 | **Technology**                  | **Minimum Version** |
-|---------------------------------|---------------------|
+| ------------------------------- | ------------------- |
 | **Kotlin**                      | 2.0.21              |
 | **Gradle**                      | 8.0.2               |
 | **Android Gradle Plugin (AGP)** | 8.0.2               |
-| **minSdk**                      | 26 *                |
+| **minSdk**                      | 26 \*               |
 | **minCompileSdk**               | 34                  |
 | **Build JDK version**           | 17                  |
 | **sourceCompatibility**         | 11                  |

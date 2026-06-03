@@ -32,11 +32,12 @@ If your version of Unity does not come with supported versions of Gradle and AGP
 
 ### External Dependency Manager - Android Resolver
 
-:::info Notes on minimum versions**
+:::info Notes on minimum versions\*\*
 To use the External Dependency Manager you must be using:
 
 - At least version `1.0.13` of the Unity SDK
 - At least version `4.7.0` of the Android Swazzler Plugin
+
 :::
 
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.
@@ -83,7 +84,7 @@ Embrace needs the following templates present in your project:
     }
 ```
 
-   Example:
+Example:
 
 ```groovy
     buildscript {
@@ -107,9 +108,9 @@ Embrace needs the following templates present in your project:
     }
 ```
 
-   Under `settingsTemplate.gradle` file, ensure that the `mavenCentral()` repositories exists.
+Under `settingsTemplate.gradle` file, ensure that the `mavenCentral()` repositories exists.
 
-   Example:
+Example:
 
 ```groovy
     pluginManagement {
@@ -139,14 +140,16 @@ Embrace needs the following templates present in your project:
 
 6. In `launcherTemplate.gradle`, add the `embrace-swazzler` plugin.
 
-   ```gradle
+   ````gradle
    apply plugin: 'embrace-swazzler'
 
    ```text
 
+   ````
+
 7. In `gradleTemplate.properties`, add the following if not present:
 
-   ```gradle
+   ````gradle
    android.useAndroidX=true
    android.enableJetifier=true
 
@@ -157,3 +160,4 @@ Embrace needs the following templates present in your project:
    <img src={require('@site/static/images/unity-android-build-settings.png').default} />
 
    Now that you've configured the Android platform, it's time to login to the Embrace dashboard.
+   ````

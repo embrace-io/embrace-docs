@@ -124,7 +124,7 @@ Embrace.getInstance().addLogRecordExporter(SystemOutLogRecordExporter.create())
 Embrace.getInstance().addLogRecordExporter(customDockerLogRecordExporter)
 Embrace.getInstance().addLogRecordExporter(grafanaCloudLogRecordExporter)
 
-Embrace.getInstance().start(this)        
+Embrace.getInstance().start(this)
 ```
 
 ### Best Practices
