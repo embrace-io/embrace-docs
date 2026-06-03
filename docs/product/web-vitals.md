@@ -63,7 +63,7 @@ The stacked column chart shows how the split of Good, Needs Improvement and Poor
 
 <img src={require('@site/static/images/web-vitals/lcp-distribution-over-time.png').default} alt="Screenshot of stacked column chart showing the rating for LCP over time" />
 
-At the bottom of the dashboard is a table showing examples of LCP measurements. Clicking on a row takes you to the [User Timeline](https://embrace.io/docs/product/sessions/user-timeline/) for the chosen example.
+At the bottom of the dashboard is a table showing examples of LCP measurements. Clicking on a row takes you to the [User Timeline](/product/sessions/user-timeline/) for the chosen example.
 
 <img src={require('@site/static/images/web-vitals/lcp-examples.png').default} alt="Screenshot of table showing examples of the LCP measurements " />
 
