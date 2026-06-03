@@ -76,10 +76,10 @@ If you have more than one navigation instance, you can pass a second parameter t
 :::
 
 ```javascript
-import {Navigation} from 'react-native-navigation';
+import { Navigation } from 'react-native-navigation';
 
 // Start - Add those lines
-import EmbraceNavigationTracker from '@embrace-io/react-native-navigation'; 
+import EmbraceNavigationTracker from '@embrace-io/react-native-navigation';
 EmbraceNavigationTracker.build(Navigation);
 // End - Add those lines
 
@@ -169,9 +169,9 @@ call to initialize the SDK:
 initialize({
   sdkConfig: {
     ios: {
-      appId: "YOUR-APP-ID",
+      appId: 'YOUR-APP-ID',
       disableAutomaticViewCapture: true,
-    }
-  }
-})
+    },
+  },
+});
 ```

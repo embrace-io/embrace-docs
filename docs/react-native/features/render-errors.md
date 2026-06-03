@@ -13,7 +13,7 @@ resulting log will have a stack trace similar to:
  * in RCTView
  * in Screen1
  * in AppContainer
- ```
+```
 
 In release builds you may see some "Unknown" entries for view names that could not be retrieved:
 
@@ -30,7 +30,7 @@ Making sure components have their `displayName` should help, in addition it is p
 to include the following:
 
 ```javascript
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
 const config = {
   transformer: {

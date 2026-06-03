@@ -11,6 +11,7 @@ description: Upgrade guide for Embrace React Native SDK versions
 :::info Summary
 
 - `react-native-flipper` is no longer supported for iOS builds.
+
 :::
 
 Upgrade to version `6.3.0` of the Embrace React Native SDK packages by either updating the versions manually in your package.json and running `yarn install` or `npm install`, or by removing the existing packages and reinstalling them.
@@ -40,9 +41,11 @@ Disable the package for the iOS platform by updating your `react-native.config.j
 ```js
 module.exports = {
   dependencies: {
-    ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {})
-  }
-}
+    ...(process.env.NO_FLIPPER
+      ? { 'react-native-flipper': { platforms: { ios: null } } }
+      : {}),
+  },
+};
 ```
 
 #### Update your Embrace symbol upload build phase
@@ -71,6 +74,7 @@ That’s it! Your application should now build successfully.
 :::info Summary
 
 - Kotlin 2.x or higher is required when using `react-native-otlp`.
+
 :::
 
 This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package.
@@ -98,6 +102,7 @@ Note that this may require an upgrade to Java 17.
 - Initialization and configuration of the SDK on Android has been updated
 - Automatic support for CodePush has been removed
 - Unhandled promise rejection tracking is now opt-in
+
 :::
 
 Upgrade to the latest 6.x versions of the Embrace React Native SDK packages by either bumping to the latest version
@@ -218,7 +223,8 @@ to ensure that sourcemaps are uploaded correctly.
 - Native side initialization of the Embrace SDK has been rewritten in Swift
 - Minimum versions for iOS deployment have been bumped ([details here](/react-native/integration/#ios))
 - Minimum versions for Android Kotlin and AGP have been bumped ([details here](/react-native/integration/#android))
-  :::
+
+:::
 
 Upgrade to the latest 5.x versions of the Embrace React Native SDK packages by either bumping to the latest version
 manually in your package.json and running `yarn install` or `npm install` Or remove the existing packages entirely and

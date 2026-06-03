@@ -17,10 +17,10 @@ Desugaring is required to support Android API levels < 26. To enable, the follow
 
 ```text
 android {
-   ...  
+   ...
     compileOptions {
         ...
-        coreLibraryDesugaringEnabled true   
+        coreLibraryDesugaringEnabled true
     }
 }
 

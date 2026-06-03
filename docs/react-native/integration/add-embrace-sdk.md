@@ -135,9 +135,11 @@ Finally, KSCrash and `react-native-flipper` are NOT compatible. For React Native
 ```js
 module.exports = {
   dependencies: {
-    ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {})
-  }
-}
+    ...(process.env.NO_FLIPPER
+      ? { 'react-native-flipper': { platforms: { ios: null } } }
+      : {}),
+  },
+};
 ```
 
 #### Manual Setup - Android
@@ -189,6 +191,7 @@ You'll need to set the following permissions so the Embrace SDK can send events 
 
 - `android.permission.INTERNET`
 - `android.permission.ACCESS_NETWORK_STATE`
+
 :::
 
 ---

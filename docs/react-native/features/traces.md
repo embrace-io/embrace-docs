@@ -85,12 +85,12 @@ cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
 Spans are created from a Tracer which you can get from the `useEmbraceNativeTracerProvider` hook:
 
 ```javascript
-import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
-import {useEmbrace} from "@embrace-io/react-native";
+import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
+import { useEmbrace } from '@embrace-io/react-native';
 
-const {isPending, isStarted} = useEmbrace({
+const { isPending, isStarted } = useEmbrace({
   ios: {
-    appId: "__APP_ID__",
+    appId: '__APP_ID__',
   },
 });
 
@@ -102,11 +102,11 @@ if (isPending) {
   );
 } else {
   if (!isStarted) {
-    console.log("An error occurred during Embrace initialization");
+    console.log('An error occurred during Embrace initialization');
   }
 }
 
-const {tracer} = useEmbraceNativeTracerProvider({}, isStarted);
+const { tracer } = useEmbraceNativeTracerProvider({}, isStarted);
 ```
 
 See the [package README](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages/react-native-tracer-provider)
@@ -115,7 +115,7 @@ for more details.
 #### Create and end a span
 
 ```javascript
-const span = tracer.startSpan("span-name");
+const span = tracer.startSpan('span-name');
 
 someAsyncOperation().then(() => span.end());
 ```
@@ -123,7 +123,7 @@ someAsyncOperation().then(() => span.end());
 #### Create a span that started in the past
 
 ```javascript
-const span = tracer.startSpan("span-name", {
+const span = tracer.startSpan('span-name', {
   startTime: new Date().getTime(),
 });
 ```
@@ -132,23 +132,23 @@ const span = tracer.startSpan("span-name", {
 
 ```javascript
 // Add an attribute on create
-const span = tracer.startSpan("span-name", {
+const span = tracer.startSpan('span-name', {
   attributes: {
-    "my-attr-on-create": "hello",
+    'my-attr-on-create': 'hello',
   },
 });
 
 // Add an attribute later on
-span.setAttribute("my-other-attr", "bye");
+span.setAttribute('my-other-attr', 'bye');
 ```
 
 #### Add an event to a span
 
 ```javascript
-const span = tracer.startSpan("span-name");
+const span = tracer.startSpan('span-name');
 
-span.addEvent("my-event", {
-  "some-event-attr": "event-attr-value",
+span.addEvent('my-event', {
+  'some-event-attr': 'event-attr-value',
 });
 ```
 
@@ -161,7 +161,7 @@ span.end(new Date().getTime());
 #### Stop a span for an operation that failed
 
 ```javascript
-import {endAsFailed} from "@embrace-io/react-native-tracer-provider";
+import { endAsFailed } from '@embrace-io/react-native-tracer-provider';
 
 endAsFailed(span);
 ```
@@ -169,10 +169,10 @@ endAsFailed(span);
 #### Set a parent-child span relationship
 
 ```javascript
-import {asParent} from "@embrace-io/react-native-tracer-provider";
+import { asParent } from '@embrace-io/react-native-tracer-provider';
 
-const parentSpan = tracer.startSpan("the-parent");
-const childSpan = tracer.startSpan("the-child", {}, asParent(parentSpan));
+const parentSpan = tracer.startSpan('the-parent');
+const childSpan = tracer.startSpan('the-child', {}, asParent(parentSpan));
 
 childSpan.end();
 parentSpan.end();
@@ -184,18 +184,18 @@ If an operation you wish to track has already completed you can use the `recordC
 start and stop a span in a single call passing along all the relevant options for the span:
 
 ```javascript
-import {recordCompletedSpan} from "@embrace-io/react-native-tracer-provider";
+import { recordCompletedSpan } from '@embrace-io/react-native-tracer-provider';
 
-recordCompletedSpan(tracer, "my-completed-span", {
+recordCompletedSpan(tracer, 'my-completed-span', {
   startTime: previouslyStartedTime,
   endTime: previouslyEndedTime,
   attributes: {
-    "my-attr": "foo",
+    'my-attr': 'foo',
   },
   events: [
     {
-      name: "completed-span-event",
-      attributes: {"event-attr": "bar"},
+      name: 'completed-span-event',
+      attributes: { 'event-attr': 'bar' },
       timeStamp: spanEventTime,
     },
   ],

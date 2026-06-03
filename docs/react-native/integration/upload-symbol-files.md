@@ -8,7 +8,7 @@ sidebar_position: 4
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
-For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.  
+For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.
 
 ### Uploading native and JavaScript symbol files
 
@@ -112,9 +112,9 @@ If you need to perform these step from the CI you can take a look at the [Upload
 Next you must tell the Embrace SDK the location where it can find the downloaded bundle on the device when there are updates:
 
 ```javascript
-import {setJavaScriptBundlePath} from '@embrace-io/react-native';
+import { setJavaScriptBundlePath } from '@embrace-io/react-native';
 
-setJavaScriptBundlePath(pathToBundle)
+setJavaScriptBundlePath(pathToBundle);
 ```
 
 ---

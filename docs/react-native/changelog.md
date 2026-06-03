@@ -102,7 +102,7 @@ for more details.
 _May 29, 2025_
 
 - Added an [Expo Config Plugin](/react-native/integration/add-embrace-sdk#expo-config-plugin) for automating native
-setup on Expo projects
+  setup on Expo projects
 
 ### 6.0.2
 
@@ -136,7 +136,7 @@ _February 03, 2025_
 _January 06, 2025_
 
 - Published new `@embrace-io/react-native-otlp` package that allows sending data to a Backend of preference (besides Embrace) following the OTLP-http protocols.
-- `@embrace-io/react-native` now supports [Network Span Forwarding](/react-native/features/network-spans-forwarding.md)  
+- `@embrace-io/react-native` now supports [Network Span Forwarding](/react-native/features/network-spans-forwarding.md)
 - Updated iOS native Embrace SDK dependency to [version 6.6.0](/ios/changelog/#660)
 
 ### 5.1.0
@@ -241,7 +241,7 @@ _January 25, 2024_
 
 - [The React Native SDK is now open source! Check it out and let us know what you think!](https://github.com/embrace-io/embrace-react-native-sdk)
 - Before updating please make sure you review the [upgrade guide](/react-native/upgrading/)
-  - Please note we've changed the package so you will need to re-install the Embrace SDK - [see details here](/react-native/integration/add-embrace-sdk/)  
+  - Please note we've changed the package so you will need to re-install the Embrace SDK - [see details here](/react-native/integration/add-embrace-sdk/)
 - Updated Android native Embrace SDK dependency to 6.2.1.
 - Updated iOS native Embrace SDK dependency to 5.24.3.
 
@@ -436,7 +436,7 @@ _February 12, 2021_
 
 _December 17, 2020_
 
-- Update function signatures to use typed object instead of Map for properties.  
+- Update function signatures to use typed object instead of Map for properties.
 
 ### 3.6.2
 

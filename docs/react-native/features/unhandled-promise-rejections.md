@@ -10,8 +10,8 @@ that wasn't handled. This does add overhead to the use of Promises in your app s
 turned on using the `trackUnhandledRejections` flag:
 
 ```typescript
-const {isStarted} = useEmbrace({
-  ios: {appId: "__APP_ID__"},
+const { isStarted } = useEmbrace({
+  ios: { appId: '__APP_ID__' },
   trackUnhandledRejections: true,
 });
 ```

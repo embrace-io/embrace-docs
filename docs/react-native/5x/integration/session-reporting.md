@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="ios" label="Component">
 
 ```javascript
-import {initialize} from "@embrace-io/react-native";
+import { initialize } from '@embrace-io/react-native';
 
 export default class App extends Component {
   componentDidMount() {
@@ -37,10 +37,10 @@ export default class App extends Component {
     initialize({
       sdkConfig: {
         ios: {
-          appId: "abcdf",
+          appId: 'abcdf',
         },
       },
-    }).then(hasStarted => {
+    }).then((hasStarted) => {
       if (hasStarted) {
         //doSomething
       }

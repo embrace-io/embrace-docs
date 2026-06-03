@@ -37,14 +37,14 @@ to sending to Embrace or optionally bypassing us entirely.
 
 #### Events mapped to OTel signals
 
-| Embrace tracking   | OTel Representation    |
-|--------------------|------------------------|
-| Session            | Span                   |
-| Embrace logs       | Log                    |
-| View               | Span                   |
-| Navigation         | Span                   |
-| Redux Actions      | Span                   |
-| Breadcrumb         | Span event             |
-| Crash              | Log                    |
-| Exception          | Log                    |
-| Network request    | Span + Span attributes |
+| Embrace tracking | OTel Representation    |
+| ---------------- | ---------------------- |
+| Session          | Span                   |
+| Embrace logs     | Log                    |
+| View             | Span                   |
+| Navigation       | Span                   |
+| Redux Actions    | Span                   |
+| Breadcrumb       | Span event             |
+| Crash            | Log                    |
+| Exception        | Log                    |
+| Network request  | Span + Span attributes |

@@ -18,14 +18,14 @@ In order to use this feature, you will need to follow two steps:
 2. Implement the API call to obtain the current Device ID.
 
 ```javascript
-import {getDeviceId} from '@embrace-io/react-native';
+import { getDeviceId } from '@embrace-io/react-native';
 
-const myMethod = () =>{
-    getDeviceId().then(deviceId=>{
-        console.log("Embrace Device Id", deviceId)
-    })
-}
-```  
+const myMethod = () => {
+  getDeviceId().then((deviceId) => {
+    console.log('Embrace Device Id', deviceId);
+  });
+};
+```
 
 import CallSupport from '@site/shared/call-support.md';
 

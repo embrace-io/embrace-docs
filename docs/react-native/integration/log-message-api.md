@@ -22,7 +22,7 @@ import { logMessage } from '@embrace-io/react-native';
 
 logMessage('Loading not finished in time.', 'error', {
   propertyA: 'valueA',
-  propertyB: 'valueB'
+  propertyB: 'valueB',
 });
 ```
 
