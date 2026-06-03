@@ -13,8 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "lychee": "lychee docs/",
-    "format": "prettier --write \"./*.*\" \"{docs,shared,src}/**/*.*\"",
-    "format:check": "prettier --check \"./*.*\" \"{docs,shared,src}/**/*.{md,mdx}\""
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.1",
