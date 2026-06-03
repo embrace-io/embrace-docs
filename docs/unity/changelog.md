@@ -10,8 +10,8 @@ sidebar_position: 4
 
 *November 25, 2025*
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version: [6.15.1](https://embrace.io/docs/ios/changelog/#6141)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version: [6.15.1](/ios/changelog/#6151)
 
 - Upgraded Embrace Apple SDK version to 6.15.1
 - Removed broken reference to `getSessionProperties()`; it is now a no-op and marked as deprecated.
@@ -20,8 +20,8 @@ Embrace Apple SDK Version: [6.15.1](https://embrace.io/docs/ios/changelog/#6141)
 
 ### 2.8.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version: [6.14.1](/ios/changelog/#6141)
 
 *November 10, 2025*
 
@@ -33,8 +33,8 @@ Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
 
 ### 2.7.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version: [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version: [6.8.4](/ios/changelog/#684)
 
 *September 4, 2025*
 
@@ -46,8 +46,8 @@ Both options are opt-in and low overhead. Please try them!
 
 ### 2.6.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version [6.8.4](/ios/changelog/#684)
 
 *August 14, 2025*
 
@@ -63,8 +63,8 @@ All are opt-in and low overhead. Please try them out!
 
 ### 2.5.0
 
-Embrace Android SDK Version: [7.3.0](https://embrace.io/docs/android/changelog/#730)
-Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Android SDK Version: [7.3.0](/android/changelog/#730)
+Embrace Apple SDK Version [6.8.4](/ios/changelog/#684)
 
 *June 16, 2025*
 

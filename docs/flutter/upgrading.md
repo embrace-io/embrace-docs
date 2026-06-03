@@ -16,7 +16,7 @@ The Android SDK has been updated to the latest major version. These changes affe
     }
 ```
 
-If you've written additional Android code as part of your integration, you may need to perform additional migrations. See the [Android](https://embrace.io/docs/android/upgrading/) upgrade guide for more information.
+If you've written additional Android code as part of your integration, you may need to perform additional migrations. See the [Android](/android/upgrading/) upgrade guide for more information.
 
 ## Upgrade from 2.0.0 to 3.0.0
 

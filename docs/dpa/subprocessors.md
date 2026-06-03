@@ -7,7 +7,7 @@ hide_table_of_contents: true
 ## Subprocessors
 
 The following is a list of subprocessors that Embrace may engage to provide its services. Depending on the region configured for your account or application, one or more entities below
-may be used in the course of processing of Personal Data, as defined by the [Data Processing Addendum](https://embrace.io/docs/dpa/) under Embrace's [Terms of Service](https://embrace.io/docs/terms-of-service/).
+may be used in the course of processing of Personal Data, as defined by the [Data Processing Addendum](/dpa/) under Embrace's [Terms of Service](/terms-of-service/).
 
 ### United States
 
