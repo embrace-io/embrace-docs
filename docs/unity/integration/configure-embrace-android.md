@@ -32,7 +32,7 @@ If your version of Unity does not come with supported versions of Gradle and AGP
 
 ### External Dependency Manager - Android Resolver
 
-:::info Notes on minimum versions\*\*
+:::info Notes on minimum versions
 To use the External Dependency Manager you must be using:
 
 - At least version `1.0.13` of the Unity SDK
@@ -142,18 +142,18 @@ Example:
 
    ````gradle
    apply plugin: 'embrace-swazzler'
+   ```
 
-   ```text
+   ````
 
    ````
 
 7. In `gradleTemplate.properties`, add the following if not present:
 
-   ````gradle
+   ```properties
    android.useAndroidX=true
    android.enableJetifier=true
-
-   ```text
+   ```
 
    Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings. Then, you can save the zip file at the root of your project. We will grab the `symbols.zip` file automatically.
 
