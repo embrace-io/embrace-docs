@@ -266,8 +266,8 @@
   --tour-steps-z-index: 108;
   --default-background-transition: background-color 360ms ease-out;
   --default-box-shadow: 0 4px 8px rgb(23 23 23 / 3%);
-  --floating-card-box-shadow: 0 2px 6px 2px rgb(16 4 43 / 15%),
-  0 1px 2px rgb(14 6 64 / 15%);
+  --floating-card-box-shadow:
+    0 2px 6px 2px rgb(16 4 43 / 15%), 0 1px 2px rgb(14 6 64 / 15%);
   --entering-animation-curve: cubic-bezier(0.4, 0, 0.3, 0.95);
   --leaving-animation-curve: cubic-bezier(0.2, 0, 1, 0.9);
   --default-timeline-transition: left 0.3s, width 0.3s;
@@ -294,11 +294,11 @@
 }
 
 .footer--dark {
-   --ifm-footer-background-color: #000000;
- }
+  --ifm-footer-background-color: #000000;
+}
 
 .footer__link-item {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -329,7 +329,7 @@
   --background-product-secondary: var(--dark-background-product-secondary);
   --background-product-hover: var(--dark-background-product-hover);
   --background-product-secondary-hover: var(
-          --dark-background-product-secondary-hover
+    --dark-background-product-secondary-hover
   );
   --background-product-light: var(--dark-background-product-light);
   --background-product-tonal: var(--dark-background-product-tonal);
@@ -409,7 +409,7 @@
   --background-product-secondary: var(--light-background-product-secondary);
   --background-product-hover: var(--light-background-product-hover);
   --background-product-secondary-hover: var(
-          --light-background-product-secondary-hover
+    --light-background-product-secondary-hover
   );
   --background-product-light: var(--light-background-product-light);
   --background-product-tonal: var(--light-background-product-tonal);

@@ -1,4 +1,4 @@
-import {type DOMAttributes, type ReactNode} from 'react';
+import { type DOMAttributes, type ReactNode } from 'react';
 
 export type TextProps<Variant> = Omit<
   DOMAttributes<
