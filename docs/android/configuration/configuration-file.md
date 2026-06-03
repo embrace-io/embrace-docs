@@ -82,83 +82,83 @@ Explanations for each of the fields follow below.
 }
 ```
 
-### app_id _string, required_
+### `app_id` _string, required_
 
 Your 5 character app ID.
 
-#### api_token _string, required_
+#### `api_token` _string, required_
 
 Your API 32-hexdigit token.
 
-##### ndk_enabled _bool_
+##### `ndk_enabled` _bool_
 
 Enables NDK crash capture. Defaults to `true`.
 
-##### automatic_data_capture - power_save_mode_info _bool_
+##### `automatic_data_capture` - `power_save_mode_info` _bool_
 
 Enables power save mode capture. Defaults to `true`.
 
-##### automatic_data_capture - network_connectivity_info _bool_
+##### `automatic_data_capture` - `network_connectivity_info` _bool_
 
 Enables network connectivity capture. Defaults to `true`.
 
-##### automatic_data_capture - anr_info _bool_
+##### `automatic_data_capture` - `anr_info` _bool_
 
 Enables ANR capture. Defaults to `true`.
 
-##### automatic_data_capture - ui_load_tracing_disabled _bool_
+##### `automatic_data_capture` - `ui_load_tracing_disabled` _bool_
 
 Disables all Activity load instrumentation. Defaults to `false`.
 
-##### automatic_data_capture - ui_load_tracing_selected_only _bool_
+##### `automatic_data_capture` - `ui_load_tracing_selected_only` _bool_
 
 Disables Activity load instrumentation for Activities that are not explicitly annotated with @`LoadTracedActivity` or `@CustomLoadTracedActivity`. Defaults to `false`.
 
-##### taps - capture_coordinates _bool_
+##### `taps` - `capture_coordinates` _bool_
 
 Set to true to enable capturing tap coordinates. Defaults to `false`.
 
-##### view_config - enable_automatic_activity_capture _bool_
+##### `view_config` - `enable_automatic_activity_capture` _bool_
 
 Enables capturing activity lifecycle changes in breadcrumbs. Defaults to `true`.
 
-##### webview - capture_query_params _bool_
+##### `webview` - `capture_query_params` _bool_
 
 Set to false to disable capturing of web view query parameters. Defaults to `true`.
 
-##### webview - enable _bool_
+##### `webview` - `enable` _bool_
 
 Set to false to disable capturing of web views. Defaults to `true`.
 
-##### crash_handler - enabled _bool_
+##### `crash_handler` - `enabled` _bool_
 
 Set to false to prevent the SDK from connecting to the uncaught exception handler. Defaults to `true`.
 
-##### compose - capture_compose_onclick _bool_
+##### `compose` - `capture_compose_onclick` _bool_
 
 Enables capture of Jetpack Compose click events. Defaults to `false`.
 
-##### capture_fcm_pii_data _bool_
+##### `capture_fcm_pii_data` _bool_
 
 Enables PII data within FCM capture. Defaults to `false`.
 
-##### networking - default_capture_limit _integer_
+##### `networking` - `default_capture_limit` _integer_
 
 Default capture limit for specified domains. Defaults to `1000`.
 
-##### networking - domains _object array_
+##### `networking` - `domains` _object array_
 
 List of domain names and their respective limits.
 
-##### networking - domain_name _string_
+##### `networking` - `domain_name` _string_
 
 Domain URL.
 
-##### networking - domain_limit _integer_
+##### `networking` - `domain_limit` _integer_
 
 Limit for the number of requests to be tracked.
 
-##### networking - disabled_url_patterns _string array_
+##### `networking` - `disabled_url_patterns` _string array_
 
 Specify one or more regular expressions to exclude network request with URLs matching one of the regular expressions from being captured.
 
@@ -168,27 +168,27 @@ Example:
 "disabled_url_patterns": [".*"], // Will disable network calls for all URLs
 ```
 
-##### networking - enable_huc_lite_instrumentation _bool_
+##### `networking` - `enable_huc_lite_instrumentation` _bool_
 
 Enable basic instrumentation of HTTPS network requests made using the `HttpsURLConnection` API. Defaults to `true`.
 
-##### networking - enable_native_monitoring _bool_
+##### `networking` - `enable_native_monitoring` _bool_
 
 Enable detailed instrumentation of HTTP and HTTPS network requests made using the `HttpURLConnection` and `HttpsURLConnection` APIs. The module `embrace-android-instrumentation-huc` must be included in your app for this to work. Defaults to `false`.
 
-##### networking - capture_request_content_length _bool_
+##### `networking` - `capture_request_content_length` _bool_
 
 Enable capture of network request body size for the instrumentation enabled by `enable_native_monitoring`, which may interfere with certain streaming network requests. Defaults to `false`.
 
-##### networking - enable_network_span_forwarding _bool_
+##### `networking` - `enable_network_span_forwarding` _bool_
 
 Enables network span forwarding. Defaults to `false`.
 
-##### capture_public_key _string_
+##### `capture_public_key` _string_
 
 Declares the key that should be used to capture network request bodies, if any.
 
-##### sensitive_keys_denylist _string array_
+##### `sensitive_keys_denylist` _string array_
 
 List of keys that will be redacted from any key-value pair sent by the SDK, such as event attributes, span attributes, log attributes, and session properties. Values for keys present in this list will be replaced by a `<redacted>` string
 
@@ -197,39 +197,39 @@ Example:
 "sensitive_keys_denylist": ["secret"] // Will change to <redacted> any value tied to a "secret" key
 ```
 
-##### anr - capture_unity_thread _bool_
+##### `anr` - `capture_unity_thread` _bool_
 
 Enables Unity ANR capture. Defaults to `false`.
 
-##### app - report_disk_usage _bool_
+##### `app` - `report_disk_usage` _bool_
 
 The SDK collects the disk usage for the app. Defaults to `true`.
 
-##### capture_enabled _bool_
+##### `capture_enabled` _bool_
 
 This value is a failsafe to enable or disable background activity capture. If the remote configuration is not set by Embrace's backend, this value will determine whether or not to enable background capture. Defaults to `false`.
 
-##### base_urls - config _string_
+##### `base_urls` - `config` _string_
 
 Base config URL for the SDK.
 
-##### base_urls - data _string_
+##### `base_urls` - `data` _string_
 
 Base data URL for the SDK.
 
-##### sig_handler_detection _bool_
+##### `sig_handler_detection` _bool_
 
 Enables 3rd party signal handler detection. When enabled, the SDK checks if its NDK signal handlers have been overwritten by other libraries and reinstalls them if needed. Defaults to `false`.
 
-##### app_exit_info - aei_enabled _bool_
+##### `app_exit_info` - `aei_enabled` _bool_
 
 Enables Application Exit Info capture. Defaults to `true`.
 
-##### app_framework _string_
+##### `app_framework` _string_
 
 Project's app framework, one of react_native, unity, flutter or native.
 
-##### unity - symbols_archive_name _string_
+##### `unity` - `symbols_archive_name` _string_
 
 Custom file name for unity symbols.
 
