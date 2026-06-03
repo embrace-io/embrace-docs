@@ -27,7 +27,7 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 :::
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, see the [API docs](/api/android/).  
+For more methods on setting user values, see the [API docs](/api/android/).
 
 You can also set customized values for specific use cases or segments of users.
 

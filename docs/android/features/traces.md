@@ -35,7 +35,7 @@ The Embrace Traces API allows you to:
 #### Limits
 
 | Type                                    | Limit           |
-|-----------------------------------------|-----------------|
+| --------------------------------------- | --------------- |
 | Max number of spans started per session | 500             |
 | Max number of attributes per span       | 100             |
 | Max number of events per span           | 10              |
@@ -77,7 +77,7 @@ val activityLoad = Embrace.createSpan("load-activity")
 #### Create and start span atomically
 
 ```kotlin
-// activityLoad will either be a span that has already started or null if 
+// activityLoad will either be a span that has already started or null if
 // the creation or start attempt was unsuccessful
 val activityLoad = Embrace.startSpan("load-activity")
 ```
@@ -100,7 +100,7 @@ Spans created with `recordSpan` or `recordCompletedSpan` will stop once the func
 val appStartTimeMillis = getAppStartTime()
 val appLaunchSpan = Embrace.createSpan("app-launch")
 
-// begin recording a span that has a different start time than 
+// begin recording a span that has a different start time than
 // the current time by starting its root span with a specific timestamp
 appLaunchSpan?.start(startTimeMs = appStartTimeMillis)
 ```
@@ -177,8 +177,8 @@ val imageLoad = activityLoad?.apply { Embrace.startSpan("load-image", this) }
 ```kotlin
 // record a span based on start and end times that are in the past
 Embrace.recordCompletedSpan(
-    name = "activity-create", 
-    startTimeMs = startTimeMillis, 
+    name = "activity-create",
+    startTimeMs = startTimeMillis,
     endTimeMs = endTimeMillis
 )
 ```
@@ -196,7 +196,7 @@ Embrace.getSpan(activityLoadSpanId)?.stop()
 
 ### Export to OpenTelemetry collectors
 
-Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded.  
+Telemetry collected by the Embrace SDK can be exported as [OTLP](https://opentelemetry.io/docs/specs/otel/protocol/) through the [SpanExporter](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-exporter) and [LogRecordExporter](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordexporter) interfaces. Multiple exporters can be configured, and they will receive telemetry synchronously and serially as soon as they are recorded.
 
 While more than one exporter for each signal can be configured, be aware of the performance impact on the instrumentation of each additional exporter given that they run serially and will block the instrumentation thread.
 
@@ -208,12 +208,12 @@ Embrace.addLogRecordExporter(myLogExporter)
 ```
 
 :::info
-Note that exporters must be configured *before* the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
+Note that exporters must be configured _before_ the Embrace SDK is started. Exporters added after the SDK has already been started will not be used.
 :::
 
 #### Supply custom OpenTelemetry processors
 
-It's also possible to supply your own OpenTelemetry processors through the [SpanProcessor](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-processor) and [LogRecordProcessor](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordprocessor) interfaces. These will be invoked *after* Embrace's internal processors. Overriding embrace-specific attributes when processing telemetry will produce undefined behavior and is discouraged.
+It's also possible to supply your own OpenTelemetry processors through the [SpanProcessor](https://opentelemetry.io/docs/specs/otel/trace/sdk/#span-processor) and [LogRecordProcessor](https://opentelemetry.io/docs/specs/otel/logs/sdk/#logrecordprocessor) interfaces. These will be invoked _after_ Embrace's internal processors. Overriding embrace-specific attributes when processing telemetry will produce undefined behavior and is discouraged.
 
 ```kotlin
 Embrace.addSpanProcessor(mySpanProcessor)
@@ -221,7 +221,7 @@ Embrace.addLogRecordProcessor(myLogProcessor)
 ```
 
 :::info
-Processors must be configured *before* the Embrace SDK is started. Processors added after the SDK has already been started will not be used.
+Processors must be configured _before_ the Embrace SDK is started. Processors added after the SDK has already been started will not be used.
 :::
 
 #### Local testing

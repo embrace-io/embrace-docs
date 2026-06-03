@@ -9,7 +9,7 @@ sidebar_position: 6
 Embrace automatically logs all unhandled exceptions thrown by your application, including the exception typename, message and managed stack trace when available. All exception logs passed through Unity's logger are captured and considered unhandled, including exceptions logged explicitly via `UnityEngine.Debug.LogException`. It is therefore recommended to send caught/handled exceptions directly to Embrace rather than log them via Unity's logger, as discussed in the [Manual Exception Logging](#manual-exception-logging) section below.
 
 :::warning Important
- Embrace uses Unity's `Application.logMessageReceived` event to capture unhandled exceptions. If the logger is disabled (`Debug.unityLogger.logEnabled = false`), Embrace will not automatically log any exceptions. It is recommended to leave the logger enabled in release builds. If desired, lower severity logs can be disabled using `Debug.unityLogger.filterLogType = LogType.Exception`. [Manual Exception Logs](#manual-exception-logging) is available for use cases where the Unity logger can not be used.
+Embrace uses Unity's `Application.logMessageReceived` event to capture unhandled exceptions. If the logger is disabled (`Debug.unityLogger.logEnabled = false`), Embrace will not automatically log any exceptions. It is recommended to leave the logger enabled in release builds. If desired, lower severity logs can be disabled using `Debug.unityLogger.filterLogType = LogType.Exception`. [Manual Exception Logs](#manual-exception-logging) is available for use cases where the Unity logger can not be used.
 :::
 
 ### Multi-Threaded Exceptions

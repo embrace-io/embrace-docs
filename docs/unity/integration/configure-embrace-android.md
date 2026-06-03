@@ -32,11 +32,12 @@ If your version of Unity does not come with supported versions of Gradle and AGP
 
 ### External Dependency Manager - Android Resolver
 
-:::info Notes on minimum versions**
+:::info Notes on minimum versions
 To use the External Dependency Manager you must be using:
 
 - At least version `1.0.13` of the Unity SDK
 - At least version `4.7.0` of the Android Swazzler Plugin
+
 :::
 
 If your project is already using other Android plugins, it is likely you are also using the External Dependency Manager. This is a module that ships with many plugins and handles dependency resolution for you.
@@ -83,7 +84,7 @@ Embrace needs the following templates present in your project:
     }
 ```
 
-   Example:
+Example:
 
 ```groovy
     buildscript {
@@ -107,9 +108,9 @@ Embrace needs the following templates present in your project:
     }
 ```
 
-   Under `settingsTemplate.gradle` file, ensure that the `mavenCentral()` repositories exists.
+Under `settingsTemplate.gradle` file, ensure that the `mavenCentral()` repositories exists.
 
-   Example:
+Example:
 
 ```groovy
     pluginManagement {
@@ -141,16 +142,14 @@ Embrace needs the following templates present in your project:
 
    ```gradle
    apply plugin: 'embrace-swazzler'
-
-   ```text
+   ```
 
 7. In `gradleTemplate.properties`, add the following if not present:
 
-   ```gradle
+   ```properties
    android.useAndroidX=true
    android.enableJetifier=true
-
-   ```text
+   ```
 
    Finally, if you export your Android build from Unity then you must ensure that the `Create symbols.zip` entry is checked under build settings. Then, you can save the zip file at the root of your project. We will grab the `symbols.zip` file automatically.
 
