@@ -13,7 +13,7 @@ All the information these metrics provided is available through the current metr
 ## Removed metrics
 
 | Metric                                       | Description                                               | Filters                               | Time granularity           |
-|----------------------------------------------|-----------------------------------------------------------|---------------------------------------|----------------------------|
+| -------------------------------------------- | --------------------------------------------------------- | ------------------------------------- | -------------------------- |
 | crash_free_session_by_device_rate_deprecated | Percentage of crash free sessions grouped by device model | app_version, device_model, os_version | hourly, daily              |
 | crash_session_pct_deprecated                 | Percentage of crash sessions                              | app_version, os_version               | hourly, daily              |
 | crash_free_session_rate_deprecated           | Percentage of crash free sessions                         | app_version, os_version               | hourly, daily              |

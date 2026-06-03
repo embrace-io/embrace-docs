@@ -34,13 +34,13 @@ The list of browsers represent a set of evergreen profiles, all running on Chrom
 
 SpeedCurve provides the following browsers to test with:
 
-| Browser | Network | Viewport | Display Density | CPU Slow Down Factor |
-|--------|---------|----------|-----------------|----------------------|
-| Desktop Fast | Wifi Fast | 1366 x 768 | 1X | 0 |
-| Desktop Slow | Wifi Slow | 1366 x 768 | 1X | 0 |
-| Mobile Fast | Mobile 4G Fast | 390 x 663 | 2X | 0 |
-| Mobile Medium | Mobile 4G Fast | 390 x 663 | 2X | 2 |
-| Mobile Slow | Mobile 4G Slow | 390 x 663 | 2X | 3 |
+| Browser       | Network        | Viewport   | Display Density | CPU Slow Down Factor |
+| ------------- | -------------- | ---------- | --------------- | -------------------- |
+| Desktop Fast  | Wifi Fast      | 1366 x 768 | 1X              | 0                    |
+| Desktop Slow  | Wifi Slow      | 1366 x 768 | 1X              | 0                    |
+| Mobile Fast   | Mobile 4G Fast | 390 x 663  | 2X              | 0                    |
+| Mobile Medium | Mobile 4G Fast | 390 x 663  | 2X              | 2                    |
+| Mobile Slow   | Mobile 4G Slow | 390 x 663  | 2X              | 3                    |
 
 These profiles don't reference specific emulated hardware, e.g. "iPhone 15" or a particular browser like "Chrome" or "Firefox". They are designed to be a great place to start your web performance testing and provide long-lived browser profiles with names that don't age. We will periodically update these profiles as web performance trends change.
 
@@ -50,37 +50,37 @@ Regions identify where the test will be run from.
 
 We run all our synthetic test agents on Amazon AWS EC2 so that you get a consistent test environment across all regions.
 
-| Region | Location | Region ID |
-|--------|----------|-----------|
-| Australia | Sydney | ap-southeast-2 |
-| Bahrain | Manama | me-south-1 |
-| Brazil | São Paulo | sa-east-1 |
-| Canada | Central | ca-central-1 |
-| England | London | eu-west-2 |
-| France | Paris | eu-west-3 |
-| Germany | Frankfurt | eu-central-1 |
-| Hong Kong |  | ap-east-1 |
-| India | Mumbai | ap-south-1 |
-| Indonesia | Jakarta | ap-southeast-3 |
-| Ireland | Dublin | eu-west-1 |
-| Italy | Milan | eu-south-1 |
-| Japan | Tokyo | ap-northeast-1 |
-| Korea | Seoul | ap-northeast-2 |
-| Singapore |  | ap-southeast-1 |
-| South Africa | Cape Town | af-south-1 |
-| Sweden | Stockholm | eu-north-1 |
-| US East Coast | Northern Virginia | us-east-1 |
-| US West Coast | Northern California | us-west-1 |
+| Region        | Location            | Region ID      |
+| ------------- | ------------------- | -------------- |
+| Australia     | Sydney              | ap-southeast-2 |
+| Bahrain       | Manama              | me-south-1     |
+| Brazil        | São Paulo           | sa-east-1      |
+| Canada        | Central             | ca-central-1   |
+| England       | London              | eu-west-2      |
+| France        | Paris               | eu-west-3      |
+| Germany       | Frankfurt           | eu-central-1   |
+| Hong Kong     |                     | ap-east-1      |
+| India         | Mumbai              | ap-south-1     |
+| Indonesia     | Jakarta             | ap-southeast-3 |
+| Ireland       | Dublin              | eu-west-1      |
+| Italy         | Milan               | eu-south-1     |
+| Japan         | Tokyo               | ap-northeast-1 |
+| Korea         | Seoul               | ap-northeast-2 |
+| Singapore     |                     | ap-southeast-1 |
+| South Africa  | Cape Town           | af-south-1     |
+| Sweden        | Stockholm           | eu-north-1     |
+| US East Coast | Northern Virginia   | us-east-1      |
+| US West Coast | Northern California | us-west-1      |
 
 **AWS EC2 Instance**
 
-| Property | Value |
-|----------|-------|
-| Instance Type | c5.large |
-| Processor | 2nd generation Intel Xeon Scalable (Cascade Lake) |
-| vCPU | 2 |
-| Memory | 4 GiB |
-| Storage | SSD |
+| Property      | Value                                             |
+| ------------- | ------------------------------------------------- |
+| Instance Type | c5.large                                          |
+| Processor     | 2nd generation Intel Xeon Scalable (Cascade Lake) |
+| vCPU          | 2                                                 |
+| Memory        | 4 GiB                                             |
+| Storage       | SSD                                               |
 
 #### Recurrence
 

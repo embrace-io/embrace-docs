@@ -17,7 +17,7 @@ See the [setup docs](/data-destinations/grafana-cloud-setup/) for more informati
 
 #### Metrics API
 
-Embrace also offers a "pull" method for metrics in the form of our public [Metrics API](/metrics-forwarding/metrics-api/). You can directly query Embrace's metrics from your backend using the [PromQL query language](https://prometheus.io/docs/prometheus/latest/querying/basics/).  
+Embrace also offers a "pull" method for metrics in the form of our public [Metrics API](/metrics-forwarding/metrics-api/). You can directly query Embrace's metrics from your backend using the [PromQL query language](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 See the [setup docs](/metrics-forwarding/metrics-api/grafana-integration/) for more information on Metrics API for Grafana. You can also look at [sample queries](/metrics-forwarding/metrics-api/code-samples/) using Node and Python.
 

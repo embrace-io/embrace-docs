@@ -32,6 +32,7 @@ For web apps, the Overview page will display **Core Web Vitals** scores and **Ja
 Embrace's dashboard features provide a rich view of mobile and web telemetry in every user session. Developers can draw insights by digging in to these features to find the needle in a haystack or by manipulating the entire dataset to find out about the success or impact of experiments.
 
 <!-- TODO add to these items here -->
+
 These features include:
 
 - [Issues](/product/issue-monitoring-and-work-flow.md): Spot user issues as they happen.

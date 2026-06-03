@@ -70,10 +70,10 @@ Global filters and global group bys are available to use on all the metrics.
 - Global filters: app_version, country, model, os_major_version and os_version.
 - Global group bys: app_version, country, os_major_version, os_version and top_n_market_name.
 
-Metrics with the suffix "_total" are gauges.
+Metrics with the suffix "\_total" are gauges.
 
-| Metric                                     | Description                                  | Filters                                                                                                                            | Group by granularity                                                              | Time granularity           |  
-|--------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------|
+| Metric                                     | Description                                  | Filters                                                                                                                            | Group by granularity                                                              | Time granularity           |
+| ------------------------------------------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------- |
 | anrs_total                                 | Number of anrs                               | method, sample_type                                                                                                                |                                                                                   | five_minute, hourly, daily |
 | anrs_duration_total                        | Sum of anrs durations                        | method, sample_type                                                                                                                |                                                                                   | five_minute, hourly, daily |
 | crashes_total                              | Number of crashes                            | msg, tag_name, tag_value,                                                                                                          |                                                                                   | five_minute, hourly, daily |
@@ -95,4 +95,5 @@ Metrics with the suffix "_total" are gauges.
   how `top_n` dimensions work.
 - You can also pull the latest set of supported metrics directly from
   the [API](/metrics-forwarding/custom-metrics/custom-metrics-api/#get-metrics-and-parameters-supported).
-  :::
+
+:::

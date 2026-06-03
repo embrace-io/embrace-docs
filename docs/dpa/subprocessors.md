@@ -11,17 +11,17 @@ may be used in the course of processing of Personal Data, as defined by the [Dat
 
 ### United States
 
-| Company                  | Location       | Processing Purpose               |
-|--------------------------|----------------|----------------------------------|
-| Amazon Web Services, Inc | United States  | Infrastructure services          |
-| OVH US, LLC              | United States  | Infrastructure services          |
+| Company                  | Location      | Processing Purpose      |
+| ------------------------ | ------------- | ----------------------- |
+| Amazon Web Services, Inc | United States | Infrastructure services |
+| OVH US, LLC              | United States | Infrastructure services |
 
 ### European Union
 
-| Company                  | Location       | Processing Purpose               |
-|----------|----------|--------------------------------------------------------|
-| Amazon Web Services, Inc | European Union | Infrastructure services          |
-| OVH Groupe SA            | European Union | Infrastructure services          |
-| SCALEWAY S.A.S.          | European Union | Infrastructure services          |
+| Company                  | Location       | Processing Purpose      |
+| ------------------------ | -------------- | ----------------------- |
+| Amazon Web Services, Inc | European Union | Infrastructure services |
+| OVH Groupe SA            | European Union | Infrastructure services |
+| SCALEWAY S.A.S.          | European Union | Infrastructure services |
 
 _Last Updated: March 19, 2025_

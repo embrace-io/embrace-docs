@@ -53,7 +53,7 @@ This page will help you understand which parts of your app contribute most to AN
 
 #### ANR Method Troubleshooting View
 
-This graph is *anchored* around the selected method. This allows you to see all the code paths that lead to the selected method and the code paths following the method. Users can get to this page from branches in the flame graph and from the known issues list.
+This graph is _anchored_ around the selected method. This allows you to see all the code paths that lead to the selected method and the code paths following the method. Users can get to this page from branches in the flame graph and from the known issues list.
 
 - **Common Issues/Methods ANR contribution:** This view will break the percentage of appearances of the problematic methods across calling or being called by the selected one across the different samples
 - **Sample Sessions:** same as above, users will have access to “Sample Sessions” from this issue's detailed view

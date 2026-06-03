@@ -74,7 +74,7 @@ For example, you want to get a rate over the last 24 hours of the sum of crashes
    a. The Formula field accepts the operators: `+, -, *, /`.\
    b. Order of operations follows standard PEMDAS.
 
-    <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
+   <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
 
 How the formula's result is rendered depends on the visualization. On Line and Bar widgets it appears alongside the source queries (a new line, or new bars at each x-axis point). On Pie, KPI, and Gauge widgets, the formula behaves like another query under the single-visible-query constraint. Toggle it on with the eye icon to display its result instead of one of the source queries.
 
@@ -91,12 +91,11 @@ As a rule, if you have **two queries that both have groupings**, the grouping of
 ##### **Valid Groupings:**
 
 - Grouping only on one query
-
-    - `A`: _grouped by_ `[”App Version”]`
-        - Returns values for each distinct, non-empty `App Version`.
-    - `B`: _grouped by_ `[]`
-        - Returns 10
-    - `A` has a grouping and `B` does not. Their common join key is the empty set.
+  - `A`: _grouped by_ `[”App Version”]`
+    - Returns values for each distinct, non-empty `App Version`.
+  - `B`: _grouped by_ `[]`
+    - Returns 10
+  - `A` has a grouping and `B` does not. Their common join key is the empty set.
 
 |        Dimension         |  A  |  B  | A + B |
 | :----------------------: | :-: | :-: | :---: |
@@ -104,12 +103,11 @@ As a rule, if you have **two queries that both have groupings**, the grouping of
 | `{"App Version": "2.0"}` | 50  | 10  |  60   |
 
 - Grouping on both queries
-
-    - `A`: _grouped by_ `[”App Version”, “Country”]`
-        - Returns values for each distinct, non-empty combination of grouping dimensions.
-    - `B`: _grouped by_ `[”App Version”]`
-        - Returns values for each distinct, non-empty `App Version`.
-    - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
+  - `A`: _grouped by_ `[”App Version”, “Country”]`
+    - Returns values for each distinct, non-empty combination of grouping dimensions.
+  - `B`: _grouped by_ `[”App Version”]`
+    - Returns values for each distinct, non-empty `App Version`.
+  - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
 
 |                 Dimension                  |  A  |  B  | A + B |
 | :----------------------------------------: | :-: | :-: | :---: |
@@ -119,24 +117,21 @@ As a rule, if you have **two queries that both have groupings**, the grouping of
 | `{"App Version": "2.0", "Country": "MEX"}` | 60  | 20  |  80   |
 
 - No groupings
-
-    - `A`: _grouped by_ `[]`
-    - `B`: _grouped by_ `[]`
-    - `A` and `B` have no groupings. Their common join key is the empty set.
+  - `A`: _grouped by_ `[]`
+  - `B`: _grouped by_ `[]`
+  - `A` and `B` have no groupings. Their common join key is the empty set.
 
 ##### **Invalid Groupings:**
 
 - Grouping with no overlapping set
-
-    - `A`: _grouped by_ `[”App Version”]`
-    - `B`: _grouped by_ `[”OS Version”]`
-    - Both have groupings but neither is a subset of the other.
+  - `A`: _grouped by_ `[”App Version”]`
+  - `B`: _grouped by_ `[”OS Version”]`
+  - Both have groupings but neither is a subset of the other.
 
 - Grouping with similar Attributes, but no overlapping data
-
-    - `A`: _grouped by_ `[”App Version”, “Country”, “OS Version”]`
-    - `B`: _grouped by_ `[”App Version”, “Country”, “Model”]`
-    - If A and B have no similar `App Version` and `Country`, the grouping is valid, but neither is a subset of the other and no results are returned.
+  - `A`: _grouped by_ `[”App Version”, “Country”, “OS Version”]`
+  - `B`: _grouped by_ `[”App Version”, “Country”, “Model”]`
+  - If A and B have no similar `App Version` and `Country`, the grouping is valid, but neither is a subset of the other and no results are returned.
 
 ##### Order of Operations
 
@@ -161,7 +156,7 @@ Our Issues Widget, lets you specify how to list a table of [Issues](/product/iss
 2. Adjust the columns you want to display and how to filter the Issues.
 3. Then, once you save, you'll see this table on your dashboard! Issues are sorted by percentage of users impacted in descending order.
 
-    <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
+   <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
 
 ### Copying widgets to other dashboards
 
@@ -224,4 +219,4 @@ To group by an exploded property:
 3. Select the property. If it's a multi-value field, we'll automatically explode it for you.
    <img src={require('@site/static/images/exploded-properties/table.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
 
-    In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.
+   In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.

@@ -47,20 +47,20 @@ These help you evaluate whether the comparison is statistically meaningful.
 
 Once you're satisfied with your selection, click **Apply** to load the metrics.
 
-> 💡 *You can rename the group labels to something meaningful to your app or context.*
+> 💡 _You can rename the group labels to something meaningful to your app or context._
 
 <img src={require('@site/static/images/release-health-filters.png').default} alt="Release Health filters"/>
 
 #### Visualize Overall Metrics
 
-- **Total Affected Users** – percentage of users affected by any issue type, with comparison against Group B  
+- **Total Affected Users** – percentage of users affected by any issue type, with comparison against Group B
 - **Total Affected Sessions** – percentage of sessions affected by any issue type, with comparison against Group B
 
 <img src={require('@site/static/images/release-health-overall.png').default} alt="Release Health Overall"/>
 
 #### Visualize Issue-Specific Metrics
 
-- **Affected Users per Issue** – percentage of users impacted by a specific issue type (Crashes, ANRs, etc.), compared to Group B  
+- **Affected Users per Issue** – percentage of users impacted by a specific issue type (Crashes, ANRs, etc.), compared to Group B
 - **Affected Sessions per Issue** – percentage of sessions impacted by a specific issue type, compared to Group B
 
 #### Detailed Comparison
