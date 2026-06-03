@@ -74,6 +74,7 @@ app version into your bundle at build time. The process is done as part of [uplo
 We recommend you include our SDK as a regular npm dependency (see above). If you prefer to include the SDK as a code
 snippet from CDN, you can do so by adding the following script tag to your main HTML file:
 
+<!-- prettier-ignore -->
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X" crossorigin="anonymous"></script>
 ```
@@ -110,6 +111,7 @@ the following example:
 If you prefer to load the SDK asynchronously to avoid blocking the rendering of your page, you'll need to add the
 following snippet to your HTML file. Remember to replace `X.X.X` with the version of the SDK you want to include:
 
+<!-- prettier-ignore -->
 ```html
 <script>
    !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
