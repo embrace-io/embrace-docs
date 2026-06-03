@@ -11,7 +11,7 @@ sidebar_position: 4
 *November 25, 2025*
 
 Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
-Embrace Apple SDK Version: [6.15.1](/ios/changelog/#6141)
+Embrace Apple SDK Version: [6.15.1](/ios/changelog/#6151)
 
 - Upgraded Embrace Apple SDK version to 6.15.1
 - Removed broken reference to `getSessionProperties()`; it is now a no-op and marked as deprecated.
