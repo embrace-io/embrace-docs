@@ -4,13 +4,13 @@ description: Migration guide for metrics removed from the Embrace Metrics API
 sidebar_position: 40
 ---
 
-# Removed metrics
+## Removed metrics
 
 The following metrics were deprecated in October 2023 and fully removed on April 2026. They are no longer available for querying.
 
 All the information these metrics provided is available through the current metrics (refer to the [Supported Metrics](/metrics-forwarding/#supported-metrics) page). See the [Replacements](#replacements) section below for migration guidance.
 
-## Removed metrics
+### Removed metrics
 
 | Metric                                       | Description                                               | Filters                               | Time granularity           |
 | -------------------------------------------- | --------------------------------------------------------- | ------------------------------------- | -------------------------- |
@@ -25,7 +25,7 @@ All the information these metrics provided is available through the current metr
 | sessions_total_deprecated                    | Number of sessions                                        | app_version, os_version               | five_minute, hourly, daily |
 | users_deprecated                             | Number of unique users                                    | app_version, os_version               | hourly, daily              |
 
-## Replacements
+### Replacements
 
 #### `daily_crash_free_session_rate`
 
