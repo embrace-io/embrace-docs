@@ -1,0 +1,13 @@
+# Build output and generated files
+build
+.docusaurus
+node_modules
+
+# Lockfiles and caches
+package-lock.json
+.lycheecache
+
+# Prettier mangles snake_case identifiers next to *emphasis* in these
+# config reference tables (e.g. `app_id *string*` -> `app*id \_string*`)
+docs/android/configuration/configuration-file.md
+docs/ios/5x/features/configuration-file.md
