@@ -59,13 +59,13 @@ The most common way to start with manual instrumentation is by creating custom s
 import { trace } from '@embrace-io/web-sdk';
 
 // Create and start a span
-const span = trace.startSpan("span-name");
+const span = trace.startSpan('span-name');
 
 // Perform your operation
 // ...
 
 // Add some context to the span
-span.setAttribute("operation-size", "large");
+span.setAttribute('operation-size', 'large');
 
 // Record success or failure
 if (success) {

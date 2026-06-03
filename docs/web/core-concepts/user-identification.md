@@ -23,7 +23,7 @@ For tracking specific users across sessions, you can assign a unique identifier:
 ```typescript
 import { user } from '@embrace-io/web-sdk';
 
-user.setUserId("user-12345");
+user.setUserId('user-12345');
 ```
 
 :::warning Note on Privacy

@@ -18,7 +18,7 @@ A new session starts when your web app is loaded in a user's browser tab and is 
 
 - The tab or browser is closed or refreshed
 - The user switches to another tab or the browser's window loses focuses. If background sessions are enabled this also
-starts a new background session
+  starts a new background session
 - There is no user activity detected on the tab for a certain period of time (30 minutes by default)
 
 A session ending will trigger an upload of that session's data to Embrace where it will be shown within the Embrace
@@ -67,21 +67,21 @@ To add a property to the current session:
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
-session.addProperty("my-custom-property", "some value");
+session.addProperty('my-custom-property', 'some value');
 ```
 
 To add a permanent property to current and future sessions in all tabs and windows:
 
 ```typescript
-session.addProperty("my-custom-property", "some value", {
-  lifespan: 'permanent'
+session.addProperty('my-custom-property', 'some value', {
+  lifespan: 'permanent',
 });
 ```
 
 To remove a property:
 
 ```typescript
-session.removeProperty("my-custom-property");
+session.removeProperty('my-custom-property');
 ```
 
 #### Limits on Properties

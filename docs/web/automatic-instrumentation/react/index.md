@@ -1,5 +1,5 @@
 ---
-title: React  
+title: React
 description: Automatically track React specific telemetry in your web app with Embrace
 sidebar_position: 6
 ---

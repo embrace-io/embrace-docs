@@ -23,8 +23,8 @@ Each instrumentation is always-on by default. Individual instrumentations can be
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     omit: new Set(['user-timing', 'element-timing', 'server-timing']),
   },

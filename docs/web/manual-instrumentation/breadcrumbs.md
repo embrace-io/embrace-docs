@@ -15,7 +15,7 @@ Here's how you add a breadcrumb to the session:
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
-session.addBreadcrumb("something happened");
+session.addBreadcrumb('something happened');
 ```
 
 :::info Character Limit
@@ -51,13 +51,13 @@ Use clear, consistent naming for your breadcrumbs:
 import { session } from '@embrace-io/web-sdk';
 
 // Good: Clear and descriptive
-session.addBreadcrumb("User started checkout process");
-session.addBreadcrumb("Payment validation failed");
-session.addBreadcrumb("Order confirmation displayed");
+session.addBreadcrumb('User started checkout process');
+session.addBreadcrumb('Payment validation failed');
+session.addBreadcrumb('Order confirmation displayed');
 
 // Avoid: Vague or inconsistent
-session.addBreadcrumb("Something happened");
-session.addBreadcrumb("Error");
+session.addBreadcrumb('Something happened');
+session.addBreadcrumb('Error');
 ```
 
 #### Performance Considerations

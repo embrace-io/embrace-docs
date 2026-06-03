@@ -28,7 +28,7 @@ The simplest way to create a span is with the `startSpan` method:
 ```typescript
 import { trace } from '@embrace-io/web-sdk';
 
-const span = trace.startSpan("span-name");
+const span = trace.startSpan('span-name');
 
 someAsyncOperation()
   .then(() => span.end())
@@ -43,14 +43,14 @@ Add context to your spans with attributes:
 import { trace } from '@embrace-io/web-sdk';
 
 // Adding attributes on start is recommended if they are known at that point
-const span = trace.startSpan("span-name", {
+const span = trace.startSpan('span-name', {
   attributes: {
-    "my-attr-on-create": "hello",
+    'my-attr-on-create': 'hello',
   },
 });
 
 // But they can also be added later on if needed as long as the span hasn't been ended
-span.setAttribute("my-other-attr", "bye");
+span.setAttribute('my-other-attr', 'bye');
 ```
 
 :::info
@@ -64,8 +64,8 @@ Create parent-child relationships between spans to represent nested operations:
 ```typescript
 import { trace } from '@embrace-io/web-sdk';
 
-const parentSpan = trace.startSpan("the-parent");
-const childSpan = trace.startSpan("the-child", { parentSpan });
+const parentSpan = trace.startSpan('the-parent');
+const childSpan = trace.startSpan('the-child', { parentSpan });
 
 await someNestedOperation();
 childSpan.end();
@@ -84,10 +84,10 @@ a full child span you can instead add an event to the span:
 ```typescript
 import { trace } from '@embrace-io/web-sdk';
 
-const span = trace.startSpan("span-name");
+const span = trace.startSpan('span-name');
 
-span.addEvent("something-happened", {
-  "some-event-attr": "event-attr-value",
+span.addEvent('something-happened', {
+  'some-event-attr': 'event-attr-value',
 });
 ```
 
@@ -98,9 +98,11 @@ Sometimes you need to create a span for an operation that has already completed:
 ```typescript
 import { trace } from '@embrace-io/web-sdk';
 
-trace.startSpan("span-name", {
-  startTime: previouslyStartedTime,
-}).end(previouslyEndedTime);
+trace
+  .startSpan('span-name', {
+    startTime: previouslyStartedTime,
+  })
+  .end(previouslyEndedTime);
 ```
 
 ### Best Practices
@@ -126,11 +128,11 @@ Choose an appropriate level of granularity for your spans:
 Add attributes that would be useful for troubleshooting:
 
 ```typescript
-trace.startSpan("span-name", {
+trace.startSpan('span-name', {
   attributes: {
-    "user-tier": "premium",
-    "data-size": dataSize.description,
-    "retry-count": retryCount.description
-  }
+    'user-tier': 'premium',
+    'data-size': dataSize.description,
+    'retry-count': retryCount.description,
+  },
 });
 ```
