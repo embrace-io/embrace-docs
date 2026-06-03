@@ -35,13 +35,16 @@ npm install @embrace-io/react-native-action-tracker
 Add the Embrace's Middleware to your middleware's list
 
 ```javascript
-import {applyMiddleware, compose, configureStore} from '@reduxjs/toolkit';
-import {buildEmbraceMiddleware} from '@embrace-io/react-native-action-tracker';
+import { applyMiddleware, compose, configureStore } from '@reduxjs/toolkit';
+import { buildEmbraceMiddleware } from '@embrace-io/react-native-action-tracker';
 import myReducer from './reducers/MyReducer';
 import otherMiddleware from './middlewares/OtherMiddleware';
 
 // Add the Embrace middleware 'buildEmbraceMiddleware' an
-const middlewareEnhancer = applyMiddleware(otherMiddleware(), buildEmbraceMiddleware());
+const middlewareEnhancer = applyMiddleware(
+  otherMiddleware(),
+  buildEmbraceMiddleware(),
+);
 
 const composedEnhancers = compose(middlewareEnhancer);
 

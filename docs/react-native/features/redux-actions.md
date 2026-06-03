@@ -63,13 +63,13 @@ const MyApp = () => {
 #### Without hooks
 
 ```javascript
-import {configureStore, Tuple} from "@reduxjs/toolkit";
-import {initialize} from "@embrace-io/react-native";
-import {EmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
-import {createEmbraceMiddleware} from "@embrace-io/react-native-redux";
+import { configureStore, Tuple } from '@reduxjs/toolkit';
+import { initialize } from '@embrace-io/react-native';
+import { EmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
+import { createEmbraceMiddleware } from '@embrace-io/react-native-redux';
 
 const setupStore = async () => {
-  await initialize({sdkConfig: {ios: {appId: "abc123"}}});
+  await initialize({ sdkConfig: { ios: { appId: 'abc123' } } });
 
   const tracerProvider = new EmbraceNativeTracerProvider();
 

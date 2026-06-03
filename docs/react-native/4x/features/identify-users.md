@@ -17,13 +17,13 @@ sessions for an unhappy user.
 Embrace offers a set of methods to pass information about your users.
 
 ```javascript
-import {setUserIdentifier} from '@embrace-io/react-native';
+import { setUserIdentifier } from '@embrace-io/react-native';
 
 setUserIdentifier('internal_random_id_1234');
 ```
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, you can see the [source code](/api/react-native/).  
+For more methods on setting user values, you can see the [source code](/api/react-native/).
 
 :::warning Important
 Remember that this data will be uploaded to Embrace, so think about the privacy of your users and only include data you are willing to share.
@@ -33,7 +33,7 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 You can also set customized values for specific use cases or segments of users.
 
 ```javascript
-import {addUserPersona} from '@embrace-io/react-native';
+import { addUserPersona } from '@embrace-io/react-native';
 
 addUserPersona('high_value_cart');
 ```
@@ -50,7 +50,7 @@ However, you are free to use both mechanisms interchangeably.
 Here is an example of setting a session property:
 
 ```javascript
-import {addSessionProperty} from '@embrace-io/react-native';
+import { addSessionProperty } from '@embrace-io/react-native';
 
 addSessionProperty('launch type', 'normal', false);
 ```

@@ -18,13 +18,13 @@ First get a `tracer` following the instructions from the [Traces guide](/react-n
 The method can then be used as follows:
 
 ```javascript
-import {startView} from '@embrace-io/react-native-tracer-provider';
+import { startView } from '@embrace-io/react-native-tracer-provider';
 
 const viewSpan = startView(tracer, 'MyView');
 
 // ...at some later point...
 viewSpan.end();
-```  
+```
 
 ### Breadcrumbs as a lighter weight option
 
@@ -32,8 +32,7 @@ Logging a breadcrumb with the name of the component could be helpful as a lightw
 become visible if you don't care about the duration:
 
 ```javascript
-
-import {addBreadcrumb} from '@embrace-io/react-native';
+import { addBreadcrumb } from '@embrace-io/react-native';
 
 addBreadcrumb(`Rendered [${myComponent}]`);
 ```

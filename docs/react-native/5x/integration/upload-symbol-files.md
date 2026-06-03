@@ -106,7 +106,7 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility.
 
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the _Settings/Upload_ dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 
@@ -158,7 +158,7 @@ For App Center CodePush, you'll need to generate the bundle and source map to be
 
 ```shell-session
 appcenter codepush release-react -a MyApp --output-dir ./build --sourcemap-output ./map
-``` 
+```
 
 Then, use the Embrace upload script to upload the source map.
 
@@ -190,9 +190,9 @@ you must point the Embrace SDK to where the updated JavaScript bundle will be do
 Note that this step is unnecessary if you use CodePush since the Embrace SDK will leverage the CodePush SDK to find the location of the bundle.
 
 ```javascript
-import {setJavaScriptBundlePath} from '@embrace-io/react-native';
+import { setJavaScriptBundlePath } from '@embrace-io/react-native';
 
-setJavaScriptBundlePath(pathToBundle)
+setJavaScriptBundlePath(pathToBundle);
 ```
 
 ### Expo Apps

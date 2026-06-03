@@ -55,28 +55,28 @@ Expo applications use the `@expo/metro-config` package, which applies a default 
 For this example we will use Grafana Cloud in terms of redirecting telemetry data over there using OTLP endpoints. For more information about this please visit their online [docs](https://grafana.com/docs/grafana-cloud/send-data/otlp/send-data-otlp/).
 
 ```javascript
-import React, {useEffect, useMemo, useState} from "react";
-import {useEmbrace} from "@embrace-io/react-native";
-import {View, Text} from "react-native";
-import {Stack} from "expo-router";
+import React, { useEffect, useMemo, useState } from 'react';
+import { useEmbrace } from '@embrace-io/react-native';
+import { View, Text } from 'react-native';
+import { Stack } from 'expo-router';
 
-const GRAFANA_TOKEN = "__GRAFANA_TOKEN__"; // `grafana_instance:token` converted into a base64 string.
+const GRAFANA_TOKEN = '__GRAFANA_TOKEN__'; // `grafana_instance:token` converted into a base64 string.
 const EXPORTER_CONFIG = {
   logExporter: {
-    endpoint: "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs",
+    endpoint: 'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs',
     headers: [
       {
-        key: "Authorization",
+        key: 'Authorization',
         token: `Basic ${GRAFANA_TOKEN}`,
       },
     ],
   },
   traceExporter: {
     endpoint:
-      "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces",
+      'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces',
     headers: [
       {
-        key: "Authorization",
+        key: 'Authorization',
         token: `Basic ${GRAFANA_TOKEN}`,
       },
     ],
@@ -84,10 +84,10 @@ const EXPORTER_CONFIG = {
 };
 
 // iOS is configurable through code, Android configuration happens at build time
-const IOS_SDK_CONFIG = {appId: "__APP_ID__"};
+const IOS_SDK_CONFIG = { appId: '__APP_ID__' };
 
 function RootLayout() {
-  const {isPending, isStarted} = useEmbrace({
+  const { isPending, isStarted } = useEmbrace({
     ios: IOS_SDK_CONFIG,
     exporters: EXPORTER_CONFIG,
   });
@@ -100,14 +100,14 @@ function RootLayout() {
     );
   } else {
     if (!isStarted) {
-      console.log("An error occurred during Embrace initialization");
+      console.log('An error occurred during Embrace initialization');
     }
   }
 
   // regular content of the application
   return (
     <Stack>
-      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 }
@@ -274,9 +274,7 @@ if you were exporting to Grafana your config would look like:
     "app_framework": "react_native",
     "networking": {
       "enable_network_span_forwarding": true,
-      "disabled_url_patterns": [
-        "grafana.net"
-      ]
+      "disabled_url_patterns": ["grafana.net"]
     }
   }
 }

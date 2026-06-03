@@ -140,9 +140,11 @@ Example:
 
 6. In `launcherTemplate.gradle`, add the `embrace-swazzler` plugin.
 
-   ```gradle
+   ````gradle
    apply plugin: 'embrace-swazzler'
    ```
+
+   ````
 
 7. In `gradleTemplate.properties`, add the following if not present:
 
@@ -156,3 +158,4 @@ Example:
    <img src={require('@site/static/images/unity-android-build-settings.png').default} />
 
    Now that you've configured the Android platform, it's time to login to the Embrace dashboard.
+   ````
