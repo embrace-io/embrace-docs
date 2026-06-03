@@ -20,10 +20,8 @@ import { getNavigationInstrumentation } from '@embrace-io/web-sdk';
 
 initSDK({
   // ...Other configs
-  instrumentations: [
-    getNavigationInstrumentation(),
-  ],
-})
+  instrumentations: [getNavigationInstrumentation()],
+});
 ```
 
 Then hook into your navigation tooling and let the instrumentation know when a route changes through the
@@ -32,20 +30,19 @@ Then hook into your navigation tooling and let the instrumentation know when a r
 ```typescript
 import { getNavigationInstrumentation } from '@embrace-io/web-sdk';
 
-
 const customNavigationHandler = () => {
   // ... navigation logic
 
   // Get raw URL and path pattern from the navigation tooling
-  const url = '/path/before/replaced'
-  const path = '/path/before/:replace'
+  const url = '/path/before/replaced';
+  const path = '/path/before/:replace';
 
   const navigationInstrumentation = getNavigationInstrumentation();
 
   // Track that the navigation occurred
   navigationInstrumentation.setCurrentRoute({
     url,
-    path
+    path,
   });
-}
+};
 ```

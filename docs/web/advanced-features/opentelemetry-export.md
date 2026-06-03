@@ -21,31 +21,34 @@ appropriate CORS headers in its responses:
 
 ```typescript
 import { initSDK } from '@embrace-io/web-sdk';
-import { OTLPLogExporter }   from '@opentelemetry/exporter-logs-otlp-http';
+import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-http';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   spanExporters: [
     new OTLPTraceExporter({
       url: 'https://example.com/endpoint/for/traces',
       headers: {
-        'Authorization': 'Basic TOKEN'
-      }
+        Authorization: 'Basic TOKEN',
+      },
     }),
   ],
   logExporters: [
     new OTLPLogExporter({
       url: 'https://example.com/endpoint/for/logs',
       headers: {
-        'Authorization': 'Basic TOKEN'
-      }
+        Authorization: 'Basic TOKEN',
+      },
     }),
   ],
   defaultInstrumentationConfig: {
     network: {
-      ignoreUrls: ['https://example.com/endpoint/for/traces', 'https://example.com/endpoint/for/logs'],
+      ignoreUrls: [
+        'https://example.com/endpoint/for/traces',
+        'https://example.com/endpoint/for/logs',
+      ],
     },
   },
 });

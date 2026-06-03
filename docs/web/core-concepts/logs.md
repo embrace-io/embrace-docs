@@ -60,10 +60,10 @@ how to instrument your application.
 ### Logs vs Other Concepts
 
 - **Logs vs Traces**: While traces focus on performance and operation flow, logs provide contextual information about
-events and states
+  events and states
 - **Logs vs Sessions**: Logs are events within a session that provide additional context
 - **Logs vs Breadcrumbs**: Logs are more detailed, are grouped based on message, and can have alerts built on top of
-their aggregation. Breadcrumbs are simpler standalone markers of user journey steps
+  their aggregation. Breadcrumbs are simpler standalone markers of user journey steps
 
 ### Best Practices
 

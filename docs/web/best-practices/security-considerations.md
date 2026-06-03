@@ -21,7 +21,7 @@ in particular they will:
 
 - Redact credentials in URLs passed in the form of `https://username:password@www.example.com/`
 - Redact any query string values for keys that are considered sensitive (defined in the SDK as
-[`DEFAULT_SENSITIVE_TOKENS`](https://github.com/embrace-io/embrace-web-sdk/blob/5020e9ca919e7088a7ef42cc6ac9caaebfd1f370/src/sdk/defaultAttributeScrubbers.ts#L12))
+  [`DEFAULT_SENSITIVE_TOKENS`](https://github.com/embrace-io/embrace-web-sdk/blob/5020e9ca919e7088a7ef42cc6ac9caaebfd1f370/src/sdk/defaultAttributeScrubbers.ts#L12))
 
 This process can be customized by specifying additional sensitive query string keys to check for with
 `additionalQueryParamsToScrub`:
@@ -30,9 +30,9 @@ This process can be customized by specifying additional sensitive query string k
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
-  additionalQueryParamsToScrub: ['my-senstive-key', 'foo-token']
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
+  additionalQueryParamsToScrub: ['my-senstive-key', 'foo-token'],
 });
 ```
 
@@ -42,10 +42,10 @@ Custom attribute scrubbers can also be supplied to perform redactions on other a
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   attributeScrubbers: [
-    { key: 'sensitive-attribute', scrub: value => '[REDACTED]' },
+    { key: 'sensitive-attribute', scrub: (value) => '[REDACTED]' },
   ],
 });
 ```
@@ -67,13 +67,13 @@ option:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     network: {
       ignoreUrls: [/sensitive-path/, 'https://auth.example.com/sensitive/'],
     },
-  }
+  },
 });
 ```
 
@@ -89,13 +89,13 @@ option:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     click: {
       shouldTrack: (element) => !element.dataset.sensitive,
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -106,19 +106,19 @@ particular element using its `innerTextForElement` option:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     click: {
-      innerTextForElement: element => {
+      innerTextForElement: (element) => {
         if (element.dataset.sensitive) {
           return 'REDACTED';
         } else {
           return element.innerText;
         }
       },
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -144,7 +144,7 @@ When setting user identifiers, avoid using direct PII:
 
 ```typescript
 // DON'T: Use direct PII as identifier
-user.setUserId("john.smith@example.com");
+user.setUserId('john.smith@example.com');
 
 // DO: Use hashed or tokenized identifiers
 const hashedEmail = hashFunction(userEmail);
@@ -159,16 +159,16 @@ Consider implementing mechanisms to respect user privacy choices:
 
 ```typescript
 function updatePrivacyConsent(userConsented: boolean) {
-    if (userConsented) {
-      // Start Embrace with user consent
-      initSDK({
-        appID: "YOUR_EMBRACE_APP_ID",
-        appVersion: "YOUR_APP_VERSION",
-      });
-    } else {
-      // If user does not consent, don't start Embrace
-      // or limit what you collect
-    }
+  if (userConsented) {
+    // Start Embrace with user consent
+    initSDK({
+      appID: 'YOUR_EMBRACE_APP_ID',
+      appVersion: 'YOUR_APP_VERSION',
+    });
+  } else {
+    // If user does not consent, don't start Embrace
+    // or limit what you collect
+  }
 }
 ```
 

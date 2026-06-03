@@ -47,8 +47,8 @@ array of names or a predicate function:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     'user-timing': {
       allowedEntries: ['my-app-measure', 'checkout-flow'],

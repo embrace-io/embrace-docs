@@ -30,5 +30,5 @@ Exception tracking integrates with other Embrace features:
 
 - Exceptions are associated with the current session
 - Individual exception instances are grouped together in the Embrace Dashboard if they are triggered by the same
-underlying code
+  underlying code
 - Alerts can be set on exception rates or to be notified if a previously resolved exception has resurfaced

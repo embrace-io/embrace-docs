@@ -32,14 +32,14 @@ capturing telemetry:
 import { initSDK } from '@embrace-io/web-sdk';
 
 const result = initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
 });
 
 if (result) {
-  console.log("Successfully initialized the Embrace SDK");
+  console.log('Successfully initialized the Embrace SDK');
 } else {
-  console.log("Failed to initialize the Embrace SDK");
+  console.log('Failed to initialize the Embrace SDK');
 }
 ```
 
@@ -58,10 +58,10 @@ you use your `package.json` to track versions of your app then a way to keep thi
 value when initializing the SDK (assuming that your bundler provides a method for importing json files):
 
 ```typescript
-import * as packageInfo from "../<some-path>/package.json";
+import * as packageInfo from '../<some-path>/package.json';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
+  appID: 'YOUR_EMBRACE_APP_ID',
   appVersion: packageInfo.version,
 });
 ```
@@ -88,23 +88,23 @@ that makes use of the sdk.
 The rest of this documentation assumes using the SDK from an NPM installation, here are some required changes to keep in
 mind as you refer to further instructions:
 
-1) Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
+1. Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
 
    ```javascript
-     const { initSDK, log, page, session, trace, user } = window.EmbraceWebSdk;
+   const { initSDK, log, page, session, trace, user } = window.EmbraceWebSdk;
    ```
 
-2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
+2. Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
 
 bundled with your code, instead you will need to make sure to pass in your app version when initializing the SDK as in
 the following example:
 
-   ```javascript
-   initSDK({
-     appVersion: '0.0.1',
-     /*...*/
-   });
-   ```
+```javascript
+initSDK({
+  appVersion: '0.0.1',
+  /*...*/
+});
+```
 
 #### Async CDN Loading
 
@@ -122,11 +122,11 @@ By deferring the loading of the SDK, any early calls to the SDK need to be wrapp
 
 ```javascript
 window.EmbraceWebSdkOnReady.onReady(() => {
-   window.EmbraceWebSdk.initSDK({
-      appVersion: '0.0.1',
-      /*...*/
-   });
-})
+  window.EmbraceWebSdk.initSDK({
+    appVersion: '0.0.1',
+    /*...*/
+  });
+});
 ```
 
 This is necessary to ensure that the SDK is fully loaded before you start using it.
@@ -152,10 +152,10 @@ OpenTelemetry 1.x support is limited to 1.x versions of the SDK, which are depre
 If you wish to customize the SDK behavior by configuring custom resources, exporters, processors, or instrumentations,
 you must ensure that you are using versions of the OTel packages that are compatible with our SDK:
 
-| Embrace Web SDK | Open Telemetry APIs | Core   | Instrumentations & Contrib |
-|-----------------|---------------------|--------|----------------------------|
-| `^2.0.0`        | `^1.9.0`            | `^2.0.3` | `>=0.203.0 <0.300.0`     |
-| `1.8.2`         | `^1.9.0`            | `1.30.1` | `0.57.2`                 |
+| Embrace Web SDK | Open Telemetry APIs | Core     | Instrumentations & Contrib |
+| --------------- | ------------------- | -------- | -------------------------- |
+| `^2.0.0`        | `^1.9.0`            | `^2.0.3` | `>=0.203.0 <0.300.0`       |
+| `1.8.2`         | `^1.9.0`            | `1.30.1` | `0.57.2`                   |
 
 For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json) file in the SDK repository.
 
@@ -168,8 +168,8 @@ initializing as follows:
 import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   logLevel: DiagLogLevel.ALL,
 });
 ```
@@ -181,12 +181,18 @@ emitted:
 
 ```typescript
 import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
-import { ConsoleLogRecordExporter, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
-import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-web'
+import {
+  ConsoleLogRecordExporter,
+  SimpleLogRecordProcessor,
+} from '@opentelemetry/sdk-logs';
+import {
+  ConsoleSpanExporter,
+  SimpleSpanProcessor,
+} from '@opentelemetry/sdk-trace-web';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   logLevel: DiagLogLevel.INFO,
 
   // setup as exporters to output with the same batching as when exporting to a collector endpoint

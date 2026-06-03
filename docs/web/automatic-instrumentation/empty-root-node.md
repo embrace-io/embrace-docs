@@ -22,8 +22,8 @@ This instrumentation can be enabled by configuring it with the element that is c
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     'empty-root': {
       rootNode: document.getElementById('root'),
