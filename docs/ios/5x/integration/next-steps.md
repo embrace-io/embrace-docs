@@ -21,7 +21,7 @@ our [Feature Reference](/ios/5x/features/).
 
 ### Check Out the FAQ
 
-See a list of frequently asked questions on the [FAQ](/ios/faq/) page.  
+See a list of frequently asked questions on the [FAQ](/ios/faq/) page.
 
 ### Best Practices
 

@@ -102,7 +102,7 @@ If you have Bitcode-enabled builds, the dSYMs generated during the build process
 If you have not enabled dSYM generation for your target and build type, you will get a warning message in your build log.
 
 ```text
-DEBUG_INFORMATION_FORMAT set to 'dwarf'. Skipping upload. 
+DEBUG_INFORMATION_FORMAT set to 'dwarf'. Skipping upload.
 Set to 'dwarf-with-dsym' to generate a dSYM for your application
 ```
 
@@ -199,7 +199,7 @@ The above example is for Apollo's GraphQL implementation. As you can see there a
 /graphql/(value for X-APOLLO-OPERATION-NAME header)
 ```
 
-   With a possible fully generated path as this
+With a possible fully generated path as this
 
 ```text
 /graphql/Notifications
@@ -283,7 +283,7 @@ or email us at [support@embrace.io](mailto:support@embrace.io).
 
 Low memory warnings are calculated differently for Android and iOS. The Unity SDK does not handle low memory warnings and follows the behavior of the native SDKs.
 
-On Android, we are listening to the system’s `onTrimMemory` which is determined by the OS when it is a good time for a process to trim unneeded memory. If the value returned is **10 * (`TRIM_MEMORY_RUNNING_LOW`)** we attempt to capture the timestamp.
+On Android, we are listening to the system’s `onTrimMemory` which is determined by the OS when it is a good time for a process to trim unneeded memory. If the value returned is **10 \* (`TRIM_MEMORY_RUNNING_LOW`)** we attempt to capture the timestamp.
 
 For iOS, we receive the notification [**UIApplicationDidReceiveMemoryWarningNotification**](https://developer.apple.com/documentation/uikit/uiapplication/didreceivememorywarningnotification) from the OS. This indicates the phone is running out of memory.”
 

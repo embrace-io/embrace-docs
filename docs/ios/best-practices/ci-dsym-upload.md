@@ -150,7 +150,7 @@ unzip ./embrace_support.zip
 
 Xcode Cloud is Apple's CI system and works seamlessly with Xcode projects. This means you have less access to the build machine than other
 CI providers. Above, we recommend storing dSYM files in a zip archive as a custom artifact, but in Xcode Cloud storing custom artifacts
- is not possible. Luckily, it also isn't necessary.
+is not possible. Luckily, it also isn't necessary.
 
 #### Xcode Run Script Phase
 

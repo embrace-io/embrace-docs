@@ -163,6 +163,7 @@ do {
 </Tabs>
 
 Domain matching rules:
+
 - Entries are bare hostnames — no protocol prefix, no leading `.`, no path (e.g. `"example.com"`)
 - Each entry matches the exact host (`"example.com"`) and any subdomain (`"api.example.com"`)
 - Matching is case-insensitive

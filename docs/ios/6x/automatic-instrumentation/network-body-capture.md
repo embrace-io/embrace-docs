@@ -2,7 +2,6 @@
 title: Network Body Capture
 description: Embrace can capture network body requests and responses
 sidebar_position: 5
-
 ---
 
 ## Network Body Capture
@@ -193,14 +192,14 @@ Once decrypted, the payload will be a json containing the following keys:
 
     request-body        // body of the network request (string)
     request-body-size   // size of the request body (number)
-    request-query       // query from the request (string)    
-    request-headers     // headers of the network request (map)  
+    request-query       // query from the request (string)
+    request-headers     // headers of the network request (map)
 
-    response-body       // body of the network response (string) 
+    response-body       // body of the network response (string)
     response-body-size  // size of the response body (number)
-    response-headers    // headers of the network response (map)   
+    response-headers    // headers of the network response (map)
     response-status     // status code (number)
 
-    error-message       // error message if the request fails (string)  
+    error-message       // error message if the request fails (string)
 }
 ```

@@ -372,30 +372,30 @@ startupSpan?.end()
 
 Many methods from the 5.x SDK have been replaced with new equivalents. The table below shows the recommended API using the [`EmbraceIO` client](../api-reference/embraceio-client.md). The legacy [`Embrace` client](../api-reference/embrace-client.md) is still available but will be deprecated in a future release.
 
-| 5.x Method | 6.x Equivalent | Comments |
-|------------|----------------|----------|
-| `Embrace.sharedInstance()` | `EmbraceIO.shared` | Access the client instance |
-| `isStarted` | `.state == .started` | Check SDK state |
-| `startWithLaunchOptions` | `EmbraceIO.setup(options:)` and `.start()` | Two-step initialization |
-| `startMoment()` / `endMoment()` | `.buildSpan().startSpan()` / `span.end()` | See Traces documentation |
-| `logMessage()` | `.log(_:severity:timestamp:attributes:)` | Improved logging API with severity levels |
-| `getLastRunEndState` | `lastRunEndState()` | Method signature change |
-| `addSessionProperty` | `.setProperty(key:value:lifespan:)` | Simplified property API |
-| `removeSessionProperty` | `.setProperty(key:value: nil, lifespan:)` | Pass `nil` value to remove |
-| `endSession` | `.endCurrentSession()` | Same behavior |
-| `getCurrentSessionId` | `.currentSessionId` | Now a property |
-| `logBreadcrumbWithMessage()` | `.add(event: .breadcrumb())` | Breadcrumbs are now SpanEvents |
-| `startSpanWithName` | `.buildSpan(name:type:attributes:).startSpan()` | More flexible span creation |
-| `stopSpanWithId` | Use `span.end()` on existing Span | Direct span manipulation |
-| `setUserIdentifier()` | `.userIdentifier = "id"` | Direct property |
-| `clearUserIdentifier()` | `.userIdentifier = nil` | Direct property |
-| `setUserPersona()` | `.addPersona(_:lifespan:)` | Simplified API |
-| `setUserAsPayer()` | `.addPersona("payer", lifespan:)` | Predefined persona tags available |
-| `clearUserPersona()` | `.removePersona(_:lifespan:)` | Simplified API |
-| `clearAllUserPersonas()` | `.removeAllPersonas(lifespans:)` | Simplified API |
-| `getDeviceId` | `.deviceId` | Now a property |
-| `endAppStartup()` | No direct replacement | Create a custom trace/span |
-| `startView()` / `endView()` | Create spans with `SpanType.ux` | View tracking is now span-based |
+| 5.x Method                      | 6.x Equivalent                                  | Comments                                  |
+| ------------------------------- | ----------------------------------------------- | ----------------------------------------- |
+| `Embrace.sharedInstance()`      | `EmbraceIO.shared`                              | Access the client instance                |
+| `isStarted`                     | `.state == .started`                            | Check SDK state                           |
+| `startWithLaunchOptions`        | `EmbraceIO.setup(options:)` and `.start()`      | Two-step initialization                   |
+| `startMoment()` / `endMoment()` | `.buildSpan().startSpan()` / `span.end()`       | See Traces documentation                  |
+| `logMessage()`                  | `.log(_:severity:timestamp:attributes:)`        | Improved logging API with severity levels |
+| `getLastRunEndState`            | `lastRunEndState()`                             | Method signature change                   |
+| `addSessionProperty`            | `.setProperty(key:value:lifespan:)`             | Simplified property API                   |
+| `removeSessionProperty`         | `.setProperty(key:value: nil, lifespan:)`       | Pass `nil` value to remove                |
+| `endSession`                    | `.endCurrentSession()`                          | Same behavior                             |
+| `getCurrentSessionId`           | `.currentSessionId`                             | Now a property                            |
+| `logBreadcrumbWithMessage()`    | `.add(event: .breadcrumb())`                    | Breadcrumbs are now SpanEvents            |
+| `startSpanWithName`             | `.buildSpan(name:type:attributes:).startSpan()` | More flexible span creation               |
+| `stopSpanWithId`                | Use `span.end()` on existing Span               | Direct span manipulation                  |
+| `setUserIdentifier()`           | `.userIdentifier = "id"`                        | Direct property                           |
+| `clearUserIdentifier()`         | `.userIdentifier = nil`                         | Direct property                           |
+| `setUserPersona()`              | `.addPersona(_:lifespan:)`                      | Simplified API                            |
+| `setUserAsPayer()`              | `.addPersona("payer", lifespan:)`               | Predefined persona tags available         |
+| `clearUserPersona()`            | `.removePersona(_:lifespan:)`                   | Simplified API                            |
+| `clearAllUserPersonas()`        | `.removeAllPersonas(lifespans:)`                | Simplified API                            |
+| `getDeviceId`                   | `.deviceId`                                     | Now a property                            |
+| `endAppStartup()`               | No direct replacement                           | Create a custom trace/span                |
+| `startView()` / `endView()`     | Create spans with `SpanType.ux`                 | View tracking is now span-based           |
 
 ### Removed and Deprecated Features
 

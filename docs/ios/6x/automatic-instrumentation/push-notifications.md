@@ -77,20 +77,20 @@ try Embrace
 
 Every `emb-push-notification` span event includes:
 
-| Attribute | Value | Notes |
-| --- | --- | --- |
-| `emb.type` | `sys.push_notification` | Identifies the event type. |
-| `notification.type` | `notif` or `silent` | `silent` when the payload contains `aps.content-available == 1`, otherwise `notif`. |
+| Attribute           | Value                   | Notes                                                                               |
+| ------------------- | ----------------------- | ----------------------------------------------------------------------------------- |
+| `emb.type`          | `sys.push_notification` | Identifies the event type.                                                          |
+| `notification.type` | `notif` or `silent`     | `silent` when the payload contains `aps.content-available == 1`, otherwise `notif`. |
 
 When `captureData: true`, the service additionally reads the `aps` dictionary and adds the following attributes when the corresponding fields are present:
 
-| Attribute | Source in the `aps` payload |
-| --- | --- |
-| `notification.title` | `alert.title` or `alert.title-loc-key` |
+| Attribute               | Source in the `aps` payload                  |
+| ----------------------- | -------------------------------------------- |
+| `notification.title`    | `alert.title` or `alert.title-loc-key`       |
 | `notification.subtitle` | `alert.subtitle` or `alert.subtitle-loc-key` |
-| `notification.body` | `alert.body` or `alert.body-loc-key` |
-| `notification.category` | `category` |
-| `notification.badge` | `badge` (integer) |
+| `notification.body`     | `alert.body` or `alert.body-loc-key`         |
+| `notification.category` | `category`                                   |
+| `notification.badge`    | `badge` (integer)                            |
 
 ### Manual Capture
 
@@ -114,12 +114,12 @@ The `userInfo` dictionary must be APNS-shaped — a top-level `aps` key is requi
 
 ```json
 {
-    "aps": {
-        "alert": {
-            "title": "Notification Title",
-            "body": "Notification Body"
-        }
+  "aps": {
+    "alert": {
+      "title": "Notification Title",
+      "body": "Notification Body"
     }
+  }
 }
 ```
 

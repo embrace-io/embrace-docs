@@ -35,16 +35,15 @@ Embrace captures the following key phases of the SwiftUI render lifecycle:
 Each update to a SwiftUI view creates a render loop trace with this structure:
 
 - **`emb-swiftui.view.<name>.render-loop`**  
-  *Root span* - Measures duration from view evaluation to the next run loop tick
-
+  _Root span_ - Measures duration from view evaluation to the next run loop tick
   - **`emb-swiftui.view.<name>.body`**  
-    *Child span* - Duration of SwiftUI body evaluation (building the view hierarchy)
+    _Child span_ - Duration of SwiftUI body evaluation (building the view hierarchy)
 
   - **`emb-swiftui.view.<name>.appear`**  
-    *Child span* - Time spent inside the `.onAppear` view modifier
+    _Child span_ - Time spent inside the `.onAppear` view modifier
 
   - **`emb-swiftui.view.<name>.disappear`**  
-    *Child span* - Time spent inside the `.onDisappear` view modifier
+    _Child span_ - Time spent inside the `.onDisappear` view modifier
     :::note
     When `onDisappear` happens outside of a render loop, the `disappear` span will be a root span instead of a child span of the render-loop.
     :::
@@ -100,12 +99,12 @@ Apply view tracing by adding a modifier to any view.
 
 **Parameters**
 
-- **name** (*required*): Automatically detected in macro.
-- **attributes** (*optional*):  
+- **name** (_required_): Automatically detected in macro.
+- **attributes** (_optional_):
 
 Custom attributes to add additional context to the created spans.
 
-- **contentComplete** (*optional*): An `Equatable` value that triggers the end of the "time to first content complete" span when changed. Behaves the same as the `onChange` view modifier.
+- **contentComplete** (_optional_): An `Equatable` value that triggers the end of the "time to first content complete" span when changed. Behaves the same as the `onChange` view modifier.
 
 ```swift
 struct MyView: View {

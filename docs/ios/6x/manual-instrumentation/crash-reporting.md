@@ -156,15 +156,15 @@ Embrace offers two crash reporting options with different capabilities and data 
 
 #### Data Comparison
 
-| Feature | EmbraceCrashReporter | CrashlyticsReporter |
-|---------|---------------------|-------------------|
-| **Session Properties** | ✅ Included | ❌ Not included |
-| **Resources** | ✅ Included | ❌ Not included |
-| **Custom Crash Info** | ✅ Via `appendCrashInfo()` | ✅ Via `appendCrashInfo()` |
-| **Last Run State** | ✅ Crash/Clean Exit detection | ❌ Always unavailable |
-| **Full Stack Traces** | ✅ Complete KSCrash data | ⚠️ Limited to Firebase data |
-| **Offline Support** | ✅ Local crash capture | ❌ Requires network |
-| **MetricKit Integration** | ✅ Configurable | ❌ Disabled |
+| Feature                   | EmbraceCrashReporter          | CrashlyticsReporter         |
+| ------------------------- | ----------------------------- | --------------------------- |
+| **Session Properties**    | ✅ Included                   | ❌ Not included             |
+| **Resources**             | ✅ Included                   | ❌ Not included             |
+| **Custom Crash Info**     | ✅ Via `appendCrashInfo()`    | ✅ Via `appendCrashInfo()`  |
+| **Last Run State**        | ✅ Crash/Clean Exit detection | ❌ Always unavailable       |
+| **Full Stack Traces**     | ✅ Complete KSCrash data      | ⚠️ Limited to Firebase data |
+| **Offline Support**       | ✅ Local crash capture        | ❌ Requires network         |
+| **MetricKit Integration** | ✅ Configurable               | ❌ Disabled                 |
 
 #### Disabling Crash Reporting
 

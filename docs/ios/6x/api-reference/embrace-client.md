@@ -256,16 +256,16 @@ Embrace.client?.log("Something went wrong", severity: .error)
 
 // Explicitly disable stack trace capture
 Embrace.client?.log(
-    "Debug message", 
-    severity: .debug, 
+    "Debug message",
+    severity: .debug,
     stackTraceBehavior: .notIncluded
 )
 
 // Use custom stack trace
 let customTrace = EmbraceStackTrace(/* custom trace data */)
 Embrace.client?.log(
-    "Custom trace log", 
-    severity: .info, 
+    "Custom trace log",
+    severity: .info,
     stackTraceBehavior: .custom(customTrace)
 )
 ```
@@ -355,7 +355,7 @@ func flush(_ span: Span)
 // Add single event to current session span
 func add(event: SpanEvent)
 
-// Add multiple events to current session span  
+// Add multiple events to current session span
 func add(events: [SpanEvent])
 ```
 
@@ -391,21 +391,21 @@ Add custom properties to sessions using the metadata handler:
 ```swift
 // Add a session property
 try Embrace.client?.metadata.addProperty(
-    key: "subscription_tier", 
-    value: "premium", 
+    key: "subscription_tier",
+    value: "premium",
     lifespan: .session
 )
 
 // Update a property
 try Embrace.client?.metadata.updateProperty(
-    key: "subscription_tier", 
-    value: "basic", 
+    key: "subscription_tier",
+    value: "basic",
     lifespan: .session
 )
 
 // Remove a property
 try Embrace.client?.metadata.removeProperty(
-    key: "subscription_tier", 
+    key: "subscription_tier",
     lifespan: .session
 )
 ```
@@ -425,8 +425,8 @@ Similar to properties, but stored separately:
 ```swift
 // Add a resource
 try Embrace.client?.metadata.addResource(
-    key: "app_version", 
-    value: "1.2.3", 
+    key: "app_version",
+    value: "1.2.3",
     lifespan: .process
 )
 ```
@@ -438,7 +438,7 @@ Add persona tags to categorize users:
 ```swift
 // Add a persona tag
 try Embrace.client?.metadata.add(
-    persona: PersonaTag("premium_user"), 
+    persona: PersonaTag("premium_user"),
     lifespan: .session
 )
 
@@ -494,7 +494,7 @@ Embrace.recordSpan(name: "data-loading", type: .performance) { span in
 
 // Alternative builder pattern
 let span = Embrace.client?.buildSpan(
-    name: "complex-operation", 
+    name: "complex-operation",
     type: .performance,
     attributes: ["operation": "data-sync"]
 ).startSpan()
@@ -511,7 +511,7 @@ Embrace.client?.log("User logged in", severity: .info)
 
 // Logging with attributes
 Embrace.client?.log(
-    "Network request failed", 
+    "Network request failed",
     severity: .error,
     attributes: ["url": "https://api.example.com"]
 )

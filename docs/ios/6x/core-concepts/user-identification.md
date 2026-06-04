@@ -156,16 +156,16 @@ Each piece of metadata can have one of three lifespans:
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
 
-   ```swift
-   try? EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
-   ```
+```swift
+try? EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
+```
 
 </TabItem>
 <TabItem value="embrace" label="Embrace">
 
-   ```swift
-   try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
-   ```
+```swift
+try? Embrace.client?.metadata.add(persona: "completed_purchase", lifespan: .session)
+```
 
 </TabItem>
 </Tabs>
@@ -175,16 +175,16 @@ Each piece of metadata can have one of three lifespans:
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
 
-   ```swift
-   try? EmbraceIO.shared.addPersona("first_launch", lifespan: .process)
-   ```
+```swift
+try? EmbraceIO.shared.addPersona("first_launch", lifespan: .process)
+```
 
 </TabItem>
 <TabItem value="embrace" label="Embrace">
 
-   ```swift
-   try? Embrace.client?.metadata.add(persona: "first_launch", lifespan: .process)
-   ```
+```swift
+try? Embrace.client?.metadata.add(persona: "first_launch", lifespan: .process)
+```
 
 </TabItem>
 </Tabs>
@@ -194,16 +194,16 @@ Each piece of metadata can have one of three lifespans:
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
 
-   ```swift
-   try? EmbraceIO.shared.addPersona("vip", lifespan: .permanent)
-   ```
+```swift
+try? EmbraceIO.shared.addPersona("vip", lifespan: .permanent)
+```
 
 </TabItem>
 <TabItem value="embrace" label="Embrace">
 
-   ```swift
-   try? Embrace.client?.metadata.add(persona: "vip", lifespan: .permanent)
-   ```
+```swift
+try? Embrace.client?.metadata.add(persona: "vip", lifespan: .permanent)
+```
 
 </TabItem>
 </Tabs>
