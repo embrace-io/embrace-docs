@@ -23,19 +23,16 @@ You can find User Flows under the Performance tab in the sidebar on the left of 
    If a new User Flow starts while another is still in progress, the previous one is automatically terminated.
 
    **Example**: Two User Flows are defined for the same app
-
    - **User Flow A**: Start Event is "Span A" and End Event is "Breadcrumb A".
    - **User Flow B**: Start Event is "Span B" and End Event is "Breadcrumb B".
 
    Event timeline:
-
    - 10:00 — "Span A" occurs.
    - 10:01 — "Span B" occurs.
    - 10:02 — "Breadcrumb A" occurs.
    - 10:03 — "Breadcrumb B" occurs.
 
    **Result**
-
    - "User Flow A" ends with the outcome **Abandoned / New User Flow Started**.
    - "User Flow B" ends with the outcome **Complete**.
 

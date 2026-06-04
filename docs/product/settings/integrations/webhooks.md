@@ -65,7 +65,9 @@ When you get to steps 5-7, modify the JavaScript and replace it with the followi
 ```javascript
 var webhook = PD.inputRequest.body;
 var event_type = PD.Trigger;
-if(webhook.event.metric_props.new_state=="Normal") {event_type = PD.Resolve;}
+if (webhook.event.metric_props.new_state == 'Normal') {
+  event_type = PD.Resolve;
+}
 
 var normalized_event = {
   event_type: event_type,
@@ -76,10 +78,10 @@ var normalized_event = {
     environment: webhook.app.environment,
     app_id: webhook.app.id,
     app: webhook.app.name,
-    platform: webhook.app.platform
+    platform: webhook.app.platform,
   },
-  client: "Embrace Dashboard",
-  client_url: webhook.links.dashboard_url
+  client: 'Embrace Dashboard',
+  client_url: webhook.links.dashboard_url,
 };
 
 PD.emitGenericEvents([normalized_event]);

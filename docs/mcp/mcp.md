@@ -15,52 +15,52 @@ Embrace's MCP server is available to all Embrace users and supports iOS, Android
 #### App tools
 
 | Tool               | Description                                                         |
-|--------------------|---------------------------------------------------------------------|
+| ------------------ | ------------------------------------------------------------------- |
 | `list_apps`        | List and filter applications in your Embrace workspace              |
 | `get_app_details`  | Get health metrics, crash-free rates, and session counts for an app |
 | `get_top_versions` | Identify which app versions are most widely used                    |
 
 #### Crash tools
 
-| Tool                      | Description                                                                                 |
-|---------------------------|---------------------------------------------------------------------------------------------|
-| `list_crashes`            | List top crashes ranked by frequency                                                        |
-| `get_crash_details`       | Get detailed information about a specific crash group                                       |
+| Tool                      | Description                                                                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `list_crashes`            | List top crashes ranked by frequency                                                                                              |
+| `get_crash_details`       | Get detailed information about a specific crash group                                                                             |
 | `get_crash_distribution`  | Get distribution of a crash group across a dimension (OS version, device model, country, etc.) compared against session baselines |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                                                |
+| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                                                                                      |
 
 #### Exception tools
 
-| Tool                    | Description                                                                     |
-|-------------------------|---------------------------------------------------------------------------------|
-| `list_exceptions`       | List top exceptions ranked by frequency and user impact                         |
+| Tool                    | Description                                                                                              |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- |
+| `list_exceptions`       | List top exceptions ranked by frequency and user impact                                                  |
 | `get_exception_details` | Get detailed information about a specific exception group, including counts, affected users, and history |
 
 #### Log tools
 
-| Tool                   | Description                                                                                     |
-|------------------------|-------------------------------------------------------------------------------------------------|
-| `list_logs`            | List top log messages grouped by aggregated message pattern                                     |
-| `get_log_details`      | Get detailed information about a specific log group including message template and token analysis |
+| Tool                   | Description                                                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `list_logs`            | List top log messages grouped by aggregated message pattern                                                                     |
+| `get_log_details`      | Get detailed information about a specific log group including message template and token analysis                               |
 | `get_log_distribution` | Get distribution of a log group across a dimension (OS version, device model, country, etc.) compared against session baselines |
 
 #### Session tools
 
-| Tool                       | Description                                                    |
-|----------------------------|----------------------------------------------------------------|
-| `get_session_distribution` | Get session counts distributed across a single dimension       |
+| Tool                       | Description                                              |
+| -------------------------- | -------------------------------------------------------- |
+| `get_session_distribution` | Get session counts distributed across a single dimension |
 
 #### Span tools
 
-| Tool                        | Description                                                                             |
-|-----------------------------|-----------------------------------------------------------------------------------------|
-| `list_root_spans`           | List all root spans in an app with performance metrics and outcome rates                |
-| `get_root_span_distribution`| Get distribution by various dimensions for a specific root span                         |
+| Tool                         | Description                                                              |
+| ---------------------------- | ------------------------------------------------------------------------ |
+| `list_root_spans`            | List all root spans in an app with performance metrics and outcome rates |
+| `get_root_span_distribution` | Get distribution by various dimensions for a specific root span          |
 
 #### Network tools
 
 | Tool                              | Description                                                                                      |
-|-----------------------------------|--------------------------------------------------------------------------------------------------|
+| --------------------------------- | ------------------------------------------------------------------------------------------------ |
 | `list_network_domains`            | List all domains an app communicates with, with basic health indicators                          |
 | `list_network_endpoints`          | List endpoints ranked by latency, errors, or volume                                              |
 | `get_network_endpoint_errors`     | Get error breakdown for a specific endpoint by HTTP status code and connection error type        |

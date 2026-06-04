@@ -5,7 +5,7 @@ sidebar_position: 0
 
 ## Issues
 
-Our dashboard gives you a plethora of metrics to provide full visibility into the health and stability of your app. Rather than clicking through pages filled with metrics to get a basic understanding of key issues within your app, we've rolled-up relevant issues into our *Issues* page. Navigate to the page by selecting *Issues* in the left hand menu on the dashboard.
+Our dashboard gives you a plethora of metrics to provide full visibility into the health and stability of your app. Rather than clicking through pages filled with metrics to get a basic understanding of key issues within your app, we've rolled-up relevant issues into our _Issues_ page. Navigate to the page by selecting _Issues_ in the left hand menu on the dashboard.
 
 Prioritize issues by instance or unique user count, filtering by time, app version and issue state. Our workflow will allow you to control issues by **Resolving**, **Snoozing** and **Ignoring** current issues and **Reopening** old issues.
 

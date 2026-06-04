@@ -102,7 +102,7 @@ Unsupported options:
 
 - The following aggregations are ignored when Embrace generates the dashboard backlink:
   - `duration_bucket`, `group_id`, `log_property_value`, `moment_property_value`, `root_span_attribute_value`, `root_span_duration_bucket`,
-  `session_property_value`, `status_code`, `tag_value`.
+    `session_property_value`, `status_code`, `tag_value`.
 - [Top N](/metrics-forwarding/#dimension-reduction---other) aggregations. Embrace converts these since the `other` value cannot be mapped to a specific value on the Embrace dashboard. Aggregations that are converted:
   - `device_model` converted to `model_market_name` (Model Name).
   - `top_n_domain` converted to `domain`.
@@ -116,8 +116,8 @@ Unsupported options:
 1. Go to the Grafana Dashboard where you visualize your Embrace metrics.
 2. Go to the Grafana Visualization where you want to add the Embrace dashboard backlink.
    - Ensure that all Embrace metrics are aggregated by `app_id` and `embrace_metric_name`. Embrace uses those aggregations to generate
-   the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this
-   (`sum by (os_version, app_id, embrace_metric_name) (embrace_session_hourly_total)`) works.
+     the Embrace dashboard backlink. Example: this (`sum by (os_version) (embrace_session_hourly_total)`) doesn't work and this
+     (`sum by (os_version, app_id, embrace_metric_name) (embrace_session_hourly_total)`) works.
 3. Hover over the Grafana Visualization to reveal the three dot menu in the top-right and select "edit".
 4. In the right sidebar menu, scroll down to the "Data Links" section. Click the "+ Add link" button, and enter the following details:
    - **Title**: Embrace.

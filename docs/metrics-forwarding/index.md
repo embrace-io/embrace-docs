@@ -47,17 +47,17 @@ Embrace forwards standard and custom metrics at different time granularities to 
 
 #### Standard Metrics
 
-| Metric name           | Embrace Metrics API Name | Description                                    | Dimensions                            | Time granularity           | Platforms         |
-|-----------------------|--------------------------|------------------------------------------------|---------------------------------------|----------------------------|-------------------|
-| session_total         | sessions_total           | Number of sessions                             | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
-| users_total*          | users_total              | Number of unique users                         | app_version, os_version, device_model | daily                      | Android, iOS, Web |
-| network4xx_total      | network4xx_total         | Number of 4xx network errors                   | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
-| network5xx_total      | network5xx_total         | Number of 5xx network errors                   | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
-| crash_total           | crashes_total            | Number of crashes                              | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
-| crash_free_user_total*| crashed_free_users       | Number of unique users without crashes         | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
-| exception_total       | exception_total          | Number of exceptions                           |                                       | five_minute, hourly, daily | Web               |
-| web_vital_total       | web_vital_total          | Number of Web Vital measurements               | name, rating                          | five_minute, hourly, daily | Web               |
-| web_vital_p75*        | web_vital_p75            | 75th percentile value of a Web Vital           | name                                  | five_minute, hourly, daily | Web               |
+| Metric name             | Embrace Metrics API Name | Description                            | Dimensions                            | Time granularity           | Platforms         |
+| ----------------------- | ------------------------ | -------------------------------------- | ------------------------------------- | -------------------------- | ----------------- |
+| session_total           | sessions_total           | Number of sessions                     | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
+| users_total\*           | users_total              | Number of unique users                 | app_version, os_version, device_model | daily                      | Android, iOS, Web |
+| network4xx_total        | network4xx_total         | Number of 4xx network errors           | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
+| network5xx_total        | network5xx_total         | Number of 5xx network errors           | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS, Web |
+| crash_total             | crashes_total            | Number of crashes                      | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
+| crash_free_user_total\* | crashed_free_users       | Number of unique users without crashes | app_version, os_version, device_model | five_minute, hourly, daily | Android, iOS      |
+| exception_total         | exception_total          | Number of exceptions                   |                                       | five_minute, hourly, daily | Web               |
+| web_vital_total         | web_vital_total          | Number of Web Vital measurements       | name, rating                          | five_minute, hourly, daily | Web               |
+| web_vital_p75\*         | web_vital_p75            | 75th percentile value of a Web Vital   | name                                  | five_minute, hourly, daily | Web               |
 
 :::info
 Metrics marked with an asterisk (`*`) cannot be safely re-aggregated after they are forwarded. Combining their values across time or dimensions can produce misleading results.
@@ -78,7 +78,7 @@ Metric names follow different formats depending on the data destination. The tab
 conventions used:
 
 | Data Destinations                                          | Format                                     | Example                       |
-|------------------------------------------------------------|--------------------------------------------|-------------------------------|
+| ---------------------------------------------------------- | ------------------------------------------ | ----------------------------- |
 | Datadog, Elastic, Honeycomb, New Relic, Observe and Splunk | `embrace.<metric_name>.<time_granularity>` | `embrace.crashes_total.daily` |
 | Chronosphere and Grafana Cloud                             | `embrace_<metric_name>_<time_granularity>` | `embrace_crashes_total_daily` |
 | Embrace Metrics API                                        | `<time_granularity>_<metric_name>`         | `daily_crashes_total`         |

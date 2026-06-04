@@ -126,24 +126,24 @@ The Native side internally implements the Android/Apple exporters as described a
 
 ```javascript
 const { isPending, isStarted } = useEmbrace({
-  ios: { appId: "__APP_ID__" },
+  ios: { appId: '__APP_ID__' },
   exporters: {
     logExporter: {
       endpoint:
-        "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs",
+        'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs',
       headers: [
         {
-          key: "Authorization",
+          key: 'Authorization',
           token: `Basic __GRAFANA_TOKEN__`,
         },
       ],
     },
     traceExporter: {
       endpoint:
-        "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces",
+        'https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces',
       headers: [
         {
-          key: "Authorization",
+          key: 'Authorization',
           token: `Basic __GRAFANA_TOKEN__`,
         },
       ],

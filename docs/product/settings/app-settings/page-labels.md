@@ -17,7 +17,7 @@ Page Labels are supported by SDK v2.14.0 or later.
 
 Using URL patterns allows you to create and update Page Labels without making code changes or redeploying your site or app.
 
-Open the settings for your App and click on the *Page Labels* tab.
+Open the settings for your App and click on the _Page Labels_ tab.
 
 The rules are evaluated in the order they are listed so the most specific rules should be at the top of the list.
 
@@ -25,7 +25,7 @@ The rules are evaluated in the order they are listed so the most specific rules 
 
 #### Adding a New Label
 
-*Add Rule* allows you to create more Labels.
+_Add Rule_ allows you to create more Labels.
 
 <img src={require('@site/static/images/settings/page-labels/adding-a-page-label.png').default} alt="Screenshot of Adding a Page Label on Settings page" />
 
@@ -35,7 +35,7 @@ Patterns are defined using [RE2 syntax](https://github.com/google/re2/wiki/Synta
 
 #### Checking Regex Patterns
 
-You can test patterns by adding a URL to the field at the bottom of the dialog and pressing the *Test* button.
+You can test patterns by adding a URL to the field at the bottom of the dialog and pressing the _Test_ button.
 
 <img src={require('@site/static/images/settings/page-labels/testing-a-page-label-rule.png').default} alt="Screenshot of Checking a URL Pattern on Settings page" />
 
@@ -51,7 +51,11 @@ Only the protocol, domain and path components of a URL are used when matching la
 
 Page Labels can also be set directly via the SDK. URL based rules will take precedence over SDK set ones.
 
-``` js
-    pageManager.setPageLabel('my-custom-label');
-    pageManager.setCurrentRoute({ label: 'my-custom-label', path: '/products/:productId', url: '/products/123' });
+```js
+pageManager.setPageLabel('my-custom-label');
+pageManager.setCurrentRoute({
+  label: 'my-custom-label',
+  path: '/products/:productId',
+  url: '/products/123',
+});
 ```

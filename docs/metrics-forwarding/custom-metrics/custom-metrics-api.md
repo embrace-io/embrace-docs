@@ -30,7 +30,7 @@ If you account is using Embrace's [regional data residency](/region/) feature, t
 Headers:
 
 - `Authorization`: we are going to use a Bearer token to authorize and authenticate our requests.
-i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f0z`.
+  i.e.: `Authorization: Bearer 7bd49186fed24af699cf93069fc64f0z`.
 
 URL Params:
 
@@ -48,7 +48,7 @@ Body Params:
 ```json
 {
   "op": "and",
-  "children": [{"field_op": "eq", "key": "os_version", "val": "12"}]
+  "children": [{ "field_op": "eq", "key": "os_version", "val": "12" }]
 }
 ```
 
@@ -97,7 +97,7 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
 
 ##### OK
 
-```json 
+```json
 {
   "custom_metric_id": "y8vayvn",
   "app_id": "appID1",
@@ -105,7 +105,7 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
   "metric": "sessions_total",
   "filters": {
     "op": "and",
-    "children": [{"field_op": "eq", "key": "os_version", "val": "12"}]
+    "children": [{ "field_op": "eq", "key": "os_version", "val": "12" }]
   },
   "group_by": ["app_version"],
   "time_granularity": ["five_minute", "hourly"],
@@ -116,13 +116,13 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
 ##### Error (500)
 
 ```json
-{"message": "we had an internal error, please try again later"}
+{ "message": "we had an internal error, please try again later" }
 ```
 
 ##### Filters Examples
 
 | Type     | Example                                                                                             |
-|----------|-----------------------------------------------------------------------------------------------------|
+| -------- | --------------------------------------------------------------------------------------------------- |
 | string   | `{"key": "app_version", "field_op": "eq", "val": "3.2.0"}`                                          |
 | int      | `{"key": "os_major_version", "field_op": "gt", "val": 9}`                                           |
 | boolean  | `{"key": "has_anr", "field_op": "eq", "val": true}`                                                 |
@@ -133,25 +133,25 @@ Status codes: `200`, `400`, `403`, `409` and `500`.
 
 For some custom metrics the API allows you to filter data based on the `duration_bucket` parameter, which categorizes data according to specific `duration` ranges. Each `duration_bucket` value corresponds to a specific range of `duration` values. Here's how it works:
 
-| Duration Range                  | Duration Bucket |
-|---------------------------------|-----------------|
-| 0ms to 100ms                    | 0               |
-| 100ms to 200ms                  | 100             |
-| 200ms to 300ms                  | 200             |
-| 300ms to 400ms                  | 300             |
-| 400ms to 500ms                  | 400             |
-| 500ms to 600ms                  | 500             |
-| 600ms to 700ms                  | 600             |
-| 700ms to 800ms                  | 700             |
-| 800ms to 900ms                  | 800             |
-| 900ms to 1000ms                 | 900             |
-| 1000ms to 2000ms                | 1000            |
-| 2000ms to 3000ms                | 2000            |
-| 3000ms to 4000ms                | 3000            |
-| 4000ms to 5000ms                | 4000            |
-| 5000ms to 10000ms               | 5000            |
-| 10000ms to 15000ms              | 10000           |
-| Greater than 15000ms            | 15000           |
+| Duration Range       | Duration Bucket |
+| -------------------- | --------------- |
+| 0ms to 100ms         | 0               |
+| 100ms to 200ms       | 100             |
+| 200ms to 300ms       | 200             |
+| 300ms to 400ms       | 300             |
+| 400ms to 500ms       | 400             |
+| 500ms to 600ms       | 500             |
+| 600ms to 700ms       | 600             |
+| 700ms to 800ms       | 700             |
+| 800ms to 900ms       | 800             |
+| 900ms to 1000ms      | 900             |
+| 1000ms to 2000ms     | 1000            |
+| 2000ms to 3000ms     | 2000            |
+| 3000ms to 4000ms     | 3000            |
+| 4000ms to 5000ms     | 4000            |
+| 5000ms to 10000ms    | 5000            |
+| 10000ms to 15000ms   | 10000           |
+| Greater than 15000ms | 15000           |
 
 **Caution:** When filtering with conditions such as `duration_bucket` < 1100, please be aware that the behavior is based on the order of conditions and the first condition that matches.
 In this case, if `duration_bucket` is less than 1100, it will match the condition `duration_bucket` < 1000, and the `duration` filter will be < 2000. Ensure that your conditions are structured to achieve your intended filtering accurately.
@@ -161,7 +161,7 @@ If you want to filter all durations less or equal than 999 you should create thi
 ```json
 {
   "op": "and",
-  "children": [{"key": "duration_bucket", "val": 999, "field_op": "lte"}]
+  "children": [{ "key": "duration_bucket", "val": 999, "field_op": "lte" }]
 }
 ```
 
@@ -212,7 +212,7 @@ Status codes: `200`, `400`, `409` and `500`.
 ##### Error (400)
 
 ```json
-{"message": "app id can't be empty"}
+{ "message": "app id can't be empty" }
 ```
 
 #### Delete custom metrics
@@ -233,7 +233,7 @@ Status codes: `204`, `400`, `403`, `404`, `409` and `500`.
 ##### Error (404)
 
 ```json
-{"message": "metric sessions_total_v1 doesn't exist"}
+{ "message": "metric sessions_total_v1 doesn't exist" }
 ```
 
 #### Get metrics and parameters supported
@@ -273,7 +273,9 @@ Status codes: `200` and `500`.
 [
   {
     "metric": "sessions_total",
-    "filters": [{"name": "has_anr", "supported_ops": ["eq"], "type": "boolean"}],
+    "filters": [
+      { "name": "has_anr", "supported_ops": ["eq"], "type": "boolean" }
+    ],
     "group_by": ["app_version"],
     "time_granularity": ["five_minute"],
     "data_destination": ["metrics_api"]
@@ -284,7 +286,7 @@ Status codes: `200` and `500`.
 ##### Error (500)
 
 ```json
-{"message": "we had an internal error, please try again later"}
+{ "message": "we had an internal error, please try again later" }
 ```
 
 ### Code samples
