@@ -126,9 +126,9 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
-| Element Load Time (Milliseconds)<br /><code class="filters-table__key">load_time</code> | Milliseconds from navigation start to when the element resource was loaded; 0 for text elements. | float | — |
-| Element Render Time (Milliseconds)<br /><code class="filters-table__key">render_time</code> | Milliseconds from navigation start to when the element was painted; 0 for cross-origin elements. | float | — |
-| Element Start Time (Milliseconds)<br /><code class="filters-table__key">element_start_time</code> | Render time when non-zero, else load time. Milliseconds from navigation start. | float | — |
+| Element Load Time (Milliseconds)<br /><code class="filters-table__key">load_time</code> | Milliseconds from zero time to when the element resource was loaded; 0 for text elements. | float | — |
+| Element Render Time (Milliseconds)<br /><code class="filters-table__key">render_time</code> | Milliseconds from zero time to when the element was painted; 0 for cross-origin elements. | float | — |
+| Element Start Time (Milliseconds)<br /><code class="filters-table__key">element_start_time</code> | Render time when non-zero, else load time. Milliseconds from zero time. | float | — |
 | Element Timing Identifier<br /><code class="filters-table__key">identifier</code> | Value of the elementtiming HTML attribute that identifies the observed element. | String | — |
 | Element Type<br /><code class="filters-table__key">element</code> | HTML tag name of the timed element, e.g. IMG or P. | String | — |
 
@@ -215,6 +215,16 @@ Each filter table in this page uses the same columns:
 
 </div>
 
+## OTel Log Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Event Name<br /><code class="filters-table__key">event_name</code> | Name of the OTel log event (e.g. rage_click, first_interaction). | String | — |
+
+</div>
+
 ## Root Span Filters
 
 <div class="filters-table">
@@ -271,6 +281,7 @@ Each filter table in this page uses the same columns:
 | Inactive Interval Count<br /><code class="filters-table__key">inactive_interval_count</code> | Number of inactive intervals in the session. | int | — |
 | Is First<br /><code class="filters-table__key">is_first</code> | True if this is the user's first session. | Boolean | — |
 | Network Connectivity<br /><code class="filters-table__key">network_connectivity</code> | Type of network connection the device is using. | Choice (String) | Choices: `mixed`, `none`, `wan`, `wifi` |
+| Page Load Abandoned<br /><code class="filters-table__key">page_load_abandoned</code> | True if this session was a cold start abandoned before page load completed. | Boolean | — |
 | State<br /><code class="filters-table__key">state</code> | Whether the app was in the foreground or background. | Choice (String) | Choices: `foreground`, `background` |
 | Was User Terminated<br /><code class="filters-table__key">has_user_terminated</code> | Whether the session was terminated by the user. | Boolean | — |
 
@@ -282,9 +293,9 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| Duration (Milliseconds)<br /><code class="filters-table__key">span_duration</code> | Duration of the span in milliseconds. | int | — |
 | Has Slow Root Span<br /><code class="filters-table__key">span_type_slow</code> | Whether the span is considered slow. | Boolean | — |
 | Span Attribute Key<br /><code class="filters-table__key">span_attribute_key</code> | Key of a span attribute. | String | — |
-| Span Duration (Milliseconds)<br /><code class="filters-table__key">span_duration</code> | Duration of the span in milliseconds. | int | — |
 | Span Duration Bucket (Milliseconds)<br /><code class="filters-table__key">span_duration_bucket</code> | Bucket for span duration. | int | — |
 | Span Event Name<br /><code class="filters-table__key">span_event_name</code> | Event name associated with the span. | String | — |
 | Span Is Child<br /><code class="filters-table__key">is_child_span</code> | Whether the span is a child span. | Boolean | — |
@@ -332,7 +343,7 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
-| Embrace ID<br /><code class="filters-table__key">device_id</code> | Unique identifier for the device (Embrace ID). | String | — |
+| Embrace ID<br /><code class="filters-table__key">device_id</code> | Unique identifier for the device. | String | — |
 | Persona<br /><code class="filters-table__key">persona</code> | User persona segment. | String | — |
 | User Email<br /><code class="filters-table__key">user_email</code> | App user's email address. | String | — |
 | User ID<br /><code class="filters-table__key">user_id</code> | User identifier. | String | — |
@@ -346,7 +357,7 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
-| User Flow Duration (Milliseconds)<br /><code class="filters-table__key">user_flow_duration</code> | Duration of the user flow in milliseconds. | int | — |
+| Duration (Milliseconds)<br /><code class="filters-table__key">user_flow_duration</code> | Duration of the user flow in milliseconds. | int | — |
 | User Flow End Event Type<br /><code class="filters-table__key">user_flow_end_event_type</code> | Type of event that ended the user flow. | Choice (String) | Choices: `breadcrumb`, `crash`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
 | User Flow End Reason<br /><code class="filters-table__key">user_flow_outcome_reason</code> | Reason for the user flow outcome. | Choice (String) | Choices: `app_exit`, `timeout`, `new_user_flow_started`, `crash` |
 | User Flow Has Issue<br /><code class="filters-table__key">user_flow_has_issue</code> | Whether the user flow has an issue. | Choice (String) | Choices: `anr`, `crash`, `error_log`, `network_error` |
@@ -374,7 +385,7 @@ Each filter table in this page uses the same columns:
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
 | Entry Type<br /><code class="filters-table__key">entry_type</code> | Performance API entry type — "mark" or "measure". | Choice (String) | Choices: `mark`, `measure` |
-| User Timing Start Time<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float | — |
+| Start Time (Milliseconds)<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float | — |
 
 </div>
 
