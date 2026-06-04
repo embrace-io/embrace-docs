@@ -11,8 +11,8 @@ and the components they engage with most.
 
 ### How User Interaction Instrumentation Works
 
-The instrumentation listens for any 'click' events on the global `document` object and records them as SpanEvents on
-the current session Span. Clicks are not reported if the HTML element being interacted with has the 'disabled' attribute
+The instrumentation listens for any 'click' events on the global `document` object and reports them.
+Clicks are not reported if the HTML element being interacted with has the 'disabled' attribute
 or if the click event had had its propagation stopped.
 
 The time of the click is captured along with a representation of the element being interacted with. In addition, if there
