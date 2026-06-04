@@ -1,7 +1,7 @@
-import React, {type FC} from 'react';
+import React, { type FC } from 'react';
 
-import {type TextProps} from '../textProps';
-import classes from "@site/src/helpers/classes";
+import { type TextProps } from '../textProps';
+import classes from '@site/src/helpers/classes';
 
 import styles from './Body.module.css';
 

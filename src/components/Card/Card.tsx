@@ -1,5 +1,5 @@
-import React, {type ComponentPropsWithoutRef, forwardRef} from 'react';
-import classes from "@site/src/helpers/classes";
+import React, { type ComponentPropsWithoutRef, forwardRef } from 'react';
+import classes from '@site/src/helpers/classes';
 
 import styles from './Card.module.css';
 
