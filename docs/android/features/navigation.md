@@ -17,11 +17,10 @@ The SDK captures user navigation in the following ways:
 
 - **Activity lifecycle instrumentation**: Automatically detects when an [`Activity`](https://developer.android.com/reference/android/app/Activity) becomes visible
 - **Jetpack Navigation instrumentation**: Automatically detects, or your app explicitly registers, navigation components from the [Jetpack Navigation](https://developer.android.com/guide/navigation) library through an API or Composable
-- **Manual navigation tracking**: Your app explicitly calls an API to tell the SDK when a navigation has happened
 
-The SDK records every navigation event with a stable name that identifies the location the user moved to,
-deriving it from your code or taking it directly from what your app provides. The sections below describe how
-the SDK determines that name for each of the supported navigation paradigms.
+The SDK records every navigation event with a stable name, derived from your code, that identifies the
+location the user moved to. The sections below describe how the SDK determines that name for each of the
+supported navigation paradigms.
 
 ### Activity lifecycle instrumentation
 
@@ -35,7 +34,7 @@ The instrumentation uses the Activity's class name relative to its package, as r
 
 When the app emerges from the background, the instrumentation records a navigation event to denote the app UI being
 visible again. It uses the `Activity` name for that navigation event if that `Activity` has no other
-automatic navigation instrumentation.
+navigation instrumentation.
 
 This level of tracking is most useful for apps that use a distinct `Activity` to represent each screen. Apps
 that host their navigation inside one or a handful of Activities, such as when using Jetpack Navigation,
@@ -206,31 +205,3 @@ fun MyAppNavigation() {
 
 The instrumentation uses the value returned by calling `toString()` on the top back stack element, so ensure that the underlying class's
 implementation returns an appropriate value.
-
-### Manual navigation tracking
-
-If your app doesn't use Jetpack Navigation and simply tracking when Activities become visible doesn't satisfactorily
-represent how you model user navigation in your app, you can manually track navigation programmatically using the API
-`Embrace.screenLoaded()`. Call this method whenever app navigation completes and provide a custom destination name
-in the method call, and it will appear in the session timeline as a navigation event.
-
-Note: manual navigation tracking is independent of the other means of navigation tracking. Using it does not affect
-the navigation events the Activity and Jetpack Navigation instrumentation record, as described above.
-
-<Tabs groupId="android-language" queryString="android-language">
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-// Record that the user has navigated somewhere
-Embrace.screenLoaded("checkout")
-
-// Optionally include attributes to record alongside the navigation
-Embrace.screenLoaded("checkout", mapOf("cart_size" to "3"))
-```
-
-</TabItem>
-</Tabs>
-
-Each call should semantically mark a completed navigation, i.e. when the user's new location in the app has
-loaded, not when navigation has started. As such, treat the previously recorded location as "current" until
-you call `screenLoaded()` again.
