@@ -54,7 +54,7 @@ Session properties in the Embrace SDK can have two different lifespans: **curren
   These are included in all sessions, both current and future. They continue to be included in every session until you explicitly remove them or the user clears their browser data.
 
 :::note
-Session properties require localStorage and will not be written in cases where it is unavailable (such as in private or incognito mode).
+Session properties require localStorage. If localStorage is unavailable (such as in private or incognito mode), no session properties will be stored or included in session data.
 :::
 
 #### Adding and Removing Properties
