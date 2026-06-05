@@ -32,7 +32,7 @@ initSDK({
 });
 ```
 
-The instrumentation then setups a [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
+The instrumentation then sets up a [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
 on the element and records an event if that element is ever found to have been emptied out.
 
 The occurrence of this event then feeds into our [Exception Severity Score calculation](/product/exceptions/severity-score.md#6-empty-root-node-multiplier)
