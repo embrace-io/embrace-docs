@@ -22,8 +22,7 @@ A new session starts when your web app is loaded in a user's browser tab and is 
 - There is no user activity detected on the tab for a certain period of time (30 minutes by default)
 
 A session ending will trigger an upload of that session's data to Embrace where it will be shown within the Embrace
-Dashboard. You can also manually end the current session if needed. A new session starts automatically on the next
-user activity:
+Dashboard. You can also manually end the current session if needed. If the tab is still focused, a new user session will begin automatically:
 
 ```typescript
 import { session } from '@embrace-io/web-sdk';
