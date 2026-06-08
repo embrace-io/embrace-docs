@@ -24,13 +24,13 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                       | Description                                    | Type            | Constraints                         |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------- | ----------------------------------- |
-| Completion<br /><code class="filters-table__key">completion</code>                           | State of the ANR at the time of session exit.  | Choice (String) | Choices: `all`, `completed`, `exit` |
-| Duration Bucket (Milliseconds)<br /><code class="filters-table__key">duration</code>         | Duration of the ANR, bucketed by milliseconds. | intrange        | —                                   |
-| Google Capture Supported<br /><code class="filters-table__key">support_google_capture</code> | Whether Google Capture is supported.           | Boolean         | —                                   |
-| Method<br /><code class="filters-table__key">method</code>                                   | Grouped method for the ANR.                    | String          | —                                   |
-| Sample Type<br /><code class="filters-table__key">sample_type</code>                         | Type of sample (e.g., first, best).            | Choice (String) | Choices: `first`, `best`, `ad`      |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Completion<br /><code class="filters-table__key">completion</code> | State of the ANR at the time of session exit. | Choice (String) | Choices: `all`, `completed`, `exit` |
+| Duration Bucket (Milliseconds)<br /><code class="filters-table__key">duration</code> | Duration of the ANR, bucketed by milliseconds. | intrange | — |
+| Google Capture Supported<br /><code class="filters-table__key">support_google_capture</code> | Whether Google Capture is supported. | Boolean | — |
+| Method<br /><code class="filters-table__key">method</code> | Grouped method for the ANR. | String | — |
+| Sample Type<br /><code class="filters-table__key">sample_type</code> | Type of sample (e.g., first, best). | Choice (String) | Choices: `first`, `best`, `ad` |
 
 </div>
 
@@ -38,14 +38,14 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                             | Description                              | Type   | Constraints |
-| ---------------------------------------------------------------------------------- | ---------------------------------------- | ------ | ----------- |
-| App Version<br /><code class="filters-table__key">app_version</code>               | Semantic version number of the app.      | String | —           |
-| Build<br /><code class="filters-table__key">build</code>                           | Build identifier of the app.             | String | —           |
-| Environment<br /><code class="filters-table__key">environment</code>               | Deployment environment of the app.       | String | —           |
-| Environment Detail<br /><code class="filters-table__key">environment_detail</code> | Detailed environment information.        | String | —           |
-| Last View<br /><code class="filters-table__key">last_view</code>                   | Last view screen visited in the session. | String | —           |
-| SDK Version<br /><code class="filters-table__key">sdk_version</code>               | Embrace SDK semantic version.            | String | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| App Version<br /><code class="filters-table__key">app_version</code> | Semantic version number of the app. | String | — |
+| Build<br /><code class="filters-table__key">build</code> | Build identifier of the app. | String | — |
+| Environment<br /><code class="filters-table__key">environment</code> | Deployment environment of the app. | String | — |
+| Environment Detail<br /><code class="filters-table__key">environment_detail</code> | Detailed environment information. | String | — |
+| Last View<br /><code class="filters-table__key">last_view</code> | Last view screen visited in the session. | String | — |
+| SDK Version<br /><code class="filters-table__key">sdk_version</code> | Embrace SDK semantic version. | String | — |
 
 </div>
 
@@ -53,12 +53,12 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                   | Description                                 | Type    | Constraints |
-| ---------------------------------------------------------------------------------------- | ------------------------------------------- | ------- | ----------- |
-| Bot<br /><code class="filters-table__key">bot</code>                                     | Whether the session was generated by a bot. | Boolean | —           |
-| Browser Major Version<br /><code class="filters-table__key">browser_major_version</code> | Major version of the web browser.           | int     | —           |
-| Browser Name<br /><code class="filters-table__key">browser_name</code>                   | Name of the web browser.                    | String  | —           |
-| Browser Version<br /><code class="filters-table__key">browser_version</code>             | Full version of the web browser.            | String  | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Bot<br /><code class="filters-table__key">bot</code> | Whether the session was generated by a bot. | Boolean | — |
+| Browser Major Version<br /><code class="filters-table__key">browser_major_version</code> | Major version of the web browser. | int | — |
+| Browser Name<br /><code class="filters-table__key">browser_name</code> | Name of the web browser. | String | — |
+| Browser Version<br /><code class="filters-table__key">browser_version</code> | Full version of the web browser. | String | — |
 
 </div>
 
@@ -66,13 +66,13 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                         | Description                                       | Type            | Constraints                                                 |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------- | --------------- | ----------------------------------------------------------- |
-| Child Span Attribute Key<br /><code class="filters-table__key">child_attribute_key</code>      | Key of a child span attribute.                    | String          | —                                                           |
-| Child Span Duration (Milliseconds)<br /><code class="filters-table__key">child_duration</code> | Duration of the child span in milliseconds.       | int             | —                                                           |
-| Child Span Event Name<br /><code class="filters-table__key">child_event_name</code>            | Name of the event associated with the child span. | String          | —                                                           |
-| Child Span Name<br /><code class="filters-table__key">child_name</code>                        | Name of the child span.                           | String          | —                                                           |
-| Child Span Outcome<br /><code class="filters-table__key">child_outcome</code>                  | Outcome of the child span.                        | Choice (String) | Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Child Span Attribute Key<br /><code class="filters-table__key">child_attribute_key</code> | Key of a child span attribute. | String | — |
+| Child Span Duration (Milliseconds)<br /><code class="filters-table__key">child_duration</code> | Duration of the child span in milliseconds. | int | — |
+| Child Span Event Name<br /><code class="filters-table__key">child_event_name</code> | Name of the event associated with the child span. | String | — |
+| Child Span Name<br /><code class="filters-table__key">child_name</code> | Name of the child span. | String | — |
+| Child Span Outcome<br /><code class="filters-table__key">child_outcome</code> | Outcome of the child span. | Choice (String) | Choices: `successful`, `failure`, `user_abandon`, `unknown` |
 
 </div>
 
@@ -80,9 +80,9 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                      | Description                               | Type     | Constraints |
-| ------------------------------------------------------------------------------------------- | ----------------------------------------- | -------- | ----------- |
-| Child Span Attribute Key/Value<br /><code class="filters-table__key">child_attribute</code> | Key/Value pair of a child span attribute. | property | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Child Span Attribute Key/Value<br /><code class="filters-table__key">child_attribute</code> | Key/Value pair of a child span attribute. | property | — |
 
 </div>
 
@@ -90,15 +90,15 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                               | Description                                                      | Type            | Constraints                                |
-| -------------------------------------------------------------------- | ---------------------------------------------------------------- | --------------- | ------------------------------------------ |
-| Crash ID<br /><code class="filters-table__key">crash_group_id</code> | Unique identifier for the crash.                                 | String          | —                                          |
-| File Name<br /><code class="filters-table__key">file</code>          | File name associated with the event.                             | String          | —                                          |
-| Framework<br /><code class="filters-table__key">framework</code>     | Framework used by the app (e.g., Native, React Native, Flutter). | Choice (String) | Choices: `native`, `react_native`, `unity` |
-| Message<br /><code class="filters-table__key">msg</code>             | Message describing the crash.                                    | String          | —                                          |
-| Symbol<br /><code class="filters-table__key">symbol</code>           | Symbol associated with the crash.                                | String          | —                                          |
-| Tag Name<br /><code class="filters-table__key">tag_name</code>       | Name of the tag.                                                 | String          | —                                          |
-| Tag Name/Value<br /><code class="filters-table__key">tag</code>      | Key/Value pair of the tag.                                       | property        | —                                          |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Crash ID<br /><code class="filters-table__key">crash_group_id</code> | Unique identifier for the crash. | String | — |
+| File Name<br /><code class="filters-table__key">file</code> | File name associated with the event. | String | — |
+| Framework<br /><code class="filters-table__key">framework</code> | Framework used by the app (e.g., Native, React Native, Flutter). | Choice (String) | Choices: `native`, `react_native`, `unity` |
+| Message<br /><code class="filters-table__key">msg</code> | Message describing the crash. | String | — |
+| Symbol<br /><code class="filters-table__key">symbol</code> | Symbol associated with the crash. | String | — |
+| Tag Name<br /><code class="filters-table__key">tag_name</code> | Name of the tag. | String | — |
+| Tag Name/Value<br /><code class="filters-table__key">tag</code> | Key/Value pair of the tag. | property | — |
 
 </div>
 
@@ -106,17 +106,17 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                    | Description                                                      | Type            | Constraints                                       |
-| ------------------------------------------------------------------------- | ---------------------------------------------------------------- | --------------- | ------------------------------------------------- |
-| Country ISO<br /><code class="filters-table__key">country</code>          | Device's country as a two-letter ISO country code.               | String          | —                                                 |
-| Device Type<br /><code class="filters-table__key">device_type</code>      | Type of device (e.g., mobile, tablet).                           | Choice (String) | Choices: `desktop`, `mobile`, `tablet`, `unknown` |
-| Device Type<br /><code class="filters-table__key">model_type</code>       | Type/Category of the device model.                               | String          | —                                                 |
-| Jailbroken<br /><code class="filters-table__key">jailbroken</code>        | Whether or not the device running an app is jailbroken.          | Boolean         | —                                                 |
-| Js Patch<br /><code class="filters-table__key">js_patch</code>            | JavaScript patch version.                                        | String          | —                                                 |
-| Manufacturer<br /><code class="filters-table__key">manufacturer</code>    | Name of the device hardware manufacturer.                        | String          | —                                                 |
-| Model Factory Name<br /><code class="filters-table__key">model</code>     | Device hardware model identifier.                                | String          | —                                                 |
-| Model Name<br /><code class="filters-table__key">model_market_name</code> | Market name of the device model.                                 | String          | —                                                 |
-| Region<br /><code class="filters-table__key">region</code>                | Geographic region within a country, such as a state or province. | String          | —                                                 |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Country ISO<br /><code class="filters-table__key">country</code> | Device's country as a two-letter ISO country code. | String | — |
+| Device Type<br /><code class="filters-table__key">device_type</code> | Type of device (e.g., mobile, tablet). | Choice (String) | Choices: `desktop`, `mobile`, `tablet`, `unknown` |
+| Device Type<br /><code class="filters-table__key">model_type</code> | Type/Category of the device model. | String | — |
+| Jailbroken<br /><code class="filters-table__key">jailbroken</code> | Whether or not the device running an app is jailbroken. | Boolean | — |
+| Js Patch<br /><code class="filters-table__key">js_patch</code> | JavaScript patch version. | String | — |
+| Manufacturer<br /><code class="filters-table__key">manufacturer</code> | Name of the device hardware manufacturer. | String | — |
+| Model Factory Name<br /><code class="filters-table__key">model</code> | Device hardware model identifier. | String | — |
+| Model Name<br /><code class="filters-table__key">model_market_name</code> | Market name of the device model. | String | — |
+| Region<br /><code class="filters-table__key">region</code> | Geographic region within a country, such as a state or province. | String | — |
 
 </div>
 
@@ -124,13 +124,13 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                            | Description                                                                                      | Type   | Constraints |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------ | ----------- |
-| Element Load Time (Milliseconds)<br /><code class="filters-table__key">load_time</code>           | Milliseconds from navigation start to when the element resource was loaded; 0 for text elements. | float  | —           |
-| Element Render Time (Milliseconds)<br /><code class="filters-table__key">render_time</code>       | Milliseconds from navigation start to when the element was painted; 0 for cross-origin elements. | float  | —           |
-| Element Start Time (Milliseconds)<br /><code class="filters-table__key">element_start_time</code> | Render time when non-zero, else load time. Milliseconds from navigation start.                   | float  | —           |
-| Element Timing Identifier<br /><code class="filters-table__key">identifier</code>                 | Value of the elementtiming HTML attribute that identifies the observed element.                  | String | —           |
-| Element Type<br /><code class="filters-table__key">element</code>                                 | HTML tag name of the timed element, e.g. IMG or P.                                               | String | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Element Load Time (Milliseconds)<br /><code class="filters-table__key">load_time</code> | Milliseconds from zero time to when the element resource was loaded; 0 for text elements. | float | — |
+| Element Render Time (Milliseconds)<br /><code class="filters-table__key">render_time</code> | Milliseconds from zero time to when the element was painted; 0 for cross-origin elements. | float | — |
+| Element Start Time (Milliseconds)<br /><code class="filters-table__key">element_start_time</code> | Render time when non-zero, else load time. Milliseconds from zero time. | float | — |
+| Element Timing Identifier<br /><code class="filters-table__key">identifier</code> | Value of the elementtiming HTML attribute that identifies the observed element. | String | — |
+| Element Type<br /><code class="filters-table__key">element</code> | HTML tag name of the timed element, e.g. IMG or P. | String | — |
 
 </div>
 
@@ -138,11 +138,11 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                     | Description                                   | Type    | Constraints |
-| -------------------------------------------------------------------------- | --------------------------------------------- | ------- | ----------- |
-| Group ID<br /><code class="filters-table__key">group_id</code>             | Group identifier for the exception.           | String  | —           |
-| Is Handled<br /><code class="filters-table__key">is_handled</code>         | Whether the exception was handled by the app. | Boolean | —           |
-| Severity Score<br /><code class="filters-table__key">severity_score</code> | Severity score of the exception.              | float   | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Group ID<br /><code class="filters-table__key">group_id</code> | Group identifier for the exception. | String | — |
+| Is Handled<br /><code class="filters-table__key">is_handled</code> | Whether the exception was handled by the app. | Boolean | — |
+| Severity Score<br /><code class="filters-table__key">severity_score</code> | Severity score of the exception. | float | — |
 
 </div>
 
@@ -150,12 +150,12 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                   | Description                                           | Type    | Constraints |
-| ------------------------------------------------------------------------ | ----------------------------------------------------- | ------- | ----------- |
-| Script Domain<br /><code class="filters-table__key">script_domain</code> | Domain of the long animation frame script.            | String  | —           |
-| Script Path<br /><code class="filters-table__key">script_path</code>     | Path of the long animation frame script.              | String  | —           |
-| Script URL<br /><code class="filters-table__key">script_url</code>       | Full URL of the long animation frame script.          | String  | —           |
-| Was From INP<br /><code class="filters-table__key">was_from_inp</code>   | Whether the script contributed to an INP interaction. | Boolean | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Script Domain<br /><code class="filters-table__key">script_domain</code> | Domain of the script contributing to long animation frames. | String | — |
+| Script Path<br /><code class="filters-table__key">script_path</code> | Path of the script contributing to long animation frames. | String | — |
+| Script URL<br /><code class="filters-table__key">script_url</code> | Full URL of the script contributing to long animation frames. | String | — |
+| Was From INP<br /><code class="filters-table__key">was_from_inp</code> | Whether the script execution contributed to long animation frames during INP. | Boolean | — |
 
 </div>
 
@@ -163,16 +163,16 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                              | Description                                                                                     | Type            | Constraints                                                        |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------ |
-| Aggregated Message<br /><code class="filters-table__key">log_msg</code>             | An aggregated form of the log message, with common patterns or high cardinality parts replaced. | String          | —                                                                  |
-| File Attachment Error<br /><code class="filters-table__key">attachment_error</code> | Error encountered when attempting to attach a file.                                             | Choice (String) | Choices: `ATTACHMENT_TOO_LARGE`, `OVER_MAX_ATTACHMENTS`, `UNKNOWN` |
-| Group ID<br /><code class="filters-table__key">log_group_id</code>                  | Group identifier for the log.                                                                   | String          | —                                                                  |
-| Has File Attachment<br /><code class="filters-table__key">has_attachment</code>     | Whether the log has a file attachment.                                                          | Boolean         | —                                                                  |
-| Has Logs<br /><code class="filters-table__key">has_log</code>                       | Whether the session contains logs.                                                              | Choice (String) | Choices: `true`                                                    |
-| Log Property Key<br /><code class="filters-table__key">log_property_key</code>      | Key of a log property.                                                                          | String          | —                                                                  |
-| Type<br /><code class="filters-table__key">log_type</code>                          | Type of the log or event.                                                                       | Choice (String) | Choices: `info`, `warning`, `error`, `system`                      |
-| Type<br /><code class="filters-table__key">type</code>                              | Type of the log or event.                                                                       | Choice (String) | Choices: `info`, `warning`, `error`, `system`                      |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Aggregated Message<br /><code class="filters-table__key">log_msg</code> | An aggregated form of the log message, with common patterns or high cardinality parts replaced. | String | — |
+| File Attachment Error<br /><code class="filters-table__key">attachment_error</code> | Error encountered when attempting to attach a file. | Choice (String) | Choices: `ATTACHMENT_TOO_LARGE`, `OVER_MAX_ATTACHMENTS`, `UNKNOWN` |
+| Group ID<br /><code class="filters-table__key">log_group_id</code> | Group identifier for the log. | String | — |
+| Has File Attachment<br /><code class="filters-table__key">has_attachment</code> | Whether the log has a file attachment. | Boolean | — |
+| Has Logs<br /><code class="filters-table__key">has_log</code> | Whether the session contains logs. | Choice (String) | Choices: `true` |
+| Log Property Key<br /><code class="filters-table__key">log_property_key</code> | Key of a log property. | String | — |
+| Type<br /><code class="filters-table__key">log_type</code> | Type of the log or event. | Choice (String) | Choices: `info`, `warning`, `error`, `system` |
+| Type<br /><code class="filters-table__key">type</code> | Type of the log or event. | Choice (String) | Choices: `info`, `warning`, `error`, `system` |
 
 </div>
 
@@ -180,9 +180,9 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                           | Description                       | Type     | Constraints |
-| -------------------------------------------------------------------------------- | --------------------------------- | -------- | ----------- |
-| Log Property Key/Value<br /><code class="filters-table__key">log_property</code> | Key/Value pair of a log property. | property | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Log Property Key/Value<br /><code class="filters-table__key">log_property</code> | Key/Value pair of a log property. | property | — |
 
 </div>
 
@@ -190,16 +190,16 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                      | Description                                                      | Type     | Constraints |
-| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------- | ----------- |
-| Connection Error<br /><code class="filters-table__key">connection_error</code>              | Type of connection error encountered.                            | Boolean  | —           |
-| Domain<br /><code class="filters-table__key">domain</code>                                  | Domain of the HTTP network request.                              | String   | —           |
-| Duration Bucket (Milliseconds)<br /><code class="filters-table__key">duration_bucket</code> | Bucket for network request duration.                             | int      | —           |
-| First Party<br /><code class="filters-table__key">is_first_party</code>                     | Whether the network request was to a first-party domain.         | Boolean  | —           |
-| Has Connection Error<br /><code class="filters-table__key">has_connection_error</code>      | Whether the network request contains a network connection error. | Boolean  | —           |
-| Path<br /><code class="filters-table__key">path</code>                                      | Path element of the URL for an HTTP network request.             | String   | —           |
-| Status Code Range<br /><code class="filters-table__key">status_code</code>                  | Filter by a range of HTTP response status codes.                 | intrange | —           |
-| Status Code Single<br /><code class="filters-table__key">status_code_single</code>          | Filter by a specific HTTP response status code.                  | int      | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Connection Error<br /><code class="filters-table__key">connection_error</code> | Type of connection error encountered. | Boolean | — |
+| Domain<br /><code class="filters-table__key">domain</code> | Domain of the HTTP network request. | String | — |
+| Duration Bucket (Milliseconds)<br /><code class="filters-table__key">duration_bucket</code> | Bucket for network request duration. | int | — |
+| First Party<br /><code class="filters-table__key">is_first_party</code> | Whether the network request was to a first-party domain. | Boolean | — |
+| Has Connection Error<br /><code class="filters-table__key">has_connection_error</code> | Whether the network request contains a network connection error. | Boolean | — |
+| Path<br /><code class="filters-table__key">path</code> | Path element of the URL for an HTTP network request. | String | — |
+| Status Code Range<br /><code class="filters-table__key">status_code</code> | Filter by a range of HTTP response status codes. | intrange | — |
+| Status Code Single<br /><code class="filters-table__key">status_code_single</code> | Filter by a specific HTTP response status code. | int | — |
 
 </div>
 
@@ -207,11 +207,21 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                         | Description                    | Type   | Constraints |
-| ------------------------------------------------------------------------------ | ------------------------------ | ------ | ----------- |
-| OS Major Version<br /><code class="filters-table__key">os_major_version</code> | The major version of the OS.   | int    | —           |
-| OS Name<br /><code class="filters-table__key">os_name</code>                   | Device operating system name.  | String | —           |
-| OS Version<br /><code class="filters-table__key">os_version</code>             | Full operation system version. | String | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| OS Major Version<br /><code class="filters-table__key">os_major_version</code> | The major version of the OS. | int | — |
+| OS Name<br /><code class="filters-table__key">os_name</code> | Device operating system name. | String | — |
+| OS Version<br /><code class="filters-table__key">os_version</code> | Full operation system version. | String | — |
+
+</div>
+
+## OTel Log Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Event Name<br /><code class="filters-table__key">event_name</code> | Name of the OTel log event (e.g. rage_click, first_interaction). | String | — |
 
 </div>
 
@@ -219,14 +229,14 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                                          | Description                                   | Type            | Constraints                                                 |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------- | ----------------------------------------------------------- |
-| Root Span Duration (Milliseconds)<br /><code class="filters-table__key">root_span_duration</code>               | Duration of the root span in milliseconds.    | int             | —                                                           |
-| Root Span Duration Bucket (Milliseconds)<br /><code class="filters-table__key">root_span_duration_bucket</code> | Bucket for root span duration.                | int             | —                                                           |
-| Root Span Event Name<br /><code class="filters-table__key">root_span_event_name</code>                          | Event name associated with the root span.     | String          | —                                                           |
-| Root Span Name<br /><code class="filters-table__key">root_span_name</code>                                      | Name of the root span in a performance trace. | String          | —                                                           |
-| Root Span Outcome<br /><code class="filters-table__key">root_span_outcome</code>                                | Outcome of the root span.                     | Choice (String) | Choices: `successful`, `failure`, `user_abandon`, `unknown` |
-| Slow Root Span<br /><code class="filters-table__key">root_span_type_slow</code>                                 | Whether the root span is considered slow.     | Boolean         | —                                                           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Root Span Duration (Milliseconds)<br /><code class="filters-table__key">root_span_duration</code> | Duration of the root span in milliseconds. | int | — |
+| Root Span Duration Bucket (Milliseconds)<br /><code class="filters-table__key">root_span_duration_bucket</code> | Bucket for root span duration. | int | — |
+| Root Span Event Name<br /><code class="filters-table__key">root_span_event_name</code> | Event name associated with the root span. | String | — |
+| Root Span Name<br /><code class="filters-table__key">root_span_name</code> | Name of the root span in a performance trace. | String | — |
+| Root Span Outcome<br /><code class="filters-table__key">root_span_outcome</code> | Outcome of the root span. | Choice (String) | Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+| Slow Root Span<br /><code class="filters-table__key">root_span_type_slow</code> | Whether the root span is considered slow. | Boolean | — |
 
 </div>
 
@@ -234,9 +244,9 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                         | Description                              | Type     | Constraints |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------- | -------- | ----------- |
-| Root Span Attribute Key/Value<br /><code class="filters-table__key">root_span_attribute</code> | Key/Value pair of a root span attribute. | property | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Root Span Attribute Key/Value<br /><code class="filters-table__key">root_span_attribute</code> | Key/Value pair of a root span attribute. | property | — |
 
 </div>
 
@@ -244,10 +254,10 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                             | Description                             | Type   | Constraints |
-| ---------------------------------------------------------------------------------- | --------------------------------------- | ------ | ----------- |
-| Server Timing Description<br /><code class="filters-table__key">description</code> | Description of the server timing entry. | String | —           |
-| Server Timing Name<br /><code class="filters-table__key">name</code>               | Name of the server timing entry.        | String | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Server Timing Description<br /><code class="filters-table__key">description</code> | Description of the server timing entry. | String | — |
+| Server Timing Name<br /><code class="filters-table__key">name</code> | Name of the server timing entry. | String | — |
 
 </div>
 
@@ -255,24 +265,26 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                       | Description                                                                                                                                                                                          | Type            | Constraints                             |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------------------------------------- |
-| Active Interval Count<br /><code class="filters-table__key">active_interval_count</code>     | Number of active intervals in the session.                                                                                                                                                           | int             | —                                       |
-| Breadcrumb Message<br /><code class="filters-table__key">breadcrumb_message</code>           | Message content of a breadcrumb.                                                                                                                                                                     | String          | —                                       |
-| Has ANR Exit<br /><code class="filters-table__key">has_anr</code>                            | True if the app exited while an ANR was occurring.                                                                                                                                                   | Boolean         | —                                       |
-| Has ANR Exit<br /><code class="filters-table__key">has_anr_exit</code>                       | True if the app exited while an ANR was occurring.                                                                                                                                                   | Boolean         | —                                       |
-| Has ANR Intervals<br /><code class="filters-table__key">has_anr_interval</code>              | Whether the session had any ANR interval, regardless of whether it caused the app to exit. Unlike Has ANR Exit, which only captures ANRs that terminated the app, this includes all ANR occurrences. | Boolean         | —                                       |
-| Has Cold Start<br /><code class="filters-table__key">is_cold</code>                          | True if this session is a cold start of the app.                                                                                                                                                     | Boolean         | —                                       |
-| Has Crash<br /><code class="filters-table__key">has_crash</code>                             | True if the session had a crash.                                                                                                                                                                     | Boolean         | —                                       |
-| Has Error Logs<br /><code class="filters-table__key">has_error_log</code>                    | Whether the session contains error logs.                                                                                                                                                             | Boolean         | —                                       |
-| Has Exception<br /><code class="filters-table__key">has_exception</code>                     | Whether the session contains unhandled exceptions.                                                                                                                                                   | Boolean         | —                                       |
-| Has Low Memory Warning<br /><code class="filters-table__key">has_low_memory</code>           | Whether the session had a low memory warning.                                                                                                                                                        | Boolean         | —                                       |
-| Has OOM<br /><code class="filters-table__key">has_oom</code>                                 | True if the session had an out-of-memory event.                                                                                                                                                      | Boolean         | —                                       |
-| Inactive Interval Count<br /><code class="filters-table__key">inactive_interval_count</code> | Number of inactive intervals in the session.                                                                                                                                                         | int             | —                                       |
-| Is First<br /><code class="filters-table__key">is_first</code>                               | True if this is the user's first session.                                                                                                                                                            | Boolean         | —                                       |
-| Network Connectivity<br /><code class="filters-table__key">network_connectivity</code>       | Type of network connection the device is using.                                                                                                                                                      | Choice (String) | Choices: `mixed`, `none`, `wan`, `wifi` |
-| State<br /><code class="filters-table__key">state</code>                                     | Whether the app was in the foreground or background.                                                                                                                                                 | Choice (String) | Choices: `foreground`, `background`     |
-| Was User Terminated<br /><code class="filters-table__key">has_user_terminated</code>         | Whether the session was terminated by the user.                                                                                                                                                      | Boolean         | —                                       |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Active Interval Count<br /><code class="filters-table__key">active_interval_count</code> | Number of active intervals in the session. | int | — |
+| Breadcrumb Message<br /><code class="filters-table__key">breadcrumb_message</code> | Message content of a breadcrumb. | String | — |
+| Has ANR Exit<br /><code class="filters-table__key">has_anr</code> | True if the app exited while an ANR was occurring. | Boolean | — |
+| Has ANR Exit<br /><code class="filters-table__key">has_anr_exit</code> | True if the app exited while an ANR was occurring. | Boolean | — |
+| Has ANR Intervals<br /><code class="filters-table__key">has_anr_interval</code> | Whether the session had any ANR interval, regardless of whether it caused the app to exit. Unlike Has ANR Exit, which only captures ANRs that terminated the app, this includes all ANR occurrences. | Boolean | — |
+| Has Cold Start<br /><code class="filters-table__key">is_cold</code> | True if this session is a cold start of the app. | Boolean | — |
+| Has Crash<br /><code class="filters-table__key">has_crash</code> | True if the session had a crash. | Boolean | — |
+| Has Error Logs<br /><code class="filters-table__key">has_error_log</code> | Whether the session contains error logs. | Boolean | — |
+| Has Exception<br /><code class="filters-table__key">has_exception</code> | Whether the session contains unhandled exceptions. | Boolean | — |
+| Has Low Memory Warning<br /><code class="filters-table__key">has_low_memory</code> | Whether the session had a low memory warning. | Boolean | — |
+| Has OOM<br /><code class="filters-table__key">has_oom</code> | True if the session had an out-of-memory event. | Boolean | — |
+| Inactive Interval Count<br /><code class="filters-table__key">inactive_interval_count</code> | Number of inactive intervals in the session. | int | — |
+| Is First<br /><code class="filters-table__key">is_first</code> | True if this is the user's first session. | Boolean | — |
+| Is Unhealthy<br /><code class="filters-table__key">is_unhealthy</code> | True if the session had error logs or a crash. | Boolean | — |
+| Network Connectivity<br /><code class="filters-table__key">network_connectivity</code> | Type of network connection the device is using. | Choice (String) | Choices: `mixed`, `none`, `wan`, `wifi` |
+| Page Load Abandoned<br /><code class="filters-table__key">page_load_abandoned</code> | True if this session was a cold start abandoned before page load completed. | Boolean | — |
+| State<br /><code class="filters-table__key">state</code> | Whether the app was in the foreground or background. | Choice (String) | Choices: `foreground`, `background` |
+| Was User Terminated<br /><code class="filters-table__key">has_user_terminated</code> | Whether the session was terminated by the user. | Boolean | — |
 
 </div>
 
@@ -280,16 +292,16 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                                | Description                           | Type            | Constraints                                                 |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------- | ----------------------------------------------------------- |
-| Has Slow Root Span<br /><code class="filters-table__key">span_type_slow</code>                        | Whether the span is considered slow.  | Boolean         | —                                                           |
-| Span Attribute Key<br /><code class="filters-table__key">span_attribute_key</code>                    | Key of a span attribute.              | String          | —                                                           |
-| Span Duration (Milliseconds)<br /><code class="filters-table__key">span_duration</code>               | Duration of the span in milliseconds. | int             | —                                                           |
-| Span Duration Bucket (Milliseconds)<br /><code class="filters-table__key">span_duration_bucket</code> | Bucket for span duration.             | int             | —                                                           |
-| Span Event Name<br /><code class="filters-table__key">span_event_name</code>                          | Event name associated with the span.  | String          | —                                                           |
-| Span Is Child<br /><code class="filters-table__key">is_child_span</code>                              | Whether the span is a child span.     | Boolean         | —                                                           |
-| Span Name<br /><code class="filters-table__key">span_name</code>                                      | Name of the span.                     | String          | —                                                           |
-| Span Outcome<br /><code class="filters-table__key">span_outcome</code>                                | Outcome of the span.                  | Choice (String) | Choices: `successful`, `failure`, `user_abandon`, `unknown` |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Duration (Milliseconds)<br /><code class="filters-table__key">span_duration</code> | Duration of the span in milliseconds. | int | — |
+| Has Slow Root Span<br /><code class="filters-table__key">span_type_slow</code> | Whether the span is considered slow. | Boolean | — |
+| Span Attribute Key<br /><code class="filters-table__key">span_attribute_key</code> | Key of a span attribute. | String | — |
+| Span Duration Bucket (Milliseconds)<br /><code class="filters-table__key">span_duration_bucket</code> | Bucket for span duration. | int | — |
+| Span Event Name<br /><code class="filters-table__key">span_event_name</code> | Event name associated with the span. | String | — |
+| Span Is Child<br /><code class="filters-table__key">is_child_span</code> | Whether the span is a child span. | Boolean | — |
+| Span Name<br /><code class="filters-table__key">span_name</code> | Name of the span. | String | — |
+| Span Outcome<br /><code class="filters-table__key">span_outcome</code> | Outcome of the span. | Choice (String) | Choices: `successful`, `failure`, `user_abandon`, `unknown` |
 
 </div>
 
@@ -297,9 +309,9 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                               | Description                         | Type     | Constraints |
-| ------------------------------------------------------------------------------------ | ----------------------------------- | -------- | ----------- |
-| Span Attribute Key/Value<br /><code class="filters-table__key">span_attribute</code> | Key/Value pair of a span attribute. | property | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Span Attribute Key/Value<br /><code class="filters-table__key">span_attribute</code> | Key/Value pair of a span attribute. | property | — |
 
 </div>
 
@@ -307,10 +319,10 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                   | Description           | Type   | Constraints |
-| ------------------------------------------------------------------------ | --------------------- | ------ | ----------- |
-| Surface Label<br /><code class="filters-table__key">surface_label</code> | Label of the surface. | String | —           |
-| Surface Name<br /><code class="filters-table__key">surface_name</code>   | Name of the surface.  | String | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Surface Label<br /><code class="filters-table__key">surface_label</code> | Label of the surface. | String | — |
+| Surface Name<br /><code class="filters-table__key">surface_name</code> | Name of the surface. | String | — |
 
 </div>
 
@@ -318,11 +330,11 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                 | Description                              | Type            | Constraints                                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------- | --------------- | -------------------------------------------------------------------------------------- |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
 | Browser<br /><code class="filters-table__key">test_profile_name</code> | Browser/device profile used for testing. | Choice (String) | Choices: `Desktop Fast`, `Desktop Slow`, `Mobile Fast`, `Mobile Medium`, `Mobile Slow` |
-| Page Label<br /><code class="filters-table__key">label</code>          | Label assigned to the tested URL.        | String          | —                                                                                      |
-| Site<br /><code class="filters-table__key">site_name</code>            | Customer-facing site name.               | String          | —                                                                                      |
+| Page Label<br /><code class="filters-table__key">label</code> | Label assigned to the tested URL. | String | — |
+| Site<br /><code class="filters-table__key">site_name</code> | Customer-facing site name. | String | — |
 
 </div>
 
@@ -330,13 +342,13 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                             | Description                                    | Type   | Constraints |
-| ------------------------------------------------------------------ | ---------------------------------------------- | ------ | ----------- |
-| Embrace ID<br /><code class="filters-table__key">device_id</code>  | Unique identifier for the device (Embrace ID). | String | —           |
-| Persona<br /><code class="filters-table__key">persona</code>       | User persona segment.                          | String | —           |
-| User Email<br /><code class="filters-table__key">user_email</code> | App user's email address.                      | String | —           |
-| User ID<br /><code class="filters-table__key">user_id</code>       | User identifier.                               | String | —           |
-| Username<br /><code class="filters-table__key">user_name</code>    | App user's username.                           | String | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Embrace ID<br /><code class="filters-table__key">device_id</code> | Unique identifier for the device. | String | — |
+| Persona<br /><code class="filters-table__key">persona</code> | User persona segment. | String | — |
+| User Email<br /><code class="filters-table__key">user_email</code> | App user's email address. | String | — |
+| User ID<br /><code class="filters-table__key">user_id</code> | User identifier. | String | — |
+| Username<br /><code class="filters-table__key">user_name</code> | App user's username. | String | — |
 
 </div>
 
@@ -344,16 +356,16 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                             | Description                                | Type            | Constraints                                                                                                        |
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------ |
-| User Flow Duration (Milliseconds)<br /><code class="filters-table__key">user_flow_duration</code>  | Duration of the user flow in milliseconds. | int             | —                                                                                                                  |
-| User Flow End Event Type<br /><code class="filters-table__key">user_flow_end_event_type</code>     | Type of event that ended the user flow.    | Choice (String) | Choices: `breadcrumb`, `crash`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
-| User Flow End Reason<br /><code class="filters-table__key">user_flow_outcome_reason</code>         | Reason for the user flow outcome.          | Choice (String) | Choices: `app_exit`, `timeout`, `new_user_flow_started`, `crash`                                                   |
-| User Flow Has Issue<br /><code class="filters-table__key">user_flow_has_issue</code>               | Whether the user flow has an issue.        | Choice (String) | Choices: `anr`, `crash`, `error_log`, `network_error`                                                              |
-| User Flow Name<br /><code class="filters-table__key">user_flow_name</code>                         | Name of the user flow.                     | String          | —                                                                                                                  |
-| User Flow Name<br /><code class="filters-table__key">crash_user_flow_name</code>                   | Name of the user flow.                     | String          | —                                                                                                                  |
-| User Flow Outcome<br /><code class="filters-table__key">user_flow_outcome</code>                   | Outcome of the user flow.                  | Choice (String) | Choices: `abandon`, `complete`, `error`                                                                            |
-| User Flow Start Event Type<br /><code class="filters-table__key">user_flow_start_event_type</code> | Type of event that started the user flow.  | Choice (String) | Choices: `breadcrumb`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view`          |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Duration (Milliseconds)<br /><code class="filters-table__key">user_flow_duration</code> | Duration of the user flow in milliseconds. | int | — |
+| User Flow End Event Type<br /><code class="filters-table__key">user_flow_end_event_type</code> | Type of event that ended the user flow. | Choice (String) | Choices: `breadcrumb`, `crash`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
+| User Flow End Reason<br /><code class="filters-table__key">user_flow_outcome_reason</code> | Reason for the user flow outcome. | Choice (String) | Choices: `app_exit`, `timeout`, `new_user_flow_started`, `crash` |
+| User Flow Has Issue<br /><code class="filters-table__key">user_flow_has_issue</code> | Whether the user flow has an issue. | Choice (String) | Choices: `anr`, `crash`, `error_log`, `network_error` |
+| User Flow Name<br /><code class="filters-table__key">user_flow_name</code> | Name of the user flow. | String | — |
+| User Flow Name<br /><code class="filters-table__key">crash_user_flow_name</code> | Name of the user flow. | String | — |
+| User Flow Outcome<br /><code class="filters-table__key">user_flow_outcome</code> | Outcome of the user flow. | Choice (String) | Choices: `abandon`, `complete`, `error` |
+| User Flow Start Event Type<br /><code class="filters-table__key">user_flow_start_event_type</code> | Type of event that started the user flow. | Choice (String) | Choices: `breadcrumb`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
 
 </div>
 
@@ -361,9 +373,9 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                         | Description                              | Type     | Constraints |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------- | -------- | ----------- |
-| User Flow Attribute Key/Value<br /><code class="filters-table__key">user_flow_attribute</code> | Key/Value pair of a user flow attribute. | property | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| User Flow Attribute Key/Value<br /><code class="filters-table__key">user_flow_attribute</code> | Key/Value pair of a user flow attribute. | property | — |
 
 </div>
 
@@ -371,10 +383,10 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                         | Description                                              | Type            | Constraints                |
-| ------------------------------------------------------------------------------ | -------------------------------------------------------- | --------------- | -------------------------- |
-| Entry Type<br /><code class="filters-table__key">entry_type</code>             | Performance API entry type — "mark" or "measure".        | Choice (String) | Choices: `mark`, `measure` |
-| User Timing Start Time<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float           | —                          |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Entry Type<br /><code class="filters-table__key">entry_type</code> | Performance API entry type — "mark" or "measure". | Choice (String) | Choices: `mark`, `measure` |
+| Start Time (Milliseconds)<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float | — |
 
 </div>
 
@@ -382,9 +394,21 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                         | Description                                        | Type     | Constraints |
-| ------------------------------------------------------------------------------ | -------------------------------------------------- | -------- | ----------- |
-| Detail Attribute Key/Value<br /><code class="filters-table__key">detail</code> | Key/value pair from the user timing detail object. | property | —           |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Detail Attribute Key/Value<br /><code class="filters-table__key">detail</code> | Key/value pair from the user timing detail object. | property | — |
+
+</div>
+
+## Web Behavioral Signals Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Element Selector<br /><code class="filters-table__key">rage_click_element_selector</code> | CSS selector of the element that was rage clicked. | String | — |
+| Element Type<br /><code class="filters-table__key">rage_click_element_type</code> | HTML element type that was rage clicked. | String | — |
+| Interaction Type<br /><code class="filters-table__key">rage_click_interaction_type</code> | Type of interaction that triggered the rage click. | String | — |
 
 </div>
 
@@ -392,11 +416,11 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                     | Description                             | Type            | Constraints                                                                             |
-| ------------------------------------------------------------------------------------------ | --------------------------------------- | --------------- | --------------------------------------------------------------------------------------- |
-| Delivery Type<br /><code class="filters-table__key">delivery_type</code>                   | —                                       | String          | —                                                                                       |
-| Render Blocking Status<br /><code class="filters-table__key">render_blocking_status</code> | Render blocking status of the resource. | Choice (String) | Choices: `blocking`, `non-blocking`                                                     |
-| Resource Type<br /><code class="filters-table__key">resource_type</code>                   | Type of web resource.                   | Choice (String) | Choices: `script`, `stylesheet`, `image`, `font`, `video`, `audio`, `document`, `other` |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Delivery Type<br /><code class="filters-table__key">delivery_type</code> | — | String | — |
+| Render Blocking Status<br /><code class="filters-table__key">render_blocking_status</code> | Render blocking status of the resource. | Choice (String) | Choices: `blocking`, `non-blocking` |
+| Resource Type<br /><code class="filters-table__key">resource_type</code> | Type of web resource. | Choice (String) | Choices: `script`, `stylesheet`, `image`, `font`, `video`, `audio`, `document`, `other` |
 
 </div>
 
@@ -404,13 +428,13 @@ Each filter table in this page uses the same columns:
 
 <div class="filters-table">
 
-| Filter                                                                                 | Description                                 | Type            | Constraints                                  |
-| -------------------------------------------------------------------------------------- | ------------------------------------------- | --------------- | -------------------------------------------- |
-| Interaction Target<br /><code class="filters-table__key">interaction_target</code>     | CSS selector of the interaction target.     | String          | —                                            |
-| LCP Target<br /><code class="filters-table__key">lcp_target</code>                     | CSS selector of the LCP element.            | String          | —                                            |
-| Largest Shift Target<br /><code class="filters-table__key">largest_shift_target</code> | CSS selector of the largest shift target.   | String          | —                                            |
-| Value<br /><code class="filters-table__key">value</code>                               | Value of the web vital.                     | float           | —                                            |
-| Web Vital Rating<br /><code class="filters-table__key">rating</code>                   | Rating of the web vital (e.g., good, poor). | Choice (String) | Choices: `poor`, `needs_improvement`, `good` |
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Interaction Target<br /><code class="filters-table__key">interaction_target</code> | CSS selector of the interaction target. | String | — |
+| LCP Target<br /><code class="filters-table__key">lcp_target</code> | CSS selector of the LCP element. | String | — |
+| Largest Shift Target<br /><code class="filters-table__key">largest_shift_target</code> | CSS selector of the largest shift target. | String | — |
+| Value<br /><code class="filters-table__key">value</code> | Value of the web vital. | float | — |
+| Web Vital Rating<br /><code class="filters-table__key">rating</code> | Rating of the web vital (e.g., good, poor). | Choice (String) | Choices: `poor`, `needs_improvement`, `good` |
 
 </div>
 
