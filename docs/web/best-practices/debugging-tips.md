@@ -49,16 +49,14 @@ If you're experiencing issues with SDK initialization:
 
 ### Verifying Session Tracking
 
-If sessions aren't being tracked properly try forcing a new session for testing:
+If sessions aren't being tracked properly, end the current session to force an upload for testing. A new session
+starts automatically on the next user activity:
 
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
-// Force start a new session
-session.startSessionSpan();
-
-// Force end the current session
-session.endSessionSpan();
+// End the current session
+session.endUserSession();
 ```
 
 Verify that the developer console's network tab contains requests to Embrace's `/spans` and `/logs` endpoints.

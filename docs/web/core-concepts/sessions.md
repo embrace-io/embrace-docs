@@ -22,16 +22,13 @@ A new session starts when your web app is loaded in a user's browser tab and is 
 - There is no user activity detected on the tab for a certain period of time (30 minutes by default)
 
 A session ending will trigger an upload of that session's data to Embrace where it will be shown within the Embrace
-Dashboard. You can also manually trigger the start or stop of sessions if needed:
+Dashboard. You can also manually end the current session if needed. If the tab is still focused, a new user session will begin automatically:
 
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
-// Force start a new session
-session.startSessionSpan();
-
-// Force end the current session
-session.endSessionSpan();
+// End the current session
+session.endUserSession();
 ```
 
 :::info
@@ -50,14 +47,14 @@ Session properties in the Embrace SDK can have two different lifespans: **curren
 
 - **Current Session Properties:**
 
-  Session properties only last for the duration of the current session. When the session ends (for example, when the user leaves the tab, closes the tab, or after a period of inactivity), these properties are uploaded and then cleared from memory. They are not included in future sessions, even if the user returns to a tab that was previously focused.
+  Session properties only last for the duration of the current session. When the session ends these properties are uploaded and then cleared from memory and not included in future sessions.
 
 - **Permanent Properties:**
 
-  These are included in all sessions, both current and future, even after page refreshes or when the browser is closed and reopened. Permanent properties are stored in the browser’s localStorage and are automatically shared with all other open tabs and windows. They continue to be included in every session until you explicitly remove them or the user clears their browser data.
+  These are included in all sessions, both current and future. They continue to be included in every session until you explicitly remove them or the user clears their browser data.
 
 :::note
-If localStorage is unavailable (such as in private or incognito mode), permanent properties will be added to the current session but will not persist after it ends. For more details, see [localStorage availability](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#testing_for_availability).
+Session properties require localStorage. If localStorage is unavailable (such as in private or incognito mode), no session properties will be stored or included in session data.
 :::
 
 #### Adding and Removing Properties
@@ -70,7 +67,7 @@ import { session } from '@embrace-io/web-sdk';
 session.addProperty('my-custom-property', 'some value');
 ```
 
-To add a permanent property to current and future sessions in all tabs and windows:
+To add a permanent property to current and future sessions:
 
 ```typescript
 session.addProperty('my-custom-property', 'some value', {

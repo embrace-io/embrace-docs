@@ -11,10 +11,10 @@ performance issues.
 
 ### How Web Vital Instrumentation Works
 
-The SDK leverages the [web-vitals](https://www.npmjs.com/package/web-vitals) package to record specific Web Vital scores
-as SpanEvents on the current session Span. By default, this includes just the
-[Core Web Vitals](https://www.npmjs.com/package/web-vitals#core-web-vitals) which are defined as
-Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP).
+The SDK leverages the [web-vitals](https://www.npmjs.com/package/web-vitals) package to record Web Vital scores.
+This includes all metrics from the package, such as the
+[Core Web Vitals](https://www.npmjs.com/package/web-vitals#core-web-vitals): Largest Contentful Paint (LCP),
+Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP).
 
 The SDK also uses the [@opentelemetry/instrumentation-document-load](https://www.npmjs.com/package/@opentelemetry/instrumentation-document-load)
 package to record Spans related to the page's initial load. When possible this information is combined in User Timelines
