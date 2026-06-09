@@ -1,6 +1,6 @@
 ---
 title: What's changing with sessions
-description: We're aligning sessions across mobile and web around the stitched session timeline
+description: We're aligning sessions across mobile and web in the timeline and all SDKs
 sidebar_position: 2
 ---
 
