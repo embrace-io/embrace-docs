@@ -19,7 +19,7 @@ You don't have to do anything, and nothing breaks. After the change:
 
 - **Your existing data and metrics keep working.** The session metrics you rely on today will still be available in widgets and custom metrics. 
 - **SDKs get capabilities first.** You can now define sessions more precisely — including ending a session yourself — and set properties at the new session scope. 
-- **The product will catch up soon.** In an upcoming refresh, what we call "stitched sessions" today will simply be called **sessions**, and you'll see true session metrics built on this definition.
+- **The dashboard will catch up soon.** In an upcoming refresh, what we call "stitched sessions" today will simply be called **sessions**, and you'll see true session metrics built on this definition.
 
 ### Why we're telling you now
 
