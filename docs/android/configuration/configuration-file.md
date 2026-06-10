@@ -56,7 +56,9 @@ Explanations for each of the fields follow below.
       "disabled_url_patterns": ["example.com"],
       "enable_huc_lite_instrumentation": true,
       "enable_native_monitoring": false,
-      "enable_network_span_forwarding": false
+      "enable_network_span_forwarding": false,
+      "enable_traceparent_injection": false,
+      "traceparent_only_allow_domains": ["example.com"]
     },
     "capture_public_key": "ABCDEFGH",
     "sensitive_keys_denylist": ["secret", "password"],
@@ -183,6 +185,14 @@ Enable capture of network request body size for the instrumentation enabled by `
 ##### `networking` - `enable_network_span_forwarding` _bool_
 
 Enables network span forwarding. Defaults to `false`.
+
+##### `networking` - `enable_traceparent_injection` _bool_
+
+Enables injection of the `traceparent` header in a network request (if not already present) whose value is the W3C Traceparent representation of the span recorded to represent that network request. Defaults to `false`.
+
+##### `networking` - `traceparent_only_allow_domains` _string array_
+
+Specify an allowlist of exact domain hostnames (e.g. "api.example.com") or subdomain suffixes (e.g ".example.com") for which Network Span Forwarding and Traceparent Injection is applied. An empty list implies that these features are disabled for all hosts.
 
 ##### `capture_public_key` _string_
 
