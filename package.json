@@ -12,7 +12,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "lychee": "lychee docs/",
+    "lychee": "command -v lychee >/dev/null || { echo 'lychee is not installed. Install it with: brew install lychee' >&2; exit 1; }; lychee docs/",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -25,7 +25,6 @@
     "@tabler/icons-react": "^3.44.0",
     "clsx": "2.1.1",
     "docusaurus-pushfeedback": "^1.0.9",
-    "lychee": "^0.2.12",
     "prism-react-renderer": "^2.4.1",
     "pushfeedback-react": "^0.1.76",
     "react": "^19.2.6",
