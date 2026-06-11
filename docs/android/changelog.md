@@ -10,6 +10,17 @@ sidebar_position: 6
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
+### 8.4.0
+
+_June 10, 2026_
+
+- Enable injection of the W3C Traceparent representation of the span for a network request as the value of the `traceparent` request header in corresponding network request without enabling the Network Span Forwarding feature
+- Preserve the existing `traceparent` request header value if already in defined even when Network Span Forwarding is enabled
+- Support an allowlist in the configuration file of exact domain hostnames or subdomain suffixes for which traceparent injection and Network Span Forwarding will apply
+- Improve performance of SDK startup and Compose Tap instrumentation
+- Update OpenTelemetry Java API and SDK to `1.62.0`
+- Update OpenTelemetry Kotlin API to `0.4.0`
+
 ### 8.3.1
 
 _April 24, 2026_
