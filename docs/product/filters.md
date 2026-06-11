@@ -146,6 +146,16 @@ Each filter table in this page uses the same columns:
 
 </div>
 
+## Issue Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Issue Type<br /><code class="filters-table__key">issue_type</code> | Type of issue detected. | String | — |
+
+</div>
+
 ## LoAF Script Filters
 
 <div class="filters-table">
