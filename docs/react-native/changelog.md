@@ -6,6 +6,18 @@ sidebar_position: 4
 
 ## Embrace React Native SDK Changelog
 
+### 6.7.0
+
+_Jun 11, 2026_
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.19.0](/ios/changelog/#6190)
+
+- Updated iOS native Embrace SDK dependency to [version 6.19.0](/ios/changelog/#6190)
+- Fixed run script path in Expo Config Plugin
+- More consistent internal handling of native module errors
+- This is the first release published with [provenance attestation](https://docs.npmjs.com/generating-provenance-statements), allowing you to verify that the package was built and published from our public source repository
+
 ### 6.6.0
 
 _Mar 11, 2026_
