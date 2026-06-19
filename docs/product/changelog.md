@@ -41,7 +41,6 @@ sidebar_position: 99
 ### January 2026
 
 - [**User Journeys GA**](/product/user-journeys/): User Journeys is now generally available to all customers, allowing engineering teams to define, track, and analyze custom intervals of app activity across their user base.
-- **Alert data vs. latest data**: When viewing alert status graphs, you can now toggle between *Alert data* — the same delayed data the alert engine uses to evaluate thresholds — and *Latest data*, so you can understand exactly what triggered an alert without being misled by recency differences.
 
 ### December 2025
 
