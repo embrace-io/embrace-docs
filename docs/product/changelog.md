@@ -6,6 +6,47 @@ sidebar_position: 99
 
 ## Embrace Dashboard Changelog
 
+### June 2026
+
+- **Histogram widget type**: Custom dashboards now support histogram visualizations, letting you view the distribution of metric values across configurable bins. You can set a custom bin size or let Embrace select an optimal size automatically.
+- **Aggregation functions for widgets, alerts, and custom metrics**: All widget types now support aggregation functions — including count, sum, mean, median, mode, percentile, min, and max — across both categorical and time-series data. The same functions are available when building alerts and custom metrics.
+
+### May 2026
+
+- **Pie and bar chart widget types**: Custom dashboards now support pie and bar chart visualizations in addition to time-series charts. Bar charts include stacked and 100% stacked modes for both categorical and time-series data, and time-series bar charts support threshold coloring to highlight values above or below warning and error thresholds.
+- **Widget explore mode**: Explore capabilities — including adjusting time ranges and filters, creating alerts or custom metrics from a widget's current configuration, and saving a modified chart as a new widget — are now available directly in the widget editor.
+
+### April 2026
+
+- **Simplified navigation**: A redesigned dashboard header and sidebar make it easier to move around the product, bookmark frequently used pages, and discover features through a new Explore section.
+- **On-demand testing for Synthetics**: A new Test Now button on all Synthetic monitoring pages lets you trigger an on-demand test for any preconfigured site or for an ad hoc URL, browser, and region combination — without waiting for a scheduled run.
+- **Crash tagging and codeowners improvements**: UI-created crash tagging rules are now protected from being overwritten by CODEOWNERS file uploads, and a source badge clearly distinguishes custom rules from CODEOWNERS-derived ones. Android CODEOWNERS file path transformation has also been fixed.
+- **Copy widgets and dashboards**: You can now copy individual widgets across dashboards and duplicate entire dashboards to another app, making it faster to set up monitoring for new teams or replicate proven board layouts.
+- **Web Vitals dashboard updates**: The Web Vitals dashboard now includes distribution charts for each vital, subpart breakdown tables for TTFB, LCP, and INP, a world map view for vital scores, and support for a new Total Blocking Duration (TBD) vital alongside script execution summary tables.
+- **Browser timing instrumentation**: The Web SDK now auto-instruments user timing, element timing, and server timing events, which you can use to create custom dashboards and alerts once data starts flowing.
+- **MCP service accounts and bearer token authentication**: Service accounts and their associated bearer tokens are now available as an alternative to OAuth, enabling token-based MCP access for automated workflows that cannot use interactive authentication.
+
+### March 2026
+
+- **Expanded MCP tools**: New MCP tools for logs, spans, exceptions, and crash data are now available. The MCP server also now supports web apps in addition to mobile apps, so you can bring real-user observability data for any platform into your AI development workflow. See the full tool list in the [MCP docs](/mcp/).
+- **MCP Network Connection Error Intelligence**: The MCP server now automatically surfaces context on network connection errors to distinguish expected, benign errors (such as device-offline events) from genuinely unexpected ones. Errors come with urgency ratings, plain-English explanations and recommended actions, and smarter drill-down suggestions.
+
+### January 2026
+
+- [**User Journeys GA**](/product/user-journeys/): User Journeys is now generally available to all customers, allowing engineering teams to define, track, and analyze custom intervals of app activity across their user base.
+
+### December 2025
+
+- [**User Journeys improvements**](/product/user-journeys/): Filter for sessions in which a User Flow ended in a specific way — such as a crash, user-initiated termination, or error — and view detailed information about what caused each flow to end.
+- [**Logs Forwarding**](https://embrace.io/blog/logs-forwarding-available/): Forward logs to OTLP-compatible observability platforms alongside metrics and network spans.
+- [**MCP server (beta)**](https://embrace.io/blog/embrace-mcp-in-beta/): Bring real-user observability data into your AI development workflow with the Embrace MCP server.
+
+### November 2025
+
+- **Child span aggregation**: Filters, widgets, alerts, and custom metrics now treat child spans as first-class objects alongside root spans, giving you the same full analytical depth on any span in your trace hierarchy.
+- **Stats & KPI Panel widget**: A new single-value visualization type in the chart builder lets you display key metrics as billboard or KPI cards on custom dashboards.
+- [**User Journeys improvements**](/product/user-journeys/): Validate a User Flow configuration at save time to confirm that start and end events match data in previously seen sessions; filter issues by the User Flows they appear in; and configure taps and views as additional start and end event types.
+
 ### October 2025
 
 - [**New Overview Page**](https://embrace.io/blog/new-overview-page/): A unified starting point for web and mobile observability makes the Embrace dashboard even more powerful by providing quick, actionable insight.
