@@ -18,7 +18,7 @@ sidebar_position: 99
 
 ### April 2026
 
-- **Simplified navigation and light mode**: A redesigned dashboard header and sidebar make it easier to move around the product, bookmark frequently used pages, and discover features through a new Explore section. Light mode is now available as an alternative to the dark theme.
+- **Simplified navigation**: A redesigned dashboard header and sidebar make it easier to move around the product, bookmark frequently used pages, and discover features through a new Explore section.
 - **On-demand testing for Synthetics**: A new Test Now button on all Synthetic monitoring pages lets you trigger an on-demand test for any preconfigured site or for an ad hoc URL, browser, and region combination — without waiting for a scheduled run.
 - **Crash tagging and codeowners improvements**: UI-created crash tagging rules are now protected from being overwritten by CODEOWNERS file uploads, and a source badge clearly distinguishes custom rules from CODEOWNERS-derived ones. Android CODEOWNERS file path transformation has also been fixed.
 - **Copy widgets and dashboards**: You can now copy individual widgets across dashboards and duplicate entire dashboards to another app, making it faster to set up monitoring for new teams or replicate proven board layouts.
