@@ -12,4 +12,4 @@ Key tabs and their functions:
 - [**Network:**](/product/settings/app-settings/network.md) Define first-party domains and grouping rules for network monitoring.
 - [**Artifact uploads:**](/product/settings/app-settings/dsym-symbols.md) Upload and audit symbol files (dSYMs for iOS, Proguard/NDK for Android, Source Maps for JS/Web) to enable stack trace symbolication.
 - [**Owner Rules:**](/product/settings/app-settings/owners-rules.md) Assign crash ownership to teams based on stack trace patterns, either via the dashboard or a CODEOWNERS file upload.
-- [**Page Labels:**](/product/settings/app-settings/page-labels.md) Use Page Labels to group web pages by their type or template.
+- [**Page Labels:**](/product/settings/app-settings/page-groups.md) Use Page Labels to group web pages by their type or template.
