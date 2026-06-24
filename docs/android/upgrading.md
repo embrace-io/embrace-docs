@@ -43,11 +43,11 @@ The changes in 9.x leverages the new Session concept in a backwards-compatible w
 lifecycle are replaced by ones that are coupled to the new Session lifecycle. In practice, it means that for those who use those APIs,
 the calls will apply to multiple consecutive Sessions and Background Activities (or Session Parts in future parlance) that comprise a Session.
 
-Until more change are made, you will see no differences in the dashboard UI. But a handful of API methods have been changed to conform to 
+Until more changes are made, you will see no differences in the dashboard UI. But a handful of API methods have been changed to conform to 
 the Session lifecycle, and if you use those changed APIs, you can see what has changed below.
 
 Note that all APIs that have behavior changes were renamed, so your app will not compile until you opt into the new method names. This
-means that will be not silently opt you into new behavior by keeping the method names the same. In other words, if you upgrade the SDK to
+means that we will not silently opt you into new behavior by keeping the method names the same. In other words, if you upgrade the SDK to
 9.x and don't need to change any other source code for the app to build, the change will not affect you.
 
 ### Altered APIs
@@ -58,7 +58,7 @@ All session-related methods have been renamed to use the `UserSession` prefix.
 |---|---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Embrace.addSessionProperty(String, String, Boolean)` | `Embrace.addUserSessionProperty(String, String, PropertyScope)` | Lifetime of Session Properties set to one of three `PropertyScope`. If you called the old method with the `permanent` boolean parameter set to `true`, the equivalent in the new method is `PropertyScope.PERMANENT`. There is no equivalent to `false`.                                                           |
 | `Embrace.removeSessionProperty(String)` | `Embrace.removeUserSessionProperty(String)` | Rename only                                                                                                                                                                                                                                                                                                        |
-| `Embrace.endSession(Boolean)` | `Embrace.endUserSession()` | The boolean for clearing user info data has been removed. Calling the new method is like calling the old method with the boolean parameter set to `false`, ending both the Session and the Session Part will end. There is no exact equivalent to calling the old method with the boolean parameter set to `true`, |
+| `Embrace.endSession(Boolean)` | `Embrace.endUserSession()` | The boolean for clearing user info data has been removed. Calling the new method is like calling the old method with `clearUserInfo = false`. There is no exact equivalent to calling the old method with the boolean parameter set to `true`. Both the Session and the Session Part will be ended. |
 | `Embrace.getCurrentSessionId()` | `Embrace.getCurrentUserSessionId()` | The ID returned by the new method will be for the new definition of Session. The ID returned by the old method is for a concept that is equivalent to the old Session or Background Activity, which is now known as a Session Part.                                                                                |
 
 ### PropertyScope
