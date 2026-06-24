@@ -4,7 +4,7 @@ description: Login to the Embrace dashboard to get started with your Unity integ
 sidebar_position: 5
 ---
 
-# Login to the Embrace Dashboard
+## Login to the Embrace Dashboard
 
 Before you start sending data, let's get logged into the dashboard so you have a place to verify everything you are about to work on.
 

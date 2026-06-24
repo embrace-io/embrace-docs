@@ -1,2 +1,2 @@
-pre-commit==4.5.1
-rumdl==0.1.25
+pre-commit==4.6.0
+rumdl==0.2.18

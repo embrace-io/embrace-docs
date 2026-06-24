@@ -4,7 +4,7 @@ description: An overview of how Embrace builds on top of OpenTelemetry to provid
 sidebar_position: 0
 ---
 
-# Overview
+## Overview
 
 [OpenTelemetry](https://opentelemetry.io) is the foundational observability standard on which Embrace has built its mobile telemetry ingestion and export platform. Being able to speak the same language as backend observability tooling allows Embrace to complete the end-to-end observability picture many organizations desire with a solution optimized for mobile apps that avoids vendor lock-in while offering best-in-class insights.
 

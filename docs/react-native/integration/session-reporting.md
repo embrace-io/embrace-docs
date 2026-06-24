@@ -4,7 +4,7 @@ description: Upload session reports from your React Native application using the
 sidebar_position: 5
 ---
 
-# Session reporting
+## Session reporting
 
 Now that you’ve added the Embrace SDK to your project and can login to the Embrace dashboard, you’re ready to create your first session.
 Here are the steps you’ll be taking to create your first session.
@@ -14,9 +14,9 @@ Here are the steps you’ll be taking to create your first session.
 3. [Build and run the application](/react-native/integration/session-reporting#build-and-run-the-application)
 4. [Trigger a session upload](/react-native/integration/session-reporting#trigger-a-session-upload)
 
-## Initialize Embrace SDK in the JavaScript side
+### Initialize Embrace SDK in the JavaScript side
 
-### Without hooks
+#### Without hooks
 
 Calling the `initialize` method sets up the tracking for the SDK on the JS side. This is needed even if you choose
 to start the SDK earlier on the native side as explained below, however in that case the configuration passed through
@@ -58,7 +58,7 @@ const App = () => {
 export default App
 ```
 
-### With hooks
+#### With hooks
 
 The SDK also exposes a hook that handles the initialization of Embrace in a more React-friendly way:
 
@@ -98,7 +98,7 @@ export default App
 
 In both cases, you should use these methods to initialize the React Native Embrace SDK at the top level of your application just once to prevent side effects in the JavaScript layer.
 
-## Start Embrace SDK in the native side
+### Start Embrace SDK in the native side
 
 :::info
 If you made use of the automated setup script from the [Adding the Embrace SDK](/react-native/integration/add-embrace-sdk#setup-script)
@@ -216,11 +216,11 @@ public class MainApplication extends Application implements ReactApplication {
 </TabItem>
 </Tabs>
 
-### Initializing Embrace SDK without an app ID or token
+#### Initializing Embrace SDK without an app ID or token
 
 If you prefer to send the data into a custom backend avoiding Embrace you should skip the app_id / token values from both platform configurations. For more information about it you can visit the how to [Use without an Embrace account](/react-native/integration/login-embrace-dashboard#use-without-an-embrace-account) section.
 
-## Build and run the application
+### Build and run the application
 
 Now you're ready to build and run the application.
 Launch the application how you usually would during development.
@@ -229,7 +229,7 @@ Launch the application how you usually would during development.
 If you encounter any errors, please get in touch on [Slack](https://community.embrace.io/) and we can assist you.
 :::
 
-## Trigger a session upload
+### Trigger a session upload
 
 To trigger a session upload, simply background and then foreground the app, or stop the application by either force
 killing it or using the stop button in either Xcode for iOS or Android Studio for Android.

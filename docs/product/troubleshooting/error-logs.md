@@ -3,11 +3,11 @@ title: Error Logs
 sidebar_position: 0
 ---
 
-# Error logs
+## Error logs
 
 The Error logs page in the Embrace dashboard provides a centralized view of all error logs emitted by your application, with a focus on error-level logs.
 
-## Page details
+### Page details
 
 Key information on the Error logs page includes:
 

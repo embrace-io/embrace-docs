@@ -4,12 +4,12 @@ description: Automatically monitor rendering failures on your web app's root ele
 sidebar_position: 7
 ---
 
-# Empty Root Node
+## Empty Root Node
 
 The Embrace SDK can be configured to monitor the root node of your application, providing visibility into when a user's
 experience is interrupted by a visually blank page.
 
-## How Empty Root Node Instrumentation Works
+### How Empty Root Node Instrumentation Works
 
 When using a framework such as React there is normally a DOM element on the page that is designated as the root element
 within which the framework will take over the management and rendering of components. If an error is raised and propagates
@@ -22,8 +22,8 @@ This instrumentation can be enabled by configuring it with the element that is c
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     'empty-root': {
       rootNode: document.getElementById('root'),
@@ -32,9 +32,8 @@ initSDK({
 });
 ```
 
-The instrumentation then setups a [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
-on the element and records a SpanEvent on the current session Span if that element is ever found to have been emptied
-out.
+The instrumentation then sets up a [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
+on the element and records an event if that element is ever found to have been emptied out.
 
 The occurrence of this event then feeds into our [Exception Severity Score calculation](/product/exceptions/severity-score.md#6-empty-root-node-multiplier)
 so that any exception we detect immediately prior to the root node being found empty is given a higher severity.

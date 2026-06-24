@@ -3,9 +3,9 @@ title: Technical Details
 sidebar_position: 1
 ---
 
-# Technical Details
+## Technical Details
 
-## Definitions
+### Definitions
 
 **Trace**: Describes the end-to-end journey of one or more connected spans.
 
@@ -19,7 +19,7 @@ sidebar_position: 1
 
 <img src={require('@site/static/images/span-relationships.png').default} alt="Spans: Parent-Child Relationship"/>
 
-## Span Outcomes
+### Span Outcomes
 
 - **Successful** (definition and if it’s auto or manual set)
 - **Error**: Spans encountered an error.

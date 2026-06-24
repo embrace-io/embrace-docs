@@ -4,9 +4,9 @@ sidebar_position: 2
 description: Login to the Embrace dashboard to get started with your Android integration
 ---
 
-# Getting Started with the Embrace Dashboard
+## Getting Started with the Embrace Dashboard
 
-## Logging in
+### Logging in
 
 Before being able to integrate, you'll need to create an account on the Embrace
 dashboard so you can access your app ID and API token. Open a browser and
@@ -17,7 +17,7 @@ register for a new one.
 
 <img src={require('@site/static/images/login-page.png').default} />
 
-## Integration page
+### Integration page
 
 Once you've finished logging in or registering for a new account, you'll be able
 to create a new app. Follow the prompts until you get to the integration page.

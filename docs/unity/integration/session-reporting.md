@@ -4,9 +4,9 @@ description: Upload session reports from your Unity application using the Embrac
 sidebar_position: 6
 ---
 
-# Session Reporting
+## Session Reporting
 
-## Create your first session
+### Create your first session
 
 Now that you've got Embrace linked and know how to login to the Embrace dashboard, it's time to collect your first session.
 
@@ -22,7 +22,7 @@ process we're going to follow to collect our first session is:
    2. Launch the application to the foreground
    3. Verify that our first session was uploaded to Embrace by checking the dashboard
 
-## Import Embrace
+### Import Embrace
 
 Let's start by importing the Embrace module. Embrace on Unity is accessible via a singleton C# class called `Embrace` in the `EmbraceSDK` namespace. Simply add this line to the top of any C# script you'd like to use with Embrace:
 
@@ -46,7 +46,7 @@ Our SDK has three runtime modes:
 
 For all other build targets, the result of Embrace API calls are no-ops. You can make calls to the Embrace SDK in shared code, but on platforms like Windows or macOS those calls will do nothing and no data is uploaded to Embrace.
 
-## Add a start call
+### Add a start call
 
 Embrace does nothing until its start method has been called. Find the place in your project where you initialize other third party SDKs or some other good entry point and add the following code:
 
@@ -60,7 +60,7 @@ It is important that this call be made as early as possible in the lifecycle of 
 
 :::
 
-## Build and Run Your Application
+### Build and Run Your Application
 
 You're now ready to build and run your application. Assuming the app launches correctly, pay attention to the system logging and look for Embrace to print out its version number.
 
@@ -74,7 +74,7 @@ If you encounter any errors, please get in touch on Slack and we can help you ou
 
 If you see a log line like this, you've succeeded in integrating Embrace with your application. Let's trigger a session upload and verify this in the dashboard.
 
-## Trigger a Session Upload
+### Trigger a Session Upload
 
 To trigger a session upload, simply send the application to the background by pressing the device's "home" button. Typically the SDK will be given sufficient time to upload the session as the app is going to the background, but sometimes the OS will not allow the app to complete the upload in the background. To ensure the session was uploaded, launch the application again. Refresh the dashboard in your browser and you should now see that you've moved on to the next step.
 

@@ -8,7 +8,7 @@ The Embrace Webhooks feature is an outgoing webhook sent by Embrace when an aler
 
 <img src={require('@site/static/images/webhooks/image1.png').default} />
 
-# Generic Webhook
+## Generic Webhook
 
 In order to see a sample of the payload sent by the Embrace dash, you can set up a test webhook with [webhook.site](https://webhook.site/):
 
@@ -30,7 +30,7 @@ In this example, the Nickname is “webhook.site” and the Webhook URL is the r
 
 Click on TEST to see the webhook show up on webhook.site.
 
-## Jira Integration
+### Jira Integration
 
 In your Project, click on Project settings
 
@@ -54,7 +54,7 @@ Choose Create issue
 
 Complete the rest of the Jira automation per your organization’s needs.
 
-## PagerDuty Integration
+### PagerDuty Integration
 
 You will need to set up a Custom Event Transformer integration (CET).
 
@@ -65,7 +65,9 @@ When you get to steps 5-7, modify the JavaScript and replace it with the followi
 ```javascript
 var webhook = PD.inputRequest.body;
 var event_type = PD.Trigger;
-if(webhook.event.metric_props.new_state=="Normal") {event_type = PD.Resolve;}
+if (webhook.event.metric_props.new_state == 'Normal') {
+  event_type = PD.Resolve;
+}
 
 var normalized_event = {
   event_type: event_type,
@@ -76,10 +78,10 @@ var normalized_event = {
     environment: webhook.app.environment,
     app_id: webhook.app.id,
     app: webhook.app.name,
-    platform: webhook.app.platform
+    platform: webhook.app.platform,
   },
-  client: "Embrace Dashboard",
-  client_url: webhook.links.dashboard_url
+  client: 'Embrace Dashboard',
+  client_url: webhook.links.dashboard_url,
 };
 
 PD.emitGenericEvents([normalized_event]);
@@ -87,7 +89,7 @@ PD.emitGenericEvents([normalized_event]);
 
 Finally, copy the Integration URL generated in the CET Integration Configuration step into the Embrace dash.
 
-## Troubleshooting Webhooks
+### Troubleshooting Webhooks
 
 Your webhook will be disabled if the alerts fail to deliver 3 times in a row.
 

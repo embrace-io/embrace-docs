@@ -4,9 +4,9 @@ description: Capture Unity Context Taps
 sidebar_position: 15
 ---
 
-# Unity Tap Capture
+## Unity Tap Capture
 
-## Overview
+### Overview
 
 As part of the Unity SDK, we are providing an initial release of the Unity contextualized auto-instrumented tap capture.
 
@@ -22,7 +22,7 @@ FindFirstObjectByType<EmbraceStandaloneInputModule>().EmbraceTapCaptureEnabled =
 
 That's it! We'll now automatically capture whatever the users taps on using the first touch on a screen. We do not yet instrument multiple taps at this time. Note that each tap is recorded as a span, which will count against your span limit of 100 spans per session.
 
-## Customization Options
+### Customization Options
 
 Additionally if you want to customize how we extract various object identifiers we provide three interfaces you can override directly on the `EmbraceStandaloneInputModule`: `IEmbraceViewNameProvider`, `IEmbraceGameObjectNameProvider`, and `TappedNameProvider`.
 

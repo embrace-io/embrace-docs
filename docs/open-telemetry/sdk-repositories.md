@@ -4,7 +4,7 @@ description: Embrace's Mobile SDKs are all open source
 sidebar_position: 2
 ---
 
-# Embrace Mobile SDKs
+## Embrace Mobile SDKs
 
 At Embrace, we are leading the way on mobile for OpenTelemetry. As part of this commitment, we have fully open-sourced our mobile software developer kits for developers to instrument in their apps.
 
@@ -12,7 +12,7 @@ We would love your contributions and thoughts on how to grow the SDKs. Open an i
 
 Note that all SDKs are licensed under the [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
 
-## GitHub locations
+### GitHub locations
 
 Embrace's SDKs are all available on GitHub. You can find them here:
 
@@ -21,6 +21,7 @@ Embrace's SDKs are all available on GitHub. You can find them here:
 - [React Native SDK](https://github.com/embrace-io/embrace-react-native-sdk)
 - [Flutter SDK](https://github.com/embrace-io/embrace-flutter-sdk)
 - [Unity SDK](https://github.com/embrace-io/embrace-unity-sdk)
+- [Web SDK](https://github.com/embrace-io/embrace-web-sdk)
 
 :::info Note
 Embrace's SDKs can also be found via platform-specific distributions. You can browse the pages for each platform in the left-side navigation to find out more.

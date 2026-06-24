@@ -4,9 +4,9 @@ description: Continue integrating Embrace into your Android application with enh
 sidebar_position: 2
 ---
 
-# Android instrumentation
+## Android instrumentation
 
-## Getting started
+### Getting started
 
 This section provides instructions for integrating Embrace's Android SDK into your app. Our minimum supported
 versions can be found [here](/android/versioning/).

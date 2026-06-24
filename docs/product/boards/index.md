@@ -3,11 +3,11 @@ title: Dashboards
 sidebar_position: 3
 ---
 
-# Dashboards
+## Dashboards
 
 Embrace's boards allow you to turn any app information into a visualization. Using a combination of pre-built boards for common topics like Crashes and Networking, developers can create boards to further analyze what was happening to users.
 
-## Details
+### Details
 
 From the Embrace dashboard, you can query, filter, group, and scale information that you receive from mobile clients in order to form useful visualizations.
 
@@ -15,7 +15,7 @@ Out of the box, Embrace offers certain "templated" boards, like **Daily New User
 
 Additionally, you can create [custom boards](/product/boards/custom-dashboards.md) that arrange information in precisely the way you want to organize it. You can use these visualizations to dig into different attributes that affected the user in production.
 
-## Learn More
+### Learn More
 
 This walkthrough video will show you how developers turn their app telemetry into visualizations of performance and business metrics.
 

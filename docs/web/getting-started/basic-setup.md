@@ -4,7 +4,7 @@ description: Setting up the Embrace Web SDK in your application
 sidebar_position: 1
 ---
 
-# Install the package
+## Install the package
 
 npm:
 
@@ -22,7 +22,7 @@ yarn add @embrace-io/web-sdk
 For CDN installs, see [Including the SDK as a code snippet from CDN](#including-the-sdk-as-a-code-snippet-from-cdn).
 :::
 
-## Initialize the SDK
+### Initialize the SDK
 
 Once you've created an Embrace web application you can initialize the SDK using the appID you were given along with
 the app version of your application. The following should be done as early in your app's lifecycle as possible to start
@@ -32,14 +32,14 @@ capturing telemetry:
 import { initSDK } from '@embrace-io/web-sdk';
 
 const result = initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
 });
 
 if (result) {
-  console.log("Successfully initialized the Embrace SDK");
+  console.log('Successfully initialized the Embrace SDK');
 } else {
-  console.log("Failed to initialize the Embrace SDK");
+  console.log('Failed to initialize the Embrace SDK');
 }
 ```
 
@@ -50,7 +50,7 @@ show up in the Embrace Dashboard once the SDK reports at least 1 completed sessi
 It may take a few minutes before the first sessions appear in your Embrace dashboard.
 :::
 
-## Keeping your app version up-to-date
+### Keeping your app version up-to-date
 
 Embrace uses the `appVersion` you provide to segment collected telemetry and allow you to view differences between
 releases, as such you should make sure this value is updated whenever you release a new version of your application. If
@@ -58,10 +58,10 @@ you use your `package.json` to track versions of your app then a way to keep thi
 value when initializing the SDK (assuming that your bundler provides a method for importing json files):
 
 ```typescript
-import * as packageInfo from "../<some-path>/package.json";
+import * as packageInfo from '../<some-path>/package.json';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
+  appID: 'YOUR_EMBRACE_APP_ID',
   appVersion: packageInfo.version,
 });
 ```
@@ -69,11 +69,12 @@ initSDK({
 Alternatively if your app version is generated as part of your CI/CD process, you can use our CLI tool to inject your
 app version into your bundle at build time. The process is done as part of [uploading sourcemaps](/web/getting-started/sourcemap-uploads.md).
 
-## Including the SDK as a code snippet from CDN
+### Including the SDK as a code snippet from CDN
 
 We recommend you include our SDK as a regular npm dependency (see above). If you prefer to include the SDK as a code
 snippet from CDN, you can do so by adding the following script tag to your main HTML file:
 
+<!-- prettier-ignore -->
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X" crossorigin="anonymous"></script>
 ```
@@ -87,29 +88,30 @@ that makes use of the sdk.
 The rest of this documentation assumes using the SDK from an NPM installation, here are some required changes to keep in
 mind as you refer to further instructions:
 
-1) Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
+1. Importing the SDK from node modules is no longer valid. Instead, reference it from the global `window` object:
 
    ```javascript
-     const { initSDK, log, page, session, trace, user } = window.EmbraceWebSdk;
+   const { initSDK, log, page, session, trace, user } = window.EmbraceWebSdk;
    ```
 
-2) Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
+2. Our CLI tool does not support injecting an app version when loading from CDN since in that case our SDK is not
 
 bundled with your code, instead you will need to make sure to pass in your app version when initializing the SDK as in
 the following example:
 
-   ```javascript
-   initSDK({
-     appVersion: '0.0.1',
-     /*...*/
-   });
-   ```
+```javascript
+initSDK({
+  appVersion: '0.0.1',
+  /*...*/
+});
+```
 
-### Async CDN Loading
+#### Async CDN Loading
 
 If you prefer to load the SDK asynchronously to avoid blocking the rendering of your page, you'll need to add the
 following snippet to your HTML file. Remember to replace `X.X.X` with the version of the SDK you want to include:
 
+<!-- prettier-ignore -->
 ```html
 <script>
    !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
@@ -120,11 +122,11 @@ By deferring the loading of the SDK, any early calls to the SDK need to be wrapp
 
 ```javascript
 window.EmbraceWebSdkOnReady.onReady(() => {
-   window.EmbraceWebSdk.initSDK({
-      appVersion: '0.0.1',
-      /*...*/
-   });
-})
+  window.EmbraceWebSdk.initSDK({
+    appVersion: '0.0.1',
+    /*...*/
+  });
+});
 ```
 
 This is necessary to ensure that the SDK is fully loaded before you start using it.
@@ -133,15 +135,15 @@ This is necessary to ensure that the SDK is fully loaded before you start using 
 The SDK may miss some early telemetry events emitted before the SDK is initialized if you use this method.
 :::
 
-## Using the SDK without the Embrace Dashboard
+### Using the SDK without the Embrace Dashboard
 
 If you'd prefer not to send data to Embrace you can simply omit the Embrace app id when calling `initSDK`. Note that in
 this case at least one custom exporter needs to be configured following the steps
 from [OpenTelemetry Export](/web/advanced-features/opentelemetry-export.md).
 
-## Troubleshooting
+### Troubleshooting
 
-### Compatibility with OTel packages
+#### Compatibility with OTel packages
 
 The SDK is built on top of OpenTelemetry and, as such, it is possible to use it alongside other OTel libraries.
 **Important: New projects should use OpenTelemetry 2.x.**
@@ -150,14 +152,14 @@ OpenTelemetry 1.x support is limited to 1.x versions of the SDK, which are depre
 If you wish to customize the SDK behavior by configuring custom resources, exporters, processors, or instrumentations,
 you must ensure that you are using versions of the OTel packages that are compatible with our SDK:
 
-| Embrace Web SDK | Open Telemetry APIs | Core   | Instrumentations & Contrib |
-|-----------------|---------------------|--------|----------------------------|
-| `^2.0.0`        | `^1.9.0`            | `^2.0.3` | `>=0.203.0 <0.300.0`     |
-| `1.8.2`         | `^1.9.0`            | `1.30.1` | `0.57.2`                 |
+| Embrace Web SDK | Open Telemetry APIs | Core     | Instrumentations & Contrib |
+| --------------- | ------------------- | -------- | -------------------------- |
+| `^2.0.0`        | `^1.9.0`            | `^2.0.3` | `>=0.203.0 <0.300.0`       |
+| `1.8.2`         | `^1.9.0`            | `1.30.1` | `0.57.2`                   |
 
 For a full list of dependencies used by the SDK, please refer to the [package.json](https://github.com/embrace-io/embrace-web-sdk/blob/main/package.json) file in the SDK repository.
 
-### Turning on verbose logging in the SDK
+#### Turning on verbose logging in the SDK
 
 By default, the SDK will only send error level logs to the console. The log level of the SDK can be increased when
 initializing as follows:
@@ -166,8 +168,8 @@ initializing as follows:
 import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   logLevel: DiagLogLevel.ALL,
 });
 ```
@@ -179,12 +181,18 @@ emitted:
 
 ```typescript
 import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
-import { ConsoleLogRecordExporter, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
-import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-web'
+import {
+  ConsoleLogRecordExporter,
+  SimpleLogRecordProcessor,
+} from '@opentelemetry/sdk-logs';
+import {
+  ConsoleSpanExporter,
+  SimpleSpanProcessor,
+} from '@opentelemetry/sdk-trace-web';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   logLevel: DiagLogLevel.INFO,
 
   // setup as exporters to output with the same batching as when exporting to a collector endpoint
@@ -197,31 +205,7 @@ initSDK({
 });
 ```
 
-### Webpack 4 Configuration
-
-When using webpack 4, you need to add aliases to your webpack configuration to resolve dependency paths correctly:
-
-```javascript
-// webpack.config.js
-const path = require('node:path');
-
-module.exports = {
-  // ... other config
-  resolve: {
-    alias: {
-      '@opentelemetry/semantic-conventions/incubating': path.resolve(
-        __dirname,
-        './node_modules/@opentelemetry/semantic-conventions/build/src/index-incubating.js'
-      ),
-      uuid: path.resolve(__dirname, './node_modules/uuid/dist/index.js'),
-    },
-  },
-};
-```
-
-See the [webpack 4 integration test](https://github.com/embrace-io/embrace-web-sdk/blob/main/tests/integration/platforms/webpack-4/webpack.config.js) for a complete example.
-
-### Client-side only usage
+#### Client-side only usage
 
 The Embrace SDK is designed for browser environments. Importing it in server-side code (e.g. Next.js Server Components,
 API routes, edge middleware) will not cause runtime errors because `initSDK` detects non-browser environments and returns
@@ -235,7 +219,7 @@ For best results, import and initialize the SDK in client-only code.
 - ⚠️ **Safe but inert:** Server Components, API routes, middleware, Server Actions — `initSDK` returns `false` without error
 - ❌ **Avoid:** Calling SDK APIs (e.g. `session`, `trace`) on the server — they require browser context
 
-## Next Steps
+### Next Steps
 
 After basic setup, you can:
 

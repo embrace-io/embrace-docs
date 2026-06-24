@@ -3,11 +3,11 @@ title: Out of Memory
 sidebar_position: 7
 ---
 
-# Out of Memory
+## Out of Memory
 
 The Out of Memory ("OOM") page in the Embrace dashboard helps developers identify, investigate, and resolve OOMs by surfacing relevant metrics, trends, and contextual signals.
 
-## Page details
+### Page details
 
 Key information on the OOM page:
 

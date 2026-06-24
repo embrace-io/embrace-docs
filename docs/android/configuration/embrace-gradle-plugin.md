@@ -4,9 +4,9 @@ description: Get readable stacktraces in production with the Embrace Gradle Plug
 sidebar_position: 20
 ---
 
-# Embrace Gradle plugin
+## Embrace Gradle plugin
 
-## Overview
+### Overview
 
 The Embrace Gradle Plugin performs several functions:
 
@@ -15,11 +15,11 @@ The Embrace Gradle Plugin performs several functions:
 - It adds Embrace dependencies to your project's compile classpath
 - It injects your specified configuration for the Embrace SDK into the APK/App Bundle
 
-## Apply the Embrace Gradle plugin
+### Apply the Embrace Gradle plugin
 
 To apply the Embrace Gradle Plugin to your app follow the instructions in our [integration steps](/android/integration).
 
-## Configure the Embrace Gradle plugin
+### Configure the Embrace Gradle plugin
 
 The Embrace Gradle Plugin should be configured via the `build.gradle` of the module where you applied the plugin. The full DSL is shown here, and explained in more detail below the code snippet:
 
@@ -102,17 +102,17 @@ embrace {
 </TabItem>
 </Tabs>
 
-### Gradle DSL reference
+#### Gradle DSL reference
 
-#### autoAddEmbraceDependencies
+##### autoAddEmbraceDependencies
 
 Whether the Embrace Gradle Plugin should automatically add Embrace dependencies to this module's classpath. Defaults to true.
 
-#### autoAddEmbraceComposeClickDependency
+##### autoAddEmbraceComposeClickDependency
 
 Whether the Embrace Gradle Plugin should automatically add the `embrace-android-instrumentation-compose-tap` dependency to this module's classpath. Defaults to false.
 
-#### customSymbolsDirectory
+##### customSymbolsDirectory
 
 Path to a directory containing architecture subdirectories (e.g., arm64-v8a/, x86/, etc.) with .so files to be used for crash symbolication
 This could be:
@@ -120,19 +120,19 @@ This could be:
 - An **absolute path**, like: "/Users/yourname/project/app/src/main/symbols".
 - A **path relative to the module's root directory** such as: "app/src/main/embrace/symbols".
 
-#### telemetryEnabled
+##### telemetryEnabled
 
 Whether the Embrace Gradle Plugin should report telemetry on its own performance. Defaults to true.
 
-#### failBuildOnUploadErrors
+##### failBuildOnUploadErrors
 
 Whether the Embrace Gradle Plugin should fail the build if it encounters an error during a HTTP request. Defaults to true.
 
-### Gradle Properties
+#### Gradle Properties
 
 The following properties can be set in your `gradle.properties` file:
 
-#### embrace.disableMappingFileUpload
+##### embrace.disableMappingFileUpload
 
 Set to `true` to disable the automatic upload of ProGuard/R8 mapping files and NDK symbol files. This is useful when using Embrace solely as an OTel exporter without sending data to Embrace's backend. Example:
 
@@ -140,42 +140,42 @@ Set to `true` to disable the automatic upload of ProGuard/R8 mapping files and N
 embrace.disableMappingFileUpload=true
 ```
 
-#### bytecodeInstrumentation.enabled
+##### bytecodeInstrumentation.enabled
 
 Global flag that overrides all others & decides whether Embrace should perform any bytecode instrumentation. Defaults to true.
 
-#### bytecodeInstrumentation.okhttpEnabled
+##### bytecodeInstrumentation.okhttpEnabled
 
 Whether Embrace should automatically instrument OkHttp requests. Defaults to true.
 
-#### bytecodeInstrumentation.onClickEnabled
+##### bytecodeInstrumentation.onClickEnabled
 
 Whether Embrace should automatically instrument android.view.View click events. Defaults to true.
 
-#### bytecodeInstrumentation.onLongClickEnabled
+##### bytecodeInstrumentation.onLongClickEnabled
 
 Whether Embrace should automatically instrument android.view.View long click events. Defaults to true.
 
-#### bytecodeInstrumentation.webviewOnPageStartedEnabled
+##### bytecodeInstrumentation.webviewOnPageStartedEnabled
 
 Whether Embrace should automatically instrument onPageStarted() in webviews. Defaults to true.
 
-#### bytecodeInstrumentation.firebasePushNotificationsEnabled
+##### bytecodeInstrumentation.firebasePushNotificationsEnabled
 
 Whether Embrace should automatically instrument push notifications from Firebase. Defaults to false.
 
-#### bytecodeInstrumentation.autoSdkInitializationEnabled
+##### bytecodeInstrumentation.autoSdkInitializationEnabled
 
 Whether the Embrace SDK should automatically start when the `Application.onCreate()` method is invoked. Enabling this will make the Gradle plugin inject `Embrace.getInstance().start()` at the beginning of the method for all classes that extend `Application`. Defaults to false.
 
-#### bytecodeInstrumentation.classIgnorePatterns
+##### bytecodeInstrumentation.classIgnorePatterns
 
 A list of string patterns that are used to filter classes during bytecode instrumentation. For example, `'com.example.foo.*'`
 would avoid instrumenting any classes in the `'com.example.foo'` package.
 
 This can be useful if you wish to avoid instrumenting certain parts of your codebase. Defaults to an empty list.
 
-#### buildVariantFilter
+##### buildVariantFilter
 
 Controls how the Embrace Gradle Plugin behaves on a specific build variant. You can use this by checking the variant name and then configuring the build variant as required.
 

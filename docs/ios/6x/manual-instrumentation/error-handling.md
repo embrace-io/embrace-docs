@@ -7,11 +7,11 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Error Handling
+## Error Handling
 
 Tracking and handling errors is crucial for understanding problems in your app. Embrace provides comprehensive error tracking capabilities that help you identify and fix issues quickly.
 
-## Types of Errors
+### Types of Errors
 
 Embrace categorizes errors into different types:
 
@@ -20,9 +20,9 @@ Embrace categorizes errors into different types:
 - **Error Events**: Error conditions that don't throw exceptions but represent failures
 - **Network Errors**: Failed network requests and API calls
 
-## Tracking Handled Errors
+### Tracking Handled Errors
 
-### Basic Error Logging
+#### Basic Error Logging
 
 The simplest way to track an error is with the error recording methods:
 
@@ -63,7 +63,7 @@ do {
 </TabItem>
 </Tabs>
 
-### Adding Context to Errors
+#### Adding Context to Errors
 
 Add properties to provide more context:
 
@@ -110,7 +110,7 @@ do {
 </TabItem>
 </Tabs>
 
-### Recording Errors in Spans
+#### Recording Errors in Spans
 
 When using spans to track operations, record errors within the span context:
 
@@ -169,9 +169,9 @@ do {
 </TabItem>
 </Tabs>
 
-## Common Error Handling Patterns
+### Common Error Handling Patterns
 
-### Network Error Handling
+#### Network Error Handling
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -322,7 +322,7 @@ func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
 </TabItem>
 </Tabs>
 
-### JSON Parsing Errors
+#### JSON Parsing Errors
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -399,7 +399,7 @@ func parseUserProfile(data: Data) -> Result<UserProfile, Error> {
 </TabItem>
 </Tabs>
 
-### Core Data Errors
+#### Core Data Errors
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -478,7 +478,7 @@ func saveContext() {
 </TabItem>
 </Tabs>
 
-## Creating Custom Errors
+### Creating Custom Errors
 
 Define custom errors to provide more context:
 
@@ -619,9 +619,9 @@ func processPayment() {
 </TabItem>
 </Tabs>
 
-## Best Practices for Error Handling
+### Best Practices for Error Handling
 
-### Group Related Errors
+#### Group Related Errors
 
 Use consistent naming and grouping for related errors:
 
@@ -666,7 +666,7 @@ func logNetworkError(_ error: Error, endpoint: String, method: String) {
 </TabItem>
 </Tabs>
 
-### Include Troubleshooting Information
+#### Include Troubleshooting Information
 
 Add details that will help with debugging:
 
@@ -709,7 +709,7 @@ Embrace.client?.log(
 </TabItem>
 </Tabs>
 
-### Avoid Over-Logging
+#### Avoid Over-Logging
 
 Don't log the same error multiple times:
 
@@ -774,7 +774,7 @@ func shouldLogError(_ error: Error, retryCount: Int) -> Bool {
 </TabItem>
 </Tabs>
 
-### Categorize Errors
+#### Categorize Errors
 
 Use consistent error categorization:
 
@@ -831,7 +831,7 @@ func logCategorizedError(_ error: Error, category: ErrorCategory, attributes: [S
 </TabItem>
 </Tabs>
 
-### Correlate Errors with User Actions
+#### Correlate Errors with User Actions
 
 Link errors to user actions when possible:
 

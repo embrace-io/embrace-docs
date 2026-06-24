@@ -161,7 +161,7 @@ implementation 'io.embrace:embrace-android-sdk:{{ embrace_sdk_version platform="
 A JSON-formatted file is used to configure Embrace SDK features. To start off, create a new empty JSON file at `app/src/main/embrace-config.json`:
 
 ```json
-{ }
+{}
 ```
 
 ## Set your app ID and API token

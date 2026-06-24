@@ -4,14 +4,14 @@ description: Get started with integrating Embrace into your Android application
 sidebar_position: 8
 ---
 
-# Android Integration
+## Android Integration
 
-## Getting Started
+### Getting Started
 
 We'll be guiding you through integrating version 7.9.3 of the Embrace Android SDK into your application
 with a series of articles. We recommend going through them in order, although you are free to skip around.
 
-## Requirements
+### Requirements
 
 Embrace has the following minimum requirements on Android at build time:
 

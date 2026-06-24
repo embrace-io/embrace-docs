@@ -4,11 +4,11 @@ description: Embrace can capture push notifications received by your app.
 sidebar_position: 8
 ---
 
-# Push notifications
+## Push notifications
 
 The Embrace SDK is able to automatically capture Firebase push notifications received by your app.
 
-## Configuration  
+### Configuration
 
 Push Notifications Capture is disabled by default.
 
@@ -30,9 +30,9 @@ dependencies {
 If you want to capture data from inside the notifications then you can set the config `capture_fcm_pii_data` to `true` in your `embrace-config.json` file inside `sdk_config`. This value is false by default.
 :::
 
-## Usage
+### Usage
 
-If your configuration is correct, you don't need to do anything else, you are already capturing notifications automatically. They will appear in your dashboard within the user session timeline.  
+If your configuration is correct, you don't need to do anything else, you are already capturing notifications automatically. They will appear in your dashboard within the user session timeline.
 
 If you don't want the notifications to get captured automatically, then you can avoid the setup from the previous section and when you receive a notification in your code, make the following call manually:
 

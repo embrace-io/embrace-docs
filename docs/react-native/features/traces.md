@@ -4,13 +4,13 @@ description: Record spans to monitor the production performance and success rate
 sidebar_position: 2
 ---
 
-# Traces
+## Traces
 
-## Overview
+### Overview
 
 Embrace’s Traces gives you complete visibility into any customized operation you’d like to track, enabling you to identify, prioritize, and resolve any performance issue. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user
 
-## Feature support
+### Feature support
 
 The Embrace Traces API allows you to:
 
@@ -24,7 +24,7 @@ The Embrace Traces API allows you to:
 
 There is no limit on the duration of spans, but **if a crash occurs during a span that is in progress, that span will not be recorded.**
 
-### Limits
+#### Limits
 
 | Type                               | Limit          |
 | ---------------------------------- | -------------- |
@@ -42,7 +42,7 @@ There is no limit on the duration of spans, but **if a crash occurs during a spa
 If you exceed the listed limits, the operation with the limit-exceeding call will fail and return a value indicating that there is a failure. See the API documentation for details.
 :::
 
-### Naming conventions
+#### Naming conventions
 
 - Span Names are **case-sensitive** and are a **max of 50 characters.**
 - Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric**
@@ -51,14 +51,14 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with `emb-` and `emb.` prefixes
 :::
 
-## Integration steps
+### Integration steps
 
 To use this feature:
 
 1. Instrument your app using the reference guide in this section to start adding spans to your operations.
 2. See the spans in the [Traces](/product/traces/index.md) section of the Embrace dashboard.
 
-### Install the tracer provider package
+#### Install the tracer provider package
 
 npm:
 
@@ -78,19 +78,19 @@ For iOS you will also need to install or update pods for the application:
 cd ios && USE_FRAMEWORKS=dynamic pod install --repo-update
 ```
 
-## API usage examples
+### API usage examples
 
-### Getting a tracer
+#### Getting a tracer
 
 Spans are created from a Tracer which you can get from the `useEmbraceNativeTracerProvider` hook:
 
 ```javascript
-import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
-import {useEmbrace} from "@embrace-io/react-native";
+import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
+import { useEmbrace } from '@embrace-io/react-native';
 
-const {isPending, isStarted} = useEmbrace({
+const { isPending, isStarted } = useEmbrace({
   ios: {
-    appId: "__APP_ID__",
+    appId: '__APP_ID__',
   },
 });
 
@@ -102,100 +102,100 @@ if (isPending) {
   );
 } else {
   if (!isStarted) {
-    console.log("An error occurred during Embrace initialization");
+    console.log('An error occurred during Embrace initialization');
   }
 }
 
-const {tracer} = useEmbraceNativeTracerProvider({}, isStarted);
+const { tracer } = useEmbraceNativeTracerProvider({}, isStarted);
 ```
 
 See the [package README](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/packages/react-native-tracer-provider)
 for more details.
 
-### Create and end a span
+#### Create and end a span
 
 ```javascript
-const span = tracer.startSpan("span-name");
+const span = tracer.startSpan('span-name');
 
 someAsyncOperation().then(() => span.end());
 ```
 
-### Create a span that started in the past
+#### Create a span that started in the past
 
 ```javascript
-const span = tracer.startSpan("span-name", {
+const span = tracer.startSpan('span-name', {
   startTime: new Date().getTime(),
 });
 ```
 
-### Add an attribute to a span
+#### Add an attribute to a span
 
 ```javascript
 // Add an attribute on create
-const span = tracer.startSpan("span-name", {
+const span = tracer.startSpan('span-name', {
   attributes: {
-    "my-attr-on-create": "hello",
+    'my-attr-on-create': 'hello',
   },
 });
 
 // Add an attribute later on
-span.setAttribute("my-other-attr", "bye");
+span.setAttribute('my-other-attr', 'bye');
 ```
 
-### Add an event to a span
+#### Add an event to a span
 
 ```javascript
-const span = tracer.startSpan("span-name");
+const span = tracer.startSpan('span-name');
 
-span.addEvent("my-event", {
-  "some-event-attr": "event-attr-value",
+span.addEvent('my-event', {
+  'some-event-attr': 'event-attr-value',
 });
 ```
 
-### Stop a span for an operation that ended earlier
+#### Stop a span for an operation that ended earlier
 
 ```javascript
 span.end(new Date().getTime());
 ```
 
-### Stop a span for an operation that failed
+#### Stop a span for an operation that failed
 
 ```javascript
-import {endAsFailed} from "@embrace-io/react-native-tracer-provider";
+import { endAsFailed } from '@embrace-io/react-native-tracer-provider';
 
 endAsFailed(span);
 ```
 
-### Set a parent-child span relationship
+#### Set a parent-child span relationship
 
 ```javascript
-import {asParent} from "@embrace-io/react-native-tracer-provider";
+import { asParent } from '@embrace-io/react-native-tracer-provider';
 
-const parentSpan = tracer.startSpan("the-parent");
-const childSpan = tracer.startSpan("the-child", {}, asParent(parentSpan));
+const parentSpan = tracer.startSpan('the-parent');
+const childSpan = tracer.startSpan('the-child', {}, asParent(parentSpan));
 
 childSpan.end();
 parentSpan.end();
 ```
 
-### Recording a completed span
+#### Recording a completed span
 
 If an operation you wish to track has already completed you can use the `recordCompletedSpan` convenience function to
 start and stop a span in a single call passing along all the relevant options for the span:
 
 ```javascript
-import {recordCompletedSpan} from "@embrace-io/react-native-tracer-provider";
+import { recordCompletedSpan } from '@embrace-io/react-native-tracer-provider';
 
-recordCompletedSpan(tracer, "my-completed-span", {
+recordCompletedSpan(tracer, 'my-completed-span', {
   startTime: previouslyStartedTime,
   endTime: previouslyEndedTime,
   attributes: {
-    "my-attr": "foo",
+    'my-attr': 'foo',
   },
   events: [
     {
-      name: "completed-span-event",
-      attributes: {"event-attr": "bar"},
+      name: 'completed-span-event',
+      attributes: { 'event-attr': 'bar' },
       timeStamp: spanEventTime,
     },
   ],
@@ -203,6 +203,6 @@ recordCompletedSpan(tracer, "my-completed-span", {
 });
 ```
 
-## Support
+### Support
 
 If you have any questions or if something is not working as intended, please get in touch with your Customer Success Manager.

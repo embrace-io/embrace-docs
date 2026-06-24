@@ -8,7 +8,7 @@ The React Router automatic instrumentation provides an easy way to track navigat
 It captures route changes and sends them as spans to Embrace, allowing you to monitor user navigation patterns and performance.
 A span is automatically created when the user navigates to a new route or the application is loaded. Then the span is ended when the route changes again or the session ends.
 
-# Instrumentation
+## Instrumentation
 
 To instrument React Router, add the React Router navigation instrumentation when you init the Embrace Web SDK.
 
@@ -18,13 +18,11 @@ import { createReactRouterNavigationInstrumentation } from '@embrace-io/web-sdk/
 
 initSDK({
   // ...Other configs
-  instrumentations: [
-    createReactRouterNavigationInstrumentation(),
-  ],
-})
+  instrumentations: [createReactRouterNavigationInstrumentation()],
+});
 ```
 
-## React Router V4/V5
+### React Router V4/V5
 
 If you're using React Router V4 or V5, you can use the `withEmbraceRoutingLegacy` higher-order component (HOC) to wrap your `Route` components. This will automatically track route changes. `EmbraceRoute` needs to be surrounded by a `<Switch>` component to properly capture the current path.
 
@@ -129,23 +127,24 @@ const customNavigationHandler = () => {
   // ... navigation logic
 
   // Get raw URL and path pattern from the custom navigation
-  const url = '/path/before/replaced'
-  const path = '/path/before/:replace'
+  const url = '/path/before/replaced';
+  const path = '/path/before/:replace';
 
   // Since `createReactRouterNavigationInstrumentation` was already called when setting up the
   // instrumentation in `initSDK` this will simply get a reference to the NavigationInstrumentation
   // instance rather than creating a new one
-  const navigationInstrumentation = createReactRouterNavigationInstrumentation();
+  const navigationInstrumentation =
+    createReactRouterNavigationInstrumentation();
 
   // Track that the navigation occurred
   navigationInstrumentation.setCurrentRoute({
     url,
-    path
+    path,
   });
-}
+};
 ```
 
-### Configuration
+## Configuration
 
 You can configure the React Router instrumentation by passing options to the `createReactRouterNavigationInstrumentation` function.  
 For now, the only option available is `shouldCleanupPathOptionsFromRouteName`.

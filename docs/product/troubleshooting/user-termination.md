@@ -3,13 +3,13 @@ title: User Terminations
 sidebar_position: 5
 ---
 
-# User Terminations
+## User Terminations
 
 In the Embrace dashboard, User terminations represent sessions where the app was explicitly closed by the user, rather than by a crash, issue, or system event.
 
 User terminations are detected by the Embrace SDK when it receives a signal that the user has intentionally closed the app. For example, in iOS, this occurs when the app transitions to the background and is then killed by the user (e.g., swiping up in the app switcher), and the SDK can confirm the termination was not due to a crash or OOM.
 
-## Why is the User Terminations page helpful?
+### Why is the User Terminations page helpful?
 
 What developers can learn from User Terminations page:
 

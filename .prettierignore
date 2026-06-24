@@ -1,0 +1,12 @@
+# Build output and generated files
+build
+.docusaurus
+node_modules
+
+# YAML config files
+*.yml
+*.yaml
+
+# Lockfiles and caches
+package-lock.json
+.lycheecache

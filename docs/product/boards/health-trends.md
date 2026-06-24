@@ -3,7 +3,7 @@ title: Health and Trends Board
 sidebar_position: 0
 ---
 
-# Health and Trends Board
+## Health and Trends Board
 
 The Health and Trends board is a pre-built template that reflects Standard Metrics, which provide an overall sense of app health. You can use this board to monitor users, crashes, and session activity out of the box.
 

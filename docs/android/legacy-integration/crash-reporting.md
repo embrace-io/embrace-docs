@@ -4,9 +4,9 @@ sidebar_position: 5
 description: Upload crash reports from your Android application using the Embrace SDK
 ---
 
-# Collect Your First Crash Report
+## Collect Your First Crash Report
 
-## Setting up the Crash Reporter
+### Setting up the Crash Reporter
 
 :::info
 See our [FAQ](/android/faq#crashes-and-anrs) for details on compatibility with other crash reporters.
@@ -28,7 +28,7 @@ In most scenarios, the Embrace SDK is able to upload a crash report and session 
 
 Once the crash and session messages are uploaded, you should notice that your session is marked with the "crashed" icon and your crash is visible in the crashes section of the dashboard.
 
-## Symbolicating Stack Traces
+### Symbolicating Stack Traces
 
 If you have obfuscated your application with ProGuard, DexGuard, R8, or another obfuscation tool, the captured crashes will contain obfuscated method names. ProGuard, DexGuard and R8 files will be uploaded automatically at build time. If you don't see symbolicated crashes while using ProGuard, DexGuard or R8, reach out to us on Slack and we'll work with you directly.
 

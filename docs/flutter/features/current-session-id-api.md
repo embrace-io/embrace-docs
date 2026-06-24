@@ -4,13 +4,13 @@ sidebar_position: 6
 description: Track the current Embrace session by getting its ID.
 ---
 
-# Current session ID API
+## Current session ID API
 
 import GetSessionId from '@site/shared/get-session-id.md';
 
 <GetSessionId />
 
-## Integration steps
+### Integration steps
 
 To use this feature, follow these two steps:
 

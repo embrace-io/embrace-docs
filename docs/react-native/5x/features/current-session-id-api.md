@@ -4,17 +4,17 @@ sidebar_position: 5
 description: Track the current Embrace session by getting its ID.
 ---
 
-# Current Session ID API
+## Current Session ID API
 
 ```javascript
-import {getCurrentSessionId} from '@embrace-io/react-native';
+import { getCurrentSessionId } from '@embrace-io/react-native';
 
-const myMethod = () =>{
-    getCurrentSessionId().then(sessionId=>{
-        console.log("Embrace Session Id", sessionId)
-    })
-}
-```  
+const myMethod = () => {
+  getCurrentSessionId().then((sessionId) => {
+    console.log('Embrace Session Id', sessionId);
+  });
+};
+```
 
 import GetSessionId from '@site/shared/get-session-id.md';
 

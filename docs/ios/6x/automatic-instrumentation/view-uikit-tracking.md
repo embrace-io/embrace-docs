@@ -7,11 +7,11 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# UIKit View Tracking
+## UIKit View Tracking
 
 The Embrace SDK's `ViewCaptureService` automatically instruments `UIViewController` load and render times, giving you visibility into screen performance and user experience.
 
-## How View Tracking Works
+### How View Tracking Works
 
 The view tracking service monitors the lifecycle of `UIViewController` instances in your app and generates OpenTelemetry spans for key events such as:
 
@@ -23,7 +23,7 @@ The view tracking service monitors the lifecycle of `UIViewController` instances
 
 This data helps you identify slow screens, optimize user experience, and understand user navigation patterns.
 
-## Configuration
+### Configuration
 
 You can customize view tracking behavior when initializing the Embrace SDK:
 
@@ -74,9 +74,9 @@ try Embrace
 </TabItem>
 </Tabs>
 
-## Available Tracking Features
+### Available Tracking Features
 
-### Screen Visibility Tracking
+#### Screen Visibility Tracking
 
 When `instrumentVisibility` is enabled, the service generates spans that:
 
@@ -85,7 +85,7 @@ When `instrumentVisibility` is enabled, the service generates spans that:
 
 This provides insights into how long users spend on each screen and their navigation patterns.
 
-### Time to First Render
+#### Time to First Render
 
 When `instrumentFirstRender` is enabled, the service generates spans that:
 
@@ -107,7 +107,7 @@ If you're using the Embrace Dashboard, you might need to contact Embrace support
 If you're not using the Embrace Dashboard, enable this by passing a custom `EmbraceConfigurable` with `isUiLoadInstrumentationEnabled` set to true when initializing the SDK.
 :::
 
-### Time to Interactive
+#### Time to Interactive
 
 This feature tracks the time until a view is ready for user interaction. To use it:
 
@@ -131,7 +131,7 @@ class MyViewController: UIViewController, InteractableViewController {
 
 If the user navigates away before the view becomes interactive, spans will be marked with error status `.userAbandon`.
 
-### Custom View Naming
+#### Custom View Naming
 
 By default, the SDK uses the class name of your `UIViewController` for identification. You can customize this by implementing the `EmbraceViewControllerCustomization` protocol:
 
@@ -149,7 +149,7 @@ class ProfileViewController: UIViewController, EmbraceViewControllerCustomizatio
 }
 ```
 
-### Custom Child Spans
+#### Custom Child Spans
 
 When first render instrumentation is enabled, you can add custom child spans to track specific operations during view loading:
 
@@ -169,7 +169,7 @@ class MyViewController: UIViewController, InstrumentableViewController {
 }
 ```
 
-### Adding Custom Attributes
+#### Adding Custom Attributes
 
 You can add custom attributes to the view trace to provide additional context:
 
@@ -192,7 +192,7 @@ class MyViewController: UIViewController, InstrumentableViewController {
 }
 ```
 
-## Best Practices
+### Best Practices
 
 - Enable both visibility and render tracking for comprehensive view performance data
 - Implement `InteractableViewController` for screens with complex loading or asynchronous content
@@ -201,7 +201,7 @@ class MyViewController: UIViewController, InstrumentableViewController {
 - Set custom view names for better readability in the dashboard
 - Focus on screens that are critical to your user experience for optimization
 
-## Common Use Cases
+### Common Use Cases
 
 - Identifying slow-loading screens
 - Monitoring the impact of code changes on UI performance
@@ -209,4 +209,4 @@ class MyViewController: UIViewController, InstrumentableViewController {
 - Detecting when users abandon screens before they fully load
 - Correlating network activity with view performance
 
- <!-- TODO: Add examples of how view tracking data appears in the Embrace dashboard and how to interpret the results -->
+  <!-- TODO: Add examples of how view tracking data appears in the Embrace dashboard and how to interpret the results -->

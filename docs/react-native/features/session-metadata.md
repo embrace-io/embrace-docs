@@ -3,20 +3,20 @@ title: Retrieve session metadata
 sidebar_position: 11
 ---
 
-# Retrieve session metadata
+## Retrieve session metadata
 
 The Embrace SDK provides several methods for retrieving metadata about the current session. Note that each of the
 following methods should be called after the SDK has initialized in order for them to return valid data.
 
-## Current session ID
+### Current session ID
 
 ```javascript
-import {getCurrentSessionId} from '@embrace-io/react-native';
+import { getCurrentSessionId } from '@embrace-io/react-native';
 
-getCurrentSessionId().then(sessionId=>{
-    console.log("Embrace Session Id", sessionId)
-})
-```  
+getCurrentSessionId().then((sessionId) => {
+  console.log('Embrace Session Id', sessionId);
+});
+```
 
 import GetSessionId from '@site/shared/get-session-id.md';
 
@@ -29,12 +29,12 @@ the session that is still ending. You might need to delay the call or obtain the
 lifecycle to make sure the session ID you get is the one you are looking for.
 :::
 
-## Last run end state
+### Last run end state
 
 ```javascript
-import {getLastRunEndState} from '@embrace-io/react-native';
+import { getLastRunEndState } from '@embrace-io/react-native';
 
-getLastRunEndState().then(resp => {
+getLastRunEndState().then((resp) => {
   console.log('LastRunEndState', resp);
 });
 ```
@@ -43,7 +43,7 @@ This API enables customers to automatically/programmatically understand if the p
 Depending on your use case, having the ability to query an API to understand if the previous app instance ended in a crash
 will enable you to adjust the behavior or UI of your app after a crash has occurred.
 
-**What do we mean by previous app instance?**  
+**What do we mean by previous app instance?**
 
 A cold launch, basically. If the app gets backgrounded/resumed so a new session starts, the value returned will not change. So:
 
@@ -63,21 +63,22 @@ A cold launch, basically. If the app gets backgrounded/resumed so a new session 
 
 - The API can only be called after the SDK has been started. If a call is made prior to starting the Embrace SDK you will get a response of `INVALID`
 - It will return that a crash occurred if the app crashed any time since the app last came to the foreground. This includes if the app crashed while running in the background.
+
 :::
 
-### Possible values
+#### Possible values
 
 ```typescript
 /// Used to represent the end state of the last run of the application.
 export type SessionStatus = 'INVALID' | 'CRASH' | 'CLEAN_EXIT';
 ```
 
-## Current device ID
+### Current device ID
 
 ```javascript
-import {getDeviceId} from '@embrace-io/react-native';
+import { getDeviceId } from '@embrace-io/react-native';
 
-getDeviceId().then(deviceId=>{
-    console.log("Embrace Device Id", deviceId)
-})
-```  
+getDeviceId().then((deviceId) => {
+  console.log('Embrace Device Id', deviceId);
+});
+```

@@ -4,7 +4,7 @@ description: Recommendations and best practices around Sampling in the Embrace S
 sidebar_position: 2
 ---
 
-# Limiting Traffic in Embrace
+## Limiting Traffic in Embrace
 
 Developers familiar with observability may wish to sample their telemetry from the Embrace SDKs. As a practice, sampling makes sense in traditional monitoring:
 
@@ -18,7 +18,7 @@ Further, in mobile, sampling limits reproducibility of the user's experience. Mo
 
 The considerations are between cost and loss of data fidelity, and Embrace strongly prefers that you keep the entire picture of your app experience. We prefer it so much that we've built per-Session cost savings into our [pricing model](https://embrace.io/pricing/) as your app gets more usage and volume. Why be penalized for success?
 
-## How Is Traffic Configured In Embrace?
+### How Is Traffic Configured In Embrace?
 
 If turned on, "sampling" is configured in the Embrace dashboard, not the individual SDKs. With thousands or even millions of app sessions running concurrently, the Embrace backend configures the active sessions of your app to stay as close as is reasonable to that sampling rate you've set. This is not head-sampling or tail-sampling, and is basically deterministic rather than random.
 

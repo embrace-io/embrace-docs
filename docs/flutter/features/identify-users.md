@@ -4,14 +4,14 @@ description: Get to know the users of your Flutter application with the Embrace 
 sidebar_position: 2
 ---
 
-# Know your users
+## Know your users
 
 Embrace offers two methods of annotating sessions with information that helps developers and customer service agents find sessions for an unhappy user.
 
 - [**User personas**](/flutter/features/identify-users/#user-personas). This is data you can set and update about the user of a session.
 - [**Session properties**](/flutter/features/identify-users/#session-properties). This is data you use to track information about the device or the session itself.
 
-## User personas
+### User personas
 
 Embrace offers a set of methods to pass information about your users:
 
@@ -34,7 +34,7 @@ Embrace.instance.setUserPersona('high_value_cart');
 In the above example, the session is annotated with `"high_value_cart"`.
 This will help you identify users who have a certain dollar value in their shopping cart so you can prioritize fixing bugs that affect such users.
 
-## Session properties
+### Session properties
 
 Session properties are another way to annotate the session. The difference between session properties and [user personas](/flutter/features/identify-users#user-personas) is that session properties are for items relating to the session or the device and not necessarily to the user. However, you can use both mechanisms interchangeably.
 

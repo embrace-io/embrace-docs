@@ -4,7 +4,7 @@ description: Best practices for automating dSYM uploads with the Embrace iOS SDK
 sidebar_position: 5
 ---
 
-# dSYM Upload Automation
+## dSYM Upload Automation
 
 For detailed information about automating dSYM uploads with CI systems, please refer to our dedicated guide:
 
@@ -20,7 +20,7 @@ The guide covers:
 
 This is an essential best practice for ensuring proper symbolication of crash reports in the Embrace dashboard.
 
-## Key Changes in iOS SDK 6.x
+### Key Changes in iOS SDK 6.x
 
 **Important:** Starting with iOS SDK 6.x, the dSYM upload scripts are no longer bundled with the SDK package. Make sure to change your CI scripts to download and unzip the support utility from https://downloads.embrace.io/embrace_support.zip
 

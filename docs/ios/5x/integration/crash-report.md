@@ -4,9 +4,9 @@ description: Upload crash reports from your iOS application using the Embrace SD
 sidebar_position: 6
 ---
 
-# Collect your first crash report  
+## Collect your first crash report
 
-## Setting up the Crash Reporter
+### Setting up the Crash Reporter
 
 Embrace is so much more than just a crash reporting service.
 Still, knowing when and how your application crashed is important.
@@ -27,7 +27,7 @@ This is a string value. You can set this to one of the following options:
 
 The values are case insensitive.
 
-## Debuggers
+### Debuggers
 
 Before we actually trigger a crash, we need to talk about debuggers.
 Xcode is a debugger. This means that it can attach itself to a program and stop/start/pause/modify that program, including stepping through and around exceptions and signals.
@@ -38,7 +38,7 @@ If you launch your app with the play button in Xcode, then it is attached to a d
 If you can, test on a device that is no longer plugged into your Mac over USB and launch the app by tapping the icon directly.
 On the simulator, you can replicate this by running the app once with Xcode, pressing stop, then tapping the app icon in the simulator directly to launch it without Xcode.
 
-## Triggering a Crash
+### Triggering a Crash
 
 Now we're ready to trigger a crash.
 You can trigger a crash organically, or Embrace provides a test crash function you can call from anywhere in your application.

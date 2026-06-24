@@ -4,19 +4,19 @@ description: Add logging to your React Native application to track actions dispa
 sidebar_position: 9
 ---
 
-# Add React Native Screen tracker
+## Add React Native Screen tracker
 
-## Adding Context to Sessions
+### Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/4x/integration/crash-reporting) and [Session Reporting](/react-native/4x/integration/session-reporting) sections.
 Embrace can also collect when your app changes its orientation
 Here's how you add the Orientation tracker to the session.
 
-## Adding the component
+### Adding the component
 
 Embrace has a separate module to track Screen Orientation, to use it you will need to add the Screen Orientation Tracker
 
-### Install the component
+#### Install the component
 
 ```sh
 yarn add @embrace-io/react-native-orientation-change-tracker
@@ -26,7 +26,7 @@ yarn add @embrace-io/react-native-orientation-change-tracker
 npm install @embrace-io/react-native-orientation-change-tracker
 ```
 
-### Adding the method to your code
+#### Adding the method to your code
 
 Add the useEmbraceOrientationLogger to your component
 

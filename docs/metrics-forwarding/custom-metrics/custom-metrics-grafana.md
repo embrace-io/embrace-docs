@@ -4,7 +4,7 @@ description: Access your Custom Metrics via your Grafana dashboards
 sidebar_position: 120
 ---
 
-# Grafana Integration  
+## Grafana Integration
 
 Custom Metrics that you create in Embrace are available for use in Grafana.
 

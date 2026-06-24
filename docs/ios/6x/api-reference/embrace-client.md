@@ -4,7 +4,7 @@ description: Reference documentation for the Embrace client main interface
 sidebar_position: 2
 ---
 
-# Embrace Client
+## Embrace Client
 
 :::warning
 The `Embrace` client is still fully functional, but we recommend using the new [`EmbraceIO` client](./embraceio-client.md) instead. The `Embrace` client will be deprecated in a future release and eventually removed. Some newer features, such as custom OpenTelemetry resources, are only available through `EmbraceIO`.
@@ -12,11 +12,11 @@ The `Embrace` client is still fully functional, but we recommend using the new [
 
 The `Embrace` class is the main interface for interacting with the Embrace SDK. It provides methods to configure, start, and interact with the SDK.
 
-## Setup and Initialization
+### Setup and Initialization
 
-### Static Methods
+#### Static Methods
 
-#### `setup(options:)`
+##### `setup(options:)`
 
 Sets up the Embrace SDK with the provided options.
 
@@ -34,7 +34,7 @@ static func setup(options: Embrace.Options) throws -> Embrace
 
 **GitHub Source**: [EmbraceCore/Embrace.swift](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Embrace.swift)
 
-#### `client`
+##### `client`
 
 Provides access to the singleton instance of the `Embrace` class after it has been set up.
 
@@ -42,11 +42,11 @@ Provides access to the singleton instance of the `Embrace` class after it has be
 static var client: Embrace?
 ```
 
-## Instance Methods
+### Instance Methods
 
-### Core Functionality
+#### Core Functionality
 
-#### `start()`
+##### `start()`
 
 Starts the Embrace SDK, initiating data collection and session tracking.
 
@@ -58,7 +58,7 @@ func start() throws -> Embrace
 
 **Throws**: An error if the SDK cannot be started properly.
 
-#### `stop()`
+##### `stop()`
 
 Stops the Embrace SDK from capturing and generating data.
 
@@ -91,7 +91,7 @@ if Embrace.client?.state == .stopped {
 }
 ```
 
-#### `state`
+##### `state`
 
 Returns the current state of the SDK.
 
@@ -106,7 +106,7 @@ var state: EmbraceSDKState { get }
 - `.started` - SDK is running and collecting data
 - `.stopped` - SDK has been stopped
 
-#### `started` (Deprecated)
+##### `started` (Deprecated)
 
 ```swift
 @available(*, deprecated, message: "Use `state` instead.")
@@ -117,7 +117,7 @@ var started: Bool { get }
 
 **Note**: This property is deprecated. Use the `state` property instead for more detailed status information.
 
-#### `isSDKEnabled`
+##### `isSDKEnabled`
 
 Returns true if the SDK is started and was not disabled through remote configurations.
 
@@ -127,9 +127,9 @@ var isSDKEnabled: Bool { get }
 
 **Returns**: `true` if the SDK is enabled and operational, `false` otherwise.
 
-### Session Management
+#### Session Management
 
-#### `startNewSession()`
+##### `startNewSession()`
 
 Forces the Embrace SDK to start a new session.
 
@@ -139,7 +139,7 @@ func startNewSession()
 
 **Note**: If there was a session running, it will be ended before starting a new one. This method won't do anything if the SDK is stopped.
 
-#### `endCurrentSession()`
+##### `endCurrentSession()`
 
 Forces the Embrace SDK to stop the current session, if any.
 
@@ -149,7 +149,7 @@ func endCurrentSession()
 
 **Note**: This method won't do anything if the SDK is stopped.
 
-#### `currentSessionId()`
+##### `currentSessionId()`
 
 Returns the current session identifier, if any.
 
@@ -159,7 +159,7 @@ func currentSessionId() -> String?
 
 **Returns**: The current session ID as a string, or `nil` if no session is active or SDK is not enabled.
 
-#### `currentDeviceId()`
+##### `currentDeviceId()`
 
 Returns the current device identifier.
 
@@ -169,9 +169,9 @@ func currentDeviceId() -> String?
 
 **Returns**: The device ID as a hex string.
 
-### Logging
+#### Logging
 
-#### `log(_:severity:type:attributes:stackTraceBehavior:)`
+##### `log(_:severity:type:attributes:stackTraceBehavior:)`
 
 Creates and adds a log for the current session.
 
@@ -198,7 +198,7 @@ func log(
 
 **Note**: Only `warn` and `error` logs will have stack traces.
 
-#### Log with Timestamp
+##### Log with Timestamp
 
 ```swift
 func log(
@@ -211,7 +211,7 @@ func log(
 )
 ```
 
-#### Log with Data Attachment
+##### Log with Data Attachment
 
 ```swift
 func log(
@@ -225,7 +225,7 @@ func log(
 )
 ```
 
-#### Log with External Attachment
+##### Log with External Attachment
 
 ```swift
 func log(
@@ -240,7 +240,7 @@ func log(
 )
 ```
 
-#### Log Severity Levels
+##### Log Severity Levels
 
 - `.trace` - Detailed diagnostic information
 - `.debug` - Debug information
@@ -248,7 +248,7 @@ func log(
 - `.warning` - Warning conditions
 - `.error` - Error conditions
 
-#### Stack Trace Behavior Examples
+##### Stack Trace Behavior Examples
 
 ```swift
 // Default behavior - automatically captures stack traces for warning and error logs
@@ -256,23 +256,23 @@ Embrace.client?.log("Something went wrong", severity: .error)
 
 // Explicitly disable stack trace capture
 Embrace.client?.log(
-    "Debug message", 
-    severity: .debug, 
+    "Debug message",
+    severity: .debug,
     stackTraceBehavior: .notIncluded
 )
 
 // Use custom stack trace
 let customTrace = EmbraceStackTrace(/* custom trace data */)
 Embrace.client?.log(
-    "Custom trace log", 
-    severity: .info, 
+    "Custom trace log",
+    severity: .info,
     stackTraceBehavior: .custom(customTrace)
 )
 ```
 
-### Performance Monitoring
+#### Performance Monitoring
 
-#### `buildSpan(name:type:attributes:autoTerminationCode:)`
+##### `buildSpan(name:type:attributes:autoTerminationCode:)`
 
 Creates a span builder for creating and customizing a performance span.
 
@@ -294,7 +294,7 @@ func buildSpan(
 
 **Returns**: A `SpanBuilder` that can be used to customize and start the span.
 
-#### `recordSpan(name:parent:type:attributes:block:)`
+##### `recordSpan(name:parent:type:attributes:block:)`
 
 Starts a span and executes a block. The span is automatically ended when the block returns.
 
@@ -320,7 +320,7 @@ static func recordSpan<T>(
 
 **Note**: This static method validates the presence of the Embrace client and will call the block with a nil span if the client is not present, ensuring the block always executes.
 
-#### `recordCompletedSpan(...)`
+##### `recordCompletedSpan(...)`
 
 Records a span after the fact with all details.
 
@@ -337,7 +337,7 @@ func recordCompletedSpan(
 )
 ```
 
-#### `flush(_:)`
+##### `flush(_:)`
 
 Flushes a span to disk, useful for long-running spans.
 
@@ -349,27 +349,27 @@ func flush(_ span: Span)
 
 - `span`: A `Span` object that implements `ReadableSpan`.
 
-#### Adding Events to Spans
+##### Adding Events to Spans
 
 ```swift
 // Add single event to current session span
 func add(event: SpanEvent)
 
-// Add multiple events to current session span  
+// Add multiple events to current session span
 func add(events: [SpanEvent])
 ```
 
-### User Identification and Metadata
+#### User Identification and Metadata
 
 User identification and session properties are managed through the `metadata` property, which provides access to a `MetadataHandler` instance.
 
-#### Accessing the Metadata Handler
+##### Accessing the Metadata Handler
 
 ```swift
 let metadata = Embrace.client?.metadata
 ```
 
-#### User Properties
+##### User Properties
 
 Set user information using the metadata handler's properties:
 
@@ -384,33 +384,33 @@ Embrace.client?.metadata.clearUserProperties()
 
 **Important**: The `userIdentifier` should be an anonymized identifier that doesn't represent actual account information for the app user. Use hashed values, UUIDs, or other privacy-safe identifiers that allow you to track users without exposing personal information.
 
-#### Session Properties
+##### Session Properties
 
 Add custom properties to sessions using the metadata handler:
 
 ```swift
 // Add a session property
 try Embrace.client?.metadata.addProperty(
-    key: "subscription_tier", 
-    value: "premium", 
+    key: "subscription_tier",
+    value: "premium",
     lifespan: .session
 )
 
 // Update a property
 try Embrace.client?.metadata.updateProperty(
-    key: "subscription_tier", 
-    value: "basic", 
+    key: "subscription_tier",
+    value: "basic",
     lifespan: .session
 )
 
 // Remove a property
 try Embrace.client?.metadata.removeProperty(
-    key: "subscription_tier", 
+    key: "subscription_tier",
     lifespan: .session
 )
 ```
 
-#### Metadata Lifespans
+##### Metadata Lifespans
 
 Properties can have different lifespans:
 
@@ -418,27 +418,27 @@ Properties can have different lifespans:
 - `.process` - Removed when app process ends
 - `.permanent` - Persists until app is uninstalled
 
-#### Resources
+##### Resources
 
 Similar to properties, but stored separately:
 
 ```swift
 // Add a resource
 try Embrace.client?.metadata.addResource(
-    key: "app_version", 
-    value: "1.2.3", 
+    key: "app_version",
+    value: "1.2.3",
     lifespan: .process
 )
 ```
 
-#### Persona Tags
+##### Persona Tags
 
 Add persona tags to categorize users:
 
 ```swift
 // Add a persona tag
 try Embrace.client?.metadata.add(
-    persona: PersonaTag("premium_user"), 
+    persona: PersonaTag("premium_user"),
     lifespan: .session
 )
 
@@ -448,9 +448,9 @@ Embrace.client?.metadata.getCurrentPersonas { personas in
 }
 ```
 
-### Code Examples
+#### Code Examples
 
-#### Basic Setup and Start
+##### Basic Setup and Start
 
 ```swift
 import EmbraceIO
@@ -474,7 +474,7 @@ struct NewEmbraceApp: App {
 }
 ```
 
-#### Accessing the Client Instance
+##### Accessing the Client Instance
 
 ```swift
 // After setup and start
@@ -482,7 +482,7 @@ let embrace = Embrace.client
 embrace?.log("App started successfully", severity: .info)
 ```
 
-#### Creating and Using Spans
+##### Creating and Using Spans
 
 ```swift
 // Using the static recordSpan method (recommended)
@@ -494,7 +494,7 @@ Embrace.recordSpan(name: "data-loading", type: .performance) { span in
 
 // Alternative builder pattern
 let span = Embrace.client?.buildSpan(
-    name: "complex-operation", 
+    name: "complex-operation",
     type: .performance,
     attributes: ["operation": "data-sync"]
 ).startSpan()
@@ -503,7 +503,7 @@ let span = Embrace.client?.buildSpan(
 span?.end()
 ```
 
-#### Logging Examples
+##### Logging Examples
 
 ```swift
 // Basic logging
@@ -511,7 +511,7 @@ Embrace.client?.log("User logged in", severity: .info)
 
 // Logging with attributes
 Embrace.client?.log(
-    "Network request failed", 
+    "Network request failed",
     severity: .error,
     attributes: ["url": "https://api.example.com"]
 )
@@ -525,7 +525,7 @@ Embrace.client?.log(
 )
 ```
 
-#### User Identification Examples
+##### User Identification Examples
 
 ```swift
 // Set anonymized user identifier
@@ -545,7 +545,7 @@ try Embrace.client?.metadata.add(
 )
 ```
 
-#### Session Management Examples
+##### Session Management Examples
 
 ```swift
 // Check SDK state

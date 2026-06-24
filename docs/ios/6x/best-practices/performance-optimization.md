@@ -7,13 +7,13 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Performance Optimization
+## Performance Optimization
 
 The Embrace iOS SDK is designed to have minimal impact on your application's performance. However, there are several best practices you can follow to ensure the SDK operates efficiently.
 
-## SDK Configuration
+### SDK Configuration
 
-### Set Appropriate Log Level
+#### Set Appropriate Log Level
 
 In production builds, set the log level to `.error` or `.warning` to minimize console logging:
 
@@ -40,7 +40,7 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-### Configure Capture Services Selectively
+#### Configure Capture Services Selectively
 
 Only enable the capture services you need:
 
@@ -75,9 +75,9 @@ let options = Embrace.Options(
 </TabItem>
 </Tabs>
 
-## Network Monitoring Optimization
+### Network Monitoring Optimization
 
-### Filter Network Requests
+#### Filter Network Requests
 
 Limit network monitoring to only the domains or paths you care about:
 
@@ -93,7 +93,7 @@ let networkOptions = NetworkCaptureServiceOptions(
 )
 ```
 
-### Limit Body Capture
+#### Limit Body Capture
 
 Avoid capturing large request or response bodies, as this can increase memory usage:
 
@@ -109,9 +109,9 @@ let networkOptions = NetworkCaptureServiceOptions(
 )
 ```
 
-## View Tracking Optimization
+### View Tracking Optimization
 
-### Be Selective with View Tracking
+#### Be Selective with View Tracking
 
 Configure the ViewCaptureService to only track important views:
 
@@ -124,9 +124,9 @@ let viewOptions = ViewCaptureServiceOptions(
 )
 ```
 
-## Memory Management
+### Memory Management
 
-### Limit Custom Attributes
+#### Limit Custom Attributes
 
 Be mindful of the number and size of custom attributes you add to sessions, logs, or spans:
 
@@ -157,7 +157,7 @@ Embrace.client.addSessionAttribute(key: "user_full_details", value: largeJSONStr
 </TabItem>
 </Tabs>
 
-### Avoid Excessive Logging
+#### Avoid Excessive Logging
 
 Use logs strategically and avoid excessive logging, particularly for high-frequency events:
 
@@ -196,7 +196,7 @@ tableView.didScroll { [weak self] in
 </TabItem>
 </Tabs>
 
-## Batch Operations
+### Batch Operations
 
 For operations that generate many log entries or spans, consider batching them or using a single parent span:
 
@@ -241,7 +241,7 @@ func processItems(items: [Item]) {
 </TabItem>
 </Tabs>
 
-## Background Execution
+### Background Execution
 
 Minimize SDK operations during app background time:
 
@@ -257,9 +257,9 @@ func sceneDidEnterBackground(_ scene: UIScene) {
 }
 ```
 
-## Trace Management
+### Trace Management
 
-### Use Trace Sampling
+#### Use Trace Sampling
 
 For very high-volume operations, consider implementing trace sampling to reduce the volume of data:
 
@@ -304,7 +304,7 @@ func highFrequencyOperation() {
 </TabItem>
 </Tabs>
 
-## Testing Performance Impact
+### Testing Performance Impact
 
 Regularly profile your app with Instruments to ensure the Embrace SDK is not causing performance issues:
 
@@ -312,7 +312,7 @@ Regularly profile your app with Instruments to ensure the Embrace SDK is not cau
 - Use Allocations instrument to check if the SDK is causing memory growth
 - Compare app performance metrics with and without the SDK enabled
 
-## Summary
+### Summary
 
 - Configure the SDK appropriately for your production environment
 - Be selective with what you monitor and log

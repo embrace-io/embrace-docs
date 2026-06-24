@@ -4,32 +4,27 @@ description: Add lightweight logging context to your web app sessions with bread
 sidebar_position: 3
 ---
 
-# Breadcrumbs
+## Breadcrumbs
 
 Breadcrumbs are a lightweight way to add context to user activity in a session.
 
-## Basic Breadcrumb Usage
+### Basic Breadcrumb Usage
 
 Here's how you add a breadcrumb to the session:
 
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
-session.addBreadcrumb("something happened");
+session.addBreadcrumb('something happened');
 ```
 
 :::info Character Limit
 Breadcrumb messages must be 256 characters or less.
 :::
 
-### OpenTelemetry Foundation
+### Best Practices
 
-Note that the `addBreadcrumb` method adds an OpenTelemetry SpanEvent to the session Span. In the Embrace Dashboard these
-are surfaced in-context in the User Timeline.
-
-## Best Practices
-
-### What to Log as Breadcrumbs
+#### What to Log as Breadcrumbs
 
 **Good candidates for breadcrumbs:**
 
@@ -43,7 +38,7 @@ are surfaced in-context in the User Timeline.
 - High-frequency events (scroll events, timer ticks)
 - Large data payloads
 
-### Breadcrumb Naming Conventions
+#### Breadcrumb Naming Conventions
 
 Use clear, consistent naming for your breadcrumbs:
 
@@ -51,16 +46,16 @@ Use clear, consistent naming for your breadcrumbs:
 import { session } from '@embrace-io/web-sdk';
 
 // Good: Clear and descriptive
-session.addBreadcrumb("User started checkout process");
-session.addBreadcrumb("Payment validation failed");
-session.addBreadcrumb("Order confirmation displayed");
+session.addBreadcrumb('User started checkout process');
+session.addBreadcrumb('Payment validation failed');
+session.addBreadcrumb('Order confirmation displayed');
 
 // Avoid: Vague or inconsistent
-session.addBreadcrumb("Something happened");
-session.addBreadcrumb("Error");
+session.addBreadcrumb('Something happened');
+session.addBreadcrumb('Error');
 ```
 
-### Performance Considerations
+#### Performance Considerations
 
 Breadcrumbs are designed to be lightweight, but consider:
 
@@ -68,7 +63,7 @@ Breadcrumbs are designed to be lightweight, but consider:
 - **Content**: Keep messages concise and properties minimal
 - **Timing**: Add breadcrumbs at meaningful moments, not every minor state change
 
-## Next Steps
+### Next Steps
 
 - Learn about [Custom Logging](/web/manual-instrumentation/custom-logging.md) for more detailed logging
 - Explore [Custom Traces](/web/manual-instrumentation/custom-traces.md) for performance monitoring

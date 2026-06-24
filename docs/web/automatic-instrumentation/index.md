@@ -4,13 +4,13 @@ description: Overview of automatic instrumentation capabilities in the Embrace W
 sidebar_position: 3
 ---
 
-# Automatic Instrumentation
+## Automatic Instrumentation
 
 The Embrace Web SDK provides several instrumentations that automatically collect data from your application with minimal
 setup. These instrumentations gather valuable telemetry data and convert them into OpenTelemetry signals like spans and
 logs.
 
-## What is Automatic Instrumentation?
+### What is Automatic Instrumentation?
 
 Automatic instrumentation refers to the SDK's ability to monitor and collect data about your application's behavior
 without requiring you to add manual instrumentation code throughout your app. This provides:
@@ -20,7 +20,7 @@ without requiring you to add manual instrumentation code throughout your app. Th
 - Consistent data collection
 - Standard telemetry across different areas of your app
 
-## Available Automatic Instrumentation
+### Available Automatic Instrumentation
 
 The Embrace SDK includes the following automatic instrumentation capabilities:
 
@@ -30,10 +30,11 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 - **[Document Load](./document-load.md)** - Provides insight into your app's page load performance
 - **[User Interactions](./user-interactions.md)** - Records user interactions within your app's pages
 - **[React](./react/index.md)** - Various instrumentations that emit React specific telemetry if your app is built on that
-framework
+  framework
 - **[Empty Root Node](./empty-root-node.md)** - Records when content fails to render on the page's root element
+- **[W3C Performance API](./w3c-performance-api/index.md)** - Captures user timing marks and measures, element render timings, and server-side timing hints from the browser Performance API
 
-## Configuring Automatic Instrumentation
+### Configuring Automatic Instrumentation
 
 The instrumentations are configured when you initialize the Embrace SDK. You can use default settings or customize their
 behavior by passing a `defaultInstrumentationConfig` object when initializing the SDK:
@@ -42,13 +43,10 @@ behavior by passing a `defaultInstrumentationConfig` object when initializing th
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     omit: new Set(['@opentelemetry/instrumentation-fetch']),
-    'web-vital': {
-      trackingLevel: 'all'
-    }
   },
 });
 ```
@@ -56,7 +54,7 @@ initSDK({
 View the type definition for [defaultInstrumentationConfig](https://github.com/embrace-io/embrace-web-sdk/blob/main/packages/web-sdk/src/sdk/types.ts)
 to see the full set of configuration options.
 
-## Extending Automatic Instrumentations
+### Extending Automatic Instrumentations
 
 While the built-in instrumentations cover many common scenarios, you can also create your own or use ones defined in
 other packages to instrument specific aspects of your application:
@@ -65,8 +63,8 @@ other packages to instrument specific aspects of your application:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   instrumentations: [myCustomInstrumentation],
 });
 ```
@@ -74,7 +72,7 @@ initSDK({
 These custom instrumentations must conform to the same OpenTelemetry `Instrumentation` interface used by the [SDK's
 built-in instrumentations](https://github.com/embrace-io/embrace-web-sdk/blob/main/packages/web-sdk/src/instrumentations/InstrumentationAbstract/InstrumentationAbstract.ts).
 
-## Best Practices
+### Best Practices
 
 To get the most out of automatic instrumentation:
 

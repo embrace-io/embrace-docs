@@ -4,7 +4,7 @@ description: Crash Reporting
 sidebar_position: 1
 ---
 
-# Crash Reporting
+## Crash Reporting
 
 Embrace captures native crashes in the context that they occurred, and bridges hybrid layers as well. For more information on reporting by platform, please see:
 

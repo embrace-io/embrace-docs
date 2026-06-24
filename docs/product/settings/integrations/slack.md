@@ -3,7 +3,7 @@ title: Slack
 sidebar_position: 0
 ---
 
-# Slack
+## Slack
 
 The Slack tab manages your organization’s Slack integration for alerting and notifications.
 

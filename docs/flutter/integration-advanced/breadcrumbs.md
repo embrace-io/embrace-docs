@@ -4,9 +4,9 @@ description: Add logging to your Flutter application using Breadcrumbs with the 
 sidebar_position: 7
 ---
 
-# Add a breadcrumb
+## Add a breadcrumb
 
-## Add context to sessions
+### Add context to sessions
 
 Embrace can collect your logging data and include it as context within your sessions. Here's how you add a breadcrumb to the session:
 

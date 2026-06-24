@@ -1,9 +1,9 @@
-import * as process from "node:process";
+import * as process from 'node:process';
 
-import { themes } from "prism-react-renderer";
-import type { Config } from "@docusaurus/types";
+import { themes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 
-import embraceSdkVersion from "./src/remark/embrace-sdk-version";
+import embraceSdkVersion from './src/remark/embrace-sdk-version';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -11,61 +11,59 @@ const darkCodeTheme = themes.dracula;
 // Embrace Remark Plugins
 
 const config: Config = {
-  title: "Embrace Documentation",
-  tagline: "Take the guesswork out of building next-level user experiences.",
-  favicon: "/images/favicon.png",
+  title: 'Embrace Documentation',
+  tagline: 'Take the guesswork out of building next-level user experiences.',
+  favicon: '/images/favicon.png',
   trailingSlash: true,
   noIndex: false,
-  url: process.env.URL ?? "https://embrace.io",
-  baseUrl: process.env.BASE_URL ?? "/docs/",
-  staticDirectories: ["static"],
+  url: process.env.URL ?? 'https://embrace.io',
+  baseUrl: process.env.BASE_URL ?? '/docs/',
+  staticDirectories: ['static'],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "embrace-io", // Usually your GitHub org/user name.
-  projectName: "embrace-docs", // Usually your repo name.
+  organizationName: 'embrace-io', // Usually your GitHub org/user name.
+  projectName: 'embrace-docs', // Usually your repo name.
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
-  onDuplicateRoutes: "throw",
-  onBrokenAnchors: "throw",
+  onBrokenLinks: 'throw',
+  onDuplicateRoutes: 'throw',
+  onBrokenAnchors: 'throw',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
 
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   scripts: [
     {
-      id: "runllm-widget-script",
-      type: "module",
-      src: "https://widget.runllm.com",
-      crossorigin: "true",
-      "runllm-name": "Embrace Assistant",
-      "runllm-assistant-id": "284",
-      "runllm-position": "BOTTOM_RIGHT",
-      "runllm-keyboard-shortcut": "Mod+j",
-      "runllm-preset": "docusaurus",
+      id: 'runllm-widget-script',
+      type: 'module',
+      src: 'https://widget.runllm.com',
+      crossorigin: 'true',
+      'runllm-name': 'Embrace Assistant',
+      'runllm-assistant-id': '284',
+      'runllm-position': 'BOTTOM_RIGHT',
+      'runllm-keyboard-shortcut': 'Mod+j',
+      'runllm-preset': 'docusaurus',
       async: true,
-    },
-    {
-      src: "scripts/init.js",
-    },
-    {
-      id: "reo-script",
-      src: "scripts/reo.js",
     },
   ],
 
   themes: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         explicitSearchResultPath: true,
         hashed: true,
         highlightSearchTermsOnTargetPage: true,
         indexBlog: false,
-        docsRouteBasePath: "/",
+        docsRouteBasePath: '/',
         removeDefaultStopWordFilter: false,
       },
     ],
@@ -73,484 +71,484 @@ const config: Config = {
 
   plugins: [
     [
-      "@docusaurus/plugin-client-redirects",
+      '@docusaurus/plugin-client-redirects',
       {
         redirects: [
           {
-            to: "/product/release-health/",
-            from: "/product/troubleshooting/release-health/",
+            to: '/product/release-health/',
+            from: '/product/troubleshooting/release-health/',
           },
           {
-            to: "/ios/6x/api-reference/configuration/",
-            from: "/ios/open-source/integration/customizing-signals/",
+            to: '/ios/6x/api-reference/configuration/',
+            from: '/ios/open-source/integration/customizing-signals/',
           },
           {
-            to: "/ios/6x/api-reference/embrace-client/",
-            from: "/ios/open-source/integration/embrace-client/",
+            to: '/ios/6x/api-reference/embrace-client/',
+            from: '/ios/open-source/integration/embrace-client/',
           },
           {
-            to: "/ios/6x/api-reference/embrace-client/",
-            from: "/ios/open-source/integration/embrace-options/",
+            to: '/ios/6x/api-reference/embrace-client/',
+            from: '/ios/open-source/integration/embrace-options/',
           },
           {
-            to: "/ios/6x/getting-started/",
-            from: "/ios/open-source/integration/",
+            to: '/ios/6x/getting-started/',
+            from: '/ios/open-source/integration/',
           },
           {
-            to: "/ios/6x/getting-started/dsym-upload/",
-            from: "/ios/open-source/getting-started/symbolicating-crash-reports/",
+            to: '/ios/6x/getting-started/dsym-upload/',
+            from: '/ios/open-source/getting-started/symbolicating-crash-reports/',
           },
           {
-            to: "/ios/6x/core-concepts/sessions/",
-            from: "/ios/open-source/getting-started/session-reporting/",
+            to: '/ios/6x/core-concepts/sessions/',
+            from: '/ios/open-source/getting-started/session-reporting/',
           },
           {
-            to: "/ios/6x/core-concepts/logs/",
-            from: "/ios/open-source/getting-started/logs/",
+            to: '/ios/6x/core-concepts/logs/',
+            from: '/ios/open-source/getting-started/logs/',
           },
           {
-            to: "/ios/6x/manual-instrumentation/crash-reporting/",
-            from: "/ios/open-source/getting-started/crash-report/",
+            to: '/ios/6x/manual-instrumentation/crash-reporting/',
+            from: '/ios/open-source/getting-started/crash-report/',
           },
           {
-            to: "/ios/6x/manual-instrumentation/breadcrumbs/",
-            from: "/ios/open-source/getting-started/breadcrumbs/",
+            to: '/ios/6x/manual-instrumentation/breadcrumbs/',
+            from: '/ios/open-source/getting-started/breadcrumbs/',
           },
           {
-            to: "/ios/6x/getting-started/",
-            from: "/ios/open-source/getting-started/background-sessions/",
+            to: '/ios/6x/getting-started/',
+            from: '/ios/open-source/getting-started/background-sessions/',
           },
           {
-            to: "/ios/6x/getting-started/",
-            from: "/ios/open-source/getting-started/",
+            to: '/ios/6x/getting-started/',
+            from: '/ios/open-source/getting-started/',
           },
           {
-            to: "/ios/6x/core-concepts/traces-spans/",
-            from: "/ios/open-source/features/traces/",
+            to: '/ios/6x/core-concepts/traces-spans/',
+            from: '/ios/open-source/features/traces/',
           },
           {
-            to: "/ios/6x/",
-            from: "/ios/open-source/features/network-body-capture/",
+            to: '/ios/6x/',
+            from: '/ios/open-source/features/network-body-capture/',
           },
           {
-            to: "/ios/6x/advanced-features/last-run-end-state/",
-            from: "/ios/open-source/features/last-run-end-state/",
+            to: '/ios/6x/advanced-features/last-run-end-state/',
+            from: '/ios/open-source/features/last-run-end-state/',
           },
           {
-            to: "/ios/6x/core-concepts/user-identification/",
-            from: "/ios/open-source/features/identify-users/",
+            to: '/ios/6x/core-concepts/user-identification/',
+            from: '/ios/open-source/features/identify-users/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/web-view/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/web-view/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/url-session/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/url-session/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/ui-view-controller/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/ui-view-controller/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/tap/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/tap/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/push-notifications/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/push-notifications/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/low-power/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/low-power/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/low-memory/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/low-memory/',
           },
           {
-            to: "/ios/6x/api-reference/capture-services/",
-            from: "/ios/open-source/features/capture-services/",
+            to: '/ios/6x/api-reference/capture-services/',
+            from: '/ios/open-source/features/capture-services/',
           },
           {
-            to: "/ios/6x/",
-            from: "/ios/open-source/features/",
+            to: '/ios/6x/',
+            from: '/ios/open-source/features/',
           },
           {
-            to: "/ios/6x/getting-started/migration-guide/",
-            from: "/ios/open-source/upgrade-guide/",
+            to: '/ios/6x/getting-started/migration-guide/',
+            from: '/ios/open-source/upgrade-guide/',
           },
           {
-            to: "/ios/6x",
-            from: "/ios/open-source/",
+            to: '/ios/6x',
+            from: '/ios/open-source/',
           },
           {
-            to: "/product/",
-            from: "/features/",
+            to: '/product/',
+            from: '/features/',
           },
           {
-            to: "/product/troubleshooting/",
-            from: "/features/app-exits/",
+            to: '/product/troubleshooting/',
+            from: '/features/app-exits/',
           },
           {
-            to: "/product",
-            from: "/product/video-recording-and-apples-policy/",
+            to: '/product',
+            from: '/product/video-recording-and-apples-policy/',
           },
           {
-            to: "/product/settings/sso/",
-            from: "/product/sso/",
+            to: '/product/settings/sso/',
+            from: '/product/sso/',
           },
           {
-            to: "/product/settings/users-teams/",
-            from: "/product/permissions/",
+            to: '/product/settings/users-teams/',
+            from: '/product/permissions/',
           },
           {
-            to: "/product/settings/integrations/webhooks/",
-            from: "/best-practices/webhooks/",
+            to: '/product/settings/integrations/webhooks/',
+            from: '/best-practices/webhooks/',
           },
           {
-            to: "/product/settings/app-settings/data-usage/",
-            from: "/best-practices/sampling/",
+            to: '/product/settings/app-settings/data-usage/',
+            from: '/best-practices/sampling/',
           },
           {
-            to: "/product/alerting/",
-            from: "/features/alertings/",
+            to: '/product/alerting/',
+            from: '/features/alertings/',
           },
           {
-            to: "/product/logs/log-messages/",
-            from: "/best-practices/log-message-api/",
+            to: '/product/logs/log-messages/',
+            from: '/best-practices/log-message-api/',
           },
           {
-            to: "/product/logs/logs-ui/",
-            from: "/features/error-logs-tracking/",
+            to: '/product/logs/logs-ui/',
+            from: '/features/error-logs-tracking/',
           },
           {
-            to: "/product/troubleshooting/anr-reporting/",
-            from: "/feature/anr-reporting/",
+            to: '/product/troubleshooting/anr-reporting/',
+            from: '/feature/anr-reporting/',
           },
           {
-            to: "/product/crashes/crash-tagging/",
-            from: "/product/tagging/",
+            to: '/product/crashes/crash-tagging/',
+            from: '/product/tagging/',
           },
           {
-            to: "/product/crashes/crash-reporting/",
-            from: "/features/crash-reporting/",
+            to: '/product/crashes/crash-reporting/',
+            from: '/features/crash-reporting/',
           },
           {
-            to: "/product/network/network-grouping-rules/",
-            from: "/product/network-grouping-rules/",
+            to: '/product/network/network-grouping-rules/',
+            from: '/product/network-grouping-rules/',
           },
           {
-            to: "/product/network/network-monitoring/",
-            from: "/features/network-monitoring/",
+            to: '/product/network/network-monitoring/',
+            from: '/features/network-monitoring/',
           },
           {
-            to: "/product/traces/",
-            from: "/features/traces/",
+            to: '/product/traces/',
+            from: '/features/traces/',
           },
           {
-            to: "/product/boards/custom-dashboards/",
-            from: "/product/custom-dashboards/",
+            to: '/product/boards/custom-dashboards/',
+            from: '/product/custom-dashboards/',
           },
           {
-            to: "/product/sessions/",
-            from: "/features/user-session-insights/",
+            to: '/product/sessions/',
+            from: '/features/user-session-insights/',
           },
           {
-            to: "/data-marshaling-and-transmission/",
-            from: "/product/data-marshaling-and-transmission/",
+            to: '/data-marshaling-and-transmission/',
+            from: '/product/data-marshaling-and-transmission/',
           },
           {
-            to: "/region/",
-            from: "/product/region/",
+            to: '/region/',
+            from: '/product/region/',
           },
           {
-            to: "/dpa/",
-            from: "/gdpr-data-processing-addendum-dpa/",
+            to: '/dpa/',
+            from: '/gdpr-data-processing-addendum-dpa/',
           },
           {
-            to: "/ios/6x/",
-            from: "/ios/open-source/moments-to-tracing/",
+            to: '/ios/6x/',
+            from: '/ios/open-source/moments-to-tracing/',
           },
           {
-            to: "/ios/6x/",
-            from: "/ios/upgrade-guide/built-on-otel/",
+            to: '/ios/6x/',
+            from: '/ios/upgrade-guide/built-on-otel/',
           },
           {
-            to: "/ios/6x/",
-            from: "/ios/upgrade-guide/",
+            to: '/ios/6x/',
+            from: '/ios/upgrade-guide/',
           },
           {
-            to: "/ios/5x/features/traces/",
-            from: "/ios/features/performance-monitoring/",
+            to: '/ios/5x/features/traces/',
+            from: '/ios/features/performance-monitoring/',
           },
           {
-            to: "/ios/5x/features/",
-            from: "/ios/features/",
+            to: '/ios/5x/features/',
+            from: '/ios/features/',
           },
           {
-            to: "/ios/5x/features/background-sessions/",
-            from: "/ios/features/background-sessions/",
+            to: '/ios/5x/features/background-sessions/',
+            from: '/ios/features/background-sessions/',
           },
           {
-            to: "/ios/5x/features/configuration-file/",
-            from: "/ios/features/configuration-file/",
+            to: '/ios/5x/features/configuration-file/',
+            from: '/ios/features/configuration-file/',
           },
           {
-            to: "/ios/5x/features/current-session-id-api/",
-            from: "/ios/features/current-session-id-api/",
+            to: '/ios/5x/features/current-session-id-api/',
+            from: '/ios/features/current-session-id-api/',
           },
           {
-            to: "/ios/5x/features/identify-users/",
-            from: "/ios/features/identify-users/",
+            to: '/ios/5x/features/identify-users/',
+            from: '/ios/features/identify-users/',
           },
           {
-            to: "/ios/5x/features/last-run-end-state/",
-            from: "/ios/features/last-run-end-state/",
+            to: '/ios/5x/features/last-run-end-state/',
+            from: '/ios/features/last-run-end-state/',
           },
           {
-            to: "/ios/5x/features/moments/",
-            from: "/ios/features/moments/",
+            to: '/ios/5x/features/moments/',
+            from: '/ios/features/moments/',
           },
           {
-            to: "/ios/5x/features/network-body-capture/",
-            from: "/ios/features/network-body-capture/",
+            to: '/ios/5x/features/network-body-capture/',
+            from: '/ios/features/network-body-capture/',
           },
           {
-            to: "/ios/5x/features/push-notifications/",
-            from: "/ios/features/push-notifications/",
+            to: '/ios/5x/features/push-notifications/',
+            from: '/ios/features/push-notifications/',
           },
           {
-            to: "/ios/5x/features/traces/",
-            from: "/ios/features/tracing/",
+            to: '/ios/5x/features/traces/',
+            from: '/ios/features/tracing/',
           },
           {
-            to: "/ios/5x/features/web-thread-monitoring/",
-            from: "/ios/features/web-thread-monitoring/",
+            to: '/ios/5x/features/web-thread-monitoring/',
+            from: '/ios/features/web-thread-monitoring/',
           },
           {
-            to: "/ios/5x/integration/",
-            from: "/ios/integration/",
+            to: '/ios/5x/integration/',
+            from: '/ios/integration/',
           },
           {
-            to: "/ios/5x/integration/breadcrumbs/",
-            from: "/ios/integration/breadcrumbs/",
+            to: '/ios/5x/integration/breadcrumbs/',
+            from: '/ios/integration/breadcrumbs/',
           },
           {
-            to: "/ios/5x/integration/cli-tool/",
-            from: "/ios/integration/cli-tool/",
+            to: '/ios/5x/integration/cli-tool/',
+            from: '/ios/integration/cli-tool/',
           },
           {
-            to: "/ios/5x/integration/crash-report/",
-            from: "/ios/integration/crash-report/",
+            to: '/ios/5x/integration/crash-report/',
+            from: '/ios/integration/crash-report/',
           },
           {
-            to: "/ios/5x/integration/dsym-upload/",
-            from: "/ios/integration/dsym-upload/",
+            to: '/ios/5x/integration/dsym-upload/',
+            from: '/ios/integration/dsym-upload/',
           },
           {
-            to: "/ios/5x/integration/integration-steps/",
-            from: "/ios/integration/integration-steps/",
+            to: '/ios/5x/integration/integration-steps/',
+            from: '/ios/integration/integration-steps/',
           },
           {
-            to: "/ios/5x/integration/linking-embrace/",
-            from: "/ios/integration/linking-embrace/",
+            to: '/ios/5x/integration/linking-embrace/',
+            from: '/ios/integration/linking-embrace/',
           },
           {
-            to: "/ios/5x/integration/log-message-api/",
-            from: "/ios/integration/log-message-api/",
+            to: '/ios/5x/integration/log-message-api/',
+            from: '/ios/integration/log-message-api/',
           },
           {
-            to: "/ios/5x/integration/login-embrace-dashboard/",
-            from: "/ios/integration/login-embrace-dashboard/",
+            to: '/ios/5x/integration/login-embrace-dashboard/',
+            from: '/ios/integration/login-embrace-dashboard/',
           },
           {
-            to: "/ios/5x/integration/next-steps/",
-            from: "/ios/integration/next-steps/",
+            to: '/ios/5x/integration/next-steps/',
+            from: '/ios/integration/next-steps/',
           },
           {
-            to: "/ios/5x/integration/session-reporting/",
-            from: "/ios/integration/session-reporting/",
+            to: '/ios/5x/integration/session-reporting/',
+            from: '/ios/integration/session-reporting/',
           },
           {
-            to: "/ios/5x/integration/update-embrace/",
-            from: "/ios/integration/update-embrace/",
+            to: '/ios/5x/integration/update-embrace/',
+            from: '/ios/integration/update-embrace/',
           },
           {
-            to: "/android/features/traces/",
-            from: "/android/features/performance-monitoring/",
+            to: '/android/features/traces/',
+            from: '/android/features/performance-monitoring/',
           },
           {
-            to: "/product/logs/logs-ui",
-            from: "/open-telemetry/error-logs-tracking",
+            to: '/product/logs/logs-ui',
+            from: '/open-telemetry/error-logs-tracking',
           },
           {
-            to: "/product/traces/",
-            from: "/product/performance-tracing",
+            to: '/product/traces/',
+            from: '/product/performance-tracing',
           },
           {
-            to: "/android/features/traces",
-            from: "/android/features/tracing",
+            to: '/android/features/traces',
+            from: '/android/features/tracing',
           },
           {
-            to: "/android/integration",
-            from: "/android/integration/integration-steps",
+            to: '/android/integration',
+            from: '/android/integration/integration-steps',
           },
           {
-            to: "/android/integration",
-            from: "/android/integration/login-embrace-dashboard",
+            to: '/android/integration',
+            from: '/android/integration/login-embrace-dashboard',
           },
           {
-            to: "/android/integration",
-            from: "/android/integration/session-reporting",
+            to: '/android/integration',
+            from: '/android/integration/session-reporting',
           },
           {
-            to: "/android/legacy-integration/crash-reporting/",
-            from: "/android/integration/crash-reporting/",
+            to: '/android/legacy-integration/crash-reporting/',
+            from: '/android/integration/crash-reporting/',
           },
           {
-            to: "/android/legacy-integration/log-message-api/",
-            from: "/android/integration/log-message-api/",
+            to: '/android/legacy-integration/log-message-api/',
+            from: '/android/integration/log-message-api/',
           },
           {
-            to: "/android/legacy-integration/breadcrumbs/",
-            from: "/android/integration/breadcrumbs/",
+            to: '/android/legacy-integration/breadcrumbs/',
+            from: '/android/integration/breadcrumbs/',
           },
           {
-            to: "/android/legacy-integration/add-embrace-sdk/",
-            from: "/android/integration/add-embrace-sdk/",
+            to: '/android/legacy-integration/add-embrace-sdk/',
+            from: '/android/integration/add-embrace-sdk/',
           },
           {
-            to: "/android/legacy-integration/next-steps/",
-            from: "/android/integration/next-steps/",
+            to: '/android/legacy-integration/next-steps/',
+            from: '/android/integration/next-steps/',
           },
           {
-            to: "/flutter/features/traces",
-            from: "/flutter/features/tracing",
+            to: '/flutter/features/traces',
+            from: '/flutter/features/tracing',
           },
           {
-            to: "/ios/5x/features/traces",
-            from: "/ios/5x/features/tracing",
+            to: '/ios/5x/features/traces',
+            from: '/ios/5x/features/tracing',
           },
           {
-            to: "/ios/6x",
-            from: "/ios/open-source/tracing",
+            to: '/ios/6x',
+            from: '/ios/open-source/tracing',
           },
           {
-            to: "/react-native/4x/features/traces",
-            from: "/react-native/4x/features/tracing",
+            to: '/react-native/4x/features/traces',
+            from: '/react-native/4x/features/tracing',
           },
           {
-            to: "/react-native/features/traces",
-            from: "/react-native/features/tracing",
+            to: '/react-native/features/traces',
+            from: '/react-native/features/tracing',
           },
           {
-            to: "/unity/features/traces",
-            from: "/unity/features/performance-tracing",
+            to: '/unity/features/traces',
+            from: '/unity/features/performance-tracing',
           },
           {
-            to: "/product/traces/",
-            from: "/features/performance-tracing",
+            to: '/product/traces/',
+            from: '/features/performance-tracing',
           },
           {
-            to: "/data-destinations/chronosphere-setup",
-            from: "/code/da-unexpected-input-chronosphere-credentials",
+            to: '/data-destinations/chronosphere-setup',
+            from: '/code/da-unexpected-input-chronosphere-credentials',
           },
           {
-            to: "/data-destinations/elastic-setup",
-            from: "/code/da-unexpected-input-elastic-credentials",
+            to: '/data-destinations/elastic-setup',
+            from: '/code/da-unexpected-input-elastic-credentials',
           },
           {
-            to: "/data-destinations/grafana-cloud-setup",
-            from: "/code/da-unexpected-input-grafana_cloud-instance-id",
+            to: '/data-destinations/grafana-cloud-setup',
+            from: '/code/da-unexpected-input-grafana_cloud-instance-id',
           },
           {
-            to: "/data-destinations/grafana-cloud-setup",
-            from: "/code/da-unexpected-input-grafana_cloud-api-key",
+            to: '/data-destinations/grafana-cloud-setup',
+            from: '/code/da-unexpected-input-grafana_cloud-api-key',
           },
           {
-            to: "/data-destinations/grafana-cloud-setup",
-            from: "/code/da-unexpected-input-grafana_cloud-credentials",
+            to: '/data-destinations/grafana-cloud-setup',
+            from: '/code/da-unexpected-input-grafana_cloud-credentials',
           },
           {
-            to: "/data-destinations/observe-setup",
-            from: "/code/da-unexpected-input-observe-credentials",
+            to: '/data-destinations/observe-setup',
+            from: '/code/da-unexpected-input-observe-credentials',
           },
           {
-            to: "/data-destinations/splunk",
-            from: "/code/da-unexpected-input-splunk-api-key",
+            to: '/data-destinations/splunk',
+            from: '/code/da-unexpected-input-splunk-api-key',
           },
           {
-            to: "/data-destinations/splunk/",
-            from: "/code/da-unexpected-input-splunk-credentials",
+            to: '/data-destinations/splunk/',
+            from: '/code/da-unexpected-input-splunk-credentials',
           },
           {
-            to: "/metrics-forwarding/#standard-metrics",
-            from: "/embrace-api/supported_metrics_and_queries/",
+            to: '/metrics-forwarding/#standard-metrics',
+            from: '/embrace-api/supported_metrics_and_queries/',
           },
           {
-            to: "/metrics-forwarding/metrics-api/",
-            from: "/embrace-api/",
+            to: '/metrics-forwarding/metrics-api/',
+            from: '/embrace-api/',
           },
           {
-            to: "/metrics-forwarding/metrics-api/grafana-integration",
-            from: "/embrace-api/grafana_integrations",
+            to: '/metrics-forwarding/metrics-api/grafana-integration',
+            from: '/embrace-api/grafana_integrations',
           },
           {
-            to: "/metrics-forwarding/metrics-api/code-samples",
-            from: "/embrace-api/code_samples",
+            to: '/metrics-forwarding/metrics-api/code-samples',
+            from: '/embrace-api/code_samples',
           },
           {
-            to: "/product/web-vitals",
-            from: "/product/core-web-vitals",
+            to: '/product/web-vitals',
+            from: '/product/core-web-vitals',
           },
         ],
       },
     ],
 
     [
-      "docusaurus-pushfeedback",
+      'docusaurus-pushfeedback',
       {
-        project: process.env.PUSHFEEDBACK_TOKEN ?? "no-api-token",
-        buttonPosition: "center-right",
-        modalPosition: "sidebar-right",
-        buttonStyle: "dark",
-        modalTitle: "Share your thoughts",
+        project: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
+        buttonPosition: 'center-right',
+        modalPosition: 'sidebar-right',
+        buttonStyle: 'dark',
+        modalTitle: 'Share your thoughts',
       },
     ],
   ],
 
   presets: [
     [
-      "classic",
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
-          editUrl: "https://github.com/embrace-io/embrace-docs/tree/main/",
-          routeBasePath: "/",
+          editUrl: 'https://github.com/embrace-io/embrace-docs/tree/main/',
+          routeBasePath: '/',
           remarkPlugins: [embraceSdkVersion],
           showLastUpdateTime: false,
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         gtag: {
           anonymizeIP: true,
-          trackingID: "G-38TSBDNVVD",
+          trackingID: 'G-38TSBDNVVD',
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve('./src/css/custom.css'),
         },
         sitemap: {
-          changefreq: "daily",
+          changefreq: 'daily',
           priority: 0.5,
-          ignorePatterns: ["/tags/**"],
-          filename: "sitemap.xml",
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
         },
       },
     ],
   ],
 
   themeConfig: {
-    image: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
+    image: 'images/embrace_logo_black-text_transparent-bg_400x200.svg',
 
     // https://docusaurus.io/docs/api/themes/configuration#color-mode---dark-mode
     colorMode: {
@@ -559,71 +557,71 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "announcement-20260414", // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: 'announcement-20260511', // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://get.embrace.io/ai-powered-observability?utm_source=website&utm_medium=website&utm_campaign=docs-banner">LIVE SESSION on April 29: Less toil, faster fixes: AI-powered observability with Embrace</a>',
-      backgroundColor: "#EEFF04",
+        '<a target="_blank" href="https://get.embrace.io/ai-powered-observability?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Watch on-demand: Less toil, faster fixes: AI-powered observability with Embrace</a>',
+      backgroundColor: '#EEFF04',
       isCloseable: true,
     },
 
     navbar: {
       logo: {
-        alt: "Embrace",
-        src: "images/embrace_logo_black-text_transparent-bg_400x200.svg",
-        srcDark: "images/embrace_logo_white-text_transparent-bg_400x200.svg",
+        alt: 'Embrace',
+        src: 'images/embrace_logo_black-text_transparent-bg_400x200.svg',
+        srcDark: 'images/embrace_logo_white-text_transparent-bg_400x200.svg',
       },
 
       items: [
         {
-          to: "https://embrace.io/product?utm_source=docs&utm_medium=banner&utm_campaign=product_tab",
-          label: "Product",
-          position: "left",
+          to: 'https://embrace.io/product?utm_source=docs&utm_medium=banner&utm_campaign=product_tab',
+          label: 'Product',
+          position: 'left',
         },
         {
-          to: "https://embrace.io/unify-mobile-and-backend-observability?utm_source=docs&utm_medium=banner&utm_campaign=product_tab",
-          label: "Solutions",
-          position: "left",
+          to: 'https://embrace.io/unify-mobile-and-backend-observability?utm_source=docs&utm_medium=banner&utm_campaign=product_tab',
+          label: 'Solutions',
+          position: 'left',
         },
         {
-          to: "https://embrace.io/blog?utm_source=docs&utm_medium=banner&utm_campaign=learn_tab",
-          label: "Learn",
-          position: "left",
+          to: 'https://embrace.io/blog?utm_source=docs&utm_medium=banner&utm_campaign=learn_tab',
+          label: 'Learn',
+          position: 'left',
         },
         {
-          to: "https://embrace.io/pricing?utm_source=docs&utm_medium=banner&utm_campaign=pricing_tab",
-          label: "Pricing",
-          position: "left",
+          to: 'https://embrace.io/pricing?utm_source=docs&utm_medium=banner&utm_campaign=pricing_tab',
+          label: 'Pricing',
+          position: 'left',
         },
         {
-          to: "https://demo.embrace.io/try?utm_source=docs&utm_medium=banner&utm_campaign=sandbox_tab",
-          label: "Launch Sandbox",
-          position: "right",
+          to: 'https://demo.embrace.io/try?utm_source=docs&utm_medium=banner&utm_campaign=sandbox_tab',
+          label: 'Launch Sandbox',
+          position: 'right',
         },
       ],
     },
 
     footer: {
-      style: "dark",
+      style: 'dark',
       links: [
         {
-          label: "Privacy Policy",
-          to: "/privacy-policy/",
+          label: 'Privacy Policy',
+          to: '/privacy-policy/',
         },
         {
-          label: "Terms of Service",
-          to: "/terms-of-service/",
+          label: 'Terms of Service',
+          to: '/terms-of-service/',
         },
         {
-          label: "Data Processing Agreement",
-          to: "/dpa/",
+          label: 'Data Processing Agreement',
+          to: '/dpa/',
         },
         {
-          label: "Trust Center",
-          to: "https://trust.embrace.io/",
+          label: 'Trust Center',
+          to: 'https://trust.embrace.io/',
         },
         {
-          label: "Edit these docs",
-          to: "https://github.com/embrace-io/embrace-docs/",
+          label: 'Edit these docs',
+          to: 'https://github.com/embrace-io/embrace-docs/',
         },
         {
           html: 'Questions? Reach out via <a href="mailto:support@embrace.io">email</a> or <a href="https://community.embrace.io/">Slack</a>',
@@ -636,20 +634,20 @@ const config: Config = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
       additionalLanguages: [
-        "clike",
-        "java",
-        "kotlin",
-        "swift",
-        "csharp",
-        "groovy",
-        "json",
-        "shell-session",
-        "dart",
-        "promql",
+        'clike',
+        'java',
+        'kotlin',
+        'swift',
+        'csharp',
+        'groovy',
+        'json',
+        'shell-session',
+        'dart',
+        'promql',
       ],
     },
     customFields: {
-      pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? "no-api-token",
+      pushFeedbackToken: process.env.PUSHFEEDBACK_TOKEN ?? 'no-api-token',
     },
   },
 };

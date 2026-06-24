@@ -3,11 +3,11 @@ title: Uncategorized Exit
 sidebar_position: 6
 ---
 
-# Uncategorized Exits (UE)
+## Uncategorized Exits (UE)
 
 Uncategorized Exits are session terminations detected by the Embrace SDK that do not match known causes. In Embrace's dash, these are collected for iOS and Swift apps.
 
-## When Uncategorized Exits might occur
+### When Uncategorized Exits might occur
 
 When the app:
 

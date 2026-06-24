@@ -4,7 +4,7 @@ description: Best practices to make sure you're getting the most from Embrace
 sidebar_position: 0
 ---
 
-# Best Practices
+## Best Practices
 
 Here you will find resources on best practices when using Embrace.
 Be sure to follow these guidelines, as this will help you get the most out of Embrace.

@@ -7,20 +7,20 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Basic Setup
+## Basic Setup
 
 Unlike previous versions, Embrace's 6.x SDK does not use a `.plist` file to configure your application. Instead, the SDK is centered around and configured through the [`Embrace`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Embrace.swift) class.
 
 The `Embrace` class is the main interface for the Embrace SDK. It provides methods to configure, start, and interact with the SDK. The SDK is configured using an [`Embrace.Options`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BOptions.swift) instance passed in the setup static method.
 
-## Prerequisites
+### Prerequisites
 
 Before setting up the SDK, you need:
 
 - An Embrace App ID (obtained from the Embrace Dashboard)
 - The SDK installed in your project ([see installation guide](/ios/6x/getting-started/installation.md))
 
-## Initializing the Embrace Client
+### Initializing the Embrace Client
 
 Embrace should be configured and started as close to the launch of the application as possible. Below is an example setup for a straightforward SwiftUI application:
 
@@ -75,7 +75,7 @@ struct NewEmbraceApp: App {
 </TabItem>
 </Tabs>
 
-### For UIKit Applications
+#### For UIKit Applications
 
 For UIKit applications, initialize Embrace in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method:
 
@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </TabItem>
 </Tabs>
 
-## Configuration Options
+### Configuration Options
 
 The most commonly used options for SDK initialization include:
 
@@ -175,7 +175,7 @@ Available log levels include:
 
 For more advanced configuration options, see the [Configuration Options](/ios/6x/getting-started/configuration-options.md) page.
 
-## Error Handling
+### Error Handling
 
 Both the `.setup` and the `.start` methods can throw errors. While it's unlikely that the SDK fails during startup, it's possible in edge cases such as:
 
@@ -225,7 +225,7 @@ span?.end()
 </TabItem>
 </Tabs>
 
-## Accessing the Embrace Client
+### Accessing the Embrace Client
 
 Once `setup` has succeeded, you can access the Embrace instance in two ways:
 
@@ -279,7 +279,7 @@ Embrace.client?.buildSpan(name: "my-operation", type: .performance).startSpan()
 </TabItem>
 </Tabs>
 
-## Checking SDK Status
+### Checking SDK Status
 
 If you need to know whether the SDK has started successfully, you can access the status:
 
@@ -316,7 +316,7 @@ case .notInitialized, nil:
 
 > Note: The `started` property is deprecated. Use the `state` property instead which provides more detailed status information.
 
-## Next Steps
+### Next Steps
 
 After basic setup, you can:
 

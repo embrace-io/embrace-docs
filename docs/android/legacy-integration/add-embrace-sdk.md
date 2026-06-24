@@ -4,11 +4,11 @@ sidebar_position: 3
 description: Add the Embrace SDK as a dependency to your Android application
 ---
 
-# Adding the Android Embrace SDK
+## Adding the Android Embrace SDK
 
-## Add Embrace as a dependency
+### Add Embrace as a dependency
 
-### If you are using Version Catalogs
+#### If you are using Version Catalogs
 
 Add our gradle plugin to your `libs.versions.toml` file
 
@@ -29,7 +29,7 @@ plugins {
 }
 ```
 
-### If you are not using Version Catalogs
+#### If you are not using Version Catalogs
 
 Add the following to your `settings.gradle`:
 
@@ -102,7 +102,7 @@ plugins {
 </TabItem>
 </Tabs>
 
-### Legacy approach
+#### Legacy approach
 
 :::tip
 If you use Gradle's legacy <a href="https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block" target="_blank">Plugins DSL</a> follow this approach instead.
@@ -181,7 +181,7 @@ Embrace automatically adds the following permissions so that it can make HTTP re
 
 :::
 
-## Add a dependency to modules or libraries you want to call Embrace from (optional)
+### Add a dependency to modules or libraries you want to call Embrace from (optional)
 
 If you have an app that uses internal modules or libraries, you must specify the Embrace SDK dependency directly in your module's Gradle file
 
@@ -205,13 +205,13 @@ implementation("io.embrace:embrace-android-sdk:7.9.3")
 
 You still need to apply the Embrace Gradle Plugin in the app's Gradle file `(apply plugin: 'embrace-swazzler')` and verify that the version set in your project Gradle file is the same as the version set for the SDK in the module’s Gradle file.
 
-## Set your app ID and API token
+### Set your app ID and API token
 
 :::info
 Your app ID and API token are available on the Embrace dashboard.
 :::
 
-### With environment variables (recommended)
+#### With environment variables (recommended)
 
 Set the following environment variables in your development environment:
 
@@ -222,7 +222,7 @@ export EMBRACE_API_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 The Embrace SDK will automatically read these environment variables at runtime.
 
-### With a config file
+#### With a config file
 
 :::warning
 Hardcoding access tokens in your source code might lead to security issues. We recommend using environment variables.
@@ -243,7 +243,7 @@ Further configuration options are documented [here](/android/configuration/confi
 
 ---
 
-## NDK crash capture
+### NDK crash capture
 
 If you want to capture NDK crash reports from your app add the `ndk_enabled` setting to your `app/src/main/embrace-config.json` file:
 

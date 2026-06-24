@@ -3,7 +3,7 @@ title: Preferences
 sidebar_position: 0
 ---
 
-# Preferences
+## Preferences
 
 The Preferences tab allows users to configure personal settings that affect their dashboard experience.
 

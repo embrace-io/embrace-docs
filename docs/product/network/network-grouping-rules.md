@@ -3,7 +3,7 @@ title: Network Grouping Rules
 sidebar_position: 2
 ---
 
-# Network Grouping Rules
+## Network Grouping Rules
 
 Embrace provides automatic collapsing of network paths to group similar paths together for analytics purposes.
 We automatically collapse certain path elements if they match a common pattern, and we also group endpoints
@@ -18,7 +18,7 @@ the first|last match wins.
 
 Custom rules are applied on the backend on a going forward basis.
 
-## Rules Reference
+### Rules Reference
 
 We currently provide the following patterns:
 
@@ -26,9 +26,9 @@ We currently provide the following patterns:
 - `«**»` - Matches any number of path segments
 - `«ext:file_extension»` - Matches a string ending with a period and a 2 to 5 character extension.
 
-## Sample Use Cases
+### Sample Use Cases
 
-### Collapsing High Cardinality Fields
+#### Collapsing High Cardinality Fields
 
 If you have an endpoint with a high cardinality field, such as a UUID, you may want to collapse all requests to that
 endpoint into a single group. You can achieve this by using the `«wildcard»` rule to collapse all the requests into a
@@ -46,7 +46,7 @@ my.api.domain/v1/users/user@mail.com/messages
 my.api.domain/v1/users/test-user/messages
 ```
 
-### Preventing Collapsing of Specific Endpoints
+#### Preventing Collapsing of Specific Endpoints
 
 You may have a specific endpoint that you do not want to collapse at all. In our previous example we may not want to
 collapse the `test-user` endpoint since we use that for testing purposes. We can achieve this by adding a rule that
@@ -59,7 +59,7 @@ my.api.domain/v1/users/test-user/messages
 
 Since the last rule wins, this setup will collapse all endpoints except for the `test-user` endpoint.
 
-### Collapse CDN Images
+#### Collapse CDN Images
 
 You can collapse endpoints for third-party SDKs into a single groups. For example, CDNs will have a large number of
 path segments with a common prefix.

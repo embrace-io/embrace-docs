@@ -7,11 +7,11 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Manual Instrumentation
+## Manual Instrumentation
 
 While Embrace's [automatic instrumentation](../automatic-instrumentation/index.md) captures many important metrics and events out of the box, manual instrumentation allows you to add custom telemetry data that's specific to your application's unique workflows and business logic.
 
-## What is Manual Instrumentation?
+### What is Manual Instrumentation?
 
 Manual instrumentation refers to the explicit addition of code in your application to create traces, logs, handle errors, and monitor performance. This gives you the ability to:
 
@@ -21,7 +21,7 @@ Manual instrumentation refers to the explicit addition of code in your applicati
 - Capture application-specific events
 - Create custom user journeys
 
-## Manual Instrumentation APIs
+### Manual Instrumentation APIs
 
 Embrace provides several APIs for manual instrumentation:
 
@@ -33,7 +33,7 @@ Embrace provides several APIs for manual instrumentation:
 - **[Crash Reporting](./crash-reporting.md)** - Configure crash reporting and integrate with Crashlytics
 - **[Breadcrumbs](./breadcrumbs.md)** - Add lightweight logging context to sessions
 
-## When to Use Manual Instrumentation
+### When to Use Manual Instrumentation
 
 Consider adding manual instrumentation when:
 
@@ -45,7 +45,7 @@ Consider adding manual instrumentation when:
 - You want to track third-party SDK interactions
 - You're using network libraries that don't use URLSession (like gRPC)
 
-## Basic Principles
+### Basic Principles
 
 Effective manual instrumentation follows these principles:
 
@@ -55,7 +55,7 @@ Effective manual instrumentation follows these principles:
 - **Error capturing** - Record errors within the proper context
 - **Proper span hierarchy** - Create logical parent-child relationships
 
-## Getting Started
+### Getting Started
 
 The most common way to start with manual instrumentation is by creating custom spans:
 
@@ -110,7 +110,7 @@ if success {
 
 Explore the sections in this documentation to learn about all the available manual instrumentation capabilities.
 
-## Best Practices
+### Best Practices
 
 - Start with automatic instrumentation and add manual instrumentation for business-critical paths
 - Use descriptive names for spans and events that clearly indicate what they represent
@@ -119,7 +119,7 @@ Explore the sections in this documentation to learn about all the available manu
 - Avoid creating too many spans which could impact performance
 - Balance detail with volume to avoid overwhelming your telemetry data
 
-## Integration with Automatic Instrumentation
+### Integration with Automatic Instrumentation
 
 Manual instrumentation complements automatic instrumentation. For example:
 

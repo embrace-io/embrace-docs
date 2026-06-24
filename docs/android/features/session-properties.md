@@ -4,7 +4,7 @@ sidebar_position: 5
 description: Annotate user sessions with key-value properties using the Embrace SDK
 ---
 
-# User session properties
+## User session properties
 
 User session properties are another way to annotate a user session.
 The difference between user session properties and [user personas](/android/features/identify-users#user-personas) is that the former are for items relating to the session or the device and not necessarily to the user.

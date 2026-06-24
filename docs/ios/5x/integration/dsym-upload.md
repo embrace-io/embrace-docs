@@ -4,7 +4,7 @@ description: Upload dSYM files to see translated stack traces
 sidebar_position: 5
 ---
 
-# Uploading dSYMs
+## Uploading dSYMs
 
 When applications are uploaded to the AppStore they are often stripped of symbols for security or space reasons.
 Much of the data our SDK collects relies on addresses, including our crash reports.
@@ -13,7 +13,7 @@ If you choose not to upload your dSYM files, you will be required to manually sy
 **Important Note** Starting on April 25, 2023 Apple will require all apps to be built with Xcode 14. Apple deprecated bitcode in Xcode 14. This means you may be unable to download dSYMs from Apple in the near future. We recommend that you set up automatic uploads.
 [Apple Announcement](https://developer.apple.com/news/?id=jd9wcyov#:~:text=Starting%20April%2025%2C%202023%2C%20iOS,on%20the%20Mac%20App%20Store.)
 
-## Automatic Uploads
+### Automatic Uploads
 
 Automatically uploading dSYM files is a good option for you if you are not using bitcode to distribute your application.
 
@@ -108,7 +108,7 @@ In the examples above, notice how the environment variables for your key and tok
 If your crashes are not being symbolicated due to dSYM files being missing, see the section on [troubleshooting dSYM uploads](/ios/faq#troubleshooting-dsym-upload) in the FAQ.
 :::
 
-## Manual Uploads
+### Manual Uploads
 
 If your app is using bitcode or a CI system that makes accessing or modifying the build phases impossible, you can still upload your dSYM files manually.
 
@@ -122,7 +122,7 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility.
 
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your API key and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your API key and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the _Settings/Upload_ dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 

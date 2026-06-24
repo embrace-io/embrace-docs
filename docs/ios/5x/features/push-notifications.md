@@ -4,7 +4,7 @@ description: Embrace can capture push notifications received by your app.
 sidebar_position: 6
 ---
 
-# Push Notifications
+## Push Notifications
 
 The Embrace SDK can capture push notifications received by your app.
 

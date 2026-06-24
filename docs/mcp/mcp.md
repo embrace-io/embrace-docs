@@ -4,63 +4,63 @@ sidebar_position: 0
 description: Access Embrace mobile observability data through the Model Context Protocol
 ---
 
-# Embrace MCP Server
+## Embrace MCP Server
 
 The Embrace Model Context Protocol (MCP) server lets you query your mobile and web app's performance and crash data directly from AI assistants like Claude. You can investigate crashes, diagnose network issues, monitor app health, and analyze trends without leaving your development workflow.
 
 Embrace's MCP server is available to all Embrace users and supports iOS, Android, React Native, Unity, and web applications.
 
-## Available tools
+### Available tools
 
-### App tools
+#### App tools
 
 | Tool               | Description                                                         |
-|--------------------|---------------------------------------------------------------------|
+| ------------------ | ------------------------------------------------------------------- |
 | `list_apps`        | List and filter applications in your Embrace workspace              |
 | `get_app_details`  | Get health metrics, crash-free rates, and session counts for an app |
 | `get_top_versions` | Identify which app versions are most widely used                    |
 
-### Crash tools
+#### Crash tools
 
-| Tool                      | Description                                                                                 |
-|---------------------------|---------------------------------------------------------------------------------------------|
-| `list_crashes`            | List top crashes ranked by frequency                                                        |
-| `get_crash_details`       | Get detailed information about a specific crash group                                       |
+| Tool                      | Description                                                                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `list_crashes`            | List top crashes ranked by frequency                                                                                              |
+| `get_crash_details`       | Get detailed information about a specific crash group                                                                             |
 | `get_crash_distribution`  | Get distribution of a crash group across a dimension (OS version, device model, country, etc.) compared against session baselines |
-| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                                                |
+| `get_crash_stack_samples` | Fetch actual stack traces for crash analysis                                                                                      |
 
-### Exception tools
+#### Exception tools
 
-| Tool                    | Description                                                                     |
-|-------------------------|---------------------------------------------------------------------------------|
-| `list_exceptions`       | List top exceptions ranked by frequency and user impact                         |
+| Tool                    | Description                                                                                              |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- |
+| `list_exceptions`       | List top exceptions ranked by frequency and user impact                                                  |
 | `get_exception_details` | Get detailed information about a specific exception group, including counts, affected users, and history |
 
-### Log tools
+#### Log tools
 
-| Tool                   | Description                                                                                     |
-|------------------------|-------------------------------------------------------------------------------------------------|
-| `list_logs`            | List top log messages grouped by aggregated message pattern                                     |
-| `get_log_details`      | Get detailed information about a specific log group including message template and token analysis |
+| Tool                   | Description                                                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `list_logs`            | List top log messages grouped by aggregated message pattern                                                                     |
+| `get_log_details`      | Get detailed information about a specific log group including message template and token analysis                               |
 | `get_log_distribution` | Get distribution of a log group across a dimension (OS version, device model, country, etc.) compared against session baselines |
 
-### Session tools
+#### Session tools
 
-| Tool                       | Description                                                    |
-|----------------------------|----------------------------------------------------------------|
-| `get_session_distribution` | Get session counts distributed across a single dimension       |
+| Tool                       | Description                                              |
+| -------------------------- | -------------------------------------------------------- |
+| `get_session_distribution` | Get session counts distributed across a single dimension |
 
-### Span tools
+#### Span tools
 
-| Tool                        | Description                                                                             |
-|-----------------------------|-----------------------------------------------------------------------------------------|
-| `list_root_spans`           | List all root spans in an app with performance metrics and outcome rates                |
-| `get_root_span_distribution`| Get distribution by various dimensions for a specific root span                         |
+| Tool                         | Description                                                              |
+| ---------------------------- | ------------------------------------------------------------------------ |
+| `list_root_spans`            | List all root spans in an app with performance metrics and outcome rates |
+| `get_root_span_distribution` | Get distribution by various dimensions for a specific root span          |
 
-### Network tools
+#### Network tools
 
 | Tool                              | Description                                                                                      |
-|-----------------------------------|--------------------------------------------------------------------------------------------------|
+| --------------------------------- | ------------------------------------------------------------------------------------------------ |
 | `list_network_domains`            | List all domains an app communicates with, with basic health indicators                          |
 | `list_network_endpoints`          | List endpoints ranked by latency, errors, or volume                                              |
 | `get_network_endpoint_errors`     | Get error breakdown for a specific endpoint by HTTP status code and connection error type        |
@@ -68,16 +68,25 @@ Embrace's MCP server is available to all Embrace users and supports iOS, Android
 | `get_network_endpoint_timeseries` | Get time-series metrics showing how an endpoint's performance changes over time                  |
 | `get_network_endpoint_breakdown`  | Break down endpoint performance by dimension — country, OS version, app version, or device model |
 
-## Prerequisites
+### Prerequisites
 
 Before you can use the Embrace MCP server, you need:
 
 - An active Embrace account with access to at least one application
 - An MCP-compatible AI assistant
 
-## Setup examples
+### Authentication
 
-### Cursor
+The MCP server supports two authentication methods:
+
+- **OAuth** — Interactive browser flow. Best for local developer use in tools like Cursor, Claude Code, and Opencode. The token is tied to your Embrace user and carries your existing app permissions.
+- **Bearer token** — Static token attached to a service account. Best for agent workflows, CI jobs, and shared team tooling — anywhere the client runs without a browser or where access shouldn't be tied to an individual's account.
+
+To create a bearer token, see [Service Accounts](../product/settings/service-accounts.md). A bearer token used with MCP needs the `mcp:tools:call` scope plus `mcp:read` and/or `mcp:write`.
+
+### Setup examples
+
+#### Cursor
 
 Follow the MCP Integration instructions in [Cursor's official docs](https://cursor.com/docs/context/mcp#using-mcpjson).
 
@@ -93,7 +102,22 @@ For example, add to your `mcp.json` file:
 }
 ```
 
-### Claude Code
+To authenticate with a service account bearer token instead of OAuth, add an `Authorization` header. Set the `EMBRACE_API_TOKEN` environment variable in the shell where your MCP client runs to a token created in **Settings → Organization → API → Service Accounts**:
+
+```json
+{
+  "mcpServers": {
+    "embrace-mcp": {
+      "url": "https://mcp.embrace.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${EMBRACE_API_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+#### Claude Code
 
 Run:
 
@@ -101,9 +125,32 @@ Run:
 claude mcp add --transport http embrace https://mcp.embrace.io/mcp
 ```
 
-Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info. NOTE: Bearer Token authentication is not currently supported.
+Then start Claude Code and follow the instructions in the `/mcp` slash command. Reference Anthropic's official docs [here](https://code.claude.com/docs/en/mcp) for more info.
 
-### Opencode
+To authenticate with a service account bearer token instead of OAuth, pass the `Authorization` header on the `claude mcp add` command. Set the `EMBRACE_API_TOKEN` environment variable in the shell where your MCP client runs to a token created in **Settings → Organization → API → Service Accounts**:
+
+```bash
+claude mcp add --transport http embrace https://mcp.embrace.io/mcp \
+  --header "Authorization: Bearer ${EMBRACE_API_TOKEN}"
+```
+
+Or add the server directly to a `.mcp.json` file:
+
+```json
+{
+  "mcpServers": {
+    "embrace": {
+      "type": "http",
+      "url": "https://mcp.embrace.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${EMBRACE_API_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+#### Opencode
 
 Follow the OAuth MCP integration instructions in [Opencode's official docs](https://opencode.ai/docs/mcp-servers/#oauth).
 
@@ -127,15 +174,32 @@ Then authenticate using:
 opencode mcp auth embrace
 ```
 
-### All others
+To authenticate with a service account bearer token instead of OAuth, add an `Authorization` header to the server entry. Set the `EMBRACE_API_TOKEN` environment variable in the shell where your MCP client runs to a token created in **Settings → Organization → API → Service Accounts**:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "embrace": {
+      "type": "remote",
+      "url": "https://mcp.embrace.io/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:EMBRACE_API_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+#### All others
 
 For other AI Assistants supporting MCP, please reference your relevant docs. Official support will come in the near future for these as we continue to improve and add functionality.
 
-The Embrace MCP Server uses a Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`.
+The Embrace MCP Server uses a Streamable HTTP transport and is located at `https://mcp.embrace.io/mcp`. Clients that support custom headers on HTTP MCP transport can authenticate with a service account bearer token by sending `Authorization: Bearer <token>`.
 
-## Common use cases
+### Common use cases
 
-### Daily health check
+#### Daily health check
 
 Check your app's overall health and identify any issues:
 
@@ -145,7 +209,7 @@ Check your app's overall health and identify any issues:
 
 **Example query:** "What's the health status of my app today?"
 
-### Investigate a critical crash
+#### Investigate a critical crash
 
 Deep dive into a specific crash to understand its root cause:
 
@@ -155,7 +219,7 @@ Deep dive into a specific crash to understand its root cause:
 
 **Example query:** "What's causing the top crash in my app and how do I fix it?"
 
-### Investigate network performance
+#### Investigate network performance
 
 Identify slow or error-prone endpoints and scope who is affected:
 
@@ -167,7 +231,7 @@ Identify slow or error-prone endpoints and scope who is affected:
 
 **Example query:** "Which network endpoints are causing the most errors in version 3.2.0?"
 
-### Version-specific analysis
+#### Version-specific analysis
 
 Focus on a particular app version:
 
@@ -177,7 +241,7 @@ Focus on a particular app version:
 
 **Example query:** "Show me all crashes in version 2.1.0"
 
-### Track trends over time
+#### Track trends over time
 
 Monitor how your app's health changes:
 

@@ -3,15 +3,15 @@ title: Track screen orientation
 sidebar_position: 6
 ---
 
-# Track screen orientation
+## Track screen orientation
 
 Embrace provides a hook that will automatically log breadcrumbs whenever your app changes its orientation. To set this
 up simply invoke the hook at a point in your app after Embrace has been initialized:
 
 ```javascript
-import { useOrientationListener } from "@embrace-io/react-native-orientation-change-tracker";
+import { useOrientationListener } from '@embrace-io/react-native-orientation-change-tracker';
 
-useOrientationListener()
+useOrientationListener();
 ```
 
 You will then see breadcrumbs in the session timeline reporting on the initial orientation that the application began

@@ -4,9 +4,9 @@ description: Add logging to your Unity application using Breadcrumbs with the Em
 sidebar_position: 8
 ---
 
-# Add a Breadcrumb
+## Add a Breadcrumb
 
-## Adding Context to Sessions
+### Adding Context to Sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/unity/integration/crash-report/) and [Session Reporting](/unity/integration/session-reporting/) sections.
 Embrace can also collect your logging data and include it as context within your sessions.  

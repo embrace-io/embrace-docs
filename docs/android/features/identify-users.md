@@ -4,7 +4,7 @@ sidebar_position: 4
 description: Get to know the users of your Android application with the Embrace SDK
 ---
 
-# Know your users
+## Know your users
 
 Embrace offers two ways you can annotate sessions with information that will help developers and customer service agents find
 sessions for an unhappy user.
@@ -12,7 +12,7 @@ sessions for an unhappy user.
 - [**User personas and identifiers**](/android/features/identify-users#user-personas). This is data you can set and update about the user of a session.
 - [**User session properties**](/android/features/session-properties). This is data you use to track information about the device or the user session itself.
 
-## User personas and identifiers {#user-personas}
+### User personas and identifiers {#user-personas}
 
 Embrace offers a set of methods to pass information about your users. You can set a "persona" for the session's user, such as tester or VIP. You can also add a user identifier, which will be an Embrace-specific ID for identifying the session in the dashboard.
 
@@ -27,7 +27,7 @@ We recommend using an anonymized or hashed user ID that only your agents can sea
 :::
 
 The above call annotates the session with a user identifier that you can use later to search for this user.
-For more methods on setting user values, see the [API docs](/api/android/).  
+For more methods on setting user values, see the [API docs](/api/android/).
 
 You can also set customized values for specific use cases or segments of users.
 

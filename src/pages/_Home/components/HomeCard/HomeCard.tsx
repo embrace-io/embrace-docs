@@ -1,10 +1,10 @@
-import { type FC, type ReactNode } from "react";
-import Title from "@site/src/components/Text/Title";
-import Body from "@site/src/components/Text/Body";
-import Card from "@site/src/components/Card";
-import Link from "@docusaurus/Link";
+import { type FC, type ReactNode } from 'react';
+import Title from '@site/src/components/Text/Title';
+import Body from '@site/src/components/Text/Body';
+import Card from '@site/src/components/Card';
+import Link from '@docusaurus/Link';
 
-import styles from "./HomeCard.module.css";
+import styles from './HomeCard.module.css';
 
 type HomeCardProps = {
   title: string;

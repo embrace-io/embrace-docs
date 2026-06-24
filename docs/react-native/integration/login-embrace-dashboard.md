@@ -4,9 +4,9 @@ description: Login to the Embrace dashboard to get started with your React Nativ
 sidebar_position: 2
 ---
 
-# Getting started with the Embrace dashboard
+## Getting started with the Embrace dashboard
 
-## Logging in
+### Logging in
 
 Before being able to integrate, you'll need to create an account on the Embrace
 dashboard so you can access your app ID and API token. Open a browser and
@@ -17,7 +17,7 @@ register for a new one.
 
 <img src={require('@site/static/images/login-page.png').default} />
 
-## Integration page
+### Integration page
 
 Once you've finished logging in or registering for a new account, you'll be able
 to create a new app. Follow the prompts until you get to the integration page.
@@ -44,15 +44,15 @@ This setup allows us to have platform-specific SDK configuration as well as sepa
 At the end of the day you would have two app ids (one for Android and another one for iOS if integrating both).
 Once we have all of the relevant apps and app IDs, we are ready to add the SDK to your app.
 
-## Use without an Embrace account
+### Use without an Embrace account
 
 If you prefer to send the data into a custom backend avoiding Embrace it could be done by initializing the Embrace SDK without an app_id/token. This requires configuring the [OTLP Export](/react-native/features/otlp) feature using the `@embrace-io/react-native-otlp` package to be installed and the configuration of at least **1 span exporter** and/or **1 log exporter**.
 
-### Android
+#### Android
 
 For Android both values can be omitted in the `embrace-config.json` file. For more information visit [Avoiding sending telemetry to Embrace](/android/features/traces/#avoiding-sending-telemetry-to-embrace). Please, make sure you also add `embrace.disableMappingFileUpload = true` to your `gradle.properties` file.
 
-### iOS
+#### iOS
 
 For iOS the **appId** can be omitted as well when the SDK is initialized and configured through the code.
 

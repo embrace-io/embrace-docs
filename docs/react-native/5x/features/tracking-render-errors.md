@@ -4,7 +4,7 @@ description: Ensure meaningful screen names in render errors by configuring Metr
 sidebar_position: 7
 ---
 
-# Tracking Render Errors
+## Tracking Render Errors
 
 If the Embrace SDK detects a component stack trace in a React Native rendering error it will log it automatically. The
 resulting log will have a stack trace similar to:
@@ -14,7 +14,7 @@ resulting log will have a stack trace similar to:
  * in RCTView
  * in Screen1
  * in AppContainer
- ```
+```
 
 In release builds you may see some "Unknown" entries for view names that could not be retrieved:
 
@@ -25,13 +25,13 @@ In release builds you may see some "Unknown" entries for view names that could n
  * in AppContainer
 ```
 
-## Preserving screen names
+### Preserving screen names
 
 Making sure components have their `displayName` should help, in addition it is possible to modify your `metro.config.js`
 to include the following:
 
 ```javascript
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
 const config = {
   transformer: {
@@ -50,7 +50,7 @@ module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 ```
 
 - **`keep_classnames: true` and `keep_fnames: true`**: These options ensure that class names and function names are
-preserved during the minification process.
+  preserved during the minification process.
 - **`mangle`**: Prevents the renaming of class and function names.
 
 Though note that these settings will likely increase your bundle size. If you apply these then we strongly recommend

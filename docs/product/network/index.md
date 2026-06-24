@@ -3,11 +3,11 @@ title: Network
 sidebar_position: 7
 ---
 
-# Getting Started
+## Getting Started
 
 Make sense of all your application's requests with the Networking page.
 
-## Implementation
+### Implementation
 
 Embrace's SDKs provide automatic tracking of all network requests.
 
@@ -17,7 +17,7 @@ In the dashboard, you can see a comprehensive view of network requests, allowing
 - [Group network requests by path](/product/network/network-grouping-rules.md) to dig deeper into correlated issues.
 - [Enable first-party domains](/product/settings/app-settings/network.md) to prioritize requests to known sources, such as your app's backend.
 
-## Learn more
+### Learn more
 
 This walkthrough video will show you how you make sense of networking in Embrace's dashboard:
 

@@ -4,13 +4,13 @@ description: Learn how to upload source maps to Embrace to translate JavaScript 
 sidebar_position: 4
 ---
 
-# Uploading Symbol Files
+## Uploading Symbol Files
 
 The Embrace SDK allows you to view both native and JavaScript stack traces for crashes and error logs.
 These stack traces, however, usually require symbol files to be able to make sense of them.
 For JavaScript, you'll need to upload source maps. For iOS, dSYM files, and the mapping file for Android.
 
-## Uploading Source Maps
+### Uploading Source Maps
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -59,12 +59,12 @@ This creates a bundle and sets the debuggable flag to false.
 </TabItem>
 </Tabs>
 
-## Uploading Native And JavaScript Symbol Files
+### Uploading Native And JavaScript Symbol Files
 
 <Tabs groupId="platform" queryString="platform">
 <TabItem value="ios" label="iOS">
 
-## Automatic Uploads
+### Automatic Uploads
 
 Automatically uploading dSYM files is a good option for you if you are not using bitcode to distribute your application.
 
@@ -96,7 +96,7 @@ Notice how the script's location is a reference to the CocoaPods installation fo
 If you do not use Cocoapods please see the [Uploading dSYMs](/ios/5x/integration/dsym-upload) page from the iOS integration guide to set up automatic uploading of dSYM files in Xcode.
 :::
 
-## Native Manual Uploads
+### Native Manual Uploads
 
 If your app is using bitcode or a CI system that makes accessing or modifying the build phases impossible, you can still upload your dSYM files manually.
 
@@ -106,7 +106,7 @@ When applications are built with bitcode, it means the final binary and symbols 
 
 Once you have the dSYMs on your computer, you can upload it to Embrace using our upload utility.
 
-The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the *Settings/Upload* dSYM tab.
+The upload utility is distributed with the Embrace SDK. See the section above on [automatically uploading dSYMs](/ios/5x/integration/dsym-upload#automatic-uploads) to learn how to locate this file in your project. You will also need your APP ID and API token. You can upload dSYM and .zip files in the same command or use the upload tool on the _Settings/Upload_ dSYM tab.
 
 Run the upload tool and your dSYM will be sent to Embrace.
 
@@ -120,7 +120,7 @@ Run the upload tool and your dSYM will be sent to Embrace.
 
 This process can be scripted into your CI backend as well. Simply include the upload utility with your project's repo and call it from within the CI scripting system.
 
-## JavaScript Manual Uploads
+### JavaScript Manual Uploads
 
 When you upload the dSYM manually you also have to upload the JavaScript bundle and source map files, to export them from the bundle you have to add two parameters to your build method: bundle-output and sourcemap-output
 
@@ -150,7 +150,7 @@ If you don’t see symbolicated crashes while using Proguard, reach out to us on
 
 </Tabs>
 
-## Symbolication with CodePush
+### Symbolication with CodePush
 
 If you use a other service to deploy OTA (over the air) updates, you'll need to upload those source maps to Embrace using the upload script that ships with the iOS SDK.
 
@@ -158,7 +158,7 @@ For App Center CodePush, you'll need to generate the bundle and source map to be
 
 ```shell-session
 appcenter codepush release-react -a MyApp --output-dir ./build --sourcemap-output ./map
-``` 
+```
 
 Then, use the Embrace upload script to upload the source map.
 
@@ -183,7 +183,7 @@ The Android map is generated with a different name, but the tool to upload is th
 </TabItem>
 </Tabs>
 
-## Pointing the Embrace SDK to the JavaScript Bundle
+### Pointing the Embrace SDK to the JavaScript Bundle
 
 If you distribute changes to the JavaScript code without submitting a new version to the App Store or Google Play Store (i.e. Expo OTA updates),
 you must point the Embrace SDK to where the updated JavaScript bundle will be downloaded on the device.
@@ -194,9 +194,9 @@ Note that this step is unnecessary if you use CodePush since the Embrace SDK wil
 <TabItem value="javascript" label="JavaScript">
 
 ```javascript
-import {setJavaScriptBundlePath} from '@embrace-io/react-native';
+import { setJavaScriptBundlePath } from '@embrace-io/react-native';
 
-setJavaScriptBundlePath(pathToBundle)
+setJavaScriptBundlePath(pathToBundle);
 ```
 
 </TabItem>
@@ -216,7 +216,7 @@ Embrace.getInstance().getReactNativeInternalInterface().setJavaScriptBundleUrl(p
 </TabItem>
 </Tabs>
 
-## Expo Apps
+### Expo Apps
 
 If your app is built using Expo and you leverage OTA to distribute updates to your users, you must manually upload source maps using the script distributed with the SDK
 as described in the [Symbolication with CodePush](/react-native/4x/integration/upload-symbol-files#symbolication-with-codepush) section.
@@ -225,4 +225,4 @@ You must also point the Embrace SDK to the location the updated bundle will be d
 
 ---
 
-Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.  
+Now that you know how to upload symbol files to make sure stack traces are translated on the Dashboard, let's generate your first session.

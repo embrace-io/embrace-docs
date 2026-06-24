@@ -4,7 +4,7 @@ sidebar_position: 1
 description: Integration steps to add Embrace to your Android application
 ---
 
-# Integration Steps
+## Integration Steps
 
 1. [**Login to the Embrace dashboard.**](/android/legacy-integration/login-embrace-dashboard) Your data is available in the dashboard. It is important that you have this open while working on the integration to monitor progress.
 2. [**Adding the Embrace SDK.**](/android/legacy-integration/add-embrace-sdk) We'll be adding the Embrace SDK to your project

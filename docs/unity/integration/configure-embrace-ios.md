@@ -4,11 +4,11 @@ description: Configuring the Embrace Unity iOS SDK for mobile platforms
 sidebar_position: 3
 ---
 
-# Configure Embrace
+## Configure Embrace
 
 The Embrace Unity SDK includes an editor script to assist with properly linking the SDK, and collecting and uploading debug information for symbolication. That component requires configuration prior to building. If your project ships on both Android and iOS make sure to configure both platforms using the Embrace editor window.
 
-## Configure the iOS platform
+### Configure the iOS platform
 
 Go to Tools -> Embrace -> Getting Started and click on it to reveal the Embrace editor window. Select the iOS tab and fill in the missing `App ID` and `Symbol Upload API Token`. You can get the correct values from the settings page in your dash.
 
@@ -24,7 +24,7 @@ Embrace.Instance.StartSDK(args);
 
 Now when you build and run your project, our editor script will use those values to correctly setup the final IPA to work with Embrace.
 
-## Known Issues
+### Known Issues
 
 Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the current Unity build pipeline. To handle this issue, after creating your Xcode project, add a Dummy Swift file to the UnityFramework target by right clicking the `Unity-iPhone` Xcode project in the Project Navigator and selecting the `New File from Template` option. Make sure to add the file to BOTH the game target AND the UnityFramework target. Then, make sure to create the bridging header. There's no need to add any code. This will adjust the linker pipeline to invoke Swift appropriately.
 

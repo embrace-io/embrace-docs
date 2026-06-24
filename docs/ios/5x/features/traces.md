@@ -4,13 +4,13 @@ description: Record spans to monitor the production performance and success rate
 sidebar_position: 10
 ---
 
-# Traces
+## Traces
 
-## Overview
+### Overview
 
 Embrace’s Traces solution gives you complete visibility into any customized operation you’d like to track, enabling you to identify, prioritize, and resolve any performance issue. With our tool, you can quickly spot any bottlenecks in your app’s architecture, pinpoint areas you need to troubleshoot with high precision, and ultimately deliver a truly optimized user
 
-## Feature Support
+### Feature Support
 
 The Embrace Traces API allows you to:
 
@@ -24,7 +24,7 @@ The Embrace Traces API allows you to:
 
 There is no limit on the duration of spans, but **if a crash occurs during a span that is in progress, that span will not be recorded.**
 
-### Limits
+#### Limits
 
 | Type                               | Limit          |
 | ---------------------------------- | -------------- |
@@ -42,7 +42,7 @@ There is no limit on the duration of spans, but **if a crash occurs during a spa
 If you exceed the listed limits, the operation with the limit-exceeding call will fail and return a value indicating that. See the API documentation for details.
 :::
 
-### Naming Conventions
+#### Naming Conventions
 
 - Span Names are **case-sensitive** and are a **max of 50 characters.**
 - Key Names are **case-sensitive**, have a **max of 50 characters**, and are **alphanumeric**
@@ -51,7 +51,7 @@ If you exceed the listed limits, the operation with the limit-exceeding call wil
 The `emb-` and `emb.` prefixes are reserved for internal Embrace span names and attribute keys. You should never create a name with `emb-` and `emb.` prefixes
 :::
 
-## Integration Steps
+### Integration Steps
 
 :::info Minimum SDK Version
 **We recommend using at least iOS SDK v5.23.1** and updating to new versions as they come out to ensure you get the latest updates for this developing feature.
@@ -63,7 +63,7 @@ To use this feature:
 2. Instrument your app using the reference guide in this section to start adding spans to your operations.
 3. See the spans in the [Traces](/product/traces/index.md) section of the Embrace dashboard.
 
-### Create Span
+#### Create Span
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -87,7 +87,7 @@ id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"process-i
 </TabItem>
 </Tabs>
 
-### Start Span
+#### Start Span
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
@@ -112,7 +112,7 @@ id<EmbraceOTelSpan> span = [[Embrace sharedInstance] createSpanNamed:@"custom-na
 </TabItem>
 </Tabs>
 
-### Adding a Child Span
+#### Adding a Child Span
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
@@ -139,7 +139,7 @@ id<EmbraceOTelSpan> childSpan = [[Embrace sharedInstance] createSpanNamed:@"proc
 </TabItem>
 </Tabs>
 
-### Adding Events and Attributes
+#### Adding Events and Attributes
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
@@ -168,7 +168,7 @@ span.addEventNamed("image-render-complete", time: UInt(Date().timeIntervalSince1
 </TabItem>
 </Tabs>
 
-### End Span
+#### End Span
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
@@ -195,7 +195,7 @@ span.stopWith(.Failure)
 </TabItem>
 </Tabs>
 
-### Recording a Completed Span
+#### Recording a Completed Span
 
 <Tabs groupId="ios-language" queryString="ios-language">
 <TabItem value="swift" label="Swift">
@@ -236,6 +236,6 @@ NSDate *endAt = [startAt dateByAddingTimeInterval:4.0];
 </TabItem>
 </Tabs>
 
-## Support
+### Support
 
 If you have any questions or if something is not working as intended, please get in touch with your Customer Success Manager.

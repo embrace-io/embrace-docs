@@ -7,35 +7,37 @@ sidebar_position: 6
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Push Notifications
+## Push Notifications
 
-The Embrace SDK's `PushNotificationCaptureService` automatically captures push notification events in your app, providing visibility into notification delivery, user interaction, and impact on app engagement.
+The Embrace SDK's `PushNotificationCaptureService` automatically records when your app receives a push notification or when the user taps one, so notification activity is visible alongside the rest of the session timeline.
 
-## How Push Notification Tracking Works
+### How Push Notification Tracking Works
 
-The push notification capture service monitors push notification events by swizzling key methods in the `UNUserNotificationCenter` and related classes. This allows Embrace to create OpenTelemetry spans and events that capture:
+The service swizzles the `delegate` setter on `UNUserNotificationCenter` and installs a proxy delegate. When a notification flows through the standard `UNUserNotificationCenterDelegate` callbacks:
 
-- Notification arrivals (when your app receives a notification)
-- User interactions (when a user taps on a notification)
-- Notification content and payload details (configurable)
+- `userNotificationCenter(_:willPresent:withCompletionHandler:)` — notification displayed while the app is in the foreground.
+- `userNotificationCenter(_:didReceive:withCompletionHandler:)` — user interacted with a delivered notification.
 
-This data helps you understand how push notifications impact user behavior and app engagement.
+…the proxy emits an OpenTelemetry **span event** named `emb-push-notification` on the currently active **session span**, then forwards the call to your original delegate. Your delegate continues to run unchanged.
 
-## Configuration
+:::note Where to find the data
+Push activity is **not** a standalone root span. Look at the session span's events timeline (or search span events by name `emb-push-notification`). It will not appear when filtering for root spans named `emb.push.*`.
+:::
 
-You can customize push notification tracking when initializing the Embrace SDK:
+:::caution What is not captured automatically
+Only notifications routed through `UNUserNotificationCenter` delegate methods are captured. Silent / background notifications that your app handles **only** through `UIApplicationDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` are not intercepted. For those, capture the event manually (see [Manual Capture](#manual-capture) below).
+:::
+
+### Configuration
+
+The service has a single option, `captureData`, which controls whether the user-facing payload fields (title, subtitle, body, category, badge) are recorded. It defaults to `false`.
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
 
 ```swift
 let services = CaptureServiceBuilder()
-    .add(.pushNotification(options: PushNotificationCaptureService.Options(
-        captureNotificationContent: true,
-        payloadAttributesFilter: { key, _ in
-            return ["campaign_id", "message_id", "notification_type"].contains(key)
-        }
-    )))
+    .add(.pushNotification(options: .init(captureData: false)))
     .addDefaults()
     .build()
 
@@ -53,12 +55,7 @@ try EmbraceIO.shared.start()
 
 ```swift
 let services = CaptureServiceBuilder()
-    .add(.pushNotification(options: PushNotificationCaptureService.Options(
-        captureNotificationContent: true,
-        payloadAttributesFilter: { key, _ in
-            return ["campaign_id", "message_id", "notification_type"].contains(key)
-        }
-    )))
+    .add(.pushNotification(options: .init(captureData: false)))
     .addDefaults()
     .build()
 
@@ -76,132 +73,93 @@ try Embrace
 </TabItem>
 </Tabs>
 
-## Customization Options
+### Captured Attributes
 
-### Capturing Notification Content
+Every `emb-push-notification` span event includes:
 
-You can control whether notification content is captured:
+| Attribute           | Value                   | Notes                                                                               |
+| ------------------- | ----------------------- | ----------------------------------------------------------------------------------- |
+| `emb.type`          | `sys.push_notification` | Identifies the event type.                                                          |
+| `notification.type` | `notif` or `silent`     | `silent` when the payload contains `aps.content-available == 1`, otherwise `notif`. |
+
+When `captureData: true`, the service additionally reads the `aps` dictionary and adds the following attributes when the corresponding fields are present:
+
+| Attribute               | Source in the `aps` payload                  |
+| ----------------------- | -------------------------------------------- |
+| `notification.title`    | `alert.title` or `alert.title-loc-key`       |
+| `notification.subtitle` | `alert.subtitle` or `alert.subtitle-loc-key` |
+| `notification.body`     | `alert.body` or `alert.body-loc-key`         |
+| `notification.category` | `category`                                   |
+| `notification.badge`    | `badge` (integer)                            |
+
+### Manual Capture
+
+For notifications that don't pass through `UNUserNotificationCenter` (for example, background pushes handled in `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`), record them yourself using the same event type:
 
 ```swift
-PushNotificationCaptureService.Options(
-    captureNotificationContent: true
-)
-```
-
-When enabled, the service will capture the notification title, body, and other user-facing content, giving you visibility into what messages drove user engagement.
-
-### Filtering Payload Attributes
-
-To control which payload data is captured while protecting sensitive information, you can use a filter:
-
-```swift
-PushNotificationCaptureService.Options(
-    payloadAttributesFilter: { key, value in
-        // Only capture specific payload keys
-        return ["campaign_id", "message_id", "action", "type"].contains(key)
+func application(
+    _ application: UIApplication,
+    didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+    fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
+) {
+    if let event = try? PushNotificationEvent.push(userInfo: userInfo) {
+        Embrace.client?.add(event: event)
     }
-)
-```
-
-By default, the service captures all payload data, so it's recommended to use a filter to limit capture to necessary business information.
-
-## Events Captured
-
-The push notification service captures the following events:
-
-### Notification Received
-
-A span is created when your app receives a notification, either in the foreground or when the app is launched in response to a notification:
-
-```swift
-// This is automatically captured when your app receives a notification
-func userNotificationCenter(_ center: UNUserNotificationCenter,
-                           willPresent notification: UNNotification,
-                           withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-```
-
-### Notification Response
-
-A span is created when a user taps on a notification to open your app:
-
-```swift
-// This is automatically captured when the user taps on a notification
-func userNotificationCenter(_ center: UNUserNotificationCenter,
-                           didReceive response: UNNotificationResponse,
-                           withCompletionHandler completionHandler: @escaping () -> Void)
-```
-
-## Understanding Push Notification Data
-
-Push notification events are captured as OpenTelemetry spans with the following attributes:
-
-- `emb.push.notification_id`: Unique identifier for the notification
-- `emb.push.title`: Notification title (if captureNotificationContent is enabled)
-- `emb.push.body`: Notification message body (if captureNotificationContent is enabled)
-- `emb.push.action`: The action associated with the user's response (default, custom action, etc.)
-- `emb.push.foreground`: Whether the notification was received while the app was in the foreground
-- Additional custom attributes from the notification payload (based on your filter)
-
-## Example Use Cases
-
-### Campaign Effectiveness
-
-Track which notification campaigns drive the most app opens and engagement, helping optimize your messaging strategy.
-
-### User Engagement Patterns
-
-Understand how different notification types affect user behavior and session duration.
-
-### Conversion Tracking
-
-Monitor whether users complete key actions after engaging with specific notifications.
-
-### Time-of-Day Optimization
-
-Analyze which times of day result in the highest engagement with your notifications.
-
-## Adding Custom Attributes
-
-You can add custom attributes to notification spans by implementing a custom delegate:
-
-```swift
-class MyPushDelegate: PushNotificationCaptureServiceDelegate {
-    func willCaptureNotification(_ notification: UNNotification) -> [String: String]? {
-        // Add custom attributes when a notification is received
-        return [
-            "time_of_day": Calendar.current.component(.hour, from: Date()).description,
-            "notification_age": Date().timeIntervalSince(notification.date).description
-        ]
-    }
-
-    func willCaptureNotificationResponse(_ response: UNNotificationResponse) -> [String: String]? {
-        // Add custom attributes when a user responds to a notification
-        var attributes: [String: String] = [:]
-
-        // You can access the notification content
-        let notification = response.notification
-        let content = notification.request.content
-
-        // Add information about the app state
-        attributes["app_was_active"] = UIApplication.shared.applicationState == .active ? "true" : "false"
-
-        return attributes
-    }
+    // ...your handling
+    completionHandler(.newData)
 }
-
-// Then use this delegate when configuring the service
-let myDelegate = MyPushDelegate()
-PushNotificationCaptureService.Options(
-    delegate: myDelegate
-)
 ```
 
-## Best Practices
+The `userInfo` dictionary must be APNS-shaped — a top-level `aps` key is required, otherwise the event is dropped. Minimal payload:
 
-- Use a payload attributes filter to only capture relevant notification data
-- Consider privacy implications when capturing notification content
-- Add meaningful identifiers to your notifications to better track campaigns
-- Use custom attributes to add business context to notification events
-- Correlate notification interactions with subsequent user actions to measure effectiveness
+```json
+{
+  "aps": {
+    "alert": {
+      "title": "Notification Title",
+      "body": "Notification Body"
+    }
+  }
+}
+```
 
- <!-- TODO: Add examples of how push notification data appears in the Embrace dashboard, including visualizations for campaign analysis and engagement metrics -->
+The parser additionally recognizes `alert.subtitle`, `aps.category`, `aps.badge`, and `aps.content-available` (`1` marks the event as `silent`).
+
+You can also build an event from a `UNNotification` directly inside a `UNUserNotificationCenterDelegate` callback:
+
+```swift
+func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    didReceive response: UNNotificationResponse,
+    withCompletionHandler completionHandler: @escaping () -> Void
+) {
+    let notification = response.notification
+    if let event = try? PushNotificationEvent.push(notification: notification) {
+        Embrace.client?.add(event: event)
+    }
+    // ...your handling
+    completionHandler()
+}
+```
+
+Both helpers accept an optional `properties: [String: String]` dictionary that is merged into the event attributes — use this to attach campaign IDs, message IDs, or any other business context you need.
+
+```swift
+let event = try PushNotificationEvent.push(
+    userInfo: userInfo,
+    properties: [
+        "campaign_id": campaignID,
+        "message_id": messageID
+    ]
+)
+Embrace.client?.add(event: event)
+```
+
+Manual events emitted this way honor the SDK's default `captureData` behavior (payload fields are included). If you want to suppress payload content, construct the event directly with `captureData: false`.
+
+### Best Practices
+
+- Leave `captureData: false` unless you need to read titles or bodies in the dashboard. Payload content frequently contains PII.
+- If you need campaign or message identifiers, add them server-side as top-level keys in the `userInfo` payload and capture them manually with the `properties:` parameter — there is no built-in payload filter.
+- Make sure your app sets a `UNUserNotificationCenter.delegate` (the standard requirement to receive foreground notifications). The capture service piggybacks on the same delegate; if no delegate is ever assigned, the proxy still installs but only sees notifications that the system routes through it.
+- For background-only handlers, add a manual `Embrace.client?.add(event:)` call as shown above — otherwise those deliveries will not appear in sessions.

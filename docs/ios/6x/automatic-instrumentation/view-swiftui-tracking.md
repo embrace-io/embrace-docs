@@ -4,11 +4,11 @@ description: Monitor SwiftUI View lifecycle and performance in your iOS app
 sidebar_position: 3
 ---
 
-# SwiftUI View Tracking
+## SwiftUI View Tracking
 
 The Embrace SDK provides tools to instrument SwiftUI view lifecycles and performance metrics, giving you insight into rendering behavior, visibility durations, and interactive readiness in SwiftUI apps.
 
-## How View Tracking Works
+### How View Tracking Works
 
 The SwiftUI view tracking system automatically generates OpenTelemetry spans based on critical lifecycle events:
 
@@ -24,44 +24,43 @@ The SwiftUI view tracking system automatically generates OpenTelemetry spans bas
 
 These traces help you understand how your SwiftUI views behave in the system's rendering pipeline and measure how long users wait to see or interact with your content. The spans create a timeline showing exactly where bottlenecks occur - whether it's slow network requests, inefficient view updates, or expensive rendering operations that are impacting the user experience.
 
-## SwiftUI Rendering Lifecycle
+### SwiftUI Rendering Lifecycle
 
 SwiftUI rendering is governed by a system-managed render loop that typically runs at 60 Hz (every ~16ms). When a frame deadline is missed—for example, if your `body` takes too long to compute—the result is a **hitch**: a visual stutter that users notice.
 
 Embrace captures the following key phases of the SwiftUI render lifecycle:
 
-### Render Loop Spans
+#### Render Loop Spans
 
 Each update to a SwiftUI view creates a render loop trace with this structure:
 
 - **`emb-swiftui.view.<name>.render-loop`**  
-  *Root span* - Measures duration from view evaluation to the next run loop tick
-
+  _Root span_ - Measures duration from view evaluation to the next run loop tick
   - **`emb-swiftui.view.<name>.body`**  
-    *Child span* - Duration of SwiftUI body evaluation (building the view hierarchy)
+    _Child span_ - Duration of SwiftUI body evaluation (building the view hierarchy)
 
   - **`emb-swiftui.view.<name>.appear`**  
-    *Child span* - Time spent inside the `.onAppear` view modifier
+    _Child span_ - Time spent inside the `.onAppear` view modifier
 
   - **`emb-swiftui.view.<name>.disappear`**  
-    *Child span* - Time spent inside the `.onDisappear` view modifier
+    _Child span_ - Time spent inside the `.onDisappear` view modifier
     :::note
     When `onDisappear` happens outside of a render loop, the `disappear` span will be a root span instead of a child span of the render-loop.
     :::
 
-### Time to First Render
+#### Time to First Render
 
 - **`emb-swiftui.view.<name>.time-to-first-render`**  
   Measures how long it takes from when the system first initializes the view until it appears onscreen
 
-### Time to First Content Complete (Optional)
+#### Time to First Content Complete (Optional)
 
 - **`emb-swiftui.view.<name>.time-to-first-content-complete`**  
   Tracks duration from view creation until a flag (typically a Boolean or other `Equatable` value) indicates the view has finished rendering meaningful content
 
   > 📝 **Note:** Not available when using the macro-based API
 
-## Configuration Options
+### Configuration Options
 
 You can add view instrumentation using any of these three approaches:
 
@@ -69,7 +68,7 @@ You can add view instrumentation using any of these three approaches:
 **Custom Configuration:** If you're not using the Embrace Dashboard, enable this by passing a custom `EmbraceConfigurable` with `isSwiftUiViewInstrumentationEnabled` set to `true` when initializing the SDK.
 :::
 
-### 1. Macro (`@EmbraceTrace`) - Simplest
+#### 1. Macro (`@EmbraceTrace`) - Simplest
 
 The easiest way to add view instrumentation—just annotate your struct with no additional configuration needed:
 
@@ -94,18 +93,18 @@ struct MyView: View {
 The macro is only available through Swift Package Manager.
 :::
 
-### 2. View Modifier (`.embraceTrace`) - Most Flexible
+#### 2. View Modifier (`.embraceTrace`) - Most Flexible
 
 Apply view tracing by adding a modifier to any view.
 
 **Parameters**
 
-- **name** (*required*): Automatically detected in macro.
-- **attributes** (*optional*):  
+- **name** (_required_): Automatically detected in macro.
+- **attributes** (_optional_):
 
 Custom attributes to add additional context to the created spans.
 
-- **contentComplete** (*optional*): An `Equatable` value that triggers the end of the "time to first content complete" span when changed. Behaves the same as the `onChange` view modifier.
+- **contentComplete** (_optional_): An `Equatable` value that triggers the end of the "time to first content complete" span when changed. Behaves the same as the `onChange` view modifier.
 
 ```swift
 struct MyView: View {
@@ -127,7 +126,7 @@ struct MyView: View {
 }
 ```
 
-### 3. View Wrapper (`EmbraceTraceView`) - Alternative Syntax
+#### 3. View Wrapper (`EmbraceTraceView`) - Alternative Syntax
 
 Apply view tracing by wrapping your view:
 
@@ -152,19 +151,19 @@ struct MyView: View {
 }
 ```
 
-## Best Practices
+### Best Practices
 
 - **Start simple:** Use the macro (`@EmbraceTrace`) for basic tracking, then upgrade to the modifier when you need custom names or attributes
 - **Track meaningful completion:** Use the `contentComplete` parameter for views that load data asynchronously to measure when users can actually interact with your content
 - **Avoid over-instrumentation:** Do not nest multiple instrumented views unnecessarily—each generates its own trace tree and can impact performance
 
-### Manual Instrumentation in SwiftUI Views
+#### Manual Instrumentation in SwiftUI Views
 
 When adding manual instrumentation such as [breadcrumbs](/ios/6x/manual-instrumentation/breadcrumbs) or custom [traces](/ios/6x/manual-instrumentation/custom-traces) within SwiftUI views, be aware that view lifecycle methods like `onAppear` may be called multiple times due to SwiftUI's reactive rendering. This can lead to duplicate telemetry events.
 
 For detailed patterns on preventing duplicate breadcrumbs and properly instrumenting SwiftUI views, see the [SwiftUI-Specific Patterns](/ios/6x/best-practices/common-patterns#swiftui-specific-patterns) guide.
 
-## Common Use Cases
+### Common Use Cases
 
 - **Find layout bottlenecks** - Identify slow `body` render spans that cause UI hitches
 - **Measure screen load times** - Track how long users wait to see your SwiftUI screens

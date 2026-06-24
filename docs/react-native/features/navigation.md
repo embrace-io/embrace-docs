@@ -4,17 +4,17 @@ description: Add logging to your React Native application to track navigation be
 sidebar_position: 3
 ---
 
-# Track navigation
+## Track navigation
 
 This package collects telemetry around navigation based on [expo-router](https://github.com/expo/expo/tree/main/packages/expo-router), [@react-navigation/native](https://github.com/react-navigation/react-navigation) and [react-native-navigation](https://wix.github.io/react-native-navigation/).
 
-## Adding context to sessions
+### Adding context to sessions
 
 Embrace can collect basic session data and crashes as you've already seen in the [Crash Reporting](/react-native/integration/crash-reporting) and [Session Reporting](/react-native/integration/session-reporting) sections.
 Embrace can also collect the screens that your app opened and include it as context within your sessions.
 Here's how you add the screen tracker to the session.
 
-### Install the package
+#### Install the package
 
 npm:
 
@@ -28,7 +28,7 @@ yarn:
 yarn add @embrace-io/react-native-navigation
 ```
 
-## Setup in your code
+### Setup in your code
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
@@ -39,22 +39,22 @@ import TabItem from '@theme/TabItem';
 <TabItem value="expo-router" label="expo-router">
 
 ```javascript
-import React from "react";
-import {View, Text} from "react-native"
-import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
-import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
-import {useNavigationContainerRef} from "expo-router";
-import {useEmbrace} from "@embrace-io/react-native";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
+import { EmbraceNavigationTracker } from '@embrace-io/react-native-navigation';
+import { useNavigationContainerRef } from 'expo-router';
+import { useEmbrace } from '@embrace-io/react-native';
 
 const App = () => {
-  const {isPending, isStarted} = useEmbrace({
+  const { isPending, isStarted } = useEmbrace({
     ios: {
-      appId: "__APP_ID__",
+      appId: '__APP_ID__',
     },
   });
 
   // make sure a tracer provider is registered BEFORE you attempt to record the first span (otherwise some initial telemetry can be missed).
-  const {tracerProvider, isLoading: isLoadingTracerProvider} =
+  const { tracerProvider, isLoading: isLoadingTracerProvider } =
     useEmbraceNativeTracerProvider({}, isStarted);
 
   const expoNavigationRef = useNavigationContainerRef();
@@ -73,8 +73,8 @@ const App = () => {
       tracerProvider={tracerProvider}
       // These static attributes will be passed into each created span
       screenAttributes={{
-        "static.attribute": 123456,
-        "custom.key": "custom.value",
+        'static.attribute': 123456,
+        'custom.key': 'custom.value',
       }}>
       {/* rest of the navigation */}
     </EmbraceNavigationTracker>
@@ -89,23 +89,23 @@ export default App;
 <TabItem value="react-navigation/native" label="@react-navigation/native">
 
 ```javascript
-import React, {useRef} from "react";
-import {useEmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
-import {EmbraceNavigationTracker} from "@embrace-io/react-native-navigation";
+import React, { useRef } from 'react';
+import { useEmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
+import { EmbraceNavigationTracker } from '@embrace-io/react-native-navigation';
 import {
   NavigationContainer,
   useNavigationContainerRef,
-} from "@react-navigation/native";
-import {useEmbrace} from "@embrace-io/react-native";
+} from '@react-navigation/native';
+import { useEmbrace } from '@embrace-io/react-native';
 
 const App = () => {
-  const {isPending, isStarted} = useEmbrace({
+  const { isPending, isStarted } = useEmbrace({
     ios: {
-      appId: "__APP_ID__",
+      appId: '__APP_ID__',
     },
   });
 
-  const {tracerProvider, isLoading: isLoadingTracerProvider} =
+  const { tracerProvider, isLoading: isLoadingTracerProvider } =
     useEmbraceNativeTracerProvider({}, isStarted);
 
   // as of now if you inspect the source code of `useNavigationContainerRef` from `@react-navigation/native` you will see that it returns `navigation.current` instead of the entire shape of a reference
@@ -128,8 +128,8 @@ const App = () => {
         ref={navigationRef}
         tracerProvider={tracerProvider}
         screenAttributes={{
-          "static.attribute": 123456,
-          "custom.key": "custom.value",
+          'static.attribute': 123456,
+          'custom.key': 'custom.value',
         }}>
         {/* rest of the navigation */}
       </EmbraceNavigationTracker>
@@ -208,7 +208,7 @@ initApp();
 </TabItem>
 </Tabs>
 
-## Disable auto tracking for native screens
+### Disable auto tracking for native screens
 
 Embrace automatically collects the native screens, if you do not want to see them in the session you can disable it.
 
@@ -302,7 +302,7 @@ const App = () => {
 export default App;
 ```
 
-## Migrating from older versions
+### Migrating from older versions
 
 <Tabs groupId="older" queryString="older">
 <TabItem value="react-navigation" label="@embrace-io/react-navigation">
@@ -373,12 +373,12 @@ function App() {
 The old `@embrace-io/react-native-navigation` exposed a builder that received the Navigation shape in the way it is exported by `react-native-navigation` to start tracking views:
 
 ```javascript
-import {Navigation} from "react-native-navigation";
+import { Navigation } from 'react-native-navigation';
 
-import EmbraceNavigationTracker from "@embrace-io/react-native-navigation";
+import EmbraceNavigationTracker from '@embrace-io/react-native-navigation';
 EmbraceNavigationTracker.build(Navigation);
 
-Navigation.registerComponent("myLaunchScreen", () => App);
+Navigation.registerComponent('myLaunchScreen', () => App);
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
@@ -386,7 +386,7 @@ Navigation.events().registerAppLaunchedListener(() => {
         children: [
           {
             component: {
-              name: "myLaunchScreen",
+              name: 'myLaunchScreen',
             },
           },
         ],
@@ -399,15 +399,15 @@ Navigation.events().registerAppLaunchedListener(() => {
 Now you just need to wrap your root view using the `EmbraceNativeNavigationTracker` component exposed by the newest version of `@embrace-io/react-native-navigation` and configure it in the desired way:
 
 ```javascript
-import {Navigation} from "react-native-navigation";
-import {initialize} from "@embrace-io/react-native";
-import {EmbraceNativeTracerProvider} from "@embrace-io/react-native-tracer-provider";
-import {TracerProvider} from "@opentelemetry/api";
+import { Navigation } from 'react-native-navigation';
+import { initialize } from '@embrace-io/react-native';
+import { EmbraceNativeTracerProvider } from '@embrace-io/react-native-tracer-provider';
+import { TracerProvider } from '@opentelemetry/api';
 
 await initialize({
   sdkConfig: {
     ios: {
-      appId: "__APP_ID__",
+      appId: '__APP_ID__',
     },
   },
 });
@@ -417,15 +417,15 @@ try {
   provider = new EmbraceNativeTracerProvider();
 } catch (e) {
   console.log(
-    "Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead",
+    'Error creating `EmbraceNativeTracerProvider`. Will use global tracer provider instead',
     e,
   );
 }
 
 // entry point of app
 Navigation.registerComponent(
-  "HomeScreen",
-  props => () => {
+  'HomeScreen',
+  (props) => () => {
     const ref = useRef(Navigation.events());
 
     return (
@@ -433,7 +433,7 @@ Navigation.registerComponent(
         ref={ref}
         tracerProvider={provider}
         screenAttributes={{
-          "test.attr": 98765,
+          'test.attr': 98765,
         }}>
         <RootScreen {...props} />
       </EmbraceNativeNavigationTracker>

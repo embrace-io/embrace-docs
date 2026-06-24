@@ -7,11 +7,11 @@ sidebar_position: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Tap Capture
+## Tap Capture
 
 The Embrace SDK's `TapCaptureService` automatically instruments tap events throughout your app, providing visibility into user interactions and the screens they engage with most.
 
-## How Tap Capture Works
+### How Tap Capture Works
 
 The tap capture service monitors user tap events in your app and creates OpenTelemetry spans for each interaction. These spans capture:
 
@@ -22,7 +22,7 @@ The tap capture service monitors user tap events in your app and creates OpenTel
 
 This data helps identify screens with high user engagement, troubleshoot UI responsiveness issues, and understand user behavior patterns.
 
-## Configuration
+### Configuration
 
 You can customize tap capture behavior when initializing the Embrace SDK:
 
@@ -75,9 +75,9 @@ try Embrace
 </TabItem>
 </Tabs>
 
-## Customization Options
+### Customization Options
 
-### Ignoring Specific Views
+#### Ignoring Specific Views
 
 You can configure the tap capture service to ignore taps on specific UIView classes:
 
@@ -89,7 +89,7 @@ TapCaptureService.Options(
 
 This is useful when you want to focus on particular interactions or exclude high-volume tap areas.
 
-### Capturing Tap Coordinates
+#### Capturing Tap Coordinates
 
 Enable coordinate capture to record the exact location of each tap:
 
@@ -104,7 +104,7 @@ When enabled, tap coordinates will be included as attributes in the generated sp
 - `emb.tap.x`: X-coordinate of the tap
 - `emb.tap.y`: Y-coordinate of the tap
 
-### Custom Tap Capture Delegate
+#### Custom Tap Capture Delegate
 
 For fine-grained control over which taps are captured, you can implement a custom delegate:
 
@@ -134,7 +134,7 @@ TapCaptureService.Options(
 )
 ```
 
-## Understanding Tap Data
+### Understanding Tap Data
 
 Tap events are captured as OpenTelemetry spans with the following attributes:
 
@@ -143,25 +143,25 @@ Tap events are captured as OpenTelemetry spans with the following attributes:
 - `emb.tap.x` and `emb.tap.y`: Tap coordinates (if enabled)
 - `emb.view_controller`: The class name of the view controller containing the tapped view
 
-## Example Use Cases
+### Example Use Cases
 
-### User Flow Analysis
+#### User Flow Analysis
 
 Tap capture data can reveal how users navigate through your app and which features they interact with most frequently.
 
-### UI Responsiveness Monitoring
+#### UI Responsiveness Monitoring
 
 By combining tap data with view performance metrics, you can identify areas where your app may be slow to respond to user input.
 
-### Feature Engagement Tracking
+#### Feature Engagement Tracking
 
 Monitor which features users are engaging with and identify areas of your app that may need better visibility or redesign.
 
-### A/B Testing Analysis
+#### A/B Testing Analysis
 
 When running A/B tests, tap data can provide insights into how different UI variations affect user behavior and engagement.
 
-## Best Practices
+### Best Practices
 
 - Be selective about which views you monitor to avoid capturing excessive data
 - Use accessibility identifiers on important UI elements to make tap events more meaningful
@@ -169,4 +169,4 @@ When running A/B tests, tap data can provide insights into how different UI vari
 - Combine tap data with session information to build comprehensive user journey maps
 - Use tap coordinates sparingly, only when the precise location of interaction is important
 
- <!-- TODO: Add examples of how tap data appears in the Embrace dashboard, including any visualizations or reports that highlight user interaction patterns -->
+  <!-- TODO: Add examples of how tap data appears in the Embrace dashboard, including any visualizations or reports that highlight user interaction patterns -->

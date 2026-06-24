@@ -4,21 +4,21 @@ description: Upload crash reports for both native and JavaScript exceptions from
 sidebar_position: 6
 ---
 
-# Collect your first crash report  
+## Collect your first crash report
 
-## Setting up the Crash Reporter
+### Setting up the Crash Reporter
 
 If you've been following along, you should be setup to collect native crash reports.
 To upload crash reports from unhandled JavaScript exceptions, add the following in the entrypoint of the React app.
 
 ```javascript
-import {initialize} from '@embrace-io/react-native'
+import { initialize } from '@embrace-io/react-native';
 
 // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-initialize().then(hasStarted=>{
-    if(hasStarted){
-        //doSomething
-    }
+initialize().then((hasStarted) => {
+  if (hasStarted) {
+    //doSomething
+  }
 });
 ```
 
@@ -31,7 +31,7 @@ You can also pass in a patch number to the `initialize` function to use along si
 
 ```javascript
 // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-initialize({patch: 'v1'});
+initialize({ patch: 'v1' });
 ```
 
 :::info Note for iOS
@@ -58,7 +58,7 @@ the Embrace SDK to where CodePush downloads the latest JavaScript bundle.
 <TabItem value="javascript" label="JavaScript">
 
 ```javascript
-import {setJavaScriptBundlePath} from '@embrace-io/react-native';
+import { setJavaScriptBundlePath } from '@embrace-io/react-native';
 
 setJavaScriptBundlePath('/path/to/bundle');
 ```
@@ -82,7 +82,7 @@ Embrace.getInstance().getReactNativeInternalInterface().setJavaScriptBundleUrl(p
 
 :::
 
-## Triggering a Crash
+### Triggering a Crash
 
 Now we're ready to trigger a crash.
 Either crash the app organically, or add the following code to make it crash.

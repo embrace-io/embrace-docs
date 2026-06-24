@@ -4,7 +4,7 @@ description: Track the mounting and unmounting of React Components for your Reac
 sidebar_position: 4
 ---
 
-# Track components
+## Track components
 
 By default, Embrace will track native views.
 If you'd like to track when a React component is mounted and unmounted, you can do so with the `startView` helper
@@ -18,22 +18,21 @@ First get a `tracer` following the instructions from the [Traces guide](/react-n
 The method can then be used as follows:
 
 ```javascript
-import {startView} from '@embrace-io/react-native-tracer-provider';
+import { startView } from '@embrace-io/react-native-tracer-provider';
 
 const viewSpan = startView(tracer, 'MyView');
 
 // ...at some later point...
 viewSpan.end();
-```  
+```
 
-## Breadcrumbs as a lighter weight option
+### Breadcrumbs as a lighter weight option
 
 Logging a breadcrumb with the name of the component could be helpful as a lightweight option to record when components
 become visible if you don't care about the duration:
 
 ```javascript
-
-import {addBreadcrumb} from '@embrace-io/react-native';
+import { addBreadcrumb } from '@embrace-io/react-native';
 
 addBreadcrumb(`Rendered [${myComponent}]`);
 ```

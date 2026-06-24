@@ -7,11 +7,11 @@ sidebar_position: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Logging
+## Logging
 
 Embrace's logging capabilities allow you to capture log messages with different severity levels, providing valuable context for troubleshooting and debugging issues in your app.
 
-## Understanding Logging in Embrace
+### Understanding Logging in Embrace
 
 Logs in Embrace serve several purposes:
 
@@ -22,7 +22,7 @@ Logs in Embrace serve several purposes:
 
 Logs are organized by severity level and are associated with the session in which they occurred.
 
-## Log Severity Levels
+### Log Severity Levels
 
 Embrace supports multiple log severity levels:
 
@@ -31,7 +31,7 @@ Embrace supports multiple log severity levels:
 - **Error**: Errors that affected functionality but didn't crash the app
 - **Debug**: Detailed information for debugging (not visible in production by default)
 
-## Basic Logging
+### Basic Logging
 
 The simplest way to log a message is with the `logMessage` method:
 
@@ -72,7 +72,7 @@ Embrace.client?.log("Cache hit ratio: 0.85", severity: .debug)
 </TabItem>
 </Tabs>
 
-## Adding Properties to Logs
+### Adding Properties to Logs
 
 You can add additional context to your logs with properties:
 
@@ -115,9 +115,9 @@ Embrace.client?.log(
 
 Properties help you filter and search logs more effectively.
 
-## Integrating with Existing Logging Systems
+### Integrating with Existing Logging Systems
 
-### Using OSLog / Unified Logging
+#### Using OSLog / Unified Logging
 
 If you're using Apple's Unified Logging system, you can integrate it with Embrace:
 
@@ -194,7 +194,7 @@ Logger.log("API request started", to: Logger.network, type: .info)
 </TabItem>
 </Tabs>
 
-### Using CocoaLumberjack
+#### Using CocoaLumberjack
 
 If you're using CocoaLumberjack, you can create a custom logger that forwards logs to Embrace:
 
@@ -289,9 +289,9 @@ func setupLogging() {
 </TabItem>
 </Tabs>
 
-## Common Logging Patterns
+### Common Logging Patterns
 
-### Logging App Lifecycle
+#### Logging App Lifecycle
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -360,7 +360,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 </TabItem>
 </Tabs>
 
-### Logging Network Activity
+#### Logging Network Activity
 
 <Tabs groupId="embrace-client">
 <TabItem value="embraceio" label="EmbraceIO" default>
@@ -515,9 +515,9 @@ class APIClient {
 </TabItem>
 </Tabs>
 
-## Best Practices for Logging
+### Best Practices for Logging
 
-### Log Levels
+#### Log Levels
 
 Use appropriate log levels:
 
@@ -526,7 +526,7 @@ Use appropriate log levels:
 - **Warning**: Unexpected behavior that doesn't impact functionality
 - **Error**: Issues that impact functionality but don't crash the app
 
-### Contextual Information
+#### Contextual Information
 
 Include relevant context in logs:
 
@@ -535,7 +535,7 @@ Include relevant context in logs:
 - State information that helps understand the context
 - Error codes and descriptions
 
-### Performance Considerations
+#### Performance Considerations
 
 Be mindful of logging frequency:
 
@@ -544,7 +544,7 @@ Be mindful of logging frequency:
 - Use debug logs for verbose information that's only needed during development
 - Excessive logging can impact battery life, network usage, and storage requirements
 
-### Sensitive Information
+#### Sensitive Information
 
 Never log sensitive data:
 
@@ -553,7 +553,7 @@ Never log sensitive data:
 - Payment information
 - Access tokens
 
-### Structured Logging
+#### Structured Logging
 
 Use a consistent structure for log messages:
 

@@ -4,13 +4,13 @@ description: Get started with integrating Embrace into your Unity application
 sidebar_position: 1
 ---
 
-# Unity Integration
+## Unity Integration
 
-## Getting Started
+### Getting Started
 
 We'll guide you through the Embrace integration with a series of articles. We recommend going through them in order, although you are free to skip around. If you are updating from a previous version of the SDK we made some changes to how the configuration files are handled. These changes will need to be implemented into your project if you plan on updating.
 
-## Things to think about before you start
+### Things to think about before you start
 
 Unity is a complex engine. Deploying it to mobile platforms can add a lot of extra complexity. Embrace is a native framework that links to your project as a dynamic library and you make calls to it via a C# static interface.
 

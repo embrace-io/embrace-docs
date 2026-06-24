@@ -28,7 +28,7 @@ npm i
 
 This command will install all node packages and their dependencies. This command is usually optional, as the packages are prebuilt in this repository.
 
-### Start  
+### Start
 
 ```console
 npm start
@@ -94,4 +94,4 @@ And we customized the following:
 
 - If you make changes to `docusaurus.config.js` or some other site-wide `.js` files you typically need to fully restart `npm start` process and not rely on its hot-reloading.
 - The searchbox on the site is only indexed for static `build` and is not available via local `npm start`.
-- Docusaurus will navigate *relative links* for you. When linking within these docs, use a path from the section's folder rather than the absolute path of the page. Also, you can leave off the markdown file extension in a link. For example, linking to iOS trace instrumentation should be in `/ios/6x/tracing`, not `/docs/ios/6x/tracing.md`.
+- Docusaurus will navigate _relative links_ for you. When linking within these docs, use a path from the section's folder rather than the absolute path of the page. Also, you can leave off the markdown file extension in a link. For example, linking to iOS trace instrumentation should be in `/ios/6x/tracing`, not `/docs/ios/6x/tracing.md`.
