@@ -5,6 +5,93 @@ sidebar_position: 6
 
 ## Upgrade guide
 
+### Upgrading from 8.x to 9.x
+
+:::info Important
+Version 9.0.0 extends the concept of sessions on the Embrace platform, changing the way group together app
+and user activities. For the most part, apps that upgrade to 9.x will not see a difference in how telemetry is collected
+by the SDK or how app data is displayed in the dashboard until additional non-SDK changes are rolled out. But the
+changes are subtle, so please carefully read the `Session Extension Preview` section before upgrading.
+:::
+
+#### Quick start
+
+1. **Change Embrace version**
+   - Set the version of the Embrace Android SDK to `{{ embrace_sdk_version platform="android" }}`.
+
+2. **Compile the app and fix errors**
+   - You will get build errors due to renamed and removed symbols in the API.
+   - See the [Altered APIs](/android/upgrading/#altered-apis-1) section for a full list of changes.
+
+3. **Build and install your app**
+   - Verify the migration was successful by sending a session to your dashboard.
+
+#### Session Extension Preview
+
+What Embrace used to call `Session` and `Background Activities` will be unified in the future by a new definition of `Session`, which will refer to a
+period of time in which a user is considered to be using the app. The redefined concept crosses boundaries like backgrounding/foregrounding,
+which is how Embrace traditionally delineates the start and end of Sessions and Background Activities. Those periods of time will be called Session Parts going forward.
+
+A Session in the new sense starts when an app is opened after a prior period of inactivity. It will end when the app has been idle for a period of
+time, or if the maximum time Session duration has been reached. App crashes and other causes of process termination will not end a Session.
+Only periods of inactivity, maximum duration, or manual API calls will end a Session.
+
+Within a Session are one or more Session Parts. Each contains a unique ID. The ID of the old Session is now the ID of the Session Part,
+since those are equivalent. The ID of the new Session will be net-new.
+
+The changes in 9.x leverages the new Session concept in a backwards-compatible way. A number of old API that were tied to the old Session
+lifecycle are replaced by ones that are coupled to the new Session lifecycle. In practice, it means that for those who use those APIs,
+the calls will apply to multiple consecutive Sessions and Background Activities (or Session Parts in future parlance) that comprise a Session.
+
+Until more changes are made, you will see no differences in the dashboard UI. But a handful of API methods have been changed to conform to
+the Session lifecycle, and if you use those changed APIs, you can see what has changed below.
+
+Note that all APIs that have behavior changes were renamed, so your app will not compile until you opt into the new method names. This
+means that we will not silently opt you into new behavior by keeping the method names the same. In other words, if you upgrade the SDK to
+9.x and don't need to change any other source code for the app to build, the change will not affect you.
+
+#### Altered APIs
+
+All session-related methods have been renamed to use the `UserSession` prefix.
+
+| Old API | New API | Behavior Change                                                                                                                                                                                                                                                                                                    |
+|---|---|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Embrace.addSessionProperty(String, String, Boolean)` | `Embrace.addUserSessionProperty(String, String, PropertyScope)` | Lifetime of Session Properties set to one of three `PropertyScope`. If you called the old method with the `permanent` boolean parameter set to `true`, the equivalent in the new method is `PropertyScope.PERMANENT`. There is no equivalent to `false`.                                                           |
+| `Embrace.removeSessionProperty(String)` | `Embrace.removeUserSessionProperty(String)` | Rename only                                                                                                                                                                                                                                                                                                        |
+| `Embrace.endSession(Boolean)` | `Embrace.endUserSession()` | The boolean for clearing user info data has been removed. Calling the new method is like calling the old method with `clearUserInfo = false`. There is no exact equivalent to calling the old method with the boolean parameter set to `true`. Both the Session and the Session Part will be ended. |
+| `Embrace.getCurrentSessionId()` | `Embrace.getCurrentUserSessionId()` | The ID returned by the new method will be for the new definition of Session. The ID returned by the old method is for a concept that is equivalent to the old Session or Background Activity, which is now known as a Session Part.                                                                                |
+
+#### PropertyScope
+
+The `Boolean permanent` parameter in `addUserSessionProperty` has been replaced with a `PropertyScope` enum. This makes the lifetime of a property explicit:
+
+| Old API | New API | Behaviour                                            |
+|---|---|------------------------------------------------------|
+| `addUserSessionProperty(key, value, true)` | `addUserSessionProperty(key, value, PropertyScope.PERMANENT)` | Property persists across all Sessions                |
+| `addUserSessionProperty(key, value, false)` | `addUserSessionProperty(key, value, PropertyScope.USER_SESSION)` | Property is cleared at the start of the next Session |
+| _(no equivalent)_ | `addUserSessionProperty(key, value, PropertyScope.PROCESS)` | Property is cleared when the process ends            |
+
+#### UserSessionListener
+
+A new callback API allows you to observe when a Session starts and ends. Register a listener after starting the SDK:
+
+```kotlin
+Embrace.addUserSessionListener(object : UserSessionListener {
+    override fun onSessionStateEvent(event: SessionStateEvent) {
+        when (event) {
+            is SessionStateEvent.UserSessionActive -> {
+                // A new session has started; event.getUserSessionId() returns its ID
+            }
+            is SessionStateEvent.UserSessionEnded -> {
+                // A session has ended; event.getUserSessionId() returns its ID
+            }
+        }
+    }
+})
+```
+
+If you previously specified `clearUserInfo` when ending sessions manually you should use `addUserSessionListener` to clear user information.
+
 ### Upgrading from 7.x to 8.x
 
 #### Quick start
