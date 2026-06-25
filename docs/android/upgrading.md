@@ -43,7 +43,7 @@ The changes in 9.x leverages the new Session concept in a backwards-compatible w
 lifecycle are replaced by ones that are coupled to the new Session lifecycle. In practice, it means that for those who use those APIs,
 the calls will apply to multiple consecutive Sessions and Background Activities (or Session Parts in future parlance) that comprise a Session.
 
-Until more changes are made, you will see no differences in the dashboard UI. But a handful of API methods have been changed to conform to 
+Until more changes are made, you will see no differences in the dashboard UI. But a handful of API methods have been changed to conform to
 the Session lifecycle, and if you use those changed APIs, you can see what has changed below.
 
 Note that all APIs that have behavior changes were renamed, so your app will not compile until you opt into the new method names. This
