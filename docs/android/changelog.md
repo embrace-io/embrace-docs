@@ -10,6 +10,17 @@ sidebar_position: 6
 Please review the [Upgrade Guide](/android/upgrading/) when moving from one major version to another (e.g. Android 7.x to Android 8.x)
 :::
 
+### 9.0.0
+
+_June 25, 2026_
+
+- Internal and API changes for upcoming session improvements
+- Replace runtime usage of Moshi with Kotlin Serialization
+- Improve SDK startup performance, particularly on low-end devices
+- Update OpenTelemetry Java API and SDK to `1.63.0`
+- Update OpenTelemetry Kotlin API to `0.5.0`
+- Details about this major release can be found in the [Upgrade Guide](/android/upgrading/)
+
 ### 8.4.0
 
 _June 10, 2026_
