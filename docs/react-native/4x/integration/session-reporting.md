@@ -28,15 +28,15 @@ import TabItem from '@theme/TabItem';
 <TabItem value="ios" label="Component">
 
 ```javascript
-import {initialize} from '@embrace-io/react-native';
+import { initialize } from '@embrace-io/react-native';
 
 export default class App extends Component {
   componentDidMount() {
     // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
 
-    initialize().then(hasStarted=>{
-      if(hasStarted){
-          //doSomething
+    initialize().then((hasStarted) => {
+      if (hasStarted) {
+        //doSomething
       }
     });
   }
@@ -165,7 +165,7 @@ In either platform, you can end the startup moment when your application mounts.
 <TabItem value="ios" label="Component">
 
 ```javascript
-import {endAppStartup} from '@embrace-io/react-native';
+import { endAppStartup } from '@embrace-io/react-native';
 
 export default class App extends Component {
   componentDidMount() {

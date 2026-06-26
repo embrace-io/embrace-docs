@@ -77,9 +77,9 @@ When our system processes an alert, it evaluates the data received at that speci
 To provide a clear understanding of the data over time, our system visualizes two datasets:
 
 - Alert data: The data available at the time the alert was triggered.
-<img src={require('@site/static/images/features/alerting/alert_data.png').default} alt="Alert Data" />
+  <img src={require('@site/static/images/features/alerting/alert_data.png').default} alt="Alert Data" />
 - Latest data: Combines alert data with data received after the alert, matching what you see in the rest of the Embrace platform.
-<img src={require('@site/static/images/features/alerting/latest_data.png').default} alt="Latest Data" />
+  <img src={require('@site/static/images/features/alerting/latest_data.png').default} alt="Latest Data" />
 
 This approach enables users to compare the state of the data during alert processing with the fuller picture that becomes available later. These comparisons help illustrate the impact of delayed data on analytics and ensure transparency in alerting decisions.
 
@@ -157,13 +157,13 @@ Here's a sample webhook data for an alert:
 
 ### Alert Rate Limiting
 
-  To ensure reliable alert delivery and prevent notification fatigue, Embrace applies rate limits to alert notifications. This means there's a maximum number of notifications that can be sent within a specific time
-  period.
+To ensure reliable alert delivery and prevent notification fatigue, Embrace applies rate limits to alert notifications. This means there's a maximum number of notifications that can be sent within a specific time
+period.
 
-  When a rate limit is reached, additional alerts are suppressed until the time window resets.
+When a rate limit is reached, additional alerts are suppressed until the time window resets.
 
-  **Important**: Even if a notification is suppressed, all triggered alerts are still recorded and visible in your Alert History
-   in the dashboard.
+**Important**: Even if a notification is suppressed, all triggered alerts are still recorded and visible in your Alert History
+in the dashboard.
 
 #### Rate Limits by Channel
 

@@ -25,7 +25,6 @@ sidebar_position: 6
    <img src={require('@site/static/images/data-destinations/splunk_add_new_token_button.png').default} alt="Image showing create Access Token button" />
 
    At least you must enable the following permissions:
-
    - Ingests
 
    <img src={require('@site/static/images/data-destinations/splunk_create_token_dialog.png').default} alt="Image showing Access Token modal" />

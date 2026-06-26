@@ -7,7 +7,7 @@ sidebar_position: 2
 ## Element Timing
 
 The Embrace SDK automatically captures render and load timing for elements you explicitly opt into
-tracking by adding the [`elementtiming`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/elementtiming)
+tracking by adding the [`elementtiming`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/elementtiming)
 HTML attribute. This gives you fine-grained visibility into when key elements — images, hero text,
 call-to-action blocks — become visible on screen.
 

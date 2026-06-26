@@ -1,0 +1,3 @@
+# URLs that return 403 to automated checkers (bot protection) but are valid in a browser.
+https://circleci\.com/docs/guides/optimize/artifacts/?
+https://www\.onelogin\.com/connector/embrace_saml

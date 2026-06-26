@@ -24,11 +24,11 @@ To enable onClick instrumentation, you will need to modify your `embrace-config.
 
 ```json
 {
-    "sdk_config": {
-        "compose": {
-            "capture_compose_onclick": true
-        }
+  "sdk_config": {
+    "compose": {
+      "capture_compose_onclick": true
     }
+  }
 }
 ```
 
@@ -86,7 +86,7 @@ Row(
 ){ ... }
 ```
 
-Clickable element that already defines the onClick action under the hood.  
+Clickable element that already defines the onClick action under the hood.
 
 The following example shows how to add a modifier onClick to override the label but not the actual action, so for the action, it passes null:
 

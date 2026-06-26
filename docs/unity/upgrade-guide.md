@@ -18,7 +18,8 @@ Unity 6.x already ships with AGP 8.13+ and Java 17, so there is no change requir
 - Remove deprecated properties from Gradle file
 - Remove scoped registry
 - Some features still have yet to be migrated
-  :::
+
+:::
 
 ## iOS SDK Code Initialization
 

@@ -77,7 +77,7 @@ This multiplier considers how quickly the session ended after the exception occu
 exception prevented the user from using the application.
 
 | Time to Session End | Multiplier | Impact                                        |
-|---------------------|------------|-----------------------------------------------|
+| ------------------- | ---------- | --------------------------------------------- |
 | < 1 second          | 1.2x       | Exception likely caused immediate session end |
 | 1-3 seconds         | 1.15x      | Very likely related to session end            |
 | 3-5 seconds         | 1.10x      | Possibly related to session end               |

@@ -17,8 +17,8 @@ For debugging purposes, increase the log level during development to see detaile
 import { initSDK, DiagLogLevel } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   logLevel: DiagLogLevel.INFO,
 });
 ```
@@ -33,14 +33,14 @@ If you're experiencing issues with SDK initialization:
    import { initSDK } from '@embrace-io/web-sdk';
 
    const result = initSDK({
-     appID: "YOUR_EMBRACE_APP_ID",
-     appVersion: "YOUR_APP_VERSION",
+     appID: 'YOUR_EMBRACE_APP_ID',
+     appVersion: 'YOUR_APP_VERSION',
    });
 
    if (result) {
-     console.log("Successfully initialized the Embrace SDK");
+     console.log('Successfully initialized the Embrace SDK');
    } else {
-     console.log("Failed to initialize the Embrace SDK");
+     console.log('Failed to initialize the Embrace SDK');
    }
    ```
 
@@ -49,16 +49,14 @@ If you're experiencing issues with SDK initialization:
 
 ### Verifying Session Tracking
 
-If sessions aren't being tracked properly try forcing a new session for testing:
+If sessions aren't being tracked properly, end the current session to force an upload for testing. A new session
+starts automatically on the next user activity:
 
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
-// Force start a new session
-session.startSessionSpan();
-
-// Force end the current session
-session.endSessionSpan();
+// End the current session
+session.endUserSession();
 ```
 
 Verify that the developer console's network tab contains requests to Embrace's `/spans` and `/logs` endpoints.
@@ -70,10 +68,10 @@ If your custom traces aren't appearing:
 1. Add more context to your spans to make them easier to identify:
 
    ```typescript
-   const span = trace.startSpan("span-name", {
-      attributes: {
-         "debug-id": id,
-      },
+   const span = trace.startSpan('span-name', {
+     attributes: {
+       'debug-id': id,
+     },
    });
 
    // ... operations ...
@@ -85,9 +83,9 @@ If your custom traces aren't appearing:
    ```typescript
    import { trace } from '@embrace-io/web-sdk';
 
-   const parentSpan = trace.startSpan("parent-operation");
+   const parentSpan = trace.startSpan('parent-operation');
    // Correct - child span is related to parent
-   const childSpan = trace.startSpan("the-child", { parentSpan });
+   const childSpan = trace.startSpan('the-child', { parentSpan });
 
    // ... operations ...
    childSpan.end();
@@ -99,7 +97,7 @@ If your custom traces aren't appearing:
 3. Ensure that spans were ended, spans must be ended in order to be reported to Embrace
 
    ```typescript
-   const span = trace.startSpan("span-name");
+   const span = trace.startSpan('span-name');
 
    // ... operations ...
 

@@ -30,7 +30,7 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 - **[Document Load](./document-load.md)** - Provides insight into your app's page load performance
 - **[User Interactions](./user-interactions.md)** - Records user interactions within your app's pages
 - **[React](./react/index.md)** - Various instrumentations that emit React specific telemetry if your app is built on that
-framework
+  framework
 - **[Empty Root Node](./empty-root-node.md)** - Records when content fails to render on the page's root element
 - **[W3C Performance API](./w3c-performance-api/index.md)** - Captures user timing marks and measures, element render timings, and server-side timing hints from the browser Performance API
 
@@ -43,13 +43,10 @@ behavior by passing a `defaultInstrumentationConfig` object when initializing th
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     omit: new Set(['@opentelemetry/instrumentation-fetch']),
-    'web-vital': {
-      trackingLevel: 'all'
-    }
   },
 });
 ```
@@ -66,8 +63,8 @@ other packages to instrument specific aspects of your application:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   instrumentations: [myCustomInstrumentation],
 });
 ```

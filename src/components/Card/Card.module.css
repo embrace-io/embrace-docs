@@ -6,7 +6,7 @@
   border-radius: 4px;
 }
 
-[data-theme="light"] .card {
+[data-theme='light'] .card {
   background-color: var(--background-primary);
   border-color: transparent;
 }
@@ -15,6 +15,6 @@
   border: 1px solid var(--border-primary);
 }
 
-[data-theme="light"] .card:hover {
+[data-theme='light'] .card:hover {
   border: 1px solid var(--border-content);
 }

@@ -88,14 +88,14 @@ Our engineering and product teams have many ideas about Sessions and how they wo
 
 If the prior section was too in-depth, here's a handy chart of the important Embrace SDK features and how they currently map to OpenTelemetry signals:
 
-| Embrace concept | OTel Representation|
-| ------------ | ---------- |
-| Session | Span |
-| Embrace logs | Log |
-| View Breadcrumb | Span |
-| Custom Breadcrumb | Span event |
-| Crash | Log |
-| Exception | Log |
-| Network request | Span + Span attributes |
-| ANR interval (Android) | Span |
-| Low memory warning | Span event|
+| Embrace concept        | OTel Representation    |
+| ---------------------- | ---------------------- |
+| Session                | Span                   |
+| Embrace logs           | Log                    |
+| View Breadcrumb        | Span                   |
+| Custom Breadcrumb      | Span event             |
+| Crash                  | Log                    |
+| Exception              | Log                    |
+| Network request        | Span + Span attributes |
+| ANR interval (Android) | Span                   |
+| Low memory warning     | Span event             |

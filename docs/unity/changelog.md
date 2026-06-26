@@ -8,10 +8,10 @@ sidebar_position: 4
 
 ### 2.8.1
 
-*November 25, 2025*
+_November 25, 2025_
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version: [6.15.1](https://embrace.io/docs/ios/changelog/#6141)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version: [6.15.1](/ios/changelog/#6151)
 
 - Upgraded Embrace Apple SDK version to 6.15.1
 - Removed broken reference to `getSessionProperties()`; it is now a no-op and marked as deprecated.
@@ -20,10 +20,10 @@ Embrace Apple SDK Version: [6.15.1](https://embrace.io/docs/ios/changelog/#6141)
 
 ### 2.8.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version: [6.14.1](/ios/changelog/#6141)
 
-*November 10, 2025*
+_November 10, 2025_
 
 - Trying to start a span that doesn't exist now throws an error
 - Added the ability to ignore URLs for WebView captures
@@ -33,10 +33,10 @@ Embrace Apple SDK Version: [6.14.1](https://embrace.io/docs/ios/changelog/#6141)
 
 ### 2.7.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version: [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version: [6.8.4](/ios/changelog/#684)
 
-*September 4, 2025*
+_September 4, 2025_
 
 - Auto-Instrumentation for:
   - Memory pressure
@@ -46,10 +46,10 @@ Both options are opt-in and low overhead. Please try them!
 
 ### 2.6.0
 
-Embrace Android SDK Version: [7.5.0](https://embrace.io/docs/android/changelog/#750)
-Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version [6.8.4](/ios/changelog/#684)
 
-*August 14, 2025*
+_August 14, 2025_
 
 - Added support for custom symbols path on Android platforms
 - Auto Instrumentation for:
@@ -63,10 +63,10 @@ All are opt-in and low overhead. Please try them out!
 
 ### 2.5.0
 
-Embrace Android SDK Version: [7.3.0](https://embrace.io/docs/android/changelog/#730)
-Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
+Embrace Android SDK Version: [7.3.0](/android/changelog/#730)
+Embrace Apple SDK Version [6.8.4](/ios/changelog/#684)
 
-*June 16, 2025*
+_June 16, 2025_
 
 - Modified Android SDK interface startup so it is more verbose
 - Modified iOS SDK interface for improved stability and verbosity
@@ -78,7 +78,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 ### 2.4.0
 
-*April 10, 2025*
+_April 10, 2025_
 
 - Upgraded Embrace Android Dependency to 7.3.0
 - Upgraded Embrace iOS Dependency to 6.8.4
@@ -88,7 +88,7 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 ### 2.3.0
 
-*February 11, 2025*
+_February 11, 2025_
 
 - Upgraded Embrace Android dependency to 7.1.0
 - Upgraded Embrace iOS dependency to 6.8.0
@@ -97,14 +97,14 @@ Embrace Apple SDK Version [6.8.4](https://embrace.io/docs/ios/changelog/#684)
 
 ### 2.2.0
 
-*January 27, 2025*
+_January 27, 2025_
 
 - Upgraded Embrace iOS dependency to 6.7.1
 - Swapped iOS dependency map method from xcframeworks to SPM
 
 ### 2.1.2
 
-*December 12, 2024*
+_December 12, 2024_
 :::warning Info
 Our Apple SDK and the Unity iOS SDK use Swift, which has a known issue with the current Unity build pipeline. To handle this issue, after creating your Xcode project, add a Dummy Swift file to the UnityFramework target. This will adjust the linker pipeline to invoke Swift appropriately.
 
@@ -124,13 +124,13 @@ You should [remove the Embrace scoped registry](/unity/upgrade-guide/#remove-sco
 
 ### 2.1.1
 
-*November 26, 2024*
+_November 26, 2024_
 
 - Restoration of meta files and patch to local asset path issues
 
 ### 2.1.0
 
-*November 21, 2024*
+_November 21, 2024_
 :::warning Important
 This version of the SDK has been retracted due to local mapping issues with the export.
 :::
@@ -141,13 +141,13 @@ This version of the SDK has been retracted due to local mapping issues with the 
 
 ### 2.0.2
 
-*October 22, 2024*
+_October 22, 2024_
 
 - Patch regarding Unity interaction with disabled Android Native SDK and sampling rate
 
 ### 2.0.1
 
-*October 11th, 2024*
+_October 11th, 2024_
 
 - Android patch of null map argument
 - Upgrade of Embrace iOS SDK to 6.4.2
@@ -156,7 +156,7 @@ This version of the SDK has been retracted due to local mapping issues with the 
 
 ### 2.0.0
 
-*September 30th, 2024*
+_September 30th, 2024_
 :::info Important
 This version of the Unity SDK contains several breaking changes to our API, including the removal of deprecated functions.
 
@@ -170,14 +170,14 @@ Additionally, with the update to Embrace Android 6.13, the SDK now requires Grad
 
 ### 1.26.1
 
-*August 12th, 2024*
+_August 12th, 2024_
 
 - NPE patch for null EmbraceSpanEvents
 - Improvement of AndroidJavaObject memory disposal
 
 ### 1.26.0
 
-*July 18, 2024*
+_July 18, 2024_
 :::warning Important
 This version of the Unity SDK requires desugaring if the required min Android API level is less than 24 and AGP < 7.4.2
 Additionally, for built APKs directly out of Unity, AGP 4.0.1 may be required for desugaring to function correctly.
@@ -195,26 +195,26 @@ For 2022, please see [this](https://docs.unity3d.com/2022.3/Documentation/Manual
 
 ### 1.25.3
 
-*June 24, 2024*
+_June 24, 2024_
 
 - Patch to PBXProject generation on 2021 and later around linker phase construction.
 - Patch to iOS xcframework and framework plugin matrix platform labeling.
 
 ### 1.25.2
 
-*May 23, 2024*
+_May 23, 2024_
 
 - Defensive patch of null case provider issue.
 
 ### 1.25.1
 
-*April 25, 2024*
+_April 25, 2024_
 
 - Patch of issue on newer versions of Unity iOS that involved double injecting into the linker phase.
 
 ### 1.25.0
 
-*April 24, 2024*
+_April 24, 2024_
 :::warning Important
 This version of the Unity SDK requires a later version than 2021.3.16f1. It is tested working on 2021.3.37f1 (the latest LTS version at time of writing). If you receive a "transformer returned null" error of some kind during your build process, please upgrade your LTS engine version.
 :::
@@ -223,7 +223,7 @@ This version of the Unity SDK requires a later version than 2021.3.16f1. It is t
 
 ### 1.24.0
 
-*March 17, 2024*
+_March 17, 2024_
 :::info Important
 This version of Unity has a number of changes to internal namespaces to streamline internal APIs and alignment. We have endeavored to avoid breaking changes. However, if you have subscribed to any existing APIs they may have changed. Please be aware of this when upgrading.
 
@@ -235,7 +235,7 @@ This version also has an issue on newer versions of Unity iOS where the linker p
 
 ### 1.23.0
 
-*February 23, 2024*
+_February 23, 2024_
 
 - Updated to Embrace Android SDK to 6.3.2
   - Improved performance and stability of NDK serialization while the app is under memory pressure
@@ -243,20 +243,20 @@ This version also has an issue on newer versions of Unity iOS where the linker p
 
 ### 1.22.0
 
-*February 5th, 2024*
+_February 5th, 2024_
 
 - Updated changes for Unity Verified Solutions Partnership. Excited to see everyone in the Asset Store!
 
 ### 1.21.0
 
-*January 25th, 2024*
+_January 25th, 2024_
 
 - Updated iOS SDK version to 5.24.5
 - Updated Embrace Unity API signatures for Embrace Android 6.x API
 
 ### 1.20.0
 
-*January 12th, 2024*
+_January 12th, 2024_
 
 - Updated Android SDK to 6.2.0
 - Added screenshot capture for Unity Android Bugshake
@@ -264,13 +264,13 @@ This version also has an issue on newer versions of Unity iOS where the linker p
 
 ### 1.19.1
 
-*December 21st, 2023*
+_December 21st, 2023_
 
 - Patched issue affecting Unity Android EDM customers where a change in dependencies blocked builds.
 
 ### 1.19.0
 
-*December 20th, 2023*
+_December 20th, 2023_
 
 - This version of the SDK had a build blocking issue for customers using EDM. Please update to the latest version.
 - Added support on Unity Android for the Embrace Android Bug Shake feature! Available for users who have Embrace Bug Shake accounts.
@@ -290,7 +290,7 @@ We strongly recommend that Embrace customers ensure their apps meet the criteria
 
 ### 1.18.2
 
-*December 7th 2023*
+_December 7th 2023_
 :::warning Important
 This version of the Unity SDK has two issues:
 
@@ -304,14 +304,14 @@ Please update to the latest version.
 
 ### 1.18.1
 
-*November 6th 2023*
+_November 6th 2023_
 
 - This version of the Unity SDK causes an exception when the Unity SDK tries to capture network requests that are null or that contain null parameters. Please update to the latest version.
 - Hotfix patch for bug for SDK where Android SDK and Unity SDK misalignment resulted in multiple dropped exceptions.
 
 ### 1.18.0
 
-*October 30, 2023*
+_October 30, 2023_
 
 - This version of the Unity SDK introduced a bug between the Unity and internal Android SDK resulting in dropped exceptions when communicating between the two SDKs.
 - Embrace.Instance.SetUserPersona, .LogBreadcrumb, .LogNetworkRequest have been deprecated and replaced by the following functions respectively: .AddUserPersona, .AddBreadcrumb, .RecordNetworkRequest
@@ -326,7 +326,7 @@ Please update to the latest version.
 
 ### 1.17.0
 
-*August 10, 2023*
+_August 10, 2023_
 
 - Added methods for recording iOS and Android push notification data.
 - Updated exceptions API to allow logging of handled exceptions as well as unhandled exceptions.
@@ -336,7 +336,7 @@ Please update to the latest version.
 
 ### 1.16.0
 
-*July 13, 2023*
+_July 13, 2023_
 
 - Fixed an issue that could cause the Unity package manager manifest to be refreshed when a recompile is triggered in the editor
 - Fixed an issue that could lead to unhandled exceptions being lost or misidentified if no valid stack trace was available
@@ -345,7 +345,7 @@ Please update to the latest version.
 
 ### 1.15.0
 
-*June 27, 2023*
+_June 27, 2023_
 
 - Added `GetLastRunEndState` method to retrieve enum indicating a crash or clean exit on the previous app launch
 - Updated Android SDK to version 5.21.0
@@ -353,13 +353,13 @@ Please update to the latest version.
 
 ### 1.14.1
 
-*June 16, 2023*  
+_June 16, 2023_
 
 - Updated iOS SDK to version 5.20.1
 
 ### 1.14.0
 
-*June 14, 2023*
+_June 14, 2023_
 
 - Fixed a potential compatibility issue with other packages using Mono.Cecil
 - Updated Android SDK to version 5.19.0
@@ -367,7 +367,7 @@ Please update to the latest version.
 
 ### 1.13.0
 
-*May 4, 2023*
+_May 4, 2023_
 
 - The Embrace Unity SDK now detects the presence of the External Dependency Manager and automatically configures the Android Swazzler as required
 - Added additional SDK log silencing options to filter logs by type
@@ -380,14 +380,14 @@ Please update to the latest version.
 
 ### 1.12.1
 
-*April 12, 2023*
+_April 12, 2023_
 
 - Fixed configuration selection becoming unresponsive in some states
 - Updated iOS SDK to 5.18.0
 
 ### 1.12.0
 
-*April 11, 2023*
+_April 11, 2023_
 
 - Improved Embrace configuration editor UI
 - Removed editor UI assets from runtime resources
@@ -395,7 +395,7 @@ Please update to the latest version.
 
 ### 1.11.0
 
-*March 24, 2023*
+_March 24, 2023_
 
 - Added support for building for the iOS simulator
 - Added support for tvOS
@@ -405,7 +405,7 @@ Please update to the latest version.
 
 ### 1.10.1
 
-*February 21, 2023*
+_February 21, 2023_
 
 - Fixed automatic network capture beta failing to resolve assemblies in some scenarios when the project contains pre-compiled DLLs.
 - The Embrace Unity SDK now explicitly declares dependencies on the following built-in Unity packages:
@@ -416,7 +416,7 @@ Please update to the latest version.
 
 ### 1.10.0
 
-*February 13, 2023*
+_February 13, 2023_
 
 - Added option to automatically log Unity Scene changes as Views (beta)
 - Updated Android SDK to version 5.13.0
@@ -427,14 +427,14 @@ Please update to the latest version.
 
 ### 1.9.3
 
-*January 23, 2023*
+_January 23, 2023_
 
 - Updated Android SDK to version 5.12.0
 - Updated iOS SDK to version 5.15.0
 
 ### 1.9.2
 
-*January 11, 2023*
+_January 11, 2023_
 
 - Updated Android SDK to version 5.11.0
 - Fixed a bug that could cause the value of `Exception-Free Sessions` shown in the dashboard to be inaccurate for Unity Android apps
@@ -443,13 +443,13 @@ Please update to the latest version.
 
 ### 1.9.1
 
-*December 13, 2022*
+_December 13, 2022_
 
 - Updated Android SDK to version 5.10.0
 
 ### 1.9.0
 
-*December 1, 2022*
+_December 1, 2022_
 
 - The Embrace Unity SDK now automatically updates the version of the `embrace-swazzler` dependency defined in the project's `baseProjectTemplate.gradle`
 - Fixed a bug that could cause multiple small editor windows to open while the Embrace SDK is imported for the first time
@@ -462,14 +462,14 @@ Please update to the latest version.
 
 ### 1.8.1
 
-*November 9, 2022*
+_November 9, 2022_
 
 - Excluded all Embrace assemblies when building for platforms other than iOS and Android.
 - Disabled Embrace IL weaver when building for platforms other than iOS and Android.
 
 ### 1.8.0
 
-*November 3, 2022*
+_November 3, 2022_
 
 - Added support for selecting environment configurations at build time by setting the `EMBRACE_ENVIRONMENTS_NAME` or `EMBRACE_ENVIRONMENTS_INDEX` environment variable
 - Updated Android SDK to version 5.9.0
@@ -480,7 +480,7 @@ Please update to the latest version.
 
 ### 1.7.6
 
-*October 4, 2022*
+_October 4, 2022_
 :::warning Important
 This version of the Unity SDK introduced a bug in the iOS crash handler that can cause the app to freeze when encountering a native crash. Please update to the latest version.
 :::
@@ -491,7 +491,7 @@ This version of the Unity SDK introduced a bug in the iOS crash handler that can
 
 ### 1.7.5
 
-*September 26, 2022*
+_September 26, 2022_
 :::warning Important
 The version of the Embrace Android SDK used in this version contains a bug that can cause Embrace to fail to initialize properly. Please update to Unity SDK version 1.8.0 or later and Android SDK version 5.7.0 or later.
 :::
@@ -500,7 +500,7 @@ The version of the Embrace Android SDK used in this version contains a bug that 
 
 ### 1.7.4
 
-*September 26, 2022*
+_September 26, 2022_
 :::warning Important
 This version includes a compatibility issue with Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.8.0 or later.
 :::
@@ -510,7 +510,7 @@ This version includes a compatibility issue with Embrace Android SDK versions 5.
 
 ### 1.7.3
 
-*September 22, 2022*
+_September 22, 2022_
 :::warning Important
 This version includes a compatibility issue with Embrace Android SDK versions 5.6.0 and greater. Please update to Unity SDK version 1.8.0 or later.
 :::
@@ -521,27 +521,27 @@ This version includes a compatibility issue with Embrace Android SDK versions 5.
 
 ### 1.7.2
 
-*September 15, 2022*
+_September 15, 2022_
 
 - Resolved a dependency conflict between the Embrace SDK and Unity's Burst package.
 - Fixed a UI bug in the Embrace Settings window that occurred when the SDK was reset.
 
 ### 1.7.1
 
-*September 14, 2022*
+_September 14, 2022_
 
 - Removed unnecessary dependency on Unity's default version control package introduced in 1.7.0
 
 ### 1.7.0
 
-*September 12, 2022*
+_September 12, 2022_
 
 - Added support for automatically logging web requests made via UnityWebRequest and HttpClient (BETA)
 - Updated Android SDK to 5.5.4
 
 ### 1.6.0
 
-*August 29, 2022*
+_August 29, 2022_
 
 - Updated iOS SDK to 5.9.1
 - Updated Android SDK Version 5.5.3
@@ -553,39 +553,39 @@ This version includes a compatibility issue with Embrace Android SDK versions 5.
 
 ### 1.5.10
 
-*July 07, 2022*
+_July 07, 2022_
 
 - Fixed breaking change in Embrace class
 - Improved comments
 
 ### 1.5.9
 
-*July 01, 2022*
+_July 01, 2022_
 
 - Upgrades native iOS SDK to 5.9.0
 
 ### 1.5.8
 
-*June 17, 2022*
+_June 17, 2022_
 
 - Upgrades native iOS SDK to 5.8.1
 
 ### 1.5.7
 
-*June 16, 2022*
+_June 16, 2022_
 
 - Added support for symbols upload in Unity 2020.
 - Removed UGUI package from being included in our SDK's unitypackage.
 
 ### 1.5.6
 
-*June 15, 2022*
+_June 15, 2022_
 
 - Fixed compatibility issue with Unity versions prior to 2020.2 introduced in v1.5.5.
 
 ### 1.5.5
 
-*June 10, 2022*
+_June 10, 2022_
 :::warning Important
 This version introduced a compatibility issue with Unity versions before 2020.2. Please upgrade to version 1.5.6.
 :::
@@ -597,66 +597,66 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 ### 1.5.4
 
-*June 06, 2022*
+_June 06, 2022_
 
 - Fixed issue with JSON conversion for log properties.
 - Upgrades native iOS SDK to 5.7.8
 
 ### 1.5.3
 
-*May 27, 2022*
+_May 27, 2022_
 
 - Upgrades native Android SDK to 5.1.0 for builds using the external dependency manager.
 - Upgrades Embrace Swazzler to 5.1.0 to allow NDK stacktrace collection.
 
 ### 1.5.2
 
-*May 16, 2022*
+_May 16, 2022_
 
 - Upgrades native Android SDK to 5.1.0-beta02 for builds using the external dependency manager.
 
 ### 1.5.1
 
-*May 12, 2022*
+_May 12, 2022_
 
 - Upgrades native Android SDK to 5.1.0 for builds using the external dependency manager.
 - Upgrades Embrace Swazzler to 5.1.0 to allow NDK stacktrace collection.
 
 ### 1.5.0
 
-*May 05, 2022*
+_May 05, 2022_
 
 - Added Scoped Registries to allow users to manage, download and install packages using the Package Manager.
 
 ### 1.4.2
 
-*May 04, 2022*
+_May 04, 2022_
 
 - Upgrades native Android SDK to 5.0.4 for builds using the external dependency manager.
 
 ### 1.4.1
 
-*April 22, 2022*
+_April 22, 2022_
 
 - Upgrades native Android SDK to 5.0.2 for builds using the external dependency manager.
 
 ### 1.4.0
 
-*March 15, 2022*
+_March 15, 2022_
 
 - Updated SDK to use the official package management system for Unity. These changes require you to delete your previous version of our SDK before importing the new update.
 - Upgrades native iOS SDK to 5.7.6
 
 ### 1.3.9
 
-*February 28, 2022*
+_February 28, 2022_
 
 - Added demos to help users get started using the Embrace SDK.
 - Fixed serialization bug that affected config environments ability to save.
 
 ### 1.3.8
 
-*February 11, 2022*
+_February 11, 2022_
 
 - Fixes TimeUtil main thread bug.
 - Updated Android config settings.
@@ -664,7 +664,7 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 ### 1.3.7
 
-*January 24, 2022*
+_January 24, 2022_
 
 - Introduces a Settings Window which exposes new features and settings using an editor window.
 - Allows users to create and manage environments which enables you to handle configurations based on your desired environment.
@@ -672,27 +672,27 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 ### 1.3.6
 
-*January 03, 2022*
+_January 03, 2022_
 
 - Updated native SDK's to change default behavior for screenshot capturing.
 
 ### 1.3.5
 
-*December 21, 2021*
+_December 21, 2021_
 
 - Upgrades native iOS SDK to 5.7.1
 - Upgrades native Android SDK to 4.14.0 for builds using the external dependency manager
 
 ### 1.3.4
 
-*December 01, 2021*
+_December 01, 2021_
 
 - Provides validation for the config ID and Token Key, For both the Embrace Post Build Processor and the customer-facing editor
 - Upgrades native Android SDK to 4.13.0 for builds using the external dependency manager.
 
 ### 1.3.3
 
-*November 24, 2021*
+_November 24, 2021_
 
 - Upgrades native iOS SDK to 5.7.0
 - Updated Embrace Android configurations to allow enable_native_monitoring as an option in the Embrace Editor window. Includes a CustomAndroidConfigurations JSON file that allows overriding of the editor configurations.
@@ -700,34 +700,34 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 ### 1.3.2
 
-*October 18, 2021*
+_October 18, 2021_
 
-- Added editor windows to improve the SDK experience.  
-- Enabled users to configure both Android and iOS at the same time using the new Embrace editor window.  
+- Added editor windows to improve the SDK experience.
+- Enabled users to configure both Android and iOS at the same time using the new Embrace editor window.
 - Welcome window informs users of important changes, new features or warns them of potential issues.
 
 ### 1.3.1
 
-*September 17, 2021*
+_September 17, 2021_
 
 - Fixed issue with iOS symbol upload
 
 ### 1.3.0
 
-*September 17, 2021*
+_September 17, 2021_
 
 - Improved how configuration files are handled for both iOS and Android.
 
 ### 1.2.13
 
-*August 9, 2021*
+_August 9, 2021_
 
 - Fixed issue where all dSYM files would not be uploaded for 2019+ Unity projects
 - Enforce execution permission on scripts used in upload of dSYM files when they are copied to the Xcode project
 
 ### 1.2.12
 
-*July 29, 2021*
+_July 29, 2021_
 
 - Made initialization more robust, removing initialization steps from Awake method.
 - Disable SDK gracefully on unsupported platforms.
@@ -735,83 +735,83 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 ### 1.2.11
 
-*July 20, 2021*
+_July 20, 2021_
 
 - Expanded search path in dSYM upload script to automatically include location of dSYMs for all supported Unity versions and configurations.
 
 ### 1.2.10
 
-*July 15, 2021*
+_July 15, 2021_
 
 - Updated to unity-resolver config to use latest version of Android SDK, which addresses a compatibility issue with androidx.lifecycle v.2.3.0+
 - Automatically set dSYM configuration for UnityFramework target.
 
 ### 1.2.9
 
-*July 13, 2021*
+_July 13, 2021_
 
 - Removed references to Unity source in iOS project.
 
 ### 1.2.8
 
-*June 15, 2021*
+_June 15, 2021_
 
 - Include the latest iOS 5.5.2 SDK
 
 ### 1.2.7
 
-*June 14, 2021*
+_June 14, 2021_
 
 - Ensure that the NDK is always referenced correctly
 
 ### 1.2.6
 
-*May 27, 2021*
+_May 27, 2021_
 
 - Update Android dependency to 4.8.10
 - Ensure JNI is always attached to current thread before usage
 
 ### 1.2.5
 
-*May 17, 2021*
+_May 17, 2021_
 
 - Update Android dependency to 4.8.7
 
 ### 1.2.4
 
-*May 17, 2021*
+_May 17, 2021_
 
 - Fix quotes in iOS dSYM build phase to handle path spaces
 - Update run.sh to support iOS dSYM search depth
 
 ### 1.2.3
 
-*May 6, 2021*
+_May 6, 2021_
 
 - Fix iOS timestamps for manually logged network requests
 - Support for latest Android sdk
 
 ### 1.2.2
 
-*May 4, 2021*
+_May 4, 2021_
 
 - Use correct group id in external dependency xml
 
 ### 1.2.1
 
-*May 4, 2021*
+_May 4, 2021_
 
 - Update Android artifact version in external dependency xml
 
 ### 1.2
 
-*April 30, 2021*
+_April 30, 2021_
 
 - Support for unhandled exception reporting
 
 ### 1.1
 
-*March 18, 2021*
+_March 18, 2021_
 
 - Add method to enable debug logging for Android platform
 - Add method to manually log a network request
@@ -819,61 +819,61 @@ This version introduced a compatibility issue with Unity versions before 2020.2.
 
 ### 1.0.14
 
-*March 9, 2021*
+_March 9, 2021_
 
 - Adopt 5.3.7 iOS native build
 - Fix typo in iOS info log severity value
 
 ### 1.0.13
 
-*Feb 22, 2021*
+_Feb 22, 2021_
 
 - Support for the External Dependency Manager
 
 ### 1.0.12
 
-*Feb 8, 2021*
+_Feb 8, 2021_
 
 - Adopt 5.3.6 iOS native build
 
 ### 1.0.11
 
-*Feb 5, 2021*
+_Feb 5, 2021_
 
 - Adopt 5.3.5 iOS native build
 
 ### 1.0.10
 
-*Jan 29, 2021*
+_Jan 29, 2021_
 
 - Adopt 5.3.4 iOS native build
 
 ### 1.0.9
 
-*Jan 26, 2021*
+_Jan 26, 2021_
 
 - Adopt 5.3.3 iOS native build
 
 ### 1.0.8
 
-*Jan 18, 2021*
+_Jan 18, 2021_
 
 - Adopt 5.3.2 iOS native build
 
 ### 1.0.7
 
-*Jan 14, 2021*
+_Jan 14, 2021_
 
 - Updated post-build processing to support pre 2019.3 project configuration on Android
 
 ### 1.0.6
 
-*Jan 11, 2021*
+_Jan 11, 2021_
 
 - Updated post-build processing to support pre 2019.3 project configuration on iOS
 
 ### 1.0.5
 
-*Dec 20, 2020*
+_Dec 20, 2020_
 
 - First public release of the Embrace Unity SDK

@@ -216,12 +216,18 @@ Interface for providing runtime configuration when not using the Embrace backend
 
 ```swift
 protocol EmbraceConfigurable {
-    var enableNetworkSpanForwarding: Bool { get }
-    var enableBackgroundSessions: Bool { get }
-    var logLimitSeconds: Int { get }
-    var enableMetricCollection: Bool { get }
+    var isNetworkSpansForwardingEnabled: Bool { get }
+    var isBackgroundSessionEnabled: Bool { get }
+    var traceparentInjectionEnabled: Bool { get }
+    // ... additional properties
 }
 ```
+
+Key properties:
+
+- `isNetworkSpansForwardingEnabled`: Controls whether captured network spans are eligible for forwarding to third-party observability platforms.
+- `isBackgroundSessionEnabled`: Controls whether sessions are recorded when the app is in the background.
+- `traceparentInjectionEnabled`: Controls whether the SDK injects a W3C `traceparent` header into captured network requests. When using the Embrace Dashboard, this is managed remotely via `traceparent_injection_pct_enabled`.
 
 ### Code Examples
 

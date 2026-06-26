@@ -12,13 +12,13 @@ If you've been following along, you should be setup to collect native crash repo
 To upload crash reports from unhandled JavaScript exceptions, add the following in the entrypoint of the React app.
 
 ```javascript
-import {initialize} from '@embrace-io/react-native'
+import { initialize } from '@embrace-io/react-native';
 
 // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-initialize().then(hasStarted=>{
-    if(hasStarted){
-        //doSomething
-    }
+initialize().then((hasStarted) => {
+  if (hasStarted) {
+    //doSomething
+  }
 });
 ```
 
@@ -31,7 +31,7 @@ You can also pass in a patch number to the `initialize` function to use along si
 
 ```javascript
 // Note: Initialize is a promise, so if you want to perform an action and it must be tracked, it is recommended to use await to wait for the method to finish
-initialize({patch: 'v1'});
+initialize({ patch: 'v1' });
 ```
 
 :::info Note for iOS
@@ -59,11 +59,11 @@ call to initialize the SDK:
 initialize({
   sdkConfig: {
     ios: {
-      appId: "YOUR-APP_ID",
+      appId: 'YOUR-APP_ID',
       disableCrashReporter: true,
-    }
-  }
-})
+    },
+  },
+});
 ```
 
 :::
@@ -85,7 +85,7 @@ the Embrace SDK to where CodePush downloads the latest JavaScript bundle.
 <TabItem value="javascript" label="JavaScript">
 
 ```javascript
-import {setJavaScriptBundlePath} from '@embrace-io/react-native';
+import { setJavaScriptBundlePath } from '@embrace-io/react-native';
 
 setJavaScriptBundlePath('/path/to/bundle');
 ```

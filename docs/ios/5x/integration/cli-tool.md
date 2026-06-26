@@ -35,10 +35,10 @@ embtool project validate <path-to-xcodeproj>
 The `project validate` subcommand is useful to verify your project's
 configuration. Some examples of things it will check are:
 
-1) the presence of an Embrace-Info.plist.
-1) the presence of the Embrace Run Script build phase.
-1) the configured `DEBUG_INFORMATION_FORMAT` build setting.
-1) the validity of the Embrace API_KEY and upload EMBRACE_TOKEN.
+1. the presence of an Embrace-Info.plist.
+1. the presence of the Embrace Run Script build phase.
+1. the configured `DEBUG_INFORMATION_FORMAT` build setting.
+1. the validity of the Embrace API_KEY and upload EMBRACE_TOKEN.
 
 This command is great to run when you are stuck configuring your Xcode project,
 or if an issue occurs and you'd like to provide context to the Embrace support team.
@@ -56,8 +56,8 @@ in a CI environment. This tool will edit your .xcodeproj in order to inject the
 necessary configuration for use alongside the Embrace SDK. Some examples of
 edits it will make are:
 
-1) Configure the `DEBUG_INFORMATION_FORMAT` build setting to include dsym files
-1) Add the Embrace Run Script phase used to upload dSYMs
+1. Configure the `DEBUG_INFORMATION_FORMAT` build setting to include dsym files
+1. Add the Embrace Run Script phase used to upload dSYMs
 
 It is recommended that you run this command with a clean state in your
 version control system. For instance in git, stash any changes you may have

@@ -32,4 +32,4 @@ Once uploaded, your session is marked with the "crashed" icon. Your crash is als
 
 ---
 
-In the next section, you'll learn how to add breadcrumb logs to add context to sessions.  
+In the next section, you'll learn how to add breadcrumb logs to add context to sessions.

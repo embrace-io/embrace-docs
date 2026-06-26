@@ -54,11 +54,11 @@ call to initialize the SDK:
 initialize({
   sdkConfig: {
     ios: {
-      appId: "YOUR-APP_ID",
+      appId: 'YOUR-APP_ID',
       disableCrashReporter: true,
-    }
-  }
-})
+    },
+  },
+});
 ```
 
 #### Disabling the crash reporter on Android

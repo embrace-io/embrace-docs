@@ -1,6 +1,6 @@
 ---
 title: Embrace Metrics API
-description: Learn about the Embrace Metrics API to pull data  
+description: Learn about the Embrace Metrics API to pull data
 sidebar_position: 10
 ---
 
@@ -56,7 +56,7 @@ sum(hourly_custom_metric_sessions_total{app_id="a1b2C3"})
 - To pull for multiple apps, include a pipe-delimited array in the filter,
 
 ```promql
-sum(hourly_custom_metric_sessions_total{app_id=~"a1b2C3|Z9Y8x7"}) 
+sum(hourly_custom_metric_sessions_total{app_id=~"a1b2C3|Z9Y8x7"})
 ```
 
 - To pull for all apps, do not include any app ID in the filter,

@@ -9,9 +9,9 @@ Embrace provides a hook that will automatically log breadcrumbs whenever your ap
 up simply invoke the hook at a point in your app after Embrace has been initialized:
 
 ```javascript
-import { useOrientationListener } from "@embrace-io/react-native-orientation-change-tracker";
+import { useOrientationListener } from '@embrace-io/react-native-orientation-change-tracker';
 
-useOrientationListener()
+useOrientationListener();
 ```
 
 You will then see breadcrumbs in the session timeline reporting on the initial orientation that the application began

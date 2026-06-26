@@ -22,8 +22,8 @@ This instrumentation can be enabled by configuring it with the element that is c
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     'empty-root': {
       rootNode: document.getElementById('root'),
@@ -32,9 +32,8 @@ initSDK({
 });
 ```
 
-The instrumentation then setups a [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
-on the element and records a SpanEvent on the current session Span if that element is ever found to have been emptied
-out.
+The instrumentation then sets up a [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
+on the element and records an event if that element is ever found to have been emptied out.
 
 The occurrence of this event then feeds into our [Exception Severity Score calculation](/product/exceptions/severity-score.md#6-empty-root-node-multiplier)
 so that any exception we detect immediately prior to the root node being found empty is given a higher severity.

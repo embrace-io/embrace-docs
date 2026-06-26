@@ -7,7 +7,7 @@ sidebar_position: 4
 
 ### Improve performance with Traces
 
-Embrace’s Traces give you visibility into any key user flow or app operation that you’d like to track.  
+Embrace’s Traces give you visibility into any key user flow or app operation that you’d like to track.
 
 This rich [OpenTelemetry signal](https://opentelemetry.io/docs/concepts/signals/traces/) lets you include duration, success rate, and any contextual metadata from the app's runtime to debug the root cause of your app's performance issues. With Traces, you can quickly spot any bottlenecks in your app’s architecture, pinpoint with high precision the areas you need to troubleshoot, and ultimately deliver a truly optimized user experience.
 

@@ -18,7 +18,7 @@ import 'package:embrace/embrace.dart';
 Embrace.instance.logError(
 	'Loading not finished on time',
 	properties: {
-		'propertyA': 'valueA', 
+		'propertyA': 'valueA',
 		'propertyB': 'valueB',
 	}
 );

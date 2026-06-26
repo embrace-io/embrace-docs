@@ -13,7 +13,7 @@ Diagnosing network errors doesn't need to be an opaque process with finger-point
 
 ### How it works
 
-Embrace automatically adds a unique identifier to **every** network request your app makes using [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header). This makes it possible to trace the same request in the Embrace User Timeline *and* in your backend monitoring service.
+Embrace automatically adds a unique identifier to **every** network request your app makes using [w3c traceparents](https://www.w3.org/TR/trace-context-1/#traceparent-header). This makes it possible to trace the same request in the Embrace User Timeline _and_ in your backend monitoring service.
 
 <img src={require('@site/static/images/nsf-example.png').default} alt="traceparent example" />
 
@@ -44,14 +44,14 @@ If you're on a Pro or Free plan, please contact support at [support@embrace.io](
 
 Your app must be running a minimum SDK version to use network spans forwarding:
 
-| Platform | Minimum version | Status |
-|----------|----------------|--------|
-| iOS | 6.0.0+ | Supported |
-| Android | 5.25.0+ | Supported |
-| Web | 2.2.0+ | Supported |
-| React Native | iOS/Android versions | Supported |
-| Flutter | iOS/Android versions | Supported |
-| Unity | - | Not yet supported |
+| Platform     | Minimum version      | Status            |
+| ------------ | -------------------- | ----------------- |
+| iOS          | 6.0.0+               | Supported         |
+| Android      | 5.25.0+              | Supported         |
+| Web          | 2.2.0+               | Supported         |
+| React Native | iOS/Android versions | Supported         |
+| Flutter      | iOS/Android versions | Supported         |
+| Unity        | -                    | Not yet supported |
 
 #### Data destination requirements
 
@@ -99,7 +99,6 @@ You can quickly enable network spans forwarding for a specific domain while view
 2. Look for the **Network Spans Forwarding** banner
 3. Click **Enable Network Spans Forwarding**
 4. If you haven't completed the prerequisites, an onboarding modal appears with a checklist to guide you through:
-
    - Setting up a data destination
    - Verifying your SDK version meets requirements
    - Configuring your first domain

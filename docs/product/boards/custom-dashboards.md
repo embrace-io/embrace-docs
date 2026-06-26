@@ -10,6 +10,8 @@ In addition to our pre-built dashboards for topics like Crashes, Logs, and Netwo
 To get started, click on "Add new widget" in the menu by your dashboard name.
 <img src={require('@site/static/images/custom_dashboards/Add_Widget_Menu.png').default} style={{ width: '75%', height: '75%' }} alt="Create new widget" />
 
+## Building dashboards and queries
+
 ### Creating a Chart
 
 You can create multiple types of visualizations. A table of which visualizations are supported is shown below:
@@ -22,16 +24,6 @@ You can create multiple types of visualizations. A table of which visualizations
 | KPI        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: |
 | Gauge      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :white_check_mark: |
 | Table      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
-
-### Spans (Traces)
-
-Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any custom Attributes you have set on the Span.
-
-- First, select the visualization type you want to see and a source for the query.
-- Then, choose the metric you wish to aggregate. For Spans, Embrace supports both counts and sums of duration.
-- Finally, add any filters and group-bys. In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
-
-<img src={require('@site/static/images/custom_dashboards/Spans_Chart_Builder.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
 
 ### Combining Multiple Queries
 
@@ -74,7 +66,7 @@ For example, you want to get a rate over the last 24 hours of the sum of crashes
    a. The Formula field accepts the operators: `+, -, *, /`.\
    b. Order of operations follows standard PEMDAS.
 
-    <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
+   <img src={require('@site/static/images/custom_dashboards/Formula_Timeseries_Example.png').default} style={{ width: '75%', height: '75%' }} alt="Multiple queries and formula" />
 
 How the formula's result is rendered depends on the visualization. On Line and Bar widgets it appears alongside the source queries (a new line, or new bars at each x-axis point). On Pie, KPI, and Gauge widgets, the formula behaves like another query under the single-visible-query constraint. Toggle it on with the eye icon to display its result instead of one of the source queries.
 
@@ -91,12 +83,11 @@ As a rule, if you have **two queries that both have groupings**, the grouping of
 ##### **Valid Groupings:**
 
 - Grouping only on one query
-
-    - `A`: _grouped by_ `[”App Version”]`
-        - Returns values for each distinct, non-empty `App Version`.
-    - `B`: _grouped by_ `[]`
-        - Returns 10
-    - `A` has a grouping and `B` does not. Their common join key is the empty set.
+  - `A`: _grouped by_ `[”App Version”]`
+    - Returns values for each distinct, non-empty `App Version`.
+  - `B`: _grouped by_ `[]`
+    - Returns 10
+  - `A` has a grouping and `B` does not. Their common join key is the empty set.
 
 |        Dimension         |  A  |  B  | A + B |
 | :----------------------: | :-: | :-: | :---: |
@@ -104,12 +95,11 @@ As a rule, if you have **two queries that both have groupings**, the grouping of
 | `{"App Version": "2.0"}` | 50  | 10  |  60   |
 
 - Grouping on both queries
-
-    - `A`: _grouped by_ `[”App Version”, “Country”]`
-        - Returns values for each distinct, non-empty combination of grouping dimensions.
-    - `B`: _grouped by_ `[”App Version”]`
-        - Returns values for each distinct, non-empty `App Version`.
-    - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
+  - `A`: _grouped by_ `[”App Version”, “Country”]`
+    - Returns values for each distinct, non-empty combination of grouping dimensions.
+  - `B`: _grouped by_ `[”App Version”]`
+    - Returns values for each distinct, non-empty `App Version`.
+  - Both `A` and `B` have groupings, and `B` is a subset of `A`. Their common subset is `[”App Version”]`.
 
 |                 Dimension                  |  A  |  B  | A + B |
 | :----------------------------------------: | :-: | :-: | :---: |
@@ -119,24 +109,21 @@ As a rule, if you have **two queries that both have groupings**, the grouping of
 | `{"App Version": "2.0", "Country": "MEX"}` | 60  | 20  |  80   |
 
 - No groupings
-
-    - `A`: _grouped by_ `[]`
-    - `B`: _grouped by_ `[]`
-    - `A` and `B` have no groupings. Their common join key is the empty set.
+  - `A`: _grouped by_ `[]`
+  - `B`: _grouped by_ `[]`
+  - `A` and `B` have no groupings. Their common join key is the empty set.
 
 ##### **Invalid Groupings:**
 
 - Grouping with no overlapping set
-
-    - `A`: _grouped by_ `[”App Version”]`
-    - `B`: _grouped by_ `[”OS Version”]`
-    - Both have groupings but neither is a subset of the other.
+  - `A`: _grouped by_ `[”App Version”]`
+  - `B`: _grouped by_ `[”OS Version”]`
+  - Both have groupings but neither is a subset of the other.
 
 - Grouping with similar Attributes, but no overlapping data
-
-    - `A`: _grouped by_ `[”App Version”, “Country”, “OS Version”]`
-    - `B`: _grouped by_ `[”App Version”, “Country”, “Model”]`
-    - If A and B have no similar `App Version` and `Country`, the grouping is valid, but neither is a subset of the other and no results are returned.
+  - `A`: _grouped by_ `[”App Version”, “Country”, “OS Version”]`
+  - `B`: _grouped by_ `[”App Version”, “Country”, “Model”]`
+  - If A and B have no similar `App Version` and `Country`, the grouping is valid, but neither is a subset of the other and no results are returned.
 
 ##### Order of Operations
 
@@ -153,15 +140,96 @@ Then you were to combine them in the formula field:
 
 <img src={require('@site/static/images/custom_dashboards/Grouping_Error.png').default} style={{ width: '75%', height: '75%' }} alt="Example of Grouping Error" />
 
-### Table of Issues
+### Function mode
 
-Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) . You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/crashes/crash-tagging.md)
+Function mode lets you build any metric from scratch instead of picking a fixed, pre-built metric. Both query styles are available: you can keep using the classic pre-built metrics, or switch to function mode.
 
-1. To get started, select the Table visualization option and Issues as the source when making a new Widget.
-2. Adjust the columns you want to display and how to filter the Issues.
-3. Then, once you save, you'll see this table on your dashboard! Issues are sorted by percentage of users impacted in descending order.
+#### How function mode works
 
-    <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />
+You compose a query from three building blocks—a **source**, a **function**, and a **measure**—then narrow it with filters and group-bys. Rates and other composite metrics are built by combining multiple queries with a formula.
+
+Every function applies to a measure, which is a field on the source. `count(measure)` and `count_distinct(measure)` work on any measure: `count` includes every record, while `count_distinct` counts each unique value once. The numeric-aggregation functions (`sum(measure)`, `avg(measure)`, `percentile(measure, p)`, `max(measure)`, and `min(measure)`) require a **numeric measure**, such as a duration or a custom numeric attribute.
+
+#### Supported functions
+
+Function mode supports the following functions:
+
+- `count(measure)`—the total number of records for a measure, counting every value including repeats.
+- `count_distinct(measure)`—the number of unique values of a measure, such as unique users or unique devices.
+- `sum(measure)`—the total of a numeric measure.
+- `avg(measure)`—the average of a numeric measure.
+- `percentile(measure, p)`—the value at percentile `p`, where `p` is a decimal between 0 and 1. For example, `percentile(span.duration, 0.95)` is the p95 duration.
+- `max(measure)`—the largest value of a numeric measure.
+- `min(measure)`—the smallest value of a numeric measure.
+
+To build a rate or any other composite metric, combine multiple queries with a formula. See [Combining multiple queries](#combining-multiple-queries). For example, a rate follows the pattern `(A / B) * 100`.
+
+**NOTE:** the median is not supported directly. Use `percentile(measure, 0.5)` instead.
+
+#### Building a query
+
+1. Choose a **source**—for example Sessions, Crashes, ANRs, Spans, Logs, Network Requests, or Web Vitals.
+2. Choose a **function**—for example `count`, `avg`, or `percentile`.
+3. Choose the **measure** the function applies to, such as a duration or a custom numeric attribute.
+4. Optionally add **Filter by** conditions to narrow the records included.
+5. Optionally add **Group by** dimensions to break the result out into series or rows.
+
+<img src={require('@site/static/images/custom_dashboards/Function_Mode_Session_New.png').default} style={{ width: '90%', height: '90%' }} alt="Function mode query builder showing the source, function, and measure selectors" />
+
+#### Examples
+
+You can rebuild any of Embrace's pre-built metrics in function mode. Each example below compares the classic pre-built metric (old mode) with the same query in function mode (new mode).
+
+**Session count** (single query): in function mode, use `count_distinct(session_id)` on `Sessions`. This is equivalent to the classic **Session Count** metric.
+
+_Old mode:_
+
+<img src={require('@site/static/images/custom_dashboards/Function_Mode_Session_Old.png').default} style={{ width: '90%', height: '90%' }} alt="Session count in the classic metric builder" />
+
+_Function mode:_
+
+<img src={require('@site/static/images/custom_dashboards/Function_Mode_Session_New.png').default} style={{ width: '90%', height: '90%' }} alt="Session count built with count_distinct on session_id" />
+
+**Span 90th percentile duration** (single query): in function mode, use `percentile(span.duration, 0.9)` on `Spans`. This is equivalent to the classic **Span 90th Percentile Duration** metric.
+
+_Old mode:_
+
+<img src={require('@site/static/images/custom_dashboards/Function_Mode_Span_Old.png').default} style={{ width: '90%', height: '90%' }} alt="Span 90th percentile duration in the classic metric builder" />
+
+_Function mode:_
+
+<img src={require('@site/static/images/custom_dashboards/Function_Mode_Span_New.png').default} style={{ width: '90%', height: '90%' }} alt="Span percentile duration built with percentile of span duration at p=0.9" />
+
+**Exception session percentage** (two queries + formula): in function mode, query A is `count_distinct(session_id)` on `Sessions`, query B is `count_distinct(session_id)` on `Sessions` filtered by **Has Exception = true**, with the formula `B / A * 100`. This is equivalent to the classic **Exception Session Percentage** metric.
+
+_Old mode:_
+
+<img src={require('@site/static/images/custom_dashboards/Function_Mode_Rate_Old.png').default} style={{ width: '90%', height: '90%' }} alt="Exception session percentage in the classic metric builder" />
+
+_Function mode:_
+
+<img src={require('@site/static/images/custom_dashboards/Function_Mode_Rate_New.png').default} style={{ width: '90%', height: '90%' }} alt="Exception session percentage built with two queries and a B / A \* 100 formula" />
+
+For the mechanics of combining queries and writing formulas, see [Combining multiple queries](#combining-multiple-queries).
+
+### Grouping by Exploded Properties {#exploded-properties}
+
+You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
+
+This is especially useful if you’re tagging Sessions, Logs, Spans or other events with multiple values and want to break them out into individual groups.
+For example, if a Session has a property like `BRANCH=["master", "develop", "main", "staging"]`, you can group by `BRANCH`, and each of those values will be treated as its own group.
+
+To group by an exploded property:
+
+1. When adding or editing a Widget, go to the Group By section.
+2. Start typing the name of the property you want to use—exploded properties will appear just like any other attribute.
+   <img src={require('@site/static/images/exploded-properties/group_by.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
+3. Select the property. If it's a multi-value field, we'll automatically explode it for you.
+   <img src={require('@site/static/images/exploded-properties/table.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
+
+   In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.
+
+## Managing and sharing dashboards
 
 ### Copying widgets to other dashboards
 
@@ -209,19 +277,24 @@ Before sending the report, you can send a test email to the recipients to ensure
 
 <img src={require('@site/static/images/email-report.png').default} style={{ width: '75%', height: '75%' }} alt="Email Report" />
 
-### Grouping by Exploded Properties {#exploded-properties}
+## Specialized custom dashboards
 
-You can group your widgets by exploded properties—these are properties that can contain multiple values which we automatically "explode" so each value can be analyzed individually.
+### Spans (Traces)
 
-This is especially useful if you’re tagging Sessions, Logs, Spans or other events with multiple values and want to break them out into individual groups.
-For example, if a Session has a property like `BRANCH=["master", "develop", "main", "staging"]`, you can group by `BRANCH`, and each of those values will be treated as its own group.
+Create graphs monitoring Spans performance. You can filter and group by name, outcome, duration, and any custom Attributes you have set on the Span.
 
-To group by an exploded property:
+- First, select the visualization type you want to see and a source for the query.
+- Then, choose the metric you wish to aggregate. For Spans, Embrace supports both counts and sums of duration.
+- Finally, add any filters and group-bys. In addition to our core dimensions, for Spans you can use the Span's name, outcome, duration, and any custom Attributes.
 
-1. When adding or editing a Widget, go to the Group By section.
-2. Start typing the name of the property you want to use—exploded properties will appear just like any other attribute.
-   <img src={require('@site/static/images/exploded-properties/group_by.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
-3. Select the property. If it's a multi-value field, we'll automatically explode it for you.
-   <img src={require('@site/static/images/exploded-properties/table.png').default} style={{ width: '75%', height: '75%' }} alt="group by exploded property" />
+<img src={require('@site/static/images/custom_dashboards/Spans_Chart_Builder.png').default} style={{ width: '75%', height: '75%' }} alt="Spans as a Widget option" />
 
-    In your results, each unique value will show as its own row or series—allowing you to analyze each individual value separately.
+### Table of Issues
+
+Our Issues Widget, lets you specify how to list a table of [Issues](/product/issue-monitoring-and-work-flow) . You can filter for certain Issue types, add filters to limit app-versions, or select just Issues [tagged to your team.](/product/crashes/crash-tagging.md)
+
+1. To get started, select the Table visualization option and Issues as the source when making a new Widget.
+2. Adjust the columns you want to display and how to filter the Issues.
+3. Then, once you save, you'll see this table on your dashboard! Issues are sorted by percentage of users impacted in descending order.
+
+   <img src={require('@site/static/images/custom_dashboards/Issues_Table.png').default} style={{ width: '75%', height: '75%' }} alt="Issues table widget" />

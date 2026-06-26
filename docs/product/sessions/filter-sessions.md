@@ -12,7 +12,7 @@ Sessions are displayed from most recent, with summary statistics, issue indicato
 
 ### Filter dimensions
 
-To find Sessions matching specific conditions, Embrace provides a variety of fields for filtering.  
+To find Sessions matching specific conditions, Embrace provides a variety of fields for filtering.
 
 Major dimensions include properties for:
 
@@ -27,7 +27,7 @@ Major dimensions include properties for:
 
 ### Advanced Filters
 
-To combine various logical conditions, you can use Advanced Filters. Advanced filters allow you to chain logical statements, using `AND` or `OR`. These statements are composable: you can also nest components, chain nested components, and nest chained components.  
+To combine various logical conditions, you can use Advanced Filters. Advanced filters allow you to chain logical statements, using `AND` or `OR`. These statements are composable: you can also nest components, chain nested components, and nest chained components.
 
 <img src={require('@site/static/images/advanced-filters.png').default} alt="Screenshot of Advanced Filter on Sessions page" />
 

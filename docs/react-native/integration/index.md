@@ -43,7 +43,7 @@ project's native `android/` and `ios/` folders required by the SDK.
 - `minSdkVersion`: 24+
 - `compileSdkVersion`: 34+
 - Java 11
-- Kotlin 1.8.22+ [*](/react-native/changelog/#621)
+- Kotlin 1.8.22+ [\*](/react-native/changelog/#621)
 - Gradle 7.5.1+
 - AGP (Android Gradle Build Tools Plugin) 7.4.2+
 

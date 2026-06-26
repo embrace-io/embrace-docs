@@ -12,7 +12,7 @@ Traces are a powerful feature in the Embrace Web SDK that give you complete visi
 
 In the Embrace SDK (built on OpenTelemetry):
 
-- A **trace** represents an entire operation or workflow in your application  
+- A **trace** represents an entire operation or workflow in your application
 - A **span** represents a single unit of work within that trace
 - Spans can be nested, forming parent-child relationships to create a trace
 
@@ -30,7 +30,7 @@ With the Embrace Traces API, you can:
 ### Trace Limits
 
 | Type                               | Limit           |
-| ---------------------------------- |-----------------|
+| ---------------------------------- | --------------- |
 | Max number of spans per session    | 1,000           |
 | Max number of attributes per span  | 50              |
 | Max number of events per span      | 10              |

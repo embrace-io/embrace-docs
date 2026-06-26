@@ -1,5 +1,5 @@
 ---
-title: Traces  
+title: Traces
 description: Record spans to monitor the production performance and success rates of operations within your mobile app.
 sidebar_position: 14
 ---
@@ -15,6 +15,7 @@ Embrace’s Traces solution gives you visibility into any app operation you’d 
 :::info Minimum Requirements
 
 - **We recommend using the latest Embrace Unity SDK version for the most up-to-date API**. Even though Traces is enabled in [Embrace Unity SDK versions 1.26.0 and above](/unity/integration/linking-embrace/).
+
 :::
 
 The Embrace Traces API allows you to:
@@ -60,8 +61,8 @@ To use this feature:
 #### Create a Span
 
 ```csharp
-// Create a span with a given name. 
-// It is important to note that the millisecond time is given 
+// Create a span with a given name.
+// It is important to note that the millisecond time is given
 // in Unix Epoch/POSIX time rather than in .NET ticks.
 Embrace.Instance.StartSpan("SpanName", startTimeMillisPosix);
 ```
@@ -124,6 +125,7 @@ Embrace.Instance.RecordCompletedSpan(
 :::info Minimum Requirements
 
 - In order for a child span to be recorded, you must stop it before stopping the parent span.
+
 :::
 
 ### Support

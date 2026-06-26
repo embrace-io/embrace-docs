@@ -163,7 +163,7 @@ class MyWebViewDelegate: WebViewCaptureServiceDelegate {
         return webView.tag == 100
     }
 
-    func willStartNavigation(_ webView: WKWebView, 
+    func willStartNavigation(_ webView: WKWebView,
                              to url: URL) -> [String: String]? {
         // Add custom attributes when navigation starts
         return [
@@ -172,7 +172,7 @@ class MyWebViewDelegate: WebViewCaptureServiceDelegate {
         ]
     }
 
-    func didFinishNavigation(_ webView: WKWebView, 
+    func didFinishNavigation(_ webView: WKWebView,
                              to url: URL) -> [String: String]? {
         // Add custom attributes when navigation completes
         return [
@@ -180,8 +180,8 @@ class MyWebViewDelegate: WebViewCaptureServiceDelegate {
         ]
     }
 
-    func didFailNavigation(_ webView: WKWebView, 
-                          to url: URL, 
+    func didFailNavigation(_ webView: WKWebView,
+                          to url: URL,
                           with error: Error) -> [String: String]? {
         // Add custom attributes when navigation fails
         return [

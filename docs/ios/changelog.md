@@ -6,9 +6,20 @@ sidebar_position: 6
 
 ## Changelog
 
+### 6.20.0
+
+_May 28, 2026_
+
+- Features
+  - Implemented a new way to handle Traceparent injection with more granular control.
+- Fixes
+  - Addressed an issue where the main thread might get unnecessarily blocked during session deletion.
+  - Fixed WatchOS compile errors related to the new HangCaptureService.
+  - Fixed a potential race condition during upload operations being cancelled and completed at the same time.
+
 ### 6.19.0
 
-*May 11, 2026*
+_May 11, 2026_
 
 - Features
   - New implementation of the HangCaptureService.
@@ -19,7 +30,7 @@ sidebar_position: 6
 
 ### 6.18.0
 
-*April 21, 2026*
+_April 21, 2026_
 
 - Features
   - Revamped the upload module improving cache and data integrity.
@@ -28,14 +39,14 @@ sidebar_position: 6
 
 ### 6.17.1
 
-*March 27, 2026*
+_March 27, 2026_
 
 - Fixes
   - Fixed a crash when launching the sdk on arm64_32 devices like most Apple Watches.
 
 ### 6.17.0
 
-*March 26, 2026*
+_March 26, 2026_
 
 - Fixes
   - Fixed a crash caused when GZipping the payload data under memory pressure situations.
@@ -48,14 +59,14 @@ sidebar_position: 6
 
 ### 6.16.3
 
-*March 11, 2026*
+_March 11, 2026_
 
 - Fixes
   - Fixed OTel SDK Resources not being correctly used during setup.
 
 ### 6.16.2
 
-*March 10, 2026*
+_March 10, 2026_
 
 - Fixes
   - Fixed required metadata sometimes missing from session payloads.
@@ -63,7 +74,7 @@ sidebar_position: 6
 
 ### 6.16.1
 
-*March 5, 2026*
+_March 5, 2026_
 
 - Fixes
   - Fixed crash logs sometimes not having an app id.
@@ -74,7 +85,7 @@ sidebar_position: 6
 
 ### 6.16.0
 
-*Jan 27, 2026*
+_Jan 27, 2026_
 
 - Fixes
   - Fixed iOS 16.4 simulator crashing.
@@ -89,14 +100,14 @@ sidebar_position: 6
 
 ### 6.15.1
 
-*Nov 19, 2025*
+_Nov 19, 2025_
 
 - Fixes
   - Fixed crash on iOS 16.4 simulators.
 
 ### 6.15.0
 
-*Nov 12, 2025*
+_Nov 12, 2025_
 
 - Fixes
   - Fixed a potential deadlock on the Session Controller.
@@ -113,7 +124,7 @@ sidebar_position: 6
 
 ### 6.14.1
 
-*Oct 14, 2025*
+_Oct 14, 2025_
 
 - Fixes
   - Fixed issues with the internal proxy on `URLSession`.
@@ -122,7 +133,7 @@ sidebar_position: 6
 
 ### 6.14.0
 
-*Oct 7, 2025*
+_Oct 7, 2025_
 
 - Fixes
   - Fixed `autoTerminationCode` being missing from Spans.
@@ -137,7 +148,7 @@ sidebar_position: 6
 
 ### 6.13.2
 
-*Oct 27, 2025*
+_Oct 27, 2025_
 
 - Fixes
   - Fixed issues related to the internal metadata migration database.
@@ -147,7 +158,7 @@ sidebar_position: 6
 
 ### 6.13.1
 
-*Aug 29, 2025*
+_Aug 29, 2025_
 
 - Fixes
   - Made some helpers public to allow building `CaptureServices`.
@@ -158,7 +169,7 @@ sidebar_position: 6
 
 ### 6.13.0
 
-*Aug 1, 2025*
+_Aug 1, 2025_
 
 - Features
   - Added support for instrumenting SwiftUI code.
@@ -188,7 +199,7 @@ sidebar_position: 6
 
 ### 6.12.2
 
-*July 7, 2025*
+_July 7, 2025_
 
 - Fixes
   - Fixed sessions being incorrectly flagged as Unrecognized Exits.
@@ -196,14 +207,14 @@ sidebar_position: 6
 
 ### 6.12.1
 
-*June 27, 2025*
+_June 27, 2025_
 
 - Fixes
   - Disabled a `KSCrash` flag that was unintentionally enabled when switching to the official repository. This flag caused a startup regression and is now reverted to its previous behavior (as in `6.9.2`).
 
 ### 6.12.0
 
-*June 24, 2025*
+_June 24, 2025_
 
 - Fixes
   - Fixed an issue that could cause deadlocks when public APIs were used excessively.
@@ -216,7 +227,7 @@ sidebar_position: 6
 
 ### 6.11.0
 
-*June 6, 2025*
+_June 6, 2025_
 
 - Fixes
   - Fixed compilation errors when having the Embrace SDK as a dependency of a static library in a SwiftPM project.
@@ -226,7 +237,7 @@ sidebar_position: 6
 
 ### 6.10.1
 
-*May 28, 2025*
+_May 28, 2025_
 
 - Fixes
   - Fixed a crash that occurred when intercepting a `URLSessionTask` that was resumed more than once.
@@ -237,7 +248,7 @@ sidebar_position: 6
 
 ### 6.10.0
 
-*May 19, 2025*
+_May 19, 2025_
 
 - Fixes
   - Fixed a crash that could occur when capturing data from requests (#217).
@@ -249,7 +260,7 @@ sidebar_position: 6
 
 ### 6.9.2
 
-*Apr 30, 2025*
+_Apr 30, 2025_
 
 - Fixed
   - Improved Core Data fetches and cleanup routines to prevent potential crashes.
@@ -257,14 +268,14 @@ sidebar_position: 6
 
 ### 6.9.1
 
-*Apr 25th, 2025*
+_Apr 25th, 2025_
 
 - Fixes
   - Fixed potential threading issues with Core Data.
 
 ### 6.9.0
 
-*Apr 22th, 2025*
+_Apr 22th, 2025_
 
 - Changes
   - Removed GRDB as a dependency.
@@ -272,7 +283,7 @@ sidebar_position: 6
 
 ### 6.8.5
 
-*Apr 16th, 2025*
+_Apr 16th, 2025_
 
 - Fixes
   - Fixed a crash that could occur when injecting the `traceparent` header into certain types of `NSURLSessionTask`.
@@ -282,7 +293,7 @@ sidebar_position: 6
 
 ### 6.8.4
 
-*Apr 1st, 2025*
+_Apr 1st, 2025_
 
 - Fixes
   - Fixed an issue where some `NSURLSessionDelegate` methods were not being called when using `URLSessionCaptureService`.
@@ -290,14 +301,14 @@ sidebar_position: 6
 
 ### 6.8.3
 
-*Mar 18th, 2025*
+_Mar 18th, 2025_
 
 - Fixes
   - Fixed some methods from `NSURLSessionDataDelegate` and `NSURLSessionDownloadDelegate` not being called when using a `URLSessionCaptureService`.
 
 ### 6.8.2
 
-*Mar 10th, 2025*
+_Mar 10th, 2025_
 
 - Features
   - Added the ability to add custom stack traces to logs with `StackTraceBehavior.custom`.
@@ -309,7 +320,7 @@ sidebar_position: 6
 
 ### 6.8.1
 
-*Feb 12th, 2025*
+_Feb 12th, 2025_
 
 - Features
   - Enabled Automatic View Capture functionality by default.
@@ -320,7 +331,7 @@ sidebar_position: 6
 
 ### 6.8.0
 
-*Feb 6th, 2025*
+_Feb 6th, 2025_
 
 :::warning Important
 This version has known issues with `URLSession` and `WKWebView` Capture Services. Please use v6.8.1
@@ -337,7 +348,7 @@ This version has known issues with `URLSession` and `WKWebView` Capture Services
 
 ### 6.7.1
 
-*Jan 22nd, 2025*
+_Jan 22nd, 2025_
 
 - Fixes
   - Fixed an issue that caused the crash `'Cannot form weak reference to instance X of class Y'`.
@@ -346,7 +357,7 @@ This version has known issues with `URLSession` and `WKWebView` Capture Services
 
 ### 6.7.0
 
-*Jan 10th, 2025*
+_Jan 10th, 2025_
 
 :::warning Important
 This version has known issues please use v6.7.1
@@ -360,7 +371,7 @@ This version has known issues please use v6.7.1
 
 ### 6.6.0
 
-*Dec 12th, 2024*
+_Dec 12th, 2024_
 
 - Features
   - Added new instrumentation for the `ViewCaptureService`. Can be enabled through `ViewCaptureService.Options.instrumentFirstRender`.
@@ -379,7 +390,7 @@ This version has known issues please use v6.7.1
 
 ### 6.5.2
 
-*Nov 14th, 2024*
+_Nov 14th, 2024_
 
 - Features
   - `EmbraceCrashReporter` now receives a list of signals to be ignored. `SIGTERM` is ignored by default now.
@@ -391,7 +402,7 @@ This version has known issues please use v6.7.1
 
 ### 6.5.1
 
-*Oct 29th, 2024*
+_Oct 29th, 2024_
 
 - Features
   - Improved performance during the startup of the SDK.
@@ -401,7 +412,7 @@ This version has known issues please use v6.7.1
 
 ### 6.5.0
 
-*Oct 18th, 2024*
+_Oct 18th, 2024_
 
 - Features
   - Removed `SwiftLint` from `Package.swift` as a dependency, which reduces the download size of our SDK and prevents dependency resolution conflicts.
@@ -413,7 +424,7 @@ This version has known issues please use v6.7.1
 
 ### 6.4.2
 
-*Oct 2nd, 2024*
+_Oct 2nd, 2024_
 
 - Fixes
   - Fixed crash in `URLSessionCaptureService`.
@@ -423,7 +434,7 @@ This version has known issues please use v6.7.1
 
 ### 6.4.1
 
-*Sep 26th, 2024*
+_Sep 26th, 2024_
 
 :::warning Important
 This version has known issues and should not be used
@@ -438,7 +449,7 @@ This version has known issues and should not be used
 
 ### 6.4.0
 
-*Sep 13th, 2024*
+_Sep 13th, 2024_
 
 - Features
   - Added the option to use the SDK without an `appId` using `Embrace.Options`.
@@ -456,7 +467,7 @@ This version has known issues and should not be used
 
 ### 6.3.0
 
-*Aug 7th, 2024*
+_Aug 7th, 2024_
 
 - Features
   - Added new public target: `EmbraceSemantics` to expose constants and attributes used to extend OTel Semantic Conventions
@@ -472,7 +483,7 @@ This version has known issues and should not be used
 
 ### 6.2.0
 
-*July 30th, 2024*
+_July 30th, 2024_
 
 - Features
   - Adds `PushNotificationCaptureService` to instrument notifications received using Apple's `UserNotifications` framework
@@ -494,7 +505,7 @@ This version has known issues and should not be used
 
 ### 6.1.0
 
-*July 3rd, 2024*
+_July 3rd, 2024_
 
 - Adds automatic instrumentation for `WKWebView` Web Views.
 - Adds `Embrace.flush(_ span: Span)` method to manual persist changes that occur to a long running Span.
@@ -503,7 +514,7 @@ This version has known issues and should not be used
 
 ### 6.0.0
 
-*April 22nd, 2024*
+_April 22nd, 2024_
 
 - Initial release of the 6.0.0 SDK.
 - This major version introduces a new core architecture focusing on:
@@ -526,20 +537,20 @@ This version has known issues and should not be used
 
 ### 5.25.4
 
-*July 23rd, 2024*
+_July 23rd, 2024_
 
 - Fixes bug in interface for Unity when starting a Span where incorrect type was used.
 - Updates `EMBSpanSerializer serialize` to sanitize Span property dictionaries to ensure JSON validity
 
 ### 5.25.3
 
-*June 25, 2024*
+_June 25, 2024_
 
 - Made improvements to the startup performance of the SDK.
 
 ### 5.25.2
 
-*May 10, 2024*
+_May 10, 2024_
 
 - Fixed a bug that prevented setting up Username and Email.
 - Fixed a crash that could occur when attempting to serialize spans.
@@ -549,7 +560,7 @@ This version has known issues and should not be used
 
 ### 5.25.1
 
-*April 11, 2024*
+_April 11, 2024_
 
 - Adds coordinated file access in upload cache. Will better handle file contention between host app and extension processes
 - Adds logic to prevent rare instances of session payloads from being sent with empty app and device metadata
@@ -561,7 +572,7 @@ This version has known issues and should not be used
 
 ### 5.25.0
 
-*March 6, 2024*
+_March 6, 2024_
 
 - Add interface for hosted SDKs to use updated traces
 - Fixed missing network body capture data in some scenarios
@@ -570,46 +581,46 @@ This version has known issues and should not be used
 
 ### 5.24.6
 
-*Jan 26, 2024*
+_Jan 26, 2024_
 
 - Fix potential lost data for network body capture
 
 ### 5.24.5
 
-*Jan 22, 2024*
+_Jan 22, 2024_
 
 - Fix retain cycle that can occur if using `[NSURLSession sessionWithConfiguration:delegate:delegateQueue:]` and passing a delegate object with a strong reference to that `NSURLSession`.
 
 ### 5.24.4
 
-*Jan 18, 2024*
+_Jan 18, 2024_
 
 - Fixes issue that would prevent permanent session properties from being stored correctly.
 - Fixes extremely rare circumstance that would cause extension crash reports from being removed before being uploaded.
 
 ### 5.24.3
 
-*Jan 3, 2024*
+_Jan 3, 2024_
 
 - Potential fix for crash related to network request capture.
 - Fixes taps being captured when both CAPTURE_TAPPED_ELEMENTS and CAPTURE_COORDINATES are disabled.
 
 ### 5.24.2
 
-*Dec 19, 2023*
+_Dec 19, 2023_
 
 - Fixed an issue in the URL normalization process to ensure thread safety and prevent crashes due to synchronization conflicts.
 - Fixes linker problem for Embrace Unity iOS SDK.
 
 ### 5.24.1
 
-*Dec 19, 2023*
+_Dec 19, 2023_
 
 - all changes rolled into 5.24.2
 
 ### 5.24.0
 
-*Nov 30, 2023*
+_Nov 30, 2023_
 
 - Updates logic when writing to disk to better catch exceptions that can occur
 - Updates traces to be enabled by default
@@ -620,20 +631,20 @@ This version has known issues and should not be used
 
 ### 5.23.2
 
-*Oct 27, 2023*
+_Oct 27, 2023_
 
 - Fixes bug that could cause wrong timestamp to appear in crash reports
 
 ### 5.23.1
 
-*Sept 26, 2023*
+_Sept 26, 2023_
 
 - Fixes memory issue when generating a session payload with numerous (1000+) network requests. Introduced in 5.22.0.
 - Fix crash in `fileForClosedSpansNamed:`. Introduced in 5.19.4
 
 ### 5.23.0
 
-*Sept 20, 2023*
+_Sept 20, 2023_
 
 - Introduces Embrace traces beta
 - Updates public interface for consistency across platforms. Adds deprecation messages for outdated methods
@@ -645,21 +656,21 @@ This version has known issues and should not be used
 
 ### 5.22.0
 
-*Aug 14, 2023*
+_Aug 14, 2023_
 
 - Enhancements in Data Persistence related to Sessions.
 - Improved support for `WKNavigationDelegate` APIs.
 
 ### 5.21.1
 
-*July 10, 2023*
+_July 10, 2023_
 
 - Updates to interface when adding exceptions from Unity, Flutter, and React Native
 - Updates API payload to match interface changes for exceptions
 
 ### 5.21.0
 
-*June 28, 2023*
+_June 28, 2023_
 
 - Added API for querying the end state of the last run
 - Fixed Unity unhandled exception logging behavior
@@ -668,13 +679,13 @@ This version has known issues and should not be used
 
 ### 5.20.1
 
-*June 16, 2023*
+_June 16, 2023_
 
 - Fixes a problem that would cause a deadlock when using the logging interface
 
 ### 5.20.0
 
-*June 14, 2023*
+_June 14, 2023_
 
 :::warning Important
 This version has been pulled as an issue was discovered that would cause the app to lock up when using any logging interface. Please use 5.20.1 instead.
@@ -690,7 +701,7 @@ This version has been pulled as an issue was discovered that would cause the app
 
 ### 5.19.4
 
-*May 29, 2023*
+_May 29, 2023_
 
 - Fixed logHandledException missing the "reason" property.
 - Fix rare crash in EMBDevice buildUUID that was occurring on the Unity platform.
@@ -698,33 +709,33 @@ This version has been pulled as an issue was discovered that would cause the app
 
 ### 5.19.3
 
-*May 23, 2023*
+_May 23, 2023_
 
 - Improvements to diskIO latency that could occur during an app cold start
 - Adds ability to disable network request capture using the Embrace-Info.plist key NETWORK_CAPTURE_ENABLED. If set to false, Embrace will not capture any network requests.
 
 ### 5.19.2
 
-*May 2, 2023*
+_May 2, 2023_
 
 - Added the ability to capture core web vitals for web view experiences in your app.
 
 ### 5.19.1
 
-*April 27, 2023*
+_April 27, 2023_
 
 - Fix crash happened when try to write to disk without free space (introduced in 5.17.0)
 - Fixed crash that could occur in EMBSpanContainer when deserializing invalid/corrupt data (introduced in 5.17.0)
 
 ### 5.19.0
 
-*April 25, 2023*
+_April 25, 2023_
 
 - Fixed an issue that was causing a deadlock in some rare circumstances
 
 ### 5.18.1
 
-*April 19, 2023*
+_April 19, 2023_
 
 - Fixed issue where cold start sessions could report the incorrect app state (i.e. foreground sessions shows as background)
 - Fixed memory leak on swift class name demangling
@@ -732,7 +743,7 @@ This version has been pulled as an issue was discovered that would cause the app
 
 ### 5.18.0
 
-*April 12, 2023*
+_April 12, 2023_
 
 - Fixed issue where view appearance breadcrumbs would not work properly when re-adding the same instance to the navigation stack multiple times.
 - Fixed issue that caused breadcrumb limits to not be applied correctly
@@ -740,14 +751,14 @@ This version has been pulled as an issue was discovered that would cause the app
 
 ### 5.17.1
 
-*April 04, 2023*
+_April 04, 2023_
 
 - Fixes performance issue when serializing network data in session payload
 - Fixes duplication of custom log breadcrumbs.
 
 ### 5.17.0
 
-*March 21, 2023*
+_March 21, 2023_
 
 :::warning Important
 This version has known issues and should not be used
@@ -758,28 +769,28 @@ This version has known issues and should not be used
 
 ### 5.16.3
 
-*March 14, 2023*
+_March 14, 2023_
 
 - Improves SDK startup performance by moving disk usage collection to background queue
 - Added the ability to report the Flutter error runtime type.
 
 ### 5.16.2
 
-*March 01, 2023*
+_March 01, 2023_
 
 - Fix issue that caused cold start background sessions to be captured when configuration did not enable them
 - Removes validation check for `http` and `https` schemes in network requests. Will now allow `ws` and `wss` URLs
 
 ### 5.16.1
 
-*February 08, 2023*
+_February 08, 2023_
 
 - Updates breadcrumb limit to 100
 - Fixes issue that would cause network requests in Unity to show a duration of zero
 
 ### 5.16.0
 
-*January 31st, 2023*
+_January 31st, 2023_
 
 - Add logic to demangle SwiftUI view names. Will now be in a more readable format.
 - Fix issue that caused all network requests from Unity to be flagged as error.
@@ -788,13 +799,13 @@ This version has known issues and should not be used
 
 ### 5.15.0
 
-*January 18th, 2023*
+_January 18th, 2023_
 
 - Added a new PUSH_NOTIFICATIONS_CAPTURE_MODE config that provides control on how Embrace will capture push notifications. Possible modes are: manual and automatic.
 
 ### 5.14.1
 
-*January 9th, 2023*
+_January 9th, 2023_
 
 - Unity: Fixed an issue where unhandled logs would sometimes not be saved.
 - Made endAppStartup return when the SDK hasn't been started to prevent a crash
@@ -802,7 +813,7 @@ This version has known issues and should not be used
 
 ### 5.14.0
 
-*December 13th, 2022*
+_December 13th, 2022_
 
 - Fixes issue that could prevent logs from appearing in session if many sessions occur without app cold start
 - Removes call to deprecated method on NSKeyedUnarchiver
@@ -811,14 +822,14 @@ This version has known issues and should not be used
 
 ### 5.13.0
 
-*December 6th, 2022*
+_December 6th, 2022_
 
-- ``setBackgroundMode`` removed in favor of the dashboard configuration options
+- `setBackgroundMode` removed in favor of the dashboard configuration options
 - Re-wrote configuration system in order to ensure easier code modification and performance improvements.
 
 ### 5.12.4
 
-*November 28th, 2022*
+_November 28th, 2022_
 
 - Fix potential loss of logs in edge case
 - Potential infinite loop fix when using AFNetworking
@@ -827,28 +838,28 @@ This version has known issues and should not be used
 
 ### 5.12.3
 
-*November 15th, 2022*
+_November 15th, 2022_
 
 - Ensured remote config fetch does not impact main thread
 - setBackgroundMode API Deprecation
 
 ### 5.12.2
 
-*November 8th, 2022*
+_November 8th, 2022_
 
 - Fix issue where the included `upload` utility and `run.sh` script would not have executable permissions when distributed through Cocoapods.
 - Bumped `upload` utility version to `10.0.4`
 
 ### 5.12.1
 
-*November 8th, 2022*
+_November 8th, 2022_
 
 - Fix issue where tap element capture would not be enabled by default when passing an `EmbraceConfig` object at runtime to initialize the SDK.
 - Fix issue on Unity where a crash signal would cause the app to freeze instead of exit.
 
 ### 5.12.0
 
-*October 20th, 2022*
+_October 20th, 2022_
 
 - Added a "enableIntegrationHelp" parameter to the SDK initialization methods. When enabled (and only on development), the SDK will show an alert view when there's a critical error during the initialization process.
 - Fix session end time potentially being incorrect for crashes.
@@ -856,58 +867,58 @@ This version has known issues and should not be used
 
 ### 5.11.0
 
-*October 6th, 2022*
+_October 6th, 2022_
 
 - Fixes bug in crash handler introduced in 5.9.3.
 - Adds Unity SDK version property.
 
 ### 5.10.0
 
-*October 3rd, 2022*
+_October 3rd, 2022_
 
 - Adds support for Flutter
 
 ### 5.9.3
 
-*September 16th, 2022*
+_September 16th, 2022_
 
 - Improvements to installation of signal handler to more consistently receive crash information.
 
 ### 5.9.2
 
-*July 29th, 2022*
+_July 29th, 2022_
 
 - Fixes issue that would prevent Embrace crash reporter from being enabled by default.
 
 ### 5.9.1
 
-*July 19th, 2022*
+_July 19th, 2022_
 
 - Enforces limit when calling `logBreadcrumbWithMessage`.
 - Improves file reading performance when uploading a large session.
 
 ### 5.9.0
 
-*June 30th, 2022*
+_June 30th, 2022_
 
 - Fixes incompatibility issues with SafeDK.
 
 ### 5.8.1
 
-*June 17th, 2022*
+_June 17th, 2022_
 
 - Fixes crash that could occur when uploading session data.
 - Improves handling of memory allocation when uploading session data.
 
 ### 5.8.0
 
-*June 8th, 2022*
+_June 8th, 2022_
 
 - Adds ability to disable the element name from being included in tap capture. Set the Embrace-Info.plist boolean `CAPTURE_TAPPED_ELEMENTS` to false to disable this feature.
 
 ### 5.7.8
 
-*May 31st, 2022*
+_May 31st, 2022_
 
 - Fix crash report enabled property; the remote config can't re-enable it
 - Fix for Embrace delegate callback not happening
@@ -916,13 +927,13 @@ This version has known issues and should not be used
 
 ### 5.7.7
 
-*April 12th, 2022*
+_April 12th, 2022_
 
 - Fixed duplicate send of RN js crashes
 
 ### 5.7.6
 
-*March 14th, 2022*
+_March 14th, 2022_
 
 - Fixed for missing some network requests metrics
 - Fixed potential ANR on launch that could cause a crash in some situations
@@ -930,38 +941,38 @@ This version has known issues and should not be used
 
 ### 5.7.5
 
-*January 19th, 2022*
+_January 19th, 2022_
 
 - Fix potential ANR on launch.
 
 ### 5.7.4
 
-*December 22nd, 2021*
+_December 22nd, 2021_
 
 - Fixed Crash on startup
 
 ### 5.7.3
 
-*December 22nd, 2021*
+_December 22nd, 2021_
 
 - Fixed Typo in key
 
 ### 5.7.2
 
-*December 21st, 2021*
+_December 21st, 2021_
 
 - Modified CUSTOM_PATH_HEAEDER functionality to be more customizable and have a more general use case.
 - Defaulted Screenshots to OFF
 
 ### 5.7.1
 
-*December 16th, 2021*
+_December 16th, 2021_
 
 - Added CUSTOM_PATH_HEADER config option that allows for automatically generating the x-emb-path value from a specified header.
 
 ### 5.7.0
 
-*November 24th, 2021*
+_November 24th, 2021_
 
 - Ensure Embrace always receives crashes first
 - Updated carthage integration to work with newer format
@@ -970,66 +981,66 @@ This version has known issues and should not be used
 
 ### 5.6.5
 
-*November 5th, 2021*
+_November 5th, 2021_
 
 - Remove Console Logs
 
 ### 5.6.4
 
-*October 28, 2021*
+_October 28, 2021_
 
 - Fix Embrace version number
 
 ### 5.6.3
 
-*October 7, 2021*
+_October 7, 2021_
 
 - Fixed crash related to network data capture introduced in 5.6.2
 
 ### 5.6.2
 
-*September 22nd, 2021*
+_September 22nd, 2021_
 
 - Fixed EMBWKNavigationProxy implementation
 - Fixed multithreading access to the network domains dictionary
 
 ### 5.6.1
 
-*August 9th, 2021*
+_August 9th, 2021_
 
 - iOS 15 Support
 
 ### 5.6.0
 
-*July 27th, 2021*
+_July 27th, 2021_
 
 - Fixed memory leak that occurred during startup
 - Fix for missing sessions on upgrading between v4 of SDK to v5
 
 ### 5.5.3
 
-*July 13th, 2021*
+_July 13th, 2021_
 
 - Fix disabled SDK in a scene-based app
 - Fix micro sessions in a scene-baed app
 
 ### 5.5.2
 
-*Jun 15th, 2021*
+_Jun 15th, 2021_
 
 - Manually logged network request can now include an error with no response code
 - Ensure that cancelled network requests are correctly filtered
 
 ### 5.5.1
 
-*May 21st, 2021*
+_May 21st, 2021_
 
 - Update background mode logic based on beta feedback
 - New configuration options to control view tracking
 
 ### 5.5.0
 
-*April 30th, 2021*
+_April 30th, 2021_
 
 - Etag support for config fetches
 - Hybrid background mode API added
@@ -1041,14 +1052,14 @@ This version has known issues and should not be used
 
 ### 5.4.1
 
-*April 8th, 2021*
+_April 8th, 2021_
 
 - Resolve crash when tracking views with nil titles
 - Resolve crash when serializing json data
 
 ### 5.4.0
 
-*March 25th, 2021*
+_March 25th, 2021_
 
 :::warning Important
 This version has known issues and should not be used
@@ -1063,32 +1074,32 @@ This version has known issues and should not be used
 
 ### 5.3.7
 
-*March 9th, 2021*
+_March 9th, 2021_
 
 - Fix crash when view category methods are called off main thread
 
 ### 5.3.6
 
-*Feb 8th, 2021*
+_Feb 8th, 2021_
 
 - Fix unarchiving nil strings from disk
 
 ### 5.3.5
 
-*Feb 5th, 2021*
+_Feb 5th, 2021_
 
 - Expose custom network event logging on native interface
 - Handle WKWebView terminations correctly when loadHTMLString is used
 
 ### 5.3.4
 
-*Jan 29th, 2021*
+_Jan 29th, 2021_
 
 - Fix memory leak when proxying a WKWebView with a WKNavigationDelegate
 
 ### 5.3.3
 
-*Jan 26th, 2021*
+_Jan 26th, 2021_
 
 - Stop using expired URLSession on resume
 - Optimize collection of device metadata to be off main thread
@@ -1096,7 +1107,7 @@ This version has known issues and should not be used
 
 ### 5.3.2
 
-*Jan 18th, 2021*
+_Jan 18th, 2021_
 
 - Add queueing to streaming cache updates
 - Prevent the same message from uploading multiple times
@@ -1106,14 +1117,14 @@ This version has known issues and should not be used
 
 ### 5.3.1
 
-*Dec 10th, 2020*
+_Dec 10th, 2020_
 
 - Ensure sessions with abnormal exits have correct endtimes
 - Update dSYM upload utility with better diagnostics
 
 ### 5.3.0
 
-*Dec 1st, 2020*
+_Dec 1st, 2020_
 
 - Framework is now a universal xcframework
 - Network filtering via embrace-info.plist now supported on v5
@@ -1125,7 +1136,7 @@ This version has known issues and should not be used
 
 ### 5.2.5
 
-*Oct 30, 2020*
+_Oct 30, 2020_
 
 - Refactor binary image handling so it happens lazily instead of at start
 - Improve recognition of special characters in module names for log message stack traces
@@ -1133,13 +1144,13 @@ This version has known issues and should not be used
 
 ### 5.2.4
 
-*Oct 22, 2020*
+_Oct 22, 2020_
 
 - ensure handled exceptions are properly recorded
 
 ### 5.2.3
 
-*Oct 19, 2020*
+_Oct 19, 2020_
 
 - ensure tvos crashes are correctly marked in metadata
 - ensure failed sessions are always uploaded
@@ -1147,27 +1158,27 @@ This version has known issues and should not be used
 
 ### 5.2.2
 
-*Oct 12, 2020*
+_Oct 12, 2020_
 
 - fix crash when launching through Xcode with customize trace_id header
 - fix mis-tracked start moments
 
 ### 5.2.1
 
-*Oct 1, 2020*
+_Oct 1, 2020_
 
 - Fix power manager hang on launch
 
 ### 5.2.0
 
-*Sep 30, 2020*
+_Sep 30, 2020_
 
 - Change how failed events are queued to fix perf and OOM issues
 - Update code for Xcode 12 standards
 
 ### 5.1.3
 
-*Sep 30, 2020*
+_Sep 30, 2020_
 
 - Fix crash in unarchiver usage
 - Fix crash in filtered array with predicate usage
@@ -1175,7 +1186,7 @@ This version has known issues and should not be used
 
 ### 5.1.2
 
-*Sep 25, 2020*
+_Sep 25, 2020_
 
 - Fix caught exception on non-firebase crash upload path
 - Session properties in event payloads
@@ -1183,7 +1194,7 @@ This version has known issues and should not be used
 
 ### 5.1.1
 
-*Sep 24, 2020*
+_Sep 24, 2020_
 
 - Fix crash in EMBNetworkManager's predicate logic
 - Fix sendSession:addObject crash
@@ -1191,7 +1202,7 @@ This version has known issues and should not be used
 
 ### 5.1.0
 
-*Sep 21, 2020*
+_Sep 21, 2020_
 
 - Change threading model so all IO callbacks happen on the main thread
 - Fix crash reporting auto-detection for cases without an Embrace-Info.plist
@@ -1200,25 +1211,25 @@ This version has known issues and should not be used
 
 ### 5.0.10
 
-*Sep 15, 2020*
+_Sep 15, 2020_
 
 - Deployment target upgraded to 9 for Xcode 12 support
 
 ### 5.0.9
 
-*Sep 9, 2020*
+_Sep 9, 2020_
 
 - Fix blocked downloads when using expo + flex for debugging
 
 ### 5.0.8
 
-*Sep 8, 2020*
+_Sep 8, 2020_
 
 - Add config filter to disable URLSessionDelegate swizzling
 
 ### 5.0.7
 
-*Sep 1, 2020*
+_Sep 1, 2020_
 
 - Fix for crash in [EMBSession serialize]
 - Fix for crash in NSKeyedUnarchiver
@@ -1226,26 +1237,26 @@ This version has known issues and should not be used
 
 ### 5.0.6
 
-*Aug 28, 2020*
+_Aug 28, 2020_
 
 - Hotfix for V3 migration of failed.events cache
 
 ### 5.0.5
 
-*Aug 28, 2020*
+_Aug 28, 2020_
 
 - Improve performance when large number of queued failed events exist
 - Fix rare crash in sendShortSession
 
 ### 5.0.4
 
-*Aug 14, 2020*
+_Aug 14, 2020_
 
 - Fix crash in EMBNetworkManager
 
 ### 5.0.3
 
-*Aug 10, 2020*
+_Aug 10, 2020_
 
 - Fix web-thread-termination outcome tracking
 - Exception logging for corrupt proxy invocations
@@ -1253,21 +1264,21 @@ This version has known issues and should not be used
 
 ### 5.0.2
 
-*Aug 6, 2020*
+_Aug 6, 2020_
 
 - Improve crash linking reliability to sessions
 - Fix compatibility with Firebase's new crashlytics interface
 
 ### 5.0.1
 
-*Aug 4, 2020*
+_Aug 4, 2020_
 
 - Fix threading crash in EMBStreamingBreadcrumbManager's cache layer
 - Apple TV compatible framework now included in release
 
 ### 5.0.0
 
-*July 27, 2020*
+_July 27, 2020_
 
 - Use dispatch-io channels to improve performance and improve session resolution
 - Update run.sh to support locally-built framework dSYMs

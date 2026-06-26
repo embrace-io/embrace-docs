@@ -37,13 +37,13 @@ The top panel contains a distribution chart for each Vital showing the proportio
 
 The table allows you to understand how the Vitals vary across the different areas of your application and highlights areas where they need improving.
 
-By default the table is grouped by [Page Label](/product/settings/app-settings/page-labels/) and the percentage column shows the relative number of data samples.
+By default the table is grouped by [Page Group](/product/settings/app-settings/page-groups/) and the percentage column shows the relative number of data samples.
 
 The other columns show the 75th percentile value for relevant Vital and the color indicates whether the Vital is rated Good, Needs Improvement or Poor.
 
-<img src={require('@site/static/images/web-vitals/overview-heatmap-table.png').default} alt="Screenshot of Heatmap Table with Page Label as the grouping dimension" />
+<img src={require('@site/static/images/web-vitals/overview-heatmap-table.png').default} alt="Screenshot of Heatmap Table with Page Group as the grouping dimension" />
 
-Hovering over a table cell reveals a tooltip. *See Details* will switch to the relevant Vitals tab and filter by the chosen Page Label.
+Hovering over a table cell reveals a tooltip. _See Details_ will switch to the relevant Vitals tab and filter by the chosen Page Group.
 
 Other tables in the overview tab show how performance varies by Device Type, Browser and Location.
 
@@ -63,7 +63,7 @@ The stacked column chart shows how the split of Good, Needs Improvement and Poor
 
 <img src={require('@site/static/images/web-vitals/lcp-distribution-over-time.png').default} alt="Screenshot of stacked column chart showing the rating for LCP over time" />
 
-At the bottom of the dashboard is a table showing examples of LCP measurements. Clicking on a row takes you to the [User Timeline](https://embrace.io/docs/product/sessions/user-timeline/) for the chosen example.
+At the bottom of the dashboard is a table showing examples of LCP measurements. Clicking on a row takes you to the [User Timeline](/product/sessions/user-timeline/) for the chosen example.
 
 <img src={require('@site/static/images/web-vitals/lcp-examples.png').default} alt="Screenshot of table showing examples of the LCP measurements " />
 

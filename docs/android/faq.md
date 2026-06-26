@@ -238,17 +238,17 @@ This could be due to one of the following reasons:
   - PacketZoom
 - If you are using `OkHttp3`, make sure to get an instance of `OkHttpClient` by calling the builder:
 
-    ```kotlin
-        val myOkHttpClient = OkHttpClient.Builder().build()
-    ```
+  ```kotlin
+      val myOkHttpClient = OkHttpClient.Builder().build()
+  ```
 
-    instead of getting a new instance by calling the constructor:
+  instead of getting a new instance by calling the constructor:
 
-    ```kotlin
-        val myOkHttpClient = OkHttpClient()
-    ```
+  ```kotlin
+      val myOkHttpClient = OkHttpClient()
+  ```
 
-    The SDK instruments the `build()` method, so it will only track network requests with the first approach.
+  The SDK instruments the `build()` method, so it will only track network requests with the first approach.
 
 #### **What does Embrace use to hook into network calls on Android apps?**
 

@@ -15,17 +15,12 @@ Here's how you add a breadcrumb to the session:
 ```typescript
 import { session } from '@embrace-io/web-sdk';
 
-session.addBreadcrumb("something happened");
+session.addBreadcrumb('something happened');
 ```
 
 :::info Character Limit
 Breadcrumb messages must be 256 characters or less.
 :::
-
-#### OpenTelemetry Foundation
-
-Note that the `addBreadcrumb` method adds an OpenTelemetry SpanEvent to the session Span. In the Embrace Dashboard these
-are surfaced in-context in the User Timeline.
 
 ### Best Practices
 
@@ -51,13 +46,13 @@ Use clear, consistent naming for your breadcrumbs:
 import { session } from '@embrace-io/web-sdk';
 
 // Good: Clear and descriptive
-session.addBreadcrumb("User started checkout process");
-session.addBreadcrumb("Payment validation failed");
-session.addBreadcrumb("Order confirmation displayed");
+session.addBreadcrumb('User started checkout process');
+session.addBreadcrumb('Payment validation failed');
+session.addBreadcrumb('Order confirmation displayed');
 
 // Avoid: Vague or inconsistent
-session.addBreadcrumb("Something happened");
-session.addBreadcrumb("Error");
+session.addBreadcrumb('Something happened');
+session.addBreadcrumb('Error');
 ```
 
 #### Performance Considerations

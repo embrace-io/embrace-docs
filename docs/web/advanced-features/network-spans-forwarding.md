@@ -26,19 +26,19 @@ the additional header by configuring the fetch or XHR instrumentations with an a
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
   defaultInstrumentationConfig: {
     '@opentelemetry/instrumentation-fetch': {
       propagateTraceHeaderCorsUrls: [
         /example\.com/, // propagates for any CORS requests with URLs that match the regex
-        "https://www.example.com/foo", // propagates for CORS requests to URLs that exactly match the string
+        'https://www.example.com/foo', // propagates for CORS requests to URLs that exactly match the string
       ],
     },
     '@opentelemetry/instrumentation-xml-http-request': {
       propagateTraceHeaderCorsUrls: [
         /example\.com/, // propagates for any CORS requests with URLs that match the regex
-        "https://www.example.com/foo", // propagates for CORS requests to URLs that exactly match the string
+        'https://www.example.com/foo', // propagates for CORS requests to URLs that exactly match the string
       ],
     },
   },
@@ -54,8 +54,8 @@ turned off if set:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
 
   // The following are not supported alongside Network Span Forwarding and will cause that feature to turn off:
   // 1. Setting registerGlobally to false
@@ -64,7 +64,10 @@ initSDK({
   propagator: myCustomPropagator,
   // 3. Omitting both network instrumentations
   defaultInstrumentationConfig: {
-    omit: new Set(['@opentelemetry/instrumentation-fetch', '@opentelemetry/instrumentation-xml-http-request']),
+    omit: new Set([
+      '@opentelemetry/instrumentation-fetch',
+      '@opentelemetry/instrumentation-xml-http-request',
+    ]),
   },
 });
 ```
@@ -78,8 +81,8 @@ of what has been configured server-side:
 import { initSDK } from '@embrace-io/web-sdk';
 
 initSDK({
-  appID: "YOUR_EMBRACE_APP_ID",
-  appVersion: "YOUR_APP_VERSION",
+  appID: 'YOUR_EMBRACE_APP_ID',
+  appVersion: 'YOUR_APP_VERSION',
 
   blockNetworkSpanForwarding: true,
 });

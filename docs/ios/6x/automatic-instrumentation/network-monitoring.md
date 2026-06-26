@@ -38,7 +38,6 @@ You can customize network monitoring behavior when initializing the Embrace SDK:
 
 ```swift
 let urlSessionOptions = URLSessionCaptureService.Options(
-    injectTracingHeader: true,
     requestsDataSource: MyDataSource(), // For obfuscating sensitive data
     ignoredURLs: ["analytics.example.com"] // URLs to ignore
 )
@@ -66,7 +65,6 @@ do {
 
 ```swift
 let urlSessionOptions = URLSessionCaptureService.Options(
-    injectTracingHeader: true,
     requestsDataSource: MyDataSource(), // For obfuscating sensitive data
     ignoredURLs: ["analytics.example.com"] // URLs to ignore
 )
@@ -94,16 +92,88 @@ do {
 
 #### Tracing Header Injection
 
-By enabling `injectTracingHeader`, the SDK will inject a [W3 Traceparent Header](https://www.w3.org/TR/trace-context/#traceparent-header) into network requests:
+The SDK can inject a [W3C Traceparent header](https://www.w3.org/TR/trace-context/#traceparent-header) into network requests:
 
 `00-[trace_id]-[span_id]-[is_sampled]`
 
 This allows for distributed tracing across your frontend and backend systems, providing end-to-end visibility into request flows.
 
-:::warning
-If you're using the Embrace Dashboard with your app, you might need to contact an Embrace representative to enable this feature through remote configuration.
+:::info
+Traceparent injection must be enabled through the Embrace dashboard. If you're using the Embrace Dashboard and want this feature, enable it via [Network Spans Forwarding](/data-forwarding/network-spans-forwarding) settings or contact [support@embrace.io](mailto:support@embrace.io).
+:::
 
-If you're not using the Embrace Dashboard, you can enable this by passing a custom `EmbraceConfigurable` with `isNetworkSpansForwardingEnabled` set to true when initializing the SDK.
+**For non-managed setups** (using a custom `EmbraceConfigurable`), implement the `traceparentInjectionEnabled` property on your configurable object:
+
+```swift
+class MyConfig: EmbraceConfigurable {
+    var traceparentInjectionEnabled: Bool { true }
+    // ... other required properties
+}
+```
+
+#### Limiting Injection to Specific Domains
+
+By default, when injection is enabled, the traceparent header is added to all captured requests. Use `URLSessionCaptureService.Traceparent` with `onlyAllowDomains` to restrict injection to first-party domains:
+
+<Tabs groupId="embrace-client">
+<TabItem value="embraceio" label="EmbraceIO" default>
+
+```swift
+let captureServices = CaptureServiceBuilder()
+    .addDefaults()
+    .add(.urlSession(options: URLSessionCaptureService.Options(
+        traceparent: .init(onlyAllowDomains: ["api.example.com", "example.com"])
+    )))
+    .build()
+
+let options = EmbraceIO.Options.withAppId(
+    "YOUR_APP_ID",
+    captureServices: captureServices
+)
+
+do {
+    try EmbraceIO.setup(options: options)
+    try EmbraceIO.shared.start()
+} catch { }
+```
+
+</TabItem>
+<TabItem value="embrace" label="Embrace">
+
+```swift
+let captureServices = CaptureServiceBuilder()
+    .addDefaults()
+    .add(.urlSession(options: URLSessionCaptureService.Options(
+        traceparent: .init(onlyAllowDomains: ["api.example.com", "example.com"])
+    )))
+    .build()
+
+let options = Embrace.Options(
+    appId: "YOUR_APP_ID",
+    captureServices: captureServices
+)
+
+do {
+    try Embrace.setup(options: options)
+    try Embrace.client?.start()
+} catch { }
+```
+
+</TabItem>
+</Tabs>
+
+Domain matching rules:
+
+- Entries are bare hostnames — no protocol prefix, no leading `.`, no path (e.g. `"example.com"`)
+- Each entry matches the exact host (`"example.com"`) and any subdomain (`"api.example.com"`)
+- Matching is case-insensitive
+- `nil` (the default) means all captured requests receive the header
+- An empty array means no requests receive the header
+- Invalid entries (empty strings, entries containing `/` or whitespace, entries with a leading `.`) are silently dropped. If all entries are invalid, the result is an empty list and no traceparent headers will be injected
+- To check for invalid entries, search your Xcode console output for `allowedDomains`
+
+:::note
+The `injectTracingHeader` property on `URLSessionCaptureService.Options` is deprecated. If you were previously setting it, you can safely remove it — server-side migration preserves your existing configuration.
 :::
 
 #### Sensitive Data Handling

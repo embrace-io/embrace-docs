@@ -28,6 +28,7 @@ Each filter table in this page uses the same columns:
 | --- | --- | --- | --- |
 | Completion<br /><code class="filters-table__key">completion</code> | State of the ANR at the time of session exit. | Choice (String) | Choices: `all`, `completed`, `exit` |
 | Duration Bucket (Milliseconds)<br /><code class="filters-table__key">duration</code> | Duration of the ANR, bucketed by milliseconds. | intrange | — |
+| Google Capture Supported<br /><code class="filters-table__key">support_google_capture</code> | Whether Google Capture is supported. | Boolean | — |
 | Method<br /><code class="filters-table__key">method</code> | Grouped method for the ANR. | String | — |
 | Sample Type<br /><code class="filters-table__key">sample_type</code> | Type of sample (e.g., first, best). | Choice (String) | Choices: `first`, `best`, `ad` |
 
@@ -125,9 +126,9 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
-| Element Load Time (Milliseconds)<br /><code class="filters-table__key">load_time</code> | Milliseconds from navigation start to when the element resource was loaded; 0 for text elements. | float | — |
-| Element Render Time (Milliseconds)<br /><code class="filters-table__key">render_time</code> | Milliseconds from navigation start to when the element was painted; 0 for cross-origin elements. | float | — |
-| Element Start Time (Milliseconds)<br /><code class="filters-table__key">element_start_time</code> | Render time when non-zero, else load time. Milliseconds from navigation start. | float | — |
+| Element Load Time (Milliseconds)<br /><code class="filters-table__key">load_time</code> | Milliseconds from zero time to when the element resource was loaded; 0 for text elements. | float | — |
+| Element Render Time (Milliseconds)<br /><code class="filters-table__key">render_time</code> | Milliseconds from zero time to when the element was painted; 0 for cross-origin elements. | float | — |
+| Element Start Time (Milliseconds)<br /><code class="filters-table__key">element_start_time</code> | Render time when non-zero, else load time. Milliseconds from zero time. | float | — |
 | Element Timing Identifier<br /><code class="filters-table__key">identifier</code> | Value of the elementtiming HTML attribute that identifies the observed element. | String | — |
 | Element Type<br /><code class="filters-table__key">element</code> | HTML tag name of the timed element, e.g. IMG or P. | String | — |
 
@@ -145,16 +146,26 @@ Each filter table in this page uses the same columns:
 
 </div>
 
+## Issue Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Issue Type<br /><code class="filters-table__key">issue_type</code> | Type of issue detected. | String | — |
+
+</div>
+
 ## LoAF Script Filters
 
 <div class="filters-table">
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
-| Script Domain<br /><code class="filters-table__key">script_domain</code> | Domain of the long animation frame script. | String | — |
-| Script Path<br /><code class="filters-table__key">script_path</code> | Path of the long animation frame script. | String | — |
-| Script URL<br /><code class="filters-table__key">script_url</code> | Full URL of the long animation frame script. | String | — |
-| Was From INP<br /><code class="filters-table__key">was_from_inp</code> | Whether the script contributed to an INP interaction. | Boolean | — |
+| Script Domain<br /><code class="filters-table__key">script_domain</code> | Domain of the script contributing to long animation frames. | String | — |
+| Script Path<br /><code class="filters-table__key">script_path</code> | Path of the script contributing to long animation frames. | String | — |
+| Script URL<br /><code class="filters-table__key">script_url</code> | Full URL of the script contributing to long animation frames. | String | — |
+| Was From INP<br /><code class="filters-table__key">was_from_inp</code> | Whether the script execution contributed to long animation frames during INP. | Boolean | — |
 
 </div>
 
@@ -214,6 +225,16 @@ Each filter table in this page uses the same columns:
 
 </div>
 
+## OTel Log Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Event Name<br /><code class="filters-table__key">event_name</code> | Name of the OTel log event (e.g. rage_click, first_interaction). | String | — |
+
+</div>
+
 ## Root Span Filters
 
 <div class="filters-table">
@@ -260,13 +281,18 @@ Each filter table in this page uses the same columns:
 | Breadcrumb Message<br /><code class="filters-table__key">breadcrumb_message</code> | Message content of a breadcrumb. | String | — |
 | Has ANR Exit<br /><code class="filters-table__key">has_anr</code> | True if the app exited while an ANR was occurring. | Boolean | — |
 | Has ANR Exit<br /><code class="filters-table__key">has_anr_exit</code> | True if the app exited while an ANR was occurring. | Boolean | — |
+| Has ANR Intervals<br /><code class="filters-table__key">has_anr_interval</code> | Whether the session had any ANR interval, regardless of whether it caused the app to exit. Unlike Has ANR Exit, which only captures ANRs that terminated the app, this includes all ANR occurrences. | Boolean | — |
 | Has Cold Start<br /><code class="filters-table__key">is_cold</code> | True if this session is a cold start of the app. | Boolean | — |
 | Has Crash<br /><code class="filters-table__key">has_crash</code> | True if the session had a crash. | Boolean | — |
+| Has Error Logs<br /><code class="filters-table__key">has_error_log</code> | Whether the session contains error logs. | Boolean | — |
+| Has Exception<br /><code class="filters-table__key">has_exception</code> | Whether the session contains unhandled exceptions. | Boolean | — |
 | Has Low Memory Warning<br /><code class="filters-table__key">has_low_memory</code> | Whether the session had a low memory warning. | Boolean | — |
 | Has OOM<br /><code class="filters-table__key">has_oom</code> | True if the session had an out-of-memory event. | Boolean | — |
 | Inactive Interval Count<br /><code class="filters-table__key">inactive_interval_count</code> | Number of inactive intervals in the session. | int | — |
 | Is First<br /><code class="filters-table__key">is_first</code> | True if this is the user's first session. | Boolean | — |
+| Is Unhealthy<br /><code class="filters-table__key">is_unhealthy</code> | True if the session had error logs or a crash. | Boolean | — |
 | Network Connectivity<br /><code class="filters-table__key">network_connectivity</code> | Type of network connection the device is using. | Choice (String) | Choices: `mixed`, `none`, `wan`, `wifi` |
+| Page Load Abandoned<br /><code class="filters-table__key">page_load_abandoned</code> | True if this session was a cold start abandoned before page load completed. | Boolean | — |
 | State<br /><code class="filters-table__key">state</code> | Whether the app was in the foreground or background. | Choice (String) | Choices: `foreground`, `background` |
 | Was User Terminated<br /><code class="filters-table__key">has_user_terminated</code> | Whether the session was terminated by the user. | Boolean | — |
 
@@ -278,9 +304,9 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| Duration (Milliseconds)<br /><code class="filters-table__key">span_duration</code> | Duration of the span in milliseconds. | int | — |
 | Has Slow Root Span<br /><code class="filters-table__key">span_type_slow</code> | Whether the span is considered slow. | Boolean | — |
 | Span Attribute Key<br /><code class="filters-table__key">span_attribute_key</code> | Key of a span attribute. | String | — |
-| Span Duration (Milliseconds)<br /><code class="filters-table__key">span_duration</code> | Duration of the span in milliseconds. | int | — |
 | Span Duration Bucket (Milliseconds)<br /><code class="filters-table__key">span_duration_bucket</code> | Bucket for span duration. | int | — |
 | Span Event Name<br /><code class="filters-table__key">span_event_name</code> | Event name associated with the span. | String | — |
 | Span Is Child<br /><code class="filters-table__key">is_child_span</code> | Whether the span is a child span. | Boolean | — |
@@ -328,7 +354,7 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
-| Embrace ID<br /><code class="filters-table__key">device_id</code> | Unique identifier for the device (Embrace ID). | String | — |
+| Embrace ID<br /><code class="filters-table__key">device_id</code> | Unique identifier for the device. | String | — |
 | Persona<br /><code class="filters-table__key">persona</code> | User persona segment. | String | — |
 | User Email<br /><code class="filters-table__key">user_email</code> | App user's email address. | String | — |
 | User ID<br /><code class="filters-table__key">user_id</code> | User identifier. | String | — |
@@ -342,7 +368,7 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
-| User Flow Duration (Milliseconds)<br /><code class="filters-table__key">user_flow_duration</code> | Duration of the user flow in milliseconds. | int | — |
+| Duration (Milliseconds)<br /><code class="filters-table__key">user_flow_duration</code> | Duration of the user flow in milliseconds. | int | — |
 | User Flow End Event Type<br /><code class="filters-table__key">user_flow_end_event_type</code> | Type of event that ended the user flow. | Choice (String) | Choices: `breadcrumb`, `crash`, `custom_view`, `log`, `network`, `session`, `span`, `user_tap`, `view`, `web_view` |
 | User Flow End Reason<br /><code class="filters-table__key">user_flow_outcome_reason</code> | Reason for the user flow outcome. | Choice (String) | Choices: `app_exit`, `timeout`, `new_user_flow_started`, `crash` |
 | User Flow Has Issue<br /><code class="filters-table__key">user_flow_has_issue</code> | Whether the user flow has an issue. | Choice (String) | Choices: `anr`, `crash`, `error_log`, `network_error` |
@@ -370,7 +396,7 @@ Each filter table in this page uses the same columns:
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
 | Entry Type<br /><code class="filters-table__key">entry_type</code> | Performance API entry type — "mark" or "measure". | Choice (String) | Choices: `mark`, `measure` |
-| User Timing Start Time<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float | — |
+| Start Time (Milliseconds)<br /><code class="filters-table__key">start_time</code> | Milliseconds from zero time when the entry was recorded. | float | — |
 
 </div>
 
@@ -381,6 +407,18 @@ Each filter table in this page uses the same columns:
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
 | Detail Attribute Key/Value<br /><code class="filters-table__key">detail</code> | Key/value pair from the user timing detail object. | property | — |
+
+</div>
+
+## Web Behavioral Signals Filters
+
+<div class="filters-table">
+
+| Filter | Description | Type | Constraints |
+| --- | --- | --- | --- |
+| Element Selector<br /><code class="filters-table__key">rage_click_element_selector</code> | CSS selector of the element that was rage clicked. | String | — |
+| Element Type<br /><code class="filters-table__key">rage_click_element_type</code> | HTML element type that was rage clicked. | String | — |
+| Interaction Type<br /><code class="filters-table__key">rage_click_interaction_type</code> | Type of interaction that triggered the rage click. | String | — |
 
 </div>
 

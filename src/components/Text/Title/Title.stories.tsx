@@ -1,5 +1,5 @@
 import React from 'react';
-import type {Meta, StoryFn} from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import Title from './Title';
 
@@ -8,7 +8,7 @@ export default {
   component: Title,
 } as Meta<typeof Title>;
 
-const Template: StoryFn<typeof Title> = ({children, variant}) => (
+const Template: StoryFn<typeof Title> = ({ children, variant }) => (
   <Title variant={variant}>{children}</Title>
 );
 //title 1

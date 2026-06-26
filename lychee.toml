@@ -1,5 +1,14 @@
 # https://github.com/lycheeverse/lychee/blob/master/lychee.example.toml
+# Cache results to avoid re-hitting external sites on every run.
 cache = true
+max_cache_age = "1d"
+
+# Check external links only; internal links/anchors/images are validated at build
+# time by Docusaurus (onBrokenLinks/onBrokenAnchors/onBrokenMarkdownLinks: throw).
+# root_dir lets lychee parse root-relative links (/web/...) without erroring;
+# scheme then limits checking to external URLs, so those internal links aren't fetched.
+root_dir = "docs"
+scheme = ["https", "http"]
 exclude = [
     'https://app.datadoghq.com',
     'https://cocoapods.org',
@@ -16,5 +25,4 @@ exclude = [
     'https://www.npmjs.com',
     'https://webhook.site'
 ]
-max_cache_age = "1d"
 accept = ["200", "429", "503"]

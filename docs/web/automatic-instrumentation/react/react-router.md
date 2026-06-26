@@ -18,10 +18,8 @@ import { createReactRouterNavigationInstrumentation } from '@embrace-io/web-sdk/
 
 initSDK({
   // ...Other configs
-  instrumentations: [
-    createReactRouterNavigationInstrumentation(),
-  ],
-})
+  instrumentations: [createReactRouterNavigationInstrumentation()],
+});
 ```
 
 ### React Router V4/V5
@@ -129,20 +127,21 @@ const customNavigationHandler = () => {
   // ... navigation logic
 
   // Get raw URL and path pattern from the custom navigation
-  const url = '/path/before/replaced'
-  const path = '/path/before/:replace'
+  const url = '/path/before/replaced';
+  const path = '/path/before/:replace';
 
   // Since `createReactRouterNavigationInstrumentation` was already called when setting up the
   // instrumentation in `initSDK` this will simply get a reference to the NavigationInstrumentation
   // instance rather than creating a new one
-  const navigationInstrumentation = createReactRouterNavigationInstrumentation();
+  const navigationInstrumentation =
+    createReactRouterNavigationInstrumentation();
 
   // Track that the navigation occurred
   navigationInstrumentation.setCurrentRoute({
     url,
-    path
+    path,
   });
-}
+};
 ```
 
 ## Configuration

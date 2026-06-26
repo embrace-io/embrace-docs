@@ -24,7 +24,7 @@ Embrace bearer tokens start with the prefix `emb_sa_` followed by 43 characters 
 Service account tokens are a separate concept from the org-wide [API Tokens](./api-tokens.md) used for symbol upload, metrics ingestion, and similar integrations. Both coexist; existing API tokens continue to work and do not need to be rotated.
 
 |                      | API Tokens                                        | Service Account Tokens                                |
-|----------------------|---------------------------------------------------|-------------------------------------------------------|
+| -------------------- | ------------------------------------------------- | ----------------------------------------------------- |
 | **Who manages them** | Auto-created per org                              | Admins create service accounts and issue tokens       |
 | **Scope of access**  | Entire org                                        | Specific apps, or all apps                            |
 | **Capabilities**     | One per token (symbol upload, metrics pull, etc.) | Multi-scope — a single token can combine capabilities |

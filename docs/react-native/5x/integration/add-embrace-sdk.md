@@ -142,6 +142,7 @@ You’ll need to set the following permissions so the Embrace SDK can send event
 
 - `android.permission.INTERNET`
 - `android.permission.ACCESS_NETWORK_STATE`
+
 :::
 
 </TabItem>
