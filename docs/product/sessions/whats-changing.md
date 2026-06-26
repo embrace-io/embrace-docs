@@ -1,7 +1,6 @@
 ---
 title: What's changing with sessions
 description: Redefining sessions in Embrace will make your data better, and we want to tell you about it early
-
 sidebar_position: 2
 ---
 
@@ -24,7 +23,7 @@ You don't have to do anything, and nothing breaks. After the change:
 * **Your existing data and metrics keep working.** The session metrics you rely on today will still be available in widgets and custom metrics.
 * **New SDK capabilities.** You can now define sessions more precisely — including ending a session yourself — and set properties at the new session scope. For more information about these changes, check out the change logs for each platform SDK you’ve instrumented. 
 
-A reminder on terminology: If you're working with our SDKs or data, you'll see two terms that disambiguate the old and new definitions:
+:::note A reminder on terminology: If you're working with our SDKs or data, you'll see two terms that disambiguate the old and new definitions:
 
 * **`user_session`** is the new session — the stitched session timeline, representing a user's meaningful experience in your app. This is the concept to build on going forward.
 * **`session_part`** is what we used to call a session: a single foreground or background period of the app. Parts now map to the building blocks of a `user_session.`
