@@ -1,38 +1,38 @@
 ---
 title: What's changing with sessions
-description: We're aligning sessions across mobile and web around the stitched session timeline
+description: Redefining sessions in Embrace will make your data better, and we want to tell you about it early
+
 sidebar_position: 2
 ---
 
-We're making sessions better, and we want to tell you about it early.
+## Some Background
 
-### The short version
+If you have ever described a user's experience in your app as a "session," you probably pictured the full arc of that visit: The moment they opened the app to the moment they stop engaging. That is how most mobile teams think about it, and the analogous experience is the standard for web teams. This is represented by the black box in the visualization below. 
 
-Today, a "session" on mobile means a single foreground period of your app, ending whenever the app leaves the foreground. That definition has served us well for years, but as we expand into web, it created a mismatch: web has a long-established, well-understood idea of a session that refers to an extended period of user activity, often spanning hours. 
+Historically, Embrace has been a bit of an outlier in our terminology and definitions. What most people think of as a user session, we’ve always called a “stitched session” and we’ve instead referred to the smaller component pieces representing individual user interactions as “sessions” (gray boxes in the diagram). Confused yet? Not to worry. Moving forward, we’re updating the definitions in Embrace so they align to existing conventions and are consistent across mobile and web. 
 
-The good news is that we already have the concept that bridges the two: the **stitched session timeline**. It captures what people actually care about — a user's meaningful experience in your app over time, not just one foreground period in isolation.
-So we're aligning everything around it. Going forward, a session means the same thing on mobile and web: the user's experience within your app. It's a more intuitive, more useful definition, and it's one most people already think in terms of.
+<img src={require('@site/static/images/user-session.png').default} />
 
-### What this means for you
+Very soon, in the Embrace SDK and platform, we will sunset the use of “stitched session” language and will call the period of time when users are experiencing your app a “session”. The individual user interactions will be called “session parts”. For the rest of this document, when a session is mentioned that will refer to the new definition unless noted otherwise. 
 
+## What this work will entail
+We’ll be rolling this change out in two phases. The first phase comes with the upcoming version of our SDKs. The second phase will reflect the terminology changes in the platform UI. 
+
+### Phase 1 - June - Embrace Mobile SDK
 You don't have to do anything, and nothing breaks. After the change:
 
-- **Your existing data and metrics keep working.** The session metrics you rely on today will still be available in widgets and custom metrics. 
-- **SDKs get capabilities first.** You can now define sessions more precisely — including ending a session yourself — and set properties at the new session scope. 
-- **The product will catch up soon.** In an upcoming refresh, what we call "stitched sessions" today will simply be called **sessions**, and you'll see true session metrics built on this definition.
+* **Your existing data and metrics keep working.** The session metrics you rely on today will still be available in widgets and custom metrics.
+* **New SDK capabilities.** You can now define sessions more precisely — including ending a session yourself — and set properties at the new session scope. For more information about these changes, check out the change logs for each platform SDK you’ve instrumented. 
 
-### Why we're telling you now
+A reminder on terminology: If you're working with our SDKs or data, you'll see two terms that disambiguate the old and new definitions:
 
-We're rolling this out in the SDKs first so you can start using the new functionality right away, ahead of the product changes. 
+* **`user_session`** is the new session — the stitched session timeline, representing a user's meaningful experience in your app. This is the concept to build on going forward.
+* **`session_part`** is what we used to call a session: a single foreground or background period of the app. Parts now map to the building blocks of a `user_session.`
 
-If you want a refresher on the concept this is all built around, take a look at [Stitched Sessions](/product/sessions/stitched-sessions.md).
+### Phase 2 - July - Embrace Platform UI Updates
 
-:::note A note on terminology
-If you're working with our SDKs or data, you'll see two terms that disambiguate the old and new definitions:
+During the second phase, the labeling of sessions will be updated in the platform UI and dashboards. There will be additional communication and documentation to detail these changes closer to the date that they’ll roll out.   
 
-- **`user_session`** is the new session — the stitched session timeline, representing a user's meaningful experience in your app. This is the concept to build on going forward.
-- **`session_part`** is what we used to call a session: a single foreground or background period of the app. Parts now map to the building blocks of a `user_session`.
-
-We're intentionally de-emphasizing `session_part`. Treat it as an implementation detail, and reach for `user_session` whenever you're reasoning about sessions.
-:::
+## What you need to know
+These are non-breaking changes and require no action on your part for everything to keep working the way you expect. In the coming weeks we will publish more details about the changes in dashboards. In the meantime, if you have any questions about these changes please reach out to us on the [community Slack](https://community.embrace.io) or email us at [support@embrace.io](mailto:support@embrace.io). 
 
