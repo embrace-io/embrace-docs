@@ -416,8 +416,12 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| Did Scroll<br /><code class="filters-table__key">max_scroll_depth_did_scroll</code> | Whether the user scrolled. | Boolean | — |
+| Element Selector<br /><code class="filters-table__key">first_interaction_element_selector</code> | CSS selector of the element that was interacted with. | String | — |
 | Element Selector<br /><code class="filters-table__key">rage_click_element_selector</code> | CSS selector of the element that was rage clicked. | String | — |
+| Element Type<br /><code class="filters-table__key">first_interaction_element_type</code> | HTML element type that was interacted with. | String | — |
 | Element Type<br /><code class="filters-table__key">rage_click_element_type</code> | HTML element type that was rage clicked. | String | — |
+| Interaction Type<br /><code class="filters-table__key">first_interaction_interaction_type</code> | Type of the first interaction (click, tap, keypress, scroll). | String | — |
 | Interaction Type<br /><code class="filters-table__key">rage_click_interaction_type</code> | Type of interaction that triggered the rage click. | String | — |
 
 </div>
