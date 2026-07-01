@@ -11,6 +11,10 @@ User Sessions give you every technical detail for every session that users were 
 
 ### What is a User Session?
 
+:::note 
+We are changing some things about sessions to make them better soon. For more info, see [What's changing with sessions](docs/product/sessions/whats-changing.md).
+:::
+
 User Sessions are an encapsulation of all app activity a specific user had during one use of the app. The User Session creates a picture that includes all app lifecycle and user interface details, business logic and networking, and other technical details that occurred in your app while it was in the foreground or background. It also includes key metadata for the session including device info, user personas,
 
 The first User Session begin when a user launches the app to the foreground. That foreground session can end or terminate in a variety of states:
