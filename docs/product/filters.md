@@ -93,12 +93,18 @@ Each filter table in this page uses the same columns:
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
 | Crash ID<br /><code class="filters-table__key">crash_group_id</code> | Unique identifier for the crash. | String | — |
+| Exhaustion Type<br /><code class="filters-table__key">exhaustion_type</code> | Resource exhaustion type associated with the termination. | String | — |
 | File Name<br /><code class="filters-table__key">file</code> | File name associated with the event. | String | — |
 | Framework<br /><code class="filters-table__key">framework</code> | Framework used by the app (e.g., Native, React Native, Flutter). | Choice (String) | Choices: `native`, `react_native`, `unity` |
 | Message<br /><code class="filters-table__key">msg</code> | Message describing the crash. | String | — |
+| Process State<br /><code class="filters-table__key">process_state</code> | Process state at the time of termination. | String | — |
+| Process Visibility<br /><code class="filters-table__key">process_visibility</code> | Process visibility at the time of termination. | String | — |
+| Signal<br /><code class="filters-table__key">signal</code> | Signal associated with the termination. | String | — |
 | Symbol<br /><code class="filters-table__key">symbol</code> | Symbol associated with the crash. | String | — |
 | Tag Name<br /><code class="filters-table__key">tag_name</code> | Name of the tag. | String | — |
 | Tag Name/Value<br /><code class="filters-table__key">tag</code> | Key/Value pair of the tag. | property | — |
+| Termination Code<br /><code class="filters-table__key">termination_code</code> | MetricKit termination reason code. | String | — |
+| Watchdog Event<br /><code class="filters-table__key">watchdog_event</code> | Watchdog event associated with the termination. | String | — |
 
 </div>
 
@@ -416,8 +422,12 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| Did Scroll<br /><code class="filters-table__key">max_scroll_depth_did_scroll</code> | Whether the user scrolled. | Boolean | — |
+| Element Selector<br /><code class="filters-table__key">first_interaction_element_selector</code> | CSS selector of the element that was interacted with. | String | — |
 | Element Selector<br /><code class="filters-table__key">rage_click_element_selector</code> | CSS selector of the element that was rage clicked. | String | — |
+| Element Type<br /><code class="filters-table__key">first_interaction_element_type</code> | HTML element type that was interacted with. | String | — |
 | Element Type<br /><code class="filters-table__key">rage_click_element_type</code> | HTML element type that was rage clicked. | String | — |
+| Interaction Type<br /><code class="filters-table__key">first_interaction_interaction_type</code> | Type of the first interaction (click, tap, keypress, scroll). | String | — |
 | Interaction Type<br /><code class="filters-table__key">rage_click_interaction_type</code> | Type of interaction that triggered the rage click. | String | — |
 
 </div>
