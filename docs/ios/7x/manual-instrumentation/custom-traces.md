@@ -1,0 +1,651 @@
+---
+title: Traces
+description: Track the duration and performance of custom operations in your iOS app
+sidebar_position: 1
+---
+
+## Traces
+
+Custom traces allow you to measure the duration of specific operations in your app, providing insights into performance and behavior of code paths that matter to your business. Traces are implemented using spans from the OpenTelemetry standard.
+
+### What are Traces and Spans?
+
+In OpenTelemetry:
+
+- A **trace** represents the entire journey of a request or operation through your system
+- **Spans** are the building blocks of a trace, representing individual units of work or operations
+
+Each span:
+
+- Has a name and type
+- Tracks when the operation started and ended
+- Can include attributes (key-value pairs) that provide context
+- Can record errors that occurred during the operation
+- Can have parent-child relationships with other spans
+- **Must be ended** to properly capture the operation's duration and avoid memory leaks
+
+Embrace uses spans to visualize and analyze the performance of operations in your app.
+
+### Required Imports
+
+To use custom traces in your Swift code, you need the following imports:
+
+```swift
+import Foundation
+import EmbraceIO
+```
+
+**Note:** All span types (`EmbraceSpan`, `EmbraceType`, `EmbraceSpanEvent`, and so on) are provided by `EmbraceIO`. You no longer need to import `OpenTelemetryApi` to create spans, build parent-child relationships, or store spans as properties.
+
+### Creating Spans
+
+Embrace provides several ways to create custom spans depending on your needs:
+
+#### Basic Span Creation
+
+Create a span using the `createSpan` method:
+
+```swift
+let span = EmbraceIO.shared.createSpan(
+    name: "image_processing",
+    type: .performance
+)
+
+// Your code here
+performImageProcessing()
+
+span?.end()
+```
+
+#### Adding Initial Attributes
+
+You can provide attributes when creating a span and add more as the operation runs:
+
+```swift
+let span = EmbraceIO.shared.createSpan(
+    name: "data_calculation",
+    type: .performance,
+    attributes: [
+        "input_size": String(inputData.count),
+        "algorithm": "fast_math"
+    ]
+)
+
+// Your code here
+let result = performCalculation()
+
+// Add dynamic attributes to the span
+span?.setAttribute(key: "calculation_result", value: result.description)
+
+span?.end()
+```
+
+**Important:**
+
+- `createSpan` returns an optional `EmbraceSpan?`, so always use optional chaining (`span?.setAttribute`, `span?.end()`) when calling methods on it.
+- **Always call `span?.end()`** when the operation completes to capture its duration and avoid leaking the span.
+
+#### Async Operations
+
+For asynchronous operations, start the span before the operation begins and end it when the operation completes:
+
+```swift
+let span = EmbraceIO.shared.createSpan(
+    name: "network_request",
+    type: .performance
+)
+
+performAsyncOperation { result, error in
+    if let error = error {
+        span?.end(errorCode: .failure)
+    } else {
+        span?.setAttribute(key: "result_count", value: result.count.description)
+        span?.end()
+    }
+}
+```
+
+### Span Attributes
+
+Add context to your spans with attributes. You can set attributes in two ways:
+
+#### Setting Multiple Attributes at Creation
+
+```swift
+let span = EmbraceIO.shared.createSpan(
+    name: "checkout_process",
+    type: .performance,
+    attributes: [
+        "cart_item_count": "5",
+        "total_amount": "99.99",
+        "payment_method": "credit_card"
+    ]
+)
+
+// Complete checkout process
+span?.end()
+```
+
+#### Setting Individual Attributes
+
+```swift
+// Create the span
+let span = EmbraceIO.shared.createSpan(
+    name: "checkout_process",
+    type: .performance
+)
+
+// Add some attributes relevant to the checkout
+span?.setAttribute(key: "cart_item_count", value: "5")
+span?.setAttribute(key: "total_amount", value: "99.99")
+span?.setAttribute(key: "payment_method", value: "credit_card")
+
+// Complete checkout process
+span?.end()
+```
+
+#### Hybrid Approach
+
+```swift
+// Set known attributes upfront
+let span = EmbraceIO.shared.createSpan(
+    name: "api_request",
+    type: .performance,
+    attributes: [
+        "endpoint": "/users/profile",
+        "method": "GET",
+        "user_id": userId
+    ]
+)
+
+// Add dynamic attributes during execution
+span?.setAttribute(key: "response_size", value: String(responseData.count))
+span?.setAttribute(key: "cache_status", value: cacheHit ? "hit" : "miss")
+
+span?.end()
+```
+
+**Best Practices:**
+
+- Use the **attributes dictionary** for static values known at span creation
+- Use **setAttribute()** for dynamic values computed during span execution
+- **Attribute values can be `String`, `Int`, `Double`, or `Bool`** (they are `EmbraceAttributeValue`s)
+- You can add attributes at any point before the span is ended
+
+### Span Hierarchy
+
+Create parent-child relationships between spans to represent nested operations:
+
+```swift
+let parentSpan = EmbraceIO.shared.createSpan(
+    name: "data_sync",
+    type: .performance
+)
+
+// Start a child span
+let fetchSpan = EmbraceIO.shared.createSpan(
+    name: "fetch_remote_data",
+    parentSpan: parentSpan,
+    type: .performance
+)
+
+let result = fetchRemoteData()
+fetchSpan?.end()
+
+// Create another child span
+let processSpan = EmbraceIO.shared.createSpan(
+    name: "process_data",
+    parentSpan: parentSpan,
+    type: .performance
+)
+
+processData(result)
+processSpan?.end()
+
+parentSpan?.end()
+```
+
+This creates a hierarchy that helps visualize the relationship between operations.
+
+### Custom Span Types
+
+You can specify a span type to categorize different kinds of operations:
+
+```swift
+let span = EmbraceIO.shared.createSpan(
+    name: "payment_processing",
+    type: .performance // Use EmbraceType enum values like .performance, .ux, .system
+)
+
+// Process payment
+
+span?.end()
+```
+
+Available span types include:
+
+- `.performance` - For performance monitoring _(default if not specified)_
+- `.ux` - For user experience tracking
+- `.system` - For system-level operations
+
+**Note:** If you don't specify a `type` parameter, `.performance` is used by default.
+
+### Span Links
+
+Span links correlate one or more spans together that are causally related but don't have a typical parent-child relationship. These links may correlate spans within the same trace or across different traces.
+
+You can pass links to other spans when creating a span via the `links:` parameter:
+
+```swift
+// Build the link(s) to correlate with
+let link = EmbraceSpanLink(context: linkContext, attributes: linkAttributes)
+
+// Create the span with the link
+let span = EmbraceIO.shared.createSpan(name: "mySpan", links: [link])
+
+// End the span
+// ...
+span?.end()
+```
+
+### Best Practices
+
+#### Naming Conventions
+
+Use clear, descriptive names for your spans. Consider a naming convention such as:
+
+- Use camelCase for span names to maintain consistency with Swift naming conventions
+- Include the general category followed by the specific operation
+- Be consistent across your codebase
+
+Good examples:
+
+- `networkFetchUserProfile`
+- `databaseSavePreferences`
+- `renderingProductList`
+
+#### Granularity
+
+Choose an appropriate level of granularity for your spans:
+
+- Too coarse: `app_startup` (better to break into component parts)
+- Too fine-grained: `increment_counter` (likely too small to be useful)
+- Just right: `image_cache_lookup`, `user_authentication`
+
+#### Resource Management
+
+Always end your spans to avoid memory leaks. Consider using Swift's `defer` statement for safety:
+
+```swift
+let span = EmbraceIO.shared.createSpan(
+    name: "important_operation",
+    type: .performance
+)
+defer { span?.end() }
+
+// Your code here, even if it throws an exception, span will be ended
+```
+
+#### Capturing Meaningful Data
+
+Add attributes that would be useful for troubleshooting:
+
+```swift
+let span = EmbraceIO.shared.createSpan(name: "data_operation")
+
+span?.setAttribute(key: "user_tier", value: "premium")
+span?.setAttribute(key: "data_size", value: dataSize.description)
+span?.setAttribute(key: "retry_count", value: retryCount.description)
+
+span?.end()
+```
+
+### Common Use Cases
+
+#### API Client Instrumentation
+
+```swift
+func fetchUserProfile(userId: String, completion: @escaping (Result<UserProfile, Error>) -> Void) {
+    let span = EmbraceIO.shared.createSpan(
+        name: "api_fetch_user_profile",
+        type: .performance
+    )
+
+    span?.setAttribute(key: "user_id", value: userId)
+
+    apiClient.get("/users/\(userId)") { result in
+        switch result {
+        case .success(let data):
+            span?.setAttribute(key: "data_size", value: data.count.description)
+            span?.end()
+            // Process data and call completion
+        case .failure(let error):
+            span?.setAttribute(key: "error.message", value: error.localizedDescription)
+            span?.end(errorCode: .failure)
+            completion(.failure(error))
+        }
+    }
+}
+```
+
+#### Database Operations
+
+```swift
+func saveUserPreferences(preferences: Preferences) throws {
+    let span = EmbraceIO.shared.createSpan(
+        name: "db_save_preferences",
+        type: .performance
+    )
+    defer { span?.end() }
+
+    span?.setAttribute(key: "preference_count", value: preferences.count.description)
+
+    do {
+        try database.write { transaction in
+            transaction.setObject(preferences, forKey: "user_preferences")
+        }
+    } catch let error {
+        span?.setAttribute(key: "error.message", value: error.localizedDescription)
+        span?.setStatus(.error)
+        throw error
+    }
+}
+```
+
+#### Performance-Critical Algorithms
+
+```swift
+func processFeed(posts: [Post]) -> [ProcessedPost] {
+    let span = EmbraceIO.shared.createSpan(
+        name: "algorithm_feed_processing",
+        type: .performance
+    )
+    defer { span?.end() }
+
+    span?.setAttribute(key: "post_count", value: posts.count.description)
+
+    // Measure the main processing algorithm
+    let result = performFeedProcessing(posts)
+
+    span?.setAttribute(key: "processed_count", value: result.count.description)
+
+    return result
+}
+```
+
+### Complex User Flow Examples
+
+#### Navigation Flow Tracking
+
+Track user navigation through your app with hierarchical spans:
+
+```swift
+class NavigationFlowTracker {
+    private var userJourneySpan: EmbraceSpan?
+
+    func startUserJourney(from startScreen: String) {
+        userJourneySpan = EmbraceIO.shared.createSpan(
+            name: "user_journey",
+            type: .ux,
+            attributes: [
+                "journey.start_screen": startScreen,
+                "journey.session_id": EmbraceIO.shared.currentUserSessionId ?? "unknown"
+            ]
+        )
+    }
+
+    func trackScreenTransition(from: String, to: String) {
+        let transitionSpan = EmbraceIO.shared.createSpan(
+            name: "screen_transition",
+            parentSpan: userJourneySpan,
+            type: .ux,
+            attributes: [
+                "transition.from": from,
+                "transition.to": to
+            ]
+        )
+
+        // Add transition-specific events
+        transitionSpan?.addEvent(name: "transition_started", attributes: [:])
+
+        // Simulate transition work
+        let success = performTransition(from: from, to: to)
+
+        if success {
+            transitionSpan?.addEvent(name: "transition_completed", attributes: [:])
+        } else {
+            transitionSpan?.addEvent(name: "transition_failed", attributes: [:])
+        }
+
+        transitionSpan?.end()
+    }
+
+    func endUserJourney(reason: String) {
+        userJourneySpan?.setAttribute(key: "journey.end_reason", value: reason)
+        userJourneySpan?.end()
+        userJourneySpan = nil
+    }
+}
+```
+
+#### Game or Interaction Flow Measurement
+
+Track complex multi-stage user interactions:
+
+```swift
+class GameFlowTracker {
+    private var gameSpan: EmbraceSpan?
+    private var roundSpan: EmbraceSpan?
+    private var currentRound = 0
+
+    func startGame(gameType: String) {
+        gameSpan = EmbraceIO.shared.createSpan(
+            name: "game_session",
+            type: .ux,
+            attributes: [
+                "game.type": gameType,
+                "game.start_time": ISO8601DateFormatter().string(from: Date())
+            ]
+        )
+    }
+
+    func startRound() {
+        currentRound += 1
+
+        // End previous round if exists
+        roundSpan?.end()
+
+        // Start new round as child of game span
+        roundSpan = EmbraceIO.shared.createSpan(
+            name: "game_round",
+            type: .ux,
+            attributes: [
+                "round.number": String(currentRound),
+                "round.start_time": ISO8601DateFormatter().string(from: Date())
+            ]
+        )
+    }
+
+    func recordUserAction(action: String, isCorrect: Bool, reactionTime: TimeInterval) {
+        let actionSpan = EmbraceIO.shared.createSpan(
+            name: "user_action",
+            parentSpan: roundSpan,
+            type: .ux,
+            attributes: [
+                "action.type": action,
+                "action.correct": String(isCorrect),
+                "action.reaction_time_ms": String(Int(reactionTime * 1000))
+            ]
+        )
+
+        if !isCorrect {
+            actionSpan?.setAttribute(key: "action.error", value: "incorrect_action")
+        }
+
+        actionSpan?.end()
+    }
+
+    func endRound(score: Int, success: Bool) {
+        roundSpan?.setAttribute(key: "round.score", value: String(score))
+        roundSpan?.setAttribute(key: "round.success", value: String(success))
+
+        if !success {
+            roundSpan?.setAttribute(key: "round.failure_reason", value: "round_failed")
+        }
+
+        roundSpan?.end()
+        roundSpan = nil
+    }
+
+    func endGame(finalScore: Int, totalRounds: Int) {
+        gameSpan?.setAttribute(key: "game.final_score", value: String(finalScore))
+        gameSpan?.setAttribute(key: "game.total_rounds", value: String(totalRounds))
+        gameSpan?.setAttribute(key: "game.average_score", value: String(finalScore / max(totalRounds, 1)))
+        gameSpan?.end()
+        gameSpan = nil
+    }
+}
+```
+
+#### E-commerce Checkout Flow
+
+Track a complete user purchase journey:
+
+```swift
+class CheckoutFlowTracker {
+    private var checkoutSpan: EmbraceSpan?
+
+    func startCheckout(cartValue: Double, itemCount: Int) {
+        checkoutSpan = EmbraceIO.shared.createSpan(
+            name: "checkout_flow",
+            type: .ux,
+            attributes: [
+                "checkout.cart_value": String(format: "%.2f", cartValue),
+                "checkout.item_count": String(itemCount),
+                "checkout.started_at": ISO8601DateFormatter().string(from: Date())
+            ]
+        )
+    }
+
+    func trackCheckoutStep(step: String, duration: TimeInterval? = nil) {
+        let stepSpan = EmbraceIO.shared.createSpan(
+            name: "checkout_step",
+            parentSpan: checkoutSpan,
+            type: .ux,
+            attributes: [
+                "step.name": step,
+                "step.timestamp": ISO8601DateFormatter().string(from: Date())
+            ]
+        )
+
+        if let duration = duration {
+            stepSpan?.setAttribute(key: "step.duration_ms", value: String(Int(duration * 1000)))
+        }
+
+        stepSpan?.end()
+    }
+
+    func trackPaymentFlow(paymentMethod: String) {
+        let paymentSpan = EmbraceIO.shared.createSpan(
+            name: "payment_processing",
+            parentSpan: checkoutSpan,
+            type: .ux,
+            attributes: [
+                "payment.method": paymentMethod
+            ]
+        )
+
+        // Track payment validation as nested span
+        let validationSpan = EmbraceIO.shared.createSpan(
+            name: "payment_validation",
+            parentSpan: paymentSpan,
+            type: .performance
+        )
+
+        // Simulate validation work
+        Thread.sleep(forTimeInterval: 2.0)
+        validationSpan?.end()
+
+        // Track payment completion
+        paymentSpan?.setAttribute(key: "payment.status", value: "completed")
+        paymentSpan?.end()
+    }
+
+    func completeCheckout(orderId: String, success: Bool, error: Error? = nil) {
+        if success {
+            checkoutSpan?.setAttribute(key: "checkout.order_id", value: orderId)
+            checkoutSpan?.setAttribute(key: "checkout.status", value: "completed")
+        } else {
+            checkoutSpan?.setAttribute(key: "checkout.status", value: "failed")
+            if let error = error {
+                checkoutSpan?.setAttribute(key: "error.message", value: error.localizedDescription)
+                checkoutSpan?.end(errorCode: .failure)
+                return
+            }
+        }
+
+        checkoutSpan?.end()
+        checkoutSpan = nil
+    }
+}
+```
+
+#### SwiftUI Navigation with Embrace Integration
+
+Track navigation in SwiftUI apps with automatic and manual instrumentation:
+
+```swift
+struct ShoppingAppView: View {
+    @State private var selectedTab = 0
+    @State private var showingProductDetail = false
+
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            ProductListView()
+                .tabItem { Label("Products", systemImage: "list.bullet") }
+                .tag(0)
+                .onAppear {
+                    trackTabSelection("products")
+                }
+
+            CartView()
+                .tabItem { Label("Cart", systemImage: "cart") }
+                .tag(1)
+                .onAppear {
+                    trackTabSelection("cart")
+                }
+        }
+        .onChange(of: selectedTab) { newTab in
+            trackTabChange(to: newTab)
+        }
+    }
+
+    private func trackTabSelection(_ tabName: String) {
+        let span = EmbraceIO.shared.createSpan(
+            name: "tab_selection",
+            type: .ux,
+            attributes: [
+                "tab.name": tabName,
+                "tab.selection_time": ISO8601DateFormatter().string(from: Date())
+            ]
+        )
+
+        // Tab tracking logic here
+
+        span?.end()
+    }
+
+    private func trackTabChange(to newTab: Int) {
+        let tabNames = ["products", "cart"]
+        guard newTab < tabNames.count else { return }
+
+        EmbraceIO.shared.setProperty(
+            key: "current_tab",
+            value: tabNames[newTab],
+            lifespan: .session
+        )
+    }
+}
+```
+
+These examples demonstrate how to create comprehensive trace structures that provide deep insights into user behavior, performance bottlenecks, and application flow patterns.
