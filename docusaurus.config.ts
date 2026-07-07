@@ -557,9 +557,9 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: 'announcement-20260511', // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
+      id: 'announcement-20260706', // Change this ID when contents change so that it becomes visible to users who previously [x] hidden it
       content:
-        '<a target="_blank" href="https://get.embrace.io/ai-powered-observability?utm_source=website&utm_medium=website&utm_campaign=docs-banner">Watch on-demand: Less toil, faster fixes: AI-powered observability with Embrace</a>',
+        '<a target="_blank" href="https://go.hny.co/4xisPeL">Live session on July 14th | Honeycomb + Embrace: How to Close the Gap Between Frontend Experience & Backend Truth</a>',
       backgroundColor: '#EEFF04',
       isCloseable: true,
     },
