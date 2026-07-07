@@ -6,6 +6,16 @@ sidebar_position: 4
 
 ## Embrace Unity SDK Changelog
 
+### 2.8.2
+
+_July 6, 2026_
+
+Embrace Android SDK Version: [7.5.0](/android/changelog/#750)
+Embrace Apple SDK Version: [6.15.1](/ios/changelog/#6151)
+
+- Fixed a bug where the Embrace dependencies XML file would fail to be generated when its target directory already existed
+- Added a `NOTICE` file to the package with third-party attributions
+
 ### 2.8.1
 
 _November 25, 2025_
