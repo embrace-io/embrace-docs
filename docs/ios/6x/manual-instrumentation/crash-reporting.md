@@ -138,7 +138,6 @@ Embrace offers two crash reporting options with different capabilities and data 
 
 - Intercepts Firebase Crashlytics network requests
 - Captures crash data that Firebase Crashlytics collects
-- Supports custom crash properties via `appendCrashInfo()`
 - Automatically disables MetricKit reports to avoid conflicts
 
 **Limitations:**
@@ -160,7 +159,6 @@ Embrace offers two crash reporting options with different capabilities and data 
 | ------------------------- | ----------------------------- | --------------------------- |
 | **Session Properties**    | ✅ Included                   | ❌ Not included             |
 | **Resources**             | ✅ Included                   | ❌ Not included             |
-| **Custom Crash Info**     | ✅ Via `appendCrashInfo()`    | ✅ Via `appendCrashInfo()`  |
 | **Last Run State**        | ✅ Crash/Clean Exit detection | ❌ Always unavailable       |
 | **Full Stack Traces**     | ✅ Complete KSCrash data      | ⚠️ Limited to Firebase data |
 | **Offline Support**       | ✅ Local crash capture        | ❌ Requires network         |
@@ -266,7 +264,7 @@ When a crash occurs, Embrace captures:
 
 #### Custom Crash Attributes
 
-You can add custom data that will be included with crash reports using two different approaches:
+You can add custom data that will be included with crash reports using session properties:
 
 ##### Session Properties (EmbraceCrashReporter only)
 
@@ -296,36 +294,6 @@ try Embrace.client?.metadata.addProperty(key: "experiment_group", value: "contro
 </Tabs>
 
 **Note:** Session properties are only included when using `EmbraceCrashReporter`. They are not available with `CrashlyticsReporter`.
-
-##### Custom Crash Info (Both crash reporters)
-
-Both crash reporters support adding custom key-value pairs directly to crash reports:
-
-<Tabs groupId="embrace-client">
-<TabItem value="embraceio" label="EmbraceIO" default>
-
-```swift
-// Note: appendCrashInfo has no EmbraceIO equivalent.
-// Use the Embrace client API for this functionality.
-try Embrace.client?.appendCrashInfo(key: "user_action", value: "checkout_attempt")
-try Embrace.client?.appendCrashInfo(key: "cart_items", value: "3")
-try Embrace.client?.appendCrashInfo(key: "screen_name", value: "payment_form")
-```
-
-</TabItem>
-<TabItem value="embrace" label="Embrace">
-
-```swift
-// Add custom crash info that will be included in the crash report
-try Embrace.client?.appendCrashInfo(key: "user_action", value: "checkout_attempt")
-try Embrace.client?.appendCrashInfo(key: "cart_items", value: "3")
-try Embrace.client?.appendCrashInfo(key: "screen_name", value: "payment_form")
-```
-
-</TabItem>
-</Tabs>
-
-This method works with both `EmbraceCrashReporter` and `CrashlyticsReporter`.
 
 #### Crash Callbacks
 
@@ -365,7 +333,7 @@ For CrashlyticsReporter specifically:
 
 If session properties are missing from crash reports:
 
-1. **Using CrashlyticsReporter**: Session properties are not supported. Use `appendCrashInfo()` instead or switch to `EmbraceCrashReporter`
+1. **Using CrashlyticsReporter**: Session properties are not supported. Switch to `EmbraceCrashReporter`
 2. **Using EmbraceCrashReporter**: Verify properties were added with `.session` lifespan before the crash occurred
 
 #### CrashlyticsReporter Specific Issues
@@ -373,7 +341,7 @@ If session properties are missing from crash reports:
 If using CrashlyticsReporter and experiencing issues:
 
 1. **Crashes not captured**: Ensure Firebase Crashlytics is functioning properly - test crash reporting in Firebase Console
-2. **Missing context**: CrashlyticsReporter only includes data that Firebase Crashlytics captures. Use `appendCrashInfo()` for custom data
+2. **Missing context**: CrashlyticsReporter only includes data that Firebase Crashlytics captures
 3. **Network dependency**: CrashlyticsReporter requires network connectivity to capture crashes from Firebase requests
 4. **Firebase SDK issues**: CrashlyticsReporter depends on Firebase Crashlytics SDK functionality, which Embrace cannot control
 
