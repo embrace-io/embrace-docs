@@ -11,6 +11,7 @@ sidebar_position: 6
 _Jul 7, 2026_
 
 - Updated Embrace Android SDK to 8.4.0
+- Added `NOTICE` file documenting third-party license attributions
 
 ### 4.7.0
 
