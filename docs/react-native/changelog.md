@@ -6,6 +6,15 @@ sidebar_position: 4
 
 ## Embrace React Native SDK Changelog
 
+### 6.7.1
+
+_Jul 7, 2026_
+
+Embrace Android SDK Version: [7.9.2](/android/changelog/#792)  
+Embrace Apple SDK Version [6.19.0](/ios/changelog/#6190)
+
+- Replaced gzip-js dependency with fflate in `@embrace-io/react-native-redux`
+
 ### 6.7.0
 
 _Jun 11, 2026_
