@@ -6,6 +6,14 @@ sidebar_position: 6
 
 ## Changelog
 
+### 6.21.0
+
+_July 7, 2026_
+
+- Fixes
+  - Fixed bug in `CaptureServicesOptionsBuilder.remove(ofType:)` that would remove the wrong type of `CaptureService`.
+  - Fixed issues with our URLSession proxy.
+
 ### 6.20.0
 
 _May 28, 2026_
