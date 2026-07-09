@@ -42,10 +42,10 @@ project's native `android/` and `ios/` folders required by the SDK.
 - Android: Android 7.0+ (API 24)
 - `minSdkVersion`: 24+
 - `compileSdkVersion`: 34+
-- Java 11
-- Kotlin 1.8.22+ [\*](/react-native/changelog/#621)
-- Gradle 7.5.1+
-- AGP (Android Gradle Build Tools Plugin) 7.4.2+
+- JDK 17
+- Kotlin 2.0.21+
+- Gradle 8.4+
+- AGP (Android Gradle Build Tools Plugin) 8.3.0+
 
 :::warning
 Fresh React Native projects may need gradle/build tool upgrades. See the aforementioned [app templates](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates)
