@@ -6,6 +6,24 @@ sidebar_position: 6
 
 ## Embrace Flutter SDK changelog
 
+### 4.8.0
+
+_Jul 7, 2026_
+
+- Updated Embrace Android SDK to 8.4.0
+- Added `NOTICE` file documenting third-party license attributions
+
+### 4.7.0
+
+_Jun 9, 2026_
+
+- Added `EmbraceStartupTracker` for automatic time-to-first-frame span instrumentation
+- Added time-to-interactive (TTI) span instrumentation to `EmbraceNavigationObserver`
+- Added `embrace_go_router` package with `EmbraceGoRouterObserver` for automatic navigation tracking and TTI span instrumentation in apps using go_router
+- Updated Embrace Android SDK to 8.3.1
+- Updated Embrace iOS SDK to 6.20.0
+- Fixed null returns from span method channel calls
+
 ### 4.6.0
 
 _Apr 22, 2026_
