@@ -6,6 +6,66 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 ## Upgrade guide
 
+### Upgrading from 6.x to 7.x
+
+:::info Summary
+
+- The Embrace Android SDK has been updated from 7.x (v7.9.2) to 8.x (v8.4.0):
+  - New minimum version requirements for the JDK, Kotlin, Gradle, and AGP (see below).
+  - The `embrace-swazzler` Gradle plugin has been renamed to `embrace-gradle-plugin`.
+- No JavaScript API changes
+
+:::
+
+The breaking changes in this release are Android-only. There are no JavaScript API changes.
+
+The steps below outline the project configuration changes required for all React Native projects, however if you call the Embrace Android SDK directly from native code or use a custom `swazzler {}` Gradle DSL block, please review the [Android Upgrade guide (7.x → 8.x)](/android/upgrading/#upgrading-from-7x-to-8x) for full details of all breaking changes.
+
+#### Update the Embrace packages
+
+Upgrade to the latest `7.x` versions of the Embrace React Native packages, either by bumping the versions in your `package.json` and running `npm install` / `yarn install`, or by removing the existing `@embrace-io/*` packages and reinstalling them.
+
+#### Meet the new Android minimum versions
+
+Embrace Android SDK 8.x raises the minimum supported build tooling. Because React Native projects use a `minSdkVersion` below 26 (the default is 24), the following minimums apply:
+
+| Technology       | Minimum version |
+| ---------------- | --------------- |
+| JDK (build-time) | 17              |
+| Kotlin           | 2.0.21          |
+| Gradle           | 8.4             |
+| AGP              | 8.3.0           |
+
+The minimum supported Android runtime for React Native is unchanged (Android 7.0 / `minSdk` 24). Please see [Minimum supported versions](/android/upgrading/#minimum-supported-versions) in the Android guide for full details.
+
+#### Rename the Embrace Gradle plugin
+
+The plugin's artifact and ID have been renamed. Update the two places it appears in your Android project.
+
+In your root `android/build.gradle`, update the `buildscript` classpath:
+
+```groovy
+// Before
+classpath "io.embrace:embrace-swazzler:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
+// After
+classpath "io.embrace:embrace-gradle-plugin:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
+```
+
+In your `android/app/build.gradle`, update the applied plugin ID:
+
+```groovy
+// Before
+apply plugin: 'embrace-swazzler'
+// After
+apply plugin: 'io.embrace.gradle'
+```
+
+If you originally set Embrace up with our Android setup script, you can re-run it to apply the plugin rename: `node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js`.
+
+#### Remove the OpenTelemetry pin for `@embrace-io/react-native-otlp`
+
+If you use the `react-native-otlp` package and previously added the OpenTelemetry `resolutionStrategy` block to your app's `build.gradle` outlined [here](#upgrading-to-621) you can now safely remove it. The underlying dependency conflict has been fixed upstream in the `react-native-otlp` package, so pinning the `io.opentelemetry:*` artifacts to `1.51.0` is no longer required.
+
 ### Upgrading to 6.3.0
 
 :::info Summary
