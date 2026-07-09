@@ -40,9 +40,23 @@ The minimum supported Android runtime for React Native is unchanged (Android 7.0
 
 #### Rename the Embrace Gradle plugin
 
-The plugin's artifact and ID have been renamed. Update the two places it appears in your Android project.
+The `embrace-swazzler` plugin artifact and plugin ID have been renamed. Update the references in your root `android/build.gradle` and `android/app/build.gradle` files:
 
-In your root `android/build.gradle`, update the `buildscript` classpath:
+##### Expo Config Plugin
+
+If you are using our Expo config plugin you can simply re-run `npx expo prebuild` - the config plugin will apply the rename.
+
+##### Setup script
+
+Non-Expo users can re-run the setup script that ships with the SDK to apply the plugin rename:
+
+```shell-session
+node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
+```
+
+##### Manual setup
+
+Alternatively, you can update your Gradle files manually. In your root `android/build.gradle`, update the `buildscript` classpath:
 
 ```groovy
 // Before
@@ -59,8 +73,6 @@ apply plugin: 'embrace-swazzler'
 // After
 apply plugin: 'io.embrace.gradle'
 ```
-
-If you originally set Embrace up with our Android setup script, you can re-run it to apply the plugin rename: `node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js`.
 
 #### Remove the OpenTelemetry pin for `@embrace-io/react-native-otlp`
 
