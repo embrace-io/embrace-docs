@@ -133,12 +133,11 @@ That’s it! Your application should now build successfully.
 
 :::info Summary
 
-- Kotlin 2.x or higher is required when using `react-native-otlp`.
+- Pin OpenTelemetry dependencies to 1.51.0 in your app's Gradle when using `@embrace-io/react-native-otlp`.
 
 :::
 
-This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package.
-If you must use Kotlin 1.x you will have to add the following `resolutionStrategy` block to your app's `build.gradle` (groovy):
+This version of the Embrace Android SDK pulls in transitive OpenTelemetry dependencies that cause an okhttp version conflict in React Native. When using `react-native-otlp` with this version, add the following `resolutionStrategy` block to your app's `build.gradle` to pin OpenTelemetry to 1.51.0:
 
 ```groovy
 configurations.all {

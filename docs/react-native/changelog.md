@@ -90,7 +90,7 @@ _Oct 27, 2025_
 - Updated Android native SDK dependency to [version 7.9.2](/android/changelog/#792)
 
 :::info Important
-This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package; if you must use Kotlin 1.x you will have to add the following `resolutionStrategy` block to your app's `build.gradle` (groovy):
+This version of the Embrace Android SDK pulls in transitive OpenTelemetry dependencies that cause an okhttp version conflict in React Native. When using `react-native-otlp` with this version, add the following `resolutionStrategy` block to your app's `build.gradle` to pin OpenTelemetry to 1.51.0:
 
 ```groovy
 configurations.all {
