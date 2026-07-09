@@ -6,6 +6,17 @@ sidebar_position: 4
 
 ## Embrace React Native SDK Changelog
 
+### 7.0.0
+
+_Jul 13, 2026_
+
+Embrace Android SDK Version: [8.4.0](/android/changelog/#840)  
+Embrace Apple SDK Version [6.19.0](/ios/changelog/#6190)
+
+- This new major version contains breaking changes for Android, before updating please make sure you review the [upgrade guide](/react-native/upgrading/#upgrading-from-6x-to-7x)
+- Updated Android native SDK dependency to [version 8.4.0](/android/changelog/#840)
+- Fixed OpenTelemetry dependency resolution issue in `@embrace-io/react-native-otlp`
+
 ### 6.7.1
 
 _Jul 7, 2026_
