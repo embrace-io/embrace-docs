@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## OpenTelemetry Export
 
-Because the 7.x iOS SDK is built on OpenTelemetry, it has the ability to export OpenTelemetry signals directly from the mobile code level, without any of the telemetry hitting our backend.
+Because the Embrace Apple SDK is built on OpenTelemetry, it has the ability to export OpenTelemetry signals directly from the mobile code level, without any of the telemetry being sent to our backend.
 
 To send traces and logs from the SDK to your collector or vendor of choice, configure the SDK with exporters capable of sending OTel signals to that destination. In 7.x this is done through the [`EmbraceIO.OTelOptions`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceIO/Options/EmbraceIO%2BOTelOptions.swift) passed as the `otel` option.
 
