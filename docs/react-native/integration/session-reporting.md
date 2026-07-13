@@ -193,6 +193,30 @@ for more details.
 </TabItem>
 <TabItem value="android" label="Android">
 
+<Tabs groupId="android-language" queryString="android-language">
+
+<TabItem value="kotlin" label="Kotlin">
+Open the `MainApplication.kt` file (usually located at `<project root>/android/app/src/main/java/com/<MyApp>/MainApplication.kt`)
+and add the following to start Embrace:
+
+```kotlin
+import io.embrace.android.embracesdk.Embrace
+
+...
+
+class MainApplication : Application(), ReactApplication {
+  override fun onCreate() {
+    super.onCreate()
+
+    // Add this line right after the super.onCreate()
+    Embrace.start(this)
+  }
+}
+
+```
+</TabItem>
+
+<TabItem value="java" label="Java">
 Open the `MainApplication.java` file (usually located at `<project root>/android/app/src/main/java/com/<MyApp>/MainApplication.java`)
 and add the following to start Embrace:
 
@@ -208,10 +232,12 @@ public class MainApplication extends Application implements ReactApplication {
         super.onCreate();
 
         // Add this line right after the super.onCreate();
-        Embrace.getInstance().start(this);
+        Embrace.INSTANCE.start(this);
     }
 }
 ```
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
