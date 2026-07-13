@@ -16,7 +16,7 @@ In 7.x, use `EmbraceIO.OTelOptions`, which accepts **arrays** of span and log ex
 processors), so you can register more than one at a time.
 :::
 
-Here is an example of how you can initialize the Embrace SDK to only capture events and forward them to your custom Span and Log Exporters without the data ever hitting our backend:
+Here is an example of how you can initialize the Embrace SDK to only capture events and forward them to your custom Span and Log Exporters without the data being sent to our servers:
 
 ```swift
 try EmbraceIO.start(
