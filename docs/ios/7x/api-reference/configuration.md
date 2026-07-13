@@ -34,8 +34,8 @@ EmbraceIO.Options.withAppId(
 
 - `appId`: The App ID for your Embrace application. This is the only required field.
 - `platform`: The mobile platform that the current application is running in.
-- `endpoints`: The URLs used to communicate with the Embrace backend.
-- `captureServices`: The capture services to enable for automatic data collection.
+- `endpoints`: The URLs used to communicate with the Embrace backend. These should never be altered under normal operating conditions.
+- `captureServices`: The capture services to enable for automatic data collection. If not explicitly set, the default set of capture services will be enabled.
 - `crashReporter`: The crash reporter to use: `.embrace` (default), `.crashlytics`, or `.none`.
 - `logLevel`: The level of severity for console logs.
 - `otel`: The OpenTelemetry configuration, including custom exporters, processors, and resource.
@@ -44,7 +44,7 @@ EmbraceIO.Options.withAppId(
 
 ##### Local Configuration Factory (`withLocalConfiguration`)
 
-For developers who want to use the SDK without connecting to the Embrace backend. In this mode, data is not uploaded to Embrace servers, so the `otel` parameter is required to provide exporters that handle the generated data.
+This setting is used by developers who want to use the SDK without connecting to the Embrace backend. In this mode, data is not uploaded to Embrace servers, so the `otel` parameter is required to provide exporters that handle the generated data.
 
 ```swift
 EmbraceIO.Options.withLocalConfiguration(

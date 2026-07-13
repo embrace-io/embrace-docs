@@ -12,7 +12,7 @@ The `EmbraceIO` class is the main entry point for interacting with the Embrace S
 In Embrace 7.x, `EmbraceIO` is the single public client. The `Embrace` client and `Embrace.Options` are no longer part of the public API — see the [Embrace Client](./embrace-client.md) page for details.
 :::
 
-### Setup and Initialization
+### Configuration and Initialization
 
 #### `start(options:)`
 
@@ -50,7 +50,7 @@ static let shared: EmbraceIO
 
 #### `Options.withAppId(_:...)`
 
-Creates options for use with an Embrace app ID. This is the most common configuration.
+Creates options for use with an Embrace app ID. This is the configuration you use if sending data to Embrace's backend.
 
 ```swift
 class func withAppId(
@@ -66,7 +66,7 @@ class func withAppId(
 
 **Parameters**:
 
-- `appId`: The app ID for your Embrace project.
+- `appId`: The app ID for your Embrace app.
 - `platform`: The platform the app runs on. Defaults to `.default` (iOS).
 - `endpoints`: Custom `EmbraceEndpoints`. Defaults to Embrace endpoints for the given app ID.
 - `captureServices`: Determines which capture services will be installed. See [Capture Services](./capture-services.md).
@@ -107,7 +107,7 @@ func stop() throws
 
 **Important Notes**:
 
-- The SDK cannot be restarted once stopped.
+- The SDK cannot be restarted in a process once stopped.
 - All active spans will be automatically ended.
 - All capture services and session tracking will be stopped.
 

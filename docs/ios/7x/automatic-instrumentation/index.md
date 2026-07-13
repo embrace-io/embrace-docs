@@ -1,12 +1,12 @@
 ---
 title: Automatic Instrumentation
-description: Overview of automatic instrumentation capabilities in the Embrace iOS SDK 7.x
+description: Overview of automatic instrumentation capabilities in the Embrace Apple SDK 7.x
 sidebar_position: 3
 ---
 
 ## Automatic Instrumentation
 
-The Embrace iOS SDK provides several built-in Capture Services that automatically instrument your application with minimal setup. These services collect valuable telemetry data and convert them into OpenTelemetry signals like spans and events.
+The Embrace Apple SDK provides several built-in Capture Services that automatically instrument your application with minimal setup. These services collect valuable telemetry data and convert them into OpenTelemetry signals like spans and events.
 
 ### What is Automatic Instrumentation?
 

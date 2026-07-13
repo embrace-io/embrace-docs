@@ -32,13 +32,13 @@ This reference is designed to provide a comprehensive overview of all available 
 
 Embrace iOS SDK 7.x is built on OpenTelemetry and provides:
 
-- Fully OpenTelemetry-compliant implementation
+- A fully OpenTelemetry-compliant implementation
 - Standard trace and span creation
 - Extensible architecture for custom instrumentation
 
 ### Linking & GitHub References
 
-For complete source code, the Embrace iOS SDK is open-source and available on GitHub:
+The Embrace iOS SDK is open-source and available on GitHub:
 
 [Embrace Apple SDK on GitHub](https://github.com/embrace-io/embrace-apple-sdk)
 

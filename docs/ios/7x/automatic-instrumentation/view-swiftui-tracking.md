@@ -1,6 +1,6 @@
 ---
 title: SwiftUI View Tracking
-description: Monitor SwiftUI View lifecycle and performance in your iOS app
+description: Monitor SwiftUI View lifecycle and performance in your Apple app
 sidebar_position: 3
 ---
 

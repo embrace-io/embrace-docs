@@ -6,7 +6,7 @@ sidebar_position: 4
 
 ## Automatic Instrumentation
 
-The Embrace SDK will automatically create spans to instrument the startup process of the application. These should help you understand how your app is performing during startup and also give more context if your users are running into issues when launching it.
+The Embrace SDK will automatically create spans to give you visibility into the startup process of the application. These should help you understand how your app is performing during startup and also give more context if your users are running into issues when launching it.
 
 ### Detecting Cold / Warm launches
 
@@ -20,17 +20,17 @@ A pre-warmed launch means some parts of the application were already pre-loaded 
 
 The Embrace SDK will automatically detect if the launch was pre-warmed and add the `isPrewarmed` attribute to all startup traces.
 
-On top that, if the app was **not** pre-warmed, the `emb-app-pre-main-init` span will be created. This span starts when the app is being launched and ends when the `main()` function is called (in other words, this span measures how much time it takes for the application to be loaded before it actually starts).
+On top that, if the app was **not** pre-warmed, the `emb-app-pre-main-init` span will be created. This span starts when the app is being launched and ends when the `main()` function is called. In other words, this span measures how much time it takes for the application to be loaded before it actually starts.
 
 ### Detecting first frame rendered
 
-The Embrace SDK will automatically detect when the first frame of the application is rendered, and essentially treat this as the "end" of the startup process.
+The Embrace SDK will automatically detect when the first frame of the application is rendered, and treat this as the end of the startup process.
 
 The `emb-app-first-frame-rendered` span will be created when the application starts, and ends when the first frame is rendered.
 
 ### Detecting `appDidFinishLaunching`
 
-If the Embrace SDK is setup and started within the `appDidFinishLaunching` method, it will automatically create `emb-app-startup-app-init` span. This span will measure how long it takes from the app starting until the `UIApplicationDidFinishLaunchingNotification` notification is called.
+If the Embrace SDK is setup and started within the `appDidFinishLaunching` method, it will automatically create an `emb-app-startup-app-init` span. This span will measure how long it takes from the app starting until the `UIApplicationDidFinishLaunchingNotification` notification is called.
 
 On top of this, the `emb-sdk-setup` and `emb-sdk-start` spans will be created to measure the Embrace SDK initialization process.
 
@@ -40,7 +40,7 @@ Note that in order for these spans to be included, the Embrace SDK has to be set
 
 ### Impact of late SDK initialization
 
-The Embrace SDK should be initialized as early as possible — ideally in `AppDelegate.application(_:didFinishLaunchingWithOptions:)` (or the `App` initializer for SwiftUI), before other third party libraries. If the SDK is started after `didFinishLaunching` completes or after the app becomes active, the following startup spans will be affected:
+The Embrace SDK should be initialized as early as possible — ideally as early in `AppDelegate.application(_:didFinishLaunchingWithOptions:)` (or the `App` initializer for SwiftUI) as possible, before other third party libraries. If the SDK is started after `didFinishLaunching` completes or after the app becomes active, the following startup spans will be affected:
 
 - **`emb-app-startup-app-init`**: This span will **not be created**. It relies on receiving the `UIApplicationDidFinishLaunchingNotification`, which will have already fired before the SDK had a chance to observe it.
 - **`emb-sdk-setup` and `emb-sdk-start`**: These spans will **not be created**, since they measure the SDK initialization process during `didFinishLaunching`.

@@ -1,6 +1,6 @@
 ---
 title: Network Monitoring
-description: Automatically track network requests in your iOS app with Embrace
+description: Automatically track network requests in your Apple app with Embrace
 sidebar_position: 1
 ---
 

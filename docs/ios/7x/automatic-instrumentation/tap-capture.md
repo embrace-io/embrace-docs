@@ -1,6 +1,6 @@
 ---
 title: Tap Capture
-description: Automatically monitor user interactions with your iOS app
+description: Automatically monitor user interactions with your Apple app
 sidebar_position: 4
 ---
 

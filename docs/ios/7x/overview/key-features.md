@@ -1,12 +1,12 @@
 ---
 title: Key Features
-description: Key features of the Embrace iOS SDK 7.x
+description: Key features of the Embrace Apple SDK 7.x
 sidebar_position: 1
 ---
 
 ## Key Features
 
-The Embrace iOS SDK 7.x provides a comprehensive suite of features to help you monitor, debug, and improve your iOS application. Here are the key features:
+The Embrace Apple SDK 7.x provides a comprehensive suite of features to help you monitor, debug, and improve your Apple application. Here are the key features:
 
 ### Session Monitoring
 
@@ -40,7 +40,7 @@ Track key performance metrics throughout your app:
 - View controller load and render times
 - Network performance and request details
 - Custom performance tracing with spans
-- First render instrumentation for UI components
+- First-render instrumentation for UI components
 
 ### Logs and Traces
 

@@ -44,7 +44,7 @@ The SDK automatically monitors the main thread using a dedicated watchdog thread
 
 ### Enabling Hang Detection
 
-Starting with the framerate-based hang detector introduced in 6.x, **hang detection is opt-in**. It is not installed by `EmbraceIO.CaptureServicesOptions.default()` and is not added by `CaptureServicesOptionsBuilder.addDefaults()`. You must register the service explicitly when you set up the SDK.
+**Hang detection is opt-in**. It is not installed by `EmbraceIO.CaptureServicesOptions.default()` and is not added by `CaptureServicesOptionsBuilder.addDefaults()`. You must register the service explicitly when you set up the SDK.
 
 ```swift
 import EmbraceIO
@@ -117,7 +117,7 @@ In production, hang detection is typically controlled via Embrace's remote confi
 - **`samplesPerHang`** (default: 0): Number of stack trace samples to capture during a hang. Default `0` means no stack traces are captured. Increase to 5-10 when debugging to see how the stack evolves over time.
 
 :::info
-When attached to a debugger, hang detection is off. If you wish to enable it, set the `EMBAllowWatchdogInDebugger` environment variable to `1`.
+When attached to a debugger, hang detection is off. If you wish to enable it, add the environment variable `EMBAllowWatchdogInDebugger=1` to your scheme's Run action (Edit Scheme → Run → Arguments).
 :::
 
 #### Hang Detection Threshold

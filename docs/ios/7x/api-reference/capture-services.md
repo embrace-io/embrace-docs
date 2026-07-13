@@ -178,7 +178,7 @@ Captures app hangs.
 
 - `CaptureServicesOptionsBuilder().addDefaults().addHangCaptureService().build()`
 
-This service is turned off when attached to a debugger (ie: while debugging in Xcode). You can enable it when connected to a debugger by setting the `EMBAllowWatchdogInDebugger` environment var to `1`.
+This service is turned off when attached to a debugger (i.e. while debugging with Xcode). You can enable it when connected to a debugger by setting the `EMBAllowWatchdogInDebugger` environment var to `1`.
 
 For full configuration details (including `HangLimits`), see [Hang Detection](../automatic-instrumentation/hang-detection.md).
 

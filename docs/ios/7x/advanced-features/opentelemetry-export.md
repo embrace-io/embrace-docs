@@ -71,7 +71,7 @@ let client = BaseHTTPClient(session: session)
 
 try EmbraceIO.start(
     options: EmbraceIO.Options.withAppId(
-        "your 5-character AppID here", // Obtained from https://dash.embrace.io/app/AppID/...
+        "your 5-character AppID here", // Obtained from the Embrace dashboard https://dash.embrace.io/
         logLevel: .debug,
         otel: EmbraceIO.OTelOptions(
             spanExporters: [
@@ -291,7 +291,7 @@ func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: T
 
 ###### Important Considerations
 
-1. **Dual Export**: Your exporter runs alongside Embrace's default exporter - both receive the same log data
+1. **Dual Export**: Your exporter runs alongside Embrace's default exporter - both receive the same log data and you will incur additional bandwidth usage as a result
 2. **Performance**: Implement efficient processing to avoid blocking the logging pipeline
 3. **Error Handling**: Return `.failure` from export methods if processing fails
 4. **Thread Safety**: Ensure your exporter is thread-safe as it may be called from multiple threads

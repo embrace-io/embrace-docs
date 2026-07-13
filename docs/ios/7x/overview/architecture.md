@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Architectural overview of the Embrace iOS SDK 7.x and its OpenTelemetry integration
+description: Architectural overview of the Embrace Apple SDK 7.x and its OpenTelemetry integration
 sidebar_position: 3
 ---
 

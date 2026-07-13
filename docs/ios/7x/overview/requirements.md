@@ -1,6 +1,6 @@
 ---
 title: Requirements
-description: System requirements for the Embrace iOS SDK 7.x
+description: System requirements for the Embrace Apple SDK 7.x
 sidebar_position: 2
 ---
 
@@ -28,7 +28,7 @@ EmbraceIO, the recommended package from Embrace Apple SDK, has the following min
 The Embrace SDK can be integrated using:
 
 - Swift Package Manager (recommended)
-- CocoaPods
+- CocoaPods (expected to be deprecated in Q3 2026 given the changes occurring with Cocoapods in December 2026)
 - Manual installation (via XCFrameworks)
 
 ### Dependencies

@@ -1,6 +1,6 @@
 ---
 title: Performance Monitoring
-description: Monitor and optimize your iOS app's performance with Embrace
+description: Monitor and optimize your Apple app's performance with Embrace
 sidebar_position: 4
 ---
 
@@ -10,7 +10,7 @@ Performance monitoring helps you track, measure, and optimize your app's perform
 
 ### Performance Metrics
 
-You can track several types of performance metrics in your iOS app:
+You can track several types of performance metrics in your Apple app:
 
 - **Duration metrics**: How long operations take to complete
 - **Resource usage**: Memory and CPU consumption
