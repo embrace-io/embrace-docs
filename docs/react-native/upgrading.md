@@ -27,16 +27,18 @@ Upgrade to the latest `7.x` versions of the Embrace React Native packages, eithe
 
 #### Meet the new Android minimum versions
 
-Embrace Android SDK 8.x raises the minimum supported build tooling. Because React Native projects use a `minSdkVersion` below 26 (the default is 24), the following minimums apply:
+Embrace Android SDK 8.x raises the [Minimum supported versions](/android/upgrading/#minimum-supported-versions) for Android build tooling. If you are using React Native 0.76 or lower, you may need to update your native Android configuration files. We recommend the following versions:
 
-| Technology       | Minimum version |
-| ---------------- | --------------- |
-| JDK (build-time) | 17              |
-| Kotlin           | 2.0.21          |
-| Gradle           | 8.4             |
-| AGP              | 8.3.0           |
+- JDK 17
+- Kotlin 2.0.21+
+- Gradle 8.7+ \*
+- AGP 8.6.0+ \*
 
-The minimum supported Android runtime for React Native is unchanged (Android 7.0 / `minSdk` 24). Please see [Minimum supported versions](/android/upgrading/#minimum-supported-versions) in the Android guide for full details.
+\* For minSdk < 26 the minimum requirement is Gradle 8.4 and AGP 8.3.0, however we recommend using AGP 8.6.0+ / Gradle 8.7+ to avoid Kotlin metadata warnings emitted by the lint analyzer on older AGP versions.
+
+:::info
+Our [React Native app templates](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates) contain a tested configuration for each supported React Native version that you may find useful as a guide for configuring your project.
+:::
 
 #### Rename the Embrace Gradle plugin
 
