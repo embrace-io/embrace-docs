@@ -277,48 +277,6 @@ EmbraceIO.shared.setProperty(key: "animations_enabled", value: appSettings.anima
 
 ### Performance Optimization Best Practices
 
-#### Set Performance Budgets
-
-Define performance thresholds and log when they're exceeded:
-
-```swift
-func measureOperation(name: String, budget: TimeInterval, operation: () -> Void) {
-    let startTime = CFAbsoluteTimeGetCurrent()
-
-    operation()
-
-    let duration = CFAbsoluteTimeGetCurrent() - startTime
-
-    // Log if the operation exceeds its budget
-    if duration > budget {
-        EmbraceIO.shared.log(
-            "Performance budget exceeded",
-            severity: .warn,
-            attributes: [
-                "operation": name,
-                "duration": String(format: "%.4f", duration),
-                "budget": String(format: "%.4f", budget),
-                "overage_pct": String(format: "%.2f", (duration - budget) / budget * 100)
-            ]
-        )
-    }
-}
-
-// Usage
-measureOperation(name: "image_processing", budget: 0.1) {
-    processImage(image)
-}
-```
-
-While client-side performance budgeting like this can provide immediate feedback during development, for production monitoring it's generally better to:
-
-1. Instrument your code with spans for all important operations
-2. Send the performance data to Embrace
-3. Analyze the data and set performance thresholds in the Embrace dashboard
-4. Configure alerts for when those thresholds are exceeded
-
-This approach provides more flexibility and allows you to adjust performance budgets without code changes.
-
 #### Identify Performance Regressions
 
 Use custom events to track performance metrics over time:

@@ -16,7 +16,6 @@ The Embrace iOS SDK is organized around several core components:
 - **[Embrace Client](./embrace-client.md)** - Notes on the removed `Embrace` client and how to migrate to `EmbraceIO`
 - **[Configuration](./configuration.md)** - Options and settings for configuring the SDK
 - **[Capture Services](./capture-services.md)** - Services that automatically instrument your application
-- **[Utility Classes](./utility-classes.md)** - Helper classes and utilities for common tasks
 
 ### Using the API Reference
 
@@ -26,7 +25,6 @@ This reference is designed to provide a comprehensive overview of all available 
 - **Embrace Client** - Explains that the `Embrace` client is no longer public in 7.x and points to the `EmbraceIO` equivalents.
 - **Configuration** - Available options and properties to customize the SDK's behavior
 - **Capture Services** - Reference for built-in automatic instrumentation services including network monitoring, view tracking, tap capture, and more
-- **Utility Classes** - Helper classes and utilities for common tasks and advanced use cases
 
 ### OpenTelemetry Integration
 

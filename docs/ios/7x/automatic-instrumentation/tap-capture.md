@@ -123,10 +123,6 @@ By combining tap data with view performance metrics, you can identify areas wher
 
 Monitor which features users are engaging with and identify areas of your app that may need better visibility or redesign.
 
-#### A/B Testing Analysis
-
-When running A/B tests, tap data can provide insights into how different UI variations affect user behavior and engagement.
-
 ### Best Practices
 
 - Be selective about which views you monitor to avoid capturing excessive data

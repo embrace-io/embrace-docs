@@ -31,31 +31,6 @@ try EmbraceIO.start(
 
 In this scenario, an App ID isn't even needed which means you don't even need to register to Embrace in order to use the SDK. All Embrace SDK features are available, the only difference is you'll need to handle the data yourself.
 
-### Direct Exporters
-
-You can also opt to use Embrace as normal, sending the data to your Embrace dashboard, and also provide your own custom exporter for us to forward in parallel all the events being exported so you can handle them as you please. To do this, pass your exporters in `otel` alongside your App ID:
-
-Some collectors have built or presently support direct export of traces or logs in Swift. In theory, any implementation of [`SpanExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Trace/Export/SpanExporter.swift) or [`LogRecordExporter`](https://github.com/open-telemetry/opentelemetry-swift-core/blob/main/Sources/OpenTelemetrySdk/Logs/Export/LogRecordExporter.swift) that can point to the location of the collector should be able to send, respectively, spans and logs.
-
-The OpenTelemetry-Swift repository lists [`publicly-available exporters`](https://github.com/open-telemetry/opentelemetry-swift/tree/main/Sources/Exporters) that can be added directly to your Embrace configuration. For example, here is an SDK configuration that adds a Jaeger exporter for traces:
-
-```swift
-try EmbraceIO.start(
-    options: EmbraceIO.Options.withAppId(
-        "your 5-character AppID here", // Obtained from https://dash.embrace.io/app/AppID/...
-        logLevel: .debug,
-        otel: EmbraceIO.OTelOptions(
-            spanExporters: [
-                JaegerSpanExporter(
-                    serviceName: "jaegerServiceName",
-                    collectorAddress: "jaegerCollectorAddress"
-                )
-            ]
-        )
-    )
-)
-```
-
 ### OTLP Export through HTTP or gRPC
 
 The OpenTelemetry-Swift list also has OTLP HTTP and gRPC exporters for logs and spans. These can be used more flexibly than the single-service exporters like Jaeger, because vendors can provide some important keys or headers that allow you to use the protocol to export to an HTTP or gRPC address.
@@ -119,6 +94,7 @@ The Embrace iOS SDK supports custom log exporters through OpenTelemetry's [`LogR
 import Foundation
 import OpenTelemetrySdk
 
+// Custom log exporter that just prints the logs to console
 class CustomLogExporter: LogRecordExporter {
 
     func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: TimeInterval?) -> OpenTelemetrySdk.ExportResult {
@@ -266,7 +242,7 @@ func export(logRecords: [OpenTelemetrySdk.ReadableLogRecord], explicitTimeout: T
             "attributes": record.attributes
         ]
 
-        // Send to your API endpoint
+        // Send to your API endpoint (asynchronously)
         sendToAPI(logData)
     }
     return .success

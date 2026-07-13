@@ -20,7 +20,7 @@ EmbraceIO, the recommended package from Embrace Apple SDK, has the following min
 
 ### Development Requirements
 
-- Xcode 15.0 or later
+- Xcode 26.0 or later
 - Swift 5.9 or later
 
 ### Package Manager Support
@@ -52,7 +52,6 @@ The Embrace SDK is designed to have minimal impact on your app's size:
 
 - Approximately 1-2 MB increase in compressed app size
 - Approximately 2-3 MB increase in installed app size
-- Memory usage is optimized and scales with your app's activity levels
 
 ### App Store Compliance
 

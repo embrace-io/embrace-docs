@@ -88,6 +88,10 @@ enum EmbracePlatform {
 
 Configuration for the backend endpoints used by the SDK.
 
+:::info
+Endpoints should never be specified manually unless you are explicitly instructed to do so by Embrace support. The SDK automatically uses the correct endpoints for your App ID.
+:::
+
 ```swift
 struct EmbraceEndpoints {
     init(
@@ -148,7 +152,7 @@ struct OTelOptions {
 
 **Parameters**:
 
-- `resource`: Custom `Resource` to attach to all telemetry data. Takes priority over Embrace-generated resources.
+- `resource`: Custom `Resource` to attach to all telemetry data (Note: Embrace-generated resources will have priority over them).
 - `spanProcessors`: Custom span processors to add to the pipeline.
 - `spanExporters`: Custom span exporters to receive exported span data.
 - `logProcessors`: Custom log record processors to add to the pipeline.

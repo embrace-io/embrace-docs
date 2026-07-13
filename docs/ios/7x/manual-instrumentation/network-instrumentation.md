@@ -13,7 +13,7 @@ While Embrace's [automatic instrumentation](../automatic-instrumentation/network
 Consider manual network instrumentation when:
 
 - Using gRPC or other RPC frameworks
-- Using third-party networking libraries (Alamofire, AFNetworking, etc.)
+- Using third-party networking libraries
 - Implementing custom network protocols
 - Adding business-specific context to network requests
 - Tracking network operations that bypass URLSession
@@ -155,52 +155,6 @@ extension GRPCClient {
                 span?.setAttribute(key: "error.type", value: String(describing: type(of: error)))
                 span?.setAttribute(key: "error.message", value: error.localizedDescription)
                 span?.end(errorCode: .failure)
-            }
-        }
-    }
-}
-```
-
-### Third-party library instrumentation
-
-#### Alamofire integration
-
-```swift
-import Alamofire
-import EmbraceIO
-
-extension Session {
-    func instrumentedRequest(
-        _ url: URLConvertible,
-        method: HTTPMethod = .get,
-        parameters: Parameters? = nil,
-        encoding: ParameterEncoding = URLEncoding.default,
-        headers: HTTPHeaders? = nil
-    ) -> DataRequest {
-        let span = EmbraceIO.shared.createSpan(
-            name: "\(method.rawValue) \(url)",
-            type: .networkRequest
-        )
-
-        let request = self.request(
-            url,
-            method: method,
-            parameters: parameters,
-            encoding: encoding,
-            headers: headers
-        )
-
-        return request.responseData { response in
-            // Add response details to span
-            if let statusCode = response.response?.statusCode {
-                span?.setAttribute(key: "http.response.status_code", value: String(statusCode))
-            }
-
-            if let error = response.error {
-                span?.setAttribute(key: "error.message", value: error.localizedDescription)
-                span?.end(errorCode: .failure)
-            } else {
-                span?.end()
             }
         }
     }

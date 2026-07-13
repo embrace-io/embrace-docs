@@ -49,6 +49,11 @@ EmbraceIO.shared.addPersona("mvp", lifespan: .permanent)
 EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
 ```
 
+:::warning
+A persona tag can be at most 32 characters long. If it exceeds this limit, the persona is not
+added and a warning is logged.
+:::
+
 It's recommended to define your persona tags as reusable `String` constants. This is a good practice to make sure these values stay consistent wherever they are used.
 
 ```swift
@@ -60,6 +65,23 @@ extension String {
   }
 }
 ```
+
+#### Removing User Personas
+
+You can remove a specific persona tag from a given lifespan, or remove all persona tags at once:
+
+```swift
+// Remove a single persona from a specific lifespan
+EmbraceIO.shared.removePersona("mvp", lifespan: .permanent)
+
+// Remove all personas for the given lifespans
+EmbraceIO.shared.removeAllPersonas(lifespans: [.session, .process, .permanent])
+```
+
+:::note
+You can only remove personas from the currently active session or process. Metadata that
+belongs to a session or process that has already ended cannot be edited.
+:::
 
 ### Understanding Metadata Lifespan
 
@@ -104,25 +126,6 @@ func didEnableDarkMode() {
 // When user starts using a beta feature
 func didOptIntoBeta(featureName: String) {
     EmbraceIO.shared.addPersona("beta_\(featureName)", lifespan: .permanent)
-}
-```
-
-#### User Journey Analysis
-
-Add personas at key points in the user journey:
-
-```swift
-// Shopping cart flow
-func didAddItemToCart() {
-    EmbraceIO.shared.addPersona("has_items_in_cart", lifespan: .session)
-}
-
-func didCheckout() {
-    EmbraceIO.shared.addPersona("completed_checkout", lifespan: .session)
-}
-
-func didAbandonCart() {
-    EmbraceIO.shared.addPersona("abandoned_cart", lifespan: .session)
 }
 ```
 

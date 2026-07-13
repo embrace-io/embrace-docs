@@ -68,6 +68,10 @@ struct Options {
 
 Captures UIViewController lifecycle events to measure screen load times, rendering performance, and navigation patterns.
 
+:::note SwiftUI
+`ViewCaptureService` instruments `UIViewController` instances. To instrument SwiftUI views, use our [SwiftUI instrumentation](/ios/7x/automatic-instrumentation/view-swiftui-tracking.md) instead.
+:::
+
 #### Options
 
 ```swift

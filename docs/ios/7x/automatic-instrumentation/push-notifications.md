@@ -124,6 +124,5 @@ Manual events emitted this way honor the default `captureData` behavior (payload
 ### Best Practices
 
 - Leave `captureData: false` unless you need to read titles or bodies in the dashboard. Payload content frequently contains PII.
-- If you need campaign or message identifiers, add them server-side as top-level keys in the `userInfo` payload and capture them manually with the `attributes:` parameter — there is no built-in payload filter.
 - Make sure your app sets a `UNUserNotificationCenter.delegate` (the standard requirement to receive foreground notifications). The capture service piggybacks on the same delegate; if no delegate is ever assigned, the proxy still installs but only sees notifications that the system routes through it.
 - For background-only handlers, add a manual `EmbraceIO.shared.addPushNotificationEvent(...)` call as shown above — otherwise those deliveries will not appear in sessions.

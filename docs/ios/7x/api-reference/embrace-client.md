@@ -14,14 +14,6 @@ In earlier versions of the SDK there were two public clients, `EmbraceIO` and `E
 
 ### Migrating from the `Embrace` client
 
-If you were previously using the `Embrace` client, move to the equivalent `EmbraceIO` APIs:
-
-- `Embrace.setup(options:)` + `.start()` → `EmbraceIO.start(options:)`
-- `Embrace.client?.log(...)` → `EmbraceIO.shared.log(...)`
-- `Embrace.client?.buildSpan(...).startSpan()` → `EmbraceIO.shared.createSpan(...)`
-- `Embrace.client?.metadata.X` → `EmbraceIO.shared.X`
-- `Embrace.Options(...)` → `EmbraceIO.Options.withAppId(...)`
-
-For the complete API, see the [EmbraceIO Client](./embraceio-client.md) reference.
+If you were previously using the `Embrace` client, see the [6.x → 7.x migration guide](/ios/7x/getting-started/migration-guide.md) for how to move to the equivalent `EmbraceIO` APIs. For the complete API, see the [EmbraceIO Client](./embraceio-client.md) reference.
 
 **GitHub Source**: [EmbraceIO](https://github.com/embrace-io/embrace-apple-sdk/tree/main/Sources/EmbraceIO)

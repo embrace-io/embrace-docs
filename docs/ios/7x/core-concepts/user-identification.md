@@ -49,6 +49,11 @@ EmbraceIO.shared.addPersona("mvp", lifespan: .permanent)
 EmbraceIO.shared.addPersona("completed_purchase", lifespan: .session)
 ```
 
+:::warning
+A persona tag can be at most 32 characters long. If it exceeds this limit, the persona is not
+added and a warning is logged.
+:::
+
 #### Defining Persona Constants
 
 It's best practice to define your persona strings as constants to ensure consistent usage:
@@ -62,6 +67,23 @@ enum Personas {
   }
 }
 ```
+
+#### Removing User Personas
+
+You can remove a specific persona tag from a given lifespan, or remove all persona tags at once:
+
+```swift
+// Remove a single persona from a specific lifespan
+EmbraceIO.shared.removePersona("mvp", lifespan: .permanent)
+
+// Remove all personas for the given lifespans
+EmbraceIO.shared.removeAllPersonas(lifespans: [.session, .process, .permanent])
+```
+
+:::note
+You can only remove personas from the currently active session or process. Metadata that
+belongs to a session or process that has already ended cannot be edited.
+:::
 
 ### User Identifier
 

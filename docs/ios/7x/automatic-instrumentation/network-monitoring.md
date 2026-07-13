@@ -26,6 +26,18 @@ This automatic instrumentation gives you immediate visibility into all network a
 - Troubleshoot network errors
 - Correlate network activity with user actions and app behavior
 
+### Data Captured
+
+For each network request, the SDK captures:
+
+- Request URL (with sensitive data optionally obfuscated)
+- HTTP method
+- Status code
+- Start and end time
+- Request size
+- Response size (when available)
+- Error information (for failed requests)
+
 ### Configuration Options
 
 You can customize network monitoring behavior when initializing the Embrace SDK:
@@ -114,15 +126,14 @@ The `injectTracingHeader` property on `URLSessionCaptureService.Options` is depr
 
 To protect sensitive information in network requests, you can implement the `URLSessionRequestsDataSource` protocol:
 
+:::info
+This only affects the data captured by the Embrace SDK and does not modify the original request sent by your app.
+:::
+
 ```swift
 class MyDataSource: NSObject, URLSessionRequestsDataSource {
     func modifiedRequest(for request: URLRequest) -> URLRequest {
         var newRequest = request
-
-        // Example: Hide authorization headers
-        if let authHeader = newRequest.value(forHTTPHeaderField: "Authorization") {
-            newRequest.setValue("[REDACTED]", forHTTPHeaderField: "Authorization")
-        }
 
         // Example: Obfuscate sensitive URLs
         if let url = newRequest.url?.absoluteString, url.contains("user/password") {
@@ -136,13 +147,10 @@ class MyDataSource: NSObject, URLSessionRequestsDataSource {
 }
 ```
 
-:::info
-This only affects the data captured by the Embrace SDK and does not modify the original request sent by your app.
-:::
-
 #### Ignoring Specific URLs
 
-You can prevent monitoring of certain URLs by adding them to the `ignoredURLs` list:
+You can prevent monitoring of certain URLs by adding them to the `ignoredURLs` list.
+Any request URL containing these strings will be completely ignored by the Embrace SDK:
 
 ```swift
 URLSessionCaptureService.Options(
@@ -153,28 +161,6 @@ URLSessionCaptureService.Options(
     ]
 )
 ```
-
-Any request URL containing these strings will be completely ignored by the Embrace SDK.
-
-### Data Captured
-
-For each network request, the SDK captures:
-
-- Request URL (with sensitive data optionally obfuscated)
-- HTTP method
-- Status code
-- Start and end time
-- Duration
-- Response size (when available)
-- Error information (for failed requests)
-
-### Integration with Other Features
-
-Network monitoring integrates with other Embrace features:
-
-- Network spans are associated with the current session
-- Network errors can trigger log events
-- View loads can be correlated with network activity
 
 ### Best Practices
 
