@@ -13,6 +13,10 @@ This package provides an easy way to export trace and log data to any OTLP-compa
 
 For more information about how Android / iOS Native custom export work please visit the [OpenTelemetry Integration](/open-telemetry/integration/) guide.
 
+:::info
+Note that exporters must be configured before the native Embrace SDKs are started, so exporters can only be configured in JavaScript using `@embrace-io/react-native-otlp` if you are initializing the SDK in the JavaScript layer of your app. If you are initializing the Embrace Android and iOS SDKs in your native code you will need to [configure custom exporters in the native layer](#initializing-in-the-native-layer)
+:::
+
 ### Install the package
 
 npm:
@@ -115,151 +119,21 @@ function RootLayout() {
 export default RootLayout;
 ```
 
-### Initializing in the native layer
+In case you want to avoid sending telemetry into Embrace you could do it by removing the app_id/token values from each Platform configuration. For more information please see our guide on how to [use Embrace without an account](/react-native/integration/login-embrace-dashboard/#use-without-an-embrace-account).
 
-If you already have the Embrace React Native SDK initialized your native code or if you are planning to run the install scripts mentioned in our [docs section](/react-native/integration/add-embrace-sdk/#native-setup) you could still get the benefit of the OTLP custom export feature. Remember that the install scripts are adding the minimum code needed for initializing Embrace in the Native side but are not integrating the configuration for exporting the telemetry data into your backend of your choice. For this you would need to manually tweak both the Android/iOS sides.
-
-#### iOS
-
-If you already ran the install script mentioned above you would be able to find the `EmbraceInitializer.swift` file with some initial code that you can update:
-
-<Tabs groupId="ios-otlp-native-layer" queryString="ios-otlp-native-layer">
-<TabItem value="swift" label="Swift">
-
-```swift
-import Foundation
-import EmbraceIO
-import RNEmbraceOTLP
-
-let GRAFANA_AUTH_TOKEN = "Basic __YOUR TOKEN__"
-let GRAFANA_TRACES_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces"
-let GRAFANA_LOGS_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs"
-
-@objcMembers class EmbraceInitializer: NSObject {
-    static func start() -> Void {
-        do {
-          // Preparing Span Exporter config with the minimum required
-          let traceExporter = OtlpHttpTraceExporter(endpoint: URL(string: GRAFANA_TRACES_ENDPOINT)!,
-            config: OtlpConfiguration(
-                headers: [("Authorization", GRAFANA_AUTH_TOKEN)]
-            )
-          )
-
-          // Preparing Log Exporter config with the minimum required
-          let logExporter = OtlpHttpLogExporter(endpoint: URL(string: GRAFANA_LOGS_ENDPOINT)!,
-             config: OtlpConfiguration(
-                headers: [("Authorization", GRAFANA_AUTH_TOKEN)]
-             )
-          )
-
-          try Embrace
-              .setup(
-                  options: Embrace.Options(
-                      appId: "__YOUR APP ID__",
-                      platform: .reactNative,
-                      export: OpenTelemetryExport(spanExporter: traceExporter, logExporter: logExporter) // passing the configuration into `export`
-                  )
-              )
-              .start()
-        } catch let e {
-            print("Error starting Embrace \(e.localizedDescription)")
-        }
-    }
-}
-```
-
-</TabItem>
-</Tabs>
-
-#### Android
-
-Similar to iOS, if you already ran the install script you will see the following line already in place in your `MainApplication` file:
-
-```text
-Embrace.getInstance().start(this)
-```
-
-Tweak the `onCreate` method using the following snippet to initialize the exporters with the minimum configuration needed.
+### Disable tracing for the OTLP export network requests
 
 ```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-<Tabs groupId="android-otlp-native-layer" queryString="android-otlp-native-layer">
-<TabItem value="kotlin" label="Kotlin">
-
-Add the following imports:
-
-```kotlin
-import io.opentelemetry.exporter.otlp.http.trace.OtlpHttpSpanExporter
-import io.opentelemetry.exporter.otlp.http.logs.OtlpHttpLogRecordExporter
-```
-
-And then the following in the OnCreate method:
-
-```kotlin
-// Preparing Span Exporter config with the minimum required
-val spanExporter = OtlpHttpSpanExporter.builder()
-                                .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces")
-                                .addHeader("Authorization", "Basic __YOUR TOKEN__")
-
-// Preparing Log Exporter config with the minimum required
-val logExporter = OtlpHttpLogRecordExporter.builder()
-                                .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs")
-                                .addHeader("Authorization", "Basic __YOUR TOKEN__")
-
-Embrace.getInstance().addSpanExporter(spanExporter.build())
-Embrace.getInstance().addLogRecordExporter(logExporter.build())
-
-// This is the line already added by the install script
-Embrace.getInstance().start(this)
-```
-
-</TabItem>
-
-<TabItem value="java" label="Java">
-
-Add the following imports:
-
-```java
-import io.opentelemetry.exporter.otlp.http.trace.OtlpHttpSpanExporter;
-import io.opentelemetry.exporter.otlp.http.logs.OtlpHttpLogRecordExporter;
-```
-
-And then the following in the OnCreate method:
-
-```java
-// Preparing Span Exporter config with the minimum required
-OtlpHttpSpanExporter spanExporter = OtlpHttpSpanExporter.builder()
-                                .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/traces")
-                                .addHeader("Authorization", "Basic __YOUR TOKEN__");
-
-// Preparing Log Exporter config with the minimum required
-OtlpHttpLogRecordExporter logExporter = OtlpHttpLogRecordExporter.builder();
-                                .setEndpoint("https://otlp-gateway-prod-us-central-0.grafana.net/otlp/v1/logs")
-                                .addHeader("Authorization", "Basic __YOUR TOKEN__");
-
-Embrace.getInstance().addSpanExporter(spanExporter.build());
-Embrace.getInstance().addLogRecordExporter(logExporter.build());
-
-// This is the line already added by the install script
-Embrace.getInstance().start(this);
-```
-
-</TabItem>
-</Tabs>
-
-In case you want to avoid sending telemetry into Embrace you could do it by removing the app_id/token values from each Platform configuration. For more information please visit the how to [Use without an Embrace account](/react-native/integration/login-embrace-dashboard#use-without-an-embrace-account) section.
-
-### Disable tracing for the OTLP export network requests
-
 Embrace automatically creates spans for network requests, however because the OTLP export itself makes a network request
 this can produce a cycle where the export's network request creates a span which is then exported and then creates another
 span, etc.
 
 To avoid this you can configure the endpoint to which you are exporting to be ignored on both Android and iOS:
-<Tabs>
+<Tabs groupId="platform" queryString="platform">
 
 <TabItem value="android" label="Android">
 
@@ -287,8 +161,7 @@ page for more details.
 
 <TabItem value="ios" label="iOS">
 
-When initializing in the JS layer you can simply include the `disabledUrlPatterns` key, in the above example if you were
-exporting to Grafana you would add the following in the `SDK_CONFIG`:
+Add the `disabledUrlPatterns` key when initializing in the JS layer. In the above example for exporting to Grafana you would add the following in the `SDK_CONFIG`:
 
 ```json
 "disabledUrlPatterns": [
@@ -296,44 +169,12 @@ exporting to Grafana you would add the following in the `SDK_CONFIG`:
 ]
 ```
 
-When initializing in Swift more configuration is required when setting up Embrace. First add the following import to
-`EmbraceInitializer.swift`:
-
-```swift
-import KSCrash
-```
-
-Then setup a custom `URLSessionCaptureService` that ignores the Grafana export (see [Configuring the iOS SDK](/ios/6x/getting-started/configuration-options.md)
-for more details):
-
-```swift
-let servicesBuilder = CaptureServiceBuilder()
-let urlSessionServiceOptions = URLSessionCaptureService.Options(
-  injectTracingHeader: true,
-  requestsDataSource: nil,
-  ignoredURLs: ["grafana.net"]
-)
-// manually adding the URLSessionCaptureService
-servicesBuilder.add(.urlSession(options: urlSessionServiceOptions))
-// adding defaults
-servicesBuilder.addDefaults()
-```
-
-Finally pass the additional configuration when starting the SDK:
-
-```swift
-try Embrace
-    .setup(
-        options: Embrace.Options(
-          appId: "__YOUR APP ID__",
-          platform: .reactNative,
-          captureServices: servicesBuilder.build(),
-          crashReporter: KSCrashReporter(),
-          export: OpenTelemetryExport(spanExporter: traceExporter, logExporter: logExporter) // passing the configuration into `export`
-        )
-    )
-    .start()
-```
-
 </TabItem>
 </Tabs>
+
+### Initializing in the native layer
+
+If you already have the Embrace React Native SDK initialized in your native code or if you are planning to run the install scripts mentioned in our [integration guide](/react-native/integration/add-embrace-sdk/#native-setup) you can still benefit from the OTLP custom export feature. Remember that the install scripts only add the minimum code required to initialize the native Embrace SDKs. Details on how to configure custom exporters can be found in the native SDK documentation for each platform:
+
+- [Android](/android/features/traces/#export-to-opentelemetry-collectors)
+- [iOS](/ios/6x/advanced-features/opentelemetry-export/)

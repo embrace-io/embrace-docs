@@ -109,7 +109,7 @@ buildscript {
 Then apply the plugin at your module-level `build.gradle`:
 
 ```groovy
-apply plugin: 'embrace-gradle-plugin'
+apply plugin: 'io.embrace.gradle'
 ```
 
 </TabItem>

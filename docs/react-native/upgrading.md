@@ -6,6 +6,80 @@ description: Upgrade guide for Embrace React Native SDK versions
 
 ## Upgrade guide
 
+### Upgrading from 6.x to 7.x
+
+:::info Summary
+
+- The Embrace Android SDK has been updated from 7.x (v7.9.2) to 8.x (v8.4.0):
+  - New minimum version requirements for the JDK, Kotlin, Gradle, and AGP (see below).
+  - The `embrace-swazzler` Gradle plugin has been renamed to `embrace-gradle-plugin`.
+- No JavaScript API changes
+
+:::
+
+The breaking changes in this release are Android-only. There are no JavaScript API changes.
+
+The steps below outline the project configuration changes required for all React Native projects, however if you call the Embrace Android SDK directly from native code or use a custom `swazzler {}` Gradle DSL block, please review the [Android Upgrade guide (7.x → 8.x)](/android/upgrading/#upgrading-from-7x-to-8x) for full details of all breaking changes.
+
+#### Update the Embrace packages
+
+Upgrade to the latest `7.x` versions of the Embrace React Native packages, either by bumping the versions in your `package.json` and running `npm install` / `yarn install`, or by removing the existing `@embrace-io/*` packages and reinstalling them.
+
+#### Meet the new Android minimum versions
+
+Embrace Android SDK 8.x raises the [Minimum supported versions](/android/upgrading/#minimum-supported-versions) for Android build tooling. If you are using React Native 0.76 or lower, you may need to update your native Android configuration files. We recommend the following versions:
+
+- JDK 17
+- Kotlin 2.0.21+
+- Gradle 8.7+ \*
+- AGP 8.6.0+ \*
+
+\* For minSdk < 26 the minimum requirement is Gradle 8.4 and AGP 8.3.0, however we recommend using AGP 8.6.0+ / Gradle 8.7+ to avoid Kotlin metadata warnings emitted by the lint analyzer on older AGP versions.
+
+:::info
+Our [React Native app templates](https://github.com/embrace-io/embrace-react-native-sdk/tree/main/integration-tests/templates) contain a tested configuration for each supported React Native version that you may find useful as a guide for configuring your project.
+:::
+
+#### Rename the Embrace Gradle plugin
+
+The `embrace-swazzler` plugin artifact and plugin ID have been renamed. Update the references in your root `android/build.gradle` and `android/app/build.gradle` files:
+
+##### Expo Config Plugin
+
+If you are using our Expo config plugin you can simply re-run `npx expo prebuild` - the config plugin will apply the rename.
+
+##### Setup script
+
+Non-Expo users can re-run the setup script that ships with the SDK to apply the plugin rename:
+
+```shell-session
+node node_modules/@embrace-io/react-native/lib/scripts/setup/installAndroid.js
+```
+
+##### Manual setup
+
+Alternatively, you can update your Gradle files manually. In your root `android/build.gradle`, update the `buildscript` classpath:
+
+```groovy
+// Before
+classpath "io.embrace:embrace-swazzler:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
+// After
+classpath "io.embrace:embrace-gradle-plugin:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
+```
+
+In your `android/app/build.gradle`, update the applied plugin ID:
+
+```groovy
+// Before
+apply plugin: 'embrace-swazzler'
+// After
+apply plugin: 'io.embrace.gradle'
+```
+
+#### Remove the OpenTelemetry pin for `@embrace-io/react-native-otlp`
+
+If you use the `react-native-otlp` package and previously added the OpenTelemetry `resolutionStrategy` block to your app's `build.gradle` outlined [here](#upgrading-to-621) you can now safely remove it. The underlying dependency conflict has been fixed upstream in the `react-native-otlp` package, so pinning the `io.opentelemetry:*` artifacts to `1.51.0` is no longer required.
+
 ### Upgrading to 6.3.0
 
 :::info Summary
@@ -73,12 +147,11 @@ That’s it! Your application should now build successfully.
 
 :::info Summary
 
-- Kotlin 2.x or higher is required when using `react-native-otlp`.
+- Pin OpenTelemetry dependencies to 1.51.0 in your app's Gradle when using `@embrace-io/react-native-otlp`.
 
 :::
 
-This version of the SDK requires Kotlin 2.x when using the `react-native-otlp` package.
-If you must use Kotlin 1.x you will have to add the following `resolutionStrategy` block to your app's `build.gradle` (groovy):
+This version of the Embrace Android SDK pulls in transitive OpenTelemetry dependencies that cause an okhttp version conflict in React Native. When using `react-native-otlp` with this version, add the following `resolutionStrategy` block to your app's `build.gradle` to pin OpenTelemetry to 1.51.0:
 
 ```groovy
 configurations.all {

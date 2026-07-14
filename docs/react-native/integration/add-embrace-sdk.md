@@ -153,7 +153,7 @@ buildscript {
     google()
   }
   dependencies {
-    classpath "io.embrace:embrace-swazzler:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
+    classpath "io.embrace:embrace-gradle-plugin:${findProject(':embrace-io_react-native').properties['emb_android_sdk']}"
   }
 }
 ```
@@ -162,7 +162,7 @@ Then, update the app `build.gradle` file (usually located at `<root>/android/app
 
 ```groovy
 apply plugin: 'com.android.application'
-apply plugin: 'embrace-swazzler'
+apply plugin: 'io.embrace.gradle'
 repositories {
   mavenCentral()
   google()
