@@ -299,6 +299,8 @@ Each filter table in this page uses the same columns:
 | Is Unhealthy<br /><code class="filters-table__key">is_unhealthy</code> | True if the session had error logs or a crash. | Boolean | — |
 | Network Connectivity<br /><code class="filters-table__key">network_connectivity</code> | Type of network connection the device is using. | Choice (String) | Choices: `mixed`, `none`, `wan`, `wifi` |
 | Page Load Abandoned<br /><code class="filters-table__key">page_load_abandoned</code> | True if this session was a cold start abandoned before page load completed. | Boolean | — |
+| Session Part End Reason<br /><code class="filters-table__key">session_part_end_reason</code> | Reason why the session part ended. | Choice (String) | Choices: `background`, `web_foreground_inactivity`, `web_soft_navigation`, `user_session_ended`, `unknown` |
+| Session Part Start Reason<br /><code class="filters-table__key">session_part_start_reason</code> | Reason why the session part started. | Choice (String) | Choices: `init`, `foreground`, `web_activity`, `web_soft_navigation`, `user_session_rollover`, `unknown` |
 | State<br /><code class="filters-table__key">state</code> | Whether the app was in the foreground or background. | Choice (String) | Choices: `foreground`, `background` |
 | Was User Terminated<br /><code class="filters-table__key">has_user_terminated</code> | Whether the session was terminated by the user. | Boolean | — |
 
