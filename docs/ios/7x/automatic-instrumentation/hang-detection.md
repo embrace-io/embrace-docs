@@ -30,10 +30,10 @@ For more information about understanding and improving hangs in iOS apps, see Ap
 
 ### How Hang Detection Works
 
-The SDK automatically monitors the main thread using a dedicated watchdog thread. When the main thread is blocked for longer than 249 milliseconds (Apple's recommended threshold), a hang is detected and reported with:
+The SDK monitors the main thread's render loop using a frame-rate monitor (backed by `CADisplayLink`). When a frame delay exceeds 249 milliseconds (Apple's recommended threshold), the main thread is considered blocked, and a hang is detected and reported with:
 
 - Duration of the hang
-- Stack traces to identify the blocking code (when enabled)
+- A stack trace of the main thread to identify the blocking code
 - Associated session and user context
 
 ### Key Benefits
@@ -68,7 +68,7 @@ do {
 
 ### Tuning HangLimits
 
-You can customize how many hangs are captured per session and how many stack-trace samples are taken during each hang by implementing a custom `EmbraceConfigurable`:
+You can customize the hang threshold and how many hangs are captured per session by implementing a custom `EmbraceConfigurable`:
 
 ```swift
 import EmbraceIO
@@ -78,8 +78,9 @@ import EmbraceConfiguration
 class CustomConfig: EmbraceConfigurable {
     // Customize hang detection limits
     var hangLimits = HangLimits(
-        hangPerSession: 200,    // Max hangs to capture per session
-        samplesPerHang: 5       // Max stack trace samples per hang
+        hangThreshold: 0.249,        // Min frame delay (seconds) to report as a hang
+        hangPerSession: 20,          // Max hangs to capture per session
+        reportsWatchdogEvents: false // Report unrecovered hangs as watchdog terminations
     )
 
     // Required EmbraceConfigurable properties with defaults
@@ -112,9 +113,11 @@ In production, hang detection is typically controlled via Embrace's remote confi
 
 ##### HangLimits
 
-- **`hangPerSession`** (default: 200): Maximum hangs to capture per session. Set to `0` to disable hang detection.
+- **`hangThreshold`** (default: `0.249`): Minimum duration, in seconds, a frame delay must exceed to be reported as a hang. The default (249 ms) matches Apple's definition of a hang.
 
-- **`samplesPerHang`** (default: 0): Number of stack trace samples to capture during a hang. Default `0` means no stack traces are captured. Increase to 5-10 when debugging to see how the stack evolves over time.
+- **`hangPerSession`** (default: `20`): Maximum hangs to capture per session. Set to `0` to disable hang detection.
+
+- **`reportsWatchdogEvents`** (default: `false`): When `true`, hangs that never recover are additionally reported as watchdog termination events.
 
 :::info
 When attached to a debugger, hang detection is off. If you wish to enable it, add the environment variable `EMBAllowWatchdogInDebugger=1` to your scheme's Run action (Edit Scheme → Run → Arguments).
@@ -122,14 +125,14 @@ When attached to a debugger, hang detection is off. If you wish to enable it, ad
 
 #### Hang Detection Threshold
 
-The SDK uses a fixed threshold of **249 milliseconds** based on Apple's recommendations. This threshold captures hangs that are noticeable to users and cannot be customized.
+By default the SDK uses a threshold of **249 milliseconds**, matching Apple's definition of a hang. This captures hangs that are noticeable to users. If needed, you can adjust it through `HangLimits.hangThreshold`.
 
 ### Data Captured
 
 For each hang, the SDK captures:
 
 - Start time and duration
-- Stack traces (when `samplesPerHang > 0`)
+- A stack trace sample of the main thread, captured when the hang begins
 - Session context
 
 :::warning dSYM Upload Required
@@ -138,7 +141,7 @@ Upload dSYM files to see symbolicated stack traces. See [dSYM Upload Guide](../g
 
 ### How Hangs Appear in OpenTelemetry
 
-Hangs are reported as OpenTelemetry spans with the name `emb-thread-blockage`. Stack trace samples (when enabled) are attached as span events.
+Hangs are reported as OpenTelemetry spans with the name `emb-thread-blockage`. A stack trace sample of the main thread is attached as a span event.
 
 ### Integration with Other Features
 
@@ -153,7 +156,7 @@ Hangs are automatically correlated with:
 
 #### Default Settings
 
-The default configuration (`hangPerSession: 200`, `samplesPerHang: 0`) is optimized for production with minimal overhead.
+The default configuration (`hangThreshold: 0.249`, `hangPerSession: 20`, `reportsWatchdogEvents: false`) is optimized for production with minimal overhead.
 
 #### Common Hang Sources
 
@@ -198,13 +201,13 @@ context.perform {
 
 ### Disabling Hang Detection
 
-Hang detection is off by default. To turn it off after enabling it, either remove the `addHangCaptureService()` / `add(HangCaptureService())` call from your setup, or set `hangPerSession: 0` in your configuration.
+Hang detection is off by default. To turn it off after enabling it, either remove the `addHangCaptureService()` call from your setup, or set `hangPerSession: 0` in your configuration.
 
 ### Troubleshooting
 
 #### Not Seeing Hang Data
 
-- Confirm the `HangCaptureService` was registered at setup (`addHangCaptureService()` or `add(HangCaptureService())`) — it is not part of the defaults
+- Confirm the `HangCaptureService` was registered at setup via `addHangCaptureService()` — it is not part of the defaults
 - Verify `hangPerSession > 0`
 - Confirm SDK is properly initialized
 - Test with `Thread.sleep(forTimeInterval: 0.5)` on the main thread
