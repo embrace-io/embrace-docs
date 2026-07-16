@@ -1,6 +1,6 @@
 ---
 title: Error Handling
-description: Track and manage errors in your iOS app with Embrace
+description: Track and manage errors in your Apple app with Embrace
 sidebar_position: 3
 ---
 

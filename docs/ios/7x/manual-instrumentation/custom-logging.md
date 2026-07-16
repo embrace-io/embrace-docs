@@ -1,6 +1,6 @@
 ---
 title: Logging
-description: Capture log messages with different severity levels in your iOS app
+description: Capture log messages with different severity levels in your Apple app
 sidebar_position: 2
 ---
 

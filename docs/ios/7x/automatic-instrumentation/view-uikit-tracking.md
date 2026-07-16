@@ -1,6 +1,6 @@
 ---
 title: UIKit View Tracking
-description: Monitor UIViewController lifecycle and performance in your iOS app
+description: Monitor UIViewController lifecycle and performance in your Apple app
 sidebar_position: 2
 ---
 

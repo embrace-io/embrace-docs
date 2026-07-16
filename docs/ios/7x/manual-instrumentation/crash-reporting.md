@@ -1,12 +1,12 @@
 ---
 title: Crash Reporting
-description: Configure crash reporting in your iOS 7.x app with Embrace
+description: Configure crash reporting in your Apple app with Embrace
 sidebar_position: 5
 ---
 
 ## Crash Reporting
 
-Embrace is so much more than just a crash reporting service. Still, knowing when and how your application crashed is important. Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
+Knowing when and how your application crashed is important. Embrace can either use its own internal crash reporting logic or work alongside an existing solution like Crashlytics.
 
 ### Setting up the Crash Reporter
 
@@ -25,10 +25,10 @@ try EmbraceIO.start(
 
 #### Using Crashlytics with Embrace
 
-If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytics so you will still have that data available in the Embrace dashboard.
+If you choose to use Crashlytics, Embrace will mirror reports sent to Crashlytics so you will have that data available in both the Embrace and Crashlytics dashboards.
 
 :::warning Important Considerations
-**We strongly recommend using Embrace's built-in crash reporter for complete crash data and session context.** However, if your team still decides to use CrashlyticsReporter, here are key limitations:
+**We strongly recommend using Embrace's built-in crash reporter for complete crash data and session context.** However, if your team still decides to use Crashlytics, here are key limitations:
 
 - Embrace session properties are not included in crash reports
 - Embrace resources are not included in crash reports
@@ -138,14 +138,14 @@ EmbraceCrashHelper.crash()
 ### Testing Best Practices
 
 :::info Note on Debugging
-It is important when testing crashes to not be connected to any debugger. Xcode is itself a debugger, as it can attach itself to a program and stop/start/pause/modify that program. This includes stepping through and around exceptions and signals.
+It is important when testing crashes to not be connected to any debugger, which for most users would be Xcode.
 
-When trying to test crashes, this functionality is always in the way. If you can, test on a device that is no longer plugged into your Mac, and launch the app by tapping the icon directly. On the Simulator, run the app once with Xcode, press stop, then tap the app icon in the Simulator directly to launch it without Xcode.
+When trying to test crashes, it is best to force-quit any existing app instance and then launch the app by tapping the icon directly. This guarantees that Xcode will not intercept the crash and that it will be captured by the Embrace SDK. On the Simulator, run the app once with Xcode, press stop, then tap the app icon in the Simulator directly to launch it without Xcode.
 :::
 
 #### Upload Process
 
-Embrace sessions only upload on subsequent launches after crashes have occurred. This means that after seeing the application crash, you must now launch the application again for that crashed session to upload to the Embrace servers.
+Apple OS constraints prevents reliable delivery of crashes in the process that crash so the Embrace SDK will upload crashes and their associated sessions on the next launch after a crash. This means that after seeing the application crash, you must now launch the application again for the crash to upload to the Embrace servers.
 
 Once uploaded you should notice that your session is marked with the "crashed" icon. Additionally your crash is visible in the crashes section of the dashboard.
 

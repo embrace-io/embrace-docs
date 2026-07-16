@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Installing the Embrace iOS SDK 7.x in your project
+description: Installing the Embrace Apple SDK 7.x in your project
 sidebar_position: 1
 ---
 

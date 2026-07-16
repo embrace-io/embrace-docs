@@ -12,7 +12,7 @@ Once Embrace is configured and started in your app, it automatically starts capt
 
 In 7.x, a **user session** groups one or more **session parts**. A session part is a contiguous interval of app execution in either the foreground or the background. A user session is bounded by a configurable maximum duration and inactivity timeout — as long as the user keeps returning within those bounds, their foreground and background parts are stitched into the same user session. When those bounds are exceeded, a new user session begins. See [Sessions](/ios/7x/core-concepts/sessions.md) for the complete model.
 
-In iOS SDK 7.x, session parts are recorded as OpenTelemetry spans with Attributes and SpanEvents that capture various app lifecycle events, user interactions, and device information. This OpenTelemetry foundation provides a standardized way to instrument your application and collect telemetry data.
+In Apple SDK 7.x, session parts are recorded as OpenTelemetry spans with Attributes and SpanEvents that capture various app lifecycle events, user interactions, and device information. This OpenTelemetry foundation provides a standardized way to instrument your application and collect telemetry data.
 
 ### Session Lifecycle
 

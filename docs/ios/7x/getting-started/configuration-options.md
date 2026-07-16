@@ -1,6 +1,6 @@
 ---
 title: Configuration Options
-description: Advanced configuration options for the Embrace iOS SDK 7.x
+description: Advanced configuration options for the Embrace Apple SDK 7.x
 sidebar_position: 3
 ---
 
@@ -43,7 +43,7 @@ EmbraceIO.Options.withAppId(
 #### Core Setup Parameters
 
 - **`appId`**: The App ID for your Embrace application. This is the only required field for basic setup. You can find this in your Embrace dashboard.
-- **`platform`**: The mobile platform that the current application is running in, as an `EmbracePlatform`. `.default` points to iOS, but there are also options for Unity, ReactNative, and Flutter.
+- **`platform`**: The mobile platform that the application is using, as an `EmbracePlatform`. `.default` should be used for native apps , but there are also options for Unity, ReactNative, and Flutter.
 - **`endpoints`**: The [`EmbraceEndpoints`](https://github.com/embrace-io/embrace-apple-sdk/blob/main/Sources/EmbraceCore/Options/Embrace%2BEndpoints.swift) object that configures the endpoints the SDK can use to upload data and fetch remote configurations.
 - **`captureServices`**: The [`EmbraceIO.CaptureServicesOptions`](/ios/7x/api-reference/capture-services.md) that determine which out-of-the-box services automatically capture mobile events like networking and memory warnings. `.default()` installs the standard set of services.
 - **`crashReporter`**: Selects the crash reporter to install. This is an enum with three cases: `.embrace` (the default, Embrace's bundled reporter), `.crashlytics` (bridge crash data from Firebase Crashlytics), or `.none` (install no crash reporter).

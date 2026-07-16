@@ -1,6 +1,6 @@
 ---
 title: Basic Setup
-description: Setting up the Embrace iOS SDK 7.x in your application
+description: Setting up the Embrace Apple SDK 7.x in your application
 sidebar_position: 2
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Traces
-description: Track the duration and performance of custom operations in your iOS app
+description: Track the duration and performance of custom operations in your Apple app
 sidebar_position: 1
 ---
 

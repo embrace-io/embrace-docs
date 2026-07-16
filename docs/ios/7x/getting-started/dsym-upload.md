@@ -1,12 +1,12 @@
 ---
 title: dSYM Upload
-description: Upload dSYM files to symbolicate crash reports in your iOS 7.x app
+description: Upload dSYM files to symbolicate crash reports in your Apple app
 sidebar_position: 5
 ---
 
 ## dSYM Upload
 
-When applications are uploaded to the App Store they are often stripped of symbols for security or space reasons. Much of the data our SDK collects relies on addresses, including our crash reports. If you choose not to upload your dSYM files, you will be required to manually symbolicate these addresses.
+When applications are uploaded to the App Store they are typically stripped of symbols for security and space reasons. Thus, in order to symbolicate crashes, you will need to upload dSYM files from your builds to Embrace.
 
 :::warning Important Note
 Starting on April 25, 2023 Apple requires all apps to be built with Xcode 14. Apple deprecated bitcode in Xcode 14. This means you may be unable to download dSYMs from Apple in the near future. We recommend that you setup automatic uploads. [Apple Announcement](https://developer.apple.com/news/?id=2ygwqlzd)

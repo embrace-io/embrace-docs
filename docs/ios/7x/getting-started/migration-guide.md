@@ -1,12 +1,12 @@
 ---
 title: Migration Guide
-description: Upgrading from the iOS 6.x SDK to the iOS 7.x SDK
+description: Upgrading from the Apple 6.x SDK to the Apple 7.x SDK
 sidebar_position: 0
 ---
 
 ## Migration Guide: 6.x to 7.x
 
-This guide helps you upgrade an existing integration from the Embrace iOS 6.x SDK to 7.x. 7.0 is a major version with a number of breaking changes. Most are mechanical renames, but two are conceptual and worth reading in full: the [single entry point](#single-entry-point-embraceio) and the [redefined session model](#redefined-session-model).
+This guide helps you upgrade an existing integration from the Embrace Apple 6.x SDK to 7.x. 7.0 is a major version with a number of breaking changes. Most are mechanical renames, but two are conceptual and worth reading in full: the [single entry point](#single-entry-point-embraceio) and the [redefined session model](#redefined-session-model).
 
 ### Key Changes Summary
 

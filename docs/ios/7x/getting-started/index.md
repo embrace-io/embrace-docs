@@ -1,12 +1,12 @@
 ---
 title: Get Started
-description: Get started with the Embrace iOS SDK 7.x
+description: Get started with the Embrace Apple SDK 7.x
 sidebar_position: 1
 ---
 
-## Get Started with Embrace iOS SDK 7.x
+## Get Started with Embrace Apple SDK 7.x
 
-This section will guide you through the process of adding the Embrace SDK to your iOS application and configuring it for optimal performance monitoring.
+This section will guide you through the process of adding the Embrace SDK to your Apple application and configuring it for optimal performance monitoring.
 
 ### Installation and Setup
 
@@ -15,7 +15,7 @@ Follow these steps to integrate the Embrace SDK into your app:
 - [Installation](/ios/7x/getting-started/installation.md) - Add the SDK to your project using Swift Package Manager or CocoaPods
 - [Basic Setup](/ios/7x/getting-started/basic-setup.md) - Initialize the SDK in your application
 - [Configuration Options](/ios/7x/getting-started/configuration-options.md) - Customize the SDK's behavior
-- [dSYM Upload](/ios/7x/getting-started/dsym-upload.md) - Configure automatic symbolication for crash reports
+- [dSYM Upload](/ios/7x/getting-started/dsym-upload.md) - Configure upload of files required to symbolicate crash reports
 - [Migration Guide](/ios/7x/getting-started/migration-guide.md) - If you're upgrading from 6.x, follow this guide
 
 ### What You'll Get

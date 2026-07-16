@@ -1,6 +1,6 @@
 ---
 title: Breadcrumbs
-description: Add lightweight logging context to your iOS 7.x app sessions with breadcrumbs
+description: Add lightweight logging context to your Apple app sessions with breadcrumbs
 sidebar_position: 6
 ---
 
