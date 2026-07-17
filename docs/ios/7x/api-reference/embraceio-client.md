@@ -119,7 +119,7 @@ Returns the current state of the SDK.
 var state: EmbraceSDKState { get }
 ```
 
-**Returns**: The current SDK state: `.notInitialized`, `.initialized`, or `.started`.
+**Returns**: The current SDK state: `.notInitialized`, `.started`, or `.stopped`.
 
 ##### `isSDKEnabled`
 

@@ -133,12 +133,10 @@ If you need to know whether the SDK has started successfully, you can access the
 switch EmbraceIO.shared.state {
 case .started:
     // SDK is running
-case .initialized:
-    // SDK is initialized but not started
+case .stopped:
+    // SDK was started and has since been stopped
 case .notInitialized:
-    // SDK failed to initialize or hasn't been initialized yet
-default:
-    break
+    // SDK failed to initialize or hasn't been started yet
 }
 ```
 
