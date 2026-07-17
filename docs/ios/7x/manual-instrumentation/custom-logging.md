@@ -26,7 +26,6 @@ Embrace supports multiple log severity levels:
 - **Info**: General information about app operation
 - **Warning**: Potential issues that didn't prevent functionality
 - **Error**: Errors that affected functionality but didn't crash the app
-- **Debug**: Detailed information for debugging (not visible in production by default)
 
 ### Basic Logging
 
@@ -41,9 +40,6 @@ EmbraceIO.shared.log("Image failed to load but fallback displayed", severity: .w
 
 // Log an error
 EmbraceIO.shared.log("Payment processing failed", severity: .error)
-
-// Log debug information
-EmbraceIO.shared.log("Cache hit ratio: 0.85", severity: .debug)
 ```
 
 ### Adding Properties to Logs
@@ -149,120 +145,12 @@ func setupLogging() {
 }
 ```
 
-### Common Logging Patterns
-
-#### Logging App Lifecycle
-
-```swift
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Setup Embrace
-        setupEmbrace()
-
-        // Log app launch
-        EmbraceIO.shared.log(
-            "App launched",
-            severity: .info,
-            attributes: [
-                "launch_type": launchOptions != nil ? "from_notification" : "normal",
-                "os_version": UIDevice.current.systemVersion
-            ]
-        )
-
-        return true
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        EmbraceIO.shared.log("App entered background", severity: .info)
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        EmbraceIO.shared.log("App will enter foreground", severity: .info)
-    }
-}
-```
-
-#### Logging Network Activity
-
-```swift
-class APIClient {
-    func performRequest<T: Decodable>(_ request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
-        let requestId = UUID().uuidString
-
-        EmbraceIO.shared.log(
-            "API request started",
-            severity: .info,
-            attributes: [
-                "request_id": requestId,
-                "url": request.url?.absoluteString ?? "unknown",
-                "method": request.httpMethod ?? "GET"
-            ]
-        )
-
-        let startTime = Date()
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            let duration = Date().timeIntervalSince(startTime)
-
-            if let error = error {
-                EmbraceIO.shared.log(
-                    "API request failed: \(error.localizedDescription)",
-                    severity: .error,
-                    attributes: [
-                        "request_id": requestId,
-                        "duration": String(format: "%.2f", duration)
-                    ]
-                )
-                completion(.failure(error))
-                return
-            }
-
-            guard let httpResponse = response as? HTTPURLResponse else {
-                let error = NSError(domain: "APIClient", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])
-                EmbraceIO.shared.log(
-                    "API request failed: \(error.localizedDescription)",
-                    severity: .error
-                )
-                completion(.failure(error))
-                return
-            }
-
-            if httpResponse.statusCode >= 400 {
-                EmbraceIO.shared.log(
-                    "API request failed with status \(httpResponse.statusCode)",
-                    severity: .error,
-                    attributes: [
-                        "request_id": requestId,
-                        "status_code": String(httpResponse.statusCode),
-                        "duration": String(format: "%.2f", duration)
-                    ]
-                )
-            } else {
-                EmbraceIO.shared.log(
-                    "API request completed successfully",
-                    severity: .info,
-                    attributes: [
-                        "request_id": requestId,
-                        "status_code": String(httpResponse.statusCode),
-                        "duration": String(format: "%.2f", duration),
-                        "response_size": data?.count.description ?? "0"
-                    ]
-                )
-            }
-
-            // Process response and call completion handler
-        }
-    }
-}
-```
-
 ### Best Practices for Logging
 
 #### Log Levels
 
 Use appropriate log levels:
 
-- **Debug**: Detailed technical information, visible only in development builds
 - **Info**: General operational information
 - **Warning**: Unexpected behavior that doesn't impact functionality
 - **Error**: Issues that impact functionality but don't crash the app

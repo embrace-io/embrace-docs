@@ -93,14 +93,6 @@ you no longer need a separate pod. Crashlytics support is bundled with `EmbraceI
 it at setup time with `crashReporter: .crashlytics`. See [Basic Setup](/ios/7x/getting-started/basic-setup.md).
 :::
 
-### Known Issues
-
-- **Datadog**: There are some known incompatibilities between the Datadog iOS SDK and dependencies like [OpenTelemetry-Swift](https://github.com/open-telemetry/opentelemetry-swift/).
-
-We have forked the Datadog SDK and created a version that can integrate better with other frameworks. It can be found in [our public repository](https://github.com/embrace-io/dd-sdk-ios).
-
-- **SwiftUI Hosting Controllers**: Some very short-lived view controllers, particularly in hosting controllers acting as internal bridges in SwiftUI, may experience issues. These have been addressed in recent versions.
-
 ### Next Steps
 
 After installing the Embrace SDK, you need to [set up and configure](/ios/7x/getting-started/basic-setup.md) it in your application code.

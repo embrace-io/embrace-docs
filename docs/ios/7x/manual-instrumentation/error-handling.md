@@ -21,16 +21,16 @@ Embrace categorizes errors into different types:
 
 #### Basic Error Logging
 
-The simplest way to track an error is with the error recording methods:
+The simplest way to track a handled error is to log it with `.error` severity:
 
 ```swift
 do {
     try riskyOperation()
 } catch let error {
-    // In Embrace 7.x, you can record errors through spans
-    let span = EmbraceIO.shared.createSpan(name: "riskyOperation")
-    span?.setAttribute(key: "error.message", value: error.localizedDescription)
-    span?.end(errorCode: .failure)
+    EmbraceIO.shared.log(
+        "riskyOperation failed: \(error.localizedDescription)",
+        severity: .error
+    )
 
     // Handle the error
 }
@@ -84,78 +84,6 @@ do {
 ```
 
 ### Common Error Handling Patterns
-
-#### Network Error Handling
-
-```swift
-func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
-    let url = URL(string: "https://api.example.com/data")!
-
-    let task = URLSession.shared.dataTask(with: url) { data, response, error in
-        if let error = error {
-            // Log network error
-            EmbraceIO.shared.log(
-                "Network request failed: \(error.localizedDescription)",
-                severity: .error,
-                attributes: [
-                    "url": url.absoluteString,
-                    "method": "GET"
-                ]
-            )
-            completion(.failure(error))
-            return
-        }
-
-        guard let httpResponse = response as? HTTPURLResponse else {
-            let error = NSError(domain: "NetworkService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])
-            EmbraceIO.shared.log(
-                "Invalid network response: \(error.localizedDescription)",
-                severity: .error
-            )
-            completion(.failure(error))
-            return
-        }
-
-        guard (200...299).contains(httpResponse.statusCode) else {
-            // Create and log a custom error for HTTP error status
-            let error = NSError(
-                domain: "NetworkService",
-                code: httpResponse.statusCode,
-                userInfo: [
-                    NSLocalizedDescriptionKey: "HTTP Error: \(httpResponse.statusCode)"
-                ]
-            )
-
-            EmbraceIO.shared.log(
-                "HTTP error: \(error.localizedDescription)",
-                severity: .error,
-                attributes: [
-                    "url": url.absoluteString,
-                    "status_code": String(httpResponse.statusCode),
-                    "response_headers": httpResponse.allHeaderFields.description
-                ]
-            )
-
-            completion(.failure(error))
-            return
-        }
-
-        guard let data = data else {
-            let error = NSError(domain: "NetworkService", code: -2, userInfo: [NSLocalizedDescriptionKey: "No data received"])
-            EmbraceIO.shared.log(
-                "No data received: \(error.localizedDescription)",
-                severity: .error
-            )
-            completion(.failure(error))
-            return
-        }
-
-        completion(.success(data))
-    }
-
-    task.resume()
-}
-```
 
 #### JSON Parsing Errors
 

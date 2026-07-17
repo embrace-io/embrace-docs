@@ -216,7 +216,7 @@ New attribute keys are emitted on session part spans and logs, including `emb.us
 
 ### Crash Reporting
 
-Crash reporting is now built into `EmbraceIO` and selected through the `crashReporter` enum.
+Crash reporting is now built into `EmbraceIO` and selected through the `crashReporter` enum (you no longer need any additional imports or extra products like you did in 6.x — just set the `crashReporter` option).
 
 ```swift
 // 6.x
@@ -258,7 +258,9 @@ Per-service registration now uses dedicated methods: `addUrlSessionCaptureServic
 
 ### Modules and Installation
 
-- Update your dependency to 7.x. For CocoaPods: `pod 'EmbraceIO', '~> 7.0.0'`.
+- Update your dependency to 7.x. Swift Package Manager is the recommended integration method — point your `EmbraceIO` package dependency at a 7.x release. 
+- CocoaPods is also supported: `pod 'EmbraceIO', '~> 7.0.0'`.
+- See [Installation](/ios/7x/getting-started/installation.md).
 - The `EmbraceOTelInternal` module is removed; the internal OTel bridge is now `EmbraceOTelBridge`. Users still just `import EmbraceIO`.
 - There is no separate `EmbraceCrash` / `EmbraceCrashlyticsSupport` product to add — crash reporting (including Crashlytics support) is bundled and selected via the `crashReporter` option.
 - Minimum requirements moved to **Swift 5.9 / Xcode 15+** (deployment targets are unchanged: iOS/iPadOS/tvOS 13+, macOS 13+, watchOS 6+). See [Requirements](/ios/7x/overview/requirements.md).

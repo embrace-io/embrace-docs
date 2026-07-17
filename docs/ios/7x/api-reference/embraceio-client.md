@@ -232,7 +232,7 @@ func createSpan(
 - `attributes`: A dictionary of attributes to set on the span.
 - `autoTerminationCode`: `EmbraceSpanErrorCode` to automatically close the span if the session ends while it is still open.
 
-**Returns**: An `EmbraceSpan`, or `nil` if the SDK was not initialized yet.
+**Returns**: An `EmbraceSpan`, or `nil` if the span could not be created. This happens when the SDK has not been started yet, or when the per-session span limit has been reached — in which case the span is dropped and a warning is logged. Because of this, always use optional chaining (`span?.end()`) when working with the result.
 
 ##### `addSessionEvent(name:attributes:)`
 

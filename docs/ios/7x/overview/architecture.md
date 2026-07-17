@@ -37,7 +37,6 @@ The main products you interact with are:
 - **`EmbraceIO`** — the recommended umbrella product and single public entry point. It re-exports `EmbraceCore` and `EmbraceSemantics`.
 - **`EmbraceCore`** — the main implementation of the SDK. It generates and manages the SDK's telemetry.
 - **`EmbraceSemantics`** — the public, Embrace-owned signal types and semantic conventions (`EmbraceSpan`, `EmbraceLog`, `EmbraceType`, etc.).
-- **`EmbraceOTelBridge`** — the module that integrates `EmbraceCore` with the OpenTelemetry SDK. This module replaces the 6.x `EmbraceOTelInternal` module.
 
 ### How custom exporters are wired
 

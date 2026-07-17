@@ -191,15 +191,6 @@ EmbraceIO.shared.appendCrashInfo(key: "screen_name", value: "payment_form")
 
 This method works with both `EmbraceCrashReporter` and `CrashlyticsReporter`.
 
-#### Crash Callbacks
-
-You can register callbacks to be notified when crashes occur:
-
-```swift
-// This is typically done during SDK setup
-// Note: Callbacks should be lightweight as they run during crash handling
-```
-
 ### Best Practices
 
 - **Always upload dSYMs** - Ensure your crash reports are symbolicated by [uploading dSYM files](/ios/7x/getting-started/dsym-upload.md)
