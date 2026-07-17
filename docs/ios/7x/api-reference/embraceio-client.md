@@ -167,7 +167,7 @@ var deviceId: String? { get }
 
 #### Logging
 
-##### `log(_:severity:type:timestamp:attachment:attributes:stackTraceBehavior:)`
+##### `log(_:severity:timestamp:attachment:attributes:stackTraceBehavior:)`
 
 Creates and emits a log for the current session.
 
@@ -175,7 +175,6 @@ Creates and emits a log for the current session.
 func log(
     _ message: String,
     severity: EmbraceLogSeverity = .info,
-    type: EmbraceType = .message,
     timestamp: Date = Date(),
     attachment: EmbraceLogAttachment? = nil,
     attributes: EmbraceAttributes = [:],
@@ -187,7 +186,6 @@ func log(
 
 - `message`: Body of the log.
 - `severity`: `EmbraceLogSeverity` for the log (`.trace`, `.debug`, `.info`, `.warn`, `.error`, `.fatal`, `.critical`). Defaults to `.info`.
-- `type`: The type of log. Defaults to `.message`.
 - `timestamp`: Timestamp for the log. Defaults to now.
 - `attachment`: Optional `EmbraceLogAttachment` to attach data or a URL to the log.
 - `attributes`: Optional `EmbraceAttributes` (accepts `String`, `Int`, `Double`, or `Bool` values) to attach to the log.
