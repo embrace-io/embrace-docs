@@ -11,7 +11,7 @@ instrumentation to make it easier to instrument some common React libraries and 
 
 ### Libraries
 
-- **[React Router](./react-router.md)** - Automatically track navigation events in your React application.
+- **[React Router](./react-router.md)** - Add route pattern context to automatic navigation tracking in your React application.
 
 ### Patterns
 
