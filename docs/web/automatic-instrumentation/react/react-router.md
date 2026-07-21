@@ -25,7 +25,7 @@ initSDK({
 });
 ```
 
-This is no longer necessary — navigation is now tracked automatically and does not depend on it.
+Since 2.24.0 this is no longer necessary — navigation is now tracked automatically and does not depend on it.
 `createReactRouterNavigationInstrumentation` is kept only as a no-op so existing setups that register it keep
 working, and the call above can be safely removed. The helpers below don't depend on it either; they remain the only
 piece you need to add route pattern context to your spans.

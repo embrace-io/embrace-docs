@@ -8,7 +8,7 @@ sidebar_position: 10
 
 The Embrace SDK automatically captures the first user interaction — a click, tap, key press, or scroll — that
 occurs in each [session part](/product/sessions/whats-changing.md), providing visibility into how quickly users
-start engaging with your app after a page loads or a route change.
+start engaging with your app after a page load or a route change.
 
 ### How First Interaction Tracking Works
 
