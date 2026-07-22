@@ -30,9 +30,7 @@ termination reasons for your app.
 The summary view charts watchdog terminations by watchdog event, shows other termination codes separately, and lists
 every termination reason with its event and device counts.
 
-<!-- TODO: screenshot of the Watchdog Terminations summary tab
 ![Watchdog Terminations summary tab showing the termination reasons chart and table](/images/watchdog-terminations-summary.png)
--->
 
 Each row in the table represents one termination reason:
 
@@ -70,9 +68,7 @@ for more detail.
 Click a termination reason to open its details page, which shows a count-by-version chart over time and the list of
 individual termination events.
 
-<!-- TODO: screenshot of the termination details page
 ![Termination details page showing the version chart and termination events list](/images/watchdog-terminations-details.png)
--->
 
 Each termination event shows the report time, app version, and device, and you can use **Customize** to choose which
 columns appear. Expand an event to see:
