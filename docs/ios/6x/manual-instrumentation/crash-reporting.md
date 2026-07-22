@@ -124,7 +124,7 @@ Embrace offers two crash reporting options with different capabilities and data 
 - Complete crash context with full stack traces and system information
 - Works offline - crashes are captured locally and uploaded on next launch
 - Configurable signal filtering (SIGTERM blocked by default)
-- Optional MetricKit integration
+- Optional MetricKit integration to capture [watchdog terminations](/product/crashes/watchdog-terminations.md)
 
 **Best for:**
 
