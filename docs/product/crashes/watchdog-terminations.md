@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Watchdog Terminations
 
-:::info iOS Only
+:::info Availability
 Watchdog terminations are currently available for **iOS** apps using the Embrace Apple SDK.
 :::
 
@@ -58,9 +58,10 @@ Watchdog kills are further grouped by the watchdog event, for example `Watchdog:
 `Watchdog: process-launch`. Each watchdog event also includes an exhaustion type that tells you which allowance the
 app exhausted: wall clock time, CPU time, graceful termination timeout, or deadlock.
 
-The codes and their meanings come from Apple. See Apple's documentation on
+The codes and their meanings come from Apple, and terminations with a code that is not in this table show the raw
+code instead of a label. See Apple's documentation on
 [addressing watchdog terminations](https://developer.apple.com/documentation/xcode/addressing-watchdog-terminations)
-and [the exception types in a crash report](https://developer.apple.com/documentation/xcode/understanding-the-exception-types-in-a-crash-report)
+and [the termination codes delivered with SIGKILL](https://developer.apple.com/documentation/xcode/sigkill)
 for more detail.
 
 ### Termination details
