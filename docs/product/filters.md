@@ -452,7 +452,9 @@ Each filter table in this page uses the same columns:
 
 | Filter | Description | Type | Constraints |
 | --- | --- | --- | --- |
+| INP Element Type<br /><code class="filters-table__key">inp_element_type</code> | Type of the element associated with the INP report. | String | — |
 | Interaction Target<br /><code class="filters-table__key">interaction_target</code> | CSS selector of the interaction target. | String | — |
+| LCP Element Type<br /><code class="filters-table__key">lcp_element_type</code> | Type of the element associated with the LCP report. | String | — |
 | LCP Target<br /><code class="filters-table__key">lcp_target</code> | CSS selector of the LCP element. | String | — |
 | Largest Shift Target<br /><code class="filters-table__key">largest_shift_target</code> | CSS selector of the largest shift target. | String | — |
 | Value<br /><code class="filters-table__key">value</code> | Value of the web vital. | float | — |
