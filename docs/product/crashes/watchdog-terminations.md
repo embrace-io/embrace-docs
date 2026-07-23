@@ -11,7 +11,7 @@ Watchdog terminations are currently available for **iOS** apps using the Embrace
 :::
 
 When iOS force-terminates your app, the process receives a `SIGKILL` that no in-process crash reporter can catch.
-This happens when your app blocks the main thread for too long, overheats the device, or holds a file lock while
+This can happen when your app blocks the main thread for too long, overheats the device, or holds a file lock while
 being suspended. Apple's MetricKit framework reports these terminations on the next app launch, and Embrace collects
 and groups those reports so you can see why the OS is killing your app.
 
@@ -34,13 +34,14 @@ every termination reason with its event and device counts.
 
 Each row in the table represents one termination reason:
 
-- **Events**: Total count of termination events in this group
+- **Events**: Total count of termination events for this termination reason
 - **Devices**: Unique devices affected by this termination reason
 - **Termination Reason**: The termination code and, for watchdog kills, the watchdog event that triggered it
-- **Versions**: Version range where this termination reason has been observed
+- **Versions**: The app version range where this termination reason has been observed
 
-You can filter the view by app, device, OS, and user attributes, as well as termination-specific fields like
-process visibility and termination code. See [Filters](/product/filters.md) for definitions of common filters.
+You can filter the view by attributes like build, device model, OS version, and user identifier, as well as
+termination-specific fields like process visibility and termination code. See [Filters](/product/filters.md) for
+definitions of common filters.
 
 ### Termination reasons
 
@@ -55,8 +56,8 @@ watchdog kills:
 | `0x2BAD45EC` | Drawing While Locked | The app drew to the screen while the device was locked                                                             |
 
 Watchdog kills are further grouped by the watchdog event, for example `Watchdog: scene-update` or
-`Watchdog: process-launch`. Each watchdog event also includes an exhaustion type that tells you which allowance the
-app exhausted: wall clock time, CPU time, graceful termination timeout, or deadlock.
+`Watchdog: process-launch`. Each watchdog kill also records an exhaustion type: wall clock time, CPU time, graceful
+termination timeout, or deadlock.
 
 The codes and their meanings come from Apple, and terminations with a code that is not in this table show the raw
 code instead of a label. See Apple's documentation on
