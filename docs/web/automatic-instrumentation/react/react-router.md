@@ -1,16 +1,19 @@
 ---
 title: React Router
-description: Automatic instrumentation for React Router using Embrace Web SDK
+description: Add route pattern context to Embrace's automatic navigation tracking using React Router
 sidebar_position: 1
 ---
 
-The React Router automatic instrumentation provides an easy way to track navigation events in your React application.  
-It captures route changes and sends them as spans to Embrace, allowing you to monitor user navigation patterns and performance.
-A span is automatically created when the user navigates to a new route or the application is loaded. Then the span is ended when the route changes again or the session ends.
+Embrace [automatically tracks navigation](../spa-navigation.md) in single-page apps, including those built with React
+Router, with no setup required. By default, the route spans this produces are named after the raw resolved URL (e.g.
+`/products/123`). The helpers on this page add context to those route changes by reporting the route's templated
+path as defined in your app's routes instead (e.g. `/products/:productId`), giving you more useful, aggregatable
+route names in the Embrace Dashboard.
 
-## Instrumentation
+## Registering the instrumentation is deprecated
 
-To instrument React Router, add the React Router navigation instrumentation when you init the Embrace Web SDK.
+Older versions of the SDK required registering a React Router instrumentation when initializing the SDK for
+navigation to be tracked at all:
 
 ```typescript
 import { initSDK } from '@embrace-io/web-sdk';
@@ -21,6 +24,11 @@ initSDK({
   instrumentations: [createReactRouterNavigationInstrumentation()],
 });
 ```
+
+Since 2.24.0 this is no longer necessary — navigation is now tracked automatically and does not depend on it.
+`createReactRouterNavigationInstrumentation` is kept only as a no-op so existing setups that register it keep
+working, and the call above can be safely removed. The helpers below don't depend on it either; they remain the only
+piece you need to add route pattern context to your spans.
 
 ### React Router V4/V5
 
@@ -117,11 +125,11 @@ const App = () => {
 
 ### Custom instrumentation
 
-If you are using a navigation method that we do not currently provide a helper for you can still instrument manually by
-letting us know when a route changes through the `setCurrentRoute` method:
+If you are using a navigation method that we do not currently provide a helper for you can still add route pattern
+context manually by letting us know when a route changes through the `setCurrentRoute` method on the `page` API:
 
 ```typescript
-import { createReactRouterNavigationInstrumentation } from '@embrace-io/web-sdk/react-instrumentation';
+import { page } from '@embrace-io/web-sdk';
 
 const customNavigationHandler = () => {
   // ... navigation logic
@@ -130,14 +138,8 @@ const customNavigationHandler = () => {
   const url = '/path/before/replaced';
   const path = '/path/before/:replace';
 
-  // Since `createReactRouterNavigationInstrumentation` was already called when setting up the
-  // instrumentation in `initSDK` this will simply get a reference to the NavigationInstrumentation
-  // instance rather than creating a new one
-  const navigationInstrumentation =
-    createReactRouterNavigationInstrumentation();
-
-  // Track that the navigation occurred
-  navigationInstrumentation.setCurrentRoute({
+  // Track the route pattern for this navigation
+  page.setCurrentRoute({
     url,
     path,
   });
@@ -146,6 +148,19 @@ const customNavigationHandler = () => {
 
 ## Configuration
 
-You can configure the React Router instrumentation by passing options to the `createReactRouterNavigationInstrumentation` function.  
-For now, the only option available is `shouldCleanupPathOptionsFromRouteName`.
-If set to `true`, the instrumentation will remove path options from the route name, e.g. it will convert `/order/:orderState(pending|shipped|delivered)` to `/order/:orderState`.
+Route names are cleaned up by default, removing path options like `/order/:orderState(pending|shipped|delivered)`
+down to `/order/:orderState`. You can turn this off by passing a `navigation` entry to `defaultInstrumentationConfig`
+when initializing the SDK:
+
+```typescript
+import { initSDK } from '@embrace-io/web-sdk';
+
+initSDK({
+  // ...Other configs
+  defaultInstrumentationConfig: {
+    navigation: {
+      shouldCleanupPathOptionsFromRouteName: false,
+    },
+  },
+});
+```

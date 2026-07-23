@@ -28,7 +28,9 @@ The Embrace SDK includes the following automatic instrumentation capabilities:
 - **[Exceptions](./exceptions.md)** - Records unhandled exceptions that are thrown in your application
 - **[Web Vitals](./web-vitals.md)** - Surfaces Web Vital reports measuring your app's performance and responsiveness
 - **[Document Load](./document-load.md)** - Provides insight into your app's page load performance
+- **[SPA Navigation](./spa-navigation.md)** - Tracks route changes in single-page applications
 - **[User Interactions](./user-interactions.md)** - Records user interactions within your app's pages
+- **[First Interaction](./first-interaction.md)** - Records the first user interaction in each session part
 - **[React](./react/index.md)** - Various instrumentations that emit React specific telemetry if your app is built on that
   framework
 - **[Empty Root Node](./empty-root-node.md)** - Records when content fails to render on the page's root element
