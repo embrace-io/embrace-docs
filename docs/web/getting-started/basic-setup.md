@@ -135,6 +135,34 @@ This is necessary to ensure that the SDK is fully loaded before you start using 
 The SDK may miss some early telemetry events emitted before the SDK is initialized if you use this method.
 :::
 
+### Loading the SDK using a Tag Manager
+
+The SDK can also be loaded using a tag manager such as Google Tag Manager.
+
+While using a tag manager allows you to quickly get up and running with Embrace, we don't recommend it's used long term. When the SDK is loaded using a tag manager, it loads later and this can lead to some events being missed.
+
+Create a CustomHTML tag with this code as it's contents:
+
+<!-- prettier-ignore -->
+```html
+<script>
+   !function(){window.EmbraceWebSdkOnReady=window.EmbraceWebSdkOnReady||{q:[],onReady:function(e){window.EmbraceWebSdkOnReady.q.push(e)}};let e=document.createElement("script");e.async=!0,e.crossOrigin="anonymous",e.src="https://cdn.jsdelivr.net/npm/@embrace-io/web-sdk@X.X.X",e.onload=function(){window.EmbraceWebSdkOnReady.q.forEach(e=>e()),window.EmbraceWebSdkOnReady.q=[],window.EmbraceWebSdkOnReady.onReady=function(e){e()}};let n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)}();
+</script>
+<script>
+  window.EmbraceWebSdkOnReady.onReady(() => {
+  window.EmbraceWebSdk.initSDK({
+    appVersion: 'Y.Y.Y',
+    /*...*/
+  });
+});
+</script>
+```
+
+Replace X.X.X with the version of the SDK you with to use and Y.Y.Y with your app version.
+
+Once the tag is created, trigger it's execution using a Page View trigger
+
+
 ### Using the SDK without the Embrace Dashboard
 
 If you'd prefer not to send data to Embrace you can simply omit the Embrace app id when calling `initSDK`. Note that in
